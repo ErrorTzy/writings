@@ -1,0 +1,55 @@
+\documentclass{article}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{amsmath}
+
+\newcounter{remarkcounter}[section]
+\stepcounter{remarkcounter}
+\titleformat{\subsection}[runin]{\bfseries}{}{}{}
+\def\remarkparagraph[#1]{
+% the input #1 is the label of the remark
+\subsection*{Remark \theremarkcounter}
+\addcontentsline{toc}{subsection}{Remark \theremarkcounter}
+\refstepcounter{remarkcounter}\label{#1}
+}
+
+\def\normalparagraph[#1]{
+\subsection*{#1}
+\addcontentsline{toc}{subsection}{#1}
+}
+
+
+
+\begin{document}
+
+\section*{Exercise 2.2.5: Strong principle of induction}
+
+\tableofcontents
+
+\normalparagraph[Proposition]
+\textit{Let \(m_{0}\) be a natural number. And let \(P(m)\) be a property pertaining to an arbitrary natural number m. Suppose that for each \(m \ge m_{0}\), we have the following implication: if \(P(m')\) is true for all natural numbers \(m_{0} \le m' < m\), then \(P(m)\) is also true. (In particular, this means that \(P(m_{0})\) is true, since in this case the hypothesis is vacuous.) Then we can conclude that \(P(m)\) is true for all natural numbers \(m \ge m_{0}\).}
+
+\remarkparagraph[intro]{}
+Since the principle of induction closes with a universal conclusion that the given property is true for all natural number x, we would intuitively apply it to the strong principle of induction because in the cases where \(x < m_{0}\), \(P(x)\) would be vacuously true. 
+
+When we use induction, the property is normally an equation. For instance, for natural number n, we have 
+\[
+    \sum_{n=0}^n n = \frac{n(n + 1)}{2}
+\]
+Define \(R(n)\) as the left part of the equation, and \(S(n)\) as the right part. Then you will calculate \(R(0)\) and \(S(0)\) separately and compare them in the first step. Then you use \((R(n)=S(n) \bullet R(n \texttt{++}))\) to deduct \(S(n \texttt{++})\) in the second step of induction. 
+
+However, the \(P(x)\) here in the strong principle of induction does not follow this pattern. This lead us to think more about how does induction axiom really work. In the example illustrated above, we know how to calculate the truth value of the property, namely checking if \(Q(n)=R(n)\) is true. Knowing the way of calculation is necessary because we need to determine if the property is true for \(n \texttt{++}\). Now for \(P(m)\), we do know it will be true if all \(P(m')\) are true, but we cannot derive anything from \(P(m)\) to \(P(m \texttt{++})\) because calculating \(P(m \texttt{++}) \) requires all the \(P(m')\) for \(m_{0} \le m' < m \texttt{++}\), but \(P(m)\) is only one of the proposition that is required to be true. Since all we know about \(P(m)\) is that \(P(m)\) is the consequent of a material implication, we are not going to deduct anything from \(P(m)\). Therefore, we cannot induct on \(P(m)\).
+
+From the previous analysis, we can see what we need is the antecedent of \(P(m)\) because it would reduce the indefinite number of $P(m')$ required by $P(m \texttt{++})$. Also, it is equivalent to proving \(P(m)\) because if it is true then \(P(m)\) is also true. Thus, it is natural to induct on the proposition that: for \(m_{0} \le m' < m\),  all \(P(m')\) are true.
+
+\normalparagraph[Proof]{}
+Let \(Q(n)\) be the proposition:  for \(m_{0} \le m' < n\),  all \(P(m')\) are true. Since \(Q(n) \supset P(n)\), if I can prove that \(Q(0)\) is true and \(Q(n) \supset Q(n \texttt{++})\), then \(P(0)\) is true and \(P(n) \supset P(n \texttt{++})\), which closes the induction that \(P(n)\) is true for all natural number \(n\). The following proof is just a sketch, but you get the main idea.
+
+Consider \(Q(0)\). Since no natural number is less than 0, \(Q(0)\) is vacuously true.
+
+Now assume \(Q(n)\) is true, then we need to deduct \(Q(n \texttt{++})\). We can foresee three possible cases: both \(Q(n)\) and \(Q(n \texttt{++})\) are vacuously true, only \(Q(n)\) is vacuously true and none of them are vacuously true. These are the cases where \(m_{0}\) is greater than, equals and smaller than \(n\). (You may also use \(n \texttt{++}\), but since we already has Proposition 2.2.13, we no longer need to prove that these are all the possible situations.) The first case automatically satisfies \(Q(n) \supset Q(n \texttt{++})\). In the second case \(Q(n \texttt{++}) = P(n)\), and \(P(n)\) is true because of \(Q(n)\). In the third case, all \(P(m'), m_{0} \le m' < n\) has been proven to be true according to \(Q(n)\), and \(P(n)\) is true because of \(Q(n)\). Therefore \(Q(n \texttt{++})\) is true. This closes the induction.
+
+
+
+
+\end{document}

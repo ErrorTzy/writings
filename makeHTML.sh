@@ -1,0 +1,1 @@
+make4ht blog/strong_principle_of_induction.tex "mathml,mathjax" -d /home/scott/Desktop/WorkingFiles/VSCode/latex/.output

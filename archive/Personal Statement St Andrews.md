@@ -1,0 +1,15 @@
+Before engaging in any rational account, I wish to explain the route that has led me, a Japanese major student, to philosophy and thereby explaining my interests in the academic subjects (as well as my GPA). 
+
+In 2019, I excelled in science subjects and thus earned admission to two universities through the "Baosong" system: Shanghai Jiao Tong University (SJTU), one of the top 4 universities renowned which is especially renowned for STEM majors, and Shanghai International Studies University (SISU), which I applied to only as a safety net. 
+
+The Ministry of Education modified the admission policy for the “Baosong” system in 2019, allowing students to apply to multiple universities. However, SJTU’s admission office failed to update its policy and subsequently revoked my admission because I was reported to have applied to SISU.
+
+I had been a top student in one of the best high schools, but I was going to a much less prestigious university than I should have, and struggling to achieve even average academic performance, no matter how hard I tried! Thus, I attempted suicide but failed. Since then, a question has haunted my mind: “Is there a reason for me to live, rather than to die?”
+
+Over the years I found that it is only possible to gain the ability and tools to think about the answer by studying philosophy. During the process, I have become emotionally stable, and the question shifted from an emotional need to a theoretical curiosity. Moreover, the question transformed into many different forms: How and why should one live? What is a good life that is worth living? Is moral truth even possible?… In order to seek the answer, I have studied basic logic, epistemology, philosophy of mind, and metaphysics as well as having read a rage of philosophers including Plato, Aristotle, Rousseau, Locke, Bodin, Kant and Nietzsche.
+
+Due to this concern, my ultimate interest is ethical. However, it also leads to my interest in, particularly, logic, epistemology, and metaphysics. Regarding the history of philosophy, I am especially interested in Aristotle and Plato. Additionally, I have a curiosity in the philosophy of science due to my previous interest in science subjects.
+
+I am extremely eager to study at St. Andrews. Among the limited and invaluable opportunities for conversion students like me to embark on a journey in philosophy, St. Andrews stands out as the most renowned institution. Moreover, many one-year conversion programs can be somewhat awkward, since it may need a gap year after graduation for applying further studies. However, St. Andrews offers students the unique opportunity to enroll in the Mlitt Philosophy program. What's more, St. Andrews is especially strong in analytical philosophy, which aligns perfectly with my current interest in Platonic studies within the analytical tradition as well as a general interest in analytical philosophy. 
+
+In conclusion, I believe St. Andrews' conversion program is extremely precious for me and I really want be accept by St. Andrews.

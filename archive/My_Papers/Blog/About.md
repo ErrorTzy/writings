@@ -1,0 +1,12 @@
+# About this website
+
+This blog was previously held in the same URL (www.errortang.eu.org ，TZY的法外之地) but the server was built by myself using Node.js and ngrok. However, after BOTH of my ngork service provider was under attack and no longer able to provide stable services, I have realized the cost of freedom of speech is yet too high to afford. My server was shut down for months and I rethought about why do I need a website in the first place.
+
+The main reason is that I want my writings to be reviewed, discussed, commented and criticized publicly or privately by academic peers. Peer-review and academic community is probably the most important part of today's academic tradition, but it is also far from satisfying. For example, discussions and criticism invaluable for a scholar, but sometimes you will hear more vacuous odes and hymns than constructive criticism on conferences, book reviews and sessions. I believe people do that partly because of networking, and partly because they have not yet came up with a good criticism with rigorous counterarguments. Internet, on the other hand, can be anonymous so you do not have to worry about the problem of networking. Also, you can comment on my posts whenever you are ready. It could be possible that you come up with an good counterargument 10 years after you have read my post, and it can still be invaluable to me and feel free to let me know.
+
+The alternative could be wechat official account, but it only allows very limited manipulation to html source code. Having a personal website, however, allows me to edit the page whatever I want: I can embed markdown, latex, or even codes and media. Since I use markdown for all my writings, it makes wechat official account basically unusable. More importantly, I would probably update my writings now and then because I may change my view or clarify what I was talking about. But wechat official account simply does not allow that.
+
+Another reason is that I want my writings to be "open". It should be searchable, scrapable, free to access, free to quote and free to be used for AI training. It should not be exclusive to any commercial application and everyone's freedom of speech should be respected, regardless gender, race or social class. 
+
+Anyway, I ended up finding this workaround. Currently this website service is provided by Blogger, Google LLC. All the posts that I posted, unless stated otherwise, should obey academic ethics if it is used in the academic publishing. In other cases, license CC BY-SA 4.0 is granted.
+
