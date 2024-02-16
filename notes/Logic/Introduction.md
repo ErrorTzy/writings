@@ -53,8 +53,8 @@ X = \mathbb{R} \\
 A = \{5\} \\
 P = 
 \begin{cases}
-   f_{1} \\
-   f_{2} 
+   f_{1} : x \rightarrow x - 1\\
+   f_{2} : x \rightarrow x + 1
 \end{cases}
 $$, then $I(A,P)$ is the set of all integers.
 
@@ -69,3 +69,7 @@ $$, then $I(A,P)$ is the set of all integers.
    \end{cases} 
 \}
 $$
+
+**Proof ?:**
+First, we assume Lemma is true.
+It is easy to prove that $A \subseteq I(A,P)$ and $I(A,P)$ is closed under $P$
