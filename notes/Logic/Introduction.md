@@ -40,7 +40,32 @@ What tools do we have for formally/precisely defining a set?
    - Universe set: X
    - Core Set: A is a subset of X
    - A set of operations P: functions from $\underbrace{X \times X \times X \dots X}_{n \text{ aridities}} \rightarrow X$
-   - $B \subset X$ is closed in the operation P if for every $b_{1}, b_{2}, \dots b_{n} \in B$ and for $f \in P, f(b_{1}, b_{2}, \dots b_{n}) \in B$
+   - $B \subseteq X$ is closed in the operation P if for every $b_{1}, b_{2}, \dots b_{n} \in B$ and for $f \in P, f(b_{1}, b_{2}, \dots b_{n}) \in B$ also
+
+Let $I(A,P)$ be the set defined above.
+
+**Proposition 1:** $I(A,P)$ is the smallest subset of X that that contains A and is closed under $P$ on the assumption that we know what X we are talking about.
+
+**Example:**
+Let 
+$$
+X = \mathbb{R} \\
+A = \{5\} \\
+P = 
+\begin{cases}
+   f_{1} \\
+   f_{2} 
+\end{cases}
+$$, then $I(A,P)$ is the set of all integers.
 
 
-$A\cap C$
+**Proposition 2:** Such smallest set always exists.
+
+**Lemma 3:** $$I(A,P) = \cap \{ 
+   B \subseteq X; 
+   \begin{cases}
+      A \subseteq B \\
+      B \text{ closed on operation } P
+   \end{cases} 
+\}
+$$
