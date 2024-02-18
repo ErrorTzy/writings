@@ -1,50 +1,49 @@
-\documentclass{article}
+\documentclass[12pt]{article}
+\usepackage{geometry}
+\geometry{margin=1in}
 \usepackage{xcolor}
 \usepackage{soul}
-\usepackage{tikz}
 \usepackage{forest}
-\title{Notes}
-
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{float}
+\title{Notes for An Introduction to Brain and Behavior}
+\author{tzy}
 \begin{document}
 \maketitle
+\tableofcontents
+\newpage
 \section{Basics}
 
 \subsection{Vocabulary}
 
-\textbf{Spatial Locations}
-\begin{itemize}
-\item {
-    \textbf{Anterior}: in the front
-}\item {
-    \textbf{Posterior}: in the back
-}\item {
-    \textbf{Medial}: to the middle
-}\item {
-    \textbf{Lateral}: to the sides
-}\item {
-    \textbf{Dorsal}: to the top
-}\item {
-    \textbf{Ventral}: to the bottom
-}
-\end{itemize}
-
 \begin{figure}[h]
-    \includegraphics[width=0.7\textwidth]{../../.resources/brain_body_orientation.png}
+    \includegraphics[width=0.88\textwidth]{brain_body_orientation.png}
 \end{figure}
 
-\noindent
-\textbf{Anatomical Orientation}
-illustrates the direction of a cut
+\textbf{Spatial Locations}
 \begin{itemize}
-\item {
-    \textbf{Coronal section} \(\rightarrow\) frontal view
-}\item {
-    \textbf{Horizontal section} \(\rightarrow\) dorsal view
-}\item {
-    \textbf{Sagittal section} \(\rightarrow\) medial view
-}
+\item {\textbf{Anterior}:   in the front}
+\item {\textbf{Posterior}:  in the back}
+\item {\textbf{Medial}:     to the middle}
+\item {\textbf{Lateral}:    to the sides}
+\item {\textbf{Dorsal}:     to the top}
+\item {\textbf{Ventral}:    to the bottom}
 \end{itemize}
 
+\begin{figure}[H]
+    \includegraphics[width=\textwidth]{anatomical_orientation.png}
+\end{figure}
+
+\noindent \textbf{Anatomical Orientation}
+illustrates the direction of a cut
+\begin{itemize}
+\item {\textbf{Coronal section}     \(\rightarrow\) frontal view}
+\item {\textbf{Horizontal section}  \(\rightarrow\) dorsal view}
+\item {\textbf{Sagittal section}    \(\rightarrow\) medial view}
+\end{itemize}
+
+\newpage
 \section{Chapter 2}
 \subsection{Plastic Patterns of Neural Organization}
 Neural tissue has the capacity to change in response to the wold by changing how it is organized. Especially, \textbf{Learning} means changes in neural circuits.
@@ -70,8 +69,10 @@ e.g. People who suffer from cerebellar agenesis can slowly adapt; blind people c
     \textbf{Enteric Nervous System (ENS)}: 
     A mesh of neurons embedded in the lining of gut, controls the gut. The ENS can communicate with the CNS via ANS but mostly operates autonomously}
 \end{itemize}
-\newpage
-\begin{figure}[h]
+
+\begin{figure}[H]
+    \centering
+    \footnotesize
     \begin{forest}
         for tree={
             align=center
@@ -104,7 +105,10 @@ e.g. People who suffer from cerebellar agenesis can slowly adapt; blind people c
     \caption{Anatomical Organization}
 \end{figure}
 
-\begin{figure}[h]
+
+\begin{figure}[H]
+    \centering
+    \footnotesize
     \begin{forest}
         for tree={align=center},[
             Nervous System
@@ -147,12 +151,44 @@ e.g. People who suffer from cerebellar agenesis can slowly adapt; blind people c
                 Nervous System
             ]
         ]
-    \end{forest}
+        \end{forest}
     \caption{Functional Organization}
 \end{figure}
 
 \subsection{The Brain Surface Structure}
+\begin{itemize}
+\item {skull}
+\item {
+    meninges
+    \begin{itemize}
+    \item {Dura mater (from Latin, meaning ``hard mather'', which is a durable layer of fibrous tissue)}
+    \item {Arachnoid membrane (from Greek, meaning ``spider's web'')}
+    \item {Pia mater (from Latin, meaning ``soft mather'' which covers the brain)}
+    \end{itemize}
+}
+\item {subarachnoid space (filled with cerebrospinal fluid (CSF), \hl{between} arachnoid layer and pia mater)}
+\end{itemize}
 
+\subsection{Cerebral Geography}
 
+\begin{itemize}
+\item {\textbf{Cerebral cortex}
+    \begin{itemize}
+    \item {\textbf{frontal lobe}: decision making, voluntary movement}
+    \item {\textbf{parietal lobe}: motor functions}
+    \item {\textbf{temporal lobe}: hearing, language, music, facial recognition and emotional processing}
+    \item {\textbf{occipital lobe}: visual scene processing}
+    \end{itemize}
+}
+\item {\textbf{Cerebellum}}
+\item {\textbf{Brain stem}}
+\end{itemize}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.55\textwidth]{ventral_view_brain.png}
+    \caption{Ventral view of the brain}
+\end{figure}
+
+\subsection{Cerebral Circulation}
 
 \end{document}
