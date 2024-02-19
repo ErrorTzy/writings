@@ -16,7 +16,7 @@ learning the association between the actions and the consequences. Necessary cir
 
 ## Two categories of Memory: implicit vs. explicit
 
-demonstrates knowledge e.g. a skill, conditioned response, or recall of events on prompting, but cannot explicitly retrieve the information. The key distinction here is whether it is conscious.
+implicit: demonstrates knowledge e.g. a skill, conditioned response, or recall of events on prompting, but cannot explicitly retrieve the information. The key distinction here is whether it is conscious.
 
 conscious recollection
 
@@ -61,7 +61,7 @@ Explicit Processing:
     - priming/recall on prompting
   - emotional (both implicit and explicit)
   
-#### Storing Semantic Memory
+#### Semantic Memory
 
 seven regions in left-hemisphere regions: including parietal lobe, temporal lobe, prefrontal lobe, posterior cingulate cortex
 
@@ -89,7 +89,8 @@ J.K. has explicit memory intact but having trouble recalling how to switch on li
 ### Explicit Memory
 
 ![](../../.resources/2024-02-19-11-40-32.png)
-![](../../.resources/2024-02-19-11-54-42.png)
+
+![Mishkin Model](../../.resources/2024-02-19-11-54-42.png)
 
 perirhinal cortex: visual object memory
 parahippocampal cortex: visuospatial memory
@@ -105,7 +106,7 @@ It seems to be related to **spatial memories**. For instance, cab drivers who ar
 - head direction cell: in hippocampus, active when determining the direction
 - grid cell: in entorhinal cortex, active all the time
 
-### The reciprocal connections for explicit memory
+#### The reciprocal connections for explicit memory
 
 The reciprocal (neocortex -> gateway -> processor -> gateway -> neocortex) connections has two benefits:
 
@@ -113,4 +114,38 @@ The reciprocal (neocortex -> gateway -> processor -> gateway -> neocortex) conne
 - the pathway back keep it apprised of information being processed in the medial temporal regions (can collect data from others or itself can be used by others?)
 
 people with frontal lobe injuries are not amnestic like H.M. or J.K., but they cannot remember the time order of the events.
+
+The basal ganglia that take part in implicit memory does not feed back to the cortex, which makes it implicit.
+
+#### The frontal lobe and short-term memory
+
+All sensory information are sent to the medial temporal lobe as well as the frontal lobe. Particular cells in the frontal lobe keeps firing, which persists the short-term memory. 
+
+The new model takes prefrontal lobe and medial thalamus into consideration.
+
+![](../../.resources/2024-02-19-14-17-52.png)
+
+the frontal lobe is central to maintaining short-term explicit memories and memory for temporal order.
+
+#### Consolidation of Explicit Memories
+
+Hippocampus cannot be the storage of memories because in H.M.'s case, he can recall memories before the surgery. The neocortex is more likely to be the storage site.
+
+It is hypothesized that hippocampus **consolidates** memories and make them permanent. Once this process is done, hippocampus is no longer needed.
+
+##### distributed reinstatement theory 
+the hippocampus replay the memories to enhance representation outside hippocampus.
+
+**Problem:** memory can be affected. i.e. the choice of the word "smashing" and "bumping", but the distributed reinstatement theory seems to suggest that as long as a piece of memory is enhanced, it is fixed.
+
+**Solution:** whenever a memory is replayed, it is open to further reconsolidation.
+
+**Further problem:** decreases the likelihood of memory changes (???I don't understand)
+
+
+### Implicit Memory
+
+this is unidirectional. If memory can be consciously retrieved, the neocortical regions involved must receive feedback
+
+![](../../.resources/2024-02-19-16-20-13.png)
 
