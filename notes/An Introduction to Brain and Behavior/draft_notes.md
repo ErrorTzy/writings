@@ -149,3 +149,20 @@ this is unidirectional. If memory can be consciously retrieved, the neocortical 
 
 ![](../../.resources/2024-02-19-16-20-13.png)
 
+### Emotional Memory
+
+![](../../.resources/2024-02-19-16-42-57.png)
+
+amygdala:
+ -> medial temporal lobe 
+ -> brain stem: control blood pressure, heart rate
+ -> hypothalamus: control hormone
+ -> PAG: pain perception
+ -> ENS: fight or flight
+ -> basal ganglia
+
+emotional memory includes many neural system, but amygdala is critical.
+
+
+## Structural basis of Brain Plasticity
+
