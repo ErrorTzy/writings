@@ -90,3 +90,27 @@ J.K. has explicit memory intact but having trouble recalling how to switch on li
 
 ![](../../.resources/2024-02-19-11-40-32.png)
 ![](../../.resources/2024-02-19-11-54-42.png)
+
+perirhinal cortex: visual object memory
+parahippocampal cortex: visuospatial memory
+
+the model of gateway (perirhinal & parahippocampal cortex) -> processor (entorhinal & hippocampus) ignores the extensive connection between prefrontal cortex and the hippocampus
+
+What does hippocampus do? 
+It seems to be related to **spatial memories**. For instance, cab drivers who are able to remember all the streets in London has larger posterior region of the hippocampus than the control group.
+
+**spatial function** includes three types of cells: 
+
+- place cell: in hippocampus, active when determining the location
+- head direction cell: in hippocampus, active when determining the direction
+- grid cell: in entorhinal cortex, active all the time
+
+### The reciprocal connections for explicit memory
+
+The reciprocal (neocortex -> gateway -> processor -> gateway -> neocortex) connections has two benefits:
+
+- it keeps the experience alive in the brain so that the record of an experience outlasts the actual experience
+- the pathway back keep it apprised of information being processed in the medial temporal regions (can collect data from others or itself can be used by others?)
+
+people with frontal lobe injuries are not amnestic like H.M. or J.K., but they cannot remember the time order of the events.
+
