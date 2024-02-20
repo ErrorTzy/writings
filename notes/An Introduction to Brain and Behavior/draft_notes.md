@@ -166,3 +166,37 @@ emotional memory includes many neural system, but amygdala is critical.
 
 ## Structural basis of Brain Plasticity
 
+### LTP
+
+EPSP (Excitatory Postsynaptic Potentials): positive signal
+
+IPSP (Inhabitant Postsynaptic Potentials): negative signal
+
+LTP (Long-term potentiation): the increase in synaptic effectiveness/strength due to the increase of receptors
+
+LTD (Long-term depression): the decrease of strength, probably for clearing out old memories
+
+The focus on LTP and LTD are mainly on postsynaptic changes, but recent researches shows that presynaptic changes are also at work.
+
+pulse experiment
+
+### Modifying existing circuits
+
+1. Formation of new synapses from new axon
+2. Formation of extra synapses from already connected axon
+
+Changes takes place mostly locally, since neuro connection between two distant neurons would be very difficult.
+
+### Growing new neurons
+
+Taxi drivers grow new neurons after they pass the exam.
+
+mice with enriched experience grows new neurons, meaning that experience can not only alter existing neurons but also create new circuits.
+
+## Sensory or Motor Training Plasticity
+
+The training monkeys' digit motor function using small well, the proportion of digit function increases.
+
+phantom limb remapping
+
+
