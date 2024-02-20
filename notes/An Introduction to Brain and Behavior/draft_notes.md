@@ -195,8 +195,16 @@ mice with enriched experience grows new neurons, meaning that experience can not
 
 ## Sensory or Motor Training Plasticity
 
+### Experiments
+
 The training monkeys' digit motor function using small well, the proportion of digit function increases.
 
 phantom limb remapping
+
+### Experience-dependent Change in Human Brain
+
+The higher education one gets, the larger the Wernicke's area grows.
+
+Females has larger Wernicke's aera than males.
 
 
