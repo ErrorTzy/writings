@@ -241,6 +241,10 @@ brief period of stress reduce the number of granule cells produced in the hippoc
 
 Contrasting epigenetic effect on males and females' in the hippocampus and prefrontal cortex.
 
+**Neurotrophic Factors**
+
+NGF
+
 **Drugs**
 
 it changes the neuro structure and has long-term effect on how the brain responds to experience, possibly due to epigenetic mechanisms.
