@@ -180,14 +180,14 @@ The focus on LTP and LTD are mainly on postsynaptic changes, but recent research
 
 pulse experiment
 
-### Modifying existing circuits
+### (Structural) Modifying existing circuits
 
 1. Formation of new synapses from new axon
 2. Formation of extra synapses from already connected axon
 
 Changes takes place mostly locally, since neuro connection between two distant neurons would be very difficult.
 
-### Growing new neurons
+### (Structural) Growing new neurons
 
 Taxi drivers grow new neurons after they pass the exam.
 
@@ -203,8 +203,45 @@ phantom limb remapping
 
 ### Experience-dependent Change in Human Brain
 
-The higher education one gets, the larger the Wernicke's area grows.
+Observations
 
-Females has larger Wernicke's aera than males.
+- The higher education one gets, the larger the Wernicke's area grows.
+- Females has larger Wernicke's area than males.
+- neurons corresponding to somatosensory representation of the trunk is less complex than those of the fingers (presupposition: finger sensory data needs more computation), and this difference is especially significant between career word processor and control group.
 
+`
+The experiments seems to indicate remapping while the observations are connected to new neuron growth. 
+`
+
+Conclusion: (general) specific task produce localized changes in the synaptic organization of the brain, and such changes form the structural basis of memory
+
+
+## Epigenetics of Memory
+
+epigenetic mechanism controls synaptic plasticity broadly, but especially in learning and memory(if methylation is blocked, then memory is not created); 
+
+mice who acquired fear conditioning can be passed to offspring
+
+
+## Hormones and Memory
+
+**Gonadal Hormones** 
+
+affect male and female rats. 
+
+When female rat's estrogen decreases, the density of spines on pyramidal cells throughout the cortex increases while the hippocampus density decreases.
+
+-> probably explain why menopausal human female suffers memory decline and middle-aged man show a slow decline in testosterone levels also shows memory decline.
+
+**Glucocorticoids (Stress)**
+
+prolonged stress kill hippocampal cells
+
+brief period of stress reduce the number of granule cells produced in the hippocampi of monkeys.
+
+Contrasting epigenetic effect on males and females' in the hippocampus and prefrontal cortex.
+
+**Drugs**
+
+it changes the neuro structure and has long-term effect on how the brain responds to experience, possibly due to epigenetic mechanisms.
 
