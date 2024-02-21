@@ -2,6 +2,9 @@
     "cSpell.words": [
         "neocortical",
         "neuralplasticity",
+        "neuroscientists",
+        "nondeclarative",
         "SFLS"
-    ]
+    ],
+    "latex-workshop.latex.recipe.default": "latexmk (xelatex)",
 }
