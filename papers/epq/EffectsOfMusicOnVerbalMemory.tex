@@ -19,6 +19,11 @@
 \usepackage[style=apa,backend=biber,doi=false,isbn=false,url=false,eprint=false]{biblatex}
 \addbibresource{../../.resources/My Library.bib}
 
+% packages for flowchart
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usetikzlibrary{calc}
+
 % document information
 \title{Effects of Music on Verbal Memory}
 \author{some author}
@@ -43,12 +48,33 @@ The rough idea is that, as long as we understand the physical mechanism of human
 
 Though sharing the same word, memory in fact has several different kinds. Intuitively, memory is what we recollect consciously, i.e.\ how to prove Pythagorean theorem. But some memories are also subconscious. For instance, nothing really pops up in our mind when we begin to ride a bike. We just somehow control it. This indicates that some memory is at work, but not at the conscious level. In psychology, this kind of subconscious memory is called \textit{implicit memory}, as opposed to the conscious one called \textit{explicit memory}.\footnote{Some scholars also use the ``declarative-nondeclarative'' dichotomy, (see~\cite{michaelianMemory2017}). As applied to human, there is little difference between the ``declarative-nondeclarative'' and ``explicit-implicit'' taxonomy \autocite[p.480]{kolbIntroductionBrainBehavior2019}.} In addition, \textit{Emotion memory} has both conscious and subconscious character. For instance, someone would reexperience the joy when consciously describing a past event, which shows the explicit nature of emotional memory. Implicit character, on the other hand, is illustrated by conditioning, i.e. conditioned fear (for an explanation of conditioned fear, see~\cite[p.478]{kolbIntroductionBrainBehavior2019}). 
 
-Though stil under dispute, the overall consensus on the anatomy of explicit memory is reached around the 1990s \autocite[p. 207]{kolbIntroductionBrainBehavior2019}. The brain sections involved in explicit memory are mainly around the medial temporal region, the prefrontal cortex and the related structures. As the figure~\ref{MechofExpMem}\footnote{from~\cite[p. 207]{kolbIntroductionBrainBehavior2019}, slightly modified} illustrates, sensory data are passed to perirhinal and parahippocampal cortex. Then entorhinal cortex integrates these data and further send them to hippocampus. This connection also goes backwards, which may explain why we are able to retrieve it consciously. 
+Though still under dispute, the overall consensus on the anatomy of explicit memory is reached around the 1990s \autocite[p. 207]{kolbIntroductionBrainBehavior2019}. The brain sections involved in explicit memory are mainly around the medial temporal region, the prefrontal cortex and the related structures. As the figure~\ref{MechofExpMem}\footnote{from~\cite[p. 207]{kolbIntroductionBrainBehavior2019}, slightly modified} illustrates, sensory data are passed to perirhinal and parahippocampal cortex. Then entorhinal cortex integrates these data and further send them to hippocampus. This connection also goes backwards, which may explain why we are able to retrieve it consciously. 
 
 \begin{figure}[h]
     \centering
-    \LARGE
-    \textbf{\texttt{\hl{This figure is yet to be added}}}
+    \begin{tikzpicture}[
+        box/.style={rectangle, draw=black, text width=3cm, minimum height=1cm, align=center}
+    ]
+    
+    \node[box] (2_1) {perirhinal cortex};
+    \node[box] (2_2) [right=of 2_1] {parahippocampal cortex};
+    \coordinate (COL2_MID) at ($(2_1)!0.5!(2_2)$);
+    \node[box] (1_1) [above=of COL2_MID]{sensory data};
+    \node[box] (3_1) [below=of COL2_MID] {entorhinal cortex};
+    \node[box] (4_1) [below=of 3_1] {hippocampus};
+
+    
+    \draw[->] (1_1.south) to (2_1.north);
+    \draw[->] (1_1.south) to (2_2.north);
+
+    \draw[->] (2_1.south) to ([xshift=-0.75cm]3_1.north);
+    \draw[<-] ([xshift=0.5cm]2_1.south) to ([xshift=-0.25cm]3_1.north);
+    \draw[<-] ([xshift=-0.5cm]2_2.south) to ([xshift=0.25cm]3_1.north);
+    \draw[->] (2_2.south) to ([xshift=0.75cm]3_1.north);
+
+    \draw[->] ([xshift=-0.25cm]3_1.south) to ([xshift=-0.25cm]4_1.north);
+    \draw[<-] ([xshift=0.25cm]3_1.south) to ([xshift=0.25cm]4_1.north);
+    \end{tikzpicture}
     \label{MechofExpMem}
     \caption{Mechanism of Explicit Memory}
 \end{figure}

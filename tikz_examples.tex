@@ -1,0 +1,20 @@
+\documentclass{article}
+
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+
+\begin{document}
+
+\begin{tikzpicture}[
+    box/.style={rectangle, draw=black, text width=1cm, align=center}
+]
+
+\node[box] (node_1_1) {apple\\app};
+\node[box] (node_2_1) [below=of node_1_1] {pear};
+
+\draw[->, very thick] ([xshift=-0.1cm]node_1_1.south) to ([xshift=-0.1cm]node_2_1.north);
+\draw[<-, very thick] ([xshift=0.1cm]node_1_1.south) to ([xshift=0.1cm]node_2_1.north);
+\end{tikzpicture}
+
+\end{document}
+
