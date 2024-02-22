@@ -1,21 +1,31 @@
 \documentclass{article}
+
+% packages for highlighting
 \usepackage{xcolor}
 \usepackage{soul}
+
+% packages for annotation
 \usepackage{todonotes}
+
+% packages for indentation
 \usepackage{indentfirst}
+
+% packages for tables
 \usepackage{booktabs}
 \usepackage{multirow}
 \usepackage{tablefootnote}
+
+% packages for bibliography
 \usepackage[style=apa,backend=biber,doi=false,isbn=false,url=false,eprint=false]{biblatex}
 \addbibresource{../../.resources/My Library.bib}
-% \usepackage{indentfirst}
-\title{Effects of Music on Verbal Memory}
 
+% document information
+\title{Effects of Music on Verbal Memory}
 \author{some author}
 
 \begin{document}
-\maketitle{}
 
+\maketitle{}
 
 \section{Introduction}
 
@@ -25,9 +35,27 @@ In this paper, I first summarize the current researches on the common factors th
 
 \section{Literature Review}
 
-First, we need to clarify what ``memory'' refers to. Intuitively, memories are what we recollect consciously, i.e.\ how to prove Pythagorean theorem. But some memories are also subconscious. For instance, nothing really pops up in our mind when we begin to ride. We just somehow control it. This indicates that some memories at work, but not at the conscious level. In psychology, this kind of subconscious memory is called \textit{implicit memory}, as opposed to \textit{explicit memory}.\footnote{Some scholars also use the ``declarative-nondeclarative'' dichotomy. As applied to humans, there is little difference between the ``declarative-nondeclarative'' and ``explicit-implicit'' taxonomy \autocite[p.480]{kolbIntroductionBrainBehavior2019}.} 
+How can we know about the factors that would affect memory? Intuitively, we can conduct a simple experiment in the following manner. If some factor \textit{A} makes people's memory better (or worse) than the people in control group, and \textit{A} is not present in control group, then we may conclude that this \textit{A} has an impact on human memory. However, conclusions derived from this manner is severely weakened by the fact that individual difference is so big that it is very hard to control variables that may affect the conclusion. Therefore, we must pursuit a more biologically plausible way.
 
-Another popular way of classification is by the temporal duration of memory, proposed by \textcite{atkinsonHumanMemoryProposed1968}. Ultra short-term memory is formed in the process of sensory registration, which lasts less than one second. Short-term memory lives up to thirty seconds. Long-term memory refers to memory that lasts indefinitely long period of time. 
+The rough idea is that, as long as we understand the physical mechanism of human memory, and some factor \textit{A} can enhance (or suppress) this mechanism, then we would happily conclude that \textit{A} has an impact on our memory. Of course, the mechanism of human memory is still not entirely clear today owing to the complexity of human brain. However, developing the understanding of such mechanism is beyond the scope of this paper, and this paper would \hl{mostly?} take the current prevailing view on this mechanism for granted.
+
+\subsection{The mechanism and Related Structures}
+
+Though sharing the same word, memory in fact has several different kinds. Intuitively, memory is what we recollect consciously, i.e.\ how to prove Pythagorean theorem. But some memories are also subconscious. For instance, nothing really pops up in our mind when we begin to ride a bike. We just somehow control it. This indicates that some memory is at work, but not at the conscious level. In psychology, this kind of subconscious memory is called \textit{implicit memory}, as opposed to the conscious one called \textit{explicit memory}.\footnote{Some scholars also use the ``declarative-nondeclarative'' dichotomy, (see~\cite{michaelianMemory2017}). As applied to human, there is little difference between the ``declarative-nondeclarative'' and ``explicit-implicit'' taxonomy \autocite[p.480]{kolbIntroductionBrainBehavior2019}.} In addition, \textit{Emotion memory} has both conscious and subconscious character. For instance, someone would reexperience the joy when consciously describing a past event, which shows the explicit nature of emotional memory. Implicit character, on the other hand, is illustrated by conditioning, i.e. conditioned fear (for an explanation of conditioned fear, see~\cite[p.478]{kolbIntroductionBrainBehavior2019}). 
+
+Though stil under dispute, the overall consensus on the anatomy of explicit memory is reached around the 1990s \autocite[p. 207]{kolbIntroductionBrainBehavior2019}. The brain sections involved in explicit memory are mainly around the medial temporal region, the prefrontal cortex and the related structures. As the figure~\ref{MechofExpMem}\footnote{from~\cite[p. 207]{kolbIntroductionBrainBehavior2019}, slightly modified} illustrates, sensory data are passed to perirhinal and parahippocampal cortex. Then entorhinal cortex integrates these data and further send them to hippocampus. This connection also goes backwards, which may explain why we are able to retrieve it consciously. 
+
+\begin{figure}[h]
+    \centering
+    \LARGE
+    \textbf{\texttt{\hl{This figure is yet to be added}}}
+    \label{MechofExpMem}
+    \caption{Mechanism of Explicit Memory}
+\end{figure}
+
+Implicit memory, on the other hand, \dots
+
+Another popular model, proposed by \textcite{atkinsonHumanMemoryProposed1968}, distinguishes memory by the temporal duration. Ultra short-term storage is formed in the process of sensory registration, which lasts less than one second. Short-term storage lives up to thirty seconds. Long-term storage refers to memory that lasts indefinitely long period of time. 
 
 The taxonomy is important because different types of memory corresponds to different neuro circuits. The prevailing view on how memory relates brain structure is illustrated in Table~\ref{BrainStructMemoryTypes}. This instantly follows that once the corresponding brain structure malfunctions, the related memory functions will also be compromised. 
 
@@ -37,13 +65,15 @@ The taxonomy is important because different types of memory corresponds to diffe
     \toprule
     Short-term      & Long-term \\
     \midrule
-    \multirow{2}{*}{Prefrontal Lobe \tablefootnote{\cite{fusterCrossmodalCrosstemporalAssociation2000}}} & Explicit: Medial Temporal Lobe\tablefootnote{\cite{squireMedialTemporalLobe1991}}\\
+    \multirow{2}{*}{Prefrontal Lobe \tablefootnote{\cite{fusterCrossmodalCrosstemporalAssociation2000}}} & Explicit: Medial Temporal Lobe \tablefootnote{\cite{squireMedialTemporalLobe1991}}\\
                                                      & Implicit: Basal Ganglia \tablefootnote{\cite{foerdeRoleBasalGanglia2011}}\\
     \bottomrule
 \end{tabular}
 \caption{Brain Structures Corresponding to Memory Types}
 \label{BrainStructMemoryTypes}
 \end{table}
+
+\subsection{Common Factors}
 
 The first thing that directly comes to our mind that would harm the brain would probably be chemicals. For instance, when people are under stress, adrenal cortex releases \textit{glucocorticoids} due to our fight-or-flight response. This activates our amygdala and enhance our memory on the stress-related events \autocite{sapolskyStressAgingBrain1992}. Worse, evidence has shown that glucocorticoids would temporarily block memory retrieval \autocite[pp.119-144]{roozendaalStressMemoryAmygdala2009}, and long-term exposure to glucocorticoids kills hippocampal cells, which plays a critical role in explicit memory \autocite{sapolskyStressAgingBrain1992}. 
 
