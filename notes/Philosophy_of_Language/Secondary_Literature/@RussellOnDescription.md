@@ -86,9 +86,22 @@ The only difference between indefinite and definite description is that definite
 2. at most one person wrote Waverley
 3. whoever wrote Waverley was Scotch
 
-Formally, let $\phi$ be the property of so-and-so, and $\psi$ be the predicate, then the so-and-so is something can be expressed as
+Formally, let $\phi$ be the property of so-and-so, and $\psi$ be the predicate, then the so-and-so is something can be expressed as "there is a term c that (1) $\phi x$ is always equivalent to 'x is c,' (2) $\psi c$ is true"
 
-$$
-\exists x (\phi x \leftrightarrow (x = c) \cap \psi x)
 
-$$
+Remark:
+
+Thus a name must name something. therefore if $\alpha$ is a name, then $\alpha$ exists is an a priori truth. For the expression "x exists" to be informative, x must be a description
+
+
+Application:
+
+Primary occurence: take the entire sentence and substitude the description for x
+
+Secondary occurence: only take part of the proposition concerned and substitude the description for x
+
+i.e. The king of France is not bald
+
+-> (secondary) ***It is false that*** there is a c that x = c $\leftrightarrow↔$ x is the king of France, and x is bald
+
+-> (primary) there is a c that x = c $\leftrightarrow$ x is the king of France, and x is ***not*** bald
