@@ -232,4 +232,40 @@ Frege's problem: dismiss problems with natural language at hand
 
 ![](assets/20240304_211235_image.png)
 
+
+
 # Russell
+
+1872 - 1970
+
+## On Denoting, Descriptions
+
+**Recall:**
+
+Frege: proper name是一个广义概念，只要specify一个特定的object就可以算作proper name（a proposition is also a proper name, since it also denotes one definite object, which is the truth-value）
+
+**现代细分：**
+
+singular term (particular) vs general term (universal);
+
+singular terms include (instinctive, informal):
+
+- proper names (Scott)
+- definite description (the queen of England)
+- singular pronouns (you)
+- demonstrative pronouns (this)
+- complex singular demonstratives (this table)
+
+### The taxonomy of "descriptions": 
+
+definite vs. indefinite/ambiguous
+e.g. the man vs. a man
+
+some exceptions:
+definite WITHOUT the
+his book -> the book of him
+John's computer -> the computer of John
+
+NOT definite description WITH the:
+the Holy Roman Empire (neither holy, nor Roman, nor empire)
+
