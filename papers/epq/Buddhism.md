@@ -4,7 +4,6 @@ Founder of the Hangzhou lineage: Mazu Daoyi
 
 Reaffirmation of the primacy of the embodied prectice.
 
-
 - does not enter the mud of conceptual thinking because ultimately thinking is irrelavent to the realization of truth
   - 慧能, the sixth patriarch proclaimed "without thinking (无念)" as the core doctrine
 - does not seek help from supermundane source
@@ -28,7 +27,10 @@ Buddhism played important role in the unification of the Nomadic people under th
 
 woven thoroughly in Song. "Confusianism, Daoism and Buddhism are three legs of a brone ding"
 
-
 ### Chan
 
 Trace back to "佛祖拈花，迦叶微笑"
+
+Rudiments: 6-7th century
+
+Well-established: 10th century
