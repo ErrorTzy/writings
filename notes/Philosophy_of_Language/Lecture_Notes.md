@@ -269,3 +269,7 @@ John's computer -> the computer of John
 NOT definite description WITH the:
 the Holy Roman Empire (neither holy, nor Roman, nor empire)
 
+A methodological preference:
+rejection of unreal objects
+
+"always","sometimes" -> not temporal description, just a quantifier 
