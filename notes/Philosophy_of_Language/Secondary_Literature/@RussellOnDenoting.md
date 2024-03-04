@@ -37,7 +37,6 @@ C(x), x is an undetermined variable, then:
 - Here, "C(x) is always true" is altimate and undefinable.
 - The meaning of "everything", "something", "nothing" is assgined to every proposition they occur.
 
-
 **Construction:**
 
 I met a man: I met x and x is a human
@@ -46,20 +45,38 @@ I met a man: I met x and x is a human
 - C(no men): "If x is human, then C(x) is false" is always true
 - C(some men): It is false that "'C(x) and x is human' is always false"
 
-
 The father of Charles was executed:
 
 - It is not always false of x that "x begat Charles and that x was executed", and that
-
 - "if y begat charles, y is identical with x" is always true.
-
 
 Thus all denoting sentences are reduced
 
-
 # Why this theory is better than Frege's and Meinong's
 
+## Denotation of Words
 
+### Meinong: any grammatically correct denoting phrase stands for an object.
+
+**Disadvantage:** "the round square" would exsist, which violates the law of contradiction
+
+
+
+### Frege: sense and reference
+
+**Advantage:** avoid non-existent object
+
+**Disadvantage:** We seems to denote "the King of England" when we say "the King of England is bald". However, when we way "the King of France", it is plainly false instead of being non-denoting.
+
+
+> Russell seems to have an instinct that vacuous statment are plainly false, but do mean something. I do not share that instinct.
+
+
+## Denotation of Propositions
+
+Consider "If Ferdinand is not drowned, Ferdinand is my only son":
+
+If "Ferdinand is not drowned" is false, then this sentence would be true. Then it matters whether sentence with non-exisitent .
 
 
 # Consequence of Russell's theory
