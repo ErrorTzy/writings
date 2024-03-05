@@ -28,11 +28,11 @@ the point is, no constituent `constant?` is presented in such sentence
 
 **Defence:**
 
-There is no "unreal objects" like "the golden mountain" or "the round squre" because if no one thought about them, there will be nothing left of them.
+There is no "unreal objects" like "the golden mountain" or "the round square" because if no one thought about them, there will be nothing left of them.
 
-ref: how can we talk about non-exisistence?
+ref: how can we talk about non-existence?
 
-def: if we attibute significance to groups of symbols which have no significance, we then have illusions.
+def: if we attribute significance to groups of symbols which have no significance, we then have illusions.
 
 And we can see that "... is unreal" is meaningful only when "..." is a description
 
@@ -105,3 +105,4 @@ i.e. The king of France is not bald
 -> (secondary) ***It is false that*** there is a c that x = c $\leftrightarrow↔$ x is the king of France, and x is bald
 
 -> (primary) there is a c that x = c $\leftrightarrow$ x is the king of France, and x is ***not*** bald
+

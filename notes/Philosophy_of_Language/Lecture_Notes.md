@@ -271,5 +271,24 @@ the Holy Roman Empire (neither holy, nor Roman, nor empire)
 
 A methodological preference:
 rejection of unreal objects
+the unreal objects has a sense, but it is not to say it is an object
 
-"always","sometimes" -> not temporal description, just a quantifier 
+p.s. "always","sometimes" -> not temporal description, just a quantifier 
+
+indefinite: 
+an object having the property F has the property G = the intersection of Fx and Gx is not empty
+
+definite: 
+indefinite expression + uniqueness
+- at least one thing is F
+- at most one thing is F
+- whoever F is G
+
+> 自然语言优先，用逻辑符号是工具性的选择而不是第一性的
+> 日常专名是否是限定性描述？（因为我们想到同一个专名的时候想到的东西是不一样的）
+> 自然语言是否需要把思想差异带入？（在语义层面解释还是在个题思想层面解释？）
+
+Scott is Sir Walter: the person named "Scott" is the person named "Sir Walter"
+
+> 罗素这里还是先承认了日常专名，然后“用作”description；日常专名并不是description
+
