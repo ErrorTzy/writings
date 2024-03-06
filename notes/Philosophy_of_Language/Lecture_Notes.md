@@ -236,7 +236,7 @@ Frege's problem: dismiss problems with natural language at hand
 
 1872 - 1970
 
-## On Denoting, Descriptions
+## On Descriptions
 
 **Recall:**
 
@@ -254,7 +254,10 @@ singular terms include (instinctive, informal):
 - demonstrative pronouns (this)
 - complex singular demonstratives (this table)
 
+
 ### The taxonomy of "descriptions":
+
+
 
 **definite vs. indefinite/ambiguous**
 e.g. the man vs. a man
@@ -306,7 +309,7 @@ The semantic/logical analysis may not correspond with grammatical/synatical form
   - "the primary occurrence vs. secondary occurrence", "The *de re* reading vs. the *de dicto* reading"
   - Russell's dichotomy cannot handel multiple negations. Therefore it is better to describe it with scope.
 
-## Proper names and disguised/abbreviated definite description
+### Proper names and disguised/abbreviated definite description
 
 **Frege: This should not happen**
 
@@ -322,7 +325,49 @@ This name claim is independent of the theory of description itself
 
 **Kemp:** The language user understand 'a' as a synonymous for "the F"
 
-
-## Knowledge by acquaintance and knowledge by description
+### Knowledge by acquaintance and knowledge by description
 
 can be the logical distinction for different proper names
+
+items can be acquainted with
+
+- sense-data
+- universals (i.e. color)
+- the self (consciousness/pain/emotion)
+
+principle of acquaintance:
+
+- any proposition we can understand must be composed by entirely of entites with wich we are acquainted.
+
+we cannot acquaint with "table"/"tree" itself. Thus we cannot understand **atomic** proposition about tables and trees. But then how do we talk about tables and trees?
+
+Russell: when we say table, we talk about the table via sense data. 
+
+*The table is brown* is in fact The external cause of THIS (**table-shaped batch of sense-data**) is cluttered. Therefore, the table is only "denoted`described by sense`" in Russell's sense. (Kemp 58-59)
+
+> table-shaped?
+
+Russell's epistomology is empirisist.
+
+The common factor in Frege's view and Russell's view: the same reference with different sense
+
+
+## On denoting
+
+earlier work
+
+
+**Frege:** dual-layer theory: sense and reference
+
+when words are used in oridinary way, one intend to speak of their reference
+
+
+**Russell:** Does all phrase has sense/reference dichotomy?
+
+C: C's denotation
+
+'C': C's meaning
+
+Problem: How does the meaning denotes the denotation?
+
+Requirement: sense and eference have connction and not the same
