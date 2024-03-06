@@ -18,7 +18,7 @@ sense: acquaintance with perceptions
 
 thought: acquaintance with logical character `(?)`
 
-all thinking start from aquaintance, but it succedds in thinking about many things with which we have no aquaintance
+all thinking start from acquaintance, but it succeeds in thinking about many things with which we have no acquaintance
 
 # Russell's theory
 
@@ -34,8 +34,8 @@ C(x), x is an undetermined variable, then:
 
 **Remark:**
 
-- Here, "C(x) is always true" is altimate and undefinable.
-- The meaning of "everything", "something", "nothing" is assgined to every proposition they occur.
+- Here, "C(x) is always true" is ultimate and undefinable.
+- The meaning of "everything", "something", "nothing" is assigned to every proposition they occur.
 
 **Construction:**
 
@@ -118,4 +118,4 @@ i.e. Scott wonders the King of France is bald -> Scott wonders if there is one m
 
 Whatever phrase we do not acquaint, we understand them from denoting phrase (i.e. Apollo, other minds). Therefore, we can talk about it without understanding it.
 
-> How much can we doubt about this "aquaint"?
+> How much can we doubt about this "acquaint"?
