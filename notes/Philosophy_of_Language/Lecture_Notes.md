@@ -184,9 +184,9 @@ Frege's logical reductionism: all mathematical truth are logical truth
 - the principle of compositionality: meaning comes from recursive formation of components
 - the context principle: an isolated word(but what is context? how broad it is? Frege: sentence)
 
-# On Sense and Reference (Uber Sinn und Bedeutung)
+## On Sense and Reference (Uber Sinn und Bedeutung)
 
-## Background: Identity in Logic
+### Background: Identity in Logic
 
 identity sign '=': binary relational sign/operator
 
@@ -196,7 +196,7 @@ identity sign '=': binary relational sign/operator
 - some important principles in philosophy:
   - the indiscernibilty of identical, Leibnitz law
 
-## The introduction of the puzzle:
+### The introduction of the puzzle:
 
 
 | a=a                  | a=b                    |
@@ -214,14 +214,14 @@ criticism: not semantic, but cognitive difference
 John Perry: Frege's Detour
 重新解释弗雷格，不引入sense，依然用概念文字的思路
 
-## Identity/quality is a relation between names or signs of objects
+### Identity/quality is a relation between names or signs of objects
 
 "A difference can arise only if the difference between the signs corresponds to a difference in <mark style="background: #FF5582A6;">the mode of presentation</mark> of that which is designated"
 
 John Perry on "**mode of presentation**"
 关于内涵的函数性操作 functions in intension
 
-## A general theory of sense and reference:
+### A general theory of sense and reference:
 
 sense vs. reference
 an easily neglected layer of words, easy to have a full understanding vs. the target of words, hard/impossible to have a full understanding.
@@ -231,8 +231,6 @@ Frege's problem: dismiss problems with natural language at hand
 ![](assets/20240304_210315_image.png)
 
 ![](assets/20240304_211235_image.png)
-
-
 
 # Russell
 
@@ -256,9 +254,9 @@ singular terms include (instinctive, informal):
 - demonstrative pronouns (this)
 - complex singular demonstratives (this table)
 
-### The taxonomy of "descriptions": 
+### The taxonomy of "descriptions":
 
-definite vs. indefinite/ambiguous
+**definite vs. indefinite/ambiguous**
 e.g. the man vs. a man
 
 some exceptions:
@@ -269,17 +267,18 @@ John's computer -> the computer of John
 NOT definite description WITH the:
 the Holy Roman Empire (neither holy, nor Roman, nor empire)
 
-A methodological preference:
+**A methodological preference:**
 rejection of unreal objects
 the unreal objects has a sense, but it is not to say it is an object
 
-p.s. "always","sometimes" -> not temporal description, just a quantifier 
+p.s. "always","sometimes" -> not temporal description, just a quantifier
 
-indefinite: 
+indefinite:
 an object having the property F has the property G = the intersection of Fx and Gx is not empty
 
-definite: 
+definite:
 indefinite expression + uniqueness
+
 - at least one thing is F
 - at most one thing is F
 - whoever F is G
@@ -292,3 +291,38 @@ Scott is Sir Walter: the person named "Scott" is the person named "Sir Walter"
 
 > 罗素这里还是先承认了日常专名，然后“用作”description；日常专名并不是description
 
+**Methodological implication**
+
+The semantic/logical analysis may not correspond with grammatical/synatical form
+
+**Russell's solutions to the problems:**
+
+- Reference to nonexistents
+- Negative exsistentials: "the F does not exist" when there is no such F, this sentence is true and meaningful
+
+> "exist" is not a predicate; and the problem is when there are more than one F, the sentence will also be true
+
+- the Problem of the excluded middle: "The F is G" vs "The F is not G" are not contradictory to each other because the *scope* of negation is different
+  - "the primary occurrence vs. secondary occurrence", "The *de re* reading vs. the *de dicto* reading"
+  - Russell's dichotomy cannot handel multiple negations. Therefore it is better to describe it with scope.
+
+## Proper names and disguised/abbreviated definite description
+
+**Frege: This should not happen**
+
+- Aristotle = the teacher of Alexander = the pupil of Plato
+- Frege does not consern this much because he thinks a perfect language should avoid this phenomenon
+
+**Russell: Use proper name as description, but still there are still proper names**
+
+- When we ask whether Homer existed, we are *using* the word 'Homer' *as* an abbreviated description
+- The same consideration apply to almost all *uses* of what look like proper names
+
+This name claim is independent of the theory of description itself
+
+**Kemp:** The language user understand 'a' as a synonymous for "the F"
+
+
+## Knowledge by acquaintance and knowledge by description
+
+can be the logical distinction for different proper names
