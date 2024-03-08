@@ -78,7 +78,7 @@ observations:
 - some strings marks or noises are meaningful sentences
 - each meaningful sentence has parts that are themselves meaningful
 - each meaningful sentence means something in particular
-- competent speakers of a language are able to understand(and produce) many of that language's sentences, without effort and almost instantaneously
+- competent speakers of a language are able to understand (and produce) many of that language's sentences, without effort and almost instantaneously
 
 # The referential theory of meaning:
 
