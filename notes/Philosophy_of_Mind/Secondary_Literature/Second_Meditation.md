@@ -12,13 +12,11 @@ Even if some god put me into all these thoughts, there is still me.
 
 No. What is rationality and what is an animal?
 
-
 ### Body, the mechanical structure
 
 definition of body: whatever has a determinatble shape and a definable location and can occupy a space in such a way as to exclude other body
 
 No. If there is a malicious deceiver, then it is possible that I do not have a body
-
 
 ### Soul
 
@@ -30,12 +28,9 @@ But thought is inseparable to me. Therefore, I am only a thing that thinks (havi
 >
 > But that still says I have the power to understand all these things. Also how does mind "randomly access" thoughts is unclear
 
-
 I cannot use imagination because imagining is to contemplate the shape or image of a corporeal thing
 
 > But I can imagine 1+1=3. It seems to be a language issue.
-
-
 
 ### Identity arguement
 
@@ -43,5 +38,16 @@ I thinks myself
 
 The 'I' that is being thought of is the same 'I' that thinks because the power of imagination and perception exists
 
-
 ## New methodology
+
+give it completely free rein, and then tighten the reins
+
+### Wax Argument
+
+The sesnory data of wax completely changed when it is melt, yet we still think the same wax remains
+
+what the max remains is its extensibility and changibility. However, extensibility and changibility is not from my imagination because I cannot imagine infinite things, while extensibility and changibility are infinite.
+
+distinctiveness does not come from my senses, but my judgement
+
+Therefore it is once again clear that I exists because I judge.
