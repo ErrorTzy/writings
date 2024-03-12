@@ -17,9 +17,15 @@
 
 % packages for bibliography
 \usepackage[style=apa,backend=biber,doi=false,isbn=false,url=false,eprint=false]{biblatex}
-\DeclareLanguageMapping{english}{american-apa}
-\addbibresource{../../.resources/biblatex.bib}
+\makeatletter
+\let\blx@imc@addspace\addspace
+\blx@regimcs{\addspace}
+\makeatother
 
+\usepackage{musixtex}
+\usepackage{subcaption}
+\DeclareLanguageMapping{english}{american-apa}
+\addbibresource{/home/scott/Desktop/WorkingFiles/VSCode/writings/.resources/biblatex.bib}
 % packages for flowchart
 \usepackage{tikz}
 \usetikzlibrary{positioning}
@@ -37,13 +43,13 @@
 
 We are capable of memorizing a lot of things without effort right from infancy. Yet we never really know how we managed to do that. Especially, the lack of understanding about memory lead us to suffer when we failed to recall what we should have memorized, say, when we are taking a test and having trouble recalling the right answer. 
 
-In this paper, I first summarize the current researches on the common factors that affect memory. Then I \hl{  }. I close this paper by \hl{  }. I wish to show that \hl{  }.
+In this paper, I first summarize the current researches on the common factors that affect memory. Then I \dots. I close this paper by \dots. I wish to show that \dots.
 
 \section{Literature Review}
 
 How can we know about the factors that would affect memory? Intuitively, we can conduct a simple experiment in the following manner. If some factor \textit{A} makes people's memory better (or worse) than the people in control group, and \textit{A} is not present in control group, then we may conclude that this \textit{A} has an impact on human memory. However, conclusions derived from this manner is severely weakened by the fact that individual difference is so big that it is very hard to control variables that may affect the conclusion. Therefore, we must pursuit a more biologically plausible way.
 
-The rough idea is that, as long as we understand the physical mechanism of human memory, and some factor \textit{A} can enhance (or suppress) this mechanism, then we would happily conclude that \textit{A} has an impact on our memory. Of course, the mechanism of human memory is still not entirely clear today owing to the complexity of human brain. However, developing the understanding of such mechanism is beyond the scope of this paper, and this paper would \hl{mostly?} take the current prevailing view on this mechanism for granted.
+The rough idea is that, as long as we understand the physical mechanism of human memory, and some factor \textit{A} can enhance (or suppress) this mechanism, then we would happily conclude that \textit{A} has an impact on our memory. Of course, the mechanism of human memory is still not entirely clear today owing to the complexity of human brain. However, developing the understanding of such mechanism is beyond the scope of this paper, and this paper would take the current prevailing view on this mechanism for granted.
 
 \subsection{The mechanism and Related Structures}
 
@@ -160,7 +166,65 @@ Iron deficiency can also affect memory given that iron participates in the metab
 
 Apart from chemicals, age is also an important factor, since old people tends to suffer from Alzheimer Disease and have slippery memory. This is usually caused by neuritic plaques, concentrated especially in temporal lobe areas related to memory \autocite{kolbIntroductionBrainBehavior2019}. In addition, older adults shows different patterns of brain activation from younger adults during explicit and implicit encoding and retrieval tasks \autocite{backmanBrainActivationYoung1997}.
 
-Sleep also enhance memory the the process called \textit{consolidation}. Research has shown that both SWS and REM contributes to solidifying knowledge learnt in day \autocite{diekelmannMemoryFunctionSleep2010}.
+Sleep also enhance memory. The process is called \textit{consolidation}. Research has shown that both SWS and REM contributes to solidifying knowledge learnt in day \autocite{diekelmannMemoryFunctionSleep2010}.
+
+\section{About Jazz}
+
+Jazz's roots can be traced back to the African musical heritage and its fusion with European musical forms in the New World, leading to the creation of work songs, spirituals, ragtime, and the blues. This unique blend gave birth to jazz in New Orleans, where it was further developed and popularized by pioneers like Louis Armstrong, Duke Ellington, and Billie Holiday, among others. The city's vibrant music scene, characterized by a mix of cultures, played a crucial role in the genre's formation, with musicians from black, white, and Creole backgrounds contributing to its rich diversity \autocite{gioiaHistoryJazz1998,stearnsStoryJazz1956}.
+
+Jazz has undergone several transformations, from the early sounds of New Orleans jazz and Chicago jazz in the 1920s and 1930s to the development of swing, bebop, cool jazz, and hard bop. Each style represented not only a musical evolution but also mirrored the social and cultural changes of its time. The migration of jazz musicians from New Orleans to cities like Chicago and New York contributed to the genre's spread and the emergence of new styles. Icons such as Charlie Parker, Dizzy Gillespie, Thelonious Monk, and Miles Davis were instrumental in these transitions, pushing the boundaries of jazz and exploring new harmonic and rhythmic possibilities \autocite{schullerEarlyJazzIts1986}.
+
+\subsection{Swing Rhythm}
+
+Swing rhythm in jazz is a distinctive musical style that creates a compelling sense of rhythm and movement, often making listeners want to dance or move along with the music. The essence of swing rhythm lies in the way certain notes are played longer and others are played shorter, contrary to their equal written value, creating a long-short pattern within a beat. As illustrated in Figure \ref{notes}, \ref{noteA} illustrates the normal rhythm, namely the straight rhythm. \ref{noteB} shows the swing rhythm by grouping two notes into a triplet with a rest in between. The effect of swing rhythm would be close to \ref{noteC}. 
+
+
+\begin{figure}[hp!]
+\centering
+
+
+
+\begin{subfigure}{.3\textwidth}
+    \centering
+    \begin{music}
+    \startextract{}
+    \Notes\Dqbu gg\en
+    \zendextract{}
+    \end{music}
+    \caption{Straight Rhythm}
+    \label{noteA}
+\end{subfigure}%
+\begin{subfigure}{.3\textwidth}
+    \centering
+    \begin{music}
+    \startextract{}
+    \notes \uptuplet o20 \qu g \en \notesp \cu g \en
+    \zendextract{}
+    \end{music}
+    \caption{Swing Rhythm}
+    \label{noteB}
+\end{subfigure}%
+\begin{subfigure}{.4\textwidth}
+    \centering
+    \begin{music}
+    \startextract{}
+    \Notes\ibu0g0\qbp0g\tbbu0\tqh0g\en
+    \zendextract{}
+    \end{music}
+    \caption{Swing Rhythm Emulated}
+    \label{noteC}
+\end{subfigure}
+
+\caption{Explanation of swing rhythm}
+\label{notes}
+\end{figure}
+
+\subsection{Call and Response}
+
+Another key feature of jazz is called ``call and response''. It is a kind of musical interaction where one musician plays a phrase (the ``call'') and another musician or group responds with a complementary phrase (the ``response'').
+
+Jazz musicians engage in call and response interactions by anticipating and responding to each other's musical phrases, creating a spontaneous collaboration even when playing together for the first time. This interaction is evident in both the movement and musical characteristics of improvisations, reflecting the emotions expressed by the musicians. Studies have found correlations between the movements and musical features of jazz duos during improvisation, highlighting the deep connection between physical expression and musical communication \autocite{wollnerCallResponseMusical2020}.
+
 
 \printbibliography{}
 \end{document}
