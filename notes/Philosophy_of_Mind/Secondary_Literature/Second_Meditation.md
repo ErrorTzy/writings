@@ -1,4 +1,6 @@
-# The nature of human mind, and how it is better known than the body
+# Second Meditation
+
+*The nature of human mind, and how it is better known than the body*
 
 methodology: find one thing that is certain and unshakeable, like Archimedes
 
@@ -32,7 +34,7 @@ I cannot use imagination because imagining is to contemplate the shape or image 
 
 > But I can imagine 1+1=3. It seems to be a language issue.
 
-### Identity arguement
+### Identity argument
 
 I thinks myself
 
@@ -44,10 +46,40 @@ give it completely free rein, and then tighten the reins
 
 ### Wax Argument
 
-The sesnory data of wax completely changed when it is melt, yet we still think the same wax remains
+The sensory data of wax completely changed when it is melt, yet we still think the same wax remains
 
-what the max remains is its extensibility and changibility. However, extensibility and changibility is not from my imagination because I cannot imagine infinite things, while extensibility and changibility are infinite.
+what the max remains is its extensibility and changeability. However, extensibility and changeability is not from my imagination because I cannot imagine infinite things, while extensibility and changeability are infinite.
 
 distinctiveness does not come from my senses, but my judgement
 
 Therefore it is once again clear that I exists because I judge.
+
+
+# Sixth Meditation
+
+*The existence of material things, and the real distinction between mind and body
+
+Material things can be preceived distinctly
+
+Whatever can be preceived distinctly are the subject matter of pure mathematics
+
+Subject matter of pure mathematics are capable of existing
+
+
+Imagination also suggests that material things exists
+
+imagination is the application of the cognitive faculty to a body
+
+
+**imagination vs. understanding**
+
+if I imagine a triangle, I will not only undertand it as a figure bounded by three lines, but also see the three lines with my mind's eyes. Yet if I imagine a chiliagon, I can understand that it consists 1000 sides but I cannot see the 1000 sides.
+
+
+investigation on sensory perception
+
+what I previously took to be preceived by senses and reckoned to be true and the reason for thinking this
+
+reasons for calling doubts on this:
+
+what should I now believe about them:
