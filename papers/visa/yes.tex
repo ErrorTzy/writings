@@ -1,0 +1,46 @@
+\documentclass[12pt]{article}
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{graphicx}
+\usepackage{xcolor} % For color definition
+\usepackage{titlesec} % For customizing titles
+\usepackage{tikz} % For drawing lines and other shapes
+
+\setmainfont{Times New Roman} % More formal font choice
+
+
+% Custom title format
+\titleformat*{\section}{\LARGE\bfseries\color{black}}
+
+\begin{document}
+\pagestyle{empty} % No page numbers
+
+% Header
+\begin{center}
+    \vspace*{1cm} % Adjust space from the top
+    \Huge{\textbf{CERTIFICATION}}
+    \vspace{1cm} % Space after the title
+    \tikz \draw [thick] (0,0) -- (\linewidth,0); % Decorative line
+    \vspace{2cm} % Space before the body
+\end{center}
+
+% Main body content
+\noindent \large To Whom It May Concern,
+
+\vspace{1em}
+
+\noindent This is to certify that \textbf{Mr. Zongyuan Tang} interns at our company as a \textbf{part-time teaching assistant} since November 20, 2023, with a regular attendance of at least three days per week. He is paid 150¥ per day for his work.
+
+\vspace{1em}
+
+\noindent This certificate is being issued on the 14th day of March, 2024, upon the request of the above person for whatever legal purpose it may serve.
+
+\vspace{8em} % Adjust space before the signature section
+
+% Signature section
+\begin{flushright}
+    \Large{\textbf{Mi Sun}}\\
+    \normalsize{Executive Director}
+\end{flushright}
+
+\end{document}
