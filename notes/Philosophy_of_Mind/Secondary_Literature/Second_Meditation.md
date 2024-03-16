@@ -16,7 +16,7 @@ No. What is rationality and what is an animal?
 
 ### Body, the mechanical structure
 
-definition of body: whatever has a determinatble shape and a definable location and can occupy a space in such a way as to exclude other body
+definition of body: whatever has a determinable shape and a definable location and can occupy a space in such a way as to exclude other body
 
 No. If there is a malicious deceiver, then it is possible that I do not have a body
 
@@ -59,9 +59,9 @@ Therefore it is once again clear that I exists because I judge.
 
 *The existence of material things, and the real distinction between mind and body
 
-Material things can be preceived distinctly
+Material things can be perceived distinctly
 
-Whatever can be preceived distinctly are the subject matter of pure mathematics
+Whatever can be perceived distinctly are the subject matter of pure mathematics
 
 Subject matter of pure mathematics are capable of existing
 
@@ -73,13 +73,14 @@ imagination is the application of the cognitive faculty to a body
 
 **imagination vs. understanding**
 
-if I imagine a triangle, I will not only undertand it as a figure bounded by three lines, but also see the three lines with my mind's eyes. Yet if I imagine a chiliagon, I can understand that it consists 1000 sides but I cannot see the 1000 sides.
+if I imagine a triangle, I will not only understand it as a figure bounded by three lines, but also see the three lines with my mind's eyes. Yet if I imagine a chiliagon, I can understand that it consists 1000 sides but I cannot see the 1000 sides.
 
 
 investigation on sensory perception
 
-what I previously took to be preceived by senses and reckoned to be true and the reason for thinking this
+what I previously took to be perceived by senses and reckoned to be true and the reason for thinking this
 
 reasons for calling doubts on this:
 
 what should I now believe about them:
+
