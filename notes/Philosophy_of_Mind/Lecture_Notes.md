@@ -95,3 +95,7 @@ other dualism:
 What is "the mental stuff"? What is "thinking"? Is it a faculty? Is it a process? Can thinking -> mental substance?
 
 Does physical object has to have extension?s
+
+
+> 李麒麟：自恰，且正确描述世界
+> 什么是“正确描述世界”？
