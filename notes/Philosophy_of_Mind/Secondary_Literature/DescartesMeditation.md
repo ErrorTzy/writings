@@ -64,7 +64,7 @@ Therefore it is once again clear that I exists because I judge.
 2. Whatever can be perceived distinctly are the subject matter of pure mathematics
 3. Subject matter of pure mathematics are capable of existing
 
-Therefore, Matertial things are capable of exisiting
+Therefore, Material things are capable of existing
 
 ## 2.2. Argument From imagination
 
@@ -76,11 +76,11 @@ if I imagine a triangle, I will not only understand it as a figure bounded by th
 
 ## 2.3. Investigation on Sensory Perception
 
-I preceive more distinctly by sensory perception than imagination. therefore I need to investigate senory perception.
+I perceive more distinctly by sensory perception than imagination. therefore I need to investigate senory perception.
 
 ### 2.3.1. What I previously took to be perceived by senses and reckoned to be true and the reason for thinking this
 
-#### 2.3.1.1. Body and sesory data are not in me
+#### 2.3.1.1. Body and sensory data are not in me
 
 I perceive:
 
@@ -101,7 +101,7 @@ However this seems to be how it is, taught by nature.
 
 ### 2.3.2. Reasons for calling doubts on this:
 
-**Argument from Misktakes:** Sometimes the judges from external senses AND internal senses (feelings about amputated limbs) are mistaken
+**Argument from Mistakes:** Sometimes the judges from external senses AND internal senses (feelings about amputated limbs) are mistaken
 
 **Argument from Dream:** I also perceive in dream
 
