@@ -17,4 +17,13 @@ Descartes ad his Meditations on First Philosophy:
 6. Sixth Meditation: The existence of material things, and the real distinction between mind and body
 
 core concept: "certainty“. What is this?
-"certainty" is a state of mind, not a property of thing
+"certainty" is a (subjective) state of mind, not an objective property
+It is possible that the possibility of an event is 100%, but one still not certain about this event.
+
+belief are sometimes mistaken -> examine belief -> a systematic method is needed
+
+normal skepticism: sometimes we make illusions
+extreme skepticism: evil demon, tricking us to believe that 1+1=3
+Whatever can stay intact in the "evil demon" scenario can be a solid foundation that is free from doubt
+
+## Second meditation
