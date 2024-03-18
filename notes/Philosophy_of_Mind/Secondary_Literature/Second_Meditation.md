@@ -148,13 +148,31 @@ Not from nature but from ill judgement:
 - Heat (a property) in a body is the same as the idea of heat (that property) in me
 
 
+## 2.4. Meaning of nature
+
 The meaning of "nature taught me that...": the knowledge regarding both mind and nature.
 
 Nature does not teach me to have distinct and right judgment about external world, i.e. the size of the star is only the size of dust.
 Nature only teaches me to distinguish the beneficial from the harmful
 
-
 Problems: People may be tricked into eating poisonous but tasty food
 Defense: People are drawn by sweetness, not by the poison
+Problems: But the ill desire food or drink that afterwards turn out to be bad for them
+Analysis: a malfunctioning clock still obeys the law of nature, just like a sick patient desire food or drink that are actually harmful
+Problems for the analysis: the "nature" is not within a human body, but merely extraneous
+
+> "the extraneous nature" is telos
 
 
+Reply: Lets' consider the interior nature `where mind conflicts the body`, and why God does not prevent us:
+
+Mind is single and complete; Body is divisible. Therefore, they are different
+
+Different events may trigger the same sensation
+
+The best devicable system is that the sensation helps the preservation of a healthy man `what is this line of reasoning for?`
+
+Therefore, man are bond to be misled
+
+
+Although man can be misled, but with sense, memory and intellect, we can judge without error.
