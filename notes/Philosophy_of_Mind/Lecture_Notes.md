@@ -99,3 +99,4 @@ Does physical object has to have extension?s
 
 > 李麒麟：自恰，且正确描述世界
 > 什么是“正确描述世界”？
+> 不要被老师带偏，批判性阅读老师
