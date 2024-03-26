@@ -51,3 +51,51 @@ Response:
 
 # Institutional Views:
 
+## New Natural Law
+
+### Marriage as procreation
+
+the good (purpose) of marriage is reproduction and fides
+
+#### Problems
+
+**inconsistencies**
+
+if law is to forbid "bad marriage" for the sake of human goods, then it should also forbid things like eating healthily
+
+**counterexamples for common dogma**
+
+non-marital sex, i.e. masturbation or contracepted sex can be good
+
+**why is infertile marriage permitted?**
+
+"type theory", but not convincing at all
+
+**problem with standard definition**
+
+standard definition: marriage is the union of life, mind, body, etc.
+problem: why is bodily union is so important?
+
+### Alternative: Goldstein's theory
+
+## Marriage as Protecting Love
+
+the purpose of marriage is to protect sexual love relationship
+leads to obligations that protects love and excludes incompatible options
+
+### Problems:
+
+**Controversial principles**
+
+some argues that extra-marital or polyamory is advantageous to marriage
+
+**Do we really need marriage for love?**
+
+because if a couple is in love, they do not need marriage to have love; if a couple is not in love, they are trapped in a loveless marriage
+
+**Marriage cannot protect love since divorce is possible**
+
+
+
+
+
