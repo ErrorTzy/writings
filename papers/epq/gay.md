@@ -1,10 +1,54 @@
-1. Why marriage is not between husband and wife, but between couple and the government? "清官难断家务事"
-2. why marriage should be restricted to unions between men and women
+# Definition
+
+**western history:**
+- historically an economic and political unit
+- love revolution in 18th centry 
+- consent is agreed, but child marriage challenges it (arranged marriage is compatible with consent)
+
+**worldwide**
+- multiple forms, including same-sex, polygamy, "common law" marriage, restriction on incest, civil marriage, ...
+
+Some argued that marriage has no essential purpose or structure, but being only a "family resemblance" concept
+
+> even if there is no essential feature of the marriage in practice, it does not follow that we cannot recognize marriage by law. 
+> First, law can be related to nomos. Second, law can create its own concepts like "rights" and grant it to the people it permits.
+> This approach mistakes the question "what marriage should be" with "what marriage is"
+
+We should not appeal to actual legal or social definitions because
+
+1. past applications of a term is neither a necessary nor a sufficient criteria
+2. sometimes circular, i.e. defining marriage as spouse and defining spouse as marriage
+3. begs the question (?)
+
+# Historical Development
+
+## Political and Economical Unit
+
+**Plato**: "communitarian marriage"
+**Aristotle**: natural procreative union of male and female; male's virtue in commanding, female's virtue in obeying
 
 
-# Contractual Views:
+## Permitting Sex
 
-## Features:
+**Augustine**: Procreation is the purpose of marriage, and sex for procreation is not sinful; protect against temptation and keep fidelity
+**Aquinas**: Marriage is good for child rearing; sex is a loss of reason thus bad, but it is compensated by the goods; fidelity and partnership of a common life
+
+> Why need marriage for procreation/child-rearing?
+
+## Attack on Economic Unit & Love:
+
+**Heloise**: it is not an economic transaction since it is not "prostitute herself to a rich man"; instead it is based on love and friendship
+**Kierkegaard**: This creates a tension: is marriage the cage of erotic/romantic love, or enables spousal love
+
+> This is slightly different from what Aristotle argued
+
+# Ethical Views of Marriage
+
+# Political Understandings of Marriage Law
+
+## 1. Contractual Views:
+
+### 1.1. Features:
 
 1. obligations only from promise
 2. morally arbitrary, diverse
@@ -13,7 +57,7 @@ normal account: social and legal practice as default, but spouses can release on
 E.g. **Fidelity** is a default obligation, but spouses can free each other from this.
 
 
-## Problems:
+### 1.2. Problems:
 
 **unilateral divorce**:
 if marriage entails the promise to stay married, then unilateral divorce seems problematic
@@ -30,7 +74,7 @@ The former option seems counterintuitive, but the second answer will run into an
 
 > implying the third option?
 
-## Objections:
+### 1.3. Objections:
 
 **Is any arbitrary contract a marriage contract?**
 
@@ -49,15 +93,15 @@ Response:
 1. even if filial duties are not voluntary, spousal duties can be voluntary
 2. voluntarism does not entail contractual views. Contractual view emphasize on the subjectivity of the agreement, while voluntarism emphasize on the fact that everything must be voluntary. It is possible for voluntarist marriage subject to institutional view.
 
-# Institutional Views:
+## 2. Institutional Views:
 
-## New Natural Law
+### 2.1. New Natural Law
 
-### Marriage as procreation
+#### 2.1.1. Marriage as procreation
 
 the good (purpose) of marriage is reproduction and fides
 
-#### Problems
+##### 2.1.1.1. Problems
 
 **inconsistencies**
 
@@ -76,14 +120,15 @@ non-marital sex, i.e. masturbation or contracepted sex can be good
 standard definition: marriage is the union of life, mind, body, etc.
 problem: why is bodily union is so important?
 
-### Alternative: Goldstein's theory
+#### 2.1.2. Alternative: Goldstein's theory
 
-## Marriage as Protecting Love
+
+### 2.2. Marriage as Protecting Love
 
 the purpose of marriage is to protect sexual love relationship
 leads to obligations that protects love and excludes incompatible options
 
-### Problems:
+#### 2.2.1. Problems:
 
 **Controversial principles**
 
@@ -93,9 +138,24 @@ some argues that extra-marital or polyamory is advantageous to marriage
 
 because if a couple is in love, they do not need marriage to have love; if a couple is not in love, they are trapped in a loveless marriage
 
-**Marriage cannot protect love since divorce is possible**
+**marriage cannot protect love since divorce is possible**
+
+### 2.3. Marriage as virtue fosterer
+
+Understood as Ulysses contract
 
 
+## 3. The politics of Marriage 
 
+anomaly of marriage
+1. according to the contractual view, there should have been no law for marriage
+2. the state interferes personal decision：
+   1. it brings special privileges for marriage
+   2. there are restrictions on entry or exit
+   3. the content of obligations are fixed
+3. Therefore, the anomaly needs to be explained
 
+relationship between marriage and legal rights:
+1. freedom of contract is compatible with exploitation and oppression
+2. rights should not be the marriage itself but a protection when the affection fails
 
