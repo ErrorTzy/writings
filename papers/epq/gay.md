@@ -26,20 +26,20 @@ We should not appeal to actual legal or social definitions because
 
 ## 2.1. Political and Economical Unit
 
-**Plato**: "communitarian marriage"
-**Aristotle**: natural procreative union of male and female; male's virtue in commanding, female's virtue in obeying
+**Plato:** "communitarian marriage"
+**Aristotle:** natural procreative union of male and female; male's virtue in commanding, female's virtue in obeying
 
 ## 2.2. Permitting Sex　
 
-**Augustine**: Procreation is the purpose of marriage, and sex for procreation is not sinful; protect against temptation and keep fidelity
-**Aquinas**: Marriage is good for child rearing; sex is a loss of reason thus bad, but it is compensated by the goods; fidelity and partnership of a common life
+**Augustine:** Procreation is the purpose of marriage, and sex for procreation is not sinful; protect against temptation and keep fidelity
+**Aquinas:** Marriage is good for child rearing; sex is a loss of reason thus bad, but it is compensated by the goods; fidelity and partnership of a common life
 
 > Why need marriage for procreation/child-rearing?
 
 ## 2.3. Love:
 
-**Heloise**: it is not an economic transaction since it is not "prostitute herself to a rich man"; instead it is based on love and friendship
-**Kierkegaard**: This creates a tension: is marriage the cage of erotic/romantic love, or enables spousal love
+**Heloise:** it is not an economic transaction since it is not "prostitute herself to a rich man"; instead it is based on love and friendship
+**Kierkegaard:** This creates a tension: is marriage the cage of erotic/romantic love, or enables spousal love
 
 > This is slightly different from what Aristotle argued
 
@@ -48,25 +48,25 @@ Early Modern: doctrine of equal rights and contract
 
 ## 2.4. Contracts:
 
-**Hobbes**: Men's power is not always superior than women, but normally men prevail
-**Locke**: Rest on consent, is a voluntary compact; the rule naturally falls into man's hand (attack from Mary Astell)
-**Rousseau**: different virtue for man and woman (attack from Wollstonecraft)
+**Hobbes:** Men's power is not always superior than women, but normally men prevail
+**Locke:** Rest on consent, is a voluntary compact; the rule naturally falls into man's hand (attack from Mary Astell)
+**Rousseau:** different virtue for man and woman (attack from Wollstonecraft)
 
 Raises question: why marital obligation is fixed?
 
 ## 2.5. Normative Principles
 
-**Kant**: sex is treating other human beings as means, but the agreement of marriage make this process reciprocal and thus restores the personality
+**Kant:** sex is treating other human beings as means, but the agreement of marriage make this process reciprocal and thus restores the personality
 Kant's arguments were reconstructed by feminists and defenders of same-sex marriage
-**Hegel**: criticize Kant, love is not contractual, but based on ethical love; give up natural and individual personality within this union
+**Hegel:** criticize Kant, love is not contractual, but based on ethical love; give up natural and individual personality within this union
 
 > It seems that Hegel does not need a child?
 
 ## 2.6. Feminism and Marxism
 
-**Mill**: marriage `empirically` is the slavery of woman; woman do not have choice other than marriage. Ideal marriage should have equal relationship and this equality would be a school of justice for children.
-**Engels**: monogamy is the defeat of woman, the victory of private property over natural communal property
-**Marx**: abolishing family will liberate women
+**Mill:** marriage `empirically` is the slavery of woman; woman do not have choice other than marriage. Ideal marriage should have equal relationship and this equality would be a school of justice for children.
+**Engels:** monogamy is the defeat of woman, the victory of private property over natural communal property
+**Marx:** abolishing family will liberate women
 
 # 3. Ethical Views of Marriage
 
@@ -186,17 +186,38 @@ relationship between marriage and legal rights:
 
 ## 4.2. The Rationale of Marriage Law
 
-- Why is there such thing as marriage?
+1. Why is there such thing as marriage?
    - the monogamous heterosexual family is a natural structure
-     - **REF**: irrelevant for legislation because law need not to follow nature, since nature may be oppressive
+     - **REF:** irrelevant for legislation because law need not to follow nature, since nature may be oppressive
    - marriage protects/guides a valuable life
-     - **REF**: Why it is valuable at all?
+     - **REF A:** Why it is valuable at all?
        - it is a time enduring tradition, thus it has proven its value
-         - **REF**: tradition can have negative components, i.e. rape exemptions, and in a diverse society, there can be multiple traditions that incompatible with each other.
+         - **REF:** tradition can have negative components, i.e. rape exemptions, and in a diverse society, there can be multiple traditions that incompatible with each other.
        - a monogamous marriage encourages sexual self-control needed for health and happiness; goods of love and intimacy, etc
-     - **REF**: The state should not interfere way of life but instead should stay neutral.
+     - **REF B:** The state should not interfere way of life but instead should stay neutral.
        - even if with this neutrality of way of life, marriage protects autonomy, relationship and children
-         - **REF**: marriage may not do benefit to children; what should be used for addressing children issue should not be marriage but other programs
-       - marriage makes better citizens because children empirically speaking has better psychological and economical status
-         - 
+         - **REF:** marriage may not do benefit to children; what should be used for addressing children issue should not be marriage but other programs or plans
+       - marriage makes better citizens because children empirically speaking has better psychological and economical status; if economics leads to inequality, then Mill's "school of injustice" applies
+
 > What exactly does "should not affect way of life" mean?
+
+2. Why is there such thing as divorce law?
+  - helps gender equality because children and women are more vulnerable after divorce
+
+The two rationales are weakened by the `empirical` social role of marriage. 
+
+## 4.3. Same-Sex Marriage
+
+if the function of marriage is the legal recognition of loving, then the exclusion of same-sex marriage seems arbitrary
+
+1. you can have civil union along side marriage
+   - **REF:** marriage has privilege over civil unions; it is oppressing gay and les by making them "second-class citizens"
+
+2. by definition, marriage is of different sex
+   - **REF:** what marriage should be, not what marriage has been
+
+3. appeal to purpose: the purpose of marriage is reproduction 
+   - **REF:** why not forbid infertile couple
+
+the purpose of marriage is not necessarily child rearing, but a committed relationship
+
