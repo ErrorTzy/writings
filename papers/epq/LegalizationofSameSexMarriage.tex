@@ -1,0 +1,84 @@
+\documentclass{article}
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{pgfplots}
+\usepackage{filecontents}
+
+\usepackage[style=apa,backend=biber,doi=false,isbn=false,url=false,eprint=false]{biblatex}
+\DeclareLanguageMapping{english}{american-apa}
+\addbibresource{/home/scott/Desktop/WorkingFiles/VSCode/writings/.resources/biblatex.bib}
+
+
+\title{Legalization of Same-Sex Marriage}
+\author{Some author}
+
+\begin{filecontents}{data.csv}
+Year,CumulativeCount
+2001,1
+2003,2
+2005,4
+2006,5
+2008,6
+2009,7
+2010,10
+2012,11
+2013,15
+2014,17
+2015,22
+2016,23
+2017,26
+2019,28
+2020,30
+2021,31
+2022,32
+\end{filecontents}
+\pgfplotsset{width=10cm,compat=1.17}
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+\section{Introduction}
+In 1973, Kant wrote an essay to reject a common saying: ``That may be correct in theory, but it is of no use in practice''.~\autocite{kantCommonSayingThat2009} But here we are going to discuss a problem in the reversed order --- Something may be useful in practice, but is it correct in theory? 
+
+Same-sex marriage has been a trend in recent years, as shown in figure~\ref{Cumu}. Up to 2022, 32 countries has allowed the marriage of gay and les. Especially, according to the International Monetary Fund (IMF), 41 countries and territories are listed as ``advanced economies'', in which 21, that is more than a half, has legalized same-sex marriage within 20 years. If we believe these developed countries are the future of most countries, we can say that, practically speaking, same-sex marriage is likely to be a trend in the future.
+
+Indeed, at the first glance, there seems no problem with this trend. If the function of marriage is the legal recognition of loving, then the exclusion of same-sex marriage seems arbitrary. No one seems to get hurt while the minorities are benefited. What a good deal! However, if we look closer, the problem we suggest rises. There are several counterarguments against same-sex marriage. In this paper, I will argue that 
+
+\section{Arguments against same-sex marriage}
+
+
+
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+    \begin{axis}[
+        xlabel={Year},
+        ylabel={Cumulative Number of Countries},
+        xmin=2000, xmax=2023,
+        ymin=0, ymax=35,
+        xtick={2000, 2005, 2010, 2015, 2020},
+        ytick={0, 5, 10, 15, 20, 25, 30, 35},
+        legend pos=north west,
+        ymajorgrids=true,
+        grid style=dashed,
+    ]
+    
+    \addplot[
+        color=blue,
+        mark=square,
+        ]
+        table[x=Year, y=CumulativeCount, col sep=comma] {data.csv};
+        
+    \end{axis}
+\end{tikzpicture}
+    
+\caption{Cumulative Number of Countries Legalizing Same-Sex Marriage From 2000 to 2022~\autocite{perper32CountriesWorld2022}}
+\label{Cumu}
+\end{figure}
+
+
+\printbibliography{}
+\end{document}
