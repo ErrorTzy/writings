@@ -221,3 +221,16 @@ if the function of marriage is the legal recognition of loving, then the exclusi
 
 the purpose of marriage is not necessarily child rearing, but a committed relationship
 
+4. argument from child: children is harmed by same sex marriage
+   - **REF:** studies did not show this
+
+5. argument from slippery slope
+   - **REF:** has no principled reason to oppose legally recognizing polygamy
+     - **RES 1:** polygamy has harmful effects and unequal status for women for male-headed polygamy
+     - **RES 2:** there is no problem with polygamy. liberal state should recognize a diversity of marital relationships including polygamy
+
+6. argument from sex: it forces citizens to accept same-sex sex
+   - **REF:** This would also lead to the ban of mixed-race marriage
+
+## 4.4 Arguments for marriage reform
+
