@@ -36,48 +36,72 @@ Year,CumulativeCount
 \pgfplotsset{width=10cm,compat=1.17}
 \begin{document}
 \maketitle
-
+\newpage
 \tableofcontents
-
+\newpage
 \section{Introduction}
 In 1973, Kant wrote an essay to reject a common saying: ``That may be correct in theory, but it is of no use in practice''.~\autocite{kantCommonSayingThat2009} But here we are going to discuss a problem in the reversed order --- Something may be useful in practice, but is it correct in theory? 
 
 Same-sex marriage has been a trend in recent years, as shown in figure~\ref{Cumu}. Up to 2022, 32 countries has allowed the marriage of gay and les. Especially, according to the International Monetary Fund (IMF), 41 countries and territories are listed as ``advanced economies'', in which 21, that is more than a half, has legalized same-sex marriage within 20 years. If we believe these developed countries are the future of most countries, we can say that, practically speaking, same-sex marriage is likely to be a trend in the future.
 
-Indeed, at the first glance, there seems no problem with this trend. If the function of marriage is the legal recognition of loving, then the exclusion of same-sex marriage seems arbitrary. No one seems to get hurt while the minorities are benefited. What a good deal! However, if we look closer, the problem we suggest rises. There are several counterarguments against same-sex marriage. In this paper, I will argue that 
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            xlabel={Year},
+            ylabel={Cumulative Number of Countries},
+            xmin=2000, xmax=2023,
+            ymin=0, ymax=35,
+            xtick={2000, 2005, 2010, 2015, 2020},
+            ytick={0, 5, 10, 15, 20, 25, 30, 35},
+            legend pos=north west,
+            ymajorgrids=true,
+            grid style=dashed,
+        ]
+        
+        \addplot[
+            color=blue,
+            mark=square,
+            ]
+            table[x=Year, y=CumulativeCount, col sep=comma] {data.csv};
+            
+        \end{axis}
+    \end{tikzpicture}
+        
+    \caption{Cumulative Number of Countries Legalizing Same-Sex Marriage From 2000 to 2022~\autocite{perper32CountriesWorld2022}}
+    \label{Cumu}
+    \end{figure}
+    
+
+Indeed, at the first glance, there seems no problem with this trend. If the function of marriage is the legal recognition of loving, then the exclusion of same-sex marriage seems arbitrary. No one seems to get hurt while the minorities are benefited. What a good deal! However, if we look closer, the problem we suggest rises. There are several counterarguments against same-sex marriage. In this paper, I will argue that ...
 
 \section{Arguments against same-sex marriage}
 
+According to \textcite{brakeMarriageDomesticPartnership2023}, same-sex marriage faces multiple challenges. In this section, I will ...
+
+\subsection{Argument from alternative}
+
+In the countries that do not promit same-sem marriage, for instance mainland China, sexual minorities can have the same rights as those who are married by signing a civil agreement. Countries like Italy has also passed the legal status of civil union.\autocite{povoledoItalyApprovesSameSex2016} Then why bother modifying marriage? 
+
+It is for two reasons. First, it pragmatically saves trouble and is much easier to keep refining the definition of marriage itself than introducing an altogether new type of legal union. In most legal frameworks and policies, reference is made exclusively to marriage. Consider, for example, the case of a person lying incapacitated and facing major surgery. Normally, a hospital would accept only the closest relations or a spouse as the decision makers for that patient. Changing the definition of marriage would only leave existing laws in place, hence not require enormous changes in the legal code. Otherwise, where a new category of a relationship is to be put in place, then there would be a need for major amendments across many laws, as this only recognizes marriage as the form of the relationship. Thus, from a practical standpoint, amending the notion of marriage is a more efficient approach. 
+
+Second, it is theoretically implausible. If marriage and civil union are exactly the same, despite the former one is heterosexual and the latter homosexual, and since we don't separate marriages by other factors, like race or class, why do so based on gender? Some may reply that, by definition, marriage means the heterosexual form. However, as we will see in the next section, it is implausible to say so. 
+
+In addition, such distinction will lead to inequality. Logically speaking, distinguishing one thing from another does not necessarily follow that they are unequal. For instance, red is different from green, but they are equally colors. But how the government symbolically recognizes them indeed could affect how people look at them. As \textcite{mohrLongArcJustice2007} argues, reserving the term ``marriage'' only for heterosexuals while offering ``civil unions'' to same-sex couples serves to degrade gay men and lesbians by denying them access to an important social form that marks membership in full humanity. The reasoning is that marriage as a social form and ritual has profound cultural and symbolic significance beyond just the legal aspects. \Citeauthor{mohrLongArcJustice2007} believe that being denied access to ``marriage'' implies that same-sex relationships are inferior or less worthy. I do not think this argument can go this far. Nevertheless, providing an alternative 
+
+
+\subsection{Argument from definition}
 
 
 
-\begin{figure}[H]
-\centering
-\begin{tikzpicture}
-    \begin{axis}[
-        xlabel={Year},
-        ylabel={Cumulative Number of Countries},
-        xmin=2000, xmax=2023,
-        ymin=0, ymax=35,
-        xtick={2000, 2005, 2010, 2015, 2020},
-        ytick={0, 5, 10, 15, 20, 25, 30, 35},
-        legend pos=north west,
-        ymajorgrids=true,
-        grid style=dashed,
-    ]
-    
-    \addplot[
-        color=blue,
-        mark=square,
-        ]
-        table[x=Year, y=CumulativeCount, col sep=comma] {data.csv};
-        
-    \end{axis}
-\end{tikzpicture}
-    
-\caption{Cumulative Number of Countries Legalizing Same-Sex Marriage From 2000 to 2022~\autocite{perper32CountriesWorld2022}}
-\label{Cumu}
-\end{figure}
+\subsection{Argument from reproduction}
+
+\subsection{Argument from child-rearing}
+
+\subsection{Argument from political neutrality}
+
+\subsection{Argument from slippery slope}
 
 
 \printbibliography{}
