@@ -21,5 +21,6 @@ The extreme version of logical behaviorism does not hold, but the weaker version
 
 # Why logical behaviorism is wrong
 
-we can point out a standard red thing, but one cannot point to a standard pain (except pointing to behavior)
+we can point out a standard red thing, but one cannot point to a standard pain (except pointing to behavior); therefore the meaning of the word 'pain' is not the same as "what I know in my own case"
 
+'pain' is a cluster concept; there are many ways to say what a pain is. `?why it is a cluster concept?`; but is it not a cluster of phenomena 
