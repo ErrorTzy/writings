@@ -58,3 +58,4 @@ Traditional dualists (`parallelists?`) would even question if there is such caus
 
 Argument from logical behaviorism: identical not causal because sincere act entails mind events; Therefore they are identical
 Refutation: Cannot define sincerity with pure behavior; They are not identical. It is only a matter of definition (that the definition is subjective) that makes one know his mind events. After knowing the event, one can have sincere behavior, or not. The process of knowing pain and behave are two detached process without being identical.
+
