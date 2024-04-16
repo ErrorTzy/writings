@@ -1,53 +1,24 @@
 \documentclass{article}
 \usepackage{pgfplots}
-\usepackage{filecontents}
-
-\begin{filecontents}{data.csv}
-Year,CumulativeCount
-2001,1
-2003,2
-2005,4
-2006,5
-2008,6
-2009,7
-2010,10
-2012,11
-2013,15
-2014,17
-2015,22
-2016,23
-2017,26
-2019,28
-2020,30
-2021,31
-2022,32
-\end{filecontents}
-
-\pgfplotsset{width=10cm,compat=1.17}
+\pgfplotsset{compat=1.18}
 
 \begin{document}
-
 \begin{tikzpicture}
 \begin{axis}[
-    title={Cumulative Number of Countries Legalizing Same-Sex Marriage Over Time},
-    xlabel={Year},
-    ylabel={Cumulative Number of Countries},
-    xmin=2000, xmax=2023,
-    ymin=0, ymax=35,
-    xtick={2000, 2005, 2010, 2015, 2020},
-    ytick={0, 5, 10, 15, 20, 25, 30, 35},
-    legend pos=north west,
-    ymajorgrids=true,
-    grid style=dashed,
+    ybar,
+    bar width=20pt,
+    xlabel={Music Type},
+    ylabel={Scoring Percentage},
+    x tick label style={rotate=45, anchor=east},
+    ymin=0,
+    ymax=100,
+    xtick=data,
+    xticklabels={No music, Lento music, moderato songs, Presto songs},
+    nodes near coords,
+    every node near coord/.append style={font=\small, rotate=90, anchor=west},
+    nodes near coords align={vertical},
 ]
-
-\addplot[
-    color=blue,
-    mark=square,
-    ]
-    table[x=Year, y=CumulativeCount, col sep=comma] {data.csv};
-    
+\addplot coordinates {(1, 31.82) (2, 31.82) (3, 65.38) (4, 52.0)};
 \end{axis}
 \end{tikzpicture}
-
 \end{document}

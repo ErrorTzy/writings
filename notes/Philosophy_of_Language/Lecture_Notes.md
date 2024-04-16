@@ -1,7 +1,16 @@
-# What is analytic philosophy?
+# Introduction
+
+## 课程线索
+指称问题：reference/reference
+意义的决定要素：内在/外在注意
+语用/语义之间的关联
+
+
+## What is analytic philosophy?
 
 Historical perplexities: 200 years ago? Frege? post-WWII?
-too complicated to define.
+Preston 2010, 2017: "an interpretive history","illusion of unity"
+
 the mostly accepted way:
 
 1. defined by philosophers
@@ -10,7 +19,16 @@ the mostly accepted way:
 
 starting from common sense, clarifying terms, doing thought experiments…
 
-# The main themes f the studies in this course
+## Philosophy of langauge in analytic tradition
+
+早期分析哲学家：语言哲学的目的是为了解决别的问题（居中性地位）
+e.g. 罗素取消梅农主义；
+
+转折：晚期维特根斯坦，日常语言学派：不那么理想化
+
+kripke：知识论（先天后天）/形而上（必然偶然）/语言（分析综合）的区分
+语言本身，应用现象突显
+
 
 ## What is language
 
@@ -27,8 +45,8 @@ A language is a system of *symbols* (grammar), which *competent* speakers/users 
 
 ### theoretical philsosophy of language
 
-- Meaning/semantics
-- linguistics/pragmatics
+- Meaning/semantics 
+- linguistics/pragmatics 
 - linguistic forces/performances (to do things with words)
 - normativity and rules (Witgenstein)
 
@@ -37,7 +55,8 @@ A language is a system of *symbols* (grammar), which *competent* speakers/users 
 - on ideology and propoganda
 - on bullshit
 
-Various "triangle" in philosophy
+## Various "triangle" in philosophy
+
 language -- speakers -- world Blackburn(1984), p1
 
 - language -- speakers: theory of meaning
