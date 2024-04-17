@@ -1,14 +1,14 @@
 \documentclass{article}
-
+\usepackage{graphicx}
+\usepackage{float}
 \usepackage{todonotes}
 
 \usepackage[style=apa,backend=biber,doi=false,isbn=false,url=false,eprint=false]{biblatex}
 \DeclareLanguageMapping{english}{american-apa}
 \addbibresource{../../.resources/biblatex.bib}
-
+\usepackage{pgfplots}
 \usepackage{xeCJK}
 \usepackage{booktabs}
-
 \title{The genes and outer stimulation that can affect the performance of basketball}
 \author{Some Author}
 
@@ -96,17 +96,58 @@ There's a five-minute break between each competition. The experimenter will guid
 Each video is recorded for 10-minutes. After recording the video, the experimenter will review it and finish the behavior categories.
 
 \begin{table}[h]
-    \centering
-    \begin{tabular}{@{}lllll@{}}
+\centering
+    \begin{tabular}{@{}llllll@{}}
         \toprule
-        Music & Player & Shooting & Goal & Stealing \\
+	Music type & Name & Shot & Goal & Percentage & Missing\\
         \midrule
-        XXX & XXX & 0 & 0 & 0 \\
-            & XXX & 0 & 0 & 0 \\
+        No music & B & 1 & 0 & 0\% & 3 \\
+                 & W & 3 & 1 & 33\% & 2 \\
+                 & T & 0 & 0 & 0\% & 0 \\
+                 & H & 2 & 0 & 0\% & 0 \\
+                 & M & 2 & 1 & 50\% & 1 \\
+                 & P & 4 & 1 & 25\% & 3 \\
+                 & K & 1 & 0 & 0\% & 3 \\
+                 & J & 0 & 0 & 0\% & 0 \\
+                 & X & 5 & 1 & 20\% & 0 \\
+                 & A & 4 & 3 & 75\% & 2 \\
+        \midrule
+        Lento music & B & 1 & 1 & 100\% & 3 \\
+                    & W & 3 & 2 & 67\% & 0 \\
+                    & T & 0 & 0 & 0\% & 0 \\
+                    & H & 5 & 1 & 20\% & 1 \\
+                    & M & 3 & 1 & 33\% & 1 \\
+                    & P & 3 & 1 & 33\% & 0 \\
+                    & K & 0 & 0 & 0\% & 0 \\
+                    & J & 0 & 0 & 0\% & 3 \\
+                    & X & 6 & 1 & 17\% & 0 \\
+                    & A & 1 & 0 & 0\% & 0 \\
+        \midrule
+        Moderato songs & B & 3 & 2 & 67\% & 0 \\
+                       & W & 3 & 3 & 100\% & 0 \\
+                       & T & 0 & 0 & 0\% & 0 \\
+                       & H & 2 & 0 & 0\% & 0 \\
+                       & M & 5 & 2 & 40\% & 3 \\
+                       & P & 2 & 1 & 50\% & 2 \\
+                       & K & 4 & 2 & 50\% & 5 \\
+                       & J & 0 & 0 & 0\% & 1 \\
+                       & X & 4 & 4 & 100\% & 3 \\
+                       & A & 3 & 3 & 100\% & 0 \\
+        \midrule
+        Presto songs & B & 3 & 2 & 67\% & 0 \\
+                     & W & 3 & 2 & 67\% & 0 \\
+                     & T & 0 & 0 & 0\% & 0 \\
+                     & H & 3 & 1 & 33\% & 0 \\
+                     & M & 4 & 2 & 50\% & 1 \\
+                     & P & 3 & 1 & 33\% & 2 \\
+                     & K & 1 & 1 & 100\% & 2 \\
+                     & J & 0 & 0 & 0\% & 0 \\
+                     & X & 5 & 3 & 60\% & 0 \\
+                     & A & 3 & 1 & 33\% & 0 \\
         \bottomrule
     \end{tabular}
-    \caption{Some table}
-    \label{grouptable}
+    \caption{Basketball shooting statistics under different music conditions}
+    \label{basketballtable}
 \end{table}
 
 After the experiment, three players are selected randomly to have an interview. First, there will be an apology for the deception and misinformation of the experiment. The subjects were told to inform other players in the team about the experiment. Next, I will ask them whether they have expected an experiment. Then, their feeling is asked for further information.
@@ -123,8 +164,40 @@ The basketball performance is operationalized and scaled by the number of shoots
 
 \subsection{Results}
 
-The result shows that there's little change between the choosing number, however, there's a significant difference between the music with a higher tempo of music (X>98 BPM) and lower tempo of music (40-60 BPM) or no music. The goal number for Lento music is the same as the control group at 7 points. In the Moderato song, the goal number is the highest at 17 points, and in the Presto song, the number is a little smaller at 13 points. 
-There's a tendency for the goal percentage for different conditions. Most players play best during the Moderato song and Presto song. Surprisingly, three players, Student J, K, and W, all reached the goal percentage of 100\% in moderato songs. There are two players that are considered to be the outliers of the study: Student T and Student M. Student T hasn't shot or gained the goal in all four conditions so his goal percentage is always 0\%. The music seemed to have no effect on Student M as his goal percentage was almost the same in all the conditions.
+The result, as shown in table \ref{basketballtable}, shows that there's little change between the choosing number. however, there's a significant difference between the music with a higher tempo of music (X>98 BPM) and lower tempo of music (40-60 BPM) or no music. The goal number for Lento music is the same as the control group at 7 points. In the Moderato song, the goal number is the highest at 17 points, and in the Presto song, the number is a little smaller at 13 points. Figure \ref{scoring_percentage} show the average percentage for each type of song.
+
+\begin{figure}[h]
+\centering
+ \begin{tikzpicture}
+\begin{axis}[
+    ybar,
+    bar width=20pt,
+    x tick label style={rotate=45, anchor=east},
+    ymin=0,
+    ymax=100,
+    xtick=data,
+    xticklabels={No music, Lento music, moderato songs, Presto songs},
+    nodes near coords,
+    every node near coord/.append style={font=\small, rotate=90, anchor=west},
+    nodes near coords align={vertical},
+]
+\addplot coordinates {(1, 31.82) (2, 31.82) (3, 65.38) (4, 52.0)};
+\end{axis}
+\end{tikzpicture}   
+\caption{Scoring Percentage by Music Type}
+\label{scoring_percentage}
+\end{figure}
+
+
+As we can see in Figure \ref{scoreperc}, there's a tendency for the goal percentage for different conditions. Most players play best during the Moderato song and Presto song. Surprisingly, three players, Student J, K, and W, all reached the goal percentage of 100\% in moderato songs. There are two players that are considered to be the outliers of the study: Student T and Student M. Student T hasn't shot or gained the goal in all four conditions so his goal percentage is always 0\%. The music seemed to have no effect on Student M as his goal percentage was almost the same in all the conditions.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{out.png}
+\caption{Scoring Percentage by Player and Music Type}
+\label{scoreperc}
+\end{figure}
+
 Counting the missing number is an objective way to see the concentration of the players. Only one of them, student T didn't make any mistakes during the whole process, it seemed that music didn't have any effect on him. 7 of them have an increased missing number when the music is played. However, there are also two of them, Student P and Student W, decreasing the missing number when music appeared. 
 
 \section{Discussion}
