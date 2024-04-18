@@ -1,46 +1,7 @@
 \documentclass{article}
-\usepackage{pgfplots}
-\pgfplotsset{compat=1.18}
+
 
 \begin{document}
-\begin{tikzpicture}
-\begin{axis}[
-    xbar,
-    width=\textwidth,
-    height=0.8\textwidth,
-    bar width=0.2,
-    xlabel={Scoring Percentage},
-    ylabel={Player},
-    ytick=data,
-    yticklabels from table={\datatable}{Player},
-    legend pos=north east,
-    legend cell align=left,
-    y=0.5cm,
-    enlarge y limits={abs=0.5cm},
-    nodes near coords,
-    nodes near coords align={horizontal},
-    symbolic y coords={B,W,T,H,M,P,K,J,X,A},
-]
-\addplot table [x=No music, y=Player] {\datatable};
-\addplot table [x=Lento music, y=Player] {\datatable};
-\addplot table [x=moderato songs, y=Player] {\datatable};
-\addplot table [x=Presto songs, y=Player] {\datatable};
-\legend{No music, Lento music, moderato songs, Presto songs}
-\end{axis}
-\end{tikzpicture}
 
-\pgfplotstableread{
-Player No music Lento music "moderato songs" "Presto songs"
-B 0.00 100.00 67.00 67.00
-W 33.00 67.00 100.00 67.00
-T 0.00 0.00 0.00 0.00
-H 0.00 20.00 0.00 33.00
-M 50.00 33.00 40.00 50.00
-P 25.00 33.00 50.00 33.00
-K 0.00 0.00 50.00 100.00
-J 0.00 0.00 0.00 0.00
-X 20.00 17.00 100.00 60.00
-A 75.00 0.00 100.00 33.00
-}\datatable
 
 \end{document}
