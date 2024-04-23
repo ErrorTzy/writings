@@ -173,16 +173,22 @@ There are only matters in the universe, **there are no irreducible mental phenom
 How to make sense of psychological activity?
 
 #### 2.2.2.1 behaviorism: 
+
 earliest form
 mind is just patterns of human behavior and dispositions
 
 historical background: making psychology scientific, and the only observable phenomena are human behavior
-##### 2.2.2.1.1 psychology/methodological behaviorism, behaviorism as a method
+
+##### 2.2.2.1.1 psychology/methodological behaviorism, behaviorism as a methodology
+
 psychology is to study human behavior, it does not matter if there is a mental state behind behavior for scientific purposes
+
 ##### 2.2.2.1.2 logical/analytic behaviorism
+
 stronger, feeling pain means one would behave as if he feels pain
 =="He feels pain" and "He behaves as if he feels pain" are equivalent in meaning==
 founded by John Watson, Skinner
+
 ##### 2.2.2.1.3 Objections
 
 should we allow "possible behavior" to exist?

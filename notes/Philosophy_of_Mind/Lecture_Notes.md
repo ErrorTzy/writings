@@ -21,7 +21,7 @@ core concept: "certainty". What is this?
 
 ## Second Meditation
 
-### Universal Doubt
+### Arg 1: Universal Doubt
 
 As long as the devil is deceiving me, I am not nothing
 Therefore the *proposition* **"I think I exist"** is necessary true
@@ -45,13 +45,13 @@ Why I am either a body or a soul or both? Can there be counterpart, or can there
 
 **The existence of body** cannot pass the methodology of doubt, while **the existence of mind** can
 
-I am a thinking **thing** --> makes descartes a substantial dualist
+I am a thinking **thing** --> makes Descartes a substantial dualist
 
 ## Sixth Meditation
 
 Cartesian Circle: I exist therefore god exists, god exists therefore I exist
 
-### Descartes' Argument 2: The conceivability argument
+### Arg 2: The conceivability argument
 
 modern argument: philosophy zombies
 
@@ -73,7 +73,7 @@ Hesperus = Phosphorus?
 the largest natural number is a concept but has no metaphysical existence
 
 
-### Descartes' Argument 3
+### Arg 3: Divisibility
 
 the indivisibility of mind and the divisibility of body; underlying idea is still the conceivable argument
 
@@ -90,13 +90,101 @@ Descartes' argument
 other dualism:
 - substance dualism
 - property dualism
-- predicate dualism: suspend metaphysical judgement, only distinct on language
+- predicate dualism: suspend metaphysical judgments, only distinct on language
 
 What is "the mental stuff"? What is "thinking"? Is it a faculty? Is it a process? Can thinking -> mental substance?
 
 Does physical object has to have extension?s
 
+```
+李麒麟：自恰，且正确描述世界
+什么是“正确描述世界”？
+不要被老师带偏，批判性阅读老师
+```
 
-> 李麒麟：自恰，且正确描述世界
-> 什么是“正确描述世界”？
-> 不要被老师带偏，批判性阅读老师
+## Pros and Cons 
+
+- Pros:
+    * The arguments are prima facie plausible
+    * The crucial difference between mind and body
+    * A framework for studying mind
+
+- Cons:
+    * The soundness/validity of the arguments are controversial (because the Cartesian account is only an intelletualist approach)
+    * What is the nature of mind? The answer from dualists tend to compare, but not address them directly `why? isn't it just a un-reductable account?`
+    * Counterarguments: How the interactions between mind and body?
+
+# Behaviorism and Its Problems 
+
+Gilbert Ryle (1900-1976): British ordinary language philosophy (the school that analyze language to understand phenomena)
+Coined "ghost in the machine", best known book: *The concept of mind*
+
+## Kyle's critique on Descartes
+
+### Cartesian view on introspection:
+
+A function of the mind, introspection/"mind eye", which is very different from normal sense because it is infallible
+
+We cannot experience other minds. We can only understand other minds **by analogy**. 
+
+### Categorical Mistake
+
+The example of "university tour": 
+
+- after seeing faculties and faculties, you ask: where is the university?
+- after seeing battalions and squadrons, you ask: where is the march-past? 
+
+This is a categorical mistake: the inability to use English language to wield concept
+
+`李麒麟：Is the analogy valid? Descartes does not know how to use words?`
+
+Wittgenstein's example: Expectation = minding the time, starting to anxious, etc
+
+`李麒麟：And what is categorical mistake? Blackwell: putting things to different category as if they are categorically different. It presupposes a category. Is it circular? *A book on carogory mistake*`
+
+`what? as if they are different?`
+
+### Mental States are **Ryle:NOT** causes of behaviors
+
+The properties that can describe physical things CANNOT be used for mental things. Therefore they are different. 
+There needs to be a cause other than physical cause.
+
+## Behaviorism: 
+
+### Philosophy vs. Psychological
+
+**Methodological Behaviorism**
+
+Psychological approach only use words to **classify** behaviors. 
+Psychology only treat mental states as the reasons to explain behaviors. They are not synonyms.
+It is only a methodological preference to only investigate observable behaviors.
+`It does not presupposes the metaphysical assumption that mental events are reductable to behaviors? It is only a tag that does not have to have intension?`
+
+**Logical Behaviorism**
+
+Mental talk only a convenient abbreviation of physical talk. They are synonyms. A stronger one is Ontological Behaviorism.
+*This is only a language claim*. 
+
+**Ontological Behaviorism**
+
+Here does not exist mental entities. 
+*This is a ontological claim*
+
+`Think: Can the logical version derive the ontological version? It does not follow that the metaphysical entity must be physical`
+
+### What is behavior?
+
+1. Psychological responses: blood pressure, increase of heart rate, etc
+2. Bodily movement: Walk, run, etc
+3. Actions constitutes movement: i.e. The difference between monkeys accidentally writes an email vs. People writing email
+4. Actions without movement: judge, assume, decide, calculate, etc. (mental act)
+
+The last two types has **structure**. Behaviorists mainly concern the first two types because the last two contains non-observable components (the structure/intentionality`telos?`). Therefore, behaviorism is a *reductive physicalism*
+
+`The definition of behavior is controversial`
+
+## Problems
+
+Putnam
+
+
