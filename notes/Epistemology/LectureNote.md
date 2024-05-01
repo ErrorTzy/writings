@@ -171,7 +171,7 @@ What is the difference between knowledge and correct opinion, and why knowledge 
 
 --- 
 
-$\therefore$ A correct opinion is sufficient for practical purposes.
+∴ A correct opinion is sufficient for practical purposes.
 
 #### 1.3.2 Possible responses
 
@@ -270,6 +270,8 @@ Trivial things like what time the film I was going to see was on should not be "
 
 #### 1.5.1 knowledge equates perception
 
+> 李麒麟: This definition comes into the dialogue because of the importance of perception? (compare Republic: you cannot get any knowledge from perception)
+
 ##### 1.5.1.1 REF1: Elimination of experts of relativism
 
 1. If knowledge equates perception, then there is no objective truth of the matter.
@@ -279,14 +281,20 @@ Trivial things like what time the film I was going to see was on should not be "
 $\therefore$ It is false that knowledge equates perception
 
 ##### 1.5.1.2 REF2: Self-defeating of relativism
+
 Relativism is self-defeating because it is justified for one to think it is wrong.
 
+> But this refutations, on the meta-meta level, confirms relativism.
+
 ##### 1.5.1.3 REF3: Transcendence of knowledge
+
 Perceptual properties transcend what is actually given in perception.
 
 > multi-perception knowledge referring one object
 > epistemic perception vs. raw perception
 > judgment about the content
+
+> A knowledge cannot be reduced to a single perception
 
 ###### 1.5.1.3.1 Modern explanation:
 
@@ -307,12 +315,59 @@ A connected difficulty: How is possible to have a false belief, that is, I belie
 Problem:
 
 1. Rhetorical persuasion cannot impart knowledge but only belief, and it can be true. Therefore there is a distinction between knowledge and true belief. `By means of how you learn it? Rehtoric does not give the right structure of knowledge (does not provide the chain of cause)? The definition of rehtoric seems unclear, though.`
-2. some kinds of knowledge require sensory evidence.
+
+> The difference between eye-witness and being persuaded by a lawyer.
+> 
+>>> Does it have to be the difference in content? 
+>
+> 3. some kinds of knowledge require sensory evidence.
+>
+> A digression here: how is false believe possible?
+> 1. to have "what is not" in mind -- metaphysical assumption
+>
+> 2. The origin of false belief:
+>
+>   1. Known A and known B
+>   2. Known A and unknown B
+>   3. Unknown A and known B
+>   4. Unknown A and unknown B
+>
+> 2,3,4 are not possible because it is not even in the mind `?`; 1 is not possible because they are known thus not possible to be confused.
+>
+>>> no state of belief?
+>
+> 3. False belief and other-judging (189b - 191a)
+>
+> It is only possible for non-concurrent mental state of false belief. Eg. you mistaken John (at present) with Smith.
+> But concepts like 'beauty', 'ugliness' are universals which are always present in mind.
+>
+>>> why universals must be concurrent in mind?
+>
+> 4. False belief and non-concurrent state of mind
+>
+> The metaphor of the wax tablet (191a - 195b)
+> The matching/mismatching between non-concurrent imprints and occurrent sensible object 
+>
+> The problem: how to explain universals?
+> i.e. the mistaken calculation of 5 + 7 = 11
+> 
+> The metaphor of aviary (196c - 199c)
+>
+> a critical discrimination: *having* knowledge and *processing* knowledge: we may pick up the wrong bird from aviary
+>
+> LQL: But still, how do you caught the wrong bird?
+>
+> Whether knowledge is teachable/learnable/acquirable
+> LQL: it is not compatible with theory of conception, at least for empirical knowledge
 
 #### 1.5.3 Knowledge is true judgment with logos
 
 Tripartite analyses of knowledge: knowledge = true belief + logos
 Problem: What is logos?
+
+> The insufficiency of merely spelling words & 
+> *just* specifying all the element, &
+> *just* specifying distinctive mark
 
 ##### 1.5.3.1 Logos = one can spell out one's belief(Theaetetus 206d1–e4)
 
@@ -326,7 +381,9 @@ REF: Not enough; You won't know how to spell a word even if you know all the let
 
 REF: If I have no idea at all how Theaetetus differs from other individuals, how could I even have a (true) belief about him
 
-# Unit 2: Gettier's Problem: Is Justified True Belief Knowledge?
+# Unit 2: Gettier's Problem: Is Justified True Belief Knowledge? 
+
+(@GBVSMI99#Gettier_1963)
 
 > then content:
 > - Introduction of the examples of the traditional definition
@@ -336,19 +393,19 @@ REF: If I have no idea at all how Theaetetus differs from other individuals, how
 ## 2.1 Current models
 
 ### 2.1.1 JTB:
-S knows that P IFF:
+S knows that P ⟺
 1. P is true
 2. S believes that P, and
 3. S is justified in believing that P
 
 ### 2.1.2 Chisholm's version
-S knows that P IFF:
+S knows that P ⟺
 1. P is true
 2. S accepts P, and
 3. S has adequate evidence for P
 
 ### 2.1.3 Ayer's version
-S knows that P IFF:
+S knows that P ⟺
 1. P is true
 2. S is sure that P is true, and
 3. S has the right to be sure that P is true
@@ -357,44 +414,52 @@ S knows that P IFF:
 The conditions stated therein does not constitute a sufficient condition for the truth of the proposition that S knows that P in following cases:
 
 ### 2.2.1 Two Presuppositions
-#### 2.2.1.1 Presupposition I
-It is possible for a person to be **justified** in believing a proposition that is in fact false.
 
-> fallibility: $(Kp \bullet \diamond \sim\!\!p) \supset \sim\!\!\square (Jp \supset p)$
-> infallibility => Descartes
+#### 2.2.1.1 Presupposition I
+
+It is possible for a person to be **justified** in believing a proposition that is in fact **false**.
+
+> Or T in JTB  will be unnecessary. 
 
 #### 2.2.1.2 Presupposition II
-If S is justified in believing P and P entails Q **and S deducted Q from P and accepts Q as a result of this deduction**, then S is justified in believing Q
 
-> Antecedent strengthened version vs. consequent weakened version
-> - being in the position to be justified in believing/being in a position to know/… that Q
+If S is justified in believing P and P entails Q **and S deducted Q from P and accepts Q as a result of this deduction**, 
+then S is justified in believing Q
+
+> the bold part may not be sufficient, i.e. reductio ad absurdium.
+
+> Antecedent strengthened version vs. consequent weakened version:
+>
+> *Antecedent strengthened version*: Gettier's version, with the bold part strengthening the antecedent
+> *Weakened version*: removing the bold part; the consequent changed into "being in the position to be justified in believing/being in a position to know/… that Q"
 
 
 ### 2.2.2 Two Cases
 
->Critical evaluation of Gettier's cases
->What is the common factor in Case A and B? 
->	- Doxastic inference
->	- A false justified belief occurs as a premise in the inference
->
->Gettier's cases -> Gettier cases:
->Is the doxastic inference or false justified belief occurs as a premise indispensable?
+> Gettier's counterexamples are aimed at criticizing JTB → knowledge, but said nothing about knowledge → JTB
+
 #### 2.2.2.1 Case A
+
 Smith and Jones have applied for a certain job and Smith has strong evidence that Jones is the man who will get the job, and Jones has ten coins in his pocket.
 Meanwhile, Smith does not know he will get the job and he also has 10 coins in his pocket.
 Therefore for proposition (e):
+
 (e) The man who will get the job has ten coins in his pocket
+
 1. e is true
 2. S believe e is true
 3. S is justified in believing that e is true.
+
 However Smith does not know that he has 10 coins in his pocket, which means he does not know (e).
 
 >what is the symbolic logic form of (g) and (e)? Can we deduct (e) from (g)? The re-interpretation and the evaluation
 
 #### 2.2.2.2 Case B
+
 Smith has strong evidence that Jones owns a Ford because Jones told him so and offered him a ride. Smith has another friend brown of whose whereabouts he is totally ignorant. 
 Meanwhile, Jones in fact rented the Ford and boasted in front of Smith. In addition by the sheerest coincidence, Brown happen to live in Boston. Therefore for proposition:
 (g) Either Jones owns a Ford, or Brown is in Boston
+
 1. g is true
 2. S believe g is true
 3. S is justified in believing that g is true.
@@ -403,16 +468,29 @@ However Smith does not know g because he does not know either component of g.
 > 1. disjunction introduction 析取引入: p -> pvq
 > 2. Why he does not know g? what is the mental state that knows a disjunction form?
 
-## 2.3 Getter cases
+## 2.3 Gettier cases (Not Gettier's case)
 
-Group 1: helpful Gettier case
+
+> Critical evaluation of Gettier's cases
+> What is the common factor in Case A and B? 
+> 	- Doxastic inference
+> 	- A false justified belief occurs as a premise in the inference
+> 
+> Gettier's cases -> Gettier cases:
+> Is the doxastic inference or false justified belief occurs as a premise indispensable?
+
+
+
+### Group 1: helpful Gettier case
+
 The sheep on the hill(Chisholm 1966)
 You see a rock on a hill. The rock looks exactly like a sheep from your viewpoint. You think "that's a sheep, so there's a sheep on the hill". As it turns out, there are sheep on the hill, but they are out of view behind some trees past the rock. You have justified a true belief that there are sheep on the hill, but do you know there are sheep on the hill.
 
 Havit/Nogot (Lehrer 1965)
 You see Nogot driving a Ford on a regular basis. Nogot tells you he owns the Ford. You've never seen Havit drive at all; Havit walk everywhere or take public transportation. There are three people who work in the office: you., Nogot, and Havit. You don't own a ford.  Your reason like this Nogot owns a Ford, and Nogot works in a office, and so someone who works in the office owns a Ford. It turns out Nogot doesn't own the Ford he has been driving at all. Moreover, Havit does own a Ford, but it's an old classic car he never drives. You have a justified true belief that someone in the office owns a Ford, but do yo u know that someone in the office owns a Ford?
 
-Group 2: dangerous Gettier case
+### Group 2: dangerous Gettier case
+
 Barn Facade Country(1976)
 The case of assassination(Harman 1968, p172)
 

@@ -21,7 +21,6 @@ $$
 a,
 \therefore b
 $$
-
 ```python
 print("hahah")
 ```

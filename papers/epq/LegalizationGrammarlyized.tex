@@ -1,0 +1,244 @@
+\documentclass[man,floatsintext]{apa7}
+% \usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{pgfplots}
+\usepackage{filecontents}
+\usepackage{todonotes}
+
+\usepackage[style=apa,backend=biber,isbn=false,url=false,eprint=false,annotation=false]{biblatex}
+% \usepackage[style=apa,sortcites=true,sorting=nyt,backend=biber]{biblatex}
+\DeclareLanguageMapping{american}{american-apa}
+\addbibresource{/home/scott/Documents/WorkingFiles/writings/.resources/biblatex.bib}
+
+
+\title{Marriage as a Social Contract: An Institutional Approach to the Same-Sex Marriage Debate}
+\shorttitle{}
+\author{Some author}
+
+\begin{filecontents}{data.csv}
+Year, CumulativeCount
+2001,1
+2003,2
+2005,4
+2006,5
+2008,6
+2009,7
+2010,10
+2012,11
+2013,15
+2014,17
+2015,22
+2016,23
+2017,26
+2019,28
+2020,30
+2021,31
+2022,32
+\end{filecontents}
+\pgfplotsset{width=10cm,compat=1.17}
+
+\begin{document}
+\maketitle{}
+\tableofcontents
+
+\newpage
+
+\section{Introduction}
+In 1973, Kant wrote an essay to reject a common saying: ``That may be correct in theory, but it is of no use in practice''.~\autocite{kantCommonSayingThat2009} But here we are going to discuss a problem in the reversed order --- Something may be useful in practice, but is it correct in theory? 
+
+Same-sex marriage has been a trend in recent years, as shown in figure~\ref{Cumu}. Up to 2022, 32 countries have allowed the marriage of gays and lesbians. Especially according to the International Monetary Fund (IMF), 41 countries and territories are listed as ``advanced economies'', of which 21, that is more than half, have legalized same-sex marriage within 20 years. If we believe these developed countries are the future of most countries, we can say that practically speaking, same-sex marriage is likely to be a trend in the future.
+
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            xlabel={Year},
+            ylabel={Cumulative Number of Countries},
+            xmin=2000, xmax=2023,
+            ymin=0, ymax=35,
+            xtick={2000, 2005, 2010, 2015, 2020},
+            ytick={0, 5, 10, 15, 20, 25, 30, 35},
+            legend pos=north west,
+            ymajorgrids=true,
+            grid style=dashed,
+        ]
+        
+        \addplot[
+            color=blue,
+            mark=square,
+            ]
+            table[x=Year, y=CumulativeCount, col sep=comma] {data.csv};
+            
+        \end{axis}
+    \end{tikzpicture}
+        
+    \caption{Cumulative Number of Countries Legalizing Same-Sex Marriage From 2000 to 2022~\autocite{perper32CountriesWorld2022}}
+    \label{Cumu}
+\end{figure}
+    
+
+Indeed, at first glance, there seems to be no problem with this trend. If the function of marriage is the legal recognition of loving, then the exclusion of same-sex marriage seems arbitrary. No one seems to get hurt while the minorities are benefited. What a good deal! However, if we look closer, the problem we suggest arises. There are several counterarguments against same-sex marriage. In this paper, I will first examine the arguments against same-sex marriage and argue that the key to responding to them systematically is to respond to the slippery slope argument. By analyzing the slippery slope argument, we arrived at an institutional view of marriage. This account holds that the state should recognize marriage as a way to reorganize human relationships -- to restore individual identity separate from family units and encourage the formation of rational unions based on the social contract.
+
+\section{Arguments against same-sex marriage}
+
+According to \textcite{brakeMarriageDomesticPartnership2023}, same-sex marriage faces multiple challenges. In this section, I will argue that among the major challenges that same-sex marriage faces,  we ultimately need to address the challenge of the slippery slope argument in order to reach a systematic account that justifies same-sex marriage.
+
+\subsection{Argument from alternative}
+\label{alternative}
+
+In countries that do not promote same-sex marriage, for instance, mainland China, sexual minorities can have the same rights as those who are married by signing a civil agreement. Countries like Italy have also passed the legal status of civil union.\autocite{povoledoItalyApprovesSameSex2016} Then why bother modifying marriage? 
+
+It is problematic for at least three reasons. First, legalizing same-sex marriage pragmatically saves trouble. It is much easier to keep refining the definition of marriage itself than introducing an altogether new type of legal union. In most legal frameworks and policies, reference is made exclusively to marriage. Consider, for example, the case of a person lying incapacitated and facing major surgery. Normally, a hospital would accept only the closest relations or a spouse as the decision-makers for that patient. Changing the definition of marriage would only leave existing laws in place, hence not requiring enormous changes in the legal code. Otherwise, where a new category of a relationship is to be put in place, then there would be a need for major amendments across many laws, as this only recognizes marriage as the form of the relationship. Thus, from a practical standpoint, amending the notion of marriage is a more efficient approach. 
+
+Second, it is theoretically implausible. If marriage and civil union are exactly the same, despite the former being heterosexual and the latter being homosexual, and since we don't separate marriages by other factors, like race or class, why do so based on gender? Some may reply that, by definition, marriage means the heterosexual form. However, as we will see in the next section, it is implausible to say so. 
+
+In addition, such distinction is compatible with social injustice. Logically speaking, distinguishing one thing from another does not necessarily mean that they are unequal. For instance, red is different from green, but they are equally colors. But how the government symbolically recognizes them could indeed affect how people look at them. As \textcite{mohrLongArcJustice2007} argues, reserving the term ``marriage'' only for heterosexuals while offering ``civil unions'' to same-sex couples serves to degrade gay men and lesbians by denying them access to an important social form that marks membership in full humanity. The reasoning is that marriage as a social form and ritual has profound cultural and symbolic significance beyond just the legal aspects. \Citeauthor{mohrLongArcJustice2007} believe that being denied access to ``marriage'' implies that same-sex relationships are inferior or less worthy. I do not think this argument can go this far. Nevertheless, providing an alternative is indeed compatible with discrimination and is less effective in reducing social injustice compared with legalizing same-sex marriage.
+
+
+\subsection{Argument from linguistic definition}
+
+As mentioned in \ref{alternative}, some would argue that by linguistic definition, marriage means a heterosexual monogamous relationship. For instance, according to the American Heritage Dictionary, marriage is ``The legal union of a man and woman as husband and wife''.~\autocite{pickertAmericanHeritageDictionary2000} But we need to ask further: How do we know whether a definition of anything is true? If we ask what a triangle is, we may reply that it is a closed, three-sided polygon in a two-dimensional plane. We know this is true because we believe we have already known what a triangle is in the first place. Given the definition does not lead to any instance that we do not believe to be triangles, the definition is agreed to be true. What matters here is that the definition of the triangle does not come before our understanding of a triangle. Only when we have some understanding of a triangle in the first place can we determine if the definition is true or not. As for marriage, our understanding of what marriage should be precedes the normative definition of marriage. Therefore, we cannot answer what marriage should be by appealing to the existing definition.
+
+\subsection{Argument from reproduction}
+\label{reproduction}
+
+Another classical argument against same-sex marriage is that the purpose of marriage is procreation. Since only a male and a female together can procreate, proponents of this view argue that only heterosexual marriage should be permitted. This argument may have its roots in natural law theory, but examining the foundations of natural law would far exceed the scope of this paper. Instead, I will focus on a practical problem with this argument. If procreation is the sole purpose of marriage, then infertile couples should not be allowed to marry since they cannot have children. This logic would also extend to fertile couples who choose not to have children. Natural Lawyers, like \textcite{leeMarriageProcreationSameSex2008}, defended that marriage is a multi-leveled personal union that is fulfilled by expanding into the family through procreation but remains good in itself even if procreation is not possible in a particular case. An infertile man and woman who marry still fulfill the conditions of marriage by 
+
+\begin{enumerate}
+\item {committing to the type of union that would be fulfilled by bearing and raising children together, and}
+\item {performing the biological act of becoming ``one flesh'' through intercourse, even if other non-behavioral conditions prevent actual procreation.}
+\end{enumerate}
+
+Regarding condition A, an infertile man and woman can make this commitment in the same way that a fertile couple can because it is still a union that is naturally ordered towards procreation, even if procreation does not actually happen for them due to factors beyond their control. In contrast, as \Citeauthor{leeMarriageProcreationSameSex2008} argues, a same-sex relationship is necessarily disconnected from procreation. Regarding condition B, when an infertile man and woman engage in sexual intercourse, they still perform the kind of act that unites them biologically and makes them ``one flesh''. It is a \textit{type} of the act that is towards reproduction. A same-sex couple, \Citeauthor{leeMarriageProcreationSameSex2008} claims, cannot unite biologically in this way through their sexual acts.
+
+\Citeauthor{leeMarriageProcreationSameSex2008}'s arguments, I believe, are very bad. First, it is not at all clear why the infertile couple's sexual intercourse is still oriented to the bearing and raising of children in principle. Second, there is no reason to believe that bodily union is so important that without it, marriage could not take place. Even if so, it does not follow that the penile-vaginal sex is the only way to achieve bodily union.
+
+In addition, procreation can happen outside marriage. It seems that the only reason procreation should happen within marriage is that it is beneficial to child-rearing. Thus, we come to the next section. 
+
+\subsection{Argument from child-rearing}
+
+Another argument is that marriage includes the obligation of protecting and educating children. Parents tend to have stronger connections with their own children than adopted ones. \textcite{somervilleCaseSameSexMarriage2012} argues that a child has a right to be raised by their own biological mother and father whenever possible. Recognizing same-sex marriage would normalize situations where a child is intentionally deprived of either a mother or father from the beginning. In her view, while there can be legitimate exceptions where it is better for non-biological couples to raise children, this should be regarded as a special case.
+
+However, I believe \Citeauthor{somervilleCaseSameSexMarriage2012}'s argument does not hold. Even if we do not pass the same-sex marriage law, it does not mean these couples will not adopt a child if they really want to. Legally normalizing or not, the phenomena always exist. Recognizing same-sex marriage does not necessarily mean that more children are being abandoned. Even if so, there is no reason to believe the children will have a better life if they are brought up by parents who abandoned them. Therefore, as \textcite{murphySameSexMarriageNot2011} suggests, \Citeauthor{somervilleCaseSameSexMarriage2012} is ``philosophically confused''.
+
+\subsection{Argument from political neutrality}
+\label{poli}
+
+Many people, especially those with religious beliefs, think homosexuality is morally wrong. But there are also many who believe it is morally acceptable. This creates a conflict or dilemma for society.~\textcite{jordanItWrongDiscriminate1995} argues that when there is this kind of moral disagreement, the government should try to find a middle ground that respects both sides as much as possible rather than completely favoring one view over the other. He thinks banning gay marriage is a way to do this -- it sides with the ``homosexuality is wrong'' view in terms of official government recognition but still allows homosexual relationships to exist privately. 
+
+In addition, \Citeauthor{jordanItWrongDiscriminate1995} argues that if gay marriage was legal, it would force people who think homosexuality is immoral to act against their beliefs. For example, business owners would have to give health insurance to gay spouses of their employees, even if they believe gay marriage is wrong. Jordan believes it's unjust for the government to make people violate their deeply held moral or religious beliefs in this way when there's no way for them to opt-out. 
+
+If Jordan's argument is correct, then we may need to bite some bullets. For instance, many of the same arguments were, in fact, made against interracial marriage -- that it violated the deeply held moral and religious convictions of a large number of people and that legalizing it would force those opposed to acting against their beliefs. However, we now believe that those arguments were misguided and that banning interracial marriage was an unjust form of discrimination, regardless of how many people supported it based on their personal moral views. 
+
+This, however, does not dismiss \Citeauthor{jordanItWrongDiscriminate1995}'s arguments. I believe his argument has reached the core of our debate and shows us the real problem. Should the state stay value-free or impose value, namely justice, and lead citizens on how to live their lives? For now, I will put this question aside and return to it later in this paper. As we will see, ultimately, the response to the slippery slope argument will also address this question.
+
+
+\subsection{Argument from slippery slope}
+
+Among all the arguments mentioned in this section, the slippery slope argument is the most different one. The rough idea of this type of argument is that accepting a starting premise would lead to a chain of events that ultimately results in an extreme outcome. For instance, if society were to legalize same-sex marriage, some might argue that this would open the door to accepting other non-traditional forms of marriage, such as polygamy. Then, if polygamy were to be permitted, it could be argued that there seems to be no good reason for prohibiting incestuous marriages. And if incestuous marriages were allowed, there seems to be no reasonable grounds to forbid marriages between humans and non-humans. 
+
+The main idea behind the slippery slope argument is that once society deviates from the conventional understanding of marriage, any further expansion of that definition would appear arbitrary and without clear boundaries. Technically speaking, the slippery slope argument is not a single, specific argument but rather an ``argument schema'' -- a template or framework for constructing various arguments. In other words, it provides a structure that can be adapted to different situations and contexts to create a range of arguments based on the same underlying principle. In our case, it gradually deviates from the standard definition and finally reaches a very radical conclusion.
+
+Before we try to reply to this argument, I should point out why it is the most distinct and potentially the most significant argument against same-sex marriage. The five arguments listed earlier can be addressed separately, each on its own merits. There does not appear to be a unified first principle that can structure all these replies into a systematic account. However, the slippery slope argument elevates the problem to a meta-level. Since it generates an infinite number of arguments, it is insufficient to simply attack arguments against same-sex marriage one by one.\footnote{It is worth noticing that the metaphor of a slippery slope is not entirely precise since the argument is not linear. For example, even if we have enough reason to reject polygamy, it does not necessarily follow that we can reject incest.} To reply to the challenge posed by the slippery slope argument, we must make a great effort to seek a systematic and comprehensive response.
+
+\section{The slippery slope argument}
+
+At first glance, this argument seems reasonable. However, anyone who has studied logic would know that the slippery slope counts as a ``fallacy'' justify the validity of the slippery slope argument and propose a response to the slippery slope argument regarding marriage based on the institutional view of marriage.
+
+\subsection{Validity of slippery slope}
+
+At first glance, slippery slope arguments may seem fallacious. After all, they are often cited as an example of a logical fallacy. However, a closer examination reveals that the underlying logic of slippery slope arguments is more complex than it may initially appear.
+
+To understand why slippery slope arguments can be valid, it is illuminating to consider the ancient philosophical puzzle known as the sorites paradox. The word "sorites" comes from the Greek word for ``heap''. The paradox, first formulated by the Megarian philosopher Eubulides in the 4th century BC, goes like this: Imagine a heap of sand. If you remove one grain of sand, you would still clearly have a heap. This seems to hold true no matter how many times you remove a single grain - removing one grain from a heap still leaves you with a heap. However, if you continue this process of removing a single grain over and over, you will eventually be left with a single grain of sand, which is clearly not a heap. So, at what point did the heap stop being a heap? There seems to be no clear line.\autocite{hydeSoritesParadox2018}
+
+This mirrors the logic of slippery slope arguments. The idea is that once you take that first small step from the status quo, there is no principled way to stop the slide down the slippery slope because any stopping point you try to identify can be attacked using the same logic as the original deviation.  With same-sex marriage, for instance, if you accept the step from the traditional definition of marriage, it becomes difficult to reject further expansions like polygamy, incestuous marriage, human-animal marriage, etc. Any line you try to draw between accepting same-sex marriage but not these other arrangements can be challenged. If you already deviated from the traditional definition of marriage between a man and a woman, what's your basis for rejecting a further deviation to allow marriage between three people, or between siblings, or between a human and a dog? You've already conceded the principle that marriage isn't limited to one man and one woman.
+
+So, in the same way, that the logic of the sorites paradox makes it challenging to identify the precise point at which a heap stops being a heap, the slippery slope argument contends that once that first seemingly small concession is made, there is no clear, principled way to prevent sliding all the way down to a radical endpoint that initially seemed unthinkable. The strength of this style of argument is that it claims to identify an inexorable logic that will take hold once the first step is taken, even if advocates of that first step claim that they can hold the line there.
+
+\subsection{The ultimate difficulty}
+
+Philosophers have proposed various theories aiming to resolve the paradox, but each faces significant challenges. The epistemic theory \autocite{sorensenBlindspots1988,williamsonKnowledgeItsLimits2000} claims vague terms have precise but unknowable boundaries. However, this seems implausible, given how vague words are actually used. It relies on boundaries being determined by an unknowable function of the word's unknowable pattern of use. That is to say, if ``heap'' had a precise meaning, why would it be unknown to competent speakers? And how could the meaning be determined by an unknowable pattern of use? In addition, some of Williamson's arguments against other theories have also been accused of begging the question \autocite{wrightEpistemicConceptionVagueness2021}.
+
+Supervaluationism \autocite{fineVaguenessTruthLogic1975,keefeTheoriesVagueness2000} says vagueness comes from our inability to decide on precise boundaries -- not because they don't exist, but because we haven't narrowed down the meaning enough. But it preserves the unintuitive conclusion that sharp boundaries exist, even if we can't locate them. It struggles to block the sorites paradox in both directions since the arguments that no grains make a heap and that any number does both seem valid. Its semantics for quantifiers are non-standard, and its key notion of ``super-truth'' arguably fails to capture what we want from the concept of truth.
+
+Many-valued logics and degree theories \autocite{goguenLogicInexactConcepts1969,zadehFuzzyLogicApproximate1975,smithVaguenessDegreesTruth2008} represent vagueness using numerical degrees of truth. A collection of grains might count as a heap to degree 0.6, say. As we remove grains, the degree of truth of "this is a heap" slowly decreases from 1 down to 0. This captures the seamless transition from heaps to non-heaps. But it still seems to impose precision in an arbitrary way. Why is something a heap to degree 0.6 rather than 0.5 or 0.7? What do those numbers really mean? Can we make sense of the notion of degrees of truth in the first place?
+
+Contextualist accounts \autocite{kampParadoxHeap1981,soamesUnderstandingTruth1999} hold that the meaning of vague terms depends on the context of use. But this just shifts the paradox to how speakers use words without resolving the underlying issue. Formulations using anaphora to fix context (``if that's a heap, then that is too...'') are not resolved by contextualism \autocite{stanleyContextInterestRelativity2003}. And some contextualist theories, like \textcite{shapiroVaguenessContext2006}, still rely on unintuitive non-classical logic.
+
+The multi-range theory aims to maintain standard logic by saying that vague words can have multiple ranges of application, and a sentence can be true in one range and false in another. So, ``1 million grains is a heap'' is true in some ranges and false in others. This blocks the paradox. But it implies an extreme form of relativism about truth that is hard to swallow. The notion of a range is also not fully clear.
+
+In the end, the core difficulty in resolving the sorites is that any way of drawing a precise line between where a vague term applies and where it doesn't will seem arbitrary and fail to match the term's intuitive meaning and actual usage. Vague terms have seamless transition zones between clear cases and clear non-cases that resist the imposition of any precise boundary. However, it is drawn.
+
+\subsection{Solutions}
+
+Now, we have understood the core perplexity of the sorites paradox. However, fortunately, we do not deal with this predicament for same-sex marriage. Notice that the things that can be called ``bald'' or ``heap'' are the physical entities that exist in the world. ``Marriage'', on the other hand, is an artificially constructed concept that is mind-dependent from the beginning. Therefore, the entities that trigger the sorites paradox may have some intrinsic vagueness, no matter on the metaphysical level, language level, or cognition level. The truth value of a proposition like ``The King of England is bald'' is determined by the correspondence between its sense and the external world. Marriage, on the other hand, is inherently normative. There is no such correspondence to be observed in reality. Thus, it is possible to clarify its borderline and definition by reasoning.
+
+The question, however, immediately follows. What is the foundation of such reasoning? The first challenge we need to face is the nihilist view, which claims that, ultimately, there is no such funding for marriage.
+
+\subsubsection{The nihilist challenge}
+\label{nihi}
+
+There could be two senses of marriage in our daily speaking: 
+
+\begin{enumerate}
+\item {Marriage as a long-term contract between two agents}
+\item {Marriage as a public status recognized by the state}
+\end{enumerate}
+
+Now, if there is a nihilist view of marriage, it can have two forms:
+
+\begin{enumerate}
+\item {There is no reasonable ground for any long-term contract between two agents}
+\item {There is no reasonable ground for the state to recognize marriage}
+\end{enumerate}
+
+The first form is implausible for trivial reasons. Marriage as a contract can have its ground in a will, desire, reason, emotion, etc. Since a long-term partnership is so useful and common for human beings and even animals, it is reasonable enough to argue that this kind of contract should exist. The latter view, on the other hand, is harder to reject. According to this account, the state should get out of the marriage business altogether, leaving it to the private realms like religions or private organizations \autocite{sunsteinPrivatizingMarriage2008,chartierPublicPracticePrivate2016}.
+
+The complexity of this stance is that, as already seen in \ref{poli}, it raises problems in the political realm. The underlying rationale of this political neutrality is that the state should not interfere in what way citizens should lead their lives. This, however, is paradoxical. The purpose of the law is justice, and the state will inevitably impose its own interpretation of justice on the people without being value-free. In other words, justice and this radical form of neutrality are hardly compatible. 
+
+There is also a pragmatic argument that favors the existence of marriage law. Despite all the disputes, it is generally agreed that the necessary condition of marriage includes a contract and the ensuing obligation.\autocite{brakeMarriageDomesticPartnership2023} Then the state should serve as a safeguard to protect the validity of contracts and punish those who violate them. This, however, does not directly follow the idea that marriage laws should be established. The state can only treat marriage as a kind of private contract and protect contracts in general. However, empirically speaking, since marriage usually requires the most intimate relationship among all the contractual relationships, people would be most vulnerable to suffering from injustice. For instance, family abuse and rape in marriage are more common and less punished than outside marriage. Therefore, the law should take the empirical fact into consideration and pay special attention to marriage in order to prevent injustice. Therefore, we can say there is reasonable ground for the state to recognize marriage, and the nihilist challenge fails.
+
+\subsubsection{The contractual view}
+
+Now that we have proven the existence of the slope itself, we can investigate solutions to address the slope argument. Since we have already deemed marriage as a contract, this leads to the contractual view of marriage law. The contractual view, as already explained, sees marriage as obligations determined by promises between spouses only.\autocite{brakeMarriageDomesticPartnership2023} This view obviously favors same-sex marriage, since gays and lesbians can have the capacity to make promises just like anyone else. It is obvious that no contract counts as marriage since trade contracts certainly are not marriage. The existence of a contract is only a necessary condition. However, there is no general agreement on what condition can make the contractual view sufficient.\autocite{morseWhyUnilateralDivorce2006,houlgateChildrenRightsState2005} \textcite{wasserstromAdulteryImmoral1974} offers a standard set of obligations, while spouses can do modifications to it based on agreement so that they can release one another from undesirable obligations. If that is so, then in principle, there is no sufficient normative condition for marriage.
+
+The contractual view responds to the slippery slope in a radical manner. The good news is that although the contractual view admits all the possible contracts, it does provide a borderline so that humans and non-humans are not supposed to get married. This stems from the meaning of ``contract'', which requires moral agents to conduct such behavior. Since most of us agree that only humans can be moral agents, then marriage is restricted to humans. Yet still, the scope that the contractual view allows is much broader than what we normally would accept, for incest and polygamy are considered legal.
+
+Yet this is not yet the core issue of the contractual view. The biggest problem, as already stated in \ref{nihi}, is that it confuses two different senses of marriage. It inevitably runs into the predicament of being unable to give a sufficient definition of marriage because it is trying to define marriage as a private contract without any political element. How far the law should recognize marriage, on the other hand, cannot be simply answered by what is marriage, just as how far porn is allowed cannot be answered by what is porn. Therefore, the contractual view is inadequate for our current investigation.
+
+\subsubsection{The institutional view}
+
+The lesson from the failure of the contractual view teaches us that as long as we need a clear definition of what marriage should be recognized by law, we must first ask what the law is.  Since the process of legislation is inherently political, we must turn to political philosophy to find the first principle that guides our understanding of marriage in the legal context. This approach is, in fact, common in history.
+
+Aristotle, the founding father of politics as a discipline, argued that the family is essentially the most basic element of a city. According to Aristotle, the family is a conjunction of a male and a female for the sake of reproduction. The good of such a conjunction is people's necessary needs, and only after the household master is free from worrying about provisions can he enter the higher level of the union, which is the political union that demands a higher human virtue, that is, the virtue of political reasoning. Aristotle did indeed argue that man and woman unite for the sake of reproduction, but same-sex marriage is nevertheless compatible with Aristotle's conception of politics. This is because Aristotle only explains reproduction as a cause of family but never says this must be the only cause. As long as same-sex marriage serves as an elementary unit with a view to necessary needs, there is no reason to reject it.\autocite{aristotePolitics1984}
+
+Returning to the slope argument, a modern Aristotelian view would probably recognize same-sex marriage, polygamy, or even incest as valid, as long as we agree these forms of marriage lie in human nature and will not obstruct people from reaching a higher level of rationality. However, it is crucial to recognize that ancient Greek society had a different understanding of politics and law compared to our contemporary perspective. In Aristotle's time, there was no strict legal system resembling that of today's, and politics was understood through virtue and expertise rather than contracts, obligations, and rights. For instance, the Athenian legal system relied heavily on unwritten laws and customs, and the concept of individual rights was not as developed as it is in modern democracies. To answer the question in today's political world, with the structure of obligations and rights, we can turn to a more contemporary thinker, Hegel.
+
+\textcite{hegelPhilosophyRight1821} argues that marriage is fundamentally an ethical relationship that transcends natural desires. He contends that marriage involves the union of two individuals who surrender their separate personalities to create a new, shared identity. More importantly, Hegel acknowledges that marriage is still subject to the contingencies of subjective feelings. Therefore, he argues that a third ethical authority, such as the church or the courts, is necessary to uphold the sanctity of marriage against the everchanging human desires and emotions. Therefore, family is the foundation of civil society, as it is through the family that individuals develop the ethical dispositions necessary for participation in social and political life.
+
+I agree with Hegel's way of treating marriage as the basis of social and political life. First, I adopt the premise that a nation stems from a social contract. That is to say, a nation is formed on the basis of an agreement among individuals in which the individuals sacrifice some amount of freedom in exchange for protection and social order. 
+
+However, this immediately faces two classical challenges. First, in theory, it is advantageous for any rational being to join a social contract. In reality, however, this contract is imposed on all people from birth without their explicit consent. Second, the social contract theory assumes that people enter the contract from a ``state of nature'', a hypothetical condition in which individuals exist without government or social organization. However, humans have never existed in this state, as they are born into families, which are essentially small kingdoms (``petit royaume'') that already involve political relationships. The relationship between children and parents in these small kingdoms is not contractual but dominant, as it is generally agreed that children lack the ability to take responsibility for their own actions, and parents must make decisions for the sake of the child.
+
+These two challenges pose significant obstacles to the formation of a unified nation under the social contract theory. People do not automatically accept the social contract, as they are not born in a state that can make sense of it. Therefore, for a nation to form, the state must encourage people to restore their identity as individuals as separate from their family units and guide them towards forming a rational union based on the social contract. 
+
+Therefore, the state should recognize marriage as a way to reorganize human relationships. First, it drags people out of his original ``little kingdom''. This restores the personality of an individual from being dominated. Then, by forming a new relationship, that is marriage, two elements come into play: love and commitment. These two elements are in tension with each other because the former is irrational and blind, while the latter is based on reason and long-term planning. Thus, the status should interfere with this process and help us rationalize commitment. By doing so, it will demand people to deal with their passions and convert them into a sustainable, thereby rational relationship. Therefore, the relationship between people is reorganized from emotional and dominant to rational and contractual.\footnote{Hegel contends that the relationship of marriage, in essence, is not based on contract but on ethical love. However, first, it is not entirely clear what is this thing called ``ethical love''. Second, even if marriage is based on ethical love, the contract should still be a necessary condition from a legal perspective. This is because when the ``ethical love'' fails, the contractual obligation can still be a safeguard and prevent social injustice.} This shift, as Hegel argues, sets the necessary basis for social and political life.
+
+Now, we have a solid basis for answering the slippery slope. Ultimately, the law should prohibit marriages that fail to reconstruct the relationship between people. It follows that, in principle, incest between parents and children and the like should not be allowed because such a relationship is very unlikely to be equal. Similarly, marriage between people who have obvious dominant relationships, such as teachers and students, should not be allowed. Polygamy and same-sex marriage, on the other hand, lack reason to be forbidden in principle. 
+
+\section{The bullet to be bitten}
+
+I understand that this conclusion does bite the bullet by accepting the theoretical possibility of polygamy in specific circumstances. I see this as defensible for two main reasons:
+
+First, my account denotes only the theoretical baseline. It is the minimum that can be permissible in principle according to the intrinsic features of the marital relationship itself, without taking into account cultural factors. If polygamy tends to generate inequality within a specific social setting, this might still justify its prohibition. We explain that any rejection of polygamy depends on empirical cultural factors and not purely on theoretical reasoning. In history, polygamous marriage has caused inegalitarianism because only the rich and the powerful can afford polygamy. This clarification also suggests a different viewpoint regarding what should be considered unacceptable inequality within marriage. It implies that even if polygamy is theoretically equal because it has multiple wives for every husband or vice versa, this does not mean there won't still exist certain types of real-life inequalities linked with how they are practiced.
+
+Second, in history, moral feelings usually come after moral reasoning. Polygamy may appear clearly incorrect for many people today, similar to how the concept of abolishing slavery seemed impossible a few centuries back. However, we need to remain receptive toward modifying our intuitive evaluations when presented with solid reasoning.
+
+In the end, even though the institutional perspective that is supported here has some unconventional outcomes, it provides a moral foundation for why the state should be involved in marriage -- to promote equal and reason-based human connections as core elements of civil life. This gives strong justification for the legal acknowledgment of same-sex relationships while still allowing certain limitations on how far marriage can extend.
+
+
+\printbibliography{}
+\end{document}
+

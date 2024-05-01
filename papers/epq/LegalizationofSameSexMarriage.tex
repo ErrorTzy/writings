@@ -1,17 +1,19 @@
-\documentclass{article}
-\usepackage{indentfirst}
+\documentclass[man,floatsintext]{apa7}
+% \usepackage{indentfirst}
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage{pgfplots}
 \usepackage{filecontents}
 \usepackage{todonotes}
 
-\usepackage[style=apa,backend=biber,doi=false,isbn=false,url=false,eprint=false]{biblatex}
-\DeclareLanguageMapping{english}{american-apa}
-\addbibresource{/home/scott/Desktop/WorkingFiles/VSCode/writings/.resources/biblatex.bib}
+\usepackage[style=apa,backend=biber,isbn=false,url=false,eprint=false,annotation=false]{biblatex}
+% \usepackage[style=apa,sortcites=true,sorting=nyt,backend=biber]{biblatex}
+\DeclareLanguageMapping{american}{american-apa}
+\addbibresource{/home/scott/Documents/WorkingFiles/writings/.resources/biblatex.bib}
 
 
 \title{Marriage as a Social Contract: An Institutional Approach to the Same-Sex Marriage Debate}
+\shorttitle{}
 \author{Some author}
 
 \begin{filecontents}{data.csv}
@@ -35,11 +37,13 @@ Year,CumulativeCount
 2022,32
 \end{filecontents}
 \pgfplotsset{width=10cm,compat=1.17}
+
 \begin{document}
-\maketitle
-\newpage
+\maketitle{}
 \tableofcontents
+
 \newpage
+
 \section{Introduction}
 In 1973, Kant wrote an essay to reject a common saying: ``That may be correct in theory, but it is of no use in practice''.~\autocite{kantCommonSayingThat2009} But here we are going to discuss a problem in the reversed order --- Something may be useful in practice, but is it correct in theory? 
 
@@ -212,11 +216,11 @@ Aristotle, the founding father of politics as a discipline, argued that the fami
 
 Returning to the slope argument, a modern aristotelian view would probably recognize same-sex marriage, polygamy or even incest as valid, as long as we agree these forms of marriage lies in human nature and will not obstruct people from reaching higher level of rationality. However, it is crucial to recognize that ancient Greek society had a different understanding of politics and law compared to our contemporary perspective. In Aristotle's time, there was no strict legal system resembling that of today's, and politics was understood through virtue and expertise rather than contracts, obligations, and rights. For instance, the Athenian legal system relied heavily on unwritten laws and customs, and the concept of individual rights was not as developed as it is in modern democracies. To answer the question in today's political world, with the structure of obligations and rigths, we can turn to a more contemporary thinker, Hegel.
 
-\textcite{hegelPhilosophyRight1821a} argues that marriage is fundamentally an ethical relationship that transcends natural desires. He contends that marriage involves the union of two individuals surrender their separate personalities to create a new, shared identity. More importantly, Hegel acknowledges that marriage is still subject to the contingencies of subjective feelings. Therefore, he argues that a third ethical authority, such as the church or the courts, is necessary to uphold the sanctity of marriage against the everchanging human desires and emotions. Therefore, family is the foundation of the civil society, as it is through the family that individuals develop the ethical dispositions necessary for participation in social and political life.
+\textcite{hegelPhilosophyRight1821} argues that marriage is fundamentally an ethical relationship that transcends natural desires. He contends that marriage involves the union of two individuals surrender their separate personalities to create a new, shared identity. More importantly, Hegel acknowledges that marriage is still subject to the contingencies of subjective feelings. Therefore, he argues that a third ethical authority, such as the church or the courts, is necessary to uphold the sanctity of marriage against the everchanging human desires and emotions. Therefore, family is the foundation of the civil society, as it is through the family that individuals develop the ethical dispositions necessary for participation in social and political life.
 
 I agree with Hegel's way of treating marriage as the basis of social and political life. First, I adopt the premise that a nation stems from social contract. That is to say, a nation is formed on the basis of an agreement among individuals, in which the individuals sacrifices some amount of freedom in exchange for protection and social order. 
 
-However, this immediately faces two classical challenges. First, in theory, it is advantageous for any rational being to join a social contract. In reality, however, this contract is imposed on all people from birth without their explicit consent. Second, the social contract theory assumes that peopleguarantor enter the contract from a ``state of nature'', a hypothetical condition in which individuals exist without government or social organization. However, humans have never existed in this state, as they are born into families, which are essentially small kingdoms (``petit royaume'') that already involve political relationships. The relationship between children and parents in these small kingdoms is not contractual but dominant, as it is generally agreed that children lack the ability to take responsibility for their own actions, and parents must make decisions for the sake of the child.
+However, this immediately faces two classical challenges. First, in theory, it is advantageous for any rational being to join a social contract. In reality, however, this contract is imposed on all people from birth without their explicit consent. Second, the social contract theory assumes that people enter the contract from a ``state of nature'', a hypothetical condition in which individuals exist without government or social organization. However, humans have never existed in this state, as they are born into families, which are essentially small kingdoms (``petit royaume'') that already involve political relationships. The relationship between children and parents in these small kingdoms is not contractual but dominant, as it is generally agreed that children lack the ability to take responsibility for their own actions, and parents must make decisions for the sake of the child.
 
 These two challenges pose significant obstacles to the formation of a unified nation under the social contract theory. People do not automatically accept the social contract, as they are not born in a state that can make sense of it. Therefore, for a nation to form, the state must encourage people to restore their identity as an individual as separate from their family units and guide them towards forming a rational union based on the social contract. 
 

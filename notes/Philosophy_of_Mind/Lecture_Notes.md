@@ -119,7 +119,7 @@ Does physical object has to have extension?s
 Gilbert Ryle (1900-1976): British ordinary language philosophy (the school that analyze language to understand phenomena)
 Coined "ghost in the machine", best known book: *The concept of mind*
 
-## Kyle's critique on Descartes
+## Ryle's critique on Descartes
 
 ### Cartesian view on introspection:
 
@@ -179,12 +179,66 @@ Here does not exist mental entities.
 3. Actions constitutes movement: i.e. The difference between monkeys accidentally writes an email vs. People writing email
 4. Actions without movement: judge, assume, decide, calculate, etc. (mental act)
 
-The last two types has **structure**. Behaviorists mainly concern the first two types because the last two contains non-observable components (the structure/intentionality`telos?`). Therefore, behaviorism is a *reductive physicalism*
+The last two types has **structure**. Behaviorists mainly concern the first three/two types because the last one/two contains non-observable components (the structure/intentionality`telos?`). Therefore, behaviorism is a *reductive physicalism*
 
 `The definition of behavior is controversial`
 
+### Weakened Versions
+
+Two ways to weaken logical behaviorism:
+
+- They have ontological identity, but they do not have the same meaning
+- They have the same meaning, but do not promise the ontological identity
+
+I.e. Aristotle is the author of Metaphysics, and there is such metaphysical identity, but Aristotle does not have the same meaning as the author of Metaphysics. (same extension ≠ same intension)
+
 ## Problems
 
-Putnam
+Hilary Putnum(1926 - 2016): Philosophy of Math, Science, Language, Mind
+
+### Putnum's characterization of behaviorism
+
+Mental states = the logical constructions of **actual, potential and possible** behaviors
+
+Two these:
+
+- there exists analytical entailment.
+- not translatable only because mind talk is ambiguous
+
+Analytical entailment: M ↔ P by virtue of the meaning itself
+This **CAN** be analytical even if it depends on empirical facts
+
+Something right about logical behaviorism: the intension of the word 'pain' is more than what I experienced.
+
+You understand the reference of 'pain' by observing its sense, the 'behavior'
+
+Cluster concept: compare proper name and description
+
+Putnum: Name of diseases
+
+Symptom is the presentation of disease, but the essence of the disease seems not to be the logical constructions of symptoms. We don't say the disease *is* the symptoms. On the contrary, we say the symptoms are caused by the disease.
+
+How we talk about things comes **after** the thing itself, not the thing itself is a logical construction of how we talk about it.
+
+And it is logically possible that parallelism is true.
+
+Super-Spartans and X-worlders
+
+The existence of pain is the perception of pain (the ontological feature of pain)
+
+More thoughts on Pain
+
+The pain in the phantom of limb (Nelson) is the mistake of physical(spacial) limb, not the pain.
+
+If someone did not pay attention to pain?
+
+E.g. A soldier get shot when he began to charge, but he only realized it after the charging ends.
+
+Then when the pain came into being? (compare pain killer)
 
 
+The Mind-Body Identity Theory
+
+The **extension** of mind and body are the same, but not necessarily the same **intension**.
+
+Problem: What if a creature that don't have a brain?
