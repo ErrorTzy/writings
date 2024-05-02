@@ -25,7 +25,7 @@ Two questions:
 1. What counts as an answer when asking "what is the concept of x"?
 2. What counts as an answer when asking "what is the property x"?
 
-##### Property = Concept Fallacy
+##### Property = Concept
 
 Refuting Carnap, Meaning and Necessity: property = concept
 
@@ -41,14 +41,17 @@ This is not a valid argument because the concept of pain is different from the c
 
 > Evaluation: Make sense to me
 
-1. pain is not brain-state because identity must entail the same spacial-temporal region. But pain is in the arm while brain-state is in brain.
+
+##### Spacial-temporal Difference
+
+pain is not brain-state because identity must entail the same spacial-temporal region. But pain is in the arm while brain-state is in brain.
 
 *REF*: Mirror image seems to locate behind mirror. Similarly, the Pain seems to locate in the arm but it can be actually in the brain
 
 > It seems that Putnum is saying that, with some biological explanation, we can say that pain is in fact also in the brain.
 > Evaluation: But is this possible at all? By what evidence can we say that 'pain is in fact in the brain' without accepting that pain is brain-state?
 
-2. They are only correlated, but identity
+##### Correlation not identity
 
 It will be troublesome to explain how they are correlated and what is mental entity.
 
@@ -63,8 +66,20 @@ Putnum: this 'change of meaning' criterion is wrong. We should abandon the 'mean
 
 #### Positive Defense
 
+What pain **is** requires speculative empirical theory construction. 
 
-Technical notions: Probabilistic automation
+This is sensible because the purpose of philosophy is to give hypothesis.
+
+> This is not plausible, but let's accept it for the sake of argument
+
+<Techinical> 
+
+Probabilistic Automaton:
+
+- Similar to Turing Machine, but the transition between the states are not *deterministic* but *probabilistic*. 
+
+<Techinical>
+
 
 Pain is probabilistic automation
 pain is a factional state of the orgasm
