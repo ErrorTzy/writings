@@ -2,7 +2,7 @@
 
 ## 课程线索
 指称问题：reference/reference
-意义的决定要素：内在/外在注意
+意义的决定要素：内在/外在主义
 语用/语义之间的关联
 
 
@@ -105,7 +105,7 @@ linguistic expressions have the meanings they do because they **stand for** thin
 on this view, words are like labels
 
 - **thing theory of meaning**: meaning comes from physical object, the common-sensical view
-- **idea theory of meaning**: meaning comes from ideas, from Locke, impressions vs. ideas [@ottLockePhilosophyLanguage2004;@losonskyLinguisticTurnsModern2006]
+- **idea theory of meaning**: meaning comes from ideas, from Locke, impressions vs. ideas 
 - **use theory of meaning**: meaning comes from use, from Frege: if words are used in the ordinary way, what one *intends* to speak of is their reference.
 
 Frege's puzzle: the co-reference of two proper names(two words has the same reference, i.e. Hesperus is Phosphorus)
@@ -219,7 +219,7 @@ identity sign '=': binary relational sign/operator
 
 
 | a=a                  | a=b                    |
-| ---------------------- | ------------------------ |
+| -------------------- | ---------------------- |
 | uninformative        | informative            |
 | with cognitive value | no (significant) value |
 | a priori             | a posteriori           |
@@ -235,7 +235,7 @@ John Perry: Frege's Detour
 
 ### Identity/quality is a relation between names or signs of objects
 
-"A difference can arise only if the difference between the signs corresponds to a difference in <mark style="background: #FF5582A6;">the mode of presentation</mark> of that which is designated"
+"A difference can arise only if the difference between the signs corresponds to a difference in **the mode of presentation** of that which is designated"
 
 John Perry on "**mode of presentation**"
 关于内涵的函数性操作 functions in intension
@@ -275,8 +275,6 @@ singular terms include (instinctive, informal):
 
 
 ### The taxonomy of "descriptions":
-
-
 
 **definite vs. indefinite/ambiguous**
 e.g. the man vs. a man
@@ -326,14 +324,14 @@ The semantic/logical analysis may not correspond with grammatical/synatical form
 
 - the Problem of the excluded middle: "The F is G" vs "The F is not G" are not contradictory to each other because the *scope* of negation is different
   - "the primary occurrence vs. secondary occurrence", "The *de re* reading vs. the *de dicto* reading"
-  - Russell's dichotomy cannot handel multiple negations. Therefore it is better to describe it with scope.
+  - Russell's dichotomy cannot Handel multiple negations. Therefore it is better to describe it with scope.
 
 ### Proper names and disguised/abbreviated definite description
 
 **Frege: This should not happen**
 
 - Aristotle = the teacher of Alexander = the pupil of Plato
-- Frege does not consern this much because he thinks a perfect language should avoid this phenomenon
+- Frege does not concern this much because he thinks a perfect language should avoid this phenomenon
 
 **Russell: Use proper name as description, but still there are still proper names**
 
@@ -366,7 +364,7 @@ Russell: when we say table, we talk about the table via sense data.
 
 > table-shaped?
 
-Russell's epistomology is empirisist.
+Russell's epistemology is empiricist.
 
 The common factor in Frege's view and Russell's view: the same reference with different sense
 
@@ -389,4 +387,4 @@ C: C's denotation
 
 Problem: How does the meaning denotes the denotation?
 
-Requirement: sense and eference have connction and not the same
+Requirement: sense and reference have connection and not the same

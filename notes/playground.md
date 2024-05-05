@@ -1,10 +1,10 @@
 # a heading
 
-> __some__ *styles*? ~~aa~~ ***haha***
+> __some__ styles? ~~aa~~ haha
 
 ==mark it==
 
-okay! *fucking* **A**!
+okay! fucking A!
 
 | table | ??   |
 | ----- | ---- |
@@ -13,8 +13,8 @@ okay! *fucking* **A**!
 
 - hahaha
 - aha:
-    * aaaa
-    * aa
+aaaa
+aa
 
 $a \therefore b$
 $$
@@ -24,3 +24,5 @@ $$
 ```python
 print("hahah")
 ```
+
+
