@@ -33,7 +33,7 @@ kripke：知识论（先天后天）/形而上（必然偶然）/语言（分析
 ## What is language
 
 - symbols<->strings, sounds<->noises
-- gramma/syntax/formation rules/well-formed formulas
+- grammar/syntax/formation rules/well-formed formulas
 - meaning/semantics
 - linguistics uses(metaphor, satrie)/pragmatics
 - language learning and acquisition
@@ -65,63 +65,27 @@ language -- speakers -- world Blackburn(1984), p1
 
 the direction of arrow depends on how you understand
 
-# Two cruicial distinctions/terminologies
+## Two crucial distinctions/terminologies
 
-## type/token distinction
+### type/token distinction
 
 token: the type-token distinction was introduced by Perice. This is a distinction between sorts of things (types) and their instances (tokens). The sentence "The cat is on the mat" consists of six word tokens and five word types (because it includes two tokens of the type 'the') (Tanesini 2007, 164)
 
 > not universal-particular distinction in metaphysics because token can still be universal?
 
-## use/mention distinction
+### use/mention distinction
 
 use: normal use of language
 eg. Milan is a city
 
 mention: quote
-eg. "Milan" has five letters
+Eg. **"Milan"** has five letters
 
-The pervasive "meaning"
+### sentence, proposition and utterance
 
-the meaning of life
-representation in the natural world
-
-the problem of "meaning":
-Where does meaning come from?
-
-meaning and understanding:
-observations:
-
-- some false statement also has meaning
-- we understand a sentence when we don't know if it is true
-- some strings marks or noises are meaningful sentences
-- each meaningful sentence has parts that are themselves meaningful
-- each meaningful sentence means something in particular
-- competent speakers of a language are able to understand (and produce) many of that language's sentences, without effort and almost instantaneously
-
-# The referential theory of meaning:
-
-linguistic expressions have the meanings they do because they **stand for** things.
-on this view, words are like labels
-
-- **thing theory of meaning**: meaning comes from physical object, the common-sensical view
-- **idea theory of meaning**: meaning comes from ideas, from Locke, impressions vs. ideas 
-- **use theory of meaning**: meaning comes from use, from Frege: if words are used in the ordinary way, what one *intends* to speak of is their reference.
-
-Frege's puzzle: the co-reference of two proper names(two words has the same reference, i.e. Hesperus is Phosphorus)
-
-Objections against the referential theory of meaning:
-the universality of the referential theory of meaning: apply to all/almost?
-
-- some counterexample: nothing, non-existence
-- how do we form "this+glass" when we se a glass?
-- what are the differences between adverb, none, ...?
-
-# Frege
-
-## preliminary distinction:
-
-### sentence vs. statement/assertion/utterance vs. proposition
+sentence: a string
+proposition: the content of a sentence
+utterance/assertion/question: an action of a subject, with spacial and temporal information
 
 - a sentence: a physical sequence in a linguistic system
 - statement/assertion/utterance: a human action performed in certain place at certain time
@@ -131,77 +95,79 @@ the universality of the referential theory of meaning: apply to all/almost?
   - Popper: "the third realm"
   - Plato: "Form"
 
-### syntax
 
-syntax or grammar consists of two things:
+# Meaning
 
-- a specification of vocabulary, and
-- a set of rules which determine which sequences of expressions constructed from that vocabulary are grammatical and which are ungrammatical
+## The pervasive "meaning"
 
-### logical syntax:
+- linguistic meaning
+- individualized meaning
+- the meaning of life
+- the meaning of a clock represents time (stands for)
 
-#### features:
+the problem of "meaning":
+Where does meaning come from?
 
-- compositional
-- recursive
+## meaning and understanding:
 
-#### the formal/logical language: "|-" vs. "|="
+**observations:**
 
-- "|-"：纯形式，不关心语义
-- "|=" ：关心语义（真值）
+some false statement also has meaning
 
-#### natural language:
+- we understand a sentence when we don't know if it is true
+- some strings marks or noises are meaningful sentences
+- each meaningful sentence has parts that are themselves meaningful
+- each meaningful sentence means something in particular
+- competent speakers of a language are able to understand (and produce) many of that language's sentences, without effort and almost instantaneously
 
-The trees are recursive.
+**to distinguish:**
 
-##### syntax tree:
+- truth value
+- truth condition
+- falsification of a statement (philosophy of language does not care too much about it)
 
-"the dog ate the bone"
-S
-NP         VP
-D    N     V      NP
-D    N
-the dog ate the bone
 
-\*NP: none phrase
-\*VP: verb phrase
+to understand a sentence is to understand its truth condition
 
-##### semantic tree
+## Referential Theory
 
-"Jones smokes" => S(j)=T/F
-TV(value)
-Ind(argument)  Ind --> TV(function)
-Jones                 smokes
+linguistic expressions have the meanings they do because they **stand for** things.
+on this view, words are like labels
 
-\*TV: truth value
+- **thing theory of meaning**: meaning comes from physical object, the common-sensical view
+- **idea theory of meaning**: meaning comes from ideas, from Locke, impressions vs. ideas; this is how it comes into existence; *Problem: how do we learn other people's idea?*
+- **use theory of meaning**: meaning comes from use, from Frege: if words are used in the ordinary way, what one *intends* to speak of is their reference.
 
-principles and parameters:
+Frege's puzzle: the co-reference of two proper names(two words has the same reference, i.e. Hesperus is Phosphorus)
 
-- principles apply to all languages
-- parameters only apply to an individual language
-  E-languages and I-language:
-  E-language: external I-language: principle
-  prescriptive syntax and descriptive syntax (Stainton 1995 philosophical perspective on language chap.2)
+Objections against the referential theory of meaning:
+the universality of the referential theory of meaning: apply to all/almost?
 
-Frege's important works:
+- some counterexample: nothing, non-existence
+- how do we form "this+glass" when we see a glass?
+- what are the differences between adverb, none, ...?
 
-- (1891)"Function and Concept"
-- (1892)"on Sense and Reference"
-- (1892)"Concept and Object"
-- (1904)"What is a Function?"
-- (1918)"Thought"
+# Frege
+
+## Frege's important works:
+
+- (1891) "Function and Concept"
+- (1892) "on Sense and Reference"
+- (1892) "Concept and Object"
+- (1904) "What is a Function?"
+- (1918) "Thought"
 
 Frege's System of Begriffsschrift("语形")
 if B, then A
-Modern: antecedent, consequent
-Frege: "--": content stroke "|": assertion stroke
-\|------A
-\|---B
+Modern: B → A 
+Frege: "-": content stroke "|": assertion stroke
+|--A
+ |-B
 
 Frege's logical reductionism: all mathematical truth are logical truth
 
-- the principle of compositionality: meaning comes from recursive formation of components
-- the context principle: an isolated word(but what is context? how broad it is? Frege: sentence)
+- **the principle of compositionality**: meaning comes from recursive formation of components
+- **the context principle**: the meaning of a word depends on the context (but what is context? how broad it is? Frege: sentence)
 
 ## On Sense and Reference (Uber Sinn und Bedeutung)
 
