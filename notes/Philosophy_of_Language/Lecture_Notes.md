@@ -171,11 +171,22 @@ Frege's logical reductionism: all mathematical truth are logical truth
 
 ## On Sense and Reference (Uber Sinn und Bedeutung)
 
+Modern term:
+
+- Referent: Frege's reference
+- Reference: act of referring
+
 ### Background: Identity in Logic
 
-identity sign '=': binary relational sign/operator
+Identity sign '=': binary relational sign/operator
 
-- difference between identity statements and bi-conditionals
+'=' vs. '≡':
+
+- '=': object identity
+- '≡': name identity
+
+'=' vs. '↔'
+
 - the need of identity in logic
 - the need of identity in mathematics
 - some important principles in philosophy:

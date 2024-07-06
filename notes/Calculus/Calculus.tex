@@ -62,4 +62,13 @@ We have \(\lim_{x \to c} f(x) = L\) and \(\lim_{x \to c} g(x) = M\)
 \[
   \lim_{x \to c} \left(f(x)\right)^{\frac{r}{s}} = \left(\lim_{x \to c} f(x)\right)^\frac{r}{s} = L^\frac{r}{s}
 \]
+\[
+  \lim_{x \to c} f(g(x)) = f(\lim_{x \to c} g(x)) \iff
+  \begin{cases}
+    \exists L (\lim_{x \to c} g(x) = L) \text{ (restrict on g(x))}\\
+    g \text{ is continuous at }c \text{ (restrict on g(x))} \\
+    f \text{ is continuous at }L \text{ (restrict on f(x))}
+  \end{cases} 
+\]
+
 \end{document}

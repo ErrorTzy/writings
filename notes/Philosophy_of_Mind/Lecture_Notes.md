@@ -1,4 +1,4 @@
-# Dualism and its problems
+# 1. Dualism and its problems
 
 historical background:
 The physical world seems to be well explained by Galileo and Newton
@@ -94,7 +94,7 @@ other dualism:
 
 What is "the mental stuff"? What is "thinking"? Is it a faculty? Is it a process? Can thinking -> mental substance?
 
-Does physical object has to have extension?s
+Does physical object has to have extension?
 
 ```
 李麒麟：自恰，且正确描述世界
@@ -114,7 +114,7 @@ Does physical object has to have extension?s
     * What is the nature of mind? The answer from dualists tend to compare, but not address them directly `why? isn't it just a un-reductable account?`
     * Counterarguments: How the interactions between mind and body?
 
-# Behaviorism and Its Problems 
+# 2. Behaviorism and Its Problems 
 
 Gilbert Ryle (1900-1976): British ordinary language philosophy (the school that analyze language to understand phenomena)
 Coined "ghost in the machine", best known book: *The concept of mind*
@@ -226,19 +226,45 @@ Super-Spartans and X-worlders
 
 The existence of pain is the perception of pain (the ontological feature of pain)
 
-More thoughts on Pain
+# 3. Identity theory
+
+## More thoughts on Pain
+
+**phantom of limb**
 
 The pain in the phantom of limb (Nelson) is the mistake of physical(spacial) limb, not the pain.
+
+**attention**
 
 If someone did not pay attention to pain?
 
 E.g. A soldier get shot when he began to charge, but he only realized it after the charging ends.
 
-Then when the pain came into being? (compare pain killer)
+Then *when* the pain came into being? (compare pain killer)
+
+## Basic Claim
+
+It seems hard to say pain is *only* in the body, or *only* in the mind. It seems that we cannot say they have the same intension.
+
+> "后天必然命题，如水是H2O"
 
 
-The Mind-Body Identity Theory
-
-The **extension** of mind and body are the same, but not necessarily the same **intension**.
+The **extension** of mind and body are the same, but not necessarily the same **intension**. Therefore, this is not a claim about meaning. It's a metaphysical claim.
 
 Problem: What if a creature that don't have a brain?
+
+# 4. Functionalism
+
+To extend identity theory to other creatures. It is similar to token-token identity theory, but it is not token-token identity. `why?`
+
+
+
+Any program is a tuple of (I,S,O,F,G):
+
+- I: all possible physical input
+- S: all possible mental state
+- O: all possible physical output
+- F: the mapping of (I,S) to S
+- G: the mapping of (I,S) to O
+
+The configuration of M = {P}xIxSxO
