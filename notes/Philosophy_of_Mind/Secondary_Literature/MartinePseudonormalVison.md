@@ -15,6 +15,8 @@ According to Wittgenstein, 'redness' only refers to the proper use of language g
 
 Therefore, Wittgensteinian cannot distinguish normal and pseudonormal people if they both can play the language game properly.
 
+> Can't I say it's beyond language? Even if I can have a scientific understanding, I still cannot understand what would it feel like.
+
 **Possible response:**
 
 1. 'red' in daily sense is different from 'red' in the scientific sense.

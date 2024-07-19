@@ -255,9 +255,11 @@ Problem: What if a creature that don't have a brain?
 
 # 4. Functionalism
 
+*Not on a priori ground, but to say if one hypothesis is better than identity theory*
+
+Mental state is the functional state of the whole organism
+
 To extend identity theory to other creatures. It is similar to token-token identity theory, but it is not token-token identity. `why?`
-
-
 
 Any program is a tuple of (I,S,O,F,G):
 
@@ -268,3 +270,64 @@ Any program is a tuple of (I,S,O,F,G):
 - G: the mapping of (I,S) to O
 
 The configuration of M = {P}xIxSxO
+
+> What is "mental state"? Why is it a state? What is a state?
+
+Putnum: octopus can be hungry just as human `really?`
+
+Advantage: 
+1. Across species
+2. Across individuals within one species
+3. Within a singular individual over time
+
+## Problems with functionalism
+
+Pain is a infallible self-knowledge. Even if there are some "illusion of pain", it also count as pain. (Notice the difference between pain and hunger)
+
+If we adopt sense-reference modal, then the reference of pain **is the sense of pain**
+
+### Comparison of intuitions:
+
+**Dualism:** Mind is not physical. 
+*Assertion:* mind is another entity
+
+**Behaviorism:** We observe other's behaviors to learn mental words. 
+*Assertion:* Mind is behavior
+
+**Identity Theory:** We can observe the correlation between brain activity and mental states. 
+*Assertion:* Mind is brain states
+
+**Functionalism:** Other creatures can have consciousness.
+No assertion. Purely abstract assertion that mind is some kind of structure/functional role. Very *scientific*.
+*Problem:* Our intuition is that mind must have feels (qualia)
+
+### Block: Homunculi-headed robots
+
+Prima facie counterexample: functionalism Chinese system
+
+It attacks on whether functionalism machine has any mental states at all
+
+It seems that **raw feeling** is missing; 
+
+`mind = functionalism + raw feeling?`
+
+Dilemma: Multiple realizability vs. raw feels
+
+Self-knowledge and my own mental state:
+
+1. What pain is
+2. Whether the pain occurs
+3. Whether I am having a pain
+
+### Nida: Qualia
+
+The felt or phenomenal qualities associated with experience
+
+*To know what it is like to have an experience* is to *know its qualia*
+
+If qualia are something over and above the physical and functional facts, then is it knowable? Should we event try to make that theoretical? "Elimmativists"
+
+Inverted Spectrum: they are functionally equivalent, but in scientifically different
+
+Conceptual functionalism: intension/meaning identity
+Psychofunctionalism: extension identity, ensuring the compatibility between science and philosophy
