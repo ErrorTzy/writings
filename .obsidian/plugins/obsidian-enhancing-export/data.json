@@ -1,0 +1,83 @@
+{
+  "items": [
+    {
+      "name": "Markdown",
+      "customArguments": "--pdf-engine=pdflatex"
+    },
+    {
+      "name": "Markdown (Hugo)"
+    },
+    {
+      "name": "Html"
+    },
+    {
+      "name": "TextBundle"
+    },
+    {
+      "name": "Typst"
+    },
+    {
+      "name": "PDF"
+    },
+    {
+      "name": "Word (.docx)"
+    },
+    {
+      "name": "OpenOffice"
+    },
+    {
+      "name": "RTF"
+    },
+    {
+      "name": "Epub"
+    },
+    {
+      "name": "Latex"
+    },
+    {
+      "name": "Media Wiki"
+    },
+    {
+      "name": "reStructuredText"
+    },
+    {
+      "name": "Textile"
+    },
+    {
+      "name": "OPML"
+    },
+    {
+      "name": "Bibliography"
+    },
+    {
+      "name": "paper",
+      "type": "pandoc",
+      "arguments": "-f markdown -t pdf -o \"${outputDir}/${outputFileName}.pdf\" --filter pandoc-crossref --citeproc -M chapters -M link-citations=true --csl=/home/scott/Documents/WorkingFiles/Obsidian/_resources/zotero_lib/chicago-author-date.csl --bibliography=/home/scott/Documents/WorkingFiles/Obsidian/_resources/zotero_lib/my_lib.bib --resource-path=/home/scott/Documents/WorkingFiles/_resources --pdf-engine=xelatex -s",
+      "customArguments": "",
+      "optionsMeta": {
+        "textemplate": "preset:textemplate"
+      },
+      "extension": ".pdf"
+    },
+    {
+      "name": "slides",
+      "type": "pandoc",
+      "arguments": "-f markdown -t beamer -o \"${outputDir}/${outputFileName}.pdf\"",
+      "customArguments": "--filter pandoc-crossref --citeproc -M chapters -M link-citations=true --csl=/home/scott/Documents/WorkingFiles/Obsidian/_resources/zotero_lib/chicago-author-date.csl --bibliography=/home/scott/Documents/WorkingFiles/Obsidian/_resources/zotero_lib/my_lib.bib --resource-path=/home/scott/Documents/WorkingFiles/_resources --pdf-engine=xelatex -s ",
+      "optionsMeta": {
+        "textemplate": "preset:textemplate"
+      },
+      "extension": ".pdf"
+    }
+  ],
+  "defaultExportDirectoryMode": "Custom",
+  "openExportedFile": true,
+  "env": {},
+  "showExportProgressBar": true,
+  "lastExportDirectory": {
+    "win32": "D:\\Obsidian_Output",
+    "linux": "/home/scott/Documents/WorkingFiles"
+  },
+  "lastEditName": "Html",
+  "lastExportType": "paper"
+}

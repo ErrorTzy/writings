@@ -1,0 +1,217 @@
+{
+  "main": {
+    "id": "7e3746ef8fc25506",
+    "type": "split",
+    "children": [
+      {
+        "id": "a1c1a26fc7ee563c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "527b2ffc8aaa4b52",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Analytical_Philosophy/Introduction_to_Logic/9 Relations and Identity.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "b2424e49bb329f50",
+    "type": "split",
+    "children": [
+      {
+        "id": "dd630fe3bc858c6a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5dbc4b164a548803",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "SFSA",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": true,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "fa5044626493417c",
+            "type": "leaf",
+            "state": {
+              "type": "mk-file-view",
+              "state": {}
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "horizontal",
+    "width": 324.5
+  },
+  "right": {
+    "id": "67893c5e98fb762a",
+    "type": "split",
+    "children": [
+      {
+        "id": "649cdeaf996079e3",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "62b46b3ea7a6e701",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Analytical_Philosophy/Introduction_to_Logic/9 Relations and Identity.md",
+                "linksCollapsed": true,
+                "unlinkedCollapsed": false
+              }
+            }
+          },
+          {
+            "id": "5d805bf0be0e4674",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Analytical_Philosophy/Introduction_to_Logic/9 Relations and Identity.md"
+              }
+            }
+          },
+          {
+            "id": "fc3ba4f5606d975e",
+            "type": "leaf",
+            "state": {
+              "type": "advanced-tables-toolbar",
+              "state": {}
+            }
+          },
+          {
+            "id": "04d235765478ee50",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Analytical_Philosophy/Introduction_to_Logic/9 Relations and Identity.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": false
+              }
+            }
+          },
+          {
+            "id": "6973b361058bc5c1",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              }
+            }
+          },
+          {
+            "id": "c3b5a7640d122548",
+            "type": "leaf",
+            "state": {
+              "type": "file-properties",
+              "state": {
+                "file": "Analytical_Philosophy/Introduction_to_Logic/9 Relations and Identity.md"
+              }
+            }
+          },
+          {
+            "id": "87c158e3605c65f5",
+            "type": "leaf",
+            "state": {
+              "type": "ReferenceListView",
+              "state": {}
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "graph:Open graph view": false,
+      "switcher:Open quick switcher": false,
+      "canvas:Create new canvas": false,
+      "command-palette:Open command palette": false,
+      "templates:Insert template": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false
+    }
+  },
+  "active": "527b2ffc8aaa4b52",
+  "lastOpenFiles": [
+    "Analytical_Philosophy/Introduction_to_Logic/8 Basic Quantificational Logic.md",
+    "Analytical_Philosophy/Introduction_to_Logic/The Church-Turing Thesis.md",
+    "My_Papers/Intern/2024-01-28.md",
+    "My_Papers/Intern/ReadingGroupReport20231220.md",
+    "My_Papers/Intern/ReadingGroupReport20231129.md",
+    "My_Papers/Intern/ReadingGroupReport20231206.md",
+    "My_Papers/Intern/US_Top10_Application_Guide(unfinished).md",
+    "My_Papers/Application/Leuven.md",
+    "My_Papers/Application/Writing_Sample.md",
+    "My_Papers/Application/Labor, Work, Action.md",
+    "My_Papers/Application/Supplemental Essay.md",
+    "My_Papers/Intern/Writing 试讲.md",
+    "My_Papers/Intern/Lecture_Sample.md",
+    "My_Papers/Intern/CV_zh.md",
+    "My_Papers/Intern/Golf.md",
+    "My_Papers/Intern/心物二元论Mind-Body Dualism.md",
+    "My_Papers/Intern/拉齐Al-Razi.md",
+    "Analytical_Philosophy/Math/The Strong Principle of Induction.md",
+    "Analytical_Philosophy/Math/Math.md",
+    "My_Papers/Untitled.md",
+    "My_Papers/Blog/Blog.md",
+    "My_Papers/Blog/About.md",
+    "Analytical_Philosophy/Philosophy_of_Language/Secondary_Literature/@fregeSinnBedeutung1892.md",
+    "My_Papers/Blog/Hello Wolrd.md",
+    "My_Papers/Blog/Untitled.md",
+    "My_Papers/Blog",
+    "一个用户友好型澎湃数据库使用文档.md",
+    "_resources/pengpai_data_export.py",
+    "_resources/libsimple.so",
+    "History_of_Philosophy/Ancient_Greek_Philosophy/Plato/Charmedes",
+    "_resources/zotero_lib/china-national-standard-gb-t-7714-2015-numeric.csl",
+    "My_Papers/Intern/Golf.ods",
+    "My_Papers/Intern/lu16204c33b0.tmp",
+    "_resources/athlete.png",
+    "History_of_Philosophy/Medieval_Philosophy/伊斯兰哲学/Philosophy in the Islamic World A History of Philosophy Without Any Gaps, Volume 3 (Peter Adamson [Adamson, Peter]) (z-lib.org)",
+    "My_Papers/Intern/missfont.log",
+    "Analytical_Philosophy/Philosophy_of_Language/Secondary_Literature",
+    "_resources/19D55454.jpg",
+    "_resources/b93f953ad37557dd495b8028f5a518d.png",
+    "_resources/v2-4b29d0fbc3d856f841f1a67d9d3990e2_r.jpg",
+    "_resources/References_template.png",
+    "_resources/Pasted image 20231011215249.png",
+    "_resources/e8051e49e22620523bbb3112458bb94.jpg",
+    "_resources/Pasted image 20231001112623.png",
+    "Untitled.canvas",
+    "tex2pdf.-ba45df972d766c3f/15d1a7f37ec08fc4eb9543a7d3480be0928aa8b0.png",
+    "tex2pdf.-ba45df972d766c3f/cf23484613c9a6a1330677d22e33e13b795772e3.png"
+  ]
+}

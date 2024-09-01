@@ -1,0 +1,33 @@
+{
+  "spellcheckLanguages": null,
+  "spellcheck": true,
+  "pdfExportSettings": {
+    "includeName": false,
+    "pageSize": "A4",
+    "landscape": false,
+    "margin": "0",
+    "downscalePercent": 100
+  },
+  "newFileLocation": "current",
+  "newFileFolderPath": "",
+  "attachmentFolderPath": "_resources",
+  "promptDelete": false,
+  "autoPairBrackets": true,
+  "readableLineLength": true,
+  "spellcheckDictionary": [
+    "pleonexia",
+    "nomos",
+    "arete",
+    "Meno",
+    "Arete",
+    "Thrasymachus",
+    "Thrasymachus",
+    "Callicles",
+    "law-abidingness",
+    "conventionalism",
+    "Thrasymachus",
+    "immoralism"
+  ],
+  "strictLineBreaks": false,
+  "alwaysUpdateLinks": true
+}

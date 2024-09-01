@@ -1,0 +1,12 @@
+{
+  "theme": "moonstone",
+  "cssTheme": "",
+  "accentColor": "",
+  "baseFontSize": 16,
+  "enabledCssSnippets": [
+    "pdf",
+    "page_break"
+  ],
+  "translucency": false,
+  "nativeMenus": false
+}

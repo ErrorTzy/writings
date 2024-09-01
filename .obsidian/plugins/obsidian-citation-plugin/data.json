@@ -1,0 +1,9 @@
+{
+  "citationExportFormat": "biblatex",
+  "literatureNoteTitleTemplate": "@{{citekey}}",
+  "literatureNoteFolder": "Papers",
+  "literatureNoteContentTemplate": "# {{title}}\n({{year}}) - {{authorString}}\n**Cite Key**:: [@{{citekey}}]\n\n\n",
+  "markdownCitationTemplate": "@{{citekey}}",
+  "alternativeMarkdownCitationTemplate": "[@{{citekey}}]",
+  "citationExportPath": "/home/scott/Documents/WorkingFiles/Obsidian/_resources/zotero_lib/my_lib.bib"
+}
