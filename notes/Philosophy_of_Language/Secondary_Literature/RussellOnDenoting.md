@@ -8,15 +8,14 @@ denoting phrase:
 
 ## knowledge about VS. acquaintance
 
-the thing we only reach by means of denoting phrase
+**knowledge about**: the thing we only reach by means of denoting phrase
 
 e.g. The center of mass of the solar system at a definite instant is some definite point
 
 **acquaintance:**
 
-sense: acquaintance with perceptions
-
-thought: acquaintance with logical character `(?)`
+- sense: acquaintance with perceptions
+- thought: acquaintance with logical character `(?)`
 
 all thinking start from acquaintance, but it succeeds in thinking about many things with which we have no acquaintance
 
@@ -31,6 +30,7 @@ C(x), x is an undetermined variable, then:
 - C(something): It is false that `(`'C(x) is false' is always true`)`
 
 > What does "always" mean, then? And is Russell avoiding the concept of negation, but used the concept "false"?
+> Always does not have a temporal meaning. Russell is not avoiding the concept of negation.
 
 **Remark:**
 

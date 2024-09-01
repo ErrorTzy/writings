@@ -1,4 +1,4 @@
-# Introduction
+# 1. Introduction
 
 ## 课程线索
 指称问题：reference/reference
@@ -96,7 +96,7 @@ utterance/assertion/question: an action of a subject, with spacial and temporal 
   - Plato: "Form"
 
 
-# Meaning
+# 2. Meaning
 
 ## The pervasive "meaning"
 
@@ -147,7 +147,7 @@ the universality of the referential theory of meaning: apply to all/almost?
 - how do we form "this+glass" when we see a glass?
 - what are the differences between adverb, none, ...?
 
-# Frege
+# 3. Frege
 
 ## Frege's important works:
 
@@ -228,7 +228,7 @@ Frege's problem: dismiss problems with natural language at hand
 
 ![](assets/20240304_211235_image.png)
 
-# Russell
+# 4. Russell
 
 1872 - 1970
 
@@ -250,6 +250,8 @@ singular terms include (instinctive, informal):
 - demonstrative pronouns (this)
 - complex singular demonstratives (this table)
 
+> 自然语句一定能够对应到一个逻辑语句上去吗？
+> 可理解的都是逻辑的？=
 
 ### The taxonomy of "descriptions":
 
@@ -303,7 +305,7 @@ The semantic/logical analysis may not correspond with grammatical/synatical form
   - "the primary occurrence vs. secondary occurrence", "The *de re* reading vs. the *de dicto* reading"
   - Russell's dichotomy cannot Handel multiple negations. Therefore it is better to describe it with scope.
 
-### Proper names and disguised/abbreviated definite description
+### Disguised/abbreviated definite description
 
 **Frege: This should not happen**
 
@@ -329,9 +331,11 @@ items can be acquainted with
 - universals (i.e. color)
 - the self (consciousness/pain/emotion)
 
+A table is **the cause of some sense-data**, thus cannot be something known by acquaintance.
+
 principle of acquaintance:
 
-- any proposition we can understand must be composed by entirely of entites with wich we are acquainted.
+- any proposition we can understand must be composed by entirely of entities with which we are acquainted.
 
 we cannot acquaint with "table"/"tree" itself. Thus we cannot understand **atomic** proposition about tables and trees. But then how do we talk about tables and trees?
 
@@ -348,12 +352,12 @@ The common factor in Frege's view and Russell's view: the same reference with di
 
 ## On denoting
 
-earlier work
+Earlier work
 
 
 **Frege:** dual-layer theory: sense and reference
 
-when words are used in oridinary way, one intend to speak of their reference
+when words are used in ordinary way, one intend to speak of their reference
 
 
 **Russell:** Does all phrase has sense/reference dichotomy?
@@ -365,3 +369,17 @@ C: C's denotation
 Problem: How does the meaning denotes the denotation?
 
 Requirement: sense and reference have connection and not the same
+
+# 5. Strawson, Donnellan and Kripke
+
+## Strawson On Referring
+
+Criticism on Russell: language is speak-act
+
+1. "the king of France is bald" is not false but fails to refer
+2. Presupposition is not the asserted content:
+    a. The logical difference is that if, P entails Q, it would be P→Q; 
+    b. If P presupposes Q, then only when P is true will Q be either true or false. P has no restriction on Q's truth value.
+The domain of discourse is missing in Russell's analysis
+
+

@@ -331,3 +331,27 @@ Inverted Spectrum: they are functionally equivalent, but in scientifically diffe
 
 Conceptual functionalism: intension/meaning identity
 Psychofunctionalism: extension identity, ensuring the compatibility between science and philosophy
+
+> How do we know what is a function and what is an implementation of a function? Is qualia a function or content? How do we know qualia is some spacial feature of the brain implementation of consciousness?
+
+## 5. Turing's test
+
+Can machine think?
+
+What is the meaning of think?
+
+Should we use a poll? It seems unhelpful
+
+The gender game
+
+> 思考题：What can we derive from the gender game? The man is obviously NOT a woman even if the man can imitate perfectly
+
+
+> 思考题：Do intelligence has to come with consciousness, especially consciousness in the sense of qualia?
+
+A head that does 4 things:
+
+1. read a *symbol*
+2. erase and replace a symbol
+3. move left or right
+4. shut down
