@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Analytical_Philosophy/Introduction_to_Logic/9 Relations and Identity.md",
+                "file": "notes/Personal_Identity/LectureNotes.md",
                 "mode": "source",
                 "source": false
               }
@@ -48,15 +48,23 @@
             }
           },
           {
-            "id": "fa5044626493417c",
+            "id": "226368d4a54d4f2a",
             "type": "leaf",
             "state": {
               "type": "mk-file-view",
               "state": {}
             }
+          },
+          {
+            "id": "942ead462b2ea819",
+            "type": "leaf",
+            "state": {
+              "type": "mk-path-view",
+              "state": {}
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
@@ -76,7 +84,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Analytical_Philosophy/Introduction_to_Logic/9 Relations and Identity.md",
+                "file": "notes/Personal_Identity/LectureNotes.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": false
               }
@@ -88,7 +96,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Analytical_Philosophy/Introduction_to_Logic/9 Relations and Identity.md"
+                "file": "notes/Personal_Identity/LectureNotes.md"
               }
             }
           },
@@ -106,7 +114,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Analytical_Philosophy/Introduction_to_Logic/9 Relations and Identity.md",
+                "file": "notes/Personal_Identity/LectureNotes.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -135,16 +143,8 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "Analytical_Philosophy/Introduction_to_Logic/9 Relations and Identity.md"
+                "file": "notes/Personal_Identity/LectureNotes.md"
               }
-            }
-          },
-          {
-            "id": "87c158e3605c65f5",
-            "type": "leaf",
-            "state": {
-              "type": "ReferenceListView",
-              "state": {}
             }
           }
         ],
@@ -152,7 +152,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 428.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -166,6 +167,21 @@
   },
   "active": "527b2ffc8aaa4b52",
   "lastOpenFiles": [
+    "notes/Peter_Proseminar/FregeTheThoughtALogicalInquiry.md",
+    "notes/Peter_Proseminar/Peter_Proseminar.md",
+    "notes/Peter_Proseminar",
+    "notes/Untitled.md",
+    "notes/Neuroscience/Memory.md",
+    "notes/Truth_And_Trust/Notes.md",
+    "notes/playground.md",
+    "Tags",
+    "notes/Truth_And_Trust/BaierTrustAndAntitrust.md",
+    "notes/Truth_And_Trust/Truth_And_Trust.md",
+    "notes/Real_Analysis/Real_Analysis.md",
+    "playground.md",
+    "TODO.md",
+    "Context/spacesLastSync.log",
+    "Context",
     "Analytical_Philosophy/Introduction_to_Logic/8 Basic Quantificational Logic.md",
     "Analytical_Philosophy/Introduction_to_Logic/The Church-Turing Thesis.md",
     "My_Papers/Intern/2024-01-28.md",
@@ -181,28 +197,13 @@
     "My_Papers/Intern/Lecture_Sample.md",
     "My_Papers/Intern/CV_zh.md",
     "My_Papers/Intern/Golf.md",
-    "My_Papers/Intern/心物二元论Mind-Body Dualism.md",
-    "My_Papers/Intern/拉齐Al-Razi.md",
-    "Analytical_Philosophy/Math/The Strong Principle of Induction.md",
-    "Analytical_Philosophy/Math/Math.md",
-    "My_Papers/Untitled.md",
-    "My_Papers/Blog/Blog.md",
-    "My_Papers/Blog/About.md",
-    "Analytical_Philosophy/Philosophy_of_Language/Secondary_Literature/@fregeSinnBedeutung1892.md",
-    "My_Papers/Blog/Hello Wolrd.md",
-    "My_Papers/Blog/Untitled.md",
     "My_Papers/Blog",
-    "一个用户友好型澎湃数据库使用文档.md",
     "_resources/pengpai_data_export.py",
     "_resources/libsimple.so",
     "History_of_Philosophy/Ancient_Greek_Philosophy/Plato/Charmedes",
     "_resources/zotero_lib/china-national-standard-gb-t-7714-2015-numeric.csl",
     "My_Papers/Intern/Golf.ods",
-    "My_Papers/Intern/lu16204c33b0.tmp",
     "_resources/athlete.png",
-    "History_of_Philosophy/Medieval_Philosophy/伊斯兰哲学/Philosophy in the Islamic World A History of Philosophy Without Any Gaps, Volume 3 (Peter Adamson [Adamson, Peter]) (z-lib.org)",
-    "My_Papers/Intern/missfont.log",
-    "Analytical_Philosophy/Philosophy_of_Language/Secondary_Literature",
     "_resources/19D55454.jpg",
     "_resources/b93f953ad37557dd495b8028f5a518d.png",
     "_resources/v2-4b29d0fbc3d856f841f1a67d9d3990e2_r.jpg",

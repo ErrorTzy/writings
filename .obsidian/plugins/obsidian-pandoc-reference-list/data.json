@@ -11,7 +11,7 @@
   "renderCitations": true,
   "renderCitationsReadingMode": true,
   "renderLinkCitations": true,
-  "pathToBibliography": "/home/scott/Documents/WorkingFiles/Obsidian/_resources/zotero_lib/my_lib.bib",
+  "pathToBibliography": "/home/scott/Documents/WorkingFiles/writings/.resources/biblatex.bib",
   "pullFromZotero": true,
   "cslLang": "en-US",
   "showCitekeyTooltips": true,

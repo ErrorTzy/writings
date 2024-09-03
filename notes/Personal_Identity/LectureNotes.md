@@ -38,6 +38,7 @@ I have all the properties over time `Future contingent issue?`
 > But for I don't have P at t1 has already been a fact, it is pretty much presupposed that it is determined because we are arguing this at t1. So we may need a better word for "determined"
 >
 > This way of thinking about properties means that properties belongs to objects and some time.
+> One simple way to get out of this is to deny that all objects are logical constructions and there is no metaphysical object. Only after something happened could there be some object constructed as being identical with itself.
 > 
 > One main problem is to resolve what does it mean by "it is actual that P at t1" at t0.
 P1-12, Locke

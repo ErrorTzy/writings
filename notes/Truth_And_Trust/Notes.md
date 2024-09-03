@@ -1,11 +1,9 @@
 # Introduction
 
-Ceeto
-
 trust evidence vs. trust friend's word
 - Can one really psychologically trust over
 - Is it rational to trust
-- How does risk comes into the discision
+- How does risk comes into the decisions
 
 The more evidence the less trust you have on your friend?
 
