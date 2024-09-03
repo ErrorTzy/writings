@@ -41,4 +41,22 @@ I have all the properties over time `Future contingent issue?`
 > One simple way to get out of this is to deny that all objects are logical constructions and there is no metaphysical object. Only after something happened could there be some object constructed as being identical with itself.
 > 
 > One main problem is to resolve what does it mean by "it is actual that P at t1" at t0.
+>
+> It is only a metaphysical construction?
 P1-12, Locke
+
+# Locke's theory
+
+Four kinds of continuity
+
+1. Casual continuity
+2. Compositional continuity
+3. Spacial-temporal continuity
+4. Qualitative continuity
+
+Identity over time is basically there's some continuity here. But if continuity is not enough, then what is missing
+
+> Can there be a functional view of identity?
+
+
+
