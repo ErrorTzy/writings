@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "notes/Personal_Identity/LectureNotes.md",
+                "file": "notes/Peter_Proseminar/FregeTheThoughtALogicalInquiry.md",
                 "mode": "source",
                 "source": false
               }
@@ -84,7 +84,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "notes/Personal_Identity/LectureNotes.md",
+                "file": "notes/Peter_Proseminar/FregeTheThoughtALogicalInquiry.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": false
               }
@@ -96,7 +96,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "notes/Personal_Identity/LectureNotes.md"
+                "file": "notes/Peter_Proseminar/FregeTheThoughtALogicalInquiry.md"
               }
             }
           },
@@ -114,7 +114,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "notes/Personal_Identity/LectureNotes.md",
+                "file": "notes/Peter_Proseminar/FregeTheThoughtALogicalInquiry.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -143,7 +143,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "notes/Personal_Identity/LectureNotes.md"
+                "file": "notes/Peter_Proseminar/FregeTheThoughtALogicalInquiry.md"
               }
             }
           }
@@ -167,6 +167,7 @@
   },
   "active": "527b2ffc8aaa4b52",
   "lastOpenFiles": [
+    "notes/Personal_Identity/LectureNotes.md",
     "notes/Peter_Proseminar/FregeTheThoughtALogicalInquiry.md",
     "notes/Peter_Proseminar/Peter_Proseminar.md",
     "notes/Peter_Proseminar",
@@ -196,7 +197,6 @@
     "My_Papers/Intern/Writing 试讲.md",
     "My_Papers/Intern/Lecture_Sample.md",
     "My_Papers/Intern/CV_zh.md",
-    "My_Papers/Intern/Golf.md",
     "My_Papers/Blog",
     "_resources/pengpai_data_export.py",
     "_resources/libsimple.so",

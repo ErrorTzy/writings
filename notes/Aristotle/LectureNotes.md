@@ -3,7 +3,7 @@
 Plato and Aristotle: different attitude towards ordinary language
 good life: Platonic or Aristotelian? How much pain can we take?
 
-Modern: explain higher by lower (reduction)
+Modern: explain higher by lower (reduction, maybe from the tradition of atom ism)
 Ancient: explain lower by higher
 
 Aristotle:
@@ -38,7 +38,7 @@ Three senses of is:
 
 - Scott is the author of Waverley
 - Scott is a democrat
-- Scott is
+- Scott is/be
 
 Things are going ontological, man!
 
@@ -50,6 +50,33 @@ Things are going ontological, man!
 
 Is being beautiful most realize beauty or grasping beautiful?
 
-Strawson, "Individuals"
+Strawson, "Individuals", "Subject and predicate and logic in philosophy"
 
 > Palle: The higher the being, the more it can endure change
+
+
+Leon Kiss "the hungry soul"
+
+DNA
+
+When you eat something, you separate form from matter
+
+We "eat?" people around us and make them similar to ourselves
+
+Good at making babies does not make good baby
+
+Knowledge and the flow of information
+
+Equations are forms. Hoe can "stuff" come into science? How can we understand it theoretically?!!
+
+matter is potentiality; form is actuality!!
+
+all the fire/intellectual power are forms
+
+Socrates smiles but hardly cries; Jesus cries but hardly smile. Do god take us seriously?
+
+"what is x" reveals the nature of x
+
+> The form of sth sometimes is and sometimes is not itself
+
+
