@@ -50,12 +50,12 @@ Things are going ontological, man!
 
 Is being beautiful most realize beauty or grasping beautiful?
 
-Strawson, "Individuals", "Subject and predicate and logic in philosophy"
+*Strawson, "Individuals", "Subject and predicate and logic in philosophy"*
 
 > Palle: The higher the being, the more it can endure change
 
 
-Leon Kiss "the hungry soul"
+*Leon Kiss "the hungry soul"*
 
 DNA
 
@@ -69,14 +69,48 @@ Knowledge and the flow of information
 
 Equations are forms. Hoe can "stuff" come into science? How can we understand it theoretically?!!
 
-matter is potentiality; form is actuality!!
+Matter is potentiality; form is actuality!!
 
-all the fire/intellectual power are forms
+All the fire/intellectual power are forms
 
 Socrates smiles but hardly cries; Jesus cries but hardly smile. Do god take us seriously?
 
 "what is x" reveals the nature of x
 
-> The form of sth sometimes is and sometimes is not itself
+> The form of st sometimes is and sometimes is not itself: consider justice and the form of justice
 
+Proper names refer to substance; `question: what is the paradigm of substance?`
 
+**Def 1:** substance is and only is subject
+
+Ordinary grammar vs. reality: Wittgenstein think this is detached; Philosophy is the confusion of language of the world
+
+Simple structure --> mass production Russian tank vs. German tank in the WWII
+
+`Fiction is a world without matter; it is purely form??`
+
+Kripke's theory about proper name is very Aristotelian
+
+**Def 2:** There's no contrary of substance
+
+**Def 3:** There's no more or less of a substance
+
+`contrasting Plato's idea: it seems that someone can be 'more a man' than other, by immitating the form of man?`
+
+**Def 4:** Numerically one and can receive contraries, `that is, it can take on change`
+
+"The unspecified ability of human beings (Aristotle: hand) vs. tigers being strong, fish swims, etc."
+
+Cambridge change(`not genuine change, no change in itself?`): change in relationship
+
+e.g. Proposition's truth value changes, but the fact changes
+
+Frege: proposition cannot change because it is timeless; it must follow a timestamp
+
+# De Interpretatione
+
+Wittgenstein: knowing language is knowing-how; external does not require internal
+
+Is AI **imitation** intelligence or **artificial** intelligence?
+
+how do you know you are conscious/thinking?

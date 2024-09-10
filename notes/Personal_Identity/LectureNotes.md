@@ -54,9 +54,31 @@ Four kinds of continuity
 3. Spacial-temporal continuity
 4. Qualitative continuity
 
-Identity over time is basically there's some continuity here. But if continuity is not enough, then what is missing
+Identity over time is basically there's some continuity here. But if continuity is not enough, then what is missing?
+
+Continuity with respect to a kind/sortal
+
+Consider:
+
+1. A red car is painted yellow, and
+2. A red car is crushed
+
+The continuity of 1 still holds while 2 does not. This is because 
 
 > Can there be a functional view of identity?
 
 
+Monday: tree has trunk and branch
+Tuesday: tree has only trunk
+Explanation: tree ≠ trunk on Tuesday. Tree stage is equal to trunk stage at Tuesday but the tree is not the trunk altogether.
+
+Perry's interpretation: later stages can contain earlier stages
+
+For Locke:
+1. Memory
+2. Body
+3. Mass
+4. Spirit/Soul/Substance
+
+Read next: P. 113-119 & Butler P. 99-107
 
