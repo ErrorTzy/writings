@@ -82,3 +82,8 @@ For Locke:
 
 Read next: P. 113-119 & Butler P. 99-107
 
+(P) Memory of memory then memory
+
+Refutation: we need potential memory
+
+Read next: Butler

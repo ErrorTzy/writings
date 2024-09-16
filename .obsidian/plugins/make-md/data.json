@@ -48,8 +48,11 @@
     null,
     null,
     "Obsidian",
-    "//notes",
-    "//notes/notes/Peter_Proseminar"
+    "//notes/notes/Peter_Proseminar",
+    "//notes/notes/Philosophy_of_Language",
+    "//notes/notes/Calculus",
+    "//notes/notes/Aristotle",
+    "//papers"
   ],
   "expandFolderOnClick": true,
   "menuTriggerChar": "/",

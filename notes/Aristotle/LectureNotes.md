@@ -114,3 +114,43 @@ Wittgenstein: knowing language is knowing-how; external does not require interna
 Is AI **imitation** intelligence or **artificial** intelligence?
 
 how do you know you are conscious/thinking?
+
+Plato’s Cratylus
+
+Fail to refer to, but only refer to now "S at t2"
+
+Negation is syntax and falsity is semantic. When I say ¬P, I'm not saying P is false (say? or give?)
+
+Is assertion a hidden negation? E.g. "The room is full" is short for "the room is not empty"?
+
+Is assertion always stating something true? 
+
+> Palle: No, I'm only asserting some truth value
+> What???????????????????
+
+word-word relationship is syntax
+word-world relationship is semantic
+word-speaker relationship is pragmatics
+
+Is non-contradiction syntactic or semantic?
+Is excluded middle syntactic or semantic?
+
+Every sentence only has one truth value.
+
+Inside circle and everything outside the circle
+
+Truth is correspondence with reality
+
+But what reality?
+
+> Palle: reality is a Swiss cheese. There are holes in it.
+
+Bivalence is false?
+
+Do thoughts require language?
+
+Chomsky generative grammar; language is our cerebral stuff
+
+Reading a book: the book is determined
+
+

@@ -54,8 +54,29 @@ Baker's puzzle:
 (1) We would not believe P if is not likely that P is true
 (2) We may believe P even if there are adequate evidence to show it is not likely that P
 
-Skeptical Options:
+Skeptical Options (trust is not rational):
 (1) A rational person shouldn't have irrational belief
 (2) S has belief P or not is according to how skeptical the context is
 
-**Why Baker doesn't want to say this?**
+Baker's proposal: we need to have another understanding of rationality
+Holton: Trust is not believing at all
+
+> The conception of rationality, even purely theoretical, as long as it includes evidence, includes some ethical conception
+
+# Deciding to Trust, Coming to Believe
+
+Strawson, "reactive attitudes": 
+relational attitudes: angry with/gratitude/...
+we react to other people's motivation
+quality of will
+objective stance(treating sth as objects, detached) vs. *participant stance*
+
+Can rope hold my weight? Rely without believing; it would be irrational but possible/probable
+
+Relying on a person as a person, to be motivated in ways we want for them to be motivated
+
+Reliance from the participant stance: feeling disappointed/gratitude
+
+> the nice part of this "participant stance" seems that it gives an account for betrayal
+>
+> But "you have no choice but to trust" count a trust?
