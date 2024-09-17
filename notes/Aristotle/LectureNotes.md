@@ -1,7 +1,9 @@
 # Introduction
 
 Plato and Aristotle: different attitude towards ordinary language
-good life: Platonic or Aristotelian? How much pain can we take?
+Aristotle's analysis comes from ordinary language.
+
+Good life: Platonic or Aristotelian? How much pain can we take?
 
 Modern: explain higher by lower (reduction, maybe from the tradition of atom ism)
 Ancient: explain lower by higher
@@ -113,7 +115,7 @@ Wittgenstein: knowing language is knowing-how; external does not require interna
 
 Is AI **imitation** intelligence or **artificial** intelligence?
 
-how do you know you are conscious/thinking?
+How do you know you are conscious/thinking?
 
 Plato’s Cratylus
 
@@ -123,7 +125,7 @@ Negation is syntax and falsity is semantic. When I say ¬P, I'm not saying P is 
 
 Is assertion a hidden negation? E.g. "The room is full" is short for "the room is not empty"?
 
-Is assertion always stating something true? 
+Is assertion always stating something true?
 
 > Palle: No, I'm only asserting some truth value
 > What???????????????????
@@ -133,7 +135,8 @@ word-world relationship is semantic
 word-speaker relationship is pragmatics
 
 Is non-contradiction syntactic or semantic?
-Is excluded middle syntactic or semantic?
+**Is excluded middle syntactic or semantic?**
+> Palle: it's syntactic
 
 Every sentence only has one truth value.
 
@@ -145,7 +148,9 @@ But what reality?
 
 > Palle: reality is a Swiss cheese. There are holes in it.
 
-Bivalence is false?
+**Bi valence(every sentence has a truth value; there's no 'undetermined' truth value) is false?**
+
+> Consider the difference between three-value logic and truth-gap theory.
 
 Do thoughts require language?
 
@@ -153,4 +158,28 @@ Chomsky generative grammar; language is our cerebral stuff
 
 Reading a book: the book is determined
 
+Sea battle problem
+
+Necessary: unavoidable
+
+Pass wasn't necessary then, but is necessary now.
+
+If something is true, then it is a fact; and a fact cannot be otherwise/altered --> What is true is always true.
+
+Are predictions talking about facts? Is reality confined till present? Consider Parmenides: being be
+
+Even if hard determinism is true, it would not have any impact on our life
+
+Aristotle's solution: 
+Solution 1: For future, neither P and ¬P is true.
+Problem: is P∨¬P true?
+What is necessarily is when when is and what is necessarily is when it is not.
+Necessarily (everything is or is not); e.g. It is necessary that (either sea battle happens or not)
+But what makes this very statement true?
+
+> ? Proposition are timeless, but its truth value can change from none/undetermined to true or false; once it has been assigned a value, it cannot change.
+
+> The hard point is, if we want to give an account for future tense that has no truth value, we meanwhile should not pay the price of destroying sentences in past tense. 
+
+> Yeah! consider birthday. Is birthday real? It is a future necessity?
 
