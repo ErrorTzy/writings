@@ -69,7 +69,7 @@ Strawson, "reactive attitudes":
 relational attitudes: angry with/gratitude/...
 we react to other people's motivation
 quality of will
-objective stance(treating sth as objects, detached) vs. *participant stance*
+objective stance(treating nth as objects, detached) vs. *participant stance*
 
 Can rope hold my weight? Rely without believing; it would be irrational but possible/probable
 
@@ -80,3 +80,6 @@ Reliance from the participant stance: feeling disappointed/gratitude
 > the nice part of this "participant stance" seems that it gives an account for betrayal
 >
 > But "you have no choice but to trust" count a trust?
+
+
+What is trustworthiness, exactly?

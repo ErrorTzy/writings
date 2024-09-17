@@ -1,55 +1,76 @@
 # Peculiar First Person Phenomenon
 
-Consider: Descartes says "I(myself) is not Descartes"
+**Descartes says, "it is possible that I am not Descartes"**
 
-**From third person,** "the sense is transparent to us"
+I can conceive that I am not Descartes, but I cannot conceive that I am not.
 
-The indexical "I" will be traced to "Descartes", then it would be not only possible but also necessary.
+*Objection:* It doesn't make sense in the third perspective, for it just mean 'Descartes is not Descartes'
 
-(Something (not) interesting happens when personal identity is lost the speaker still persist. Consider Trump's memory and character is swapped to Descartes' body. He may shout "I am not Descartes!" 
+*Response:* Third person perspective is referentially transparent. First person perspective is referentially opaque. We can see that 'I' gives the object differently from 'Descartes' by moving our perspective to Descartes' first person perspective.
 
-If "Descartes" is rigid, it will goes to the thing that is in Trump's body. Then it is true.)
-
-**From first person,** "Assemble the sentence to from different senses"
-
-> It seems plausible, because:
+> Remark: 
 >
-> 1. Descartes is stipulated. It is possible that I am never stipulated as "Descartes". The stipulation does not come from syntax, but from language users. 
-> 2. Descartes, if understood as descriptive (have such and such relationship and properties), will be different from "I" in its sense.
+> Even if in the first perspective, it would depend on how we understand proper names. "I can conceive that I am not Descartes" could mean three things:
+> 1. I can conceive that I am never stipulated as 'Descartes'
+> 2. (Proper names are descriptions) I don't have a sense, but Descartes has
+> 3. (Proper names are rigid designators) 'I' and 'Descartes' are two metaphysically different objects
+>
+> Question: did Anscombe pick 2? Or 3?
 
-# Defining I:
+So if 'I' does not work like proper names, what is it?
 
-(trying to get the sense of 'I'? The mechanism of 'I'? The referent of 'I')
+# Defining I
 
-**Def 1:** I = "the word each one uses in speaking of oneself"
+Let's try define it with reflexives:
 
-Anscombe: To define I with "oneself", 
+**Definition of ordinary reflexive:** A word specifies *for hearers* an object designated by the subject of the sentence
 
-1. If understood as ordinary reflexive, then it will be different from 'I' when someone do not know "oneself" refers to him (how?)
-2. If understood as indirect reflexive, then it is circular
+`Why?`
 
-> Ordinary reflexive: refers to the subject of the sentence, so that it can be defined in the third person perspective? Indexical?
-> Indirect reflexive: refers to the speaker himself, so that it can only be defined in the first person perspective? "Reflexical"?
+**Def 1:** 'I' is the word each person P uses in speaking of oneself
+
+*Objection:* 
+
+There exists such word W that: 
+
+1. Each person P intend to use W to speak of an object O, and 
+2. unbeknownst to the person P, the object O is the speaker P.
+
+'I' is not W because P necessarily knows that O is identical with P.
+
+So if the definition does not rule out W, then the definition fails; 
+
+So when P uses W, does it count as "P speaking of oneself"?
+
+If we understand "oneself" as the ordinary reflexive, then 'oneself' here is something that can specifies object P *for hearers*. 
+
+But W indeed can specify object P *for hearers*, though the speakers do not intend to do so.
+
+Therefore, W fits the definition, making the definition fail.
+
+> Remark:
+>
+> Is this how ordinary reflexive work? Can you think of a scenario where the speaker do not know they are the subject in the third person perspective?
+
 
 **Def 2:** I = "the word each one uses in speaking of oneself knowingly and intentionally"
 
-> Premise: Proper names should be excluded from this definition because one can use this to refer to oneself without knowing any proper names.
+*Attack:* This won't do because when P use W, P is also knowingly using W.
+*Defense:* But you cannot replace W with P's name and still keep the intention the same. P did not knowingly use W to refer P, but O.
+*Attack:* If you understand 'oneself' in the definition as ordinary use, then it cannot entail in what way (i.e. knowingly and intentionally) one specify the object to the hearers. It directly refers to the *object* P, but we want the definition to say "each person P uses in speaking of the *speaker* knowingly and intentionally". So when P uses W, P is specifying *the object that is P for the hearers* knowingly and intentionally.
 
-*Attack:* Proper names also fit into this definition, but proper names are not 'I'
-*Defense:* Proper names are excluded because "speaking of proper names that refers to oneself" is not "speaking of oneself." `i.e. There is a difference between the intention of proper names and reflexive pronouns`
-*Attack:* Why there is a difference between "speaking of proper names that refers to oneself" and "speaking of oneself"? 
-
-1. If we understand reflexive as referring to the subject (i.e. the ordinary reflexive), then consider the sentence: Smith realizes the identity between the object he calls "Smith" and himself:
-    a. This sentence intuitively displays the difference between proper names and reflexive pronouns/first person perspective.
-    b. If replace himself with subject and it does not changes the meaning, then the ordinary reflexive can be used to in the definition to express the correct meaning
-    c. But the meaning changes. It becomes the identity between two `anonymous?` referent, one by subject, one by proper name. But this is not the identity we want.
-    d. The perfect reflexive we want should show the self-referring nature directly, instead of pointing to a `unknown? non-reflexing?` subject.
-2. If we understand reflexive as indirect/perfect, then it must be defined by I.`you mean, in first person perspective?`
+1. P is speaking of an object QUA W knowingly and intentionally, and 
+2. this object is P for the hearers.
+3. Therefore, P is speaking of oneself knowingly and intentionally.
 
 
-The defense will be successful only if reflexive pronouns itself are sufficient indication of the way the object is specified. `i.e. proper names itself do not `
 
-So can reflexive pronouns itself specify an object? 
 
 First pass: language rules (global rules) --> 'I' gets its referent here
 Second pass: conventions (local rules) --> Proper names gets its referent here
+
+The feature of I: it seems syntactical that 
+1. it gives an object, and
+2. the object that it gives is identical with the speaker
+such that when one use it, one cannot not know 2. 
+
