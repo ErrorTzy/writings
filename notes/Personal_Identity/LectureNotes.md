@@ -87,3 +87,21 @@ Read next: P. 113-119 & Butler P. 99-107
 Refutation: we need potential memory
 
 Read next: Butler
+
+Non-substance view: it is not a priori that there is substance. We can just use "object"
+
+Mereological essentialism: A thing cannot change its parts
+
+Consider the position: there is no true identity of this tree and another tree, strictly speaking
+
+Eli: 
+1. there exists shmenglish such that can speak the identity of two tree
+2. according to principle of interpretative charity, English is shmenglish.
+
+Interpretative charity: if someone says "dog", you should not think he's thinking about 'cat' but there's some problem with his mind
+
+Speaking loosely: exaggeration; if someone challenges you you pull back.
+
+> Reidentifying objects seems to require first person pronouns
+>
+> First person pronouns fixes "here". When I look at something, turns around, and look back, I need to use "here", and thus first person pronoun.   
