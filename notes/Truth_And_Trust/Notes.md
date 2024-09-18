@@ -81,5 +81,16 @@ Reliance from the participant stance: feeling disappointed/gratitude
 >
 > But "you have no choice but to trust" count a trust?
 
+> What is trustworthiness, exactly?
 
-What is trustworthiness, exactly?
+# The reasons of trust
+
+You cannot believe P because believing P is good.
+You cannot intend to do ϕ because intending to do ϕ is good. The reason must be that ϕ is good.
+Similarly, trusting P because believing trusting P is good cannot be a reason. You must believe in trustworthiness.
+
+# Getting Told and Being Believed
+
+Sometimes we are not "telling" others. The authority sometimes is sometimes in the language itself;
+While sometimes the authority is from the speaker; and by doing so the speaker takes some responsibility for the truth;
+Also, the audience need to decide the speaker should be a source of authority
