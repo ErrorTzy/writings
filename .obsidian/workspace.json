@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "notes/Peter_Proseminar/Tang - Week 4 (Anscombe).md",
+                "file": "notes/Personal_Identity/A Seasoned Locke's Theory of identity.md",
                 "mode": "source",
                 "source": false
               }
@@ -84,7 +84,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "notes/Peter_Proseminar/Tang - Week 4 (Anscombe).md",
+                "file": "notes/Personal_Identity/A Seasoned Locke's Theory of identity.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": false
               }
@@ -96,7 +96,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "notes/Peter_Proseminar/Tang - Week 4 (Anscombe).md"
+                "file": "notes/Personal_Identity/A Seasoned Locke's Theory of identity.md"
               }
             }
           },
@@ -114,7 +114,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "notes/Peter_Proseminar/Tang - Week 4 (Anscombe).md",
+                "file": "notes/Personal_Identity/A Seasoned Locke's Theory of identity.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -143,7 +143,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "notes/Peter_Proseminar/Tang - Week 4 (Anscombe).md"
+                "file": "notes/Personal_Identity/A Seasoned Locke's Theory of identity.md"
               }
             }
           }
@@ -166,14 +166,16 @@
   },
   "active": "527b2ffc8aaa4b52",
   "lastOpenFiles": [
-    "notes/Peter_Proseminar/AnscombeNotes.md",
-    "notes/Peter_Proseminar/FregeTheThoughtALogicalInquiry.md",
+    "notes/Truth_And_Trust/Arg Reconstruction.md",
     "notes/Peter_Proseminar/Tang - Week 4 (Anscombe).md",
+    "notes/Peter_Proseminar/FregeTheThoughtALogicalInquiry.md",
+    "notes/Peter_Proseminar/AnscombeNotes.md",
+    "notes/Personal_Identity/A Seasoned Locke's Theory of identity.md",
+    "notes/Personal_Identity/LectureNotes.md",
     "notes/Peter_Proseminar/Tang - Week 3 (Strawson).md",
     "notes/Peter_Proseminar/AnscombeNotes.md~",
     "papers/少数服从多数还是全体通过.md",
     "notes/Aristotle/Thoughts on future contingencies and identity.md",
-    "notes/Personal_Identity/LectureNotes.md",
     "notes/Peter_Proseminar/Peter_Proseminar.md",
     "notes/Peter_Proseminar",
     "notes/Untitled.md",
@@ -195,8 +197,6 @@
     "My_Papers/Intern/ReadingGroupReport20231129.md",
     "My_Papers/Intern/ReadingGroupReport20231206.md",
     "My_Papers/Intern/US_Top10_Application_Guide(unfinished).md",
-    "My_Papers/Application/Leuven.md",
-    "My_Papers/Application/Writing_Sample.md",
     "My_Papers/Blog",
     "_resources/pengpai_data_export.py",
     "_resources/libsimple.so",

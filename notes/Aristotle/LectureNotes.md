@@ -121,7 +121,7 @@ Plato’s Cratylus
 
 Fail to refer to, but only refer to now "S at t2"
 
-Negation is syntax and falsity is semantic. When I say ¬P, I'm not saying P is false (say? or give?)
+Negation is syntax and falsity is semantic. When I say ¬P, I'm not saying P is false (say? Or give?)
 
 Is assertion a hidden negation? E.g. "The room is full" is short for "the room is not empty"?
 
@@ -181,5 +181,52 @@ But what makes this very statement true?
 
 > The hard point is, if we want to give an account for future tense that has no truth value, we meanwhile should not pay the price of destroying sentences in past tense. 
 
-> Yeah! consider birthday. Is birthday real? It is a future necessity?
+> Yeah! Consider birthday. Is birthday real? It is a future necessity?
 
+# Physics
+
+God seems to be the most knowable thing by us?
+
+> Yourgrau:
+> clearly clear: slavery is wrong
+> clearly unclear: abortion
+> Palle: You comes from not existing. An object comes from being non-existing to existing. There is some substratum
+
+If your car is completely nonfunctional, and you put it into the garage, then the car will cease to exist even if it looks the same.
+
+> Palle: Theory of being: three categories, existence, non-existence and being. Being is a Parmenides' being. (but being is one?)
+
+If there is a vagueness between A and B, should we say A is B?
+
+> If you make a whole wheat sandwich. Could it have been made with white bread?
+
+Paradoxical nature of Aristotelian form-matter distinction: it preserve our intuition about matter, but its actually form doing the trick.
+
+The philosophy of change: from one state to the opposite of the state;
+This also applies to existence.
+
+Is the statue *in* a piece of marble? 
+Plato: yes `?`
+Aristotle: No you created a new substance/object
+
+When you change, the opposite property goes into non-existence.
+
+F comes to be F from ¬F.
+
+For Aristotle, reality is substance.
+
+Form does not yearn nothing/does not desire anything --> desire for completion
+
+It's the matter that does the yearning; they yearn to be actualized `Palle: This is completely Platonic`
+
+Sexual love is the confused Eros; This happen when you cannot grasp the higher/complete yourself to the higher; but anyway all Eros are divine
+
+**Artificial** being has less potential; Natural things has internal principle of grow and decay.
+
+What is the true nature? What are nature kinds?
+
+What defines a artificial thing is its function.
+
+Gazing vs. Eating: plants do not exist by destroy but gazing; we exist by destroying. `Not really accurate!`
+
+De Anima: The soul is dependent/separate entity? No, the soul is the form of the body (transcendent vs. immanent)

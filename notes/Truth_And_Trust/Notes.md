@@ -91,6 +91,34 @@ Similarly, trusting P because believing trusting P is good cannot be a reason. Y
 
 # Getting Told and Being Believed
 
+An evidence is a causal trace; A word is not a casual trace. You need take **responsibility** when someone heard your words.
+
 Sometimes we are not "telling" others. The authority sometimes is sometimes in the language itself;
 While sometimes the authority is from the speaker; and by doing so the speaker takes some responsibility for the truth;
 Also, the audience need to decide the speaker should be a source of authority
+
+The ability to testify --> if the ability can be hindered by injustice
+
+
+Analogous to Thomas Nagel
+
+What is a good account of distinction? how do we reason? i.e. don't contradict oneself
+
+
+# Testimonial Injustice
+
+Justice is tied to social structure; Rawls: justice is the first virtue of social institutions
+
+Distribution of NOT ONLY goods, but also status and rank/power
+
+Criticism: this narrows the scope of "(in)justice". For example, *lack of respect* problem, not distribution problem `bias?`
+
+Yet another problem: epistemic (in)justice, someone is wronged specifically in her capacity as a knower `reasonale knower?`
+
+## What is epistemic wrong?
+
+Wrong is not equal to harm. E.g. I sell lemonade after you sell lemonade which harms your business
+
+You can wrong someone without intending to wrong them. E.g. I mistake you with your twin brother and do bad things to you
+
+"tracker prejudice:" track people to social identity 

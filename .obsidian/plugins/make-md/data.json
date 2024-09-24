@@ -52,7 +52,9 @@
     "//notes/notes/Philosophy_of_Language",
     "//notes/notes/Calculus",
     "//notes/notes/Aristotle",
-    "//notes"
+    "//notes",
+    "//notes/notes/Personal_Identity",
+    "//notes/notes/Truth_And_Trust"
   ],
   "expandFolderOnClick": true,
   "menuTriggerChar": "/",

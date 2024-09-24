@@ -104,4 +104,12 @@ Speaking loosely: exaggeration; if someone challenges you you pull back.
 
 > Reidentifying objects seems to require first person pronouns
 >
-> First person pronouns fixes "here". When I look at something, turns around, and look back, I need to use "here", and thus first person pronoun.   
+> First person pronouns fixes "here". When I look at something, turns around, and look back, I need to use "here", and thus first person pronoun.
+
+
+> t0 is the time that peter(P) has the first piece of memory. I will call this P0. I will call the memory M0.
+> P0 and P are not one and the same. But I'm not calling P0 a stage of P because in my mind P is an object not event. So I will call P0 the t0-aspect of P.
+> P does not lose identity at t0 because P at t0
+
+Reid: uninterrupted existence
+
