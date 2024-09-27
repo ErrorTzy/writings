@@ -230,3 +230,52 @@ What defines a artificial thing is its function.
 Gazing vs. Eating: plants do not exist by destroy but gazing; we exist by destroying. `Not really accurate!`
 
 De Anima: The soul is dependent/separate entity? No, the soul is the form of the body (transcendent vs. immanent)
+
+# De Anime
+
+Detour:
+
+Holding child pornography without raping child without publishing/drawing a painting of killing Trump/drawing child porn without publishing is a crime or not?
+
+Can holding a thought/planning a crime/holding pornography be illegal?
+
+Thought/Intention: Plato talking about intention
+
+Da Vinci: he really know something when he draws. He's not just imitating, but really know the structure of the body, etc..
+
+## Relativity of Matter
+
+Matter is **relative!!** to something, because matter can also be form. E.g. matter relative to body is cells, but cells are made of atoms, etc.. 
+Matters **are not necessarily material**. Letters are matter of words.
+
+In Plato's Pheado: how do soul trap in the body?
+Palle: by illusion. The soul thought it is the body. Mathematics is an important drawing force for Platonism. Other aspects about the world draws us away from Plato.
+
+## Four causes
+
+What is the root of Mathematics? If you don't know it, then you are not a knower. You are only an engineer of mathematics.
+
+Formal, Material, Efficient, Final Cause
+
+No one can understand a watch/violin/clothes`/any other artificial stuff` if we have no final cause.
+
+Question: what about the final cause of numbers?
+
+Formal Cause: The essence is *not* the thing itself, but the formal cause of it.
+
+Four causes of human:
+Efficient Cause: sexual intercourse
+Formal Cause: Human nature
+Material Cause: sex cells
+Final Cause: ? Ethics?
+
+Final cause is not something that produce anything. The neck of giraffe is not PRODUCED by the purpose of eating leafs.
+
+> Maybe teleology is similar to emerging property when the scale rises?
+
+The notion of QUA in Aristotle is important
+
+"Potential" is a mode of being.
+
+> Palle: Potential energy disappear when you fill the ground...how?
+> Quantum mechanics is where potential cannot be reduced to actual.

@@ -88,6 +88,8 @@ Refutation: we need potential memory
 
 Read next: Butler
 
+# Butler-Reid's View
+
 Non-substance view: it is not a priori that there is substance. We can just use "object"
 
 Mereological essentialism: A thing cannot change its parts
@@ -112,4 +114,35 @@ Speaking loosely: exaggeration; if someone challenges you you pull back.
 > P does not lose identity at t0 because P at t0
 
 Reid: uninterrupted existence
+
+# Hume's theory
+
+> If we allow vagueness in our theory, then What about thinking that, identity is just weighted similarities of properties, and the configuration of weight is different from person to person? Is there even a reason to reject this view?
+
+Consider: is there a substantial disagreement between Human and Locke(common sense), except use of terminology? (Meta-ontology) Should we call this a confusion? Is there a fundamental difference between secession and identity? 
+
+You can talk about identical secession, actually. `but hume is saying elements inside secession`
+
+Eli's resolution to terminology dispute: do you want to speak English?
+Hume says we made a mistake. What is the mistake we made, exactly? We would agree that if we take a twig from an oak, they have different parts.
+Hume would say, ordinary people are just confusing two different phenomena (strict identity and continuous change) into one?
+But ordinary people really think "same car" cannot change?
+But if you really ask common person, they may as well go into philosophy.
+Could there be a language to describe the state of affairs?
+
+Hume: causal theory under the disguise of nihilism
+
+The case of identity is:
+
+1. analyzable (definable)
+2. inferior (loose, imperfect)
+3. fictitious (common sense is mistaken)
+
+                Matter/Mass Physical Object Persons
+Locke:          not 1,2,3   1, not 2,3      1, not 2,3
+Butler-Reid:    not 1,2,3   1,2, not 3      not 1,2,3 (Person is just a bunch of matter)
+Hume:           not 1,2,3   1,2,3           1,2,3
+
+Difference between 2 and 3: loose talk is not false talk; in a "loose context" the loose talk can be true; fictitious means that it is false in any case
+
 

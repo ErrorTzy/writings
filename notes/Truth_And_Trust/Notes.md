@@ -102,7 +102,7 @@ The ability to testify --> if the ability can be hindered by injustice
 
 Analogous to Thomas Nagel
 
-What is a good account of distinction? how do we reason? i.e. don't contradict oneself
+What is a good account of distinction? how do we reason? i.e. Don't contradict oneself
 
 
 # Testimonial Injustice
@@ -122,3 +122,29 @@ Wrong is not equal to harm. E.g. I sell lemonade after you sell lemonade which h
 You can wrong someone without intending to wrong them. E.g. I mistake you with your twin brother and do bad things to you
 
 "tracker prejudice:" track people to social identity 
+
+## Perceptions of trustworthiness
+
+Identity prejudicial credibility deficit: via stereotype
+
+Stereotype is not good/bad, and is necessary. They play the role of a heuristic.
+
+Social generalization about trustworthiness is inevitable (and *desirable* `because it actually help establish trust`)
+
+Therefore, *reasonable* prejudicial stereotype makes people bad *from epistemic perspective*. Therefore they are *epistemically bad*
+
+Ethically bad, on the other hand, is when you have a noxious intention.
+
+## Prejudicial Stereotype
+
+Credibility judgment: almost perceptual `controvertial, perception may still have some belief involved. But at least in the weaker sense, the belief involvment is not conscious`, perceptual in the sense that we form the belief almost subconsciously, without weighting belief in between
+
+Doxastically mediated: Personal belief is not mediating the form of judgment
+
+> in order to avoid injustice, I am willing to go through individual by individual and waste my time on sharks
+
+Harms:
+1. Insult or degradation of a giver of knowledge
+2. Lose confidence in knowledge
+3. Losing intellectual courage, not to abandon one's belief
+4. Important role in self-formation, steadying the mind. `we stablize our mind by engaging socially with others, or our mind will be a stew ????`
