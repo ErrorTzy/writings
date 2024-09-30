@@ -148,3 +148,18 @@ Harms:
 2. Lose confidence in knowledge
 3. Losing intellectual courage, not to abandon one's belief
 4. Important role in self-formation, steadying the mind. `we stablize our mind by engaging socially with others, or our mind will be a stew ????`
+
+# On a supposed right to lie from philanthropy
+
+How do we define lies?
+
+- Not necessarily say something false
+- Not necessarily intend to deceive (I believe you don't will not take it; I lie in order to show power, for example)
+
+Kant: Lying is dishonest speech; It fails humanity
+
+The wrong of lie is in deception or something else?
+
+
+Analogy between universal laws and traffic laws `But this is not how Kant formulate his rules?`
+

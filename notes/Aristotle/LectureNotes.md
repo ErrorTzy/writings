@@ -148,7 +148,7 @@ But what reality?
 
 > Palle: reality is a Swiss cheese. There are holes in it.
 
-**Bi valence(every sentence has a truth value; there's no 'undetermined' truth value) is false?**
+**Bivalence(every sentence has a truth value; there's no 'undetermined' truth value) is false?**
 
 > Consider the difference between three-value logic and truth-gap theory.
 
@@ -173,7 +173,7 @@ Even if hard determinism is true, it would not have any impact on our life
 Aristotle's solution: 
 Solution 1: For future, neither P and ¬P is true.
 Problem: is P∨¬P true?
-What is necessarily is when when is and what is necessarily is when it is not.
+What is necessarily is when it is and what is necessarily is when it is not.
 Necessarily (everything is or is not); e.g. It is necessary that (either sea battle happens or not)
 But what makes this very statement true?
 
@@ -230,8 +230,6 @@ What defines a artificial thing is its function.
 Gazing vs. Eating: plants do not exist by destroy but gazing; we exist by destroying. `Not really accurate!`
 
 De Anima: The soul is dependent/separate entity? No, the soul is the form of the body (transcendent vs. immanent)
-
-# De Anime
 
 Detour:
 

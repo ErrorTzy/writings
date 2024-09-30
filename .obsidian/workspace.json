@@ -13,7 +13,19 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "notes/Truth_And_Trust/Arg Reconstruction.md",
+                "file": "notes/Aristotle/Aristotle_First_Assignment_Scott_Tang.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "96b55a5590316044",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "notes/Aristotle/LectureNotes.md",
                 "mode": "source",
                 "source": false
               }
@@ -84,7 +96,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "notes/Truth_And_Trust/Arg Reconstruction.md",
+                "file": "notes/Aristotle/Aristotle_First_Assignment_Scott_Tang.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": false
               }
@@ -96,7 +108,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "notes/Truth_And_Trust/Arg Reconstruction.md"
+                "file": "notes/Aristotle/Aristotle_First_Assignment_Scott_Tang.md"
               }
             }
           },
@@ -114,7 +126,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "notes/Truth_And_Trust/Arg Reconstruction.md",
+                "file": "notes/Aristotle/Aristotle_First_Assignment_Scott_Tang.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -143,7 +155,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "notes/Truth_And_Trust/Arg Reconstruction.md"
+                "file": "notes/Aristotle/Aristotle_First_Assignment_Scott_Tang.md"
               }
             }
           }
@@ -166,18 +178,22 @@
   },
   "active": "527b2ffc8aaa4b52",
   "lastOpenFiles": [
+    "notes/Aristotle/LectureNotes.md~",
+    "notes/Aristotle/Thoughts on future contingencies and identity.md",
+    "notes/Aristotle/LectureNotes.md",
+    "notes/Aristotle/Aristotle_First_Assignment_Scott_Tang.md",
+    "notes/Peter_Proseminar/Tang - Week 5 (Perry).md",
+    "notes/Truth_And_Trust/Arg Reconstruction.md",
     "notes/Peter_Proseminar/Tang - Week 4 (Anscombe).md",
     "notes/Peter_Proseminar/Tang - Week 4 (Perry).md",
     "notes/Peter_Proseminar/FregeTheThoughtALogicalInquiry.md",
     "notes/Peter_Proseminar/Tang - Week 3 (Strawson).md",
-    "notes/Truth_And_Trust/Arg Reconstruction.md",
     "notes/Truth_And_Trust/Notes.md",
     "notes/Personal_Identity/A Seasoned Locke's Theory of identity.md",
     "notes/Peter_Proseminar/AnscombeNotes.md",
     "notes/Personal_Identity/LectureNotes.md",
     "notes/Peter_Proseminar/AnscombeNotes.md~",
     "papers/少数服从多数还是全体通过.md",
-    "notes/Aristotle/Thoughts on future contingencies and identity.md",
     "notes/Peter_Proseminar/Peter_Proseminar.md",
     "notes/Peter_Proseminar",
     "notes/Untitled.md",
@@ -193,15 +209,10 @@
     "Context",
     "Analytical_Philosophy/Introduction_to_Logic/8 Basic Quantificational Logic.md",
     "Analytical_Philosophy/Introduction_to_Logic/The Church-Turing Thesis.md",
-    "My_Papers/Intern/2024-01-28.md",
-    "My_Papers/Intern/ReadingGroupReport20231220.md",
-    "My_Papers/Intern/ReadingGroupReport20231129.md",
-    "My_Papers/Intern/ReadingGroupReport20231206.md",
     "My_Papers/Blog",
     "_resources/pengpai_data_export.py",
     "_resources/libsimple.so",
     "History_of_Philosophy/Ancient_Greek_Philosophy/Plato/Charmedes",
-    "_resources/zotero_lib/china-national-standard-gb-t-7714-2015-numeric.csl",
     "_resources/athlete.png",
     "_resources/19D55454.jpg",
     "_resources/b93f953ad37557dd495b8028f5a518d.png",
