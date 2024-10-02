@@ -48,14 +48,11 @@
     null,
     null,
     "Obsidian",
-    "//notes/notes/Peter_Proseminar",
-    "//notes/notes/Philosophy_of_Language",
-    "//notes/notes/Calculus",
-    "//notes/notes/Aristotle",
     "//notes",
-    "//notes/notes/Personal_Identity",
     "//notes/notes/Truth_And_Trust",
-    "//notes/notes/Philosophy_of_Language/notes/Philosophy_of_Language/assets"
+    "//notes/notes/Philosophy_of_Language",
+    "//notes/notes/Philosophy_of_Language/notes/Philosophy_of_Language/Secondary_Literature",
+    "//notes/notes/Peter_Proseminar"
   ],
   "expandFolderOnClick": true,
   "menuTriggerChar": "/",

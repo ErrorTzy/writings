@@ -9,6 +9,10 @@ Is equality the relationship between objects or between names or signs of object
 
 Explanation: when we say a=b, we are saying that the objects that the name "a" and "b" designate (bedeuten), while when we say a=a, we are saying that the names itself are the same.
 
+> Some counterexample:
+> Now is now (now gets slightly different index)
+> My height is this (and you put your hand on your head)
+
 # Words and expressions
 
 the Bedeutung of a sign and the sense of a sign
@@ -32,6 +36,8 @@ vs. Bedeutung: my idea is an internal image of the Bedeutung.
 vs. sense: the same sense will lead to different ideas
 idea belongs to someone
 (idea itself cannot Bedeutung, but Frege did not elaborate on this)
+
+> Is sense objective because it is the mode of presentation of a objective thing, or because the public and objective description?
 
 A proper name (word/sign/combination of signs/expression)  expresses its sense, stands for (bedeutet) or designates (bezeichnet) its Bedeutung.
 

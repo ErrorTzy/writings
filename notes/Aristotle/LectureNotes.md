@@ -241,7 +241,7 @@ Thought/Intention: Plato talking about intention
 
 Da Vinci: he really know something when he draws. He's not just imitating, but really know the structure of the body, etc..
 
-## Relativity of Matter
+## Form and Matter
 
 Matter is **relative!!** to something, because matter can also be form. E.g. matter relative to body is cells, but cells are made of atoms, etc.. 
 Matters **are not necessarily material**. Letters are matter of words.
@@ -277,3 +277,56 @@ The notion of QUA in Aristotle is important
 
 > Palle: Potential energy disappear when you fill the ground...how?
 > Quantum mechanics is where potential cannot be reduced to actual.
+
+## Change
+
+Def: Actualization of potential qua potential
+
+## Infinity
+
+Infinity is potential not actual.
+
+> Problem: it cannot be actualized.
+> Also, this is a temporal account. But if this is so, you cannot use this temporal account to explain time.
+
+God is not infinite because god is completely actual, but infinity is completely potential.
+
+> Aristotle and Plato's god does not give a shit to human
+> Palle: Even if I love Beethoven, Beethoven do not give a shit to me
+> A lot of person do not have the courage to love someone who do not love them back;
+
+## Numbers
+
+Aristotle thinks numbers are not objects, unlike Plato.
+
+## Time
+
+Book IV, Ch. 10-11
+
+Einstein: transforming time to geometry (time is eternal)
+
+> What would happen if time starts to go backwards now? Will we even be able to tell?
+
+Time is not consistent of "now"s
+
+Time is the number of change.
+
+> Palle: this is what clock does: it convert "change" into numbers
+
+# De Anima
+
+We can separate form and matter in thought, but not in reality
+
+> Plato: there's something x that is harmed by vice but not by being destroyed.
+> E.g. You cannot destroy a number; You can destroy a painting, but you cannot destroy the beauty of a painting
+> You cannot harm the soul, but Socrates did not say soul cannot be destroyed
+>
+> That, for Plato, separates the soul and the body. Aristotle wants to give us a different picture.
+
+Aristotle: The soul is the form of the body. Form and matter are two aspects of the same thing.
+> Problem: the body is not matter
+
+> Problem: Is the form more realized in the entity itself, or the theory of the form?
+> e.g. Is the soul more realized in myself, or when someone is understanding me?
+
+The soul in the body is the substantial form, not the appearance form. The appearance only make me look like me. The substantial form makes me.

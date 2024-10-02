@@ -145,4 +145,33 @@ Hume:           not 1,2,3   1,2,3           1,2,3
 
 Difference between 2 and 3: loose talk is not false talk; in a "loose context" the loose talk can be true; fictitious means that it is false in any case
 
+# Perry's Refutation
 
+ME --> E
+
+Memory of event --> event
+
+How to define this arrow here?
+
+John can have a (fake) memory of Smith's event. Then John is Smith?
+
+No, so the arrow is not only "resemble", but "representation"
+
+But what is representation? 
+
+Defining it with personal identity?
+
+Consider: someone really did e, and lost the memory e, and hypnotized and have e again, then is it a representation?
+
+Semantic Analysis: analysis of underlying unspecified property
+
+E.g. Twin earth where everything is the same but water is not H2O but XYZ
+
+Something is water iff. it refers to some underlying property, i.e. the structure of H2O, and such underlying property normally shows up in the way of flowing in the sea, etc.
+
+H2O is indicated in the meaning, but not in the meaning.
+
+In a human body, it very often happens that, a later time there is a memory that fits some past experience of that experience: --> 
+There must be some process inside that body inside this body
+
+The hypnosis process is not the typical process that explains what's going on in human body.

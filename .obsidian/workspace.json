@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "notes/Aristotle/Aristotle_First_Assignment_Scott_Tang.md",
+                "file": "notes/Peter_Proseminar/Tang - Week 6 (Frege).md",
                 "mode": "source",
                 "source": false
               }
@@ -96,7 +96,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "notes/Aristotle/Aristotle_First_Assignment_Scott_Tang.md",
+                "file": "notes/Peter_Proseminar/Tang - Week 6 (Frege).md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": false
               }
@@ -108,7 +108,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "notes/Aristotle/Aristotle_First_Assignment_Scott_Tang.md"
+                "file": "notes/Peter_Proseminar/Tang - Week 6 (Frege).md"
               }
             }
           },
@@ -126,7 +126,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "notes/Aristotle/Aristotle_First_Assignment_Scott_Tang.md",
+                "file": "notes/Peter_Proseminar/Tang - Week 6 (Frege).md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -155,7 +155,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "notes/Aristotle/Aristotle_First_Assignment_Scott_Tang.md"
+                "file": "notes/Peter_Proseminar/Tang - Week 6 (Frege).md"
               }
             }
           }
@@ -178,11 +178,13 @@
   },
   "active": "527b2ffc8aaa4b52",
   "lastOpenFiles": [
-    "notes/Aristotle/LectureNotes.md~",
-    "notes/Aristotle/Thoughts on future contingencies and identity.md",
+    "notes/Peter_Proseminar/Tang - Week 6 (Frege).md",
+    "notes/Peter_Proseminar/Tang - Week 5 (Perry).md",
+    "notes/Philosophy_of_Language/Secondary_Literature/FregeSinnBedeutung1892.md",
     "notes/Aristotle/LectureNotes.md",
     "notes/Aristotle/Aristotle_First_Assignment_Scott_Tang.md",
-    "notes/Peter_Proseminar/Tang - Week 5 (Perry).md",
+    "notes/Aristotle/LectureNotes.md~",
+    "notes/Aristotle/Thoughts on future contingencies and identity.md",
     "notes/Truth_And_Trust/Arg Reconstruction.md",
     "notes/Peter_Proseminar/Tang - Week 4 (Anscombe).md",
     "notes/Peter_Proseminar/Tang - Week 4 (Perry).md",
@@ -208,7 +210,6 @@
     "Context/spacesLastSync.log",
     "Context",
     "Analytical_Philosophy/Introduction_to_Logic/8 Basic Quantificational Logic.md",
-    "Analytical_Philosophy/Introduction_to_Logic/The Church-Turing Thesis.md",
     "My_Papers/Blog",
     "_resources/pengpai_data_export.py",
     "_resources/libsimple.so",
