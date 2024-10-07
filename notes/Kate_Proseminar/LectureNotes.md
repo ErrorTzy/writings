@@ -83,3 +83,5 @@ What is the difference between Kant and Rawls
 
 Kant: personal maxim, metaphysical
 Rawls: social, need publicity
+
+> How different, exactly?
