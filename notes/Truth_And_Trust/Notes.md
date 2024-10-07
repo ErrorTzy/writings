@@ -163,3 +163,24 @@ The wrong of lie is in deception or something else?
 
 Analogy between universal laws and traffic laws `But this is not how Kant formulate his rules?`
 
+# Two Arguments Against Lying
+
+Korsgard: Moral philosophy must take a bigger picture, which includes human society
+
+Kant vs. Sidgwick Paternalistic and Benevolent Lying
+
+Sidgwick: You should lie a lot, as long as we have good reason
+Kant: Never lie
+
+Why do the two guys have such different view about it? How can we understand the disagreement?
+
+Sidgwick:
+1. According to commonsense, lying seems not good
+2. If we really think about it, some exceptions seems acceptable
+3. Therefore, commonsense needs to be cleaned up; But how?
+4. The principle of utility can be the only valid moral principle, or it would be arbitrary
+5. If it turns out that a lot of lies may be permissible, then just be it! Even if our commonsense goes on holiday!
+
+Kant:
+1. what system of rules there are to regulate us?
+2. loop hole: we can lie to those that do not enter the system, i.e. children, the old, etc. that are not free an rational
