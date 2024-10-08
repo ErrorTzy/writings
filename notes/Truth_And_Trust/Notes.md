@@ -184,3 +184,32 @@ Sidgwick:
 Kant:
 1. what system of rules there are to regulate us?
 2. loop hole: we can lie to those that do not enter the system, i.e. children, the old, etc. that are not free an rational
+
+# Lies and the Murderer Next Door
+
+## How is lying defined?
+
+Deception is not a part of the definition
+
+The definition is not intend to answer the question "what do people ordinary mean by lying"
+
+## What makes lying distinctively wrong?
+
+We have the obligation to truth because we have the obligation to respect each other and figuring out what's on other's mind;
+
+Telling lies will hinder this reliable approach.
+
+Suspended context:
+
+A context that the speakers are not expected to represent the content of their own mind
+
+In a murderer case, the murderer (unlike Constant claiming that the murderer have no right) altered the context such that the problem of lying does not arise, just like the improvisation class
+
+## Do you really have to tell the truth to the murderer
+
+White flag is important in war, but if you abuse it to lead your enemies out of the trench
+
+> What if I'm dying, I've been telling truth all the time, and I lied in the end to, e.g. revenge?
+> And what about actors? They are always in such suspended context
+
+A limit on art: can art go too far?

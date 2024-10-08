@@ -30,4 +30,12 @@ Useful heuristic stereotype vs. Prejudicial stereotype:
 
 *Definition*: **Negative identity-prejudicial Stereotype** is a widely held disparaging association between a social group and one or more attributes, where the association embodies a generalization that displays some (typically epistemically culpable) resistance to counter-evidence to an ethically bad affective investment.
 
+Perception of credibility:
+The hearer perceive the speaker as trust worthy; The identity-prejudicial stereotype distort the perception
+More frequently we form prejudice not because of belief but something stealthier, i.e. image. `What's that?`
+Image has a visceral impact on judgment.
 
+
+> two meta problems: 
+> 1. Yes I will just be a bad person. Why would I listen to you?
+> 2. The methodology of dissolving a question
