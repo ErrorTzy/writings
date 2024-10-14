@@ -213,3 +213,11 @@ White flag is important in war, but if you abuse it to lead your enemies out of 
 > And what about actors? They are always in such suspended context
 
 A limit on art: can art go too far?
+
+# Kantian Rigorism Mitigating Circumstances
+
+Letter vs. spirit: obeying something written may violate the spirit
+
+E.g. A law that want to help children may end up harm children
+
+Paternalistic lie vs. White lie: white lie can be done to someone with full autonomy while you don't want to hurt their feelings

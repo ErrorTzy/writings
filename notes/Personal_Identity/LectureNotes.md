@@ -145,7 +145,7 @@ Hume:           not 1,2,3   1,2,3           1,2,3
 
 Difference between 2 and 3: loose talk is not false talk; in a "loose context" the loose talk can be true; fictitious means that it is false in any case
 
-# Perry's Refutation
+# Perry's Modification
 
 ME --> E
 
@@ -175,3 +175,8 @@ In a human body, it very often happens that, a later time there is a memory that
 There must be some process inside that body inside this body
 
 The hypnosis process is not the typical process that explains what's going on in human body.
+
+the causal chain must contain the original experience?
+
+# Williams The Self and the Future
+

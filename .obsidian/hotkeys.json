@@ -136,5 +136,14 @@
       ],
       "key": "ArrowDown"
     }
+  ],
+  "quick-latex:addInlineMath": [],
+  "editor:toggle-inline-math": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "M"
+    }
   ]
 }

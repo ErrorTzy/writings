@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "notes/Truth_And_Trust/Prejudice in the credibility Economy.md",
+                "file": "playground.md",
                 "mode": "source",
                 "source": false
               }
@@ -80,7 +80,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 324.5
+    "width": 324.5,
+    "collapsed": true
   },
   "right": {
     "id": "67893c5e98fb762a",
@@ -96,7 +97,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "notes/Truth_And_Trust/Prejudice in the credibility Economy.md",
+                "file": "playground.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": false
               }
@@ -108,7 +109,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "notes/Truth_And_Trust/Prejudice in the credibility Economy.md"
+                "file": "playground.md"
               }
             }
           },
@@ -126,7 +127,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "notes/Truth_And_Trust/Prejudice in the credibility Economy.md",
+                "file": "playground.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -155,7 +156,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "notes/Truth_And_Trust/Prejudice in the credibility Economy.md"
+                "file": "playground.md"
               }
             }
           }
@@ -176,7 +177,7 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "527b2ffc8aaa4b52",
+  "active": "5d805bf0be0e4674",
   "lastOpenFiles": [
     "notes/Truth_And_Trust/Prejudice in the credibility Economy.md",
     "notes/Peter_Proseminar/Tang - Week 6 (Frege).md",

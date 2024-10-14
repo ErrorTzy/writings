@@ -330,3 +330,6 @@ Aristotle: The soul is the form of the body. Form and matter are two aspects of 
 > e.g. Is the soul more realized in myself, or when someone is understanding me?
 
 The soul in the body is the substantial form, not the appearance form. The appearance only make me look like me. The substantial form makes me.
+
+
+
