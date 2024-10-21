@@ -50,7 +50,8 @@
     "Obsidian",
     "//notes",
     "//notes/notes/Truth_And_Trust",
-    "//notes/notes/Philosophy_of_Language/notes/Philosophy_of_Language/Secondary_Literature"
+    "//notes/notes/Philosophy_of_Language/notes/Philosophy_of_Language/Secondary_Literature",
+    "//notes/notes/Epistemology"
   ],
   "expandFolderOnClick": true,
   "menuTriggerChar": "/",
@@ -86,7 +87,7 @@
   "fmKeySticker": "sticker",
   "openSpacesOnLaunch": true,
   "indexSVG": false,
-  "readableLineWidth": true,
+  "readableLineWidth": false,
   "autoAddContextsToSubtags": true,
   "releaseNotesPrompt": 0.999,
   "enableDefaultSpaces": true,

@@ -1,4 +1,4 @@
-# Rawls: Kantian Constructivism in Moral Theory
+# Rawls
 
 Written after Theory of Justice, kinda "rethinking"
 
@@ -63,7 +63,7 @@ Two layers:
 > The "you know that I know" is not in Kant
 > For Kantian's citizens, they do not need to recognize these things. Kant's law can apply to a kingdom of demons
 
-## Representation of Freedom and Equality
+## Lecture I
 
 The concept of freedom and equality & how they are represented
 
@@ -85,3 +85,29 @@ Kant: personal maxim, metaphysical
 Rawls: social, need publicity
 
 > How different, exactly?
+
+Rawls: The procedure is fixed, but the outcome does not have to be fixed. I proposed these because I am really smart and I think this is the outcome of the procedure.
+
+
+# O'Neill
+
+Chap. 11: critique of Rawls: Smuggling some idea into his theory; May be reduced to relativism
+
+Two strategy when  Rawls is pressed:
+- Realism
+- Relativism
+
+Notion of the person:
+The veil of ignorance is to model the *reasonable power* of the notion of person.
+But where does the reasonable power coming from?
+Charge of relativism: If it is just from Rawls' own concept of person, then this will lead to relativism.
+Charge of idealism: (?)
+
+Response: This is the fundamental nature of human being (formulation of humanity, very Kantian, metaphysical --> Kant is happy with this solution)
+
+The veil of ignorance want to strip away race, gender, etc. But it does not strip away the reasonable power. This is already deciding what is relevant to morality. What is the justification of this decision?
+
+
+Chap. 5 & 8: introduction to the debate between Korsgard & Negal 
+
+Why am I committed to the project of universalization?
