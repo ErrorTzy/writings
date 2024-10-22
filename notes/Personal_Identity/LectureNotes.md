@@ -180,3 +180,9 @@ the causal chain must contain the original experience?
 
 # Williams The Self and the Future
 
+Eli thinks the only way out is to use the "closest continuity thoery"
+
+Fear: ordinary psychology?
+
+
+Is dreaming me me?

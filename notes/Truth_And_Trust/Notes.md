@@ -221,3 +221,7 @@ Letter vs. spirit: obeying something written may violate the spirit
 E.g. A law that want to help children may end up harm children
 
 Paternalistic lie vs. White lie: white lie can be done to someone with full autonomy while you don't want to hurt their feelings
+
+# Hume Of the obligation of promises
+
+Aristotle's future contingent seems to be problematic when you promise something in the future; It becomes a necessary thing that there is an obligation.
