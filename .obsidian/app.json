@@ -13,7 +13,7 @@
   "attachmentFolderPath": ".resources",
   "promptDelete": false,
   "autoPairBrackets": true,
-  "readableLineLength": false,
+  "readableLineLength": true,
   "spellcheckDictionary": [
     "pleonexia",
     "nomos",
@@ -28,7 +28,7 @@
     "Thrasymachus",
     "immoralism"
   ],
-  "strictLineBreaks": false,
+  "strictLineBreaks": true,
   "alwaysUpdateLinks": true,
   "vimMode": false
 }

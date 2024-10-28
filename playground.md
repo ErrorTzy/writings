@@ -1,57 +1,18 @@
 
-# Question 1
+1.  Explain why the following is true: Leibniz’s Law requires Locke to deny the intuitive principle “Two things cannot occupy exactly the same place at the same time.”   On the other hand, this principle can be held by mereological essentialists like Butler and Reid. 
 
-| $P$ | $Q$ | $(Q \lor \neg P)$ | $P$ | ($Q \rightarrow P$) |
-| --- | --- | ----------------- | --- | ------------------- |
-| T   | T   | T **T** F T       | T   | T **T** T           |
-| T   | F   | F **F** F T       | T   | F **T** T           |
-| F   | T   | T **T** T F       | F   | T **F** F           |
-| F   | F   | F **T** T F       | F   | F **T** F           |
-Since there is no case where all the premises are true and the conclusion is false, this deduction is valid.
+Consider one tree over two time periods: 
 
-# Question 2
+- At time $t_1$: The tree has a trunk and a branch 
+- Between $t_{1}$ and $t_{2}$: The branch was chopped off
+- At time $t_2$: The tree has only its trunk[^1]
 
-| $R$ | $M$ | $K$ | $((R \land M) \rightarrow K)$ | $\neg K$ | $R$ | $(M \lor K)$ |
-| --- | --- | --- | ----------------------------- | -------- | --- | ------------ |
-| T   | F   | F   | T F F **T** F                 | T        | T   | F **F** F    |
+1. $Tree_{1} \neq Trunk_{1}$, because $Trunk_{1}$ does not have a branch, while $Tree_{1}$ has. According to 
+2. $Tree_{2} = Trunk_{2}$, because $Tree_{2}$ and $Trunk_{2}$ are composed of the same matter
+3. $Tree_{1} = Tree_{2}$, because there is sufficient continuity so that the tree has identity over time.
+4. $Trunk_{1} = Trunk_{2}$, because there is perfect continuity so that the trunk has identity over time.
+5. $Tree_{1} = Trunk_{1}$, because according to 2,3,4, $Tree_{1}=Tree_{2}=Trunk_{2}=Trunk_{1}$
 
-Since there exists one case where the premises are all true the conclusion is false, this deduction is not valid.
+Since 1 and 5 contradicts with each other, there must be at least one line that goes wrong. 
 
-# Question 3
-
-Let
-B = Erin has a break,
-H = Erin will go hungry,
-M = Erin will miss the bus,
-T = Erin will be on time for her date.
-
-Then we can translate the argument as follows:
-
-1. $\neg B \rightarrow H$
-2. $B \rightarrow M$
-3. $M \rightarrow \neg T$
-4. $\therefore H \lor \neg T$
-
-Then given the following truth table, we can see that there is no way to assign truth values to atomic sentences such that all premises are true and the conclusion is false. Therefore, the argument is valid.
-
-| B H M T | $\neg B \rightarrow H$ | $B \rightarrow M$ | $M \rightarrow \neg T$ | $H \lor \neg T$ |
-| ------- | ---------------------- | ----------------- | ---------------------- | --------------- |
-|         | F T **T** F            | T **T** T         | T **T**/F F            | F **F** F T     |
-
-# Question 4
-
-- a: $\exists x((Bx \land \neg x = d)) \land Hxb)$
-- b: $\neg \forall x((Bx \land Hxd) \rightarrow Sx)$
-- c: $(Sb \land \exists x Hbx) \rightarrow Bb$
-
-# Question 5
-
-- a: Formula (the w in Mw is not bound)
-- b: Sentence (all variables are bound)
-- c: Sentence (all variables are bound)
-
-# Question 6
-
-- a: There is some athlete that all sprinters are faster than him.
-- b: For any sprinter, there is always some non-sprinter athlete being faster than him.
-- c: Usain Bolt is a sprinter, and he is faster than all other sprinters.
+[^1]: Since in fact a tree has roots, we can let "trunk" here mean "root and trunk and whatever is left of a tree when its branch is chopped off".

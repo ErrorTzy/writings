@@ -48,9 +48,9 @@
     null,
     null,
     "Obsidian",
-    "//notes",
     "//notes/notes/Philosophy_of_Language/notes/Philosophy_of_Language/Secondary_Literature",
-    "//notes/notes/Peter_Proseminar"
+    "//notes",
+    "//notes/notes/Kate_Proseminar"
   ],
   "expandFolderOnClick": true,
   "menuTriggerChar": "/",
@@ -86,7 +86,7 @@
   "fmKeySticker": "sticker",
   "openSpacesOnLaunch": true,
   "indexSVG": false,
-  "readableLineWidth": false,
+  "readableLineWidth": true,
   "autoAddContextsToSubtags": true,
   "releaseNotesPrompt": 0.999,
   "enableDefaultSpaces": true,
