@@ -16,7 +16,8 @@
       "name": "Typst"
     },
     {
-      "name": "PDF"
+      "name": "PDF",
+      "customArguments": "--pdf-engine=xelatex"
     },
     {
       "name": "Word (.docx)"
@@ -57,5 +58,6 @@
     "win32": "D:\\Obsidian_Output",
     "linux": "/home/scott/Desktop"
   },
-  "lastExportType": "Word (.docx)"
+  "lastExportType": "Word (.docx)",
+  "lastEditName": "PDF"
 }

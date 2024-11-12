@@ -4,21 +4,33 @@
     "type": "split",
     "children": [
       {
-        "id": "a1c1a26fc7ee563c",
+        "id": "905c9664b615006e",
         "type": "tabs",
         "children": [
           {
-            "id": "96b55a5590316044",
+            "id": "ce2efe9af487b847",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "notes/Personal_Identity/Assignment_1.md",
+                "file": "notes/Peter_Proseminar/Tang - Week 10 (Frankfurt).md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Assignment_1"
+              "title": "Tang - Week 10 (Frankfurt)"
+            }
+          },
+          {
+            "id": "1db7d4c45998e733",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.7.5"
+              },
+              "icon": "lucide-file",
+              "title": "Release Notes 1.7.5"
             }
           }
         ]
@@ -40,10 +52,10 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "SFSA",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
-                "collapseAll": true,
+                "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
               },
@@ -106,10 +118,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "notes/Personal_Identity/Assignment_1.md"
+                "file": "notes/Peter_Proseminar/Tang - Week 10 (Frankfurt).md"
               },
               "icon": "lucide-list",
-              "title": "Outline of Assignment_1"
+              "title": "Outline of Tang - Week 10 (Frankfurt)"
             }
           },
           {
@@ -128,7 +140,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "notes/Peter_Proseminar/Tang - Week 8 (Putnam M&R).md",
+                "file": "notes/Kate_Proseminar/Korsgaard_Personal_Identity_and_the_Unity_of_Agency.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -138,7 +150,7 @@
                 "unlinkedCollapsed": false
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Tang - Week 8 (Putnam M&R)"
+              "title": "Backlinks for Korsgaard_Personal_Identity_and_the_Unity_of_Agency"
             }
           },
           {
@@ -170,7 +182,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 212.5
+    "width": 343.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -183,36 +195,37 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "96b55a5590316044",
+  "active": "ce2efe9af487b847",
   "lastOpenFiles": [
-    "notes/Personal_Identity/LectureNotes.md",
     "notes/Personal_Identity/Assignment_1.md",
-    "notes/Personal_Identity/A Seasoned Locke's Theory of identity.md",
-    "Untitled.md",
-    "playground.md",
-    "notes/Kate_Proseminar/Korsgarrd_Personal_Identity_and_the_Unity_of_Agency.md",
-    "notes/Peter_Proseminar/Tang - Week 8 (Putnam M&R).md",
-    "notes/Peter_Proseminar/PutnumMeaningAndReference.md",
-    "notes/Aristotle/LectureNotes.md",
+    "notes/Personal_Identity/LectureNotes.md",
     "notes/Peter_Proseminar/AnscombeNotes.md",
+    "notes/Peter_Proseminar/PutnumMeaningAndReference.md",
+    "notes/Peter_Proseminar/FregeTheThoughtALogicalInquiry.md",
+    "notes/Peter_Proseminar/Tang - Week 4 (Anscombe).md",
+    "notes/Peter_Proseminar/Tang - Week 6 (Frege).md",
+    "notes/Peter_Proseminar/Tang - Week 5 (Perry).md",
+    "notes/Peter_Proseminar/Tang - Week 10 (Frankfurt).md",
+    "notes/Peter_Proseminar/Tang - Week 8 (Putnam M&R).md",
+    "notes/Peter_Proseminar/Tang - Week 3 (Strawson).md",
+    "notes/Kate_Proseminar/LectureNotes.md",
+    "notes/Kate_Proseminar/Korsgaard_Personal_Identity_and_the_Unity_of_Agency.md",
+    "notes/Aristotle/Aristotle_First_Assignment_Scott_Tang.md",
+    "_templates/paper_metadata.md",
+    "_templates/_templates.md",
+    "_templates",
+    "Untitled.md",
+    "archive/My_Papers/Application/Abbreviated_Writing_Sample.md",
+    "notes/Personal_Identity/A Seasoned Locke's Theory of identity.md",
+    "playground.md",
+    "notes/Aristotle/LectureNotes.md",
     "TODO.md",
     "Vault.md",
     "notes/Truth_And_Trust/Notes.md",
     "notes/Epistemology/LectureNote.md",
     "notes/Truth_And_Trust/Prejudice in the credibility Economy.md",
-    "notes/Peter_Proseminar/Tang - Week 6 (Frege).md",
-    "notes/Peter_Proseminar/Tang - Week 5 (Perry).md",
-    "notes/Philosophy_of_Language/Secondary_Literature/FregeSinnBedeutung1892.md",
-    "notes/Aristotle/Aristotle_First_Assignment_Scott_Tang.md",
     "notes/Aristotle/LectureNotes.md~",
-    "notes/Aristotle/Thoughts on future contingencies and identity.md",
-    "notes/Truth_And_Trust/Arg Reconstruction.md",
-    "notes/Peter_Proseminar/Tang - Week 4 (Anscombe).md",
-    "notes/Peter_Proseminar/Tang - Week 4 (Perry).md",
-    "notes/Peter_Proseminar/FregeTheThoughtALogicalInquiry.md",
-    "notes/Peter_Proseminar/Tang - Week 3 (Strawson).md",
     "notes/Peter_Proseminar/AnscombeNotes.md~",
-    "papers/少数服从多数还是全体通过.md",
     "notes/Peter_Proseminar",
     "Tags",
     "Context/spacesLastSync.log",
@@ -220,7 +233,6 @@
     "My_Papers/Blog",
     "_resources/pengpai_data_export.py",
     "_resources/libsimple.so",
-    "History_of_Philosophy/Ancient_Greek_Philosophy/Plato/Charmedes",
     "_resources/athlete.png",
     "_resources/19D55454.jpg",
     "_resources/b93f953ad37557dd495b8028f5a518d.png",
