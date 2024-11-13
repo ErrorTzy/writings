@@ -225,3 +225,23 @@ Paternalistic lie vs. White lie: white lie can be done to someone with full auto
 # Hume Of the obligation of promises
 
 Aristotle's future contingent seems to be problematic when you promise something in the future; It becomes a necessary thing that there is an obligation.
+
+Does Nietzsche believe in truth?
+
+1. Is there truth at all?
+
+All thinkings are perspectival. All representation are saturated with interest. How would it be for the look from nowhere?
+
+2. Is truth valuable?
+
+"Will to truth" is an admirable trait or not? It is connected to ascetism, but Nietzsche doesn't like it because it is self-hatred. But Nietzsche is proud of himself having the will of truth.
+
+Distinguish: Truth and affirmation
+
+Say yes to your life, including the painful, ugly and terrible parts
+
+But how to redeem these bad parts?
+
+The test: eternal recurrence; you should be thrilled to repeat your live
+
+Yeah but how should I do that? Art illusion. "Tell(reconstruct) a story"
