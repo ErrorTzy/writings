@@ -50,14 +50,9 @@
     "Obsidian",
     "//notes/notes/Philosophy_of_Language/notes/Philosophy_of_Language/Secondary_Literature",
     "//notes",
-    "//notes/notes/Kate_Proseminar",
-    "//_templates",
-    "//notes/notes/Plato",
-    "//notes/notes/Peter_Proseminar",
-    "//notes/notes/Philosophy_of_Mind",
-    "//notes/notes/Philosophy_of_Language",
-    "//notes/notes/Personal_Identity",
-    "//notes/notes/Aristotle"
+    "//archive/archive/伦理学导论",
+    "//notes/notes/Neuroscience",
+    "//notes/notes/Neuroscience/notes/Neuroscience/An Introduction to Brain and Behavior"
   ],
   "expandFolderOnClick": true,
   "menuTriggerChar": "/",
