@@ -49,10 +49,10 @@
     null,
     "Obsidian",
     "//notes/notes/Philosophy_of_Language/notes/Philosophy_of_Language/Secondary_Literature",
-    "//notes",
     "//archive/archive/伦理学导论",
-    "//notes/notes/Neuroscience",
-    "//notes/notes/Neuroscience/notes/Neuroscience/An Introduction to Brain and Behavior"
+    "//notes/notes/Neuroscience/notes/Neuroscience/An Introduction to Brain and Behavior",
+    "//notes/notes/Kate_Proseminar",
+    "//notes"
   ],
   "expandFolderOnClick": true,
   "menuTriggerChar": "/",

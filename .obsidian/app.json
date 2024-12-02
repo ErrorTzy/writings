@@ -10,7 +10,7 @@
   },
   "newFileLocation": "current",
   "newFileFolderPath": "",
-  "attachmentFolderPath": ".resources",
+  "attachmentFolderPath": "_resources",
   "promptDelete": false,
   "autoPairBrackets": true,
   "readableLineLength": true,

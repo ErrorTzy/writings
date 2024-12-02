@@ -1,8 +1,7 @@
----
-number headings: auto, first-level 1, max 6, 1.1
-title: Personal Identity and the Unity of Agency Handout
----
-# 1 Intro
+
+# Personal Identity and the Unity of Agency Handout
+
+## Intro
 
 Two views on a person
 
@@ -18,9 +17,9 @@ Example: On "what should be done for them"
 - **Kantians**(Korsgaard): From a moral point of view, utilitarians wrong! You cannot reduce me into experience! I will reduce you into agency instead!
 
 
-# 2 Parfit's Theory of Personal Identity
+## Parfit's Theory of Personal Identity
 
-## 2.1 What is personal identity?
+### What is personal identity?
 
 **Physical Continuity**: continuity of human body
 
@@ -40,7 +39,7 @@ Example: On "what should be done for them"
 	- `No argument?`
 
 
-## 2.2 Parfit's definition
+### Parfit's definition
 
 
 **Definition**: A and B are the same person iff. A and B are continued and unique.
@@ -50,7 +49,7 @@ Example: On "what should be done for them"
 	- There is no case where you would care about identity as long as you have psychological continuity (i.e. you survived).
 
 
-## 2.3 Consequence on morality
+### Consequence on morality
 
 
 - **Parfit**: Some responsibilities[^1] are not grounded by metaphysical facts.
@@ -60,12 +59,12 @@ Example: On "what should be done for them"
 	4)  Therefore, some responsibilities are not grounded by metaphysical facts.
 
 
-# 3 The Unity of Agency
+## The Unity of Agency
 
 
 Even if there is no metaphysical ground, there can be some practical ground.
 
-## 3.1 Unity at a given moment
+### Unity at a given moment
 
 Two needs of pragmatic unity
  
@@ -81,18 +80,18 @@ Two needs of pragmatic unity
 	- It is clear that we have the need of pragmatic unity.
 
 
-## 3.2 Unity over time
+### Unity over time
 
 - **Need of Plans and Long Term Relationship**: To do anything takes time. We have needs to achieve some ends that requires planning the future and maintaining relationship. In order to carrying out plans, you have to assume you are one continuous person.
 	- `This seems less factual and sounds like wishful thinking. There can be someone who is always planning and changes the plan at the next moment. The normativity of the abolished plan is unclear.`
 
 
-## 3.3 What kind of things bear unity? 
+### What kind of things bear unity? 
 
 - **State**: a single agent that resolves conflict, deliberates, interact with other nations and carry out plans
 - **Human body**: Given the current technology, our body is the atomic unit of action. But really, whatever that has meets the criteria counts as a single agent.
 
-# 4 The Unity of Consciousness
+## The Unity of Consciousness
 
 Consciousness is unified, since it is always continuous and can directly access the consciousness in the past. What makes the unity?
 
@@ -107,7 +106,7 @@ Consciousness is unified, since it is always continuous and can directly access 
 	- **The unity comes from**: one's ability to coordinate and integrate activities.
 	- This explains why split-brain patients functions normally but have some anomaly: There is some weakening in the coordination and integration, but not completely
 
-# 5 Agency and Identity
+## Agency and Identity
 
 Going back to Kant:
 - Attitude from **theoretical reason**: Explanation and prediction
@@ -117,9 +116,9 @@ Going back to Kant:
 2)  If we want to distinguish actions and choices from biological and psychological laws, then we have to adopt the practical point of view.
 3)  If we adopt the practical point of view, then our action is authorial, i.e. your choice makes who you are, not what happens to you makes you who you are
 
-# 6 The Moral Differences
+## The Moral Differences
 
-## 6.1 Future Concern and Paternalism
+### Future Concern and Paternalism
 
 **Utilitarians**(Parfit): Paternalism good!
 
@@ -135,7 +134,7 @@ Going back to Kant:
 - Paternalism is only justified in a few cases (Restricted Paternalism)
 - Something right about Parfit: we should not care just about ourselves because we are also a part of some other agencies, e.g. the state
 
-## 6.2 Compensation and Distributive Justice
+### Compensation and Distributive Justice
 
 - **Utilitarians**: We should burden one to benefit another so that the sum of utility increase.
 - **Kantians**(Rawls): Utilitarians wrong! 
@@ -149,7 +148,7 @@ Going back to Kant:
 	- Parfit is confusing "the same person" with "the same life". Even if personal identity is merely conventional, it does not undermines the unity of life.
 	- We are not connected to any lives. We only share life within a restricted scope. `But we do have united nation and the deliberative institution`
 
-# 7 Conclusion
+## Conclusion
 
 Two meanings of morally neutral:
 

@@ -17,10 +17,12 @@
     },
     {
       "name": "PDF",
-      "customArguments": "--pdf-engine=xelatex"
+      "customArguments": "--pdf-engine=xelatex",
+      "arguments": "-f ${fromFormat} --lua-filter=\"${luaDir}/diagram-generator.lua\" --resource-path=\"${currentDir}\" --resource-path=\"${attachmentFolderPath}\" --lua-filter=\"${luaDir}/pdf.lua\" ${ options.textemplate ? `--resource-path=\"${pluginDir}/textemplate\" --template=\"${options.textemplate}\"` : ` ` } -o \"${outputPath}\" -t pdf"
     },
     {
-      "name": "Word (.docx)"
+      "name": "Word (.docx)",
+      "arguments": "-f ${fromFormat} --lua-filter=\"${luaDir}/diagram-generator.lua\" --resource-path=\"${currentDir}\" --resource-path=\"${attachmentFolderPath}\" -o \"${outputPath}\" -t docx"
     },
     {
       "name": "OpenOffice"

@@ -35,7 +35,7 @@ or you can not know "it is raining". Your state of mind is not such as to be abl
 The premise of ARG1: Our essential nature is immortal and rational.
 
 #### The low view:
-P is knowledge if and only if P can be taught (Meno)
+P is knowledge if and only if P can be taught (Meno)  
 mundane examples of expertise: medicine, wine-growing, gymnastics, music and cookery(Theaetetus 178b ff.)
 
 2 ways to apply the concept of knowledge:
@@ -94,9 +94,9 @@ mundane examples of expertise: medicine, wine-growing, gymnastics, music and coo
 #### Meno’s Paradox:
 A man cannot try to discover either what he knows or what he does not know. He would not seek what he knows, for since he knows it there is no need of the inquiry, nor what he does not know, for in that case he does not even know what he is to look for. (Meno 80e)
 
-> the problem of criterion: in the conceptional sense
-> Meno's paradox: "no need": in the practical sense
-> The practical solution to Meno's paradox: the use of interrogative words
+> the problem of criterion: in the conceptional sense  
+> Meno's paradox: "no need": in the practical sense  
+> The practical solution to Meno's paradox: the use of interrogative words  
 > ==LEFT QUESTION: What did interrogative words give to us about the object we question?==
 
 The constrain on inquiry: we do know what we want to know
@@ -108,6 +108,7 @@ What kind of inquiry triggers Meno's Paradox?
 #### Different mode of inquiry
 
 ##### Market-place inquiry
+
 When you seek information from another person, you cast them the role of expert. 
 
 - constraint: the enquirer must be able to recognize an answer to her question (which is the condition of having a question in mind).
@@ -137,9 +138,9 @@ this is the type of inquiry that triggers Meno's paradox
 
 - There are, on a street in Bristol, some pedestal tables of bronze known as the Nails. In days gone by, merchants, transacting their business, paid their debts “on the nail”, as we still say. The Nails are now a well-known tourist attraction, and we can easily imagine a tourist looking for them. Any guidebook will tell her about them. But imagine a tourist without a guidebook who has simply no idea at all what the Bristol Nails are. How could such a person possibly look for them? Even if she ran up against them, how could she know that they were what she was looking for?
 
-- constraint: You cannot search for X, whatever X maybe, unless you are from the outset equipped with a good enough notion of what X is to provide you with criteria by which to **judge whether you have found what you were looking for**.
-
-> Meno's paradox challenges both inquiry that they need sufficient understanding to recognize conclusions to the inquiry. We cannot be completely ignorant.
+- constraint: You cannot search for X, whatever X maybe, unless you are from the outset equipped with a good enough notion of what X is to provide you with criteria by which to **judge whether you have found what you were looking for**.  
+  
+> Meno's paradox challenges both inquiry that they need sufficient understanding to recognize conclusions to the inquiry. We cannot be completely ignorant.  
 > Plato's version of solving this problem: the doctrine of recollection
 
 It is not so different between the two kinds of inquiry above. Both inquirers need to be able to recognize what is a possible answer.
@@ -152,13 +153,13 @@ It is not so different between the two kinds of inquiry above. Both inquirers ne
 "know" is differentiated from "believe", "think" or "hold" because they will not tolerate interrogative constructions after it.  
 
 
-### Meno's challenge
-
-> Meno's problem/challenge: the value of knowledge
-> Meno's paradox/puzzle: how to investigate knowledge
-> 
-> The primary value problem: Why knowledge is more valuable than mere true belief?
-> The secondary value problem: Why knowledge is more valuable, from an epistemic point of view, than any proper subset of its parts?
+### Meno's challenge  
+  
+> Meno's problem/challenge: the value of knowledge  
+> Meno's paradox/puzzle: how to investigate knowledge  
+>    
+> The primary value problem: Why knowledge is more valuable than mere true belief?  
+> The secondary value problem: Why knowledge is more valuable, from an epistemic point of view, than any proper subset of its parts?  
 > The tertiary value problem: Why knowledge is qualitatively better than any epistemic standing falling short of knowledge? (see SEP: "The value of knowledge")
 > 
 > Intrinsic/instrumental value of knowledge
@@ -217,8 +218,8 @@ REF: Recollection of the route to Larissa is less reliable than a map.(?)
 > 	- knowing vs. merely "getting it right" (Prichard 2018, pp. 5-7)
 > 	- the tether 
 
-Conceding that knowing entails believing.
-someone knows that P = someone believes that P + **differentiating component**(e.g. It is correct in doing so)
+Conceding that knowing entails believing.  
+someone knows that P = someone believes that P + **differentiating component**(e.g. It is correct in doing so)  
 This is Plato's immediate response in Meno
 
 tripartite analyses
@@ -232,10 +233,10 @@ there can be quite radical difference in the way the differentiating component i
 
 So much as we ourselves consider and comprehend of truth and reason, so much we possess of real and true knowledge. The floating of other men’s opinions in our brains makes us not one jot the more knowing, though they happen to be true (1975: 1, 4, 23)
 
-###### Modern: justification
-
-If A is justified in holding it, then A's belief amounts to knowledge.
-i.e. The justification for believing something, like Pythagoras' theorem, could just come from a reliable textbook without being able to follow the proof.
+###### Modern: justification  
+  
+If A is justified in holding it, then A's belief amounts to knowledge.  
+i.e. The justification for believing something, like Pythagoras' theorem, could just come from a reliable textbook without being able to follow the proof.  
 Problem: Gettier 1963
 
 ###### Modern: externalist and internalist
@@ -290,9 +291,9 @@ Relativism is self-defeating because it is justified for one to think it is wron
 
 ##### REF3: Transcendence of knowledge
 
-Perceptual properties transcend what is actually given in perception.
-
-> multi-perception knowledge referring one object
+Perceptual properties transcend what is actually given in perception.  
+  
+> multi-perception knowledge referring one object  
 > epistemic perception vs. raw perception
 > judgment about the content
 
@@ -307,7 +308,7 @@ Perceptual properties transcend what is actually given in perception.
 
 ###### Plato's explanation:
 
-There is no objective way to judge perception (in *Republic*). (because of the Heraclitus' flux theory)
+There is no objective way to judge perception (in *Republic*). (because of the Heraclitus' flux theory)  
 Thus, he would deny the very possibility of so-called epistemic seeing.
 
 A connected difficulty: How is possible to have a false belief, that is, I believe that ~P?
@@ -338,35 +339,35 @@ Problem:
 >
 >>> no state of belief?
 >
-> 3. False belief and other-judging (189b - 191a)
->
-> It is only possible for non-concurrent mental state of false belief. Eg. you mistaken John (at present) with Smith.
+> 3. False belief and other-judging (189b - 191a)  
+>  
+> It is only possible for non-concurrent mental state of false belief. Eg. you mistaken John (at present) with Smith.  
 > But concepts like 'beauty', 'ugliness' are universals which are always present in mind.
 >
 >>> why universals must be concurrent in mind?
 >
-> 4. False belief and non-concurrent state of mind
->
-> The metaphor of the wax tablet (191a - 195b)
-> The matching/mismatching between non-concurrent imprints and occurrent sensible object 
->
+> 4. False belief and non-concurrent state of mind  
+>  
+> The metaphor of the wax tablet (191a - 195b)  
+> The matching/mismatching between non-concurrent imprints and occurrent sensible object    
+>  
 > The problem: how to explain universals?
 > i.e. the mistaken calculation of 5 + 7 = 11
 > 
 > The metaphor of aviary (196c - 199c)
 >
-> a critical discrimination: *having* knowledge and *processing* knowledge: we may pick up the wrong bird from aviary
->
-> LQL: But still, how do you caught the wrong bird?
->
-> Whether knowledge is teachable/learnable/acquirable
+> a critical discrimination: *having* knowledge and *processing* knowledge: we may pick up the wrong bird from aviary  
+>  
+> LQL: But still, how do you caught the wrong bird?  
+>  
+> Whether knowledge is teachable/learnable/acquirable  
 > LQL: it is not compatible with theory of conception, at least for empirical knowledge
 
-#### true judgment with logos
-
-Tripartite analyses of knowledge: knowledge = true belief + logos
-Problem: What is logos?
-
+#### true judgment with logos  
+  
+Tripartite analyses of knowledge: knowledge = true belief + logos  
+Problem: What is logos?  
+  
 > The insufficiency of merely spelling words & 
 > *just* specifying all the element, &
 > *just* specifying distinctive mark
@@ -423,25 +424,25 @@ It is possible for a person to be **justified** in believing a proposition that 
 
 #### Presupposition II
 
-If S is justified in believing P and P entails Q **and S deducted Q from P and accepts Q as a result of this deduction**, 
+If S is justified in believing P and P entails Q **and S deducted Q from P and accepts Q as a result of this deduction**,    
 then S is justified in believing Q
 
 > the bold part may not be sufficient, i.e. reductio ad absurdium.
 
-> Antecedent strengthened version vs. consequent weakened version:
->
+> Antecedent strengthened version vs. consequent weakened version:  
+>  
 > *Antecedent strengthened version*: Gettier's version, with the bold part strengthening the antecedent
 > *Consequent weakened version*: removing the bold part; the consequent changed into "being in the position to be justified in believing/being in a position to know/… that Q"
 
 
 ### Two Cases
 
-> Gettier's counterexamples are aimed at criticizing JTB → knowledge, but said nothing about knowledge → JTB
-
-#### Case A
-
-Smith and Jones have applied for a certain job and Smith has strong evidence that Jones is the man who will get the job, and Jones has ten coins in his pocket.
-Meanwhile, Smith does not know he will get the job and he also has 10 coins in his pocket.
+> Gettier's counterexamples are aimed at criticizing JTB → knowledge, but said nothing about knowledge → JTB  
+  
+#### Case A  
+  
+Smith and Jones have applied for a certain job and Smith has strong evidence that Jones is the man who will get the job, and Jones has ten coins in his pocket.  
+Meanwhile, Smith does not know he will get the job and he also has 10 coins in his pocket.  
 Therefore for proposition (e):
 
 (e) The man who will get the job has ten coins in his pocket
@@ -452,12 +453,12 @@ Therefore for proposition (e):
 
 However Smith does not know that he has 10 coins in his pocket, which means he does not know (e).
 
->what is the symbolic logic form of (g) and (e)? Can we deduct (e) from (g)? The re-interpretation and the evaluation
-
-#### Case B
-
-Smith has strong evidence that Jones owns a Ford because Jones told him so and offered him a ride. Smith has another friend brown of whose whereabouts he is totally ignorant. 
-Meanwhile, Jones in fact rented the Ford and boasted in front of Smith. In addition by the sheerest coincidence, Brown happen to live in Boston. Therefore for proposition:
+>what is the symbolic logic form of (g) and (e)? Can we deduct (e) from (g)? The re-interpretation and the evaluation  
+  
+#### Case B  
+  
+Smith has strong evidence that Jones owns a Ford because Jones told him so and offered him a ride. Smith has another friend brown of whose whereabouts he is totally ignorant.    
+Meanwhile, Jones in fact rented the Ford and boasted in front of Smith. In addition by the sheerest coincidence, Brown happen to live in Boston. Therefore for proposition:  
 (g) Either Jones owns a Ford, or Brown is in Boston
 
 1. g is true
@@ -466,31 +467,31 @@ Meanwhile, Jones in fact rented the Ford and boasted in front of Smith. In addit
 However Smith does not know g because he does not know either component of g.
 
 > 1. disjunction introduction: p -> pvq
-> 2. Why he does not know g? what is the mental state that knows a disjunction form?
-
+> 2. Why he does not know g? what is the mental state that knows a disjunction form?  
+  
 ## Gettier cases (Not Gettier's case)
 
 
 > Critical evaluation of Gettier's cases
-> What is the common factor in Case A and B? 
-> 	- Doxastic inference
-> 	- A false justified belief occurs as a premise in the inference
-> 
+> What is the common factor in Case A and B?    
+> 	- Doxastic inference  
+> 	- A false justified belief occurs as a premise in the inference  
+>    
 > Gettier's cases -> Gettier cases:
-> Is the doxastic inference or false justified belief occurs as a premise indispensable?
-
-
-
-### Group 1: helpful Gettier case
-
-The sheep on the hill(Chisholm 1966)
-You see a rock on a hill. The rock looks exactly like a sheep from your viewpoint. You think "that's a sheep, so there's a sheep on the hill". As it turns out, there are sheep on the hill, but they are out of view behind some trees past the rock. You have justified a true belief that there are sheep on the hill, but do you know there are sheep on the hill.
-
-Havit/Nogot (Lehrer 1965)
-You see Nogot driving a Ford on a regular basis. Nogot tells you he owns the Ford. You've never seen Havit drive at all; Havit walk everywhere or take public transportation. There are three people who work in the office: you., Nogot, and Havit. You don't own a ford.  Your reason like this Nogot owns a Ford, and Nogot works in a office, and so someone who works in the office owns a Ford. It turns out Nogot doesn't own the Ford he has been driving at all. Moreover, Havit does own a Ford, but it's an old classic car he never drives. You have a justified true belief that someone in the office owns a Ford, but do yo u know that someone in the office owns a Ford?
-
-### Group 2: dangerous Gettier case
-
+> Is the doxastic inference or false justified belief occurs as a premise indispensable?  
+  
+  
+  
+### Group 1: helpful Gettier case  
+  
+The sheep on the hill(Chisholm 1966)  
+You see a rock on a hill. The rock looks exactly like a sheep from your viewpoint. You think "that's a sheep, so there's a sheep on the hill". As it turns out, there are sheep on the hill, but they are out of view behind some trees past the rock. You have justified a true belief that there are sheep on the hill, but do you know there are sheep on the hill.  
+  
+Havit/Nogot (Lehrer 1965)  
+You see Nogot driving a Ford on a regular basis. Nogot tells you he owns the Ford. You've never seen Havit drive at all; Havit walk everywhere or take public transportation. There are three people who work in the office: you., Nogot, and Havit. You don't own a ford.  Your reason like this Nogot owns a Ford, and Nogot works in a office, and so someone who works in the office owns a Ford. It turns out Nogot doesn't own the Ford he has been driving at all. Moreover, Havit does own a Ford, but it's an old classic car he never drives. You have a justified true belief that someone in the office owns a Ford, but do yo u know that someone in the office owns a Ford?  
+  
+### Group 2: dangerous Gettier case  
+  
 Barn Facade Country(1976)
 The case of assassination(Harman 1968, p.172)
 
@@ -510,13 +511,13 @@ The more technical JTB is, the less intuitive such that the value of knowledge b
 
 ## The problem of criterion
 
- How to define knowledge? 
-
-### Criterion
- gathering **lots of instants of knowledge** and work out what all these cases have in common. 
- 	problem: this method presupposed distinguished marks or criteria of knowledge. If don't know such criteria, how am I suppose to identify cases in the first place?
- 	--> accordingly, one might think that the right thing to do first is to first **identify what the criteria for knowledge** are and then use the knowledge to identify instances of knowledge
- 		problem: unless I am able to identify instances of knowledge, then it's not clear how I would go about determining what the criteria for knowledge are.
+ How to define knowledge?    
+  
+### Criterion  
+ gathering **lots of instants of knowledge** and work out what all these cases have in common.    
+ 	problem: this method presupposed distinguished marks or criteria of knowledge. If don't know such criteria, how am I suppose to identify cases in the first place?  
+ 	--> accordingly, one might think that the right thing to do first is to first **identify what the criteria for knowledge** are and then use the knowledge to identify instances of knowledge  
+ 		problem: unless I am able to identify instances of knowledge, then it's not clear how I would go about determining what the criteria for knowledge are.  
  therefore, one must either groundlessly assume that one can identify cases of knowledge, or groundlessly assume that one knows what the criteria for knowledge are. Neither option seems particularly appealing (Pritchard 2018, p. 231)
 
 ### Methodism
@@ -584,10 +585,10 @@ Counterexamples: sometimes some fragile belief still count as knowledge. e.g. �
 
 > 思考题：停走钟表案例是否符合安全性和敏感性
 
-#### Relevant Alternatives
-
-"an alternative to P": Merely logical; defined by 'compatibility'
-
+#### Relevant Alternatives  
+  
+"an alternative to P": Merely logical; defined by 'compatibility'  
+  
 "an *relevant* alternative to P": 
 One way to delineate: to use modal concept: Had P been false, alternative A might appear
 
@@ -621,12 +622,12 @@ Edward Craig: use P appropriately in reasoning; to mark good sources; get the tr
 ### Direct response
 
 False presuppositions
-problem: 
-1. What is the false presupposition?
-2. Do the agent need to presuppose anything at all?
-(?)
-
-External demands
+problem:    
+1. What is the false presupposition?  
+2. Do the agent need to presuppose anything at all?  
+(?)  
+  
+External demands  
 The traditional account: the true condition relates to the world and the other two condition that could be obtained regardless of the world.
 
 
@@ -661,8 +662,8 @@ Now a sugar cube is presented to you.
 
 Counterfactual condition:
 - If it were put into water, this sugar cube would be dissolved: TRUE (In a possible world that is close to the actual world except the sugar cube is put into water, it is true that the sugar cube is dissolved)
-- If it were put into water, this sugar cube would *not* be dissolved: FALSE (In a possible world that is close to the actual world except the sugar cube is put into water, it is false that the sugar cube is dissolved)
-
+- If it were put into water, this sugar cube would *not* be dissolved: FALSE (In a possible world that is close to the actual world except the sugar cube is put into water, it is false that the sugar cube is dissolved)  
+  
 That is, the truth value is dependent on the which possible world, constrained by the consequent, is closer
 
 Problem:

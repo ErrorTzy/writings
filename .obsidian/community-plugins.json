@@ -4,14 +4,14 @@
   "quick-latex",
   "highlightr-plugin",
   "table-editor-obsidian",
-  "obsidian-citation-plugin",
-  "obsidian-pandoc-reference-list",
   "obsidian-enhancing-export",
-  "wikilinks-to-mdlinks-obsidian",
-  "make-md",
   "obsidian-smarter-md-hotkeys",
   "better-word-count",
   "obsidian-git",
   "number-headings-obsidian",
-  "various-complements"
+  "various-complements",
+  "hard-breaks",
+  "obsidian-minimal-settings",
+  "obsidian-style-settings",
+  "obsidian-graphviz"
 ]
