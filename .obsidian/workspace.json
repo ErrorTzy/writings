@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "notes/Truth_And_Trust/Testimonial_Injustice.md",
+                "file": "notes/Personal_Identity/Term_Paper.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Testimonial_Injustice"
+              "title": "Term_Paper"
             }
           }
         ]
@@ -98,10 +98,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "notes/Truth_And_Trust/Testimonial_Injustice.md"
+                "file": "notes/Personal_Identity/Term_Paper.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of Testimonial_Injustice"
+              "title": "Outline of Term_Paper"
             }
           },
           {
@@ -120,7 +120,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "notes/Kate_Proseminar/Korsgaard_Personal_Identity_and_the_Unity_of_Agency.md",
+                "file": "notes/Personal_Identity/Term_Paper.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -130,7 +130,7 @@
                 "unlinkedCollapsed": false
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Korsgaard_Personal_Identity_and_the_Unity_of_Agency"
+              "title": "Backlinks for Term_Paper"
             }
           },
           {
@@ -175,40 +175,40 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "fd72a118ee361f76",
+  "active": "76962ee7bc5948ac",
   "lastOpenFiles": [
+    "notes/Truth_And_Trust/Term_Paper.md",
+    "notes/Personal_Identity/Term_Paper.md",
+    "notes/Kate_Proseminar/Term_Paper.md",
+    "notes/Kate_Proseminar/Sense of Agency.md",
+    "notes/Kate_Proseminar/LectureNotes.md",
+    "archive/Mindmap Playground.md",
+    "archive/Personal Statement St Andrews.md",
+    "archive/My_Papers/My_Papers.md",
+    "archive/My_Papers/Becholar Thesis/Basho, World, and Dialectics.md",
+    "archive/My_Papers/Becholar Thesis/FINAL魂の自己創造——西田幾多郎の『場所』からプラトンの『ティマイオス』へ.md",
+    "archive/My_Papers/Becholar Thesis/Becholar Thesis.md",
+    "archive/My_Papers/Application/Leuven.md",
+    "archive/My_Papers/Application/Labor, Work, Action.md",
+    "archive/My_Papers/Application/Writing_Sample_V2.md",
+    "archive/My_Papers/Application/Writing_Sample_Draft.md",
+    "archive/My_Papers/Application/Supplemental Essay.md",
+    "archive/My_Papers/Application/Writing_Sample.md",
+    "archive/Analytical_Philosophy/Epistemology/Secondary_Literature/@deroseContextualismKnowledgeAttributions1992.md",
+    "archive/Analytical_Philosophy/Epistemology/Secondary_Literature/@deroseContextualismExplanationDefense1999.md",
+    "notes/Truth_And_Trust/Arg Reconstruction.md",
+    "notes/Truth_And_Trust/Testimonial_Injustice.md",
+    "notes/Peter_Proseminar/Tang - Week 12 (Fricker).md",
     "notes/Truth_And_Trust/BaierTrustAndAntitrust.md",
     "notes/Truth_And_Trust/Notes.md",
-    "notes/Truth_And_Trust/Testimonial_Injustice.md",
-    "notes/Truth_And_Trust/Arg Reconstruction.md",
     "notes/Truth_And_Trust/Prejudice_in_the_Credibility_Economy.md",
     "notes/Truth_And_Trust/Talk.md",
-    "notes/Kate_Proseminar/Sense of Agency.md",
-    "_templates/Graphviz.md",
-    "_templates/paper_metadata.md",
     "notes/Kate_Proseminar/16_2_4.pdf",
     "notes/Kate_Proseminar/16_2_4.pdf.crdownload",
     "notes/Kate_Proseminar/morse2007.pdf",
     "notes/Kate_Proseminar/hyman2007.pdf",
     "notes/Kate_Proseminar/hyman2007.pdf.crdownload",
-    "notes/Epistemology/GraduateNote.md",
-    "notes/Kate_Proseminar/LectureNotes.md",
-    "notes/Peter_Proseminar/Peter_Proseminar.md",
-    "notes/Peter_Proseminar/PutnumMeaningAndReference.md",
-    "notes/Peter_Proseminar/FregeTheThoughtALogicalInquiry.md",
-    "Instructions.md",
-    "archive/一个用户友好型澎湃数据库使用文档.md",
-    "archive/Personal Statement St Andrews.md",
-    "archive/Mindmap Playground.md",
-    "notes/Plato/Timaeus/Timaeus.md",
-    "notes/Neuroscience/An Introduction to Brain and Behavior/draft_notes.md",
-    "notes/Neuroscience/Memory.md",
     "_resources/diagram-generator.lua",
-    "notes/Peter_Proseminar/Tang - Week 3 (Strawson).md",
-    "notes/Peter_Proseminar/Tang - Week 10 (Frankfurt).md",
-    "notes/Peter_Proseminar/Tang - Week 8 (Putnam M&R).md",
-    "notes/Peter_Proseminar/Tang - Week 6 (Frege).md",
-    "notes/Peter_Proseminar/Tang - Week 5 (Perry).md",
     "SecondPass",
     "notes/Kate_Proseminar/missfont.log",
     "_resources/Pasted image 20241129163132.png",

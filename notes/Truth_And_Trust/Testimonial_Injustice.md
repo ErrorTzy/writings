@@ -14,3 +14,11 @@ But Fricker is not rejecting Foucault on the point that power is 'net-like'
 > Ideology?
 
 
+One form of social power: identity power, also can be used actively or passively
+E.g. Gender
+
+Systematic testimonial injustice vs. local testimonial injustice: The former tracks the subject on every social aspect.
+(Social) identity prejudice is the systematic type.
+central case: identity-prejudicial credibility deficit (only some identities are systematic)
+
+
