@@ -70,7 +70,35 @@ The core problem with this type of argument is its foundation in practical reaso
 
 If a proper account cannot rest on practical reason, we may turn to theoretical reason. Velleman offers us a ground of normativity that is grounded on theoretical reasoning. He argued from the fundamental human drive for self-intelligibility. Velleman sees humans as inherently driven to understand the world around them. This isn't just a passive reception of information; it's an active process of making sense of things, looking for patterns, and forming coherent explanations. Velleman presupposes this as our "intellectual drive." Also, similar to Korsgaard, Velleman also appeals to reflection and self-awareness. We reflect ourselves as objects in the world that can be understood. The combination of theoretical reasoning and self-awareness creates a drive for self-intelligibility. We want our actions, thoughts, and feelings to make sense to us.
 
-I will go no further from the self-intelligibility to practical reasoning and conscience. I do believe Velleman's is taking the right approach, in the sense that we must start from some basic motive instead of rational argument in order to explain the bindingness of morality.  
+I will go no further from the self-intelligibility to practical reasoning and conscience. I do believe Velleman's is taking the right approach, in the sense that we must start from some basic motive and emotion instead of rational argument in order to explain the bindingness of morality. But both Velleman and Korsgaard and setting moral agency on an important concept: reflection. According to Velleman and Korsgaard, since we are self-conscious creature, we reflect when we act. And morality are grounded on our reflection. 
+
+But Reflection does not seem to show-up all the time. Take the example of breathing: we do not consciously reflect on whether we should inhale or exhale, nor do we deliberate about commanding our bodies to perform these actions. Does my self-conception as a rational agent include breathing? Hardly. In fact, I believe our reflective rationality rarely engages in most aspects of ordinary life. Consider this question: when was the last time you consciously made a moral choice? The answer may not come easily, as such moments of active reflection are infrequent.
+
+This lead Velleman to use the awkward phrase "full-blooded action." Maybe Velleman will contest that, what I am saying has nothing to do with morality. I am talking merely about behavior, but not action. Breathing has nothing to do with will. Therefore, it do not need to be connected with normativity.
+
+But what is a will, really? Will seems to be something between intention and action. 
+
+This raises an issue: if our reflective rationality is sporadic rather than constant, when does it emerge? And more importantly, how can we be bound by its moral force when it is absent? Can we control when should we reflect?
+
+One possible response is that we do not need to pinpoint exactly _when_ reflection occurs. Reflection, whenever it arises, evaluates past actions and judges whether they were moral or not. While we may not feel the binding force of morality in the moment of action, we often feel afterward that we _should_ have acted differently. According to this view, moral force is not present during the action itself but emerges retroactively through reflection.
+
+This explanation may have a point. However, it at least seems incomplete. The phenomenology of our everyday experience seems to suggest otherwise. Even when we are not actively reflecting or reasoning about our actions, we still seem to feel the force of morality. Our sense of obligation or moral pull often operates beneath the surface, guiding us even without deliberate reflection. Thus, while reflection may enhance our awareness of moral force, it cannot be the sole source of it.
+
+
+
+There seem to be three possibilities to explain this:
+
+1. Reflection appears randomly, without a clear trigger.
+2. It is summoned by specific animal inclinations, such as desires or instincts.
+3. It operates in the background continuously, but we fail to notice it most of the time.
+
+
+
+The random show-up view does not make a lot of sense. What does random mean, anyway? One plausible understanding is that it may be caused by some inexplicable psychological process that is hard to understand. For example, we may find that 
+
+Let's look at the summon view. Sometimes we think fast, sometimes we think slow. This claim is not only plausible phenomenologically, but also in terms of evolutionary biology. We are doing a lot of things in the same time, and it is impractical to add a pondering process before we do anything.  For example, when we want to reach a switch and turn off the light, we need to turn our head around to find the switch, stand up from chair, move our legs, stretch our arm, press the switch, etc. Do we need to ponder whether I am doing a moral action before conducting each of these? Ordinary people would concede that we don't need to. 
+
+The problem here is that, from the first person perspective, one cannot really tell whether it is an evil scientist injecting thought to you, or there is an disorder in your sense of agency.
 
 
 
@@ -133,12 +161,9 @@ A wanton does not feel that the *sense of morality*. But whether some action is 
 
 Aristotle "moral excellence" is a habit.
 
-The worst position: two ghosts in one machine; one ghost is animal inclination, another ghost is rational agent. Animal inclination is determined by the operating machine and there has no free will. The rational agent has free will and aims at humanity. One obvious question is how animal inclination and rational agent interact. ==rubbish bin paper== I will put this aside. I think the major problem is this. Rational agent seems not always active. For example, breathing. Every time we inhale and exhale, our rational agent does not ponder about whether I should do it and give command. As a matter of fact, I believe our rational agent rarely show up in ordinary life. When is the last time you conduct a moral choice? I believe this question is not that easy to answer.
-If rational agent seems lazy and does not always show up, then it would lead to a problem: when will it show up? 1: it randomly show up; 2. the animal inclination summons it; 3. it is always working in the background. We just did not pay attention.
-The random show-up view does not make a lot of sense. What does random mean, anyway?
-Let's look at the summon view. Sometimes we think fast, sometimes we think slow. This claim is not only plausible phenomenologically, but also in terms of evolutionary biology. We are doing a lot of things in the same time, and it is impractical to add a pondering process before we do anything.  For example, when we want to reach a switch and turn off the light, we need to turn our head around to find the switch, stand up from chair, move our legs, stretch our arm, press the switch, etc. Do we need to ponder whether I am doing a moral action before conducting each of these? Ordinary people would concede that we don't need to. 
+The worst position: two ghosts in one machine; one ghost is animal inclination, another ghost is rational agent. Animal inclination is determined by the operating machine and there has no free will. The rational agent has free will and aims at humanity. One obvious question is how animal inclination and rational agent interact. ==rubbish bin paper== I will put this aside. I think the major problem is this. 
 
-The problem here is that, from the first person perspective, one cannot really tell whether it is an evil scientist injecting thought to you, or there is an disorder in your sense of agency.
+
 
 **Emergency example**
 There are many cases where moral choices must be made in an extremely short period of time. For example, you are a pilot and your plane is crushing. There are three people on your plane but an there is only two parachute. You must distribute the parachute in 10 seconds, or the height of the plane will not be enough for parachuting and everyone will die. And assume there is no previously established protocol on how to deal with this situation, and you must decide on you own because you are the pilot. In this case, you are not really allowed to use your agency and ponder about your choice.
