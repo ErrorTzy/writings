@@ -13,7 +13,21 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "notes/Personal_Identity/Term_Paper.md",
+                "file": "notes/Kate_Proseminar/Korsgaard_Personal_Identity_and_the_Unity_of_Agency.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Korsgaard_Personal_Identity_and_the_Unity_of_Agency"
+            }
+          },
+          {
+            "id": "9178014b077639be",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "notes/Kate_Proseminar/Term_Paper.md",
                 "mode": "source",
                 "source": false
               },
@@ -21,7 +35,8 @@
               "title": "Term_Paper"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -98,7 +113,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "notes/Personal_Identity/Term_Paper.md"
+                "file": "notes/Kate_Proseminar/Term_Paper.md"
               },
               "icon": "lucide-list",
               "title": "Outline of Term_Paper"
@@ -120,7 +135,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "notes/Personal_Identity/Term_Paper.md",
+                "file": "notes/Kate_Proseminar/Term_Paper.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -177,10 +192,14 @@
   },
   "active": "76962ee7bc5948ac",
   "lastOpenFiles": [
-    "notes/Truth_And_Trust/Term_Paper.md",
-    "notes/Personal_Identity/Term_Paper.md",
+    "notes/Kate_Proseminar/Korsgaard_Personal_Identity_and_the_Unity_of_Agency.md",
     "notes/Kate_Proseminar/Term_Paper.md",
+    "notes/Personal_Identity/Term_Paper.md",
+    "notes/Truth_And_Trust/Term_Paper.md",
     "notes/Kate_Proseminar/Sense of Agency.md",
+    "notes/Personal_Identity/Playground.md",
+    "notes/Personal_Identity/LectureNotes.md",
+    "notes/Truth_And_Trust/Testimonial_Injustice.md",
     "notes/Kate_Proseminar/LectureNotes.md",
     "archive/Mindmap Playground.md",
     "archive/Personal Statement St Andrews.md",
@@ -197,12 +216,8 @@
     "archive/Analytical_Philosophy/Epistemology/Secondary_Literature/@deroseContextualismKnowledgeAttributions1992.md",
     "archive/Analytical_Philosophy/Epistemology/Secondary_Literature/@deroseContextualismExplanationDefense1999.md",
     "notes/Truth_And_Trust/Arg Reconstruction.md",
-    "notes/Truth_And_Trust/Testimonial_Injustice.md",
     "notes/Peter_Proseminar/Tang - Week 12 (Fricker).md",
     "notes/Truth_And_Trust/BaierTrustAndAntitrust.md",
-    "notes/Truth_And_Trust/Notes.md",
-    "notes/Truth_And_Trust/Prejudice_in_the_Credibility_Economy.md",
-    "notes/Truth_And_Trust/Talk.md",
     "notes/Kate_Proseminar/16_2_4.pdf",
     "notes/Kate_Proseminar/16_2_4.pdf.crdownload",
     "notes/Kate_Proseminar/morse2007.pdf",

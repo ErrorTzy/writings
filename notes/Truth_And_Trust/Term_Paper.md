@@ -1,3 +1,13 @@
+```
+2024-12-16
+
+A fine grain account of heart: what is the strength /virtue of heart
+phil of love: framework of rationalism/arationalism/anti-r...
+determancy of justification: framework of justification
+more radical: overarching heart is better than just taking heart as a solution
+```
+
+
 *The central dilemma*
 
 In Eden, trust was unnecessary. We lived in perfect harmony, never questioning whether anything might harm us. Everything existed exactly as it should.
