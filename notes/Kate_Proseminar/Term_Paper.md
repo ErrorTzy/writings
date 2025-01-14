@@ -1,24 +1,28 @@
-**The oddity of morality**
+## Intro
+
+In this paper, I begin by examining how ordinary people learn the concept of "ought to" and how our understanding of obligation evolves beyond its initial form. I then turn to the views of Kant and Korsgaard, arguing that their accounts, being grounded in practical reasoning, fail to be necessarily binding. Next, I discuss Velleman, whose approach is rooted in theoretical reasoning. I contend that his account is inadequate because it depends on a reflective self. Finally, I propose a dual account of agency as a way to strengthen Velleman’s theory. I argue that if Velleman incorporates a non-reflective account of agency, he could more effectively respond to skepticism. I conclude the paper by suggesting a possible solution grounded in neuropsychology.
+
+## The oddity of morality
 
 Ordinary people talk about morality without much trouble. From a young age, we grow up in environments where our parents teach us what we should or shouldn't do. If we fail to follow these rules, we are often punished, learning painful lessons along the way. This process is commonly known as "socialization." Most of us go through it successfully. As a result, we internalize these norms, adjusting our psychology to see them as natural. This is how we, as children, come to learn what we *ought to* do.
 
 However, this somewhat nihilistic view of morality does not rule out the possibility of a justified basis for moral obligations. The way we learn something does not necessarily reflect its true nature. For instance, we begin learning math by counting on our fingers, but the foundations of mathematics have nothing to do with fingers. Instead, math is grounded in complex axiomatic systems.
 
-But if there is a justified basis for morality, what could it be? Consider evil creatures like cats. Cats are often think of as by nature indifferent and self-serving. But they can be trained to use a litter box instead of relieving themselves anywhere. However, we tend to believe that our understanding of "we ought to do something" is fundamentally different from how a cat might understand "I ought to poop in that box." We assume there is something unique about human psychology—something beyond the psychological mechanisms of animals like cats.
+But if there is a justified basis for morality, what could it be? Consider evil creatures like cats. Cats are often thought of as by nature indifferent and self-serving. But they can be trained to use a litter box instead of relieving themselves anywhere. However, we tend to believe that our understanding of "we ought to do something" is fundamentally different from how a cat might understand "I ought to poop in that box." We assume there is something unique about human psychology—something beyond the psychological mechanisms of animals like cats.
 
 But this assumption may be misleading. We don’t really know what goes on in a cat’s mind. When we claim that human morality is something above and beyond cat psychology, we might be projecting fantasies onto the cat's mental processes. For instance, we may think that cats associate painful punishment with pooping outside the litter box. We explain their behavior as purely driven by a desire to avoid that punishment. If the cat were to forget the punishment, we assume it would have no reason to continue using the litter box.
 
-But this does not seem entirely right. In the human world, we often observe that people act purely out of habit. For example, someone might instinctively check their phone first thing in the morning—not because they are expecting an urgent notification or have a specific reason, but simply because the action has become routine. This does not seem unique to human, since forming a habit does not require intelligence. It is more similar to establishing conditional reflex. Therefore, even if cats forget the pain of punishment, they might still use the litter box out of habit, without needing to consciously associate the behavior with avoiding punishment.
+But this does not seem entirely right. In the human world, we often observe that people act purely out of habit. For example, someone might instinctively check their phone first thing in the morning—not because they are expecting an urgent notification or have a specific reason, but simply because the action has become routine. This does not seem unique to humans, since forming a habit does not require intelligence. It is more similar to establishing conditional reflexes. Therefore, even if cats forget the pain of punishment, they might still use the litter box out of habit, without needing to consciously associate the behavior with avoiding punishment.
 
 However, even if this account of habit applies to cats, we still believe that human morality has something more to it. Our morality seems more stable and reflective than mere habits. Consider a trained cat, for instance. A professional trainer might teach the cat to use a litter box at a pet shop. Later, the cat is sold to a new owner. If the cat is intelligent enough, it might eventually reflect on its behavior. It could realize that the trainer, who imposed painful consequences for pooping outside the litter box, is no longer present. Motivated by its natural desires, the cat might then abandon the habit and begin pooping wherever it pleases.
 
 Human morality, on the other hand, appears more enduring. To avoid a crude comparison, let us turn to Kant's example, lying. Perhaps, as children, we were punished for lying and developed a habit of telling the truth. However, even if we grow up and believe that no one will punish us for lying, Kant argues that we still ought to tell the truth. This is because the categorical imperative binds us to act morally, regardless of external consequences.
 
-**Kant's solution**
+## Kant's solution
 
 Let us assume we accept the claim in the second section of the Groundwork: if there is a *law of action* with absolute necessity, it would be Kant's categorical imperative. However, this raises a striking question: why should we call this law of action a *moral law*? Why not simply call it Kant’s law of some kind of intellectual game?
 
-In the third section of the _Groundwork_, Kant argues that the categorical imperative binds us because it is grounded in the concept of free will. He claims that if we do not presuppose free will, we cannot conceive of ourselves as capable of action. But since we clearly do act, we must assume that our wills are free. According to Kant, since freedom means not being determined by natural causation, it must give itself law. And law means necessity. Therefore, if we have free will, we are bound to follow the categorical imperative. In short, Kant's justification for morality rests on the following conditionals: if we act, then we are free; if we are free, then we are bonded by categorical imperative.
+In the third section of the _Groundwork_, Kant argues that the categorical imperative binds us because it is grounded in the concept of free will. He claims that if we do not presuppose free will, we cannot conceive of ourselves as capable of action. But since we clearly do act, we must assume that our wills are free. According to Kant, since freedom means not being determined by natural causation, it must give itself law. And law means necessity. Therefore, if we have free will, we are bound to follow the categorical imperative. In short, Kant's justification for morality rests on the following conditionals: if we act, then we are free; if we are free, then we are bonded by the categorical imperative.
 
 There may be multiple potential problems with this argument. But the most striking one is related to freedom. In *Source of Normativity*, Korsgaard outlines three conditions that any satisfactory answer to the normative question must meet (pp. 16-18):
 
@@ -34,11 +38,11 @@ Let's look at an example to clarify what I mean. Returning to the somewhat nihil
 
 However, the categorical imperative does not work in this way. The categorical imperative seems to be something that can only be understood through rational deduction alone. It is similar to how we comprehend abstract mathematical ideas, like infinity. We can rigorously define infinity using concepts like $\epsilon - \delta$, but we never experience infinity directly.
 
-One easy way to address this worry is just to say that it does not necessarily bind everyone. If you do not accept it, then I will just classify you as an immoralist. This seems, in some sense, to be Timmermann's view. He seems not worried because he said there' are not a lot of immoralists after all, and *most of us* will still find it binding out of some inexplicable reason. I think Timmermann's analysis has poked to the core question that I want to discuss later in this paper, but he is too optimistic about Kant. I guess his wishful thinking that most of us will find it binding stems from the fact that he’s spent way too much time with Kant and Kantians such that he lost grasp of the real world. But if a moral theory does not bind us, we should try to find a better theory. 
+One easy way to address this worry is just to say that it does not necessarily bind everyone. If you do not accept it, then I will just classify you as an immoralist. This seems, in some sense, to be Timmermann's view. He seems not worried because he said there are not a lot of immoralists after all, and *most of us* will still find it binding out of some inexplicable reason. I think Timmermann's analysis has poked to the core question that I want to discuss later in this paper, but he is too optimistic about Kant. I guess his wishful thinking that most of us will find it binding stems from the fact that he’s spent way too much time with Kant and Kantians such that he lost grasp of the real world. But if a moral theory does not bind us, we should try to find a better theory. 
 
 Kant himself seems to pose something like "respect for humanity," or "dignity" in order to address this problem. But how could it not just collapse into a mere inclination or desire? Of course we can define a moral feeling that is not an inclination but still give us a sense of bindingness. But what is this thing, exactly? Without further explanation, this just is completely ad hoc.
 
-**Korsgaard's solution**
+## Korsgaard's solution
 
 While introducing some modifications, Korsgaard largely follows Kant’s framework. She reinterprets Kant’s idea of the “presupposition of freedom” in terms of what she calls the authority of reflection. According to Korsgaard, as self-conscious beings, we are aware of our own mental activities. For example, imagine being in a restaurant, deciding what to order. You cannot simply say, “I’m a determinist; I’ll just wait and see what happens,” and then do nothing. Reflection forces you to engage with your reasons and decide what to do next.
 
@@ -58,139 +62,76 @@ Korsgaard might respond that our reflective nature compels us to adopt a unified
 
 But Korsgaard might respond by arguing that even if Parfit is correct and there is no metaphysical ground for personal identity, there remains a practical basis for it. First, because we must act, we inevitably need to eliminate conflicts between our desires. Resolving these conflicts requires adopting a deliberative standpoint, one in which we coordinate and prioritize our desires. In this deliberation, our choices define who we are—they establish our practical identity—rather than leaving our identity to be shaped passively by external events or mere inclinations. Moreover, Korsgaard adds that our actions have a unity over time. Most actions only make sense when we see ourselves as cooperating with both our past and future selves. Without this unity, our actions would lack coherence. Thus, consistency is necessary if we are to make sense of ourselves as agents at all.
 
-However, skeptics could still push back against Korsgaard’s argument. They might claim that her notion of personal identity on a practical basis, while rejecting a metaphysical one, is puzzling. First, what does it even mean to say we lack a deep, metaphysical personal identity on one perspective but have one on another perspective? Second, a skeptic might argue that they could simply choose not to reconcile their conflicting desires and instead follow their instinct. Skeptics would then reject the idea that we need to “make sense” of our actions in a unified way. They can just rely on psychological instincts rather than consistent principles. Even when they reflect or deliberate, from this perspective, it might simply be another product of these instincts rather than a commitment to unity. While it may happen that one often acts consistently, this doesn’t mean one is _committed_ to consistency or that such commitment is essential for agency.
+However, skeptics could still push back against Korsgaard’s argument. They might claim that her notion of personal identity is puzzling. First, what does it even mean to say we lack a deep, metaphysical personal identity on one perspective but have one on another perspective? Second, a skeptic might argue that they could simply choose not to reconcile their conflicting desires and instead follow their instinct. Skeptics would then reject the idea that we need to “make sense” of our actions in a unified way. They can just rely on psychological instincts rather than consistent principles. Even when they reflect or deliberate, from this perspective, it might simply be another product of these instincts rather than a commitment to unity. While it may happen that one often acts consistently, this doesn’t mean one is _committed_ to consistency or that such commitment is essential for agency.
 
-**Structural problem for Korsgaard and Kant**
+## Structural problem for Korsgaard and Kant
 
-What is the structural problem for Korsgaard and Kant that lead to these problems? Notice that, both Korsgaard and Kant gives an argument that is similar to "Since we do something, we must presuppose something." But as I have argued before, something cannot bind us by using logic alone. The criticism to Kant's presupposition also applies to Korsgaard's. The result of this kind of fallacy leads to shmagency problem. A skeptic can just say, I am not an agent who presupposes humanity or freedom. I am just a shmagent who do not like to presuppose things. Then I do not need to commit to the fancy concepts like humanity or freedom.
+What is the structural problem for Korsgaard and Kant that led to these problems? Notice that, both Korsgaard and Kant give an argument that is similar to "Since we do something, we must presuppose something." But as I have argued before, something cannot bind us by using logic alone. The criticism of Kant's presupposition also applies to Korsgaard's. The result of this kind of fallacy leads to shmagency problem. A skeptic can just say, I am not an agent who presupposes humanity or freedom. I am just a shmagent who does not like to presuppose things. Then I do not need to commit to fancy concepts like humanity or freedom.
 
-The core problem with this type of argument is its foundation in practical reasoning: it suggests that acting would psychologically presupposes some X, which in turn is linked to some form of law. Yet, this method of justification is flawed when viewed from both a third-person and first-person perspective. From the first-person view, again, we don't inherently accept Q simply because P implies Q. From a third-person standpoint, this isn't a metaphysical proof. We can't rationally affirm the existence of X. Once we think about this belief, we'll find it lacks proper foundation. This is because only beliefs formed through a truth-directed process, i.e. theoretical reasoning, can withstand reflection. You will lose the belief formed by practical reasoning alone under scrutiny.
+The core problem with this type of argument is its foundation in practical reasoning: it suggests that acting would psychologically presuppose some X, which in turn is linked to some form of law. Yet, this method of justification is flawed when viewed from both a third-person and first-person perspective. From the first-person view, again, we don't inherently accept Q simply because P implies Q. From a third-person standpoint, this isn't metaphysical proof. We can't rationally affirm the existence of X. Once we think about this belief, we'll find it lacks proper foundation. This is because only beliefs formed through a truth-directed process, i.e. theoretical reasoning, can withstand reflection. You will lose the belief formed by practical reasoning alone under scrutiny.
 
-**Velleman's reduction**
+## Velleman's Solution
 
 If a proper account cannot rest on practical reason, we may turn to theoretical reason. Velleman offers us a ground of normativity that is grounded on theoretical reasoning. He argued from the fundamental human drive for self-intelligibility. Velleman sees humans as inherently driven to understand the world around them. This isn't just a passive reception of information; it's an active process of making sense of things, looking for patterns, and forming coherent explanations. Velleman presupposes this as our "intellectual drive." Also, similar to Korsgaard, Velleman also appeals to reflection and self-awareness. We reflect ourselves as objects in the world that can be understood. The combination of theoretical reasoning and self-awareness creates a drive for self-intelligibility. We want our actions, thoughts, and feelings to make sense to us.
 
-I will go no further from the self-intelligibility to practical reasoning and conscience. I do believe Velleman's is taking the right approach, in the sense that we must start from some basic motive and emotion instead of rational argument in order to explain the bindingness of morality. But both Velleman and Korsgaard and setting moral agency on an important concept: reflection. According to Velleman and Korsgaard, since we are self-conscious creature, we reflect when we act. And morality are grounded on our reflection. 
+I will go no further from the self-intelligibility to practical reasoning and conscience. I do believe Velleman is taking the right approach, in the sense that we must start from some basic motive and emotion instead of rational argument in order to explain the bindingness of morality. But both Velleman and Korsgaard and setting moral agency on an important concept: reflection. According to Velleman and Korsgaard, since we are self-conscious creatures, we reflect when we act. And morality is grounded in our reflection. 
 
-But Reflection does not seem to show-up all the time. Take the example of breathing: we do not consciously reflect on whether we should inhale or exhale, nor do we deliberate about commanding our bodies to perform these actions. Does my self-conception as a rational agent include breathing? Hardly. In fact, I believe our reflective rationality rarely engages in most aspects of ordinary life. Consider this question: when was the last time you consciously made a moral choice? The answer may not come easily, as such moments of active reflection are infrequent.
+But Reflection does not seem to show up all the time. Take the example of breathing: we do not consciously reflect on whether we should inhale or exhale, nor do we deliberate about commanding our bodies to perform these actions. Does my self-conception as a rational agent include breathing? Hardly. In fact, I believe our reflective rationality rarely engages in most aspects of ordinary life. Consider this question: when was the last time you consciously made a moral choice? The answer may not come easily, as such moments of active reflection are infrequent.
 
-This lead Velleman to use the awkward phrase "full-blooded action." Maybe Velleman will contest that, what I am saying has nothing to do with morality. I am talking merely about behavior, but not action. Breathing has nothing to do with will. Therefore, it do not need to be connected with normativity.
+This leads Velleman to the awkward term "full-blooded action." Velleman might argue that what I am discussing here, such as breathing, does not pertain to morality but to mere behavior, not action. Breathing, he might say, lacks intention and therefore does not need to be tied to normativity.
 
-But what is a will, really? Will seems to be something between intention and action. 
+I agree that breathing is somewhat of a tricky example. In some sense we have control over it and would include free will. And in some sense it seems like an automatic behavior of our body. Therefore breathing may add an unnecessarily complex layer to the discussion. But consider a different scenario: imagine you are a pilot, and your plane is crashing. There are three passengers onboard, but only two parachutes. You have 10 seconds to decide how to distribute the parachutes before it becomes too late to use them, and everyone dies. Assume there is no pre-existing protocol for such a situation—you must decide entirely on your own. In an emergency like this, your adrenaline might overwhelm your capacity for reflection. Even if we assume there is a correct normative answer to this dilemma, you would still have every right to ask: why should I be expected to reflect at all in that moment?
 
-This raises an issue: if our reflective rationality is sporadic rather than constant, when does it emerge? And more importantly, how can we be bound by its moral force when it is absent? Can we control when should we reflect?
+The reason I raise reflection as an issue is that defining agency in purely reflective terms leaves it vulnerable to skepticism. A skeptic can always challenge the idea of reflective agency by simply refusing to reflect and become a shmagent. Velleman does improve upon Korsgaard by grounding reflective agency in our intellectual drive for self-intelligibility rather than in a presupposition about action. But this approach merely makes it a bit harder for skeptics to resist. A drive can be ignored. As long as the account of agency hinges on reflection, skeptics will always find room to escape.
 
-One possible response is that we do not need to pinpoint exactly _when_ reflection occurs. Reflection, whenever it arises, evaluates past actions and judges whether they were moral or not. While we may not feel the binding force of morality in the moment of action, we often feel afterward that we _should_ have acted differently. According to this view, moral force is not present during the action itself but emerges retroactively through reflection.
+The only way to secure an unavoidable account of agency is to recognize the role of a non-reflective agency. We must move beyond reflection and consider how agency operates even in the absence of conscious deliberation.
 
-This explanation may have a point. However, it at least seems incomplete. The phenomenology of our everyday experience seems to suggest otherwise. Even when we are not actively reflecting or reasoning about our actions, we still seem to feel the force of morality. Our sense of obligation or moral pull often operates beneath the surface, guiding us even without deliberate reflection. Thus, while reflection may enhance our awareness of moral force, it cannot be the sole source of it.
+## A Dual account of Agency
 
+Now I should clarify my position. I believe we need to revisit Aristotle's dual account of morality, which distinguishes between moral excellence and intellectual excellence. The reason I began this discussion with cat psychology is that it shows a crucial aspect: the non-reflective, intuitive morality.
 
+A dual structure of morality better captures human nature because it aligns with our tendency to treat habitual behavior as binding. Some habits lose their normative force upon reflection, while others persist and integrate into our personal narratives. Reflection may help justify these enduring habits, but justification alone does not motivate action. As I mentioned before, I agree that Timmermann's analysis is correct. Skeptics who insist on asking, "Why should I do this?" are unlikely to find any reason talk conclusive.
 
-There seem to be three possibilities to explain this:
+However, I am not suggesting we return to Aristotle’s full metaphysics or virtue ethics. My aim is to adapt his dual framework to address gaps in Velleman’s account. While Velleman is right to focus on the normativity of intellectual excellence, his view is incomplete. He neglects the normativity rooted in non-reflective, habitual moral excellence. This oversight leaves his account vulnerable to skeptics who reject reflection altogether by labeling themselves as "shmagents."
 
-1. Reflection appears randomly, without a clear trigger.
-2. It is summoned by specific animal inclinations, such as desires or instincts.
-3. It operates in the background continuously, but we fail to notice it most of the time.
+But not all skeptical challenges are genuine. A skeptic may feel one way and claim otherwise. By incorporating non-reflective agency, Velleman could respond to skeptics by showing that agency is unavoidable. If one reflects, one is bound by one’s self-conception. If one does not reflect, one is still subject to psychological forces to pursue a sense of morality. In either case, one is committed to something. The normativity of self-conception arises from one’s sense of morality, while one’s sense of morality, in turn, is shaped by self-conception.
 
+I believe the theory of agency must take a dual structure for the following reason. People often conceive of themselves in one way but are inclined to act in another. This misalignment suggests that we may have both reflective and non-reflective dimensions of agency. Perhaps the ultimate goal, then, is to harmonize these two aspects, aligning self-conception with habitual tendencies.
 
+But how could we form a metaethical theory about the non-reflective agent?
 
-The random show-up view does not make a lot of sense. What does random mean, anyway? One plausible understanding is that it may be caused by some inexplicable psychological process that is hard to understand. For example, we may find that 
+In _What Happens When Someone Acts_, Velleman summarizes the "standard story" of action. A desire, combined with a belief about the means to fulfill it, forms an intention. That intention then causes bodily movement. This may be an oversimplified view, but the mechanistic account seems close to what I mean by "non-reflective agency." It does not require an agent that reflects.
 
-Let's look at the summon view. Sometimes we think fast, sometimes we think slow. This claim is not only plausible phenomenologically, but also in terms of evolutionary biology. We are doing a lot of things in the same time, and it is impractical to add a pondering process before we do anything.  For example, when we want to reach a switch and turn off the light, we need to turn our head around to find the switch, stand up from chair, move our legs, stretch our arm, press the switch, etc. Do we need to ponder whether I am doing a moral action before conducting each of these? Ordinary people would concede that we don't need to. 
+There are obviously advantages of using these folk-psychology concepts to reduce agency. Folk psychology is easy to understand from the first-person perspective. Since answering the normative question require a first-person standpoint, the hope is that folk psychology can transmit this first-person perspective to the account of agency it reduces. If it works, it would be the best way to both preserving a first-person perspective and shutting up the skeptics -- you cannot fight against your own psychological mechanism.
 
-The problem here is that, from the first person perspective, one cannot really tell whether it is an evil scientist injecting thought to you, or there is an disorder in your sense of agency.
+However, Velleman rejects such a standard reductionist view. He argues that this kind of explanation fails to capture a distinctly human feature of agency—namely, the agent’s first-person perspective. According to Velleman, in the first-person experience, _you_ are the agent; you see yourself as the cause of your actions. But in a reductionist framework, agent disappears. The agent is replaced by a chain of causal events, leaving no room for the subjective experience of being the one who acts.
 
+This is a familiar objection: reductionist accounts create an explanatory gap. They fail to bridge the divide between the subjective experience of being a person—conscious, intentional, and reflective—and the objective, mechanical descriptions of these concepts.
 
+But this is not a knock-down argument. What this type of criticism is saying is that, you are not able to do it now. But it does not follow that you cannot do it in principle. At best, this marks that the reduction account is incomplete. Just like Velleman himself said, complaining that the agent takes no part in causal relations posited between reasons and intention is like complaining that the ocean takes no part in causal relations posited between adjacent waves.
 
+However, Velleman’s objection to the standard story of action seems correct to me, though for reasons different from his own. I think the deeper problem with the standard story lies in its reliance on folk psychological terms, which are not only oversimplified but also vague. Take the concept of “desire,” for example. On the surface, it seems intuitive—everyone thinks they understand what it means to desire something. But what is a desire, really? What does it feel like to have one? Suppose I desire a glass of water and then drink it. If we subtract my physical action—reaching out, picking up the glass, and drinking—what exactly remains of the desire? Similarly, what is an “intention”? To use Wittgenstein's example: what does it feel like to intend to raise my arm? If I subtract the experience of my arm rising from my raising my arm, is there really an intention left?
 
-Another problem is the derivation of obligation from practical identity.
+These questions are difficult to answer, and for good reason. Many psychological processes are phenomenologically thin—they lack a robust first-person feel. Moreover, our language, rooted in folk psychology, is imprecise and lacks the fine-grained distinctions necessary for such analysis. When we attempt to reduce agency to a chain of informational processes and commands, the terms of folk psychology—grounded as they are in subjective, first-person experience—are inadequate. They fail to serve as precise tools for explaining agency in a reductive framework.
 
-What is this bindingness, anyway? A standard answer is something close to desire but more stable than it. But let's just set this stability constraint aside. W
-I think philosophers always underestimate how weird can human psychology can turn out to be.
+Therefore, we must abandon folk-psychology-based reductionism and pursue a reduction that does not rely on reflection. This new reduction must also satisfy the first-person requirement: skeptics should no longer be able to ask, _"But why am I this agent you have reduced?"_
 
+Admittedly, this is a difficult task, and I do not claim to have a ready-made solution. However, I believe the path forward lies in adopting a more radical approach, one rooted in neuropsychology. Neuropsychology offers tools to explore agency in a way that avoids the limitations of folk psychology while still possible to preserve the subjective, first-person perspective. I will now present evidence to explain why I find this direction promising.
 
+Neuropsychologists study what they call "the sense of agency," which refers to the subjective feeling that _I am the agent controlling this action._ They understand agency basically the same as moral philosophers understand, i.e. being the cause of one’s actions.
 
-There are several problems
+The best way to understand what they are doing is to introduce some vivid examples. There are cases of hypo-agency and hyper-agency.[^1] Hypo-agency is the cases where people are unsure or even alienated from their own actions or thoughts. They may hear voices and experience thought insertion. An extreme case is from Longden(2013), where she recalls that the voices first appeared during her college years[^2]. Initially, the voices were neutral, sounding like her own but narrating her actions in the third person, such as “She is leaving the room” or “She is opening the door.” Over time, the voices became more frequent and threatening, demanding that she complete bizarre tasks. These tasks started small, like pulling out a few strands of hair, but gradually escalated to extreme or socially disruptive acts, such as harming herself or pouring water on her instructor’s head during a lecture. Longden describes feeling powerless to resist the voices, as if they had complete control over her actions. This loss of agency led her to such despair that she even attempted suicide in a desperate effort to silence the voices. 
 
-we must presuppose humanity in order to act. 
+Conversely, hyper-agency involves an exaggerated sense of control, where individuals believe they are responsible for events that are clearly beyond their influence. For example, Elyn Saks describes blaming herself for natural disasters and violent crimes reported in the news. Despite the logical impossibility of her actions causing these events, she felt as though her thoughts or behaviors had somehow brought them about.
 
- reason, it means that you will 
- 
- Korsgaard then argues that if you treat any principle of choice as your own self-given law, you implicitly aspire to give yourself a law that holds for all cases of the same type
- Hence we move from “If I will an end, I must will the means,” to the more general “One must act on principles one can will as universal laws.”
+Neuropsychologists have also advanced our understanding of how the brain generates a sense of agency at the neural level. Key regions involved include the medial frontal cortex and basal ganglia. Disruptions in these areas can lead to the disorders of agency mentioned earlier, such as hypo-agency and hyper-agency. The formation of a sense of agency is thought to involve two mechanisms: prospective agency and retrospective agency.[^3]
 
+While I lack an extensive background in neuropsychology and cannot delve deeply into the technical literature at this time, I aim to highlight a crucial point. Even if a non-reflective agent lacks reflective self-awareness, it can still possess a sense of agency. Moreover, other studies suggest that a sense of responsibility arises from this sense of agency.[^4] This makes it plausible to develop a neuropsychological model of a “sense of normativity,” one that parallels reflective normativity.
 
 
 
 
-
-
-
-what is normativity? Is it grounded on psychology or not?
-It must ground on psychology. What do you mean we are talking about a concept that If it is not grounded on psychology, then it
-
-If we adopt Korsgaard's view, either we accept some mysticism, or we reduce it. We cannot form rational belief. cr. Hyronamy.
-
-
-anomaly in the sense of agency: We change someone's sense of agency without changing any other function. This creature is still rational.
-
-https://eujap.uniri.hr/too-much-or-too-little-disorders-of-agency-on-a-spectrum/
-
-
-Kant's argument is a purely epistemic one. So if no sense of agency then no agency.
-Consider blind sight.
-
-If drug addicts
-
-If something is unexplicable, then you should just reject it
-
-Can a machine be a moral agent? The machine can behave in a very moral way. It may even behave as if it is in ambivalent when it faces delimma like the trolley problem. And when you ask why the machine
-
-What is the phenomenology of being a hypo-agent?
-
-
-
-retrospective normativity and the sense of morality
-
-find an explnation that appeals to normative principle: 
-Why do you choose to use your own salt instead of others'? Because I should respect private property.
-
-I should respect private property vs. I'm motivated to not use other people's salt and use my own salt. The latter seems to be what really happens. This action is accompanied by a sense of morality, or moral habit. There is no inference.
-
-A wanton does not feel that the *sense of morality*. But whether some action is moral is justified by inference.
-
-Aristotle "moral excellence" is a habit.
-
-The worst position: two ghosts in one machine; one ghost is animal inclination, another ghost is rational agent. Animal inclination is determined by the operating machine and there has no free will. The rational agent has free will and aims at humanity. One obvious question is how animal inclination and rational agent interact. ==rubbish bin paper== I will put this aside. I think the major problem is this. 
-
-
-
-**Emergency example**
-There are many cases where moral choices must be made in an extremely short period of time. For example, you are a pilot and your plane is crushing. There are three people on your plane but an there is only two parachute. You must distribute the parachute in 10 seconds, or the height of the plane will not be enough for parachuting and everyone will die. And assume there is no previously established protocol on how to deal with this situation, and you must decide on you own because you are the pilot. In this case, you are not really allowed to use your agency and ponder about your choice.
-
-**Explanatory gap**
-It has become a standard argument against naturalism in both philosophy of mind and metaethics. The argument goes like this: If we try to reduce some normative property into non-normative ones, it will no longer retain the normative power in the first person perspective.
-
-
-Weird guilt
-I will fell that I cause the earthquake. and I would be responsible for not using my autonomy.
-
-If you are an agent, then you will 
-
-
-What are obligations and why it's binding?
-
-What is the question of normativity?
-
-Rational source of normativity
-
-"you shoud not eat seafood"
-
-a good persob must be binded  a bit but not too much
-Kant's ground: free will?
-Korsgaard's ground: 
-
-
-
-
-
+[^1]: Petrolini, Valentina. “Too Much or Too Little? Disorders of Agency on a Spectrum.” _European Journal of Analytic Philosophy_ 16, no. 2 (November 8, 2020): 79–99. [https://doi.org/10.31820/ejap.16.2.4](https://doi.org/10.31820/ejap.16.2.4).
+[^2]: Longden, E. 2013. [Learning from the voices in my head](http://www.ted.com/talks/eleanor_longden_the_voices_in_my_head?language=en#t-203777). In Monterey, CA: TED Conferences.
+[^3]: Sidarus, Nura & Haggard, Patrick. (2016). Difficult action decisions reduce the sense of agency: A study using the Eriksen flanker task. Acta Psychologica. 166. 1-11. 10.1016/j.actpsy.2016.03.003. 
+[^4]: Caspar, Emilie A., Julia F. Christensen, Axel Cleeremans, and Patrick Haggard. “Coercion Changes the Sense of Agency in the Human Brain.” _Current Biology_ 26, no. 5 (March 7, 2016): 585–92. [https://doi.org/10.1016/j.cub.2015.12.067](https://doi.org/10.1016/j.cub.2015.12.067).

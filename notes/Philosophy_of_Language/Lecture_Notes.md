@@ -383,3 +383,15 @@ Criticism on Russell: language is speak-act
 The domain of discourse is missing in Russell's analysis
 
 
+Donnellan:
+Semantic reference and speaker's reference
+
+Defense of semantic reference: speaker's use of language is based on the semantics
+
+# 6. Naming and Necessity
+
+essentialism vs. nominalism
+
+Def. of rigidity: it refers to one thing in all possible worlds
+some descriptions are also rigid, i.e. the smallest even number
+
