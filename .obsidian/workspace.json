@@ -15,6 +15,7 @@
               "state": {
                 "file": "notes/Philosophy_of_Language/Secondary_Literature/KaplanDemonstratives.md",
                 "mode": "source",
+                "backlinks": false,
                 "source": false
               },
               "icon": "lucide-file",
@@ -35,23 +36,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "5dbc4b164a548803",
-            "type": "leaf",
-            "state": {
-              "type": "search",
-              "state": {
-                "query": "instruc",
-                "matchingCase": false,
-                "explainSearch": false,
-                "collapseAll": false,
-                "extraContext": false,
-                "sortOrder": "alphabetical"
-              },
-              "icon": "lucide-search",
-              "title": "Search"
-            }
-          },
-          {
             "id": "85d28d087f15c93d",
             "type": "leaf",
             "state": {
@@ -63,8 +47,7 @@
               "title": "Files"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -79,20 +62,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "62b46b3ea7a6e701",
-            "type": "leaf",
-            "state": {
-              "type": "outgoing-link",
-              "state": {
-                "file": "notes/Peter_Proseminar/Tang - Week 11 (Quine).md",
-                "linksCollapsed": true,
-                "unlinkedCollapsed": false
-              },
-              "icon": "links-going-out",
-              "title": "Outgoing links from Tang - Week 11 (Quine)"
-            }
-          },
-          {
             "id": "5d805bf0be0e4674",
             "type": "leaf",
             "state": {
@@ -105,6 +74,26 @@
             }
           },
           {
+            "id": "21a7e850c4e5d360",
+            "type": "leaf",
+            "state": {
+              "type": "annotations-outline",
+              "state": {},
+              "icon": "message-square",
+              "title": "Enhanced Annotations"
+            }
+          },
+          {
+            "id": "76962ee7bc5948ac",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
+          },
+          {
             "id": "fc3ba4f5606d975e",
             "type": "leaf",
             "state": {
@@ -112,25 +101,6 @@
               "state": {},
               "icon": "spreadsheet",
               "title": "Advanced Tables"
-            }
-          },
-          {
-            "id": "04d235765478ee50",
-            "type": "leaf",
-            "state": {
-              "type": "backlink",
-              "state": {
-                "file": "notes/Kate_Proseminar/Term_Paper.md",
-                "collapseAll": false,
-                "extraContext": false,
-                "sortOrder": "alphabetical",
-                "showSearch": false,
-                "searchQuery": "",
-                "backlinkCollapsed": false,
-                "unlinkedCollapsed": false
-              },
-              "icon": "links-coming-in",
-              "title": "Backlinks for Term_Paper"
             }
           },
           {
@@ -146,19 +116,9 @@
               "icon": "lucide-archive",
               "title": "All properties"
             }
-          },
-          {
-            "id": "76962ee7bc5948ac",
-            "type": "leaf",
-            "state": {
-              "type": "git-view",
-              "state": {},
-              "icon": "git-pull-request",
-              "title": "Source Control"
-            }
           }
         ],
-        "currentTab": 5
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
@@ -166,9 +126,6 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "graph:Open graph view": false,
-      "switcher:Open quick switcher": false,
-      "canvas:Create new canvas": false,
       "command-palette:Open command palette": false,
       "templates:Insert template": false,
       "table-editor-obsidian:Advanced Tables Toolbar": false,
@@ -176,10 +133,15 @@
       "daily-notes:Open today's daily note": false
     }
   },
-  "active": "76962ee7bc5948ac",
+  "active": "68afa42d6507a58f",
   "lastOpenFiles": [
     "Daily_Tasks.md",
     "notes/Philosophy_of_Language/Secondary_Literature/KaplanDemonstratives.md",
+    "notes/Peter_Proseminar/Tang - Week 5 (Perry).md",
+    "notes/Peter_Proseminar/Tang - Week 6 (Frege).md",
+    "notes/Peter_Proseminar/Tang - Week 8 (Putnam M&R).md",
+    "notes/Philosophy_of_Language/Secondary_Literature/FregeSinnBedeutung1892.md",
+    "notes/Philosophy_of_Language/Secondary_Literature/RussellOnDenoting.md",
     "notes/Philosophy_of_Language/Lecture_Notes.md",
     "2025-01-14.md",
     "notes/Kate_Proseminar/Term_Paper.md",
@@ -199,11 +161,6 @@
     "archive/My_Papers/Becholar Thesis/Basho, World, and Dialectics.md",
     "archive/My_Papers/Becholar Thesis/FINAL魂の自己創造——西田幾多郎の『場所』からプラトンの『ティマイオス』へ.md",
     "archive/My_Papers/Becholar Thesis/Becholar Thesis.md",
-    "archive/My_Papers/Application/Leuven.md",
-    "archive/My_Papers/Application/Labor, Work, Action.md",
-    "archive/My_Papers/Application/Writing_Sample_V2.md",
-    "archive/My_Papers/Application/Writing_Sample_Draft.md",
-    "archive/My_Papers/Application/Supplemental Essay.md",
     "notes/Kate_Proseminar/16_2_4.pdf",
     "notes/Kate_Proseminar/16_2_4.pdf.crdownload",
     "notes/Kate_Proseminar/morse2007.pdf",

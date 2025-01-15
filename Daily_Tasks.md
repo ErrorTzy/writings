@@ -10,5 +10,6 @@
 #### 14 Tue
 
 - [ ] Kaplan, Demonstratives
+- [ ] Philosophy of Language
 
 #### 15 Wed

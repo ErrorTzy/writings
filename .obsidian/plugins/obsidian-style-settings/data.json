@@ -33,5 +33,6 @@
   "minimal-style@@h4-weight": 700,
   "minimal-style@@h3-weight": 800,
   "minimal-style@@h2-weight": 800,
-  "minimal-style@@ax3@@light": "#6100A2"
+  "minimal-style@@ax3@@light": "#6100A2",
+  "minimal-style@@code-comment@@light": "#009F08"
 }

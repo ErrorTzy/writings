@@ -30,5 +30,5 @@
   ],
   "strictLineBreaks": true,
   "alwaysUpdateLinks": true,
-  "vimMode": false
+  "vimMode": true
 }
