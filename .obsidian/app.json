@@ -30,5 +30,6 @@
   ],
   "strictLineBreaks": true,
   "alwaysUpdateLinks": true,
-  "vimMode": true
+  "vimMode": true,
+  "showLineNumber": true
 }

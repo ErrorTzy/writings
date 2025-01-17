@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "notes/Philosophy_of_Language/Secondary_Literature/KaplanDemonstratives.md",
+                "file": "notes/Philosophy_of_Language/Secondary_Literature/BraunIndexicals.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "KaplanDemonstratives"
+              "title": "BraunIndexicals"
             }
           }
         ]
@@ -67,10 +67,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "notes/Philosophy_of_Language/Secondary_Literature/KaplanDemonstratives.md"
+                "file": "notes/Philosophy_of_Language/Secondary_Literature/BraunIndexicals.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of KaplanDemonstratives"
+              "title": "Outline of BraunIndexicals"
             }
           },
           {
@@ -133,16 +133,19 @@
       "daily-notes:Open today's daily note": false
     }
   },
-  "active": "68afa42d6507a58f",
+  "active": "76962ee7bc5948ac",
   "lastOpenFiles": [
     "Daily_Tasks.md",
+    "notes/Philosophy_of_Language/Secondary_Literature/BraunIndexicals.md",
     "notes/Philosophy_of_Language/Secondary_Literature/KaplanDemonstratives.md",
+    "notes/Philosophy_of_Language/Lecture_Notes.md",
+    "notes/Philosophy_of_Language/Secondary_Literature/StrawsonOnReferring.md",
+    "notes/Philosophy_of_Language/notes.md",
     "notes/Peter_Proseminar/Tang - Week 5 (Perry).md",
     "notes/Peter_Proseminar/Tang - Week 6 (Frege).md",
     "notes/Peter_Proseminar/Tang - Week 8 (Putnam M&R).md",
     "notes/Philosophy_of_Language/Secondary_Literature/FregeSinnBedeutung1892.md",
     "notes/Philosophy_of_Language/Secondary_Literature/RussellOnDenoting.md",
-    "notes/Philosophy_of_Language/Lecture_Notes.md",
     "2025-01-14.md",
     "notes/Kate_Proseminar/Term_Paper.md",
     "notes/Philosophy_of_Mind/Untitled.md",
@@ -158,9 +161,6 @@
     "archive/Mindmap Playground.md",
     "archive/Personal Statement St Andrews.md",
     "archive/My_Papers/My_Papers.md",
-    "archive/My_Papers/Becholar Thesis/Basho, World, and Dialectics.md",
-    "archive/My_Papers/Becholar Thesis/FINAL魂の自己創造——西田幾多郎の『場所』からプラトンの『ティマイオス』へ.md",
-    "archive/My_Papers/Becholar Thesis/Becholar Thesis.md",
     "notes/Kate_Proseminar/16_2_4.pdf",
     "notes/Kate_Proseminar/16_2_4.pdf.crdownload",
     "notes/Kate_Proseminar/morse2007.pdf",

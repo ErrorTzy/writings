@@ -112,8 +112,8 @@ Character can be represented by a function that takes *context* as input and *co
 f: context -> g
 g: circumstance -> extension
 
-Meaning and context determines intension
-Intension and possible world determines extension
+Meaning(character?) and context determines intension
+Intension(content?) and possible world determines extension
 
 The function of **non-indexicals** is fixed and have nothing to do with the context; what the function of **indexicals** returns is *context-sensitive*
 For example, for a description, it will always return the structure of some property. For 'I', it will return the person based on the language rule (character) when applied to the context
@@ -128,5 +128,13 @@ The character is linguistic rule used to fix the referent of an indexical, but i
 
 ## XV. Further Details: Demonstratives and Demonstrations
 
+Kaplan agrees: Fregean theory of demonstration
+1. A demonstration is a way  of presenting an individual
+2. A given demonstration in certain counterfactual circumstances would have demonstrated an individual other than the individual actually demonstrated
+3. A demonstration which fails to demonstrate any individual might have demonstrated one, and a demonstration which demonstrates an individual might have demonstrated no individuals at all
+4. A given demonstration might have been mounted by someone other than its actual agent, and might be repeated in the same or a different place
 
+Standard form of demonstration: The individual that has appearance A from here now.
+demonstration + context = content
+demonstration does not have a fixed content ==You mean, the content varies in different context?==
 

@@ -388,10 +388,62 @@ Semantic reference and speaker's reference
 
 Defense of semantic reference: speaker's use of language is based on the semantics
 
-# 6. Naming and Necessity
+# 6. Causal theory of names
+
+**Naming and Necessity**
 
 essentialism vs. nominalism
 
 Def. of rigidity: it refers to one thing in all possible worlds
 some descriptions are also rigid, i.e. the smallest even number
+
+ denote: indirectly point to extension
+ refer: directly point to extension
+
+application of metaphysics: identity statements
+A postori necessary truth: Heat is motion of molecules
+"mental state is brain state" seems not to be a necessary truth because octopus can still have pain
+
+**Gareth Evans: the causal theory of names**
+
+Problem of Kripke: hard to explain some complicated causal link, like switching baby, etc.
+Evans: extension on causal theory of reference
+key difference:
+dominant source of causal origin: tracking the *naming scenario* and how it *comes into the community* (there are interactions between scenario and community, dynamic) VS. baptism: tracking the object, static
+community of speakers
+convention of speakers/users ==what if there's no consensus? How to define a "community" if there's a lot of fractions in how to use a word? i.e. 内卷? Indeterminacy again?==
+
+Two thought experiments: 
+- "Madagascar" case (reference change)
+- "Napoleon" case  (substitution)
+- The Louis case (causal link not sufficient)
+- the Kingston case (causal link not necessary)
+
+# 7. Demonstratives and Indexicals
+
+Feature: context-sensitivity
+Examples: adverbs(now, here), pronouns(I, you), adjectives(present, past, high, low) etc
+A semantic theory that says an expression is context-sensitive is a contextualist theory ; a context-insensitive theory is an invariantism theory (Braun 2017)
+e.g. Susan is tall
+- contextualist: Susan is tall in context c
+- invariantism: Susan is tall for some x, or just Susan is tall
+
+Contextualist way of symbolizing comparative/gradable adjectives:
+Susan is tall = Susan's height > the average height of the people concerned in the context
+
+Not all gradable adjectives are context sensitive, e.g. X is taller than Y; "taller than Y" is context-independent
+
+A contextualist theory must eliminate all the contextual element after parsing the sentence to the content/proposition
+
+The two stage theory: context of use vs. circumstance of evaluation
+
+the narrow definition of context: $<C_{agent}, C_{place}, C_{world}, C_{time}>$
+
+
+**Modern model** 
+
+Free enrichment and modulation 
+context can generate content without character/everything are index-sensitive
+Fancy contextualism: context affect circumstance
+
 
