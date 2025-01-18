@@ -16,7 +16,15 @@
 - [x] Philosophy of Language, Qilin Li
 - [x] What grounds what (Harvard material)
 
-#### 15 Wed
+#### 16 Thu
 
-- [ ] SEP, Indexicals
+- [x] SEP, Indexicals
 - [x] Argue about insurance
+
+#### 17 Fri
+
+- [x] rest
+
+#### 18 Sat
+
+- [ ] Research on Eli's Sem

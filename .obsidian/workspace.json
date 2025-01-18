@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "notes/Philosophy_of_Language/Secondary_Literature/BraunIndexicals.md",
+                "file": "Daily_Tasks.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "BraunIndexicals"
+              "title": "Daily_Tasks"
             }
           }
         ]
@@ -133,10 +133,10 @@
       "daily-notes:Open today's daily note": false
     }
   },
-  "active": "76962ee7bc5948ac",
+  "active": "68afa42d6507a58f",
   "lastOpenFiles": [
-    "Daily_Tasks.md",
     "notes/Philosophy_of_Language/Secondary_Literature/BraunIndexicals.md",
+    "Daily_Tasks.md",
     "notes/Philosophy_of_Language/Secondary_Literature/KaplanDemonstratives.md",
     "notes/Philosophy_of_Language/Lecture_Notes.md",
     "notes/Philosophy_of_Language/Secondary_Literature/StrawsonOnReferring.md",
