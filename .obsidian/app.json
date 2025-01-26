@@ -2,7 +2,7 @@
   "spellcheckLanguages": null,
   "spellcheck": true,
   "pdfExportSettings": {
-    "includeName": false,
+    "includeName": true,
     "pageSize": "A4",
     "landscape": false,
     "margin": "0",
@@ -13,7 +13,7 @@
   "attachmentFolderPath": "_resources",
   "promptDelete": false,
   "autoPairBrackets": true,
-  "readableLineLength": false,
+  "readableLineLength": true,
   "spellcheckDictionary": [
     "pleonexia",
     "nomos",

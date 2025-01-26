@@ -62,7 +62,7 @@
     {
       "tokenMatcher": "math",
       "lookups": [
-        "$"
+        ""
       ],
       "jumpAfter": true
     },

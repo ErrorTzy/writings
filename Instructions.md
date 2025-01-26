@@ -143,3 +143,15 @@ digraph finite_state_machine {
 	LR_8 -> LR_5 [ label = "S(a)" ];
 }
 ```
+
+
+# Math
+
+aligned equations:
+$$
+\begin{aligned}
+&ahaah\\
+=&ws\\
+=&sks\\
+\end{aligned}
+$$

@@ -114,7 +114,6 @@ var l = {
   SETTINGS_COMMANDS_ASSIGN_HOTKEYS_DESC: "Assigns keys `F5` `F6` `F7` to comment insertion commands",
   EXPAND: "Expand",
   COLLAPSE: "Collapse",
-  SETTINGS_LABELS_STYLES_LABEL_INVALID: "Invalid label",
   COMMANDS_JUMP_TO_NEW_LINE: "Jump to a new line",
   COMMANDS_INSERT_COMMENT: "Insert a comment",
   COMMANDS_INSERT_COMMENT_AFTER_EMPTY_LINE: "Insert a comment after an empty line",
@@ -9214,15 +9213,21 @@ var Additional_styles = class extends SvelteComponent {
 };
 var additional_styles_default = Additional_styles;
 
+// src/editor-suggest/helpers/is-valid-label.ts
+var isValidLabel = (label) => {
+  return !/[:\s]/.test(label) && label !== "/" && label.length > 0;
+};
+
 // src/sidebar-outline/components/components/controls-bar/components/styles/styles.svelte
 function add_css12(target) {
-  append_styles(target, "svelte-kpsq2o", ".main-styles.svelte-kpsq2o{display:flex;gap:5px;flex-wrap:wrap;justify-content:center}");
+  append_styles(target, "svelte-15wea5d", ".main-styles.svelte-15wea5d{display:flex;gap:5px;flex-wrap:wrap;justify-content:center}.invalid-label.svelte-15wea5d{outline:var(--color-red) 2px solid}");
 }
 function create_fragment32(ctx) {
   let div;
   let multioptionstogglebutton;
   let t0;
   let input;
+  let input_class_value;
   let input_pattern_value;
   let input_placeholder_value;
   let input_value_value;
@@ -9238,7 +9243,7 @@ function create_fragment32(ctx) {
         name: "Scope",
         options: (
           /*scopes*/
-          ctx[6]
+          ctx[9]
         ),
         value: (
           /*label*/
@@ -9246,7 +9251,7 @@ function create_fragment32(ctx) {
         ),
         onChange: (
           /*onScopeChange*/
-          ctx[5]
+          ctx[8]
         )
       }
     }
@@ -9259,7 +9264,7 @@ function create_fragment32(ctx) {
       ),
       onToggleAdditionalSettings: (
         /*onToggleAdditionalSettings*/
-        ctx[4]
+        ctx[7]
       ),
       plugin: (
         /*plugin*/
@@ -9267,7 +9272,7 @@ function create_fragment32(ctx) {
       ),
       showAdditionalSettings: (
         /*showAdditionalSettings*/
-        ctx[2]
+        ctx[4]
       )
     }
   });
@@ -9279,13 +9284,16 @@ function create_fragment32(ctx) {
       input = element("input");
       t1 = space();
       create_component(additionalstyles.$$.fragment);
-      attr(input, "pattern", input_pattern_value = "^\\w+$");
+      attr(input, "class", input_class_value = null_to_empty(!/*valid*/
+      ctx[2] && !/*isEmpty*/
+      ctx[3] ? "invalid-label" : "") + " svelte-15wea5d");
+      attr(input, "pattern", input_pattern_value = "[^:\\s]");
       attr(input, "placeholder", input_placeholder_value = l.SETTINGS_LABELS_STYLES_NAME_PLACE_HOLDER);
       set_style(input, "width", "75px");
       attr(input, "type", "text");
       input.value = input_value_value = /*label*/
       ctx[0].label;
-      attr(div, "class", div_class_value = null_to_empty("main-styles") + " svelte-kpsq2o");
+      attr(div, "class", div_class_value = null_to_empty("main-styles") + " svelte-15wea5d");
     },
     m(target, anchor) {
       insert(target, div, anchor);
@@ -9296,12 +9304,20 @@ function create_fragment32(ctx) {
       mount_component(additionalstyles, div, null);
       current = true;
       if (!mounted) {
-        dispose = listen(
-          input,
-          "change",
-          /*onLabelChange*/
-          ctx[3]
-        );
+        dispose = [
+          listen(
+            input,
+            "change",
+            /*onLabelChange*/
+            ctx[6]
+          ),
+          listen(
+            input,
+            "input",
+            /*onLabelInput*/
+            ctx[5]
+          )
+        ];
         mounted = true;
       }
     },
@@ -9313,7 +9329,7 @@ function create_fragment32(ctx) {
           name: "Scope",
           options: (
             /*scopes*/
-            ctx2[6]
+            ctx2[9]
           ),
           value: (
             /*label*/
@@ -9321,10 +9337,16 @@ function create_fragment32(ctx) {
           ),
           onChange: (
             /*onScopeChange*/
-            ctx2[5]
+            ctx2[8]
           )
         };
       multioptionstogglebutton.$set(multioptionstogglebutton_changes);
+      if (!current || dirty & /*valid, isEmpty*/
+      12 && input_class_value !== (input_class_value = null_to_empty(!/*valid*/
+      ctx2[2] && !/*isEmpty*/
+      ctx2[3] ? "invalid-label" : "") + " svelte-15wea5d")) {
+        attr(input, "class", input_class_value);
+      }
       if (!current || dirty & /*label*/
       1 && input_value_value !== (input_value_value = /*label*/
       ctx2[0].label) && input.value !== input_value_value) {
@@ -9340,9 +9362,9 @@ function create_fragment32(ctx) {
         additionalstyles_changes.plugin = /*plugin*/
         ctx2[1];
       if (dirty & /*showAdditionalSettings*/
-      4)
+      16)
         additionalstyles_changes.showAdditionalSettings = /*showAdditionalSettings*/
-        ctx2[2];
+        ctx2[4];
       additionalstyles.$set(additionalstyles_changes);
     },
     i(local) {
@@ -9364,21 +9386,46 @@ function create_fragment32(ctx) {
       destroy_component(multioptionstogglebutton);
       destroy_component(additionalstyles);
       mounted = false;
-      dispose();
+      run_all(dispose);
     }
   };
 }
 function instance32($$self, $$props, $$invalidate) {
   let { label } = $$props;
   let { plugin } = $$props;
+  let notice = null;
+  let valid = true;
+  let previousMessage = "";
+  let previousMessageTs = 0;
+  let isEmpty = true;
+  const onLabelInput = (e) => {
+    const value = e.target.value;
+    $$invalidate(3, isEmpty = value.length === 0);
+    $$invalidate(2, valid = isValidLabel(value));
+    if (!valid) {
+      let message = "";
+      if (value === "/")
+        message = "A label should not be equal to '/'";
+      else if (value.contains(":"))
+        message = "A label should not contain ':'";
+      else if (value.contains(" "))
+        message = "A label should not contain spaces";
+      if (message && (message !== previousMessage || Date.now() - previousMessageTs > 1e4)) {
+        if (notice)
+          notice.hide();
+        previousMessage = message;
+        previousMessageTs = Date.now();
+        notice = new import_obsidian3.Notice(message, 1e4);
+      }
+    } else {
+      if (notice)
+        notice.hide();
+    }
+  };
   const onLabelChange = (e) => {
     const value = e.target.value;
-    const input = e.target;
-    input.checkValidity();
-    if (input.validity.patternMismatch) {
-      input.reportValidity();
-      new import_obsidian3.Notice(l.SETTINGS_LABELS_STYLES_LABEL_INVALID);
-    } else {
+    $$invalidate(2, valid = isValidLabel(value));
+    if (valid) {
       plugin.settings.dispatch({
         payload: { pattern: value, id: label.id },
         type: "SET_PATTERN"
@@ -9387,7 +9434,7 @@ function instance32($$self, $$props, $$invalidate) {
   };
   let showAdditionalSettings = false;
   const onToggleAdditionalSettings = () => {
-    $$invalidate(2, showAdditionalSettings = !showAdditionalSettings);
+    $$invalidate(4, showAdditionalSettings = !showAdditionalSettings);
   };
   const cleanupEmptyLabels = () => {
     const labels = plugin.settings.getValue().decoration.styles.labels;
@@ -9423,7 +9470,10 @@ function instance32($$self, $$props, $$invalidate) {
   return [
     label,
     plugin,
+    valid,
+    isEmpty,
     showAdditionalSettings,
+    onLabelInput,
     onLabelChange,
     onToggleAdditionalSettings,
     onScopeChange,
@@ -10925,13 +10975,9 @@ var SettingsTab = class extends import_obsidian15.PluginSettingTab {
   }
 };
 
-// src/editor-suggest/helpers/is-valid-label.ts
-var isValidLabel = (label) => {
-  return /[^:\s]/.test(label) && label.trim() !== "/";
-};
-
 // src/settings/settings-selectors.ts
-var pluginIsIdle = (store) => store.idling.daysUnused.length > 3;
+var DAYS_UNUSED = 3;
+var pluginIsIdle = (plugin) => plugin.settings.getValue().idling.daysUnused.length > DAYS_UNUSED;
 
 // src/settings/settings-reducer.ts
 var updateState2 = (store, action) => {
@@ -11020,7 +11066,8 @@ var updateState2 = (store, action) => {
   else if (action.type === "LOG_PLUGIN_USED") {
     store.idling.daysUnused = [];
   } else if (action.type === "LOG_PLUGIN_STARTED") {
-    if (!pluginIsIdle(store)) {
+    const isIdle = store.idling.daysUnused.length > DAYS_UNUSED;
+    if (!isIdle) {
       const date = formattedDate();
       const daysUnused = store.idling.daysUnused.sort();
       if (!daysUnused.includes(date)) {
@@ -11096,19 +11143,25 @@ var AnnotationSuggest = class extends import_obsidian16.EditorSuggest {
       const countA = nA?.count || 0;
       return countB === countA ? nB?.timestamp - nB?.timestamp : countB - countA;
     });
+    let result = [];
     if (suggestions.length) {
-      return suggestions;
+      result = suggestions;
+    } else if (isValidLabel(context.query)) {
+      result = [{ label: context.query }];
     }
-    if (isValidLabel(context.query))
-      return [{ label: context.query }];
-    else
-      return [];
+    result.push({ label: "", type: "empty-comment" });
+    return result;
   }
   renderSuggestion(suggestion, el) {
     el.addClass("enhanced-annotations__suggestion");
     const textEL = el.createEl("span");
     const label = suggestion.label;
-    textEL.setText(label);
+    if (suggestion.type === "empty-comment") {
+      textEL.addClass("enhanced-annotations__empty-comment");
+      textEL.setText("(no label)");
+    } else {
+      textEL.setText(label);
+    }
     el.appendChild(textEL);
     const count = this.usedSuggestions[label]?.count;
     if (count > 0) {
@@ -11118,26 +11171,24 @@ var AnnotationSuggest = class extends import_obsidian16.EditorSuggest {
       el.appendChild(countEl);
     }
   }
-  selectSuggestion(suggestion, event) {
-    const activeView = this.app.workspace.getActiveViewOfType(import_obsidian16.MarkdownView);
-    if (!activeView)
+  selectSuggestion(suggestion) {
+    const editor = this.app.workspace.activeEditor?.editor;
+    if (!editor)
       return;
     if (!this.context)
       return;
     const settings = this.plugin.settings.getValue();
     const label = suggestion.label.trim();
-    const text2 = settings.editorSuggest.commentFormat === "html" ? `<!--${label}: -->` : `%%${label}: %%`;
-    activeView.editor.replaceRange(
-      text2,
-      this.context.start,
-      this.context.end
-    );
-    const cursor = activeView.editor.getCursor();
-    activeView.editor.setCursor({
+    const content = label ? `${label}: ` : label;
+    const text2 = settings.editorSuggest.commentFormat === "html" ? `<!--${content}-->` : `%%${content}%%`;
+    editor.replaceRange(text2, this.context.start, this.context.end);
+    const cursor = editor.getCursor();
+    editor.setCursor({
       line: cursor.line,
       ch: cursor.ch - (settings.editorSuggest.commentFormat === "html" ? 3 : 2)
     });
-    this.recordUsedSuggestion(label, true);
+    if (label)
+      this.recordUsedSuggestion(label, true);
   }
   onTrigger(cursor, editor) {
     const settings = this.plugin.settings.getValue();
@@ -11277,7 +11328,8 @@ var updateOutline = (annotations, plugin) => {
     {}
   );
   fileAnnotations.set({ labels });
-  registerNewLabels(annotations, plugin);
+  if (!pluginIsIdle(plugin))
+    registerNewLabels(annotations, plugin);
 };
 
 // src/sidebar-outline/helpers/outline-updater/helpers/reset-outline.ts
@@ -11363,6 +11415,12 @@ var OutlineUpdater = class extends Store {
         const side = leaf?.getRoot()?.side;
         if (!side)
           this.updateOutline(leaf?.view, true);
+        if (leaf?.view instanceof import_obsidian17.MarkdownView) {
+          leaf.view.contentEl.toggleClass(
+            "enhanced-annotations__enable-decoration",
+            !pluginIsIdle(this.plugin)
+          );
+        }
       })
     );
     const onStart = () => {
@@ -11387,7 +11445,7 @@ var loadOutlineStateFromSettings = (plugin) => {
   }));
   hiddenLabels.set(new Set(outlineSettings.hiddenLabels));
   hiddenTypes.set(new Set(outlineSettings.hiddenTypes));
-  pluginIdle.set(pluginIsIdle(settings));
+  pluginIdle.set(pluginIsIdle(plugin));
 };
 
 // src/settings/helpers/subscribe-settings-to-outline-state.ts
@@ -11569,21 +11627,23 @@ var StatusBar = class {
     this.updateText = async (comments, highlights) => {
       const numberOfComments = comments.length;
       const numberOfHighlights = highlights.length;
+      const noComments = numberOfComments === 0;
+      const noHighlights = numberOfHighlights === 0;
+      this.elements.comments.toggleClass(displayNone, noComments);
+      this.elements.highlights.toggleClass(displayNone, noHighlights);
+      this.elements.container.toggleClass(
+        displayNone,
+        noHighlights && noComments
+      );
       if (numberOfComments) {
-        this.elements.comments.toggleClass(displayNone, false);
         this.elements.comments.setText(
           `${pluralize(numberOfComments, "comment", "comments")}`
         );
-      } else {
-        this.elements.comments.toggleClass(displayNone, true);
       }
       if (numberOfHighlights) {
-        this.elements.highlights.toggleClass(displayNone, false);
         this.elements.highlights.setText(
           `${pluralize(numberOfHighlights, "highlight", "highlights")}`
         );
-      } else {
-        this.elements.highlights.toggleClass(displayNone, true);
       }
     };
     this.onClick = async () => {
@@ -11952,7 +12012,7 @@ var Idling = class {
     this.enabled = false;
     this.subscriptions = /* @__PURE__ */ new Set();
     this.plugin.settings.dispatch({ type: "LOG_PLUGIN_STARTED" });
-    if (!pluginIsIdle(plugin.settings.getValue()))
+    if (!pluginIsIdle(plugin))
       this.plugin.loadPlugin();
     this.subscribe();
   }
@@ -11962,7 +12022,7 @@ var Idling = class {
   logActivity() {
     if (!this.enabled) {
       this.enabled = true;
-      const wasIdle = pluginIsIdle(this.plugin.settings.getValue());
+      const wasIdle = pluginIsIdle(this.plugin);
       this.plugin.settings.dispatch({ type: "LOG_PLUGIN_USED" });
       if (wasIdle) {
         pluginIdle.set(false);
@@ -11975,6 +12035,8 @@ var Idling = class {
     }
   }
   subscribe() {
+    if (pluginIsIdle(this.plugin))
+      return;
     this.subscriptions.add(
       controls.subscribe((v, action) => {
         if (action) {
@@ -12019,13 +12081,16 @@ var LabeledAnnotations = class extends import_obsidian20.Plugin {
       SIDEBAR_OUTLINE_VIEW_TYPE,
       (leaf) => new SidebarOutlineView(leaf, this)
     );
-    this.idling = new Idling(this);
     this.app.workspace.onLayoutReady(async () => {
       await this.attachLeaf();
       loadOutlineStateFromSettings(this);
       this.registerSubscription(...subscribeSettingsToOutlineState(this));
       this.addSettingTab(new SettingsTab(this.app, this));
       registerEditorMenuEvent(this);
+      this.outline = new OutlineUpdater(this);
+      this.statusBar = new StatusBar(this);
+      tts.setPlugin(this);
+      this.idling = new Idling(this);
     });
   }
   onunload() {
@@ -12037,11 +12102,8 @@ var LabeledAnnotations = class extends import_obsidian20.Plugin {
   loadPlugin() {
     this.decorationSettings = new DecorationSettings(this);
     EditorPlugin.plugin = this;
-    this.outline = new OutlineUpdater(this);
-    tts.setPlugin(this);
     this.unsubscribeCallbacks.add(subscribeDecorationStateToSettings(this));
     this.registerEditorExtension([editorPlugin]);
-    this.statusBar = new StatusBar(this);
   }
   async loadSettings() {
     const settings = await this.loadData() || {};

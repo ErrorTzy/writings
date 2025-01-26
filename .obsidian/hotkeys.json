@@ -151,5 +151,32 @@
   "workspace:goto-tab-4": [],
   "workspace:goto-tab-5": [],
   "workspace:goto-tab-7": [],
-  "workspace:goto-tab-8": []
+  "workspace:goto-tab-8": [],
+  "table-editor-obsidian:table-control-bar": [],
+  "file-explorer:new-file": [],
+  "file-explorer:new-file-in-new-pane": [],
+  "editor:delete-paragraph": [],
+  "editor:insert-link": [],
+  "app:go-back": [],
+  "app:go-forward": [],
+  "app:open-help": [],
+  "quick-latex:addAlignBlock": [],
+  "quick-latex:addBlockMath": [],
+  "quick-latex:addMatrixBlock": [],
+  "editor:open-search-replace": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "R"
+    }
+  ],
+  "editor:toggle-highlight": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "H"
+    }
+  ]
 }
