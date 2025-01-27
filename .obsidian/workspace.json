@@ -51,8 +51,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "right": {
     "id": "67893c5e98fb762a",
@@ -136,11 +135,11 @@
   },
   "active": "76962ee7bc5948ac",
   "lastOpenFiles": [
+    "_templates/ProofByAssumeAnt.md",
     "_templates/ProofByReductio.md",
+    "notes/Logic/Sets, Logic and Computation.md",
     "_templates/Graphviz.md",
     "_templates/paper_metadata.md",
-    "_templates/ProofByAssumeAnt.md",
-    "notes/Logic/Sets, Logic and Computation.md",
     "Daily_Tasks.md",
     "notes/Logic/Assignment1.md",
     "notes/Logic/Introduction.md",

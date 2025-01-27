@@ -287,4 +287,20 @@ But when do a function has inversion?
 > ==Proof==
 > 
 >  We prove this by showing the consequent follows from the antecedent.
->  
+>  Suppose $f:A \rightarrow B$ is surjective, then for any $y \in B$ we have at least one $x \in A$ such that $f(x)=y$. We analyze it case by case.
+>  (i) There is exactly one $x \in A$ such that $f(x)=y$. Then we can define $h(y)=x$ if there is exactly one $x \in A(f(x)=y)$
+>  (ii) There are more than one $x \in A$ such that $f(x)=y$. We can construct a set $S=\{x \in A:f(x)=y\}$ and arbitrarily pick one element $e \in S$ then define $h(y)=e$ if there are more than one $x \in A(f(x)=y)$
+>  Given this, we have constructed $h(y)$ for all $y \in B$. Since $x,e \in A$, we have $h:A \rightarrow B$. And obviously $f(h(y))=y, y \in B$ holds in all cases.
+
+**Proposition 3.18** If $f:A \rightarrow B$ is bijective, there is a function $f^{-1}:B \rightarrow A$ so that for all $x \in A, f^{-1}(f(x))=x$ and for all $y \in B, f(f^{-1}(y))=y$
+
+> ==Proof==
+>
+> We prove this by showing the consequent follows from the antecedent.
+> Suppose $f:A \rightarrow B$ is bijective, we know that $\forall y \in B$, there is exactly one $x \in A$ such that $f(x)=y$.  Then we define 
+> $$f^{-1}(y)=x \text{ if } y=f(x)$$
+> Now we show that if $f^{-1}(y)=x$ then $y=f(x)$.
+> Obviously we have $f^{-1}:B \rightarrow A$.
+> We first show for all $x \in A, f^{-1}(f(x))=x$. By definition if $f(x)=y, f^{-1}(y)=x$
+> Then we show for all $y \in B, f(f^{-1}(y))=y$. By definition if $x = f^{-1}(y)$ then $f(x)=y$
+> 
