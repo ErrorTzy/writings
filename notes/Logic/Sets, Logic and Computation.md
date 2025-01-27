@@ -211,10 +211,10 @@ Due 29th Wed **hardcopy**
 ### Operations on Relations
 
 **Definition 2.29.** Let R, S be relations, and A be any set.
-- The inverse of R is $R^{-1} = \{\langle y,x \rangle : \langle x, y \rangle \in R\}$. `swapping x and y`
-- The relative product of R and S is $(R | S) = \{\langle x, z \rangle : \exists y (Rxy \land S yz)\}$.
-- The restriction of R to A is $R\upharpoonright A = R \cap A^2$
-- The application of R to A is $R[A] = \{y : (\exists x \in A)Rxy \}$
+- The *inverse* of R is $R^{-1} = \{\langle y,x \rangle : \langle x, y \rangle \in R\}$. `swapping x and y`
+- The *relative product* of R and S is $(R | S) = \{\langle x, z \rangle : \exists y (Rxy \land S yz)\}$.
+- The *restriction* of R to A is $R\upharpoonright_{A} = R \cap A^2$
+- The *application* of R to A is $R[A] = \{y : (\exists x \in A)Rxy \}$
 
 **Definition 2.31** (Transitive closure). Let $R \subseteq A^2$ be a binary relation.
 - The transitive closure of $R$ is $R^+ = \bigcup_{0 < n \in \mathbb{N}} R^n$, where we recursively define $R^1 = R$ and $R^{n+1} = R^{n}| R$. `connecting heads and tails, operate it n times`
@@ -222,7 +222,7 @@ Due 29th Wed **hardcopy**
 
 ## Chap. 3 Functions
 
-**Definition 3.1 (Function)** A function f:A→B is a mapping of each element of A to an element of B.
+**Definition 3.1 (Function)** A function $f:A \rightarrow B$ is a mapping of each element of A to an element of B.
 - We call A the domain of f and B the codomain of f . The elements of A are called inputs or *arguments of f* , and the element of B that is paired with an argument x by f is called the *value of f* for argument x, written f(x).
 - The range ran(f) of f is the subset of the codomain consisting of the values of f for some argument; ran(f) = {f(x) : x ∈ A}.
 
@@ -241,12 +241,15 @@ We call such a function a surjection from $A$ to $B$.
 > Remark to 3.8: If you stipulate B to be ran(A), then f will always be surjective
 
 **Definition 3.9 (Injective, no overlapping output)** A function $f: A \rightarrow B$ is *injective* iff for each $y \in B$ there is at most one $x \in A$ such that $f(x)=y$. We call such a function an injection from A to B. 
+If you want to show that f is an injection, you need to show that for any elements x and y of f ’s domain, if $f (x) = f (y)$, then $x = y$.
 
 **Definition 3.11 (Bijection, one to one mapping)**. A function f : A → B is *bijective* iff it is both *surjective* and *injective*. We call such a function a bijection from A to B (or between A and B)
 
 ### Functions as Relations
 
-**Definition 3.12 (Graph of a function).** Let $f: A \to B$ be a function. The graph of $f$ is the relation $R_f \subseteq A \times B$ defined by $R_f = \{(x,y) : f(x) = y\}$.
+**Definition 3.12 (Graph of a function).** Let $f: A \to B$ be a function. The graph of $f$ is the relation $R_f \subseteq A \times B$ defined by $R_{f} = \{ \langle x,y \rangle : f(x) = y\}$.
+
+**Implicit (extensionality of function)**. if ∀x f (x) = g (x), then f = g
 
 **Proposition 3.13**. Let $R \subseteq A \times B$ be such that:
 1. If $R_{xy}$ and $R_{xz}$ then $y=z$; and
@@ -255,4 +258,33 @@ Then R is the graph of the function $f:A \rightarrow B$ defined by $f(x)=y$ iff 
 
 > ==Proof==
 > 
+> ? I don't think the textbook provided any rigorous proof
+
+**Definition 3.14** Let $f: A \rightarrow B$ be a function with $C \subseteq A$.
+- The restriction of $f$ to $C$ is the function $f \upharpoonright_{C}: C \rightarrow B$ is defined by $(f \upharpoonright_{C})(x) = f(x)$ for all $x \in C$. In other words,  $f \upharpoonright_{C}=\{\langle x,y \rangle \in R_{f}: x \in C\}$
+- The application of $f$ to $C$ is $f[c] = \{f(x):x \in C\}$. We also call this the *image* of C under f
+
+### Inverse of Functions
+
+**Definition 3.15.** A function $g: B \rightarrow A$ is an inverse of a function $f: A \rightarrow B$ if $f(g(y))=x$ for all $x \in A$ and $y \in B$
+
+If $f$ has an inverse $g$, then we often write $f^{-1}$ instead of $g$.
+
+But when do a function has inversion?
+
+**Proposition 3.16** If $f:A \rightarrow B$ is injective, then there is a left inverse $g:B \rightarrow A$ so that $g(f(x)) = x$ for all $x \in A$
+
+> ==Proof==
 > 
+> We prove this by showing the consequent follows from the antecedent.
+> Suppose $f:A \rightarrow B$ is injective. For $\forall y \in B$, we know that there exits at most one x such that $f(x)=y$. We analyze it case by case.
+> (i) There is exactly one $x \in A$ such that $f(x)=y$. Then we can define $g(y) = x$
+> (ii) There is no $x \in A$ such that $f(x)=y$. Then we can define $g(y)=a, a \in A$
+> Given this, we have constructed a $g(y)$ for all $y \in B$. Since $x \in A$ and $a \in A$, we know $ran(g) \subseteq A$. Therefore, we have $g:B \rightarrow A$. And for any $x \in A$, there is always $f(x)=y$. Therefore, $g(f(x))=g(y)=x$
+
+**Proposition 3.17** If $f:A \rightarrow B$ is surjective, then there is a right inverse $h:B \rightarrow A$ of f so that $f(h(y))=y$ for all $y \in B$
+
+> ==Proof==
+> 
+>  We prove this by showing the consequent follows from the antecedent.
+>  

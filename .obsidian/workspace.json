@@ -51,7 +51,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "67893c5e98fb762a",
@@ -122,7 +123,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 227.5
+    "width": 333.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -133,10 +134,14 @@
       "daily-notes:Open today's daily note": false
     }
   },
-  "active": "68afa42d6507a58f",
+  "active": "76962ee7bc5948ac",
   "lastOpenFiles": [
-    "Daily_Tasks.md",
+    "_templates/ProofByReductio.md",
+    "_templates/Graphviz.md",
+    "_templates/paper_metadata.md",
+    "_templates/ProofByAssumeAnt.md",
     "notes/Logic/Sets, Logic and Computation.md",
+    "Daily_Tasks.md",
     "notes/Logic/Assignment1.md",
     "notes/Logic/Introduction.md",
     "playground.md",
@@ -161,10 +166,6 @@
     "notes/Philosophy_of_Language/Secondary_Literature/FregeSinnBedeutung1892.md",
     "notes/Philosophy_of_Language/Secondary_Literature/RussellOnDenoting.md",
     "2025-01-14.md",
-    "notes/Kate_Proseminar/Term_Paper.md",
-    "notes/Philosophy_of_Mind/Untitled.md",
-    "notes/Philosophy_of_Mind/www.baidu.com.md",
-    "notes/Truth_And_Trust/Term_Paper.md",
     "notes/Kate_Proseminar/16_2_4.pdf",
     "notes/Kate_Proseminar/16_2_4.pdf.crdownload",
     "notes/Kate_Proseminar/morse2007.pdf",
