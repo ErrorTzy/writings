@@ -16,6 +16,9 @@ The second solution does not require Noi to become a solipsist. My premise is th
 
 In this case, Noi can leave the quantifier unrestricted and choose to become a solipsist, which brings us back to the first solution. Alternatively, Noi can learn from others that there is actually _some_ domain restriction to the quantifier applying to mental states. Since Noi lacks the concept of _I_, Noi will never fully understand why this restriction exists or what it entails.[^3] However, if Noi trusts others, Noi can simply accept that a restriction exists. Moreover, Noi can learn from others that mental states are limited within the physical boundaries of Noi's body. In this way, Noi can establish the mind-body relation: "Whenever there is no rabbit around Noi's body, there is no rabbit experience in the unknown domain, and this domain does not extend beyond Noi's body.
 
+
+This is a test of mobile sync.
+
 [^1]: It might be objected that, when we watch movies, what's happening on our mind is actually "If I were in that situation, what would I do?" Then this still relies on our sense of self. This may be right, but I still think Noi can plan or make decisions, in the same way computer programs (like ChatGPT) can plan or make decisions.
 [^2]: Although my intuition aligns with the self-acquaintance view, it is possible to exclude self-acquaintance from this argument. It could be argued that we simply know the domain restriction without further explanation. More radically, one might argue that we only know the domain by learning language. In this case, it might follow that we were once all Nois.
 [^3]: But can we _really_ understand this restriction without begging the question?
