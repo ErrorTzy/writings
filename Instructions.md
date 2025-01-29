@@ -3,6 +3,7 @@
 ## Paper
 
 1. When exporting to pdf or word, use `\newpage` or  `\pagebreak` to break a new page.
+2. `\vfill` and `\hfill\break` can create empty lines. `\vill` is recommended
 
 ## Slides
 

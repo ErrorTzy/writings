@@ -110,10 +110,21 @@ Due 29th Wed **hardcopy**
 - The quotient of A under R is $\frac{A}{R}= \{[x]_{R}:x \in A\}$ 
 
 > ==Remark to 2.11==
+> 
 > This is intended to define the "partition" of a set. Within each partition, all elements have R-equivalence. And no element outside the partition has R-equivalence with any element inside partition
 
 **Proposition 2.12 (Equivalence means same partition)**
-- If $R \subseteq A^2$ is an equivalence relation, then $\forall x \forall y Rxy$ iff $[x]_{R}=[y]_R$
+- If $R \subseteq A^2$ is an equivalence relation, then $\forall x, y \in A, Rxy$ iff $[x]_{R}=[y]_{R}$
+
+> 
+> Left to right:
+> 
+> Assume $Rxy$, $[x]_{R} = \{\alpha \in A : R_{x \alpha}\}$ and $[y]_{R} = \{\beta \in A: R_{y \beta}\}$, we need to show that $[x]_{R}=[y]_{R}$
+> In order to show this, we need to show first $[x]_{R} \subseteq [y]_{R}$. To show that, we need to show that, for any $z \in A$, if $z \in [x]_{R}$ then $z \in [y]_{R}$
+> If $z \in [x]_{R}$ then we have $Rxz$. Since we have $Ryx$ we have $Ryz$. Therefore, $z \in [y]_{R}$.
+> Similarly, we have $[y]_{R} \subseteq [x]_{R}$. Therefore, $[x]_{R}=[y]_{R}$
+> 
+
 
 > ==Remark of Proof==
 > 
@@ -161,7 +172,7 @@ Due 29th Wed **hardcopy**
 > $\forall x \in A (I_{xx})$, thus $\forall x \in A(R^{+}_{xx})$
 > 
 > Transitivity: 
-> Given $R^{+}_{xy}$ and $R^{+}_{yz}$, if x=y or y=z, obviously we have $R^{+}_{xz}$; if $x \neq y \land y \neq z$, then $\langle x,y \rangle \in R$ and $\langle y,z \rangle \in R$. Since R has transitivity, we have $R_{xz}$. Thus $R^{+}_{xz}$
+> Given $R^{+}_{xy}$ and $R^{+}_{yz}$, if x=y or y=z, obviously we have $R^{+}_{xz}$ by replacing them; if $x \neq y \land y \neq z$, then $\langle x,y \rangle \in R$ and $\langle y,z \rangle \in R$. Since R has transitivity, we have $R_{xz}$. Thus $R^{+}_{xz}$ 
 > 
 > Anti-symmetric:
 > Suppose it is not anti-symmetric, i.e. $R^{+}_{xy} \land R^{+}_{yx} \land x \neq y$. Since $x \neq y$, $\neg I_{xy} \lor \neg I_{yx}$. Thus $R_{xy} \land R_{yx}$. But R is asymmetric. Therefore the supposition is false. Thus it is anti-symmetric.
@@ -299,7 +310,8 @@ But when do a function has inversion?
 > We prove this by showing the consequent follows from the antecedent.
 > Suppose $f:A \rightarrow B$ is bijective, we know that $\forall y \in B$, there is exactly one $x \in A$ such that $f(x)=y$.  Then we define 
 > $$f^{-1}(y)=x \text{ if } y=f(x)$$
-> Now we show that if $f^{-1}(y)=x$ then $y=f(x)$.
+> Now we show that if $f^{-1}(y)=x$ then $y=f(x)$. Since the domain of $f^{-1}$ is $A$, then for any $x \in A$ we have 
+> 
 > Obviously we have $f^{-1}:B \rightarrow A$.
 > We first show for all $x \in A, f^{-1}(f(x))=x$. By definition if $f(x)=y, f^{-1}(y)=x$
 > Then we show for all $y \in B, f(f^{-1}(y))=y$. By definition if $x = f^{-1}(y)$ then $f(x)=y$

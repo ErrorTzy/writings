@@ -1,4 +1,4 @@
-#### 25 Sat
+#### 2025-01-28
 
-- [ ] Logic, Chat_3
 - [ ] Phil_of_science_reading
+- [ ] Logic

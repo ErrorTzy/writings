@@ -1,0 +1,89 @@
+## 1 Introduction
+
+
+The old days
+Realists: Regularities in the natural phenomena must have a reason, and the reason is sought in causal properties (i.e. form of substances)
+Nominalists: Deny the reality of these properties, thereby rejecting such explanation.
+
+near-modern days: 
+By not postulating such causal properties, scientists escaped this dilemma. For example, Boyle thinks all qualities can be produced by mechanical process
+
+Van Fraassen's objection: 
+1. You still need to assume atoms, and when you try to explain the atoms' behavior, you run into the same dilemma again.
+2. Phenomena does not decide truth or falsity of a theory
+
+This lead to the development of logical positivism.
+
+philosophy of science now:
+1. fundamental, content and structure of theories
+2. relations between theory and world/users
+
+On (1): Generally agreed that:
+1. theories account for phenomena by postulating other processes and structures not directly accessible to observation
+2. a system is described by its all possible states
+
+On (2):
+2.1: Relation between world and theory: Empiricists: aiming at true account of observables, do not need to give a true account about unobservables.
+
+Problem with logical positivism: went too far in the attempt to turn philosophical problems into problems about language. 
+Problem with scientific realism: reifying whatever cannot be defined away
+
+2.2: What it is to accept a scientific theory
+Both an epistemic problem and a pragmatic problem.
+
+Scientific realism is growing, but I am going to do a revolution on behalf of empiricists.
+
+## 2 Arguments Concerning Scientific Realism
+
+### 1. Scientific Realism and Constructive Empiricism
+
+#### 1.1 Statement of scientific realism
+
+Naive statement: The picture which science give us of the world is a true one, faithful in its details and the entities postulated in science really exist; Scientific advances are discoveries not inventions
+Problem: It follows that today's theories are correct
+Good points: answers two questions:
+1. What a scientific theory is: on what there is
+2. What a scientific theory does: discovery instead of invention
+
+Developed account: 
+1. What a scientific theory aims at: give a literally true story of what the world is like; 
+2. Acceptance of a theory: the belief being true (does not need to be justified)
+
+#### 1.2 Alternative to Realism
+
+Alternative then obviously would be:
+1. aim of science: no need to be a literally true story, it just need to have some virtues (empirical adequacy, comprehensiveness, etc.)
+2. acceptance: less or other than having true belief
+
+Literal construal: one should take theories literally?
+Yes: Realists (and it is true); Anti-realists (and it does not have to be true)
+No: Positivists (actually mean observable statements), Instrumentalists
+Difference, if P and Q are literally construed and contradicts each other, then only one can be true
+
+#### 1.3 Constructive Empiricism
+
+Literal construal requirement for a statement does not entail the statement to be true. Therefore it is possible to maintain the literal requirement without being a realist
+
+Constructive Empiricism:
+1. aim of science: give literal theories which are empirically adequate (about what is observable is true)
+2. acceptance: belief that is empirically adequate, which in turns means:
+	- epistemic dimension: commitment to confront future phenomena by means of the conceptual resource of this theory
+	- pragmatic dimension: same as the realists
+### 2. the Theory/Observation 'Dichotomy'
+
+Maxwell: against Carnap
+Van Fraassen: observable/theoretical dichotomy is obscure
+
+distinction between observing and observing that
+
+Maxwell: 
+1. where should we draw the line? 
+	- Van Fraassen: but there are clear cases and clear counter-cases.
+2. what does "can" mean? Observable in principle? But if we have very different organs, everything is observable
+	- Van Fraassen: but you can't have different organs and still talk about observability
+3. Even if such distinction holds, it means nothing. Why being observable or not have anything to do with their existence?
+	- Van Fraassen: But it has something to do with the proper epistemic attitude
+
+### 3. Inference to the best explanation
+
+Sellars, Smart, Harman: Rational inference (principle of inference to the best explanation) entails scientific realism.
