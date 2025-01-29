@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Daily_Tasks.md",
+                "file": "notes/Philosophy_of_Mind/Secondary_Literature/DescartesMeditation.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Daily_Tasks"
+              "title": "DescartesMeditation"
             }
           }
         ]
@@ -90,9 +90,10 @@
   },
   "active": "51929af8b5a8d0be",
   "lastOpenFiles": [
+    "notes/Philosophy_of_Mind/Lecture_Notes.md",
+    "Daily_Tasks.md",
     "papers/少数服从多数还是全体通过.md",
     "notes/Logic/Sets, Logic and Computation.md",
-    "playground.md",
-    "Daily_Tasks.md"
+    "playground.md"
   ]
 }
