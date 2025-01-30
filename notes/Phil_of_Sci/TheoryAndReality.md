@@ -53,6 +53,31 @@ it becomes extinct by the middle or late 1970, because:
 4. development of a new role for fields like history and psychology in phil of sci. (chap. 5-7)
 5. pressure from scientific realism
 
+```
+
+Sufficient condition for science:
+1. Theories
+2. Confirmation/Disconfirmation
+
+On theory:
+1. Observational statement(consists of observational vocabulary): The cup is on the table
+2. Theoratical statement(consists of theoratical vocabulary): All water boils at 212F
+
+Logical Positivism: Reduce theoratical vocab to observational vocab
+Problem: Very hard ==Not impossible!!!==
+
+On Confirmation:
+Hypothesis-Deduction Confirmation(HD method):
+Given hypothesis, try derive observation. Now check whether we can observe such thing. If we sees the obseration, it confirms hypothesis.
+
+to do this, for a hypothesis(electron has mass), we still need initial condition (e.g. this is an electron), auxiliary hypothesis(whatever has mass has weight on earth) to derive an observable sentence.
+
+Problem: 
+confirmation cannot be acheieved by deduction; 
+disconfirmation can only say that, at least one of the hypothesis is false 
+
+```
+
 ## Chap. 4 Popper: Conjecture and Refutation
 
 ### 1. Popper's unique place in the philosophy of science
@@ -78,9 +103,9 @@ If a theory is refuted at stage 2, we go back to stage 1
 
 Scientists should not cook up a new conjecture that is designed to just avoid the problems revealed by earlier testing. I.e. ad hoc is wrong. `why?`
 
-on division of labor: it is not a good scientific behavior to have A do the conjecture and B do the refutation because if A is a good scientist, he should take a critical attitude towards his own theory. 
+On division of labor: it is not a good scientific behavior to have A do the conjecture and B do the refutation because if A is a good scientist, he should take a critical attitude towards his own theory. 
 
-Problem: an open-minded community of science can consists of close-minded scientists. What's the problem with this?
+Problem about division of labor: an open-minded community of science can consists of close-minded scientists. What's the problem with this?
 
 Another remark: it looks like Darwin's natural selection. This analogy is interesting, though not need to be taken seriously. It will be discussed in Chap. 6 and 11
 

@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "notes/Logic/Sets, Logic and Computation.md",
+                "file": "notes/Phil_of_Sci/TheoryAndReality.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Sets, Logic and Computation"
+              "title": "TheoryAndReality"
             }
           }
         ]
@@ -51,8 +51,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 266.5,
-    "collapsed": true
+    "width": 266.5
   },
   "right": {
     "id": "67893c5e98fb762a",
@@ -68,10 +67,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "notes/Logic/Sets, Logic and Computation.md"
+                "file": "notes/Phil_of_Sci/TheoryAndReality.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of Sets, Logic and Computation"
+              "title": "Outline of TheoryAndReality"
             }
           },
           {
@@ -118,7 +117,8 @@
               "title": "All properties"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
@@ -133,15 +133,16 @@
       "daily-notes:Open today's daily note": false
     }
   },
-  "active": "5d805bf0be0e4674",
+  "active": "76962ee7bc5948ac",
   "lastOpenFiles": [
-    "Daily_Tasks.md",
     "notes/Logic/Sets, Logic and Computation.md",
+    "notes/Phil_of_Sci/TheoryAndReality.md",
+    "notes/Phil_of_Sci/TheScientificImage.md",
+    "notes/Phil_of_Sci/TheHDMethod.md",
+    "Daily_Tasks.md",
     "notes/Random.md",
     "notes/Phil_of_Sci/Untitled.md",
     "notes/Casation_And_Explanation/Notes.md",
-    "notes/Phil_of_Sci/TheScientificImage.md",
-    "notes/Phil_of_Sci/TheoryAndReality.md",
     "notes/Analysis/Analysis_I.md",
     "archive/Daily business.md",
     "archive/Analytical_Philosophy/Math/Math.md",
@@ -168,7 +169,6 @@
     "notes/Selves_in_doubt",
     "notes/Phil_of_Lan/Secondary_Literature/BraunIndexicals.md",
     "notes/Phil_of_Lan/Secondary_Literature/KaplanDemonstratives.md",
-    "notes/Phil_of_Lan/Lecture_Notes.md",
     "notes/Kate_Proseminar/16_2_4.pdf",
     "notes/Kate_Proseminar/16_2_4.pdf.crdownload",
     "_resources/Pasted image 20241129163132.png",
