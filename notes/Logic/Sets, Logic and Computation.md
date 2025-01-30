@@ -217,7 +217,7 @@ Due 29th Wed **hardcopy**
 
 ### Graphs
 
-**Definition 2.27 (Directed Graph)** A directed graph $G=\langle V,E \rangle$ is a set of vertices $V$ and a set of edges`relation between vertices, defined by ordered pairs` $E \subseteq V^{2}$
+**Definition 2.27 (Directed Graph)** A directed graph $G=\langle V,E \rangle$ is a set of vertices`nodes` $V$ and a set of edges`relation between vertices, defined by ordered pairs` $E \subseteq V^{2}$
 
 ### Operations on Relations
 
@@ -227,7 +227,7 @@ Due 29th Wed **hardcopy**
 - The *restriction* of R to A is $R\upharpoonright_{A} = R \cap A^2$
 - The *application* of R to A is $R[A] = \{y : (\exists x \in A)Rxy \}$
 
-**Definition 2.31** (Transitive closure). Let $R \subseteq A^2$ be a binary relation.
+**Definition 2.31 (Transitive closure)**. Let $R \subseteq A^2$ be a binary relation.
 - The transitive closure of $R$ is $R^+ = \bigcup_{0 < n \in \mathbb{N}} R^n$, where we recursively define $R^1 = R$ and $R^{n+1} = R^{n}| R$. `connecting heads and tails, operate it n times`
 - The reflexive transitive closure of $R$ is $R^* = R^+ \cup \mathrm{Id}_A$.
 
@@ -243,16 +243,16 @@ Due 29th Wed **hardcopy**
 
 **Definition 3.8 (Surjective, range covers codomain).** A function $f : A \to B$ is *surjective* iff $B$ is also the range of $f$, i.e., for every $y \in B$ there is at least one $x \in A$ such that $f(x) = y$, or in symbols:
 
-$$
-(\forall y \in B)(\exists x \in A) f(x) = y.
-$$
+$(\forall y \in B)(\exists x \in A) f(x) = y.$
 
 We call such a function a surjection from $A$ to $B$.
 
 > Remark to 3.8: If you stipulate B to be ran(A), then f will always be surjective
 
 **Definition 3.9 (Injective, no overlapping output)** A function $f: A \rightarrow B$ is *injective* iff for each $y \in B$ there is at most one $x \in A$ such that $f(x)=y$. We call such a function an injection from A to B. 
-If you want to show that f is an injection, you need to show that for any elements x and y of f ’s domain, if $f (x) = f (y)$, then $x = y$.
+If you want to show that f is an injection, you need to show that for any elements x and y of f ’s domain, 
+
+if $f (x) = f (y)$, then $x = y$.
 
 **Definition 3.11 (Bijection, one to one mapping)**. A function f : A → B is *bijective* iff it is both *surjective* and *injective*. We call such a function a bijection from A to B (or between A and B)
 
@@ -308,11 +308,34 @@ But when do a function has inversion?
 > ==Proof==
 >
 > We prove this by showing the consequent follows from the antecedent.
-> Suppose $f:A \rightarrow B$ is bijective, we know that $\forall y \in B$, there is exactly one $x \in A$ such that $f(x)=y$.  Then we define 
-> $$f^{-1}(y)=x \text{ if } y=f(x)$$
-> Now we show that if $f^{-1}(y)=x$ then $y=f(x)$. Since the domain of $f^{-1}$ is $A$, then for any $x \in A$ we have 
+> Suppose $f:A \rightarrow B$ is bijective. We know that $\forall y \in B$, there is exactly one $x \in A$ such that $f(x)=y$.  Then we define the output of $f^{-1}(y)=x$ such that $f(x)=y$. 
 > 
-> Obviously we have $f^{-1}:B \rightarrow A$.
-> We first show for all $x \in A, f^{-1}(f(x))=x$. By definition if $f(x)=y, f^{-1}(y)=x$
-> Then we show for all $y \in B, f(f^{-1}(y))=y$. By definition if $x = f^{-1}(y)$ then $f(x)=y$
+> Also, for any $y \in B$,
+> 
+> - Since there is at most one $x$ such that $f(x)=y$, uniqueness requirement is satisfied.
+> - Since there is at least one $x$ such that $f(x)=y$, totality requirement is satisfied
+> 
+> Therefore, $f^{-1}$ is a well-defined function.
+> 
+   Since $x \in A (f(x)=y)$, we  have $f^{-1}:B \rightarrow A$
+>   
+> We first show for all $x \in A, f^{-1}(f(x))=x$. 
+> Let $k = f^{-1}(f(x))$. By definition of $f^{-1}$, $f(k)=f(x)$. Since $f$ is injective, $k=x$. Therefore, $f^{-1}(f(x)) = x$
+> 
+> Then we show for all $y \in B, f(f^{-1}(y))=y$. 
+> Let $m=f(n), n=f^{-1}(y)$. By definition of $f^{-1}$, $f(n)=y$. $f(n)$ cannot have two different outputs, thus $m=y$.  Therefore, $f(f^{-1}(y))=y$
+
+**Proposition 3.19**. Show that if $f:A \rightarrow B$ has a left inverse $g$ and a right inverse $h$, then $h = g$.
+
+Remark: the important info here is "there is such left inverse and right inverse"
+
+> ==Proof==
+> 
+> In order to show that $h=g$, we show that, for any arbitrary $k \in A$, $h(k)=g(k)$
+> 
+> If $f: A \rightarrow B$ has a left inverse $g$, then there is a $g:B \rightarrow A$ such that $g(f(x)) = x$ for all $x \in A$.
+> 
+> 
+> If $f: A \rightarrow B$ has a right inverse $h$, then there is a $h:B \rightarrow A$ such that $f(h(y)) = y$ for all $y \in B$.
+> 
 > 

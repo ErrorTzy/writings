@@ -51,7 +51,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 266.5
+    "width": 266.5,
+    "collapsed": true
   },
   "right": {
     "id": "67893c5e98fb762a",
@@ -67,10 +68,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "notes/Phil_of_Sci/TheScientificImage.md"
+                "file": "notes/Logic/Sets, Logic and Computation.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of TheScientificImage"
+              "title": "Outline of Sets, Logic and Computation"
             }
           },
           {
@@ -117,8 +118,7 @@
               "title": "All properties"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "horizontal",
@@ -133,9 +133,10 @@
       "daily-notes:Open today's daily note": false
     }
   },
-  "active": "68afa42d6507a58f",
+  "active": "5d805bf0be0e4674",
   "lastOpenFiles": [
     "Daily_Tasks.md",
+    "notes/Logic/Sets, Logic and Computation.md",
     "notes/Random.md",
     "notes/Phil_of_Sci/Untitled.md",
     "notes/Casation_And_Explanation/Notes.md",
@@ -146,7 +147,6 @@
     "archive/Analytical_Philosophy/Math/Math.md",
     "archive/Analytical_Philosophy/Math/The Strong Principle of Induction.md",
     "notes/Analysis",
-    "notes/Logic/Sets, Logic and Computation.md",
     "notes/Logic/Assignment1.md",
     "Instructions.md",
     "notes/Logic/Introduction.md",
