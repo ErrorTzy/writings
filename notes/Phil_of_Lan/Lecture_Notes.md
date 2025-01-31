@@ -224,9 +224,9 @@ an easily neglected layer of words, easy to have a full understanding vs. the ta
 
 Frege's problem: dismiss problems with natural language at hand
 
-![](assets/20240304_210315_image.png)
+![](20240304_210315_image.png)
 
-![](assets/20240304_211235_image.png)
+![](20240304_211235_image.png)
 
 # 4. Russell
 
