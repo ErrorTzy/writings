@@ -16,8 +16,28 @@ For any $x,y,z \in \mathbb{N}$, if we have some $k_{1}, k_{2} \in \mathbb{Z}$ su
 
 Given 1,2,3,  $\equiv_n$ is an equivalence relation.
 
-(ii) 
+(ii) To show that $\mathbb{N}/_{\equiv_n}$ has exactly $n$ members, we must define what does it mean for a set to have $n$ members. Unfortunately, the textbook does not provide a definition, so I have to define this myself.
 
+**Definition:** (Informal) Suppose we have $n$ singleton sets $S_{1}, S_{2}, ..., S_{n}, n \in \mathbb{Z^{+}}$. Let $A=\bigcup_{n}S_{n}$. If members in $S_{1}, S_{2}, ..., S_{n}$ are all mutually different, then A has n elements.
+
+**Lemma 1**: For all $a,n \in \mathbb{N}$, there is always a $k \in \mathbb{Z}, b \in \mathbb{N}$ and $b<n$ such that $a=kn+b$
+
+We fix $n$ and induct on $a$. 
+
+- When a=0, it is true when $k,b=0$. 
+- Now assume $a=kn+b(k \in \mathbb{Z}, b \in \mathbb{N}, b<n)$, we show that there are $k' \in \mathbb{Z}, b' \in \mathbb{N}$ and $b'<n$ such that $a+1=k'n+b'$. That is, $kn+b+1=k'n+b'$. Since $b<n,$ obviously either $b+1>n$ or $b+1=n$. We analyze case by case:
+	1. If $b+1<n$, then $k'=k, b'=b+1$
+	2. If $b+1 = n$, then $k'=k+1, b'=0$
+
+This closes the induction.
+
+First we show that $\bigcup_{i < n, i \in \mathbb{N}} \{[i]_{\equiv_{n}}\}=\mathbb{N}/_{\equiv_n}$. We prove this by reductio. Assume there is a $x \in \mathbb{N}$ such that $[x]_{\equiv_{n}} \in \mathbb{N}/_{\equiv_n}$ but $x \notin \bigcup_{i < n,i \in \mathbb{N}} \{[i]_{\equiv_{n}}\}$. Thus we know for any $i < n, i \in \mathbb{N}$, there is no $k \in \mathbb{Z}$ such that $x-i=kn$. But given lemma 1 we know that there must be some $k \in \mathbb{Z}, b \in \mathbb{N}, b<n$ such that $kn+b$. Contradiction. Therefore, $\bigcup_{i < n, i \in \mathbb{N}} \{[i]_{\equiv_{n}}\}=\mathbb{N}/_{\equiv_n}$
+
+Next we show that for any $x,y \in \mathbb{N}$ and $x,y<n$, if $x \neq y$, then $[x]_{\equiv_{n}} \neq [y]_{\equiv_{n}}$. We want to show this because we know  $1,2,...,n$ are all mutually different. If we can prove that whenever $x \neq y, [x]_{\equiv_{n}} \neq [y]_{\equiv_{n}}$, then we can show that the members of singleton sets $\{[i]_{\equiv_{n}}\}$ are also all mutually different. 
+
+We show this by reductio. Assume $[x]_{\equiv_{n}}=[y]_{\equiv_{n}}$ and $x \neq y$. Since $\equiv_{n}$ is reflexive, $x \in [x]_{\equiv_{n}}$. Therefore $x \in [y]_{\equiv_{n}}$, $y \equiv_{n} x$. We have $y-x=kn, k \in \mathbb{Z}$. Since $y-x \neq 0$, $n,k \neq 0$. Then we have $k=\frac{y-x}{n}$. But we know $x,y \in [0,n)$, making $y-x \in (-n,n)$, $\frac{y-x}{n} \in (-1,1)$. The only integer in this range is 0, contradicts with the assumption that $x \neq y$. Therefore, if $[x]_{\equiv_{n}}=[y]_{\equiv_{n}}$ then $x=y$.
+
+Given this, we have shown that $\mathbb{N}/_{\equiv_n}$ is the union of $n$ singleton sets the members of which are all mutually different. Therefore, $\mathbb{N}/_{\equiv_n}$ has $n$ elements.
 
 
 > **Problem 2.4** If $R$ is a partial order on $A$, then $R- = R \setminus Id_{A}$ is a strict order. Moreover, if $R$ is a linear order, then $R−$ is a strict linear order.
@@ -43,10 +63,32 @@ Assume $R-$ is not asymmetric. By definition there is a pair $\langle a,b \rangl
 
 For any $\langle x,y \rangle \in R-$, we always have $x \neq y$ because $\langle x,y \rangle \notin Id_{A}$. Also since $\langle x,y \rangle \in R-$, $\langle x,y \rangle \in R$. For R is connected, given $x \neq y$ we have $R_{xy} \lor R_{yx}$. Then $R-_{xy} \lor R-_{yx}$. Therefore $R-$ is connected.
 
-
 > **Problem 2.5** Consider the less-than-or-equal-to relation $\leq$ on the set $\{1, 2, 3, 4\}$ as a graph and draw the corresponding diagram.
 
+The graph $G$ is $\langle V,E \rangle$ such that $V=\{1,2,3,4\}$,  $E=\{ \langle1,1\rangle,\langle1,2\rangle,\langle1,3\rangle,\langle1,4\rangle,\langle2,2\rangle,\langle2,3\rangle,\langle2,4\rangle,\langle3,3\rangle,\langle3,4\rangle,\langle4,4\rangle \}$. The diagram is illustrated below.
 
+```graphviz {caption="graph G"}
+digraph G {
+  node [shape=circle]; // Set default node shape to circle for better visualization
+
+  // Define nodes (optional, but good practice for clarity)
+  1;
+  2;
+  3;
+  4;
+
+  // Define edges
+  1 -> 1;
+  1 -> 2;
+  1 -> 3;
+  1 -> 4;
+  2 -> 2;
+  2 -> 3;
+  2 -> 4;
+  3 -> 3;
+  3 -> 4;
+  4 -> 4;
+}
+```
 
 > **Problem 2.6** Show that the transitive closure of $R$ is in fact transitive.
-

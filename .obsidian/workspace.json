@@ -23,7 +23,7 @@
             }
           },
           {
-            "id": "06c11a7bdcdf4960",
+            "id": "f338071e10d865fa",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -67,8 +67,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 266.5,
-    "collapsed": true
+    "width": 266.5
   },
   "right": {
     "id": "67893c5e98fb762a",
@@ -146,18 +145,19 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "daily-notes:Open today's daily note": false,
       "command-palette:Open command palette": false,
       "templates:Insert template": false,
       "table-editor-obsidian:Advanced Tables Toolbar": false,
-      "obsidian-git:Open Git source control": false,
-      "daily-notes:Open today's daily note": false
+      "obsidian-git:Open Git source control": false
     }
   },
-  "active": "521598752b104ff6",
+  "active": "76962ee7bc5948ac",
   "lastOpenFiles": [
-    "conflict-files-obsidian-git.md",
-    "notes/Logic/Assignment2.md",
     "notes/Logic/Sets, Logic and Computation.md",
+    "notes/Logic/Assignment2.md",
+    "notes/Logic/Introduction.md",
+    "conflict-files-obsidian-git.md",
     "notes/Phil_of_Mind/Secondary_Literature/RyleDescartesMyth.md",
     "Daily_Tasks.md",
     "notes/Phil_of_Mind/Secondary_Literature/DescartesMeditation.md",
@@ -174,7 +174,6 @@
     "notes/Analysis",
     "notes/Logic/Assignment1.md",
     "Instructions.md",
-    "notes/Logic/Introduction.md",
     "_templates/assignment_metadata.md",
     "texput.log",
     "template.tex",
