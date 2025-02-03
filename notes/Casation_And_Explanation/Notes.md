@@ -33,3 +33,4 @@ The strength of the conclusion is 73%
 ampliative
 - abductive: Cheese is missing --> Mice!
 - inductive: rely on the principle that unchecked case will be like the checked cases
+

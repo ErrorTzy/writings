@@ -78,7 +78,7 @@ Eli: Let's ignore Shoemaker for now. But Noi cannot locate her mental states in 
 
 Noi cannot judge "there is no headache", or she will judge "there is no headache in the universe"
 
-> Why can't Noi judge "there is no headache in the universe", and later she can decide to be a solipsist, or to have some domain restriction. For example, the physical boundary of Noi? No mental state is accessible outside this boundary and all mental states are accessible inside this boundary.
+> Why can't Noi judge "there is no headache in the universe", and later she can decide to be a solipsist, or to have some domain restriction. For example, the physical boundary f Noi? No mental state is accessible outside this boundary and all mental states are accessible inside this boundary.
 
 #### Mind-body relation
 

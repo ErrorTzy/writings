@@ -8,18 +8,33 @@
         "type": "tabs",
         "children": [
           {
-            "id": "68afa42d6507a58f",
+            "id": "521598752b104ff6",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "notes/Phil_of_Sci/TheoryAndReality.md",
+                "file": "notes/Logic/Assignment2.md",
                 "mode": "source",
-                "backlinks": false,
-                "source": false
+                "source": false,
+                "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "TheoryAndReality"
+              "title": "Assignment2"
+            }
+          },
+          {
+            "id": "06c11a7bdcdf4960",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "notes/Logic/Sets, Logic and Computation.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "Sets, Logic and Computation"
             }
           }
         ]
@@ -41,7 +56,8 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "alphabetical"
+                "sortOrder": "alphabetical",
+                "autoReveal": false
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -51,7 +67,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 266.5
+    "width": 266.5,
+    "collapsed": true
   },
   "right": {
     "id": "67893c5e98fb762a",
@@ -67,10 +84,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "notes/Phil_of_Sci/TheoryAndReality.md"
+                "file": "notes/Logic/Assignment2.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of TheoryAndReality"
+              "title": "Outline of Assignment2"
             }
           },
           {
@@ -136,13 +156,16 @@
   "active": "76962ee7bc5948ac",
   "lastOpenFiles": [
     "notes/Logic/Sets, Logic and Computation.md",
+    "notes/Logic/Assignment2.md",
+    "notes/Phil_of_Mind/Secondary_Literature/RyleDescartesMyth.md",
+    "Daily_Tasks.md",
+    "notes/Phil_of_Mind/Secondary_Literature/DescartesMeditation.md",
     "notes/Phil_of_Sci/TheoryAndReality.md",
     "notes/Phil_of_Sci/TheScientificImage.md",
+    "notes/Casation_And_Explanation/Notes.md",
     "notes/Phil_of_Sci/TheHDMethod.md",
-    "Daily_Tasks.md",
     "notes/Random.md",
     "notes/Phil_of_Sci/Untitled.md",
-    "notes/Casation_And_Explanation/Notes.md",
     "notes/Analysis/Analysis_I.md",
     "archive/Daily business.md",
     "archive/Analytical_Philosophy/Math/Math.md",
@@ -164,11 +187,8 @@
     "notes/Casation_And_Explanation",
     "notes/Logic/missfont.log",
     "Vault.md",
-    "notes/Tasker/ProblemWithMIUI.md",
     "notes/Tasker",
     "notes/Selves_in_doubt",
-    "notes/Phil_of_Lan/Secondary_Literature/BraunIndexicals.md",
-    "notes/Phil_of_Lan/Secondary_Literature/KaplanDemonstratives.md",
     "notes/Kate_Proseminar/16_2_4.pdf",
     "notes/Kate_Proseminar/16_2_4.pdf.crdownload",
     "_resources/Pasted image 20241129163132.png",

@@ -76,6 +76,19 @@ Problem:
 confirmation cannot be acheieved by deduction; 
 disconfirmation can only say that, at least one of the hypothesis is false 
 
+Evolution of empiricism: linguistic criticism of being nonsense to epistemic criticism of being no evidence, not knowable
+
+Problem with empiricism's favorate science:
+1. Prediction: All cups have *mass* (this is purely postulated)
+2. Existentials: There are germs and quarks
+3. Modality: There is a *law* that F=ma; A *causes* B; IT's not *possible* to accelarate speed to >C
+All three claims imply modal claim: all about physical necessity. But we cannot experience modality
+
+Problem: Science needs to do its job, but if empiricists deflate these, scientists may not do their jobs (e.g. explanation...do I just need to work out more in order to accelerate something to C?)
+
+Science is explanatory, metaphysical
+Science is predictive, not metaphysical
+
 ```
 
 ## Chap. 4 Popper: Conjecture and Refutation
