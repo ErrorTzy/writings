@@ -9,7 +9,7 @@ On theory:
 Logical Positivism: Reduce theoratical vocab to observational vocab
 Problem: Very hard ==Not impossible!!!==
 
-On Confirmation:
+### On Confirmation:
 
 **Hypothesis-Deduction Confirmation(HD method)**:
 Given hypothesis, try derive observation. Now check whether we can observe such thing. If we sees the obseration, it confirms hypothesis.
@@ -24,3 +24,5 @@ incremental confirmation vs. absolute confirmation
 
 **Qualitative Confirmation**: it does not tell you *how much* the hypothesis is confirmed.
 
+--> Special case of HD method: 
+**Nicod's criterion** All F that's G confirms (at least a bit) that "All Fs are Gs"
