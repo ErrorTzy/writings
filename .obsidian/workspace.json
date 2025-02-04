@@ -69,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 266.5,
-    "collapsed": true
+    "width": 266.5
   },
   "right": {
     "id": "67893c5e98fb762a",
@@ -81,7 +80,7 @@
         "type": "tabs",
         "children": [
           {
-            "id": "5d805bf0be0e4674",
+            "id": "c6155af032342c27",
             "type": "leaf",
             "state": {
               "type": "outline",
@@ -150,33 +149,13 @@
               "icon": "lucide-info",
               "title": "File properties for Sets, Logic and Computation"
             }
-          },
-          {
-            "id": "52083513c1d0d1aa",
-            "type": "leaf",
-            "state": {
-              "type": "annotations-outline",
-              "state": {},
-              "icon": "message-square",
-              "title": "Enhanced Annotations"
-            }
-          },
-          {
-            "id": "3255b9606f7d4529",
-            "type": "leaf",
-            "state": {
-              "type": "annotations-outline",
-              "state": {},
-              "icon": "message-square",
-              "title": "Enhanced Annotations"
-            }
           }
         ],
         "currentTab": 2
       }
     ],
     "direction": "horizontal",
-    "width": 277.5
+    "width": 424.5
   },
   "left-ribbon": {
     "hiddenItems": {

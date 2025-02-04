@@ -188,7 +188,7 @@ $\{0, 1, 2\} \times \{a, b\} = \{\langle 0,a \rangle, \langle 0,b\rangle, \langl
 > Assume the antecedent $R-_{xy} \land R-_{yz}$. Then we have $R_{xy} \land R_{yz}$, and thereby $R_{xz}$, due to the transitivity of $R$. Then we need to show that $\langle x,z \rangle \notin Id_{A}$. We prove this by reductio.
 > Assume $\langle x,z \rangle$ in $Id_{A}$, then $x = z$. Then $Ryz = Ryx$. But $R$ is anti-symmetric and $x \neq y$. This follows that we cannot have both $Rxy$ and $Ryx$, contradiction. Therefore $\langle x,z \rangle$ is not in $Id_{A}$.
 > 
-> Given $R_{xz}$ and $\langle x,z \rangle \notin Id_{A}$, we have $R-_{xz}$. Since the consequent follows from the antecedent, the conditional is true. Therefore $R-$ is transitive
+> Given $R_{xz}$ and $\langle x,z \rangle \notin Id_{A}$, we have $R-_{xz}$. Since the consequent follows from the antecedent, the conditional is true. Therefore $R-$ is Transitive
 > 
 > Asymmetric:
 > We probe $R-$ is asymmetric by reductio.
@@ -440,6 +440,7 @@ $B^{\omega}$ represents the set of all possible infinite strings (or sequences) 
 > 
 > We prove this by reductio. Assume there is list $s_1,s_2,...$ of all elements in $B^\omega$. We can define $s_{i}(j)$ as the $j^{th}$  digit of $s_{i}$. Then we may list elements in $B^\omega$ in the following way:
 
+
 |       | 1              | 2              | 3              | 4              | ...     |
 | ----- | -------------- | -------------- | -------------- | -------------- | ------- |
 | $s_1$ | **$s_{1}(1)$** | $s_{1}(2)$     | $s_{1}(3)$     | $s_{1}(4)$     | ...     |
@@ -447,21 +448,63 @@ $B^{\omega}$ represents the set of all possible infinite strings (or sequences) 
 | $s_3$ | $s_{3}(1)$     | $s_{3}(2)$     | **$s_{3}(3)$** | $s_{3}(4)$     | ...     |
 | $s_4$ | $s_{4}(1)$     | $s_{4}(2)$     | $s_{4}(3)$     | **$s_{4}(4)$** | ...     |
 | ...   | ...            | ...            | ...            | ...            | **...** |
+
+
 > Now we construct a sequence of $s' \in A$ but not in our diagram. We can specify $s'(n)$ for all $n \in \mathbb{Z^{+}}$: 
 > $$
-s'(n) =
-\begin{cases} 
-1 & \text{if } s_n(n) = 0, \\
-0 & \text{if } s_n(n) = 1.
-\end{cases}
-$$
+> s'(n) =
+> \begin{cases} 
+> 1 & \text{if } s_n(n) = 0, \\
+> 0 & \text{if } s_n(n) = 1.
+> \end{cases}
+> $$
 > Now $s'$ is not in the list $s_{1},s_2,...$. We prove this by reductio: if there is a sequence $s_{k}=s'$, then $s_{k}(x)=s'(x)$ for all $x \in \mathbb{N}$. But that's not possible because $s_{k}(k) \neq s'(k)$ while $k \in \mathbb{N}$. Contradiction.
 
 **Theorem 4.18**. $\wp (Z^+)$ is not countable.
 
-> ==Remark==
+> ==Proof==
 > 
-> The intuition behind is that, there can be a bijective $f: B^{\omega}\rightarrow \wp (Z^+)$. We can define $f(s)=\{n:s(n)=1\}$
+> Suppose there is a list of subsets $\mathbb{Z^+}$. We can always define a $Z'=\{n \in \mathbb{Z^{+}}: n \notin Z_{n}\}$.
+
 
 ### Reduction
 
+> ==Remark==
+> 
+> Notice that there can be a bijective $f: B^{\omega}\rightarrow \wp (Z^+)$. We can define $f(s)=\{n:s(n)=1\}$. In order to deny $\wp(\mathbb{Z^+})$ is countable, we need to use modus tollens: if $\wp(Z^+)$ is countable, then $B^\omega$ is countable. Since the latter is not, then the former is not. The idea is that, if a function $f$ is surjective, and the $dom(f)$ is enumerable, then $f(x)$ is also enumerable.
+
+### Equinumerosity
+
+**Definition 4.19** A is equinumerous with B, written $A \approx B$, iff there is a bijection $f:A \rightarrow B$.
+
+**Proposition 4.20** Equinumerosity is an equivalence relation
+
+> ==Proof==
+> 
+> We need to show that equinumerosity is reflexive, transitive and symmetry.
+> Reflexivity: $f:A \rightarrow A$ where $f(x)=x$ for $x \in A$.
+> Symmetry: If $f:A \rightarrow B$ and $f$ is bijective, then we have the inverse function $f^{-1}:B \rightarrow A$
+> Transitivity: If $f:A \rightarrow B$ and $g: B \rightarrow C$, we can define $h:A \rightarrow C$ such that $h(x)=g(f(x))$ for $x \in A$
+
+**Proposition 4.21** If $A \approx B$, then $A$ is countable iff B is.
+
+> ==Proof==
+> 
+> 
+
+### Sets of Different Sizes, and Cantor's Theorem
+
+**Definition 4.22** A is *no larger than* B, written $A \preceq B$, iff there is an injection $f:A \rightarrow B$.
+
+**Definition 4.23** A is *smaller than* B, written $A \prec B$, iff there is an injection $f: A \rightarrow B$ but no bijection $g:A \rightarrow B$, i.e., $A \preceq B$ and $A \not\approx  B$
+
+**Theorem 4.24 (Cantor's Theorem)** $A \prec \wp(A),$ for any set A
+
+> ==Proof==
+> 
+> 
+
+### Notion of Size, and Schröder-Bernstein
+
+**Theorem 4.25 (Schröder-Bernstein)**. If $A \preceq B$ and $B \preceq A$, then
+$A \approx B$.
