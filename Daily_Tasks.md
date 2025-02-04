@@ -1,4 +1,4 @@
-#### 2025-01-28
+#### 2025-02-04
 
-- [ ] Phil_of_science_reading
-- [ ] Logic
+- [ ] Logic, Size of sets
+- [ ] Van Fraassen

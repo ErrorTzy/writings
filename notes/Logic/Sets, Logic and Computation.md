@@ -57,12 +57,6 @@ $\{0, 1, 2\} \times \{a, b\} = \{\langle 0,a \rangle, \langle 0,b\rangle, \langl
 **Theorem 1.29 (Russell’s Paradox)** 
 - There is no set $R = \{x:x \notin x\}$
 
-```
-HW:
-Due 29th Wed **hardcopy**
-1.2, 1.4, 1.7, 1.10 on P15
-```
-
 ## Chap.2 Relations
 
 **Definition 2.1 (Binary Relation)**
@@ -344,22 +338,130 @@ Remark: the important info here is "there is such left inverse and right inverse
 
 ### Partial Functions
 
-**Definition 3.23**. A *partial function* $f : A \rightarrow B$ is a mapping which assigns to every element of $A$ at most one element of $B$. If $f$ assigns an element of $B$ to $x \in A$, we say $f(x)$ is defined, and otherwise undefined. If $f(x)$ is defined, we write $f (x) ↓$, otherwise $f (x) ↑$. The domain of a partial function f is the subset of A where it is defined, i.e., $dom(f) = \{x ∈ A : f (x) ↓\}$.
+**Definition 3.23**. A *partial function* $f : A \rightharpoonup B$ is a mapping which assigns to every element of $A$ at most one element of $B$. If $f$ assigns an element of $B$ to $x \in A$, we say $f(x)$ is defined, and otherwise undefined. If $f(x)$ is defined, we write $f (x) \downarrow$, otherwise $f (x) \uparrow$. The domain of a partial function f is the subset of A where it is defined, i.e., $dom(f) = \{x ∈ A : f (x) \downarrow\}$.
 
+**Definition 3.26 (Graph of a partial function)**. Let $f : A \rightharpoonup B$ be a partial function. The graph of f is the relation $R_{f} \subseteq A \times B$ defined by $R_{f} = \{⟨x, y⟩ : f (x) = y \}$.
 
-**Definition 3.26 (Graph of a partial function)**. Let $f : A \rightarrow B$ be a partial function. The graph of f is the relation $R_{f} \subseteq A \times B$ defined by $R_{f} = \{⟨x, y⟩ : f (x) = y \}$.
+**Proposition 3.27**. Suppose $R \subseteq A \times B$ has the property that whenever $R_{xy}$ and $R_{xy}′$ then $y = y′$ . Then $R$ is the graph of the partial function $f:X \rightharpoonup Y$ defined by: if there is a $y$ such that $R_{xy}$, then $f(x) = y$, otherwise $f(x) \uparrow$. If $R$ is also serial, i.e., for each $x \in X$ there is a $y \in Y$ such that $R_{xy}$, then $f$ is total.
 
-**Proposition 3.27**. Suppose R ⊆ A×B has the property that whenever Rxy and Rxy ′ then y = y ′ . Then R is the graph of the partial function f : X →↦ Y defined by: if there is a y such that Rxy, then f (x) = y, otherwise f (x) ↑. If R is also serial, i.e., for each x ∈ X there is a $y \in Y$ such that $R_{xy}$, then $f$ is total.
+> ==Proof== 
+>
+>
 
 ## Chap 4. The Size of Sets
 
-**Definition 4.1 (Enumeration, informally)**. Informally, an enumeration of a set $A$ is a list (possibly infinite) of elements of $A$ such that every element of $A$ appears on the list at some *finite* position. If $A$ has an enumeration, then $A$ is said to be *countable*.
+**Definition 4.1 (Enumeration, informally)**. Informally, an enumeration of a set $A$ is a list (*possibly infinite*) of elements of $A$ such that every element of $A$ appears on the list at some *finite* position. If $A$ has an enumeration, then $A$ is said to be *countable*.
+
+- enumeration must have a beginning
+- order and redundancy matters
+- all position must be finite
 
 **Proposition 4.2**. If A has an enumeration, it has an enumeration without repetitions.
 
+> ==Proof==
+> 
+> For any enumeration $E$ that lists $x_{1}, x_{2},  ..., x_{n}$ , we can construct another enumeration $E'$ by putting a distinct $x_{n}$ into $E'$ 
+
 **Definition 4.3 (Enumeration, formally)**. An enumeration of a set $A \neq \emptyset$ is any surjective function $f : Z^{+} \rightarrow A$.
 
-**Definition 4.4** A set $A$ is countable iff it is empty or has an enumeration.
+**Definition 4.4 (Countability)** A set $A$ is *countable* iff it is empty or has an enumeration.
+
+**Proposition 4.8**. There is a surjection $f: \mathbb{Z}^+ \rightarrow A$ iff there is a surjection $g: \mathbb{N}→A$.
+
+> ==Proof==
+> 
+> Given $f: \mathbb{Z}^+ \rightarrow A$ we can define $g(n)=f(n+1)$ for all $n \in \mathbb{N}$; Similarly we can define $f(n)=g(n-1)$ for all $n \in \mathbb{Z^+}$
+
+**Corollary 4.9**. A set A is countable iff it is empty or there is a surjective function $f: \mathbb{N} \rightarrow A$
+
+> ==Proof==: Given 4.3 and 4.8, this is obvious
+
+**Proposition 4.10** If $f:\mathbb{Z^+} \rightarrow A$ is surjective (i.e., an enumeration of $A$), there is a bijection $g:Z \rightarrow A$ where $Z$ is either $\mathbb{Z^+}$ or $\{1, ..., n\}$ for some $n \in Z^+$.
+
+> ==Proof==: (Not rigorous)
+> 
+> We construct $g$ recursively: $g(1)=f(1)$; if $g(i)$ is already defined, then $g(i+1)$ is the first value in $f(1), f(2), ...$ that is not in $g(1), g(2), ... , g(i)$ if there is one. If $A$ has $n$ elements, we would define $g:\{1,2,...,n\} \rightarrow A$; If $A$ has infinite elements, then $g:\mathbb{Z^{+}} \rightarrow A$ 
+> g is surjective because f is surjective; g is injective because there is no repetition. Therefore g is bijective.
+
+**Corollary 4.11** A set $A$ is countable iff it is empty or there is a bijection $f : N → A$ where either $N = \mathbb{N}$ or $N = \{0, . . . ,n\}$ for some $n \in \mathbb{N}$
+
+> ==Proof==: Given 4.10, we can prove this in the same way we prove 4.8
+
+### Cantor's Zig-Zag Method
+
+**Proposition 4.12**: $\mathbb{N} \times \mathbb{N}$ is countable
+
+Mapping Cantor’s zig-zag array:
 
 
+|     | 0   | 1   | 2   | ... |
+| --- | --- | --- | --- | --- |
+| 0   | 0   | 1   | 3   | ... |
+| 1   | 2   | 4   | ... | ... |
+| 2   | 5   | ... | ... | ... |
+| ... | ... | ... | ... | ... |
+
+to:
+
+|     | 0                     | 1                     | 2                     | ... |     |
+| --- | --------------------- | --------------------- | --------------------- | --- | --- |
+| 0   | $\langle 0,0 \rangle$ | $\langle 0,1 \rangle$ | $\langle 0,2 \rangle$ | ... |     |
+| 1   | $\langle 1,0 \rangle$ | $\langle 1,1 \rangle$ | $\langle 1,2 \rangle$ | ... |     |
+| 2   | $\langle 2,0 \rangle$ | $\langle 2,1 \rangle$ | $\langle 2,2 \rangle$ | ... |     |
+| ... | ...                   | ...                   | ...                   | ... |     |
+
+> ==Proof==(informal)
+>
+>  Let $f: \mathbb{N} \rightarrow \mathbb{N} \times \mathbb{N}$ take each $k \in \mathbb{N}$ to the tuple $\langle n,m \rangle \in \mathbb{N} \times \mathbb{N}$ such that $k$ is the value of the $n$th row and $m$th column in Cantor’s zig-zag array.
+
+**Proposition 4.13**. $\mathbb{N}^{n}$ is countable, for every $n \in N$
+
+>  ==Proof==(informal)
+>  
+>  Given 4.12, we can prove this by recursion. $\mathbb{N}^{n+1}$ is countable because we can map $\mathbb{N}$ to $(\mathbb{N}^{n} \times \mathbb{N})$ using cantor's zig-zag array.
+
+We can formalize the cantor's array as $g(m,n)=\frac{(n+m+1)(n+m)}{2}+n$.
+
+> ==Remark==
+> 
+> The intuition behind this equation is that, given n row and m column, we want to find out which number is in that cell. We can understand the zig-zag as a kind of iteration. The 1st iteration fill 1 cell. The 2nd round fills 2 cells. Therefore, after n rounds, there are $1+2+...+n$ cells filled. Now which round is <m,n> in? We can see the table as a coordinate system and we know the gradient of "round line" is -1. Then it is easy to know that <m,n> is in the middle of m+n+1 round. Then we know that all the $1+2+...+m+n$ are all filled, i.e. $\frac{(n+m)(n+m+1)}{2}$ cells are already filled. Now we still need to know how many cells have been filled in round $m+n+1$. This is easy because we can just align all the cells vertically. Therefore we know that there are $n$ cells 
+
+### Paring Functions and Codes
+
+**Definition 4.14 (Pairing function)**. A function $f: A \times B \rightarrow \mathbb{N}$ is an arithmetical *pairing function* if $f$ is injective. We also say that $f$ encodes $A \times B$, and that $f(x,y)$ is the code for $\langle x, y \rangle$.
+
+### Uncountable Sets
+
+$B^{\omega}$ represents the set of all possible infinite strings (or sequences) where each character is either a 0 or a 1. Every position in the sequence is filled with a 0 or 1, and there is no endpoint—the sequence continues indefinitely.
+
+**Theorem 4.17**. $B^\omega$ is uncountable
+
+> ==Proof==
+> 
+> We prove this by reductio. Assume there is list $s_1,s_2,...$ of all elements in $B^\omega$. We can define $s_{i}(j)$ as the $j^{th}$  digit of $s_{i}$. Then we may list elements in $B^\omega$ in the following way:
+
+|       | 1              | 2              | 3              | 4              | ...     |
+| ----- | -------------- | -------------- | -------------- | -------------- | ------- |
+| $s_1$ | **$s_{1}(1)$** | $s_{1}(2)$     | $s_{1}(3)$     | $s_{1}(4)$     | ...     |
+| $s_2$ | $s_{2}(1)$     | **$s_{2}(2)$** | $s_{2}(3)$     | $s_{2}(4)$     | ...     |
+| $s_3$ | $s_{3}(1)$     | $s_{3}(2)$     | **$s_{3}(3)$** | $s_{3}(4)$     | ...     |
+| $s_4$ | $s_{4}(1)$     | $s_{4}(2)$     | $s_{4}(3)$     | **$s_{4}(4)$** | ...     |
+| ...   | ...            | ...            | ...            | ...            | **...** |
+> Now we construct a sequence of $s' \in A$ but not in our diagram. We can specify $s'(n)$ for all $n \in \mathbb{Z^{+}}$: 
+> $$
+s'(n) =
+\begin{cases} 
+1 & \text{if } s_n(n) = 0, \\
+0 & \text{if } s_n(n) = 1.
+\end{cases}
+$$
+> Now $s'$ is not in the list $s_{1},s_2,...$. We prove this by reductio: if there is a sequence $s_{k}=s'$, then $s_{k}(x)=s'(x)$ for all $x \in \mathbb{N}$. But that's not possible because $s_{k}(k) \neq s'(k)$ while $k \in \mathbb{N}$. Contradiction.
+
+**Theorem 4.18**. $\wp (Z^+)$ is not countable.
+
+> ==Remark==
+> 
+> The intuition behind is that, there can be a bijective $f: B^{\omega}\rightarrow \wp (Z^+)$. We can define $f(s)=\{n:s(n)=1\}$
+
+### Reduction
 

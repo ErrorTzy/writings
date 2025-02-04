@@ -31,5 +31,8 @@
   "strictLineBreaks": true,
   "alwaysUpdateLinks": true,
   "vimMode": true,
-  "showLineNumber": true
+  "showLineNumber": true,
+  "autoPairMarkdown": true,
+  "smartIndentList": false,
+  "useTab": true
 }

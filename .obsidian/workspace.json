@@ -150,13 +150,33 @@
               "icon": "lucide-info",
               "title": "File properties for Sets, Logic and Computation"
             }
+          },
+          {
+            "id": "52083513c1d0d1aa",
+            "type": "leaf",
+            "state": {
+              "type": "annotations-outline",
+              "state": {},
+              "icon": "message-square",
+              "title": "Enhanced Annotations"
+            }
+          },
+          {
+            "id": "3255b9606f7d4529",
+            "type": "leaf",
+            "state": {
+              "type": "annotations-outline",
+              "state": {},
+              "icon": "message-square",
+              "title": "Enhanced Annotations"
+            }
           }
         ],
         "currentTab": 2
       }
     ],
     "direction": "horizontal",
-    "width": 560.5
+    "width": 277.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -170,23 +190,23 @@
   "active": "76962ee7bc5948ac",
   "lastOpenFiles": [
     "Daily_Tasks.md",
+    "notes/Logic/Sets, Logic and Computation.md",
+    "notes/Logic/Introduction.md",
     "notes/Logic/Assignment2.md",
+    "notes/Phil_of_Sci/TheHDMethod.md",
+    "notes/Phil_of_Sci/TheoryAndReality.md",
+    "notes/Phil_of_Sci/TheScientificImage.md",
+    "notes/Casation_And_Explanation/Notes.md",
+    "notes/Logic/Assignment1.md",
     "_templates/assignment_metadata.md",
     "_templates/paper_metadata.md",
-    "notes/Logic/Sets, Logic and Computation.md",
     "Instructions.md",
     "notes/Kate_Proseminar/Sense of Agency.md",
     "playground.md",
     "_templates/Graphviz.md",
-    "notes/Logic/Introduction.md",
-    "notes/Logic/Assignment1.md",
     "conflict-files-obsidian-git.md",
     "notes/Phil_of_Mind/Secondary_Literature/RyleDescartesMyth.md",
     "notes/Phil_of_Mind/Secondary_Literature/DescartesMeditation.md",
-    "notes/Phil_of_Sci/TheoryAndReality.md",
-    "notes/Phil_of_Sci/TheScientificImage.md",
-    "notes/Casation_And_Explanation/Notes.md",
-    "notes/Phil_of_Sci/TheHDMethod.md",
     "notes/Random.md",
     "notes/Phil_of_Sci/Untitled.md",
     "notes/Analysis/Analysis_I.md",
