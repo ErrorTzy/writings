@@ -11,7 +11,8 @@ Problem: Very hard ==Not impossible!!!==
 
 ### On Confirmation:
 
-**Hypothesis-Deduction Confirmation(HD method)**:
+
+1st candidate: **Hypothesis-Deduction Confirmation(HD method)**:
 Given hypothesis, try derive observation. Now check whether we can observe such thing. If we sees the obseration, it confirms hypothesis.
 
 to do this, for a hypothesis(electron has mass), we still need initial condition (e.g. this is an electron), auxiliary hypothesis(whatever has mass has weight on earth) to derive an observable sentence.
@@ -26,3 +27,11 @@ incremental confirmation vs. absolute confirmation
 
 --> Special case of HD method: 
 **Nicod's criterion** All F that's G confirms (at least a bit) that "All Fs are Gs"
+
+**Equivalence Condition**: If H and K are logically equivalent, then anything confirms H also confirms K
+
+Also, we know that ""All Fs are Gs" is equivalent to "All non-Gs are non-Fs "
+
+**Hempel's Ravens Paradox**: Consider the hypothesis "All ravens are black." We have "All things that are not black are not ravens." According to Nicod's criterion, a white shirt confirms "All ravens are black."
+
+Answer: A white shirt does confirms it in that it rules out a possibility to falsify the hypothesis.
