@@ -69,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 266.5
+    "width": 266.5,
+    "collapsed": true
   },
   "right": {
     "id": "67893c5e98fb762a",
@@ -85,13 +86,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "notes/Logic/Assignment2.md",
+                "file": "notes/Logic/Sets, Logic and Computation.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Assignment2"
+              "title": "Outline of Sets, Logic and Computation"
             }
           },
           {
@@ -155,7 +156,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 333.5
+    "width": 560.5
   },
   "left-ribbon": {
     "hiddenItems": {

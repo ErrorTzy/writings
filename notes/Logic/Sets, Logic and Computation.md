@@ -335,7 +335,31 @@ Remark: the important info here is "there is such left inverse and right inverse
 > 
 > If $f: A \rightarrow B$ has a left inverse $g$, then there is a $g:B \rightarrow A$ such that $g(f(x)) = x$ for all $x \in A$.
 > 
-> 
 > If $f: A \rightarrow B$ has a right inverse $h$, then there is a $h:B \rightarrow A$ such that $f(h(y)) = y$ for all $y \in B$.
 > 
-> 
+
+### Composition of Function
+
+**Definition 3.21 (Composition)** Let $f:A \rightarrow B$ and $g:B \rightarrow C$ be functions. The composition of f with g is $g \circ f: A \rightarrow C$, where $(g \circ f )(x) = g (f(x))$.
+
+### Partial Functions
+
+**Definition 3.23**. A *partial function* $f : A \rightarrow B$ is a mapping which assigns to every element of $A$ at most one element of $B$. If $f$ assigns an element of $B$ to $x \in A$, we say $f(x)$ is defined, and otherwise undefined. If $f(x)$ is defined, we write $f (x) ↓$, otherwise $f (x) ↑$. The domain of a partial function f is the subset of A where it is defined, i.e., $dom(f) = \{x ∈ A : f (x) ↓\}$.
+
+
+**Definition 3.26 (Graph of a partial function)**. Let $f : A \rightarrow B$ be a partial function. The graph of f is the relation $R_{f} \subseteq A \times B$ defined by $R_{f} = \{⟨x, y⟩ : f (x) = y \}$.
+
+**Proposition 3.27**. Suppose R ⊆ A×B has the property that whenever Rxy and Rxy ′ then y = y ′ . Then R is the graph of the partial function f : X →↦ Y defined by: if there is a y such that Rxy, then f (x) = y, otherwise f (x) ↑. If R is also serial, i.e., for each x ∈ X there is a $y \in Y$ such that $R_{xy}$, then $f$ is total.
+
+## Chap 4. The Size of Sets
+
+**Definition 4.1 (Enumeration, informally)**. Informally, an enumeration of a set $A$ is a list (possibly infinite) of elements of $A$ such that every element of $A$ appears on the list at some *finite* position. If $A$ has an enumeration, then $A$ is said to be *countable*.
+
+**Proposition 4.2**. If A has an enumeration, it has an enumeration without repetitions.
+
+**Definition 4.3 (Enumeration, formally)**. An enumeration of a set $A \neq \emptyset$ is any surjective function $f : Z^{+} \rightarrow A$.
+
+**Definition 4.4** A set $A$ is countable iff it is empty or has an enumeration.
+
+
+
