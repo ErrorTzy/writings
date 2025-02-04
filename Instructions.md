@@ -123,6 +123,7 @@ github_token: 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
 # Graphviz
 
 ```graphviz {caption="The transformation of the four elements(49c)"}
+
 digraph finite_state_machine {
 	rankdir=LR;
 	size="8,5"
@@ -142,6 +143,46 @@ digraph finite_state_machine {
 	LR_7 -> LR_5 [ label = "S(a)" ];
 	LR_8 -> LR_6 [ label = "S(b)" ];
 	LR_8 -> LR_5 [ label = "S(a)" ];
+}
+
+```
+
+
+
+* **`width="0.5\textwidth"`:** This sets the width of the image to 50% of the text width of the page in LaTeX.
+* **`height="0.5\textheight"`:** This sets the height to 50% of the text height.
+
+**Units for `width` and `height`:**
+
+You can use various units for `width` and `height`. Common units for LaTeX PDF output include:
+
+* **`\textwidth`**, **`\textheight`**: Relative to the text area of the page.
+* **`\linewidth`**: Relative to the current line width (useful within environments).
+* **`em`**, **`ex`**: Relative to font sizes.
+* **`in`**, **`cm`**, **`mm`**, **`pt`**, **`pc`**: Absolute units (inches, centimeters, millimeters, points, picas).
+* **Percentage `%` (without a unit):**  Interpreted as a percentage of the *natural* image size in some contexts, or `\textwidth` in others (behavior can be a bit less predictable). It's generally safer to use LaTeX units like `\textwidth`.
+
+**Example of Scaling by a Factor (Less Direct in Pandoc Attributes):**
+
+Pandoc's `width` and `height` attributes are typically interpreted as *absolute* dimensions or relative to page dimensions.  There isn't a direct attribute to specify a *scaling factor* like "0.5x0.5 of the original size" in the same way you might in some image editing software.
+
+However, using `width` and `height` with relative units like `\textwidth` or absolute units is usually the best approach for controlling size within a document layout.  Pandoc and LaTeX will handle the scaling to fit within those dimensions.
+
+**3. Other Attributes You Can Specify (Using `attr` for Generic Attributes):**
+
+Beyond `caption`, `width`, and `height`, you can pass *generic attributes* to the generated image element using the `attr` attribute in your code block. This is useful for setting LaTeX-specific image options or HTML attributes if you were targeting HTML output.
+
+**Example:  LaTeX `scale` attribute (using `attr`)**
+
+If you want to directly use LaTeX's `\includegraphics` `scale` option (though `width` and `height` are usually better for layout control in Pandoc), you could try:
+
+```
+graphviz {#my-graph .graphviz caption="My Scaled Graph" attr="scale=0.7"}
+
+digraph G {
+    A -> B;
+    B -> C;
+    C -> A;
 }
 ```
 

@@ -83,7 +83,7 @@ meta-analysis is a good way to tell if an experiment is really conclusive
 ### Narrative reconstruction: "I did that"
 Is agency just a reconstruction?
 
-```graphviz
+```graphviz {caption="aa" width="10cm"}
 
 digraph G {
     // Global settings

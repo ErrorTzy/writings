@@ -1,4 +1,4 @@
-```graphviz {caption=""}
+```graphviz {caption="aa"}
 digraph{
     // Global settings
     rankdir=LR;

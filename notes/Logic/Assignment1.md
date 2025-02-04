@@ -2,7 +2,6 @@
 documentclass: exam
 title: Assignment
 author: Scott Tang
-numbersections: false
 mainfont: FreeSerif
 CJKmainfont: FreeSerif
 mathfont: XITS Math

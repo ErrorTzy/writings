@@ -4,26 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "389ea889858a4156",
+        "id": "85d151495cf89650",
         "type": "tabs",
         "children": [
           {
-            "id": "521598752b104ff6",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "notes/Logic/Assignment2.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "Assignment2"
-            }
-          },
-          {
-            "id": "f338071e10d865fa",
+            "id": "5da8f82efacdbc52",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -61,6 +46,23 @@
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
+            }
+          },
+          {
+            "id": "ca47c1331c2fffae",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "filter",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
             }
           }
         ]
@@ -135,6 +137,18 @@
               "icon": "lucide-archive",
               "title": "All properties"
             }
+          },
+          {
+            "id": "9edf3b0837e1b6e6",
+            "type": "leaf",
+            "state": {
+              "type": "file-properties",
+              "state": {
+                "file": "notes/Logic/Sets, Logic and Computation.md"
+              },
+              "icon": "lucide-info",
+              "title": "File properties for Sets, Logic and Computation"
+            }
           }
         ],
         "currentTab": 2
@@ -154,12 +168,19 @@
   },
   "active": "76962ee7bc5948ac",
   "lastOpenFiles": [
-    "notes/Logic/Sets, Logic and Computation.md",
+    "Daily_Tasks.md",
     "notes/Logic/Assignment2.md",
+    "_templates/assignment_metadata.md",
+    "_templates/paper_metadata.md",
+    "notes/Logic/Sets, Logic and Computation.md",
+    "Instructions.md",
+    "notes/Kate_Proseminar/Sense of Agency.md",
+    "playground.md",
+    "_templates/Graphviz.md",
     "notes/Logic/Introduction.md",
+    "notes/Logic/Assignment1.md",
     "conflict-files-obsidian-git.md",
     "notes/Phil_of_Mind/Secondary_Literature/RyleDescartesMyth.md",
-    "Daily_Tasks.md",
     "notes/Phil_of_Mind/Secondary_Literature/DescartesMeditation.md",
     "notes/Phil_of_Sci/TheoryAndReality.md",
     "notes/Phil_of_Sci/TheScientificImage.md",
@@ -172,18 +193,11 @@
     "archive/Analytical_Philosophy/Math/Math.md",
     "archive/Analytical_Philosophy/Math/The Strong Principle of Induction.md",
     "notes/Analysis",
-    "notes/Logic/Assignment1.md",
-    "Instructions.md",
-    "_templates/assignment_metadata.md",
     "texput.log",
     "template.tex",
-    "playground.md",
     "notes/Phil_of_Sci",
     "_templates/ProofByAssumeAnt.md",
     "_templates/ProofByReductio.md",
-    "_templates/Graphviz.md",
-    "_templates/paper_metadata.md",
-    "notes/Selves_in_doubt/Chapter_1.md",
     "notes/Casation_And_Explanation",
     "notes/Logic/missfont.log",
     "notes/Tasker",

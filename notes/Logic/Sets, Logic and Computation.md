@@ -5,7 +5,7 @@
 
 **Definition 1.5 (Subset)** 
 - If $\forall x(x \in A \rightarrow x \in B)$ , then we say that A is a subset of B, and write $A \subseteq B$. 
-- If A is not a subset of B we write $A \not\subseteq B$. 
+- If A is not a subset of B we write $A \not\subseteq B$. [[Sets, Logic and Computation]]
 - If $A \subseteq B$ but $A \neq B$, we write $A \subsetneq B$ and say that A is a *proper subset* of B.
 
 **Proposition 1.8** 

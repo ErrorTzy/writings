@@ -50,6 +50,16 @@
     },
     {
       "name": "Bibliography"
+    },
+    {
+      "name": "SimplePdf",
+      "type": "pandoc",
+      "arguments": "-f ${fromFormat} --lua-filter=\"${luaDir}/diagram-generator.lua\" --resource-path=\"${currentDir}\" -o \"${outputPath}\" -t pdf",
+      "customArguments": "--pdf-engine=pdflatex",
+      "optionsMeta": {
+        "textemplate": "preset:textemplate"
+      },
+      "extension": ".pdf"
     }
   ],
   "defaultExportDirectoryMode": "Auto",
@@ -61,5 +71,5 @@
     "linux": "/home/scott/Desktop"
   },
   "lastExportType": "PDF",
-  "lastEditName": "PDF"
+  "lastEditName": "SimplePdf"
 }
