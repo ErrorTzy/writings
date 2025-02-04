@@ -35,3 +35,15 @@ Also, we know that ""All Fs are Gs" is equivalent to "All non-Gs are non-Fs "
 **Hempel's Ravens Paradox**: Consider the hypothesis "All ravens are black." We have "All things that are not black are not ravens." According to Nicod's criterion, a white shirt confirms "All ravens are black."
 
 Answer: A white shirt does confirms it in that it rules out a possibility to falsify the hypothesis.
+
+Tentative: confirmation depends on how much samples have you tested
+
+Problem: We are very certain that cooper is conducted, but how many copper have we tested in the universe?
+
+Hempel's solution: accept the conclusion in only some occasion.
+
+Confirmation only occurs when hypothesis hold up to *epistemic risk.* A white shirt is not an evidence in the context where the hypothesis is not a risk; But if you don't know it is a shirt and it flew over you and you thought it might be a raven, then it would threat the hypothesis that "all ravens are black". In this case, since the hypothesis is at risk, this count as a evidence.
+
+All humans are under 11 feet tall
+You see a human that is 10.999 feet tall
+This is a positive instance, but you seems less confident
