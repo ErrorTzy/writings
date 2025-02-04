@@ -34,3 +34,15 @@ ampliative
 - abductive: Cheese is missing --> Mice!
 - inductive: rely on the principle that unchecked case will be like the checked cases
 
+Something right about positivism: shitting on Metaphysics&theology
+Something wrong about positivism: Metaphysics&theology are nonsense; esp. modal claims should be acceptable
+
+Arch project: Accurately shit on metaphysics and theology but don't shit on electrons and modal propositions
+
+Positivism:
+Modal statements (e.g. laws of natural) are reduced to the feature of our language; 
+Electrons are reduced to experiences
+
+Positivism failed, but how to save some of their ideas
+
+Van Fraassen: Pro-theology(Kirkegaardian flavor, faith is okay), against metaphysics, pro-small-science

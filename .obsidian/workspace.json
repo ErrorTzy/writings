@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "notes/Logic/Sets, Logic and Computation.md",
+                "file": "notes/Phil_of_Sci/Note.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Sets, Logic and Computation"
+              "title": "Note"
             }
           }
         ]
@@ -166,16 +166,18 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "76962ee7bc5948ac",
+  "active": "5da8f82efacdbc52",
   "lastOpenFiles": [
-    "Daily_Tasks.md",
+    "notes/Phil_of_Sci/TheHDMethod.md",
+    "notes/Casation_And_Explanation/Notes.md",
+    "notes/Phil_of_Sci/TheScientificImage.md",
+    "notes/Casation_And_Explanation/Untitled",
+    "notes/Phil_of_Sci/Note.md",
+    "notes/Phil_of_Sci/TheoryAndReality.md",
     "notes/Logic/Sets, Logic and Computation.md",
+    "Daily_Tasks.md",
     "notes/Logic/Introduction.md",
     "notes/Logic/Assignment2.md",
-    "notes/Phil_of_Sci/TheHDMethod.md",
-    "notes/Phil_of_Sci/TheoryAndReality.md",
-    "notes/Phil_of_Sci/TheScientificImage.md",
-    "notes/Casation_And_Explanation/Notes.md",
     "notes/Logic/Assignment1.md",
     "_templates/assignment_metadata.md",
     "_templates/paper_metadata.md",
@@ -187,7 +189,6 @@
     "notes/Phil_of_Mind/Secondary_Literature/RyleDescartesMyth.md",
     "notes/Phil_of_Mind/Secondary_Literature/DescartesMeditation.md",
     "notes/Random.md",
-    "notes/Phil_of_Sci/Untitled.md",
     "notes/Analysis/Analysis_I.md",
     "archive/Daily business.md",
     "archive/Analytical_Philosophy/Math/Math.md",
@@ -197,13 +198,11 @@
     "template.tex",
     "notes/Phil_of_Sci",
     "_templates/ProofByAssumeAnt.md",
-    "_templates/ProofByReductio.md",
     "notes/Casation_And_Explanation",
     "notes/Logic/missfont.log",
     "notes/Tasker",
     "notes/Selves_in_doubt",
     "notes/Kate_Proseminar/16_2_4.pdf",
-    "notes/Kate_Proseminar/16_2_4.pdf.crdownload",
     "_resources/Pasted image 20241129163132.png",
     "_resources/intentionalbinding.jpg",
     "_resources/2024-02-19-16-42-57.png",
