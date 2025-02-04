@@ -23,3 +23,4 @@ disconfirmation can only say that, at least one of the hypothesis is false
 incremental confirmation vs. absolute confirmation
 
 **Qualitative Confirmation**: it does not tell you *how much* the hypothesis is confirmed.
+
