@@ -1,4 +1,4 @@
 #### 2025-02-04
 
-- [ ] Logic, Size of sets
+- [x] Logic, Size of sets
 - [ ] Van Fraassen
