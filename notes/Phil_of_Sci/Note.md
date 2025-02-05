@@ -46,4 +46,4 @@ Confirmation only occurs when hypothesis hold up to *epistemic risk.* A white sh
 
 All humans are under 11 feet tall
 You see a human that is 10.999 feet tall
-This is a positive instance, but you seems less confident
+This is a positive instance, but you seems less confident, that's because we have some background knowledge about our chance of meeting a 10.999 ft tall is almost the same as 11 ft

@@ -125,5 +125,5 @@ if we are following some rules, it means that we are willing to believe whatever
 
 
 ```
-To Chap3, P40
+To P59
 ```
