@@ -39,18 +39,23 @@ Scientific realism is growing, but I am going to do a revolution on behalf of em
 #### 1.1 Statement of scientific realism
 
 Naive statement: The picture which science give us of the world is a true one, faithful in its details and the entities postulated in science really exist; Scientific advances are discoveries not inventions
+
 Problem: It follows that today's theories are correct
+
 Good points: answers two questions:
+
 1. What a scientific theory is: on what there is
 2. What a scientific theory does: discovery instead of invention
 
 Developed account: 
+
 1. What a scientific theory aims at: give a literally true story of what the world is like; 
 2. Acceptance of a theory: the belief being true (does not need to be justified)
 
 #### 1.2 Alternative to Realism
 
 Alternative then obviously would be:
+
 1. aim of science: no need to be a literally true story, it just need to have some virtues (empirical adequacy, comprehensiveness, etc.)
 2. acceptance: less or other than having true belief
 
@@ -76,6 +81,7 @@ Difference, if P and Q are literally construed and contradicts each other, then 
 Literal construal requirement for a statement does not entail the statement to be true. Therefore it is possible to maintain the literal requirement without being a realist
 
 Constructive Empiricism:
+
 1. aim of science: give literal theories which are empirically adequate (about what is observable is true)
 2. acceptance: belief that is empirically adequate, which in turns means:
 	- epistemic dimension: commitment to confront future phenomena by means of the conceptual resource of this theory
@@ -83,12 +89,13 @@ Constructive Empiricism:
 
 ### 2. the Theory/Observation 'Dichotomy'
 
-Maxwell: against Carnap
-Van Fraassen: observable/theoretical dichotomy is obscure
+Maxwell: 
 
-distinction between observing and observing that
+- against Carnap，observable/theoretical dichotomy is obscure
+- distinction between observing and observing that
 
 Maxwell: 
+
 1. where should we draw the line? 
 	- Van Fraassen: but there are clear cases and clear counter-cases.
 2. what does "can" mean? Observable in principle? But if we have very different organs, everything is observable
@@ -100,6 +107,22 @@ Maxwell:
 ### 3. Inference to the best explanation 
 
 Sellars, Smart, Harman: Rational inference (principle of inference to the best explanation) entails scientific realism.
+
+**ITBE Rule**: we should infer H whether rather than H' exactly if H is a better explanation of E than H it is
+
+Two objections that EA also follow from the rule:
+
+1. Ordinary experience does not necessarily confirm ITBE rule. It also confirms it's rival
+
+if we are following some rules, it means that we are willing to believe whatever follows from the rule; ITBE rule gains its plausibility from empirical observation of our psychology. Then I now formulate a rival of ITBE rule: we are willing to believe that if a theory empirically adequate then it best explains the evidence. There is no reason to decide between the anti-realists' variant and the original ones
+
+2. To choose between rival ITBE, you need extra premises
+
+### 4. Limits of the demand for explanation 
+
+
+
+
 
 ```
 To Chap3, P40
