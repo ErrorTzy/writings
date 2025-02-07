@@ -1,4 +1,8 @@
 #### 2025-02-04
 
-- [x] Logic, Size of sets
-- [ ] Van Fraassen
+- [ ] causation reading 
+
+
+#### Weekend Task
+
+- [ ] reread van fraassen

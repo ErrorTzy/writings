@@ -87,3 +87,40 @@ Motivation: derivation is too deterministic, and no actual science has been succ
 Problem for RMS: There may be some unexpected information that would change the confidence value; For example, my funeral is happening at Monday is going to change the confidence whether I survived after the surgery, but it should not be included in the explanation of whether I will survive the surgery. Therefore we have to define "relevant evidence"
 
 Another problem: tieing explanation to our background knowledge sounds off
+
+
+what is an explanation? It is an linguistic activity to a conversationally appropriate answer to "why-question"
+
+There are at least 3 ways in which context is relevant to explanation;
+1. contrast class ambiguity
+2. bg knowledge
+3. audience's interest
+
+Contrast class ambiguity:
+
+Compare: 
+
+- why did *Adam* eat the apple? 
+- Why did Adam *eat* the apple? 
+- Why did Adam eat the *apple*?
+
+Why are you robbing the bank?
+Because there's money there
+
+background knowledge:
+
+- Why was there a forest fire? Because oxygen in present
+---This is relevant, but not appropriate to mention this in this context
+
+Audience interest:
+
+- Why are you late? you boss is not interest in knowing natural laws when he asks this
+
+What's the connection between *ideal explanation* (contextually and pragmatically invariant) and human activity of *explanatory act* (contextually and pragmatically variant)?
+
+Scientific realists: tend to think science is aiming at *ideal explanation*
+
+We need to reconcile the two horns when we are trying to come up with a theory of explanation
+
+Anti-realists: tend to think that, we should not think about *ideal explanation*. We should only care about the explanatory act stuff.
+
