@@ -30,13 +30,13 @@ Noi cannot have preference? Value judgement? If Noi is hurt, then will Noi do so
 
 We think we initiate our thoughts. Noi thinks thoughts are happening. But Noi do not attribute the thought to himself. Could the two thoughts be identical?
 
-## I-blindness and rational agency
+### I-blindness and rational agency
 
 Noi have no rational capacities at a normal human level. Noi cannot be motivated by self-interest.
 
 > Noi may as well feel the force but do not interpret it as "self-interest". Noi may just interpret it as some natural psychological force. For example, when we watch movie, we may plan for the main character 
 
-## The Magic Bullet
+### The Magic Bullet
 
 KP rule: Subject S refer to S
 
@@ -49,10 +49,10 @@ Eli: Y-K objection does not work because a semantic rule just needs to describe
 Principle of Charity
 
 
-## Epistemic problems for Noi
+### Epistemic problems for Noi
 
 
-### Indexicals and Demonstratives
+#### Indexicals and Demonstratives
 
 'here' means 'where I am', 'that table' means 'the table I am looking at'
 
@@ -62,7 +62,7 @@ Noi can understand 'that' with a chain of event, therefore an anchoring point is
 
 > Why can't Noi understand these words in a somewhat homonymous way
 
-### Mental states
+#### Mental states
 
 Is it possible for Noi to be able to judge "there is a headache" without being able to judge "I am having a headache"?
 
@@ -74,26 +74,26 @@ Eli: Let's ignore Shoemaker for now. But Noi cannot locate her mental states in 
 > We are not infallible in locating it, i.e. phantom limbs; We don't have this knowledge directly (without habit)
 > We locate it by sense of agency.
 
-#### Negative states
+##### Negative states
 
 Noi cannot judge "there is no headache", or she will judge "there is no headache in the universe"
 
 > Why can't Noi judge "there is no headache in the universe", and later she can decide to be a solipsist, or to have some domain restriction. For example, the physical boundary f Noi? No mental state is accessible outside this boundary and all mental states are accessible inside this boundary.
 
-#### Mind-body relation
+##### Mind-body relation
 
 Since Noi cannot judge "If a body is not situated in a circumstance, then it would not have some experience", Noi cannot generalize when perception do not occur.
 
 
-## De se and language
+### De se and language
 
 Quirrels do not have language. Can they have de se attitudes?
 
-# Chap. 2 The first person pronoun: split brains
+## Chap. 2 The first person pronoun: split brains
 
 Eli is using commonsensical metaphysics
 
-## The three subject view
+### The three subject view
 
 Official definition of I-blindness:
 
@@ -101,3 +101,14 @@ Official definition of I-blindness:
 2. For any typical mental state M when S is in the state M is is disposed to judge that M occurs
 
 Some I-blind creature can follow KP rule without being self-referential
+
+
+## Chap. 3 Strange Language of the Self (1): Parfitian Languages
+
+### A no-self Language
+
+Reductionism: Any sentence describing the identity of a person over time is equivalent to a sentence describing the occurrence of the various (non-branching) physical and (especially) psychological continuities
+
+Equivalent means, given a possible world and context, their truth value remains the same.
+
+This reduction does not follow that the thing reduced to (i.e. single slices in the continuity) exists independently
