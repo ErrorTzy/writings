@@ -15,7 +15,7 @@ header-includes: |
 ---
 # Introduction
 
-Recently, there has been a heated discussion over the following question:
+Recently, there has been a discussion over the following question:
 
 > Everyone responding to this poll chooses between a blue pill or red pill.
 > if no less than half of the people choose blue pill, everyone lives 
@@ -27,6 +27,7 @@ This question rises a paradox: according to instinct, choosing the blue pill wil
 - if one chooses the blue pill, he will die if more then half of the people choose red pill
 
 Therefore, according to this egoistic calculation, one must necessarily choose the red pill. In this post, I will try to explain that 
+
 1. choosing the blue pill will not maximize the benefit for all, and
 2. how can one defend himself if he is to choose blue pill
 
@@ -38,7 +39,7 @@ According to the egoistic argument, if one chooses the red pill, the expectation
 
 that is,
 $$n_{all}=2k$$
-According to the rules, 
+According to the rules, we construct the function $n_{survive}$ to map the number of people to the number of survivors:
 $$
 n_{survive}(x)=
 \begin{cases}

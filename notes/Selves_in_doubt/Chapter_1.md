@@ -88,3 +88,16 @@ Since Noi cannot judge "If a body is not situated in a circumstance, then it wou
 ## De se and language
 
 Quirrels do not have language. Can they have de se attitudes?
+
+# Chap. 2 The first person pronoun: split brains
+
+Eli is using commonsensical metaphysics
+
+## The three subject view
+
+Official definition of I-blindness:
+
+1. S lacks the capacity to form self-referential I-thoughts in conformity with the KP rule 
+2. For any typical mental state M when S is in the state M is is disposed to judge that M occurs
+
+Some I-blind creature can follow KP rule without being self-referential
