@@ -120,11 +120,17 @@ if we are following some rules, it means that we are willing to believe whatever
 
 ### 4. Limits of the demand for explanation 
 
-Realist's claim: Science is unfinished as long as any pervasive regularity is left unexplained
+**Realist**: Science is unfinished as long as any pervasive regularity is left unexplained
+	- **Objection**: If this is true, then it leads to hidden variables. But quantum mechanics denies hidden variables.
 
-Objection: If this is true, then it leads to hidden variables. But quantum mechanics denies hidden variables.
+**Smart**: Only realism (in contrast of "instrumentalism") can distinguish between correctness and usefulness. You need this distinction because, to explain some theory to be useful, you need a correct theory as explanan. E.g. The usefulness of Ptolemaic hypothesis is explained by Copernican hypothesis being true
+	- **Objection**: We can say that Copernican hypothesis explains the usefulness because it accurately describes the motions of the planets. Copernican hypothesis does not have to be true.
+	- **Defense**: What explains the accuracy of the description?
+		- **Nominalists' Objection**: This is just brute fact. There's no further explanation.
+		- **Defense**: Consider a theory $T$ that postulate micro-structure, and $T'$ which is the macro-phenomena derived from $T$. What would explain $T'$ success? If we take empirical adequacy as the standard, then we should say that $T'$ is successful miraculously.
+		- **VF's Objection**: As long as there is some restriction of what count as basic brute fact(regularities), this problem can be solved. Coincidence does not mean that there's no explanation.
 
-Smart's two argument for realism:
+### 5. The principle of the Common Cause
 
-1. Only realism can 
+**Reichenbach's principle (informal)**: If two sorts of events are correlated, then either one causes the other, or there are some common cause. If there's no observable common cause, then there must be some unobservable events.
 
