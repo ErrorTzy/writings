@@ -133,8 +133,22 @@ if we are following some rules, it means that we are willing to believe whatever
 ### 5. The principle of the Common Cause
 
 **Reichenbach's principle (informal)**: If two sorts of events are correlated, then either one causes the other, or there are some common cause. If there's no observable common cause, then there must be some unobservable events.
-	- **Objection**: It cannot be a principle of general science at all ==why?==, and it is compatible with anti-realism.
+	- **Objection**: It cannot be a principle of general science at all ==why?==, and it is compatible with anti-realism ==how?==.
 
-Introduction to Reichenbach's principle: probabilistic turn of modern physics; No longer deterministic, but to seek a probabilistic common cause.
+Introduction to Reichenbach's principle: probabilistic turn of modern physics; No longer seeking deterministic natural laws, but to seek a probabilistic common cause.
 
 
+**Definition**: 
+- $P(A)$ is the probability of $A$ occurs;
+- $P(A\&B)$ is the probability of $A$ and $B$ both occurs;
+- The probability of $A$ given that $B$ occurs $\frac{P(A\&B)}{P(B)}$, if $P(B) \neq 0$. We write this as $P(A / B)$
+- Given that $P(A),P(B) \neq 0$, $B$ and $A$ have positive correlation iff $P(A/B)> P(A)$ (or $P(B/A)>P(B)$)
+
+Positive correlation is symmetric, thus we still don't know if $A$ causes $B$, or $B$ causes $A$, or there's a common cause. Now if there is a $C$ that can "de-correlate" $A$ and $B$, then $C$ is the common cause, i.e. $P(A\&B/C)=P(A/C)$
+
+**Objection**: In an indeterministic complete system, $S$ causes $F_{1},...,F_{i}$ and $G_{1},...,G_{i}$ equally. We have $P(G_n/S)=P(F_n/S)=\frac{1}{n}$, and $P(F_n=G_n/S)=1$. Now $P(F_n/S)\cdot P(G_n/S)=\frac{1}{n^2}$, $P(F_n\&G_n/S)=P(F_n/S)=\frac{1}{n}$. Therefore either the system is deterministic, or S is not a common cause. But the system is already complete. Therefore either you can't have a indeterministic complete system, or Reichenbach's principle is wrong.
+- **Defense**: One can modify this indeterministic complete system. One can postulate some hidden variable.
+- **Objection**: This is not how modern physics works
+
+**Salmon**: modify$P(A\&B/C)=P(A/C)\cdot P(B/C)$ into $P(A\&B/C)>P(A/C)\cdot P(B/C)$
+- **Objection**: this collapsed to the original if we want to explain something

@@ -1,3 +1,6 @@
+
+# Sets, Relations, Functions
+
 ## Chap.1 Sets
 
 **Definition 1.1 (Extensionality)** 
@@ -509,3 +512,36 @@ $B^{\omega}$ represents the set of all possible infinite strings (or sequences) 
 
 **Theorem 4.25 (Schröder-Bernstein)**. If $A \preceq B$ and $B \preceq A$, then
 $A \approx B$.
+
+# First-order logic
+
+## Chap.5 Introduction to First-order Logic
+
+**Definition**: “A is satisfied in M” (in symbols: $M \vDash A$) for sentences A and structures M
+
+**Definition 5.1 (Inductive Definition of Formulas)**. The set of *formulas* is defined as follows:
+1. $P (a)$ and $P(v_i)$ are formulas ($i \in N$).
+2. If $A$ is a formula, then $\neg A$ is formula.
+3. If $A$ and $B$ are formulas, then $(A \land B)$ is a formula.
+4. If $A$ is a formula and $x$ is a variable, then $\exists x A$ is a formula.
+5. Nothing else is a formula.
+
+### Satisfaction
+
+Satisfaction without quantifiers
+
+1. $P (a)$ is satisfied in $M$ iff $a^M \in  P^M$ .
+2. $\neg A$ is satisfied in $M$ iff $A$ is not satisfied in $M$.
+3. $(A \land B)$ is satisfied in $M$ iff $A$ is satisfied in $M$, and $B$ is
+satisfied in $M$ as well.
+
+Satisfaction with quantifiers:  we introduce variable assignments. A variable assignment is simply a function s that maps variables to elements of $|M|$
+
+4. $M,s \vDash P (a)$ iff $a^{M}\in P^{M}$
+5. $M,s \vDash P (v_{i})$ iff $s(v_i) \in P^{M}$ .
+6. $M,s \vDash \neg A$ iff not $M,s \vDash A$.
+7. $M,s \vDash (A \land B)$ iff $M,s \vDash A$ and $M,s \vDash B$.
+8. $M,s \vDash \exists v_{i}A$ iff $M,s [m/vi ] \vDash A$ for some $m \in |M|$.
+
+### Sentences
+
