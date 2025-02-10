@@ -133,4 +133,8 @@ if we are following some rules, it means that we are willing to believe whatever
 ### 5. The principle of the Common Cause
 
 **Reichenbach's principle (informal)**: If two sorts of events are correlated, then either one causes the other, or there are some common cause. If there's no observable common cause, then there must be some unobservable events.
+	- **Objection**: It cannot be a principle of general science at all ==why?==, and it is compatible with anti-realism.
+
+Introduction to Reichenbach's principle: probabilistic turn of modern physics; No longer deterministic, but to seek a probabilistic common cause.
+
 
