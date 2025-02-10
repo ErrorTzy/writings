@@ -331,6 +331,7 @@ Remark: the important info here is "there is such left inverse and right inverse
 > 
 > If $f: A \rightarrow B$ has a right inverse $h$, then there is a $h:B \rightarrow A$ such that $f(h(y)) = y$ for all $y \in B$.
 > 
+> Now we need to show $h=g$. We prove this by reductio. Assume $\exists n \in B$ such that $g(n) \neq h(n)$. We have $f(h(n))=n$, thus $g(f(h(n)))=h(n)$. Since $f(h(n))=n$, $g(f(h(n)))=g(n)$. Now we have $g(n) = h(n)$, contradiction. Therefore $h=g$
 
 ### Composition of Function
 

@@ -120,10 +120,11 @@ if we are following some rules, it means that we are willing to believe whatever
 
 ### 4. Limits of the demand for explanation 
 
+Realist's claim: Science is unfinished as long as any pervasive regularity is left unexplained
 
+Objection: If this is true, then it leads to hidden variables. But quantum mechanics denies hidden variables.
 
+Smart's two argument for realism:
 
+1. Only realism can 
 
-```
-To P59
-```
