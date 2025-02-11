@@ -133,10 +133,11 @@ if we are following some rules, it means that we are willing to believe whatever
 ### 5. The principle of the Common Cause
 
 **Reichenbach's principle (informal)**: If two sorts of events are correlated, then either one causes the other, or there are some common cause. If there's no observable common cause, then there must be some unobservable events.
-	- **Objection**: It cannot be a principle of general science at all ==why?==, and it is compatible with anti-realism ==how?==.
+	- **Objection**: It cannot be a principle of general science at all, and it is compatible with anti-realism.
 
 Introduction to Reichenbach's principle: probabilistic turn of modern physics; No longer seeking deterministic natural laws, but to seek a probabilistic common cause.
 
+*Why cannot be a principle of general science?*
 
 **Definition**: 
 - $P(A)$ is the probability of $A$ occurs;
@@ -151,4 +152,44 @@ Positive correlation is symmetric, thus we still don't know if $A$ causes $B$, o
 - **Objection**: This is not how modern physics works
 
 **Salmon**: modify$P(A\&B/C)=P(A/C)\cdot P(B/C)$ into $P(A\&B/C)>P(A/C)\cdot P(B/C)$
-- **Objection**: this collapsed to the original if we want to explain something
+- **Objection**: this collapsed to the original if we want to explain something fully. If you admit we do not want to explain something fully, then you need to admit brute correlation.
+
+*Why it is compatible with anti-realism?*
+
+Anti-realists can admit common cause as long as it 
+- aids the search for observables. 
+- help build models
+
+### 6. Limits to Explanation: A Thought Experiment
+
+Sellars is the leader of the return of realism.
+
+Something right about Sellars:
+
+**Positivists**: "levels picture," i.e. facts, empirical law and theory. 
+- **Sellars' objection**: theories do not explain empirical laws. Empirical laws are explainable only when under theoretical restrictions.
+
+Something wrong about Sellars: Observation is inferior. The aim of science is to unveil the unobservables behind.
+
+**Sellars' argument**: If different samples of gold dissolves in aqua regia at different rates, and there are no observable difference in the gold samples. Now if we assume there are two kinds of micro-structure of gold, this explains the different rates. If we do not do so, we cannot explain. Since science aims at explanation, science must postulate unobservables.
+- **Objection 1**: The postulated unobservables will have observable consequences.
+- **Objection 2**: Science does not need to explain everything.
+- **Defense of 2**: Yes. Science only explains the cases where it is consistent to add variables. If the observations don't allow you to add hidden variables, then you hit the wall.
+	- **Objection**: You can add hidden variables to quantum mechanics as long as you deny the principle that indiscernibility of physical variables entails identity. But in practice physicists don't do that. You need explanation why. 
+- **Objection 3**: There can be a different rationale for postulating the micro-structure. We are just imagining something that is not guaranteed to exist in order to come to a better theory
+
+### 7. Demons and the Ultimate Argument
+
+**Fictionalism**: Unobservables are indispensable, but don't have to exist
+- **Positivists' objection**: According to the verification theory of meaning, there's no difference in saying something exists and something is empirically adequate.
+- **Why Positivists' objection is bad**: Of course there's a difference. One says there is something, one says there's not.
+	- **Positivists' reply**: If you say that, you become a prey of skepticism and have no reason to reject demons and witches.
+	- **Putnam's defense (strangely)**: We can reject demons and witches but accept electrons because the former is a priori implausible, while the latter is a priori plausible, which is a leap of faith `Why it is a leap of faith? Can't you say that electrons are located in a logically sound system, but demon is not?`
+
+**Upshot**: If choosing between two empirically equivalent requires leap of faith, then choosing between fictionalism and realist requires leap of faith
+
+**Dummett's argument**: Realism believes sentences has objective truth value independently of our means of knowing it. They are true in virtue of the reality. Anti-realists believes statements can only be understood by reference to things that we are not certain.
+- **Objection**: This is not a good way to characterize realism. This would include mathematically nominalists and exclude quantum mechanics.
+
+**The Ultimate argument (Miracle argument)**: If scientific theories do not refer, and they are not true in virtue of there being really these entities, then the success of science would be a miracle.
+- **Objection**: Science is successful because the unsuccessful ones are forgotten.
