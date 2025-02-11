@@ -74,6 +74,18 @@ If we don't restrict ourselves to positivists' toolkit, then we may use causatio
 Hempel's answer: this asymmetry is just pragmatic.
 Suspicion: pragmatic is enough?
 
+**Problem (Asymmetry)**: Flag-pole 
+**Hempel's response**: it sounds bananas, but strictly speaking it still explains. We just don't want to hear about these answer, i.e. the asymmetry is in pragmatics; Prediction and explanation are the same
+
+**Problem (Lawless Explanation)**: Why did the ink spill? Because I bumped the table.
+**Hempel's response**: You are implicitly appealing to the law
+
+**Problem (Irrelevant Explanation)**: A man taking birth control pills and being sexually active. You cannot explain him not being pregnant because he is taking birth control pills. In other words, explanation is not erosion proof, but derivation is erosion proof.
+
+Also, you can conjoin theory A and theory B and derive B. Does the conjunction of A and B explains B?
+In one word, derivation could contain irrelevant information
+**Possible Response**: Laws should not be too broad to cover irrelevant instances.
+
 **Hempel's second model: inductive-statistical**
 Motivation: derivation is too deterministic, and no actual science has been successful in predicting just by laws and initial conditions
 
@@ -116,7 +128,9 @@ Audience interest:
 
 - Why are you late? you boss is not interest in knowing natural laws when he asks this
 
-What's the connection between *ideal explanation* (contextually and pragmatically invariant) and human activity of *explanatory act* (contextually and pragmatically variant)?
+What's the *connection* between *ideal explanation* (contextually and pragmatically invariant, corresponds the whole *scientific practice*) and human activity of *explanatory act* (contextually and pragmatically variant, corresponds a *request for explanation*)? Intuitively, there should be some connection.
+
+Pragmatic proponent need to admit that there's something that is explanatory but not appropriate; The idealists need to admit that the ideal account is not straightforwardly the answer in the context.
 
 Scientific realists: tend to think science is aiming at *ideal explanation*
 
@@ -124,3 +138,4 @@ We need to reconcile the two horns when we are trying to come up with a theory o
 
 Anti-realists: tend to think that, we should not think about *ideal explanation*. We should only care about the explanatory act stuff.
 
+Hempel is having some realist idea but only using positivists' tools
