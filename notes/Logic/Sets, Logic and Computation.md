@@ -455,13 +455,13 @@ $B^{\omega}$ represents the set of all possible infinite strings (or sequences) 
 
 
 > Now we construct a sequence of $s' \in A$ but not in our diagram. We can specify $s'(n)$ for all $n \in \mathbb{Z^{+}}$: 
-> $$
-> s'(n) =
-> \begin{cases} 
-> 1 & \text{if } s_n(n) = 0, \\
-> 0 & \text{if } s_n(n) = 1.
-> \end{cases}
-> $$
+ $$
+ s'(n) =
+ \begin{cases} 
+ 1 & \text{if } s_n(n) = 0, \\
+ 0 & \text{if } s_n(n) = 1.
+ \end{cases}
+ $$
 > Now $s'$ is not in the list $s_{1},s_2,...$. We prove this by reductio: if there is a sequence $s_{k}=s'$, then $s_{k}(x)=s'(x)$ for all $x \in \mathbb{N}$. But that's not possible because $s_{k}(k) \neq s'(k)$ while $k \in \mathbb{N}$. Contradiction.
 
 **Theorem 4.18**. $\wp (Z^+)$ is not countable.
@@ -473,13 +473,15 @@ $B^{\omega}$ represents the set of all possible infinite strings (or sequences) 
 
 ### Reduction
 
+**Proposition (Reduction)**: For a surjective $f: A \rightarrow B$, if $A$ is countable, then $B$ is countable
+
 > ==Remark==
 > 
-> Notice that there can be a bijective $f: B^{\omega}\rightarrow \wp (Z^+)$. We can define $f(s)=\{n:s(n)=1\}$. In order to deny $\wp(\mathbb{Z^+})$ is countable, we need to use modus tollens: if $\wp(Z^+)$ is countable, then $B^\omega$ is countable. Since the latter is not, then the former is not. The idea is that, if a function $f$ is surjective, and the $dom(f)$ is enumerable, then $f(x)$ is also enumerable.
+> Notice that there can be a bijective $f: B^{\omega}\rightarrow \wp (Z^+)$. We can define $f(s)=\{n:s(n)=1\}$. In order to deny $\wp(\mathbb{Z^+})$ is countable, we need to use modus tollens: if $\wp(Z^+)$ is countable, then $B^\omega$ is countable. Since the latter is not, then the former is not. The idea is that, if a function $f$ is surjective, and the codomain is enumerable, then $f(x)$ is also enumerable.
 
 ### Equinumerosity
 
-**Definition 4.19** A is equinumerous with B, written $A \approx B$, iff there is a bijection $f:A \rightarrow B$.
+**Definition 4.19** A is equinumerous with B, written $A \approx B$ (or $|A|=|B|$ ), iff there is a bijection $f:A \rightarrow B$.
 
 **Proposition 4.20** Equinumerosity is an equivalence relation
 
@@ -494,7 +496,10 @@ $B^{\omega}$ represents the set of all possible infinite strings (or sequences) 
 
 > ==Proof==
 > 
-> 
+> If A is countable, then $A = \emptyset$ or there is a surjective $f: \mathbb{Z^{+}} \rightarrow A$. Since $A \approx B$, we know there is a bijective $h: A \rightarrow B$
+> If $A = \emptyset$ then $B = \emptyset$, making $B$ countable.
+> If $A \neq \emptyset$, we can define $j: \mathbb{Z^+}$ such that $j(x)=h(f(x))$ for $x \in \mathbb{Z^+}$. Since we have a $j: \mathbb{Z^{+}}\rightarrow B$. Obviously $j$ is surjective. Therefore $B$ is countable.
+> Therefore, the left direction is true. Similarly, the right direction is true.
 
 ### Sets of Different Sizes, and Cantor's Theorem
 
@@ -506,7 +511,10 @@ $B^{\omega}$ represents the set of all possible infinite strings (or sequences) 
 
 > ==Proof==
 > 
-> 
+> We need to show that there is an injective function $f: A \rightarrow \wp(A)$ but there's no bijective $h: A \rightarrow \wp(A)$.
+> We can construct $f(x)=\{x\}$ for $x \in A$. This is an injection because if $x \neq y$, then $\{x\} \neq \{y\}$.
+> Now we need to show that there cannot be a surjective $g$. We use cantor's diagonal method to show that there is always a way to find something in the codomain that cannot be found in any arbitrary mapping from the domain to the codomain.
+> Suppose there is a function $g:A \rightarrow \wp(A).$ We construct something that is $\in ran(g)$ but $\notin \wp(A)$. We construct $A'=\{x \in A: x \notin g(x)\}$. Now we prove that $A' \notin ran(g)$. We prove this by reductio.
 
 ### Notion of Size, and Schröder-Bernstein
 
@@ -544,4 +552,9 @@ Satisfaction with quantifiers:  we introduce variable assignments. A variable as
 8. $M,s \vDash \exists v_{i}A$ iff $M,s [m/vi ] \vDash A$ for some $m \in |M|$.
 
 ### Sentences
+
+1. If $A$ is atomic, all occurrences of $x$ in it are free (that is, the occurrence of $x$ in $P (x)$ is free).
+2. If $A$ is of the form $\neg B$, then an occurrence of $x$ in $\neg B$ is free iff the corresponding occurrence of $x$ is free in $B$ (that is, the free occurrences of variables in B are exactly the corresponding occurrences in $\neg B$).
+3. If $A$ is of the form $(B \land C)$, then an occurrence of $x$ in $(B \land C)$ is free iff the corresponding occurrence of $x$ is free in $B$ or in $C$ .
+4. If $A$ is of the form $\exists x B$, then no occurrence of $x$ in $A$ is free; if it is of the form $\exists y B$ where $y$ is a different variable than $x$, then an occurrence of $x$ in $\exists y B$ is free iff the corresponding occurrence of $x$ is free in $B$.
 
