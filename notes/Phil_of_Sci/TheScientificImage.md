@@ -1,3 +1,5 @@
+> Van Fraassen: Pro-theology(Kirkegaardian flavor, faith is okay), against metaphysics, pro-small-science
+
 ## 1 Introduction
 
 The old days
@@ -193,3 +195,6 @@ Something wrong about Sellars: Observation is inferior. The aim of science is to
 
 **The Ultimate argument (Miracle argument)**: If scientific theories do not refer, and they are not true in virtue of there being really these entities, then the success of science would be a miracle.
 - **Objection**: Science is successful because the unsuccessful ones are forgotten.
+
+## 3. To Save the Phenomena
+

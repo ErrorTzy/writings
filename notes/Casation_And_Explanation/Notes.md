@@ -45,9 +45,8 @@ Electrons are reduced to experiences
 
 Positivism failed, but how to save some of their ideas
 
-Van Fraassen: Pro-theology(Kirkegaardian flavor, faith is okay), against metaphysics, pro-small-science
 
-### Hempel's program:
+### Hempel's DN and IS models:
 
 reducing explanation to description; positivism-friendly
 
@@ -62,7 +61,7 @@ explainandum + explainan = explanation
 
 Let conclusion be the explanandum and the premises be the explainan.
 
-Hempel's first modal: Deductive-nomological (DN model)
+**Hempel's first modal: Deductive-nomological (DN model)**
 
 To make your derivation an explanation, the derivation must
 - be deductively valid
@@ -75,7 +74,7 @@ If we don't restrict ourselves to positivists' toolkit, then we may use causatio
 Hempel's answer: this asymmetry is just pragmatic.
 Suspicion: pragmatic is enough?
 
-Hempel's second model: inductive-statistical
+**Hempel's second model: inductive-statistical**
 Motivation: derivation is too deterministic, and no actual science has been successful in predicting just by laws and initial conditions
 
 - be inductively sound
@@ -88,6 +87,7 @@ Problem for RMS: There may be some unexpected information that would change the 
 
 Another problem: tieing explanation to our background knowledge sounds off
 
+### Pragmatics of Explanation
 
 what is an explanation? It is an linguistic activity to a conversationally appropriate answer to "why-question"
 
