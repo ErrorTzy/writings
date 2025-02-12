@@ -198,3 +198,32 @@ Something wrong about Sellars: Observation is inferior. The aim of science is to
 
 ## 3. To Save the Phenomena
 
+### 1. Models
+
+**Definition**: Any structure that satisfy the axioms of a theory is called a model of a theory
+
+Two inconsistency could have two set of models, one of which could be embedded into another. This "embeddedness" cannot be captured by purely syntactical approach.
+
+### 2. Apparent Motion and Absolute Space
+
+For Newton's theory $NT$, let $NT(v)$ be the theory $TN+$ the postulate that the center of gravity of the solar system has constant absolute velocity $v$. By Newton's account, he claims empirical adequacy for $TN(0)$, and if $TN(0)$ is empirically adequate, then so are all the theories $TN(v)$.
+
+### 3. Empirical Content of Newton's Theory
+
+What would it mean for an anti-realist to accept Newton's Theory?
+
+It does not mean to believe the common part of $TN(v)$ because it would involve believing some absolute velocity and absolute space. To believe a theory is to believe it correctly represents the world. Therefore, the anti-realist can believe a theory to be empirically adequate but false.
+
+The theory the anti-realist believes is $TNE$: $TN(0)$ is empirically adequate
+- **Objection**: This does not seem like a physical theory, but a metalinguistic one
+- **Defense**: As long as it is stated in English, then it is okay. And it can be turned into non-metalinguistic version.
+
+### 4. Theories and Their Extensions
+
+**Objection**: Empirically equivalent theories are different because they may have different possible extensions or implication beyond their intended domain. For example, imagine that Michelson-Morley does not produce a null outcome, but a force $F(v)$. Then this would falsifies $TN(w)$ such that $w \neq v$.
+**Defense**: No, $F(v)$ is consistent with any $TN(w)$ with the charged bodies at a speed $w+v$.
+
+==This only proves that you can't distinguish TN(v) in this thought experiment. But you did not prove that there is always a way to adjust the TN to make them empirically adequate==
+
+### 5. Extensions: Victory And Qualified Defeat
+
