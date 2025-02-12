@@ -204,6 +204,7 @@ Something wrong about Sellars: Observation is inferior. The aim of science is to
 
 Two inconsistency could have two set of models, one of which could be embedded into another. This "embeddedness" cannot be captured by purely syntactical approach.
 
+==Why A0 is forgotten?==
 ### 2. Apparent Motion and Absolute Space
 
 For Newton's theory $NT$, let $NT(v)$ be the theory $TN+$ the postulate that the center of gravity of the solar system has constant absolute velocity $v$. By Newton's account, he claims empirical adequacy for $TN(0)$, and if $TN(0)$ is empirically adequate, then so are all the theories $TN(v)$.
@@ -227,3 +228,45 @@ The theory the anti-realist believes is $TNE$: $TN(0)$ is empirically adequate
 
 ### 5. Extensions: Victory And Qualified Defeat
 
+*Victorious Extension*
+
+**Proposition**: For a set of empirically equivalent theory $S$, if $\forall x \in S$ such that $Extension(x)$ is victorious, then $\forall x,y \in S$, $Extension(x)$ and $Extension(y)$ are also empirically equivalent.
+
+**Proof**: For an extension to be victorious, $Appearance(Extension(x))=Appearance(x)$
+
+**Objection**: I mean the extension which appearance are different
+**Defense**: Then the old theory is not empirically adequate.
+
+*Qualified Defeat Extension*
+
+**Objection**: Some theories may be more flexible. If the result of some experiment came out otherwise, then some theories could also adapt while some couldn't. Therefore they are different in terms of adaptability
+**Defense**: This is pragmatic superiority. It has nothing to do with empirical content. Therefore they are pragmatically different but empirically equivalent.
+
+==Why not accept pragmatically superior theory?==
+
+### 6. Failure of the Syntactic Approach
+
+An account of what does it mean to be empirically adequate:
+
+**Tentative account**: Observational vocab (E) vs. Theoretical vocab distinction; A theory T expressed in E is the observational consequence of T, written as T/E. If T/E and T'/E are the same, then T and T' are empirically equivalent.
+- **Objection 1**: Is T/E axiomatizable?
+- **Defense to 1**: Some logicians says that, given some specific condition, yes.
+- **Objection 2**: The distinction between observational vs theoretical vocab is untenable because scientific terms is linked with observation.
+- **Defense to 2**: We introduce old vocab vs. new vocab distinction.
+	- **Objection**: You cannot distinguish empirical import form other part of a theory just in terms of vocab. We can still express unobservables in terms of observational vocab and negations. For example, absolute space neither has a position nor occupies a volume. You will reduce everything into E, not just the observable parts.
+- **Objection 3**: Even if this distinction holds, it is too broad. T/E and T'/E could be the same even if T and T' are totally different. ==why that's a problem? Two theories of course can be different but empirically equivalent. Why is it too broad?==
+- **Defense to 3**: We modify the condition to, T and T' are empirically equivalent iff adding some axioms A to them, (T+A)/E=(T'+A)/E still holds.
+	- **Objection**: Then TN(0), TN(E) and other TN(v) will no longer be equivalent. A possible scenario is shown in section 4
+
+**Summary**: This is not to say that syntactic approach is impossible, but it is highly unlikely. Even we could specify E, it seems untranslatable to natural language. We should not struggle with languages.
+
+### 7. The Hermeneutic Circle
+
+**Another Defense to 2**: The observable/unobservable distinction is a philosophical one.
+- **Objection**: This is an empirical one.
+
+
+
+```
+to conjunction objection stop at 4.3, 23 pages
+```
