@@ -112,3 +112,5 @@ Reductionism: Any sentence describing the identity of a person over time is equi
 Equivalent means, given a possible world and context, their truth value remains the same.
 
 This reduction does not follow that the thing reduced to (i.e. single slices in the continuity) exists independently
+
+There is a difference between bilingual and can only speak PF language

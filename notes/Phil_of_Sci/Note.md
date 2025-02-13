@@ -72,7 +72,7 @@ This is right, but...
 
 This is not right because more evidence for a theory does not guarantee the the increase in the prediction
 
-The Problem of Induction/Ampilative argument
+**The Problem of Induction/Ampilative argument**
 
 Three angles: Humian, Pragmatics, Anti-nominalists
 
@@ -80,10 +80,18 @@ The Humian thesis: How could it be that, inductive premises be evidence for the 
 
 P1: The only way to justify an ampliative argument is to give a non-ampliative argument.
 P2: No non-ampliative argument can justify an ampliative argument
+P3: No ampliative argument can justify an ampliative argument
+C: Induction is not justified
 
 Attempt to object P2: the future has n% chance of resembling the past; 
 	Problem: What justifies this claim?
 
 More generally, deduction is non-ampliative. Therefore, info about observed cases cannot derive unobserved cases
 
-C: 
+Humian: **The principle of the uniformity of nature**: Something like, "The future is like the past"
+
+**Strawson (external/internal questions)**: Induction has its own rules. It's meaningless to ask whether the rules are justified.
+
+Problem: "counter-induction" can justify itself by "all the counter-inductions are disaster, so the next one will be successful"
+
+**Tentative response**: Could there be some reason that does not lie in arguments, but in induction practice?
