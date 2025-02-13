@@ -525,36 +525,73 @@ $A \approx B$.
 
 ## Chap.5 Introduction to First-order Logic
 
-**Definition**: “A is satisfied in M” (in symbols: $M \vDash A$) for sentences A and structures M
+### Syntax
+
+- non-logical symbols: constants, predicates, variables
+- logical symbols: $\neg, \land, \lor, \exists, \forall$,...
+
+### Formulas
+
+**Remark**: Formula that has no free variables is a sentence
 
 **Definition 5.1 (Inductive Definition of Formulas)**. The set of *formulas* is defined as follows:
+
 1. $P (a)$ and $P(v_i)$ are formulas ($i \in N$).
-2. If $A$ is a formula, then $\neg A$ is formula.
-3. If $A$ and $B$ are formulas, then $(A \land B)$ is a formula.
+2. If $A$ is any formula, then $\neg A$ is formula.
+3. If $A$ and $B$ are any formulas, then $(A \land B)$ is a formula.
 4. If $A$ is a formula and $x$ is a variable, then $\exists x A$ is a formula.
 5. Nothing else is a formula.
 
+There could be other ways. This is just an example.
+
 ### Satisfaction
 
-Satisfaction without quantifiers
+**Definition (structure)**: M is a structure iff 
+- $|M|$ is the domain of $M$, which is a non-empty set;
+- For any name $a$, $a$ picks out $a^{M}$ in $M$
+- For any predicate $P$, $P^{M}$ such that $P^{M} \subseteq M$
+
+**Definition (unquantified formula satisfies a structure)**: “A is satisfied in M” (in symbols: $M \vDash A$) for sentences A and structures M
+
+**Definition (Satisfaction without quantifiers)**
 
 1. $P (a)$ is satisfied in $M$ iff $a^M \in  P^M$ .
 2. $\neg A$ is satisfied in $M$ iff $A$ is not satisfied in $M$.
 3. $(A \land B)$ is satisfied in $M$ iff $A$ is satisfied in $M$, and $B$ is
 satisfied in $M$ as well.
 
-Satisfaction with quantifiers:  we introduce variable assignments. A variable assignment is simply a function s that maps variables to elements of $|M|$
+Satisfaction with quantifiers:  we introduce **variable assignments**. 
 
-4. $M,s \vDash P (a)$ iff $a^{M}\in P^{M}$
-5. $M,s \vDash P (v_{i})$ iff $s(v_i) \in P^{M}$ .
-6. $M,s \vDash \neg A$ iff not $M,s \vDash A$.
-7. $M,s \vDash (A \land B)$ iff $M,s \vDash A$ and $M,s \vDash B$.
-8. $M,s \vDash \exists v_{i}A$ iff $M,s [m/vi ] \vDash A$ for some $m \in |M|$.
+**Definition (quantified formula satisfies a structure)**: “A is satisfied in M, s” (in symbols: $M,s \vDash A$) for sentences $A$, structures $M$ and function $s:\{x:x=v_{i}\} \rightarrow |M|$ 
+
+**Definition (specify assignment):** If $s(v_{i})=m$, then we we write $s$ as $s[m/v_i]$
+
+**Definition (Satisfaction with quantifiers)** A variable assignment is simply a function $s$ that maps variables to elements of $|M|$
+
+1. $M,s \vDash P (a)$ iff $a^{M}\in P^{M}$
+2. $M,s \vDash P (v_{i})$ iff $s(v_i) \in P^{M}$ .
+3. $M,s \vDash \neg A$ iff not $M,s \vDash A$.
+4. $M,s \vDash (A \land B)$ iff $M,s \vDash A$ and $M,s \vDash B$.
+5. $M,s \vDash \exists v_{i}A$ iff $M,s [m/v_{i}] \vDash A$ for some $m \in |M|$.
 
 ### Sentences
 
-1. If $A$ is atomic, all occurrences of $x$ in it are free (that is, the occurrence of $x$ in $P (x)$ is free).
-2. If $A$ is of the form $\neg B$, then an occurrence of $x$ in $\neg B$ is free iff the corresponding occurrence of $x$ is free in $B$ (that is, the free occurrences of variables in B are exactly the corresponding occurrences in $\neg B$).
-3. If $A$ is of the form $(B \land C)$, then an occurrence of $x$ in $(B \land C)$ is free iff the corresponding occurrence of $x$ is free in $B$ or in $C$ .
-4. If $A$ is of the form $\exists x B$, then no occurrence of $x$ in $A$ is free; if it is of the form $\exists y B$ where $y$ is a different variable than $x$, then an occurrence of $x$ in $\exists y B$ is free iff the corresponding occurrence of $x$ is free in $B$.
+Sentences: making sure all variables are bounded
+
+6. If $A$ is atomic, all occurrences of $x$ in it are free (that is, the occurrence of $x$ in $P (x)$ is free).
+7. If $A$ is of the form $\neg B$, then an occurrence of $x$ in $\neg B$ is free iff the corresponding occurrence of $x$ is free in $B$ (that is, the free occurrences of variables in B are exactly the corresponding occurrences in $\neg B$).
+8. If $A$ is of the form $(B \land C)$, then an occurrence of $x$ in $(B \land C)$ is free iff the corresponding occurrence of $x$ is free in $B$ or in $C$ .
+9. If $A$ is of the form $\exists x B$, then no occurrence of $x$ in $A$ is free; if it is of the form $\exists y B$ where $y$ is a different variable than $x$, then an occurrence of $x$ in $\exists y B$ is free iff the corresponding occurrence of $x$ is free in $B$.
+
+### Semantic Notions
+
+- A sentence is valid, $\vDash A$, if every structure satisfies it. 
+- It is entailed by a set of sentences, $\Gamma \vDash A$, if every structure that satisfies all the sentences in $\Gamma$ also satisfies $A$. 
+- And a set of sentences is satisfiable if some structure satisfies all sentences in it at the same time.
+
+### Substitution
+
+**Remark**: To allow the derivation from $\forall xPx$ to $Pa$
+
+### Models and Theories
 
