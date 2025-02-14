@@ -97,7 +97,17 @@ Motivation: derivation is too deterministic, and no actual science has been succ
 
 Problem for RMS: There may be some unexpected information that would change the confidence value; For example, my funeral is happening at Monday is going to change the confidence whether I survived after the surgery, but it should not be included in the explanation of whether I will survive the surgery. Therefore we have to define "relevant evidence"
 
+(restated below)
+
+**Problem (Irrelevant information)**: I lived to be 31 explains I lived to be 30?
+
 Another problem: tieing explanation to our background knowledge sounds off
+
+
+**Greater problem**: In some context, some explanation *cannot be* prediction. Therefore, the Hempelian project that prediction=explanation failed. 
+
+For example, John Jones gets paresis because he had untreated syphilis, and 30% chance of syphilis develops paresis, and the only way to get paresis is to have syphilis. But this is not a prediction. 
+
 
 ### Pragmatics of Explanation
 
@@ -139,3 +149,7 @@ We need to reconcile the two horns when we are trying to come up with a theory o
 Anti-realists: tend to think that, we should not think about *ideal explanation*. We should only care about the explanatory act stuff.
 
 Hempel is having some realist idea but only using positivists' tools
+
+**Jeffrey** Explanation is not an argument (Don''t take his term "causal explanation" to imply that there's ontological cause)
+
+Motivation of Hempel: Why he requires high probability is that, or whatever something happens you can explain with the same thing. or example, you can explains you win/lose the lottery with "I bought the lottery." If you want to explain "I win the lottery," The motivation is that, there must be some high probability or deterministic law governing it.
