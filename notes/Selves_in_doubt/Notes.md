@@ -107,9 +107,9 @@ Some I-blind creature can follow KP rule without being self-referential
 
 ### A no-self Language
 
-Reductionism: Any sentence describing the identity of a person over time is equivalent to a sentence describing the occurrence of the various (non-branching) physical and (especially) psychological continuities
+**Definition (Reductionism)**: Any sentence describing the identity of a person over time is equivalent to a sentence describing the occurrence of the various (non-branching) physical and (especially) psychological continuities
 
-Equivalent means, given a possible world and context, their truth value remains the same.
+**Definition (Equivalence)**: $\forall W(\forall c_{1}P^{c_{1}} \leftrightarrow \forall c_{2}P^{c_{2}})$
 
 This reduction does not follow that the thing reduced to (i.e. single slices in the continuity) exists independently
 

@@ -138,3 +138,4 @@ Standard form of demonstration: The individual that has appearance A from here n
 demonstration + context = content
 demonstration does not have a fixed content ==You mean, the content varies in different context?==
 
+ 
