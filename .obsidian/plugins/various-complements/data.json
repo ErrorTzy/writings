@@ -23,10 +23,10 @@
   ],
   "phrasePatternsToSuppressTrigger": [],
   "noAutoFocusUntilCycle": false,
-  "showMatchStrategy": false,
-  "showComplementAutomatically": false,
-  "showIndexingStatus": false,
-  "descriptionOnSuggestion": "Short",
+  "showMatchStrategy": true,
+  "showComplementAutomatically": true,
+  "showIndexingStatus": true,
+  "descriptionOnSuggestion": "Full",
   "hotkeys": {
     "select": [
       {
@@ -62,7 +62,7 @@
     "insert as text": []
   },
   "propagateEsc": false,
-  "enableCurrentFileComplement": true,
+  "enableCurrentFileComplement": false,
   "currentFileMinNumberOfCharacters": 0,
   "onlyComplementEnglishOnCurrentFileComplement": false,
   "excludeCurrentFileWordPatterns": [],
@@ -72,8 +72,8 @@
   "excludeCurrentVaultPathPrefixPatterns": "",
   "includeCurrentVaultOnlyFilesUnderCurrentDirectory": false,
   "excludeCurrentVaultWordPatterns": [],
-  "enableCustomDictionaryComplement": false,
-  "customDictionaryPaths": "https://raw.githubusercontent.com/first20hours/google-10000-english/master/google-10000-english-no-swears.txt",
+  "enableCustomDictionaryComplement": true,
+  "customDictionaryPaths": "/_resources/Dictionary.md",
   "columnDelimiter": "Tab",
   "customDictionaryWordRegexPattern": "",
   "delimiterToHideSuggestion": "",

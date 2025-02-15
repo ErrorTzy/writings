@@ -4,11 +4,20 @@
 
 **Importance of the Goal**: Utilitarianism is often accused of not aligning with our moral judgements. If we can make this distinction, then we can form utilitarianism that is immune to this criticism
 
-How should we justify punishment?
+## Part I
 
-1. Intuitive justification: Wrongdoing merits(deserves) punishment
+**Question**: How should we reconcile two different justifications of punishment?
+
+1. Intuitive justification: Wrongdoing merits(deserves) punishment. (*Utilitarians cannot take 1* because moral only depends on future consequences.)
 	- Guilt/An eye for an eye
-2. Utilitarian principle cannot take 1 because moral only depends on future consequences. Utilitarianism must argue that punishment produce good future consequences like maintaining social order.
+2. Utilitarianism must argue that punishment produce good future consequences like maintaining social order.
+
+**Rawls' Answer**: The conflict is resolved by saying that the first is justifying particular cases, while the second is justifying a system of rules.
+
+Consider two linguistic practices:
+
+(i) "Why was J put in jail yesterday"? "Because he robbed the bank"
+(ii) "Why do people put other people in jail"? "Because we need to protect good people from bad people"
 
 
 

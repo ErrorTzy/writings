@@ -9,9 +9,11 @@
   "better-word-count",
   "obsidian-git",
   "number-headings-obsidian",
-  "various-complements",
   "obsidian-minimal-settings",
   "enhanced-annotations",
   "obsidian-style-settings",
-  "obsidian-graphviz"
+  "obsidian-graphviz",
+  "definition-list",
+  "typing-transformer-obsidian",
+  "latex-to-unicode"
 ]

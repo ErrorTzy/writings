@@ -3,35 +3,41 @@
 
 ## Chap.1 Sets
 
-**Definition 1.1 (Extensionality)** 
-- If A and B are sets, then $A = B$ iff every element of A is also an element of B, and vice versa.
+**Definition 1.1 (Extensionality)**
 
-**Definition 1.5 (Subset)** 
-- If $\forall x(x \in A \rightarrow x \in B)$ , then we say that A is a subset of B, and write $A \subseteq B$. 
-- If A is not a subset of B we write $A \not\subseteq B$. [[Sets, Logic and Computation]]
-- If $A \subseteq B$ but $A \neq B$, we write $A \subsetneq B$ and say that A is a *proper subset* of B.
+: If A and B are sets, then $A = B$ iff every element of A is also an element of B, and vice versa.
 
-**Proposition 1.8** 
-- $A = B$ iff both $A \subseteq B$ and $B \subseteq A$.
+**Definition 1.5 (Subset)**
+
+~ If $\forall x(x \in A \rightarrow x \in B)$ , then we say that A is a subset of B, and write $A \subseteq B$. 
+~ If A is not a subset of B we write $A \not\subseteq B$. [[Sets, Logic and Computation]]
+~ If $A \subseteq B$ but $A \neq B$, we write $A \subsetneq B$ and say that A is a *proper subset* of B.
+
+**Proposition 1.8**
+
+: $A = B$ iff both $A \subseteq B$ and $B \subseteq A$.
 
 **Definition 1.9 (Abbreviation)**
-- $(\forall x \in A) \phi$ abbreviates $\forall x (x \in A \rightarrow \phi)$. 
-- Similarly, $(\exists x \in A) \phi$ abbreviates $\exists x (x \in A \land \phi)$
+
+~ $(\forall x \in A) \phi$ abbreviates $\forall x (x \in A \rightarrow \phi)$. 
+~ Similarly, $(\exists x \in A) \phi$ abbreviates $\exists x (x \in A \land \phi)$
 
 **Definition 1.10 (Power Set)**
-- The set consisting of all subsets of a set A is called the power set of A, written $\wp(A)$. 
-- $\wp(A) = \{B : B \subseteq A\}$
+
+~ The set consisting of all subsets of a set A is called the power set of A, written $\wp(A)$. 
+~ $\wp(A) = \{B : B \subseteq A\}$
 
 **Definition 1.15 (Union)**
-- The union of two sets A and B, written A ∪ B, is the set of all things which are elements of A, B, or
-both.
-- $A \cup B = \{x : x ∈ A \lor x ∈ B \}$
+
+~ The union of two sets A and B, written A ∪ B, is the set of all things which are elements of A, B, or both.
+~ $A \cup B = \{x : x ∈ A \lor x ∈ B \}$
 
 **Definition 1.17 (Intersection)**
-- The intersection of two sets A and B, written $A \cap B$, is the set of all things which are elements
+
+~ The intersection of two sets A and B, written $A \cap B$, is the set of all things which are elements
 of both A and B.
-- $A \cup B = \{x:x \in A \land x \in B\}$
-- Two sets are called *disjoint* if their intersection is empty
+~ $A \cup B = \{x:x \in A \land x \in B\}$
+~ Two sets are called *disjoint* if their intersection is empty
 
 **Definition 1.19 (big cup)**
 - If A is a set of sets, then $\bigcup A$ is the set of elements of elements of A:
@@ -50,8 +56,7 @@ $\langle a,b \rangle = \{\{a\}, \{a,b\}\}$
 **Definition 1.24 (Cartesian product)**
 - Given sets A and B, their Cartesian product $A \times B$ is defined by $$A \times B = \{\langle x,y\rangle: x \in A \land y \in B\}$$
 
-Example:
-$\{0, 1, 2\} \times \{a, b\} = \{\langle 0,a \rangle, \langle 0,b\rangle, \langle 1,a \rangle, \langle 1,b \rangle, \langle 2,a \rangle, \langle 2,b \rangle \}$
+**Example**: $\{0, 1, 2\} \times \{a, b\} = \{\langle 0,a \rangle, \langle 0,b\rangle, \langle 1,a \rangle, \langle 1,b \rangle, \langle 2,a \rangle, \langle 2,b \rangle \}$
 
 
 **Proposition 1.27**
@@ -546,12 +551,14 @@ There could be other ways. This is just an example.
 
 ### Satisfaction
 
-**Definition (structure)**: M is a structure iff 
-- $|M|$ is the domain of $M$, which is a non-empty set;
-- For any name $a$, $a$ picks out $a^{M}$ in $M$
-- For any predicate $P$, $P^{M}$ such that $P^{M} \subseteq M$
+**Definition (structure)**
+: M is a structure iff 
+	: $|M|$ is the domain of $M$, which is a non-empty set;
+	: For any name $a$, $a$ picks out $a^{M}$ in $M$
+	: For any predicate $P$, $P^{M}$ such that $P^{M} \subseteq M$
 
-**Definition (unquantified formula satisfies a structure)**: “A is satisfied in M” (in symbols: $M \vDash A$) for sentences A and structures M
+**Definition (unquantified formula satisfies a structure)**
+: “A is satisfied in M” (in symbols: $M \vDash A$) for sentences A and structures M
 
 **Definition (Satisfaction without quantifiers)**
 
@@ -562,11 +569,14 @@ satisfied in $M$ as well.
 
 Satisfaction with quantifiers:  we introduce **variable assignments**. 
 
-**Definition (quantified formula satisfies a structure)**: “A is satisfied in M, s” (in symbols: $M,s \vDash A$) for sentences $A$, structures $M$ and function $s:\{x:x=v_{i}\} \rightarrow |M|$ 
+Definition (quantified formula satisfies a structure)
+: “A is satisfied in M, s” (in symbols: $M,s \vDash A$) for sentences $A$, structures $M$ and function $s:\{x:x=v_{i}\} \rightarrow |M|$ 
 
-**Definition (specify assignment):** If $s(v_{i})=m$, then we we write $s$ as $s[m/v_i]$
+Definition (specify assignment)
+: If $s(v_{i})=m$, then we we write $s$ as $s[m/v_i]$
 
-**Definition (Satisfaction with quantifiers)** A variable assignment is simply a function $s$ that maps variables to elements of $|M|$
+**Definition (Satisfaction with quantifiers)**
+: A variable assignment is simply a function $s$ that maps variables to elements of $|M|$
 
 1. $M,s \vDash P (a)$ iff $a^{M}\in P^{M}$
 2. $M,s \vDash P (v_{i})$ iff $s(v_i) \in P^{M}$ .
