@@ -1,7 +1,8 @@
 /* reading mode */
-dl dt {
+.dl-dt {
   font-weight: bold;
-  color: #6100A2;
+  color: var(--bold-color);
+  text-decoration: underline;
   padding-block-start: var(--list-spacing);
 }
 
@@ -13,8 +14,13 @@ dd {
 /* live preview */
 .dl-dt {
   font-weight: bold;
-  color: #6100A2;
+  color: var(--bold-color);
+  text-decoration: underline;
   padding-block-start: var(--list-spacing);
+}
+
+.dl-dd-reg {
+  font-weight: bold;
 }
 
 .markdown-source-view.mod-cm6 .cm-line.dl-dd-reg, .markdown-source-view.mod-cm6 .cm-line.dl-dd-indent {

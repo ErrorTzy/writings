@@ -10,9 +10,12 @@ toc: false
 toc-title: catalog
 reference-section-title: Biblio
 mainfont: FreeSerif
-CJKmainfont: SimSun
+CJKmainfont: Noto Serif CJK SC
 include-before:
   - "`\\newpage{}`{=latex}"
+header-includes:
+  - \usepackage{enumitem}
+  - \setlist[description]{style=nextline}
 linestretch: "1.5"
 fontsize: "10"
 ---

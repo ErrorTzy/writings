@@ -552,12 +552,15 @@ There could be other ways. This is just an example.
 ### Satisfaction
 
 **Definition (structure)**
+
 : M is a structure iff 
-	: $|M|$ is the domain of $M$, which is a non-empty set;
-	: For any name $a$, $a$ picks out $a^{M}$ in $M$
-	: For any predicate $P$, $P^{M}$ such that $P^{M} \subseteq M$
+
+1. $|M|$ is the domain of $M$, which is a non-empty set;
+2. For any name $a$, $a$ picks out $a^{M}$ in $M$
+3. For any predicate $P$, $P^{M}$ such that $P^{M} \subseteq M$
 
 **Definition (unquantified formula satisfies a structure)**
+
 : “A is satisfied in M” (in symbols: $M \vDash A$) for sentences A and structures M
 
 **Definition (Satisfaction without quantifiers)**
@@ -573,6 +576,7 @@ Definition (quantified formula satisfies a structure)
 : “A is satisfied in M, s” (in symbols: $M,s \vDash A$) for sentences $A$, structures $M$ and function $s:\{x:x=v_{i}\} \rightarrow |M|$ 
 
 Definition (specify assignment)
+
 : If $s(v_{i})=m$, then we we write $s$ as $s[m/v_i]$
 
 **Definition (Satisfaction with quantifiers)**

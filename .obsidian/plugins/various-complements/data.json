@@ -23,10 +23,10 @@
   ],
   "phrasePatternsToSuppressTrigger": [],
   "noAutoFocusUntilCycle": false,
-  "showMatchStrategy": true,
-  "showComplementAutomatically": true,
-  "showIndexingStatus": true,
-  "descriptionOnSuggestion": "Full",
+  "showMatchStrategy": false,
+  "showComplementAutomatically": false,
+  "showIndexingStatus": false,
+  "descriptionOnSuggestion": "Short",
   "hotkeys": {
     "select": [
       {
@@ -61,18 +61,18 @@
     "completion": [],
     "insert as text": []
   },
-  "propagateEsc": false,
-  "enableCurrentFileComplement": false,
+  "propagateEsc": true,
+  "enableCurrentFileComplement": true,
   "currentFileMinNumberOfCharacters": 0,
   "onlyComplementEnglishOnCurrentFileComplement": false,
   "excludeCurrentFileWordPatterns": [],
-  "enableCurrentVaultComplement": false,
+  "enableCurrentVaultComplement": true,
   "currentVaultMinNumberOfCharacters": 0,
   "includeCurrentVaultPathPrefixPatterns": "",
   "excludeCurrentVaultPathPrefixPatterns": "",
   "includeCurrentVaultOnlyFilesUnderCurrentDirectory": false,
   "excludeCurrentVaultWordPatterns": [],
-  "enableCustomDictionaryComplement": true,
+  "enableCustomDictionaryComplement": false,
   "customDictionaryPaths": "/_resources/Dictionary.md",
   "columnDelimiter": "Tab",
   "customDictionaryWordRegexPattern": "",
@@ -99,6 +99,6 @@
     "maxDaysToKeepHistory": 30,
     "maxNumberOfHistoryToKeep": 0
   },
-  "disableOnMobile": false,
+  "disableOnMobile": true,
   "showLogAboutPerformanceInConsole": false
 }
