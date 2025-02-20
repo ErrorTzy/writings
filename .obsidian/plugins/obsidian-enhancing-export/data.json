@@ -7,7 +7,8 @@
       "name": "Markdown (Hugo)"
     },
     {
-      "name": "Html"
+      "name": "Html",
+      "arguments": "-f ${fromFormat} --lua-filter=\"${luaDir}/diagram-generator.lua\" --lua-filter=\"${luaDir}/highlight.lua\" --resource-path=\"${currentDir}\" --resource-path=\"${attachmentFolderPath}\" --lua-filter=\"${luaDir}/math_block.lua\" --embed-resources --standalone --metadata title=\"${currentFileName}\" -s -o \"${outputPath}\" -t html"
     },
     {
       "name": "TextBundle"
@@ -18,11 +19,11 @@
     {
       "name": "PDF",
       "customArguments": "--pdf-engine=xelatex",
-      "arguments": "-f ${fromFormat} --lua-filter=\"${luaDir}/diagram-generator.lua\" --resource-path=\"${currentDir}\" --resource-path=\"${attachmentFolderPath}\" --lua-filter=\"${luaDir}/pdf.lua\" ${ options.textemplate ? `--resource-path=\"${pluginDir}/textemplate\" --template=\"${options.textemplate}\"` : ` ` } -o \"${outputPath}\" -t pdf"
+      "arguments": "-f ${fromFormat} --lua-filter=\"${luaDir}/diagram-generator.lua\" --lua-filter=\"${luaDir}/highlight.lua\" --resource-path=\"${currentDir}\" --resource-path=\"${attachmentFolderPath}\" --lua-filter=\"${luaDir}/pdf.lua\" ${ options.textemplate ? `--resource-path=\"${pluginDir}/textemplate\" --template=\"${options.textemplate}\"` : ` ` } -o \"${outputPath}\" -t pdf"
     },
     {
       "name": "Word (.docx)",
-      "arguments": "-f ${fromFormat} --lua-filter=\"${luaDir}/diagram-generator.lua\" --resource-path=\"${currentDir}\" --resource-path=\"${attachmentFolderPath}\" -o \"${outputPath}\" -t docx"
+      "arguments": "-f ${fromFormat} --lua-filter=\"${luaDir}/diagram-generator.lua\"  --lua-filter=\"${luaDir}/highlight.lua\" --resource-path=\"${currentDir}\" --resource-path=\"${attachmentFolderPath}\" -o \"${outputPath}\" -t docx"
     },
     {
       "name": "OpenOffice"
@@ -54,7 +55,7 @@
     {
       "name": "SimplePdf",
       "type": "pandoc",
-      "arguments": "-f ${fromFormat} --lua-filter=\"${luaDir}/diagram-generator.lua\" --resource-path=\"${currentDir}\" -o \"${outputPath}\" -t pdf",
+      "arguments": "-f ${fromFormat} --lua-filter=\"${luaDir}/diagram-generator.lua\"  --lua-filter=\"${luaDir}/highlight.lua\" --resource-path=\"${currentDir}\" -o \"${outputPath}\" -t pdf",
       "customArguments": "--pdf-engine=pdflatex",
       "optionsMeta": {
         "textemplate": "preset:textemplate"
@@ -71,5 +72,5 @@
     "linux": "/home/scott/Desktop"
   },
   "lastExportType": "PDF",
-  "lastEditName": "SimplePdf"
+  "lastEditName": "Html"
 }
