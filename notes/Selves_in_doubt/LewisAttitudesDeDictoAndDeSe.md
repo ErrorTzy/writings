@@ -217,3 +217,5 @@ The first object determines whether one's belief is true, and it explains agreem
 
 1. the subject bears the relation $Z$ uniquely to $Y$
 2. the subject self-ascribes the property the property of bearing relation $Z$ uniquely to something which has property $X$
+
+**Remark**: $Z$ is now expressed by a relation
