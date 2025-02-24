@@ -30,7 +30,7 @@ Things being put aside:
 - vagueness of equivalence and infinitary sentences
 - Statements about personal identity are true by the way we talk. What does that mean?
 
-### Parfit's Stupid Non-self Language
+### Parfit's Stupid No-self Language
 
 (O) I made the mess
 
@@ -40,7 +40,7 @@ Things being put aside:
 
 **Proof**: In the context that I was subconsciously making a mess without thinking or uttering anything, (O) is true but (NS') has no truth value/false.
 
-### Eli's Clever Non-self Language
+### Eli's Clever No-self Language
 
 **Proposition 2:** Proposition 1 holds because the condition for transworld identity does not coincide with the conditions for the transworld identity of successions of person-states.
 
