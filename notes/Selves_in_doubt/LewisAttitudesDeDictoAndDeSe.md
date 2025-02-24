@@ -201,21 +201,36 @@ The first object determines whether one's belief is true, and it explains agreem
 ## XIII Belief De Re
 **A related case**: Attributing "rectitude" to *the individual under description of "Lord High Auditor"*
 
-**Analysis**: 
+**Remark**: 
 
 1. X in "Under the description of X" does not need to be verbal. X could be visual image
 2. Description here means property, not expressions of properties
 
-**Definition (preliminary, de re)** A subject ascribes property $X$ to *individual $Y$ under description $Z$* iff
+**Definition (preliminary, de re ascription)** A subject ascribes property $X$ to *individual $Y$ under description $Z$* iff
 
 1. $Y$ uniquely has the property $Z$
 2. the subject believes that $P$, i.e. there is something which uniquely has $Z$ and also has $X$
 
 **Remark**: This preliminary definition is not general enough because the second condition is propositional. Therefore it would by definition restrict the possibility of ascribing relational properties like "the mountain I live on the top of" because this is not propositional. We need to modify the definition.
 
-**Definition (de re)**: A subject ascribes property $X$ to *individual $Y$ under description $Z$* iff
+**Definition (de re ascription)**: A subject ascribes property $X$ to *individual $Y$ under description $Z$* iff
 
 1. the subject bears the relation $Z$ uniquely to $Y$
-2. the subject self-ascribes the property the property of bearing relation $Z$ uniquely to something which has property $X$
+2. the subject self-ascribes the property of bearing relation $Z$ uniquely to something which has property $X$
 
-**Remark**: $Z$ is now expressed by a relation
+**Remark on Z**: 
+
+1. $Z$ is now expressed by a relation characterized by a function with two arguments, the subject and the object, i.e. $f(s,o)$; A property is just a special kind of relation where the output does not change when you changes the subject in the argument.
+2. $Z$ has certain restrictions. For example, ascribing espionage to someone under the description "the shortest spy" will not generate a de re belief. What restrictions, then?
+
+**Definition (restriction for modality de re)**: It is necessary de re of individual $Y$ that $Y$ has property $X$ if and only if for some property $Z$, (1) $Z$ is the essence of Y, and (2) the proposition that whatever has $Z$ also has $X$ is the necessary proposition.
+
+**Definition (restriction for belief de re)**: A subject ascribes property $X$ to individual $Y$ if and only if the subject ascribes $X$ to $Y$ under some description $Z$ such that either (1) $Z$ captures the essence of $Y$, or (2) $Z$ is a relation of acquaintance that the subject bears to Y
+
+**Remark**: For *belief* de re, it is very hard to say that anyone know the essence of some person, even if we grant that there is such an essence. But arguably we do have belief de re. Therefore, $Z$ does not need to be essence in order to form belief de re. 
+
+Tentative sufficient conditions for $Z$ in order to form belief de se: acquaintance, public figures, famous people, people with traces, myself, etc. The cases in common is that, it has a relation of acquaintance, which may be defined by a reliable causal chain of evidence for the transmission of information.
+
+## XIV Identity De Re vs De Se
+
+When you are watching yourself in the Mirror, you may have a de re belief about yourself, but it does not necessarily follow that you have a de se belief. But de se belief entails de re. Therefore, there's something more to de se than to de re.
