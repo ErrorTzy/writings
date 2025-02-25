@@ -535,9 +535,13 @@ $A \approx B$.
 - non-logical symbols: constants, predicates, variables
 - logical symbols: $\neg, \land, \lor, \exists, \forall$,...
 
+Definition (Terms)
+
+: every constant symbols and variables are terms
+
 ### Formulas
 
-**Remark**: Formula that has no free variables is a sentence
+**Remark**: Formula allows free variables. Formula that has no free variables is a sentence
 
 **Definition 5.1 (Inductive Definition of Formulas)**. The set of *formulas* is defined as follows:
 
@@ -549,6 +553,8 @@ $A \approx B$.
 
 There could be other ways. This is just an example.
 
+
+
 ### Satisfaction
 
 **Definition (structure)**
@@ -558,6 +564,14 @@ There could be other ways. This is just an example.
 1. $|M|$ is the domain of $M$, which is a non-empty set;
 2. For any name $a$, $a$ picks out $a^{M}$ in $M$
 3. For any predicate $P$, $P^{M}$ such that $P^{M} \subseteq M$
+
+Definition (validity)
+
+: A sentence A is valid iff A satisfies all structures
+
+Definition (entailment, semantic)
+
+: $\Gamma$ entails $A$, or $\Gamma \vDash A$, means that all structures that satisfies $\Gamma$ also satisfies $A$
 
 **Definition (unquantified formula satisfies a structure)**
 
@@ -609,3 +623,61 @@ Sentences: making sure all variables are bounded
 
 ### Models and Theories
 
+Definition (Models)
+
+: Given a set of sentences $\Gamma$, a structure $M$ that satisfies them is called a model of $\Gamma$
+
+**Axiomatic method**: Describing a collection of structures by a set of sentences, the axioms of a theory
+
+The limit of first-order languages are consequences of the compactness and Lowenheim-Skolem theorems.
+
+### Soundness and Completeness
+
+Definition (derivation, syntactic)
+
+: xxx
+
+
+If $\Gamma \vdash A$ then $\Gamma \vDash A$, the deductive system is *sound*
+If $\Gamma \vDash A$ then $\Gamma \vdash A$, the deductive system is *complete*
+If $\Gamma \vdash A$ but not $\Gamma \vDash A$, the deductive system is *too strong*
+If $\Gamma \vDash A$ but not $\Gamma \vdash A$, the deductive system is *too weak*
+
+
+## Chap 6 Syntax of First-order Logic
+
+### First-order Languages
+
+### Terms and Formulas
+
+Definition 6.4 (Terms)
+
+: The set of terms $Trm(\mathcal{L})$
+
+
+**Definition 6.5 (Formulas)**:
+
+1. $\bot$ is an atomic formula
+2. If $R$ is an n-place predicate, and $t_{1},...,t_{n}$ are terms, then $R(t_{1},...,t_{n})$ is an atomic formula
+3. If $t_{1},t_{2}$ are terms, then $t_{1}=t_{2}$ is an atomic formula
+4. If $A$ is a formula then $\neg A$ is a formula
+5. If A and B are formulas then $(A * B)$ where $*=\land , \lor , \rightarrow$ is a formula
+6. 
+
+
+Definition 6.7 (Syntactical Identify)
+
+: $A \equiv B$ iff they are the same string
+
+### 6.4 Unique Readability
+
+The way we defined formulas guarantees that every formula has a unique reading
+
+**Lemma 6.10**: The number of left and right parenthesis in a formula A are equal
+
+> ==Proof==
+>
+>
+
+
+**Lemma 6.12**: If $A$ is a formula, and B is a proper prefix of $A$, then $B$ is not a formula
