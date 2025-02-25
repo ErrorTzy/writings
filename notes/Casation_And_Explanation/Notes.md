@@ -153,3 +153,19 @@ Hempel is having some realist idea but only using positivists' tools
 **Jeffrey** Explanation is not an argument (Don''t take his term "causal explanation" to imply that there's ontological cause)
 
 Motivation of Hempel: Why he requires high probability is that, or whatever something happens you can explain with the same thing. or example, you can explains you win/lose the lottery with "I bought the lottery." If you want to explain "I win the lottery," The motivation is that, there must be some high probability or deterministic law governing it.
+
+**Kitcher's solution**: there's more restriction for explanation than just deduction
+
+**core idea**: science is to reduce the number of things we have to accept as ultimate or brute ==COMPRESSION IS INTELLIGENCE!!==
+
+**Explanatory Store "E(K)"**": The best collection of argument *patterns* that allow us to derive a huge number of $K$ from a very small amount of patterns
+
+**Unification Theory of Explanation**: to explain is to derive from $K$ that satisfies $E(K)$
+
+The whole project is about deduction; Kitcher is not adopting any kind of IS model
+
+Temperal Translation Symmetry allows the model to either go from past to the future
+
+Possible response: That's a feature not a bug; This is a good explanation in physics. It's just not a good explanation for us. 
+
+> Metaphysical explanation vs. Epistemic explanation?
