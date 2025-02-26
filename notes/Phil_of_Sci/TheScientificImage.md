@@ -342,10 +342,10 @@ Four main questions
 **Objection**: observable objects are just postulated entities from sense experience or sense data
 **Defense**: No. Sense data is the postulated entity from observable objects
 
-- **Objection**: The conclusion of empirical adequacy is confirmed by observables is still beyond the evidence. What are the conditions for rationally accepting the conclusion beyond evidence, then? ==why go beyond evidence but not so far as to say the theory is true==
+- **Objection**: The conclusion of empirical adequacy is confirmed by observables is still beyond the evidence. What are the conditions for rationally accepting the conclusion beyond evidence, then? ==why go beyond evidence but not so beyond as to say the theory is true==
 
 
-### Methodology and Experimental Design
+### 2. Methodology and Experimental Design
 
 #### 2.1 The Roles of Theory
 
@@ -353,12 +353,12 @@ Four main questions
 
 **Problem**: contrasts sharply with the activity Kuhn has termed "normal science" which needs the construction of theories and previous constructed theories that guide experimental inquiry
 
-**value of experimentation**
+**role of experimentation**
 
-1. the result fills in blanks in a developing theory, and 
+1. constructs the theory by filling in blanks, and 
 2. test the empirical adequacy of a theory
 
-**Theories' value for experiment**
+**Role of Theory**
 
 1. formulate the questions to be answered, and
 2. help design the experiment
@@ -371,11 +371,43 @@ Four main questions
 - **Discovery:** The theory posits some missing factor (blank), and experiment discover what it is (fill in the blank)
 
 **Objection**: What are the experimental scientists doing when they make a discovery, if the thing being discovered does not exist?
-**Defense**: They are give answer to how the blank is to be filled if the theory is to be empirically adequate
+**Defense**: They are give answer to: Assuming that the theory is empirically adequate, how the blank is to be filled
 
+**Example**: Millikan's oil drop experiment is filling a value for a quantity which was left open.
+
+Therefore, experiment is the *continuation of theory construction by other means*, aiming at empirical adequacy.
+
+#### 2.3 Boyd on the Philosophical Explanation of Methodology
+
+**Boyd**: Only scientific realism can help us make sense of why theory can guide experimental design
+
+**Objection 1**: Anti-realism is false because it adopts the following principle: If two theories have exactly the same deductive observational consequences, then any experimental evidence for or against one of them is evidence of the same force for or against the other. The principle is trivially false if both have no observation predicates at all or the consequences are all tautological; ==Why? Is there any example?==
+
+- **Defense**: It is immune to Boyd's objection if I modify it into "any two empirically equivalent theories are equally supported or contravened by the evidence" ==why?==
+
+**Objection 2**: The following principle is uncontroversial
+
+1. Suppose that some principle of scientiﬁc methodology contributes to the reliability of that methodology in the following minimal sense: that its operation contributes to the likelihood that the observational consequences of accepted scientiﬁc theories will be (at least approximately) true. Then it is the business of scientiﬁc epistemology to *explain* the reliability of that principle `If a rule in scientific methodology increases the chances that the observable predictions of accepted theories are true (or close to true), then philosophers of science should explain _why_ that rule is reliable`
+
+In specific, (P) is an example of this principle ==why? How is P related to the second principle?== 
+
+(P) a proposed theory T must be experimentally tested under situations representative of those in which, in the light of collateral information, it is most likely that T will fail, if it's going to fail at all. `Pressure testing for L: find the cases where L fails it would produce different outcome`
+
+(P) is plausible, and only realism can follow (P) because you need causal claims made by the theory might plausibly go wrong
+
+**Defense**: The pressure testing will confirm L to be empirically adequate as against contemplated alternatives
+
+#### 2.4 Phenomenology of Scientific Activity
+
+We are immersed to theoretical language, how do we explain it without ontological commitment?
+
+**Old way**: philosophy distinguish theoretical and non-theoretical vocabulary from outside
+
+**Van Fraassen's way**: the conceptual framework of science itself distinguish observables and unobservables; and it *correlates* the what we perceive but it does not need to be metaphysical
+
+When we are immersed in the world picture, we seems to see electron and racehorse as both objectively existence. But this is not qualified. "Living in a theoretical world" does not describe one's commitments. Is it only possible to distinguish observables and unobservable after we are immersed in the scientific world. The "stepping one step away and examine one's epistemic commitments" is a reflective attitude.
 
 ```
 to conjunction objection stop at 4.3, 23 pages
 ```
-
 
