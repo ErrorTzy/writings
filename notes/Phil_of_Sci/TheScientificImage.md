@@ -93,7 +93,7 @@ Constructive Empiricism:
 
 Maxwell: 
 
-- against Carnap，observable/theoretical dichotomy is obscure
+- against Carnap, observable/theoretical dichotomy is obscure
 - distinction between observing and observing that
 
 Maxwell: 
@@ -264,9 +264,118 @@ An account of what does it mean to be empirically adequate:
 
 **Another Defense to 2**: The observable/unobservable distinction is a philosophical one.
 - **Objection**: This is an empirical one.
+- **Defense**: This will lead to circularity: The observables are defined by a specific theory, and then we use the notion of observable to define empirical adequacy
+	- **Objection**: What is observable is theory-independent. How? What is observable is determined by our organism, and we have "folk-psychology" to determine what is observable. Science provides translation from folk-psychology to scientific language but does not determine what is observable in folk-psychology.
 
+Definition (Quantity)
+
+: A quantity is a property that can be measured and given a numerical value
+
+**General theory of measurement**: $Y$ is a measurement apparatus for quantity $A$ if
+
+1. System $Y$ has a certain ground-state $Y_{g}$
+2. $Y_{g}$ interacts with system $X$ in any of its possible states under some law
+3. There is a correlation between quantity $B$ in the combined system $X+Y$ and quantity $A$ in $X$
+
+**The task of science**: describe the physical system, and describe the anthropocentric distinctions `i.e. provide the translation from theoratical language to anthropocentric language`
+
+### 8. Limits to Empirical Description
+
+**Objection**: Since science cannot be translated to statements that describe only what the observable phenomena are like without remainder, empiricism cannot do justice to science.
+**Defense**: It's true that there are limitation of observation.  But that's a feature not a bug.
+
+**Examples**: 
+
+1. In newton mechanics, we may define mass as a non-primitive quantity, and can only be calculated by basic observables. But some objects actually have never accelerated and therefore we never know the mass. Therefore, whether you say they have mass or not is empirically equivalent. (counterfactual is also not observable, so we cannot say it would have some mass in some counterfactual situation)
+2. In quantum mechanics, rotating $2 \pi$ to a system does not change the probability distribution of any measurement result. But a rotated system is different from the original one if there is a superposition with another system. Therefore, for a system that rotated $2 \pi$ and never interact with a another system in the actual world, whether you say it changed or not is empirically equivalent.
+
+ These examples tell us that, there are limitations of observation. We cannot uniquely determine everything just by observables anyway.
+
+###  9. A New Picture of Theories
+
+**The old picture (axiomatic way)**: To present a theory, you specify 
+
+1. an exact language, 
+2. some set of axioms, and 
+3. a partial dictionary that related the theoretical jargon to the observed phenomena which are reported.
+
+**The new picture**: To present a theory is 
+
+1. to specify a family of structures, namely *models*, and
+2. to specify substructure (the *empirical structures*) of those models as candidates for the direct representation of observable phenomena (*appearances*)
+
+**Definition (empirical adequacy)**: A theory is empirically adequate iff there is some model in it such that its empirical structure is isomorphic to all appearances
+
+**Example**: The "axioms" of quantum mechanics are actually using the new picture because:
+-  **Model way**: Uses *pre-defined mathematical objects* (like vectors and operators) to directly present a structure that represents physical systems.
+ - **Axiom way**: *Introduces basic (new) terms and their relations* through axioms, then builds a structure by logically deducing more statements from them.
+
+> Q: A model must map observables to mathematical structure, or there seems no difference between defining unobservables with some structure and presenting unobservables with some structure?
+> A: You can still define an unobservable in the model approach as long as it is not preliminary
+
+Some points to clarify:
+
+1. **Incompleteness**: A description does not need to be complete. Electricity can be embedded to classical mechanics because the description of electricity does not enter the description of classical mechanics but is coherent with it.
+2. **Unintended Realizations**: A system of mechanics may happen to a system of optics. This is possible, and there's no need to add intended phenomena to a theory because in a complex situation where mechanics and optics are combined the theory will collapse.
+3. This book does not concern the structure of physical theory, but Van Fraassen prefer *the state-space approach* rather than *the set-theoretic structure approach*
+4. This is a bit idealized; In practice the family of models are not carefully described unless some paradox threatens
+5. A theory can be watered down by admitting new models or designating some new parts as empirical substructure in the old models. We may define the *empirically minimal* theory as the least watered-down one. 
+6. But empirical minimality is not a virtue because some metaphysical baggage may have potentialities for future use, e. g. hidden variable models. `consider qualified defeat`
+
+To accept a theory is either claim its truth or to claim its empirical adequacy; The latter is weaker and assumes less. ==Is there a self-referential problem? You are claiming some minimalism for science, and you say minimalism is not a virtue==
+
+## 4. Empiricism and Scientific Methodology
+
+Four main questions
+
+1. Does the rejection of realism leads to self-defeating skepticism?
+2. Does the methodology of science require realism?
+3. Is the ideal of the unity of science intelligible on an empiricist view?
+4. What sense can we make of theoretical virtues (simplicity, coherence, etc) that are not reducible to empirical adequacy or strength?
+
+### 1. Empiricist Epistemology and Skepticism
+
+**Objection**: If we insist that the evidence for a theory never confirms a theory to be true, what a piece of evidence can confirm never goes beyond itself. Bu in everyday life, we do arrive at conclusions that go beyond the evidence we have
+**Defense**: I still go beyond the evidence by claiming a theory is empirically adequate in the future. And confirming empirical structure by observable entities is already ampliative.
+
+
+**Objection**: observable objects are just postulated entities from sense experience or sense data
+**Defense**: No. Sense data is the postulated entity from observable objects
+
+- **Objection**: The conclusion of empirical adequacy is confirmed by observables is still beyond the evidence. What are the conditions for rationally accepting the conclusion beyond evidence, then? ==why go beyond evidence but not so far as to say the theory is true==
+
+
+### Methodology and Experimental Design
+
+#### 2.1 The Roles of Theory
+
+**Traditional view**: Everything is subordinate to the aim of knowing the structure of the world; experiments are designed to test these theories
+
+**Problem**: contrasts sharply with the activity Kuhn has termed "normal science" which needs the construction of theories and previous constructed theories that guide experimental inquiry
+
+**value of experimentation**
+
+1. the result fills in blanks in a developing theory, and 
+2. test the empirical adequacy of a theory
+
+**Theories' value for experiment**
+
+1. formulate the questions to be answered, and
+2. help design the experiment
+
+==A circular explanation? Why experiments are good? Because they do good to theories. Why theories are good? Because they do good to experiments.==
+
+#### 2.2 Measuring the Charge of the Electron
+
+- **Theory testing**: the theory predicts the outcome, and experiment test the outcome
+- **Discovery:** The theory posits some missing factor (blank), and experiment discover what it is (fill in the blank)
+
+**Objection**: What are the experimental scientists doing when they make a discovery, if the thing being discovered does not exist?
+**Defense**: They are give answer to how the blank is to be filled if the theory is to be empirically adequate
 
 
 ```
 to conjunction objection stop at 4.3, 23 pages
 ```
+
+
