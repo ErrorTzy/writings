@@ -648,7 +648,7 @@ The standard procedure of P◻→Q
 - Semantics of P→Q: It is not the case that P and not Q
 - Semantics of ◻P→Q: In all possible worlds, 
 
-A possible world is a **complete** and **possible(non-contradicting)**
+A possible world is **complete** and **possible(non-contradicting)**
 
 An informal definition of epistemic strength: The distance `what is the distance of possible worlds?` between the actual world and the farthest possible world that we are able to evaluate.
 

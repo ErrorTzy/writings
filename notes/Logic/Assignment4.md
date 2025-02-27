@@ -1,4 +1,12 @@
-4.2, 4.20, 4.23, and 4.24
+---
+documentclass: exam
+title: Assignment 4
+author: Scott Tang
+mainfont: FreeSerif
+CJKmainfont: Noto Serif CJK SC
+mathfont: XITS Math
+---
+
 
 **Problem 4.2**. Show that if $A$ and $B$ are countable, so is $A \cup B$
 
@@ -30,7 +38,7 @@ Now in all cases, $\forall y \in A \cup B$, $\exists x \in \mathbb{Z^{+}}$ such 
 
 **Problem 4.20**. Show that the set of all sets of pairs of positive integers is uncountable by a reduction argument.
 
-**Proof**: We know from **Theorem 4. 18** that $\wp (\mathbb{Z^+})$ is not countable, and we know the reduction principle that for a surjective $f: A \rightarrow B$, if $A$ is countable, then $B$ is countable. If we can prove that there is a surjective $f: \wp(\mathbb{Z^+}^{2})\rightarrow \wp(\mathbb{Z^+})$, we can show that $\wp(\mathbb{Z^+}^{2})$ is uncountable by reduction, which is just a fancy way to say modus tollens.
+**Proof**: We know from **Theorem 4. 18** that $\wp(\mathbb{Z^{+}})$ is not countable, and we know the reduction principle that for a surjective $f: A \rightarrow B$, if $A$ is countable, then $B$ is countable. If we can prove that there is a surjective $f: \wp(\mathbb{Z^+}^{2})\rightarrow \wp(\mathbb{Z^+})$, we can show that $\wp(\mathbb{Z^+}^{2})$ is uncountable by reduction, which is just a fancy way to say modus tollens.
 
 Let us define $f$ as 
 $$
@@ -49,14 +57,46 @@ Now we show $f$ is surjective. For arbitrary $m \in \wp(\mathbb{Z^+})$, $m \subs
 
 Given (1) and (2), all members in the codomain of $f$ are mapped to a least one value in the domain $f$. Therefore, $f$ is surjective. And given that there is such a surjective function, we know by reduction that $\wp(\mathbb{Z^+}^{2})$ is uncountable.
 
-**Problem 4.23**. Let $P$ be the set of functions from the set of positive integers to the set $\{0\}$, and let $Q$ be the set of partial functions from the set of positive integers to the set $\{0\}$. Show that $P$ is countable and $Q$ is not. 
+**Problem 4.23**. Let $P$ be the set of functions from the set of positive integers to the set $\{0\}$, and let $Q$ be the set of partial functions from the set of positive integers to the set $\{0\}$. Show that $P$ is countable and $Q$ is not. (Hint: reduce the problem of enumerating $B^𝜔$ to enumerating $Q$ ).
 
-**Proof**: We first show that $P=\{f:\mathbb{Z^{+}} \rightarrow \{0\}\}$ is countable, which means either $P = \emptyset$ or there is a surjective function $f: \mathbb{Z^{+}}\rightarrow P$. 
+**Proof**: We first show that $P=\{f:\mathbb{Z^{+}} \rightarrow \{0\}\}$ is countable, which means either $P = \emptyset$ or there is a surjective function $f: \mathbb{Z^{+}}\rightarrow P$. $P \neq \emptyset$ because we can construct the function $g: \mathbb{Z^{+}} \rightarrow \{0\}$ as  $g(x)=0$. Obviously $g$ is well-defined and $g \in P$. Therefore the option left for us is to show there is a surjective function $f: \mathbb{Z^{+}}\rightarrow P$.
 
-Let's construct the function $g: \mathbb{Z^{+}} \rightarrow \{0\}$:  $g(x)=0$. $g \in P$, therefore $P \neq \emptyset$. Now we construct the function $f(x)=g$ for $x \in \mathbb{Z^+}$. Obviously the function is well-defined, since all the elements in $\mathbb{Z^+}$ are and only mapped to the function $g$. Now we show that $f$ is surjective. $\forall m,n \in P$, we know that $\forall x \in \mathbb{Z^{+}}, m(x)=n(x)=0$. Then, $m=n$. Therefore we know $f$ is surjective because $\forall y \in P, y=g$. Since $\mathbb{Z^{+}}\neq \emptyset$, $\exists x \in \mathbb{Z^+}$ such that $f(x)=y$.
+We construct the function $f(x)=g$ for $x \in \mathbb{Z^+}$. Obviously the function is well-defined, since all the elements in $\mathbb{Z^+}$ are and only mapped to the function $g$. Now we show that $f$ is surjective. $\forall m,n \in P$, we know that $\forall x \in \mathbb{Z^{+}}, m(x)=n(x)=0$. Then, $m=n$. Therefore we know $f$ is surjective because $\forall y \in P, y=g$. Since $\mathbb{Z^{+}}\neq \emptyset$, $\exists x \in \mathbb{Z^+}$ such that $f(x)=y$. This concludes that $P$ is countable.
 
-Then we show that $Q=\{f:\mathbb{Z^+}\rightharpoonup \{0\}\}$ is uncountable
+Then we show that $Q=\{f:\mathbb{Z^+}\rightharpoonup \{0\}\}$ is uncountable. As is requested, we use reduction. We know that $B^\omega$ is uncountable, according to **Theorem 4. 17**. If we can prove that there is a surjective $h:Q \rightarrow B^\omega$, we can conclude that $Q$ is uncountable on the basis of reduction principle.
 
-(Hint: reduce the problem of enumerating $B^𝜔$ to enumerating Q ).
+$\forall s \in B^\omega$, we define $s(i)$ to be the $i^{th}$ digit of $s$. Let's construct $h:Q \rightarrow B^\omega$ as follows: 
+$$
+h(x)= s \text{ such that } \forall n \in \mathbb{Z^+}, \begin{cases}
+s(n)=0 & \text{if } x(n) \downarrow\\
+s(n)=1 & \text{if } x(n) \uparrow\\
+\end{cases}
+$$
+Again, $h$ is obviously well-defined because all members in $Q$ are mapped to only one value. Now we show $h$ is surjective. For an arbitrary $s \in B^\omega$, there exists a partial function $f: \mathbb{Z^{+}} \rightharpoonup \{0\}$ such that $\forall x \in \mathbb{Z^{+}}$, $f(x)=0$ if $s(x)=0$. $f$ is a well-defined partial function because every members in the domain are assigned at most one value in the codomain. Therefore, $h$ is surjective. This concludes that $Q$ is uncountable.
 
-**Problem 4.24**. Let S be the set of all surjective functions from the set of positive integers to the set {0,1}, i.e., S consists of all surjective f : Z+ → B. Show that S is uncountable.
+**Problem 4.24**. Let $S$ be the set of all surjective functions from the set of positive integers to the set $\{0,1\}$, i.e., $S$ consists of all surjective $f : \mathbb{Z^+} \rightarrow B$. Show that $S$ is uncountable.
+
+**Lemma 1**: If set $A$ is uncountable and set $B$ is countable, then $A \setminus B$ is uncountable
+
+**Proof of Lemma 1**: Since $B$ is countable, $B=\emptyset$ or there is a surjective function $f:\mathbb{Z^+}\rightarrow B$. 
+
+(1) When $B$ is an empty set, obviously $A \setminus B=A$ and therefore uncountable. 
+(2) When there is a surjective function $f:\mathbb{Z^+}\rightarrow B$, we show $A \setminus B$ is uncountable by reductio. Assume it is countable, so it is either it is an empty set, which obviously it can't be, or there is a $g: \mathbb{Z^{+}}\rightarrow A\setminus B$. The we can easily construct $h:\mathbb{Z^+}\rightarrow A$ as follows:
+$$
+h(x)=
+\begin{cases}f(\frac{x}{2}) & \text{if x is even} \\
+g(\frac{x+1}{2})& \text{if x is odd}
+\end{cases}
+$$
+
+It is obvious that $h$ is surjective, so I will not waste time proving it. Then $A$ countable. Contradiction. Therefore $A \setminus B$ is uncountable
+
+Given (1) and (2), Lemma 1 is true.
+
+**Lemma 2** Let $S'$ consists of all $f : \mathbb{Z^+} \rightarrow B$; $A=\{f:\mathbb{Z^{+}} \rightarrow \{n\}|n=0,1\}$, We have $S = S' \setminus A$
+
+**Proof of Lemma 2** To show that  $S = S' \setminus A$, we need to first show $S \subseteq S' \setminus A$ and then $S' \setminus A \subseteq S$
+
+(1) $S \subseteq S' \setminus A$: For any $f \in S$, it is obvious that $f \in S'$. Since $f$ is surjective, there is some $m,n \in \mathbb{Z^+}$ such that $f(m)=0$ and $f(n)=1$. $\forall g \in A$, if $g(m)=0$, then the codomain is $\{0\}$ where there is no $g(n)=1$. if $g(n)=0$, then the codomain is $\{1\}$ where there is no $g(m)=0$. Since $\forall g \in A, f \neq g$, therefore $f \notin A$. Therefore, $S \subseteq S' \setminus A$
+
+I will give you the remaining proof later.
