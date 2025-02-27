@@ -681,3 +681,4 @@ The way we defined formulas guarantees that every formula has a unique reading
 
 
 **Lemma 6.12**: If $A$ is a formula, and B is a proper prefix of $A$, then $B$ is not a formula
+
