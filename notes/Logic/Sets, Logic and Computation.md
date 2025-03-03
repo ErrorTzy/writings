@@ -573,6 +573,10 @@ Definition (entailment, semantic)
 
 : $\Gamma$ entails $A$, or $\Gamma \vDash A$, means that all structures that satisfies $\Gamma$ also satisfies $A$
 
+Definition (derivation, syntactic)
+
+: ?
+
 **Definition (unquantified formula satisfies a structure)**
 
 : “A is satisfied in M” (in symbols: $M \vDash A$) for sentences A and structures M
@@ -633,52 +637,217 @@ The limit of first-order languages are consequences of the compactness and Lowen
 
 ### Soundness and Completeness
 
-Definition (derivation, syntactic)
-
-: xxx
-
-
-If $\Gamma \vdash A$ then $\Gamma \vDash A$, the deductive system is *sound*
-If $\Gamma \vDash A$ then $\Gamma \vdash A$, the deductive system is *complete*
-If $\Gamma \vdash A$ but not $\Gamma \vDash A$, the deductive system is *too strong*
-If $\Gamma \vDash A$ but not $\Gamma \vdash A$, the deductive system is *too weak*
+- If $\Gamma \vdash A$ then $\Gamma \vDash A$, the deductive system is *sound*
+- If $\Gamma \vDash A$ then $\Gamma \vdash A$, the deductive system is *complete*
+- If $\Gamma \vdash A$ but not $\Gamma \vDash A$, the deductive system is *too strong*
+- If $\Gamma \vDash A$ but not $\Gamma \vdash A$, the deductive system is *too weak*
 
 
 ## Chap 6 Syntax of First-order Logic
 
 ### First-order Languages
 
+Expressions of first-order logic are built up from: 
+
+1. Non-logical symbols: *variables*, *constant symbols*(individual objects), *predict symbols*(properties and relations) and sometimes *function symbols*(mappings)
+	- Countably infinite set of $n$-place predicate symbols for each $n>0: A_{0}^{n}, A_{1}^{n}, A_{2}^{n},\dots$
+	- Countably infinite set of constant symbols: $c_{0},c_{1},c_{3},\dots$
+	- Countably infinite set of $n$-place function symbols for each $n>0: f_{0}^{n}, f_{1}^{n}, f_{2}^{n},\dots$
+2. Logical symbols: connectives, quantifiers
+	- Logical connectives: $\neg, \land, \lor, \rightarrow, \forall, \exists$
+	- Falsity: $\bot$
+	- Identify: $=$
+	- Countably infinite set of variables: $v_{0},v_{1}, v_{2}\dots$
+3. Punctuation symbols:
+	- Comma: $,$
+	- Parenthesis: $(,)$
+
+> ==Remark==
+> 
+> Non-logical symbols depend on the particular structure; Logical symbols are fixed by first-order logic. Therefore, variables are logical symbols.
+>
+> Things like variables are infinite because some proofs needs there always be fresh symbols. It is countable because being countable is enough.
+
+
 ### Terms and Formulas
 
 Definition 6.4 (Terms)
 
-: The set of terms $Trm(\mathcal{L})$
+: The set of terms $Trm(\mathscr{L})$ of $\mathscr{L}$ is defined inductively by:
 
+1. Every *variable* is a term
+2. Every *constant symbol* of $\mathscr{L}$ is a term (This is actually redundant if we allow $n=0$ when we define functions, since constants would then just be zero-place function)
+3. If $f$ is an $n$-place *function symbol* and $t_{1}, \dots , t_{n}$ are terms, then $f(t_{1},\dots ,t_{n})$ is a term
+4. Nothing else is a term
+5. A term containing no variables is a *closed term*
 
-**Definition 6.5 (Formulas)**:
+**Definition 6.5 (Formulas)**
 
-1. $\bot$ is an atomic formula
-2. If $R$ is an n-place predicate, and $t_{1},...,t_{n}$ are terms, then $R(t_{1},...,t_{n})$ is an atomic formula
-3. If $t_{1},t_{2}$ are terms, then $t_{1}=t_{2}$ is an atomic formula
-4. If $A$ is a formula then $\neg A$ is a formula
-5. If A and B are formulas then $(A * B)$ where $*=\land , \lor , \rightarrow$ is a formula
-6. 
+: The set of formulas $Frm(\mathscr{L})$ of the language $\mathscr{L}$ is defined inductively by:
 
+1. **Contradiction**: $\bot$ is an *atomic formula*
+2. **Predication**: If $R$ is an $n$-place predicate symbol of $\mathscr{L}$, and $t_{1},...,t_{n}$ are terms of $\mathscr{L}$, then $R(t_{1},...,t_{n})$ is an *atomic formula*
+3. **Identity**: If $t_{1},t_{2}$ are terms of $\mathscr{L}$, then $t_{1}=t_{2}$ is an *atomic formula*
+4. **Negation**: If $A$ is a formula then $\neg A$ is a formula
+5. **Operation**: If $A$ and $B$ are formulas then $(A * B)$ where $*=\land , \lor , \rightarrow$ is a formula
+6. **Quantification**: If $A$ is a formula and $x$ is a variable, then $\forall x A$ and $\exists x A$ are formulas
+7. Nothing else is a formula
+
+Definition 6.6 (Conventional Symbols)
+
+: Formulas constructed using the defined operators are to be understood as follows
+
+1. $\top$ abbreviates $\neg \bot$
+2. $A \leftrightarrow B$ abbreviates $(A \rightarrow B) \land (B \rightarrow A)$
 
 Definition 6.7 (Syntactical Identify)
 
-: $A \equiv B$ iff they are the same string
+: The symbol $\equiv$ expresses syntactic identify between strings of symbols, i. e. $A \equiv B$ iff they are the same strings of symbols of the same length and which contain the same symbol in each place
+
+Lemma 6.8 (Principle of induction on terms)
+
+: Let $\mathscr{L}$ be a first order language. If some property $P$ holds in all of the following cases, then $P(t)$ for every $t \in Trm(\mathscr{L})$
+
+1. $P(v)$ for every variable $v$
+2. $P(a)$ for every constant symbol $a$ of $\mathscr{L}$
+3. If $t_{1},\dots ,t_{n} \in Trm(\mathscr{L})$, $f$ is an $n$-place function symbol of $\mathscr{L}$, and $P(t_1),\dots ,P(t_{n})$, then $P(f(t_{1},\dots ,t_{n}))$
+
+Lemma 6.9 (Principle of induction on formulas)
+
+: Let $\mathscr{L}$ be a first order language. If some property $P$ holds for all the atomic formulas and is such that
+
+1. $A$ is an atomic formula
+2. it holds for $\neg A$ whenever it holds for $A$
+3. it holds for $(A \land B)$ whenever it holds for $A$ and $B$
+4. it holds for $(A \lor B)$ whenever it holds for $A$ and $B$
+5. it holds for $(A \rightarrow B)$ whenever it holds for $A$ and $B$
+6. it holds for $\exists x A$ whenever it holds for $A$
+7. it holds for $\forall x A$ whenever it holds for $A$
+
+then $P$ holds for all formulas $A \in Frm(\mathscr{L})$
 
 ### 6.4 Unique Readability
 
 The way we defined formulas guarantees that every formula has a unique reading
 
-**Lemma 6.10**: The number of left and right parenthesis in a formula A are equal
+**Lemma 6.10.1**: The number of left and right parenthesis in a term $t$ are equal
+
+> To prove this, we need to show this holds for the base cases and the new formulas. The base cases include variables and constant symbols. The new formulas include function symbols. 
+> 
+>  Let $l(t)$ and $r(t)$ similarly the number of left and right parentheses in a term $t$. 
+> First we check the base cases. Recall the definition of variables $v_{n}, n \in \mathbb{N}$ and the definition of constants $c_{n},n \in \mathbb{N}$. Since there's no parentheses in variables and constant, $l(t)=r(t)$. 
+> Then we assume $l(t_{n})=r(t_{n})$ holds for $t_{1},\dots ,t_{n}$, we show that the number of left and right parentheses in the term $f(t_{1},\dots ,t_{n})$ are equal. $l=1+l(t_{1})+\dots +l(t_{n})$, $r=1+r(t_{1})+\dots +r(t_{n})$. Since $\sum\limits_{i=0}^{n}{r(t_{i})}=\sum\limits_{i=0}^{n}{r(t_{i})},l=r$.
+> Therefore, Lemma 6.10.1 is true
+
+**Lemma 6.10**: The number of left and right parenthesis in a formula $A$ are equal
 
 > ==Proof==
 >
+> To prove this, we use the principle of induction on formulas. We need to show:
 >
+> 1. This is true for all atomic formulas
+> 2. This is true whenever we construct a new formula
+> 
+> Let $l(A)$ be the number of left parentheses, and $r(A)$ the number of right parentheses in $A$, and $l(t)$ and $r(t)$ similarly the number of left and right parentheses in a term $t$. Let's first check the base cases
+> 
+> 1. $A \equiv \bot$: $A$ has 0 left and 0 right parentheses
+> 2. $A \equiv R(t_{1}, \dots, t_{n})$: $l(A)=1+l(t_{1})+\dots +l(t_{n})=1+r(t_{1})+\dots +r(t_{n})$. Given Lemma 6.10.1, we know that $l(A)=r(A)$
+> 3. $A \equiv t_{1}=t_{2}$: the proof is similar to (2)
+>
+> Now we have shown the base cases. Next, we assume that the formulas used has $l(A)=r(B)$ and see if this still holds for the new formula generated:
+>
+> 1. $A \equiv \neg B$ and assume $l(B)=r(B)$: We have $l(A)=l(B)$ and $r(A)=r(B)$. Therefore $l(A)=r(A)$
+> 2. $A \equiv (B*C)$ where $*=\land, \lor, \rightarrow$, and assumption $l(B)=r(B),l(C)=r(C)$: We have $l(A)=l(B)+l(c)+1$ and $r(A)=r(B)+r(c)+1$. Therefore, $l(A)=r(A)$.
+> 3. $A \equiv *xB$ where $*=\exists, \forall$: Similar to 1
+> 
+> Given this, we have shown that all formula has the property of having the same number of left and right parenthesis
 
+Definition (Proper prefix)
+
+: A string of symbols $B$ is a proper prefix of a string of symbols $A$ if concatenating $B$ and a non-empty string of symbols yields $A$
 
 **Lemma 6.12**: If $A$ is a formula, and B is a proper prefix of $A$, then $B$ is not a formula
 
+> ==Proof==
+>
+> It is very strenuous to show the property that "If $B$ is a proper prefix of $A$, then $B$ is not a formula" holds for any formula $A$. We instead show the property $P$ that "there no string $S$ such that $BS$, i.e. concatenating $S$ to $B$, is a formula" holds for any formula $B$. 
+
+**Proposition 6. 13**: If $A$ is an atomic formula, then it satisfies one, and only one of the following conditions:
+
+1. $A \equiv \bot$
+2. $A \equiv R(t_{1},\dots ,t_{n})$ where $R$ is an $n$-place predicate symbol, $t_{1},\dots ,t_{n}$ are terms, and each of $R, t_{1},\dots ,t_{n}$ is uniquely determined.
+3. $A \equiv t_{1} \equiv t_{2}$ where $t_{1}$ and $t_{2}$ are uniquely determined terms.
+
+> ==Proof==
+>
+> First we prove that there cannot be a formula that satisfies both 1 and 2, 1 and 3 and 2 and three. Then we prove that there cannot be two different formulas that satisfies 1 or 2 or 3.
+
+**Proposition 6.14 (Unique Readability)**: Every formula satisfies one, and only one of the following conditions
+
+1. $A$ is atomic
+2. $A$ is of the form $\neg B$
+3. $A$ is of the form $(B*C), *=\land, \lor, \rightarrow$ 
+4. $A$ is of the form $*xB, *=\forall, \exists$
+
+Moreover, in each case, $B$ or $B$ and $C$ are uniquely determined. This means that, e.g. there are no different pairs $B,C$ and $B',C'$ so that $A$ is both of the form $(B \rightarrow C)$ and $(B' \rightarrow C')$
+
+> ==Proof==
+> 
+> The only non-trivial proof here is to show that if $(B*C)\equiv(B'*'C')$, then $B \equiv B',C \equiv C', * \equiv *'$.
+
+### 6.5 Main operator of a Formula
+
+Definition 6.15 (Main operator)
+
+: The main operator of a formula $A$ is defined as follows:
+
+1. $A$ is atomic: $A$ has no main operator
+2. $A \equiv \neg B$: the main operator of $A$ is $\neg$
+3. $A \equiv (B * C), *=\land, \lor, \rightarrow$: the main operator of $A$ is $*$
+4. $A \equiv *xB, *=\exists, \forall$: the main operator of $A$ is $*$
+
+### 6.6 Subformulas
+
+Definition 6.16 (Immediate Subformula)
+
+: If $A$ is a formula, the *immediate subformula* of A are defined inductively as follows:
+
+1. Atomic formulas have no immediate subformulas
+2. $A \equiv \neg B$: The only immediate subformula of $A$ is $B$
+3. $A \equiv (B * C)$: The immediate subformulas of $A$ are $B$ and $C$
+4. $A \equiv *xB$: The immediate subformula of $A$ is $B$
+
+Definition 6.17 (Proper subformula)
+
+: If $A$ is a formula, the *proper subformula* of A are defined inductively as follows:
+
+1. Atomic formulas have no proper subformulas
+2. $A \equiv \neg B$: The only proper subformula of $A$ are $B$ and all proper subformulas of $B$
+3. $A \equiv (B * C)$: The proper subformulas of $A$ are $B$ and $C$ and all their proper subformulas
+4. $A \equiv *xB$: The proper subformula of $A$ is $B$ and all proper subformulas
+
+Definition 6.18 (Subformula)
+
+: The subformula of $A$ are $A$ itself and all its proper subformulas.
+
+**Proposition 6.19 (Transitivity of subformula)**: Suppose $B$ is a subformula of $A$ and $C$ is a subformula of $B$. Then $C$ is a subformula of $A$. In other words, the subformula relation is transitive.
+
+**Proposition 6.20 (Amount of subformulas)**: Suppose $A$ is a formula with $n$ connectives and quantifiers. Then $A$ has at most $2n+1$ subformulas.
+
+### 6.7 Formation Sequences
+
+Definition 6.21 (Strings)
+
+: Suppose $\mathscr{L}$ is a first-order language. An $\mathscr{L}$-string is a finite sequence of symbols of $\mathscr{L}$. Where the language $\mathscr{L}$ is clearly fixed by the context, we will often refer to a $\mathscr{L}$-string as a string.
+
+Definition 6.23 (Formation sequence for terms)
+
+: A finite sequence of $\mathscr{L}$-string $\langle t_{0},\dots ,t_{n} \rangle$ is a formation sequence for a term $t$ if $t \equiv t_{n}$ and for all $i \le n$, either $t_{i}$ is a variable or a constant symbol, or $\mathscr{L}$ contains a $k$-ary function symbol $f$ and there exist $m_{0},\dots ,m_{k}<i$ such that $t_{i}\equiv f(t_{m_{0}},\dots ,t_{m_{k}})$
+
+Definition 6.25 (Formation sequences for formulas)
+
+: A finite sequence of $\mathscr{L}$-strings $\langle A_{0},\dots ,A_{n}$ is a formation sequence for $A$ if $A \equiv A_{n}$ and for all $i \le n$, either $A_{i}$ is an atomic formula or there exit $j, k<i$ and a variable $x$ such that one of the following holds:
+
+1. $A_{i} \equiv \neg A_{j}$
+2. $A_{i} \equiv (A_{j}*A_{k}), *=\land, \lor, \rightarrow$
+3. $A_{i} \equiv *xA_{j},*=\exists, \forall$

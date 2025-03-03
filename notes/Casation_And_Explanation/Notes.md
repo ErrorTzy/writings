@@ -169,3 +169,17 @@ Temperal Translation Symmetry allows the model to either go from past to the fut
 Possible response: That's a feature not a bug; This is a good explanation in physics. It's just not a good explanation for us. 
 
 > Metaphysical explanation vs. Epistemic explanation?
+
+Two horns of the delimma:
+
+1. To compress information, deflate everything into unified deductive system
+2. To use intuitive concepts but vulnerable to spooky metaphysics (glues)
+
+the ideal solution: to reduce the latter to the former (explain pushes and pull by information)
+
+Railton: not argument, but account which is more isomorphic to reality
+
+> possible way out: pluralism! With levels of reduction
+> Problem for minimalism: existential claim: that's all that exists
+
+Railton's project: Keep the systemized account with DN and DNP,  
