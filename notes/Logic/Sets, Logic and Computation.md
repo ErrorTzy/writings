@@ -714,15 +714,12 @@ Lemma 6.8 (Principle of induction on terms)
 
 Lemma 6.9 (Principle of induction on formulas)
 
-: Let $\mathscr{L}$ be a first order language. If some property $P$ holds for all the atomic formulas and is such that
+: Let $\mathscr{L}$ be a first order language. If for some property $P$
 
-1. $A$ is an atomic formula
-2. it holds for $\neg A$ whenever it holds for $A$
-3. it holds for $(A \land B)$ whenever it holds for $A$ and $B$
-4. it holds for $(A \lor B)$ whenever it holds for $A$ and $B$
-5. it holds for $(A \rightarrow B)$ whenever it holds for $A$ and $B$
-6. it holds for $\exists x A$ whenever it holds for $A$
-7. it holds for $\forall x A$ whenever it holds for $A$
+1. All atomic formulas has $P$
+2. Assume $A$ has $P$, $\neg A$ also has $P$ 
+3. Assume $A$ and $B$ has $P$, $(A * B),*=\land, \lor, \rightarrow$ also has $P$
+4. Assume $A$ has $P$, $*xA, *=\forall, \exists$ also has $P$
 
 then $P$ holds for all formulas $A \in Frm(\mathscr{L})$
 
@@ -846,8 +843,50 @@ Definition 6.23 (Formation sequence for terms)
 
 Definition 6.25 (Formation sequences for formulas)
 
-: A finite sequence of $\mathscr{L}$-strings $\langle A_{0},\dots ,A_{n}$ is a formation sequence for $A$ if $A \equiv A_{n}$ and for all $i \le n$, either $A_{i}$ is an atomic formula or there exit $j, k<i$ and a variable $x$ such that one of the following holds:
+: A finite sequence of $\mathscr{L}$-strings $\langle A_{0},\dots ,A_{n}\rangle$ is a formation sequence for $A$ if 
 
-1. $A_{i} \equiv \neg A_{j}$
-2. $A_{i} \equiv (A_{j}*A_{k}), *=\land, \lor, \rightarrow$
-3. $A_{i} \equiv *xA_{j},*=\exists, \forall$
+(i) $A \equiv A_{n}$ and 
+(ii) for all $i \le n$, either 
+	(a) $A_{i}$ is an atomic formula, or 
+	(b) there exit $j, k<i$ and a variable $x$ such that one of the following holds:
+		1. $A_{i} \equiv \neg A_{j}$
+		2. $A_{i} \equiv (A_{j}*A_{k}), *=\land, \lor, \rightarrow$
+		3. $A_{i} \equiv *xA_{j},*=\exists, \forall$
+
+**Proposition 6.27**: Every formula $A$ in $Frm(\mathscr{L})$ has a formation sequence
+
+> ==Proof==
+>
+> To show this, we need to show that 
+>
+> (i) all atomic formulas have a formation sequence, and 
+> (ii) Assume all formulas used in the induction has a formation sequence, we need to show the newly generated formula also have a formation sequence.
+> 
+> (i) Suppose $A$ is atomic. Then the sequence $\langle A \rangle$ is a formation sequence for $A$. 
+> (ii) Now suppose that $B$ and $C$ have formation sequences $\langle B_{0},\dots ,B_{n} \rangle$ and $\langle C_{0},\dots ,C_{m} \rangle$ respectively.
+> 
+> 1. If $A \equiv \neg B$, then $\langle B_{0},\dots ,B_{n},\neg B_{n} \rangle$ is a formation sequence for $A$
+> 2. If $A \equiv (B*C), *=\land, \lor, \rightarrow$, then $\langle B_{0},\dots ,B_{n}, C_{0},\dots, C_{m}, (B_{n}*C_{m}) \rangle$ is a formation sequence for $A$
+> 3. If $A \equiv *xB, *=\exists, \forall$, then $\langle B_{0},\dots ,B_{n}, *xB \rangle$ is a formation sequence for $A$
+
+**Lemma 6.28**: Suppose that $\langle A_{0},\dots ,A_{n} \rangle$ is a formation sequence for $A_{n}$, and that $k \le n$. Then $\langle A_{0},\dots ,A_{k} \rangle$ is a formation sequence for $A_{k}$
+
+> ==Proof==
+> 
+> To show $\langle A_{0},\dots ,A_{k} \rangle$ is a formation sequence for $A_{k}$, we need to show that,
+> 
+> (1) $A_{k} \equiv A_{k}$, which is obviously true, and
+> (2) for all $i \le k$, either $A_{i}$ is an atomic formula, or there is some $p,q$ such that one of the following holds:
+	1. $A_{i} \equiv \neg A_{p}$
+	2. $A_{i} \equiv (A_{p}*A_{q}), *=\land, \lor, \rightarrow$
+	3. $A_{i} \equiv *xA_{p},*=\exists, \forall$
+> 
+> We know that $\langle A_{0},\dots ,A_{n} \rangle$ is a formation sequence for $A_{n}$. That is to say, (2) for all $i \le n$, either $A_{i}$ is an atomic formula, or there is some $p,q$ such that one of the following holds:
+	4. $A_{i} \equiv \neg A_{p}$
+	5. $A_{i} \equiv (A_{p}*A_{q}), *=\land, \lor, \rightarrow$
+	6. $A_{i} \equiv *xA_{p},*=\exists, \forall$
+> 
+> Since $k\le n$, (2) is also true. Therefore (1) and (2) are all true, making $\langle A_{0},\dots ,A_{k} \rangle$ a formation sequence for $A_{k}$.
+
+**Theorem 6.29**: $Frm(\mathscr{L})$ is the set of all expressions (strings of symbols) in the language $\mathscr{L}$ with a formation sequence.
+

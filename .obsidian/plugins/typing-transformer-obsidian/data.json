@@ -1,12 +1,12 @@
 {
   "debug": false,
-  "convertRules": "# have fun converting!\n'defi |' -> 'Definition |\\n\\n: '\n\n'prop |' -> '**Proposition**: |'\n'lemm |' -> '**Lemma**: |'\n'theo |' -> '**Theorem**: |'\n'rem |' -> '**Remark**: |'\n'obj |' -> '**Objection**: |'\n'def |' -> '**Defense**: |'\n\n'reduc |' -> 'We prove this by reductio. |'\n\n# Selection Insert Rules\n'\"'  -> '\"' + '\"'\n'<'  -> '<' + '>'\n",
+  "convertRules": "# have fun converting!\n'Defi |' -> 'Definition |\\n\\n: '\n\n'Prop |' -> '**Proposition |**: '\n'Lemm |' -> '**Lemma |**: '\n'Theo |' -> '**Theorem |**: '\n\n'Rem |' -> '**Remark**: |'\n'Obj |' -> '**Objection**: |'\n'Def |' -> '**Defense**: |'\n\n# Selection Insert Rules\n'\"'  -> '\"' + '\"'\n'<'  -> '<' + '>'\n",
   "zoneIndicatorOn": false,
   "autoFormatOn": true,
   "profiles": [
     {
       "title": "global",
-      "content": "# have fun converting!\n'defi |' -> 'Definition |\\n\\n: '\n\n'prop |' -> '**Proposition**: |'\n'lemm |' -> '**Lemma**: |'\n'theo |' -> '**Theorem**: |'\n'rem |' -> '**Remark**: |'\n'obj |' -> '**Objection**: |'\n'def |' -> '**Defense**: |'\n\n'reduc |' -> 'We prove this by reductio. |'\n\n# Selection Insert Rules\n'\"'  -> '\"' + '\"'\n'<'  -> '<' + '>'\n"
+      "content": "# have fun converting!\n'Defi |' -> 'Definition |\\n\\n: '\n\n'Prop |' -> '**Proposition |**: '\n'Lemm |' -> '**Lemma |**: '\n'Theo |' -> '**Theorem |**: '\n\n'Rem |' -> '**Remark**: |'\n'Obj |' -> '**Objection**: |'\n'Def |' -> '**Defense**: |'\n\n# Selection Insert Rules\n'\"'  -> '\"' + '\"'\n'<'  -> '<' + '>'\n"
     }
   ],
   "activeProfile": "global"
