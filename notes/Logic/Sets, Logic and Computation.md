@@ -166,7 +166,7 @@ $\langle a,b \rangle = \{\{a\}, \{a,b\}\}$
 **Definition 2.24**
 - If R is a strict order on A, then $R^{+}= R \cup Id_{A}$ is a partial order. Moreover, if R is a strict linear order, then $R^{+}$ is a linear order ($Id_{A}$ is the relation that defined the identity on A)
 
-> ==Proof==
+> **Proof**
 > 
 > For the convenience of notation, let's call $Id_{A}$ $I$ 
 > 
@@ -185,7 +185,7 @@ $\langle a,b \rangle = \{\{a\}, \{a,b\}\}$
 
 **Proposition 2.25** If $R$ is a partial order on $A$, then $R- = R \setminus Id_{A}$ is a strict order. Moreover, if $R$ is a linear order, then $R−$ is a strict linear order.
 
-> ==Proof==
+> **Proof**
 > 
 > Irreflexivity:
 > We prove $R-$ is irreflexive by reductio. 
@@ -207,7 +207,7 @@ $\langle a,b \rangle = \{\{a\}, \{a,b\}\}$
 
 **Proposition 2.26** If $<$ is a strict linear order on $A$, then: $(\forall a,b \in A)((\forall x \in A) (x < a \leftrightarrow x < b) \rightarrow a = b).$
 
-> ==Proof==
+> **Proof**
 > 
 > We prove by reductio. Assume $\forall x \in A(x < a \leftrightarrow x < b)$, and $a \neq b$
 > Since R is connected, then either $a < b$ or $b < a$
@@ -269,7 +269,7 @@ if $f (x) = f (y)$, then $x = y$.
 2. for every $x \in A$ there is some $y \in B$ such that $\langle x,y \rangle \in R$
 Then R is the graph of the function $f:A \rightarrow B$ defined by $f(x)=y$ iff $Rxy$
 
-> ==Proof==
+> **Proof**
 > 
 > ? I don't think the textbook provided any rigorous proof
 
@@ -287,7 +287,7 @@ But when do a function has inversion?
 
 **Proposition 3.16** If $f:A \rightarrow B$ is injective, then there is a left inverse $g:B \rightarrow A$ so that $g(f(x)) = x$ for all $x \in A$
 
-> ==Proof==
+> **Proof**
 > 
 > We prove this by showing the consequent follows from the antecedent.
 > Suppose $f:A \rightarrow B$ is injective. For $\forall y \in B$, we know that there exits at most one x such that $f(x)=y$. We analyze it case by case.
@@ -297,7 +297,7 @@ But when do a function has inversion?
 
 **Proposition 3.17** If $f:A \rightarrow B$ is surjective, then there is a right inverse $h:B \rightarrow A$ of f so that $f(h(y))=y$ for all $y \in B$
 
-> ==Proof==
+> **Proof**
 > 
 >  We prove this by showing the consequent follows from the antecedent.
 >  Suppose $f:A \rightarrow B$ is surjective, then for any $y \in B$ we have at least one $x \in A$ such that $f(x)=y$. We analyze it case by case.
@@ -307,7 +307,7 @@ But when do a function has inversion?
 
 **Proposition 3.18** If $f:A \rightarrow B$ is bijective, there is a function $f^{-1}:B \rightarrow A$ so that for all $x \in A, f^{-1}(f(x))=x$ and for all $y \in B, f(f^{-1}(y))=y$
 
-> ==Proof==
+> **Proof**
 >
 > We prove this by showing the consequent follows from the antecedent.
 > Suppose $f:A \rightarrow B$ is bijective. We know that $\forall y \in B$, there is exactly one $x \in A$ such that $f(x)=y$.  Then we define the output of $f^{-1}(y)=x$ such that $f(x)=y$. 
@@ -331,7 +331,7 @@ But when do a function has inversion?
 
 Remark: the important info here is "there is such left inverse and right inverse"
 
-> ==Proof==
+> **Proof**
 > 
 > In order to show that $h=g$, we show that, for any arbitrary $k \in A$, $h(k)=g(k)$
 > 
@@ -353,7 +353,7 @@ Remark: the important info here is "there is such left inverse and right inverse
 
 **Proposition 3.27**. Suppose $R \subseteq A \times B$ has the property that whenever $R_{xy}$ and $R_{xy}′$ then $y = y′$ . Then $R$ is the graph of the partial function $f:X \rightharpoonup Y$ defined by: if there is a $y$ such that $R_{xy}$, then $f(x) = y$, otherwise $f(x) \uparrow$. If $R$ is also serial, i.e., for each $x \in X$ there is a $y \in Y$ such that $R_{xy}$, then $f$ is total.
 
-> ==Proof== 
+> **Proof** 
 >
 >
 
@@ -367,7 +367,7 @@ Remark: the important info here is "there is such left inverse and right inverse
 
 **Proposition 4.2**. If A has an enumeration, it has an enumeration without repetitions.
 
-> ==Proof==
+> **Proof**
 > 
 > For any enumeration $E$ that lists $x_{1}, x_{2},  ..., x_{n}$ , we can construct another enumeration $E'$ by putting a distinct $x_{n}$ into $E'$ 
 
@@ -377,24 +377,24 @@ Remark: the important info here is "there is such left inverse and right inverse
 
 **Proposition 4.8**. There is a surjection $f: \mathbb{Z}^+ \rightarrow A$ iff there is a surjection $g: \mathbb{N}→A$.
 
-> ==Proof==
+> **Proof**
 > 
 > Given $f: \mathbb{Z}^+ \rightarrow A$ we can define $g(n)=f(n+1)$ for all $n \in \mathbb{N}$; Similarly we can define $f(n)=g(n-1)$ for all $n \in \mathbb{Z^+}$
 
 **Corollary 4.9**. A set A is countable iff it is empty or there is a surjective function $f: \mathbb{N} \rightarrow A$
 
-> ==Proof==: Given 4.3 and 4.8, this is obvious
+> **Proof**: Given 4.3 and 4.8, this is obvious
 
 **Proposition 4.10** If $f:\mathbb{Z^+} \rightarrow A$ is surjective (i.e., an enumeration of $A$), there is a bijection $g:Z \rightarrow A$ where $Z$ is either $\mathbb{Z^+}$ or $\{1, ..., n\}$ for some $n \in Z^+$.
 
-> ==Proof==: (Not rigorous)
+> **Proof**: (Not rigorous)
 > 
 > We construct $g$ recursively: $g(1)=f(1)$; if $g(i)$ is already defined, then $g(i+1)$ is the first value in $f(1), f(2), ...$ that is not in $g(1), g(2), ... , g(i)$ if there is one. If $A$ has $n$ elements, we would define $g:\{1,2,...,n\} \rightarrow A$; If $A$ has infinite elements, then $g:\mathbb{Z^{+}} \rightarrow A$ 
 > g is surjective because f is surjective; g is injective because there is no repetition. Therefore g is bijective.
 
 **Corollary 4.11** A set $A$ is countable iff it is empty or there is a bijection $f : N → A$ where either $N = \mathbb{N}$ or $N = \{0, . . . ,n\}$ for some $n \in \mathbb{N}$
 
-> ==Proof==: Given 4.10, we can prove this in the same way we prove 4.8
+> **Proof**: Given 4.10, we can prove this in the same way we prove 4.8
 
 ### Cantor's Zig-Zag Method
 
@@ -419,19 +419,19 @@ to:
 | 2   | $\langle 2,0 \rangle$ | $\langle 2,1 \rangle$ | $\langle 2,2 \rangle$ | ... |     |
 | ... | ...                   | ...                   | ...                   | ... |     |
 
-> ==Proof==(informal)
+> **Proof**(informal)
 >
 >  Let $f: \mathbb{N} \rightarrow \mathbb{N} \times \mathbb{N}$ take each $k \in \mathbb{N}$ to the tuple $\langle n,m \rangle \in \mathbb{N} \times \mathbb{N}$ such that $k$ is the value of the $n$th row and $m$th column in Cantor’s zig-zag array.
 
 **Proposition 4.13**. $\mathbb{N}^{n}$ is countable, for every $n \in N$
 
->  ==Proof==(informal)
+>  **Proof**(informal)
 >  
 >  Given 4.12, we can prove this by recursion. $\mathbb{N}^{n+1}$ is countable because we can map $\mathbb{N}$ to $(\mathbb{N}^{n} \times \mathbb{N})$ using cantor's zig-zag array.
 
 We can formalize the cantor's array as $g(m,n)=\frac{(n+m+1)(n+m)}{2}+n$.
 
-> ==Remark==
+> **Remark**
 > 
 > The intuition behind this equation is that, given n row and m column, we want to find out which number is in that cell. We can understand the zig-zag as a kind of iteration. The 1st iteration fill 1 cell. The 2nd round fills 2 cells. Therefore, after n rounds, there are $1+2+...+n$ cells filled. Now which round is <m,n> in? We can see the table as a coordinate system and we know the gradient of "round line" is -1. Then it is easy to know that <m,n> is in the middle of m+n+1 round. Then we know that all the $1+2+...+m+n$ are all filled, i.e. $\frac{(n+m)(n+m+1)}{2}$ cells are already filled. Now we still need to know how many cells have been filled in round $m+n+1$. This is easy because we can just align all the cells vertically. Therefore we know that there are $n$ cells 
 
@@ -445,7 +445,7 @@ $B^{\omega}$ represents the set of all possible infinite strings (or sequences) 
 
 **Theorem 4.17**. $B^\omega$ is uncountable
 
-> ==Proof==
+> **Proof**
 > 
 > We prove this by reductio. Assume there is list $s_1,s_2,...$ of all elements in $B^\omega$. We can define $s_{i}(j)$ as the $j^{th}$  digit of $s_{i}$. Then we may list elements in $B^\omega$ in the following way:
 
@@ -471,7 +471,7 @@ $B^{\omega}$ represents the set of all possible infinite strings (or sequences) 
 
 **Theorem 4.18**. $\wp (Z^+)$ is not countable.
 
-> ==Proof==
+> **Proof**
 > 
 > Suppose there is a list of subsets $\mathbb{Z^+}$. We can always define a $Z'=\{n \in \mathbb{Z^{+}}: n \notin Z_{n}\}$.
 
@@ -480,7 +480,7 @@ $B^{\omega}$ represents the set of all possible infinite strings (or sequences) 
 
 **Proposition (Reduction)**: For a surjective $f: A \rightarrow B$, if $A$ is countable, then $B$ is countable
 
-> ==Remark==
+> **Remark**
 > 
 > Notice that there can be a bijective $f: B^{\omega}\rightarrow \wp (Z^+)$. We can define $f(s)=\{n:s(n)=1\}$. In order to deny $\wp(\mathbb{Z^+})$ is countable, we need to use modus tollens: if $\wp(Z^+)$ is countable, then $B^\omega$ is countable. Since the latter is not, then the former is not. The idea is that, if a function $f$ is surjective, and the codomain is enumerable, then $f(x)$ is also enumerable.
 
@@ -490,7 +490,7 @@ $B^{\omega}$ represents the set of all possible infinite strings (or sequences) 
 
 **Proposition 4.20** Equinumerosity is an equivalence relation
 
-> ==Proof==
+> **Proof**
 > 
 > We need to show that equinumerosity is reflexive, transitive and symmetry.
 > Reflexivity: $f:A \rightarrow A$ where $f(x)=x$ for $x \in A$.
@@ -499,7 +499,7 @@ $B^{\omega}$ represents the set of all possible infinite strings (or sequences) 
 
 **Proposition 4.21** If $A \approx B$, then $A$ is countable iff B is.
 
-> ==Proof==
+> **Proof**
 > 
 > If A is countable, then $A = \emptyset$ or there is a surjective $f: \mathbb{Z^{+}} \rightarrow A$. Since $A \approx B$, we know there is a bijective $h: A \rightarrow B$
 > If $A = \emptyset$ then $B = \emptyset$, making $B$ countable.
@@ -514,7 +514,7 @@ $B^{\omega}$ represents the set of all possible infinite strings (or sequences) 
 
 **Theorem 4.24 (Cantor's Theorem)** $A \prec \wp(A),$ for any set A
 
-> ==Proof==
+> **Proof**
 > 
 > We need to show that there is an injective function $f: A \rightarrow \wp(A)$ but there's no bijective $h: A \rightarrow \wp(A)$.
 > We can construct $f(x)=\{x\}$ for $x \in A$. This is an injection because if $x \neq y$, then $\{x\} \neq \{y\}$.
@@ -645,7 +645,7 @@ The limit of first-order languages are consequences of the compactness and Lowen
 
 ## Chap 6 Syntax of First-order Logic
 
-### First-order Languages
+### 6.2 First-order Languages
 
 Expressions of first-order logic are built up from: 
 
@@ -662,14 +662,14 @@ Expressions of first-order logic are built up from:
 	- Comma: $,$
 	- Parenthesis: $(,)$
 
-> ==Remark==
+> **Remark**
 > 
 > Non-logical symbols depend on the particular structure; Logical symbols are fixed by first-order logic. Therefore, variables are logical symbols.
 >
 > Things like variables are infinite because some proofs needs there always be fresh symbols. It is countable because being countable is enough.
 
 
-### Terms and Formulas
+### 6.3 Terms and Formulas
 
 Definition 6.4 (Terms)
 
@@ -679,7 +679,10 @@ Definition 6.4 (Terms)
 2. Every *constant symbol* of $\mathscr{L}$ is a term (This is actually redundant if we allow $n=0$ when we define functions, since constants would then just be zero-place function)
 3. If $f$ is an $n$-place *function symbol* and $t_{1}, \dots , t_{n}$ are terms, then $f(t_{1},\dots ,t_{n})$ is a term
 4. Nothing else is a term
-5. A term containing no variables is a *closed term*
+
+Definition 6.4.1 (Closed Term)
+
+: A term containing no variables is a *closed term*
 
 **Definition 6.5 (Formulas)**
 
@@ -727,7 +730,7 @@ then $P$ holds for all formulas $A \in Frm(\mathscr{L})$
 
 The way we defined formulas guarantees that every formula has a unique reading
 
-**Lemma 6.10.1**: The number of left and right parenthesis in a term $t$ are equal
+**Lemma 6.10. 1 (Balance parenthesis in terms)**: The number of left and right parenthesis in a term $t$ are equal
 
 > To prove this, we need to show this holds for the base cases and the new formulas. The base cases include variables and constant symbols. The new formulas include function symbols. 
 > 
@@ -736,9 +739,9 @@ The way we defined formulas guarantees that every formula has a unique reading
 > Then we assume $l(t_{n})=r(t_{n})$ holds for $t_{1},\dots ,t_{n}$, we show that the number of left and right parentheses in the term $f(t_{1},\dots ,t_{n})$ are equal. $l=1+l(t_{1})+\dots +l(t_{n})$, $r=1+r(t_{1})+\dots +r(t_{n})$. Since $\sum\limits_{i=0}^{n}{r(t_{i})}=\sum\limits_{i=0}^{n}{r(t_{i})},l=r$.
 > Therefore, Lemma 6.10.1 is true
 
-**Lemma 6.10**: The number of left and right parenthesis in a formula $A$ are equal
+**Lemma 6.10 (Balance parenthesis in formulas)**: The number of left and right parenthesis in a formula $A$ are equal
 
-> ==Proof==
+> **Proof**
 >
 > To prove this, we use the principle of induction on formulas. We need to show:
 >
@@ -763,19 +766,18 @@ Definition (Proper prefix)
 
 : A string of symbols $B$ is a proper prefix of a string of symbols $A$ if concatenating $B$ and a non-empty string of symbols yields $A$
 
-**Lemma 6.12**: If $A$ is a formula, and B is a proper prefix of $A$, then $B$ is not a formula
+**Lemma 6.12 (Formula's proper prefix is not a formula)**: Let $A$ be a formula. If B is a proper prefix of $A$, then $B$ is not a formula
 
-> ==Proof==
->
-> It is very strenuous to show the property that "If $B$ is a proper prefix of $A$, then $B$ is not a formula" holds for any formula $A$. We instead show the property $P$ that "there no string $S$ such that $BS$, i.e. concatenating $S$ to $B$, is a formula" holds for any formula $B$. 
+> **Proof**
+> ?
 
-**Proposition 6. 13**: If $A$ is an atomic formula, then it satisfies one, and only one of the following conditions:
+**Proposition 6. 13 (Unique atomic formula expression)**: If $A$ is an atomic formula, then it satisfies one, and only one of the following conditions:
 
 1. $A \equiv \bot$
 2. $A \equiv R(t_{1},\dots ,t_{n})$ where $R$ is an $n$-place predicate symbol, $t_{1},\dots ,t_{n}$ are terms, and each of $R, t_{1},\dots ,t_{n}$ is uniquely determined.
 3. $A \equiv t_{1} \equiv t_{2}$ where $t_{1}$ and $t_{2}$ are uniquely determined terms.
 
-> ==Proof==
+> **Proof**
 >
 > First we prove that there cannot be a formula that satisfies both 1 and 2, 1 and 3 and 2 and three. Then we prove that there cannot be two different formulas that satisfies 1 or 2 or 3.
 
@@ -788,7 +790,7 @@ Definition (Proper prefix)
 
 Moreover, in each case, $B$ or $B$ and $C$ are uniquely determined. This means that, e.g. there are no different pairs $B,C$ and $B',C'$ so that $A$ is both of the form $(B \rightarrow C)$ and $(B' \rightarrow C')$
 
-> ==Proof==
+> **Proof**
 > 
 > The only non-trivial proof here is to show that if $(B*C)\equiv(B'*'C')$, then $B \equiv B',C \equiv C', * \equiv *'$.
 
@@ -839,7 +841,12 @@ Definition 6.21 (Strings)
 
 Definition 6.23 (Formation sequence for terms)
 
-: A finite sequence of $\mathscr{L}$-string $\langle t_{0},\dots ,t_{n} \rangle$ is a formation sequence for a term $t$ if $t \equiv t_{n}$ and for all $i \le n$, either $t_{i}$ is a variable or a constant symbol, or $\mathscr{L}$ contains a $k$-ary function symbol $f$ and there exist $m_{0},\dots ,m_{k}<i$ such that $t_{i}\equiv f(t_{m_{0}},\dots ,t_{m_{k}})$
+: A finite sequence of $\mathscr{L}$-string $\langle t_{0},\dots ,t_{n} \rangle$ is a formation sequence for a term $t$ if 
+
+(i) $t \equiv t_{n}$, and 
+(ii) for all $i \le n$, either 
+	(a) $t_{i}$ is a variable or a constant symbol, or
+	(b) $\mathscr{L}$ contains a $k$-ary function symbol $f$ and there exist $m_{0},\dots ,m_{k}<i$ such that $t_{i}\equiv f(t_{m_{0}},\dots ,t_{m_{k}})$
 
 Definition 6.25 (Formation sequences for formulas)
 
@@ -853,9 +860,9 @@ Definition 6.25 (Formation sequences for formulas)
 		2. $A_{i} \equiv (A_{j}*A_{k}), *=\land, \lor, \rightarrow$
 		3. $A_{i} \equiv *xA_{j},*=\exists, \forall$
 
-**Proposition 6.27**: Every formula $A$ in $Frm(\mathscr{L})$ has a formation sequence
+**Proposition 6.27 (All formulas have formation sequence)**: Every formula $A$ in $Frm(\mathscr{L})$ has a formation sequence
 
-> ==Proof==
+> **Proof**
 >
 > To show this, we need to show that 
 >
@@ -869,9 +876,9 @@ Definition 6.25 (Formation sequences for formulas)
 > 2. If $A \equiv (B*C), *=\land, \lor, \rightarrow$, then $\langle B_{0},\dots ,B_{n}, C_{0},\dots, C_{m}, (B_{n}*C_{m}) \rangle$ is a formation sequence for $A$
 > 3. If $A \equiv *xB, *=\exists, \forall$, then $\langle B_{0},\dots ,B_{n}, *xB \rangle$ is a formation sequence for $A$
 
-**Lemma 6.28**: Suppose that $\langle A_{0},\dots ,A_{n} \rangle$ is a formation sequence for $A_{n}$, and that $k \le n$. Then $\langle A_{0},\dots ,A_{k} \rangle$ is a formation sequence for $A_{k}$
+**Lemma 6.28 (Sub-formation sequence)**: Suppose that $\langle A_{0},\dots ,A_{n} \rangle$ is a formation sequence for $A_{n}$, and that $k \le n$. Then $\langle A_{0},\dots ,A_{k} \rangle$ is a formation sequence for $A_{k}$
 
-> ==Proof==
+> **Proof**
 > 
 > To show $\langle A_{0},\dots ,A_{k} \rangle$ is a formation sequence for $A_{k}$, we need to show that,
 > 
@@ -888,5 +895,161 @@ Definition 6.25 (Formation sequences for formulas)
 > 
 > Since $k\le n$, (2) is also true. Therefore (1) and (2) are all true, making $\langle A_{0},\dots ,A_{k} \rangle$ a formation sequence for $A_{k}$.
 
-**Theorem 6.29**: $Frm(\mathscr{L})$ is the set of all expressions (strings of symbols) in the language $\mathscr{L}$ with a formation sequence.
+**Theorem 6.29**: $Frm(\mathscr{L})$ is the set of all expressions (strings of symbols) in the language $\mathscr{L}$ with a formation sequence. ==??? What about formation sequence for terms? Guess you are saying "formation sequence of formulas"? But if that is so, then the proof is trivial. And you never define what is a standalone formation sequence==
+
+> **Proof**
+> 
+> We are proving the identify between two sets. Let $F$ be the set of all strings of symbols in $\mathscr{L}$ that have a formation sequence. We need to show that $F = Frm(\mathscr{L})$. We have shown that all formulas have formation sequence, i.e. $Frm(\mathscr{L}) \subseteq F$ in proposition 6.27. Now we need to show that $F \subseteq Frm(\mathscr{L})$. 
+> Suppose we have a formation sequence of a formula $\langle A_{0},\dots ,A_{n}\rangle$. For it to be a formation sequence, it must be the formation sequence for formula $A_{n}$.
+
+**Proposition 6.30**: $Trm(\mathscr{L})$ is the set of all expressions $t$ in the language $\mathscr{L}$ such that there exists a (term) formulation sequence for $t$.
+
+> **Proof**
+
+Definition 6.31 (Minimal Formation Sequence)
+
+: A formation sequence $\langle A_{0},\dots ,A_{n}\rangle$ for $A$ is a minimal formation sequence for $A$ if for every other formation sequence $s$ for $A$, the length is greater than or equal to $n+1$
+
+**Proposition 6.32**: The following are equivalent:
+
+1. $B$ is a subformula of $A$
+2. $B$ occurs in every formation sequence of $A$
+3. $B$ occurs in a minimal formation sequence of $A$
+
+> **Proof**
+
+### 6.8 Free variables and Sentences
+
+Definition 6.33 (Free occurrences of a variable)
+
+: The free occurrence of a variable in a formula are defined inductively as follows:
+
+1. $A$ is atomic: all variable occurrences in $A$ are free
+2. $A \equiv \neg B$: The free variable occurrences of $A$ are exactly those of $B$
+3. $A \equiv (B * C)$: The free variable occurrences of $A$ are exactly those of $B$ and $C$
+4. $A \equiv *xB$: The free variable occurrences of $A$ are exactly those of $B$ except $x$
+
+Definition 6.34 (Bound Variables)
+
+: An occurrence of a variable in a formula $A$ is *bound* if it is not free
+
+Definition 6.35 (Scope)
+
+~ If $\forall xB$ is an occurrence of a subformula in a formula $A$, then the corresponding occurrence of $B$ in $A$ is called the *scope* of the corresponding occurrence of $\forall x$. Similarly for $\exists x$.
+~ If B is the scope of a quantifier occurrence $\forall x$ or $\exists x$ in $A$, then the free occurrences of $x$ in $B$ are bound in $\forall xB$ and $\exists xB$. We say that these occurrences are *bound by* the mentioned quantifier occurrence.
+
+Definition 6.37 (Sentences)
+
+: A formula $A$ is a sentence iff it contains no free occurrences of variables
+
+### 6.9 Substitution
+
+Definition 6.38 (Substitution in a term)
+
+: Let $s$ be a string in $\mathscr{L}$. We define $s[t/x]$, the result of substituting $t$ for every occurrence of $x$ in $s$, recursively:
+
+1. $s \equiv c: s[t/x]$ is just $s$
+2. $s \equiv y: s[t/x]$ is just $s$ if $y \neq x$
+3. $s \equiv x: s[t/x]$ is $t$
+4. $s \equiv f(t_{1},\dots ,t_{n}):s[t/x]$ is $f(t_{1}[t/x],...,t_{n}[t/x])$
+
+Definition 6.39 (Term t is free for x in A)
+
+: A term $t$ is free for variable $x$ in formula $A$ if none of the free occurrences of $x$ in $A$ occur in the scope of a quantifier that binds a variable in $t$
+
+> **Remark**: **"Term _t_ is free for _x_ in formula _A_"** means that you can safely substitute _t_ for all free occurrences of _x_ in _A_ without causing unintended variable capture. This condition is met if and only if no free occurrence of _x_ in _A_ falls under the scope of a quantifier that binds any variable present in _t_.
+
+Definition 6.41 (Substitution in a formula)
+
+: If $A$ is a formula, $x$ is a variable, and $t$ is a term free for $x$ in $A$, then $A[t/x]$ is the result of substituting $t$ for all free occurrence of $x$ in $A$.
+
+1. $A \equiv \bot: A[t/x]$ is $\bot$
+2. $A \equiv P(t_{1},\dots,t_{n}):A[t/x]$ is $P(t_{1}[t/x],\dots,t_{n}[t/x])$
+3. $A \equiv t_{1}=t_{2}: A[t/x]$ is $t_{1}[t/x]=t_{2}[t/x]$
+4. $A \equiv \neg B: A[t/x]$ is $\neg B[t/x]$
+5. $A \equiv (B*C),*=\land, \lor, \rightarrow:A[t/x]$ is $(B[t/x]*C[t/x])$
+6. $A \equiv *yB, *=\forall, \exists$: If $x=y$, then $A[t/x]$ is just $A$; otherwise $A[t/x]$ is $*yB[t/x]$
+
+> **Remark**: This only substitutes free variables. All the bounded ones are untouched  to prevent the following from happening: $A \equiv \exists y x < y$ and $t \equiv y$, then $A[t/x]$ would be $\exists y y < y$
+
+## Chap 7 Semantics of First-order Logic
+
+### 7.2 Structures for First-order Languages
+
+Definition 7.1 (Structures)
+
+: A structure M, for a language $\mathscr{L}$ of first-order logic consists of the following elements:
+
+1. *Domain*: A non-empty set $|M|$,
+2. *Interpretation of constant symbols*: For each constant symbol $c$ of $\mathscr{L}$, there is an element $c^{M}\in |M|$
+3. *Interpretation of predicate symbols*: For each $n$-place predicate symbol $R$ of $\mathscr{L}$ (other than =), an $n$-place relation $R^{M}\subseteq |M|^{n}$
+4. *Interpretation of function symbols*: For each $n$-place function symbol of $f$ of $\mathscr{L}$, an $n$-place function $f^{M}:|M|^{n}\rightarrow |M|$
+
+> **Remark**: $c^{M}$ can be understood as "the constant $c$ is interpreted by $M$ to be a member of $|M|$"; $R^{M}$ can be understood as "the predicate $R$ is interpreted by $M$ to be a member of $|M|^{n}$"; etc.
+
+### 7.3 Covered Structures for First-order Languages
+
+
+
+Definition 7.4 (Value of closed terms)
+
+: If $t$ is a closed term of the language $\mathscr{L}$ and $M$ is a structure for $\mathscr{L}$, the value $Val^{M}(t)$ is defined as follows
+
+1. If $t$ is just the constant symbol $c$, then $Val^{M}(c)=c^{M}$
+2. If $t$ is of the form $f(t_{1},\dots,t_{n})$, then $$ Val^{M}(t)=f^M(Val^{M}(t_{1}),\dots,Val^{M}(t_{n}))$$
+Definition 7.5 (Covered Structure)
+
+: A structure is covered if every element of the domain is the value of some closed term.
+
+> **Remark**: This is a "surjective" relation between value of all closed terms in $\mathscr{L}$ and $M$, and $|M|$
+
+### 7.4 Satisfaction of a Formation in a Structure
+
+Definition 7.7 (Variable Assignment)
+
+: A variable assignment $s$ for a structure $M$ is a function which maps each variable to an element of $|M|$, i.e. $Var \rightarrow |M|$
+
+> **Remark**: A structure assign values to constants; A variable assignment assigns values to variables.
+
+**Definition 7.8 (Value of Terms)**
+
+~ If
+
+- $t$ is a term of the language $\mathscr{L}$, 
+- $M$ is a structure for $\mathscr{L}$, and 
+- $s$ is a variable assignment for $M$, 
+
+~ Then the value $Val^{M}_{s}(t)$ is defined as follows:
+
+1. $t \equiv c: Val^M_s(t)=c^M$
+2. $t \equiv x: Val^M_s(t)=s(x)$
+3. $t \equiv f(t_{1},\dots,t_{n}):$ $$ Val^M _s(t)=f^M(Val^M_ s(t_{1}),\dots,Val^M_s(t_{n}))$$
+
+Definition 7.9 (x-variant)
+
+: If $s$ is a variable assignment for a structure $M$, then any variable assignment $s'$ for $M$ which differs from $s$ at most in what it assigns to $x$ is called an *$x$-variant* of $s$. If $s'$ is an $x$-variant of $s$ we write $s' \sim_{x} s$
+
+> **Remark**: It's okay for $s'=s$
+
+Definition 7.10 ($S[m/x]$)
+
+: If $s$ is a variable assignment for a structure $M$ and $m \in |M|$, then the assignment $s[m/x]$ is the variable assignment defined by $$ 
+s[m/x](y)=
+\begin{cases}
+m & \text{if } y \equiv x \\
+s(y) & \text{otherwise} \\
+\end{cases}$$
+Definition 7.11 (Satisfaction)
+
+: Satisfaction of a formula $A$ in a structure $M$ relative to a variable assignment $s$, in symbols: $M,s \vDash A$, is defined recursively as follows.
+
+1. $A \equiv \bot: M,s \nvDash A$
+2. $A \equiv R(t_{1},\dots,t_{n}):M,s \vDash A$ iff $\langle Val^{M}_{s}(t_{1}),\dots,Val^{M}_{s}(t_{n})\rangle\in R^{M}$
+3. $A \equiv t_{1}=t_{2}: M,s \vDash A$ iff $Val^M_s(t_1)=Val^M_s(t_2)$
+4. $A \equiv \neg B: M,s \vDash A$ iff $M,s \nvDash B$
+5. $A \equiv (A \land B): M,s \vDash A$ iff $M,s \vDash B$ and $M,s \vDash A$
+6. $A \equiv (A \lor B): M,s \vDash A$ iff $M,s \vDash B$ or $M,s \vDash A$ (or both)
+7. $A \equiv (A \rightarrow B): M,s \vDash A$ iff $M,s \nvDash B$ or $M,s \vDash A$ (or both)
+8. $A \equiv \forall x B: M,s \vDash A$ iff for any element $m \in |M|, M,s[m/x]\vDash B$
+9. $A \equiv \exists x B: M,s \vDash A$ iff for at least one element $m \in |M|, M,s[m/x]\vDash B$
 
