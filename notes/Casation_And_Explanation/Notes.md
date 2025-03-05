@@ -182,4 +182,10 @@ Railton: not argument, but account which is more isomorphic to reality
 > possible way out: pluralism! With levels of reduction
 > Problem for minimalism: existential claim: that's all that exists
 
-Railton's project: Keep the systemized account with DN and DNP,  
+Railton's project: Keep the systemized account with DN and DNP
+
+material implication is not enough because "all ravens are black" is not the *cause* of this raven being black, though it is a valid derivation; We need causal mechanism (What matters is the structure of *mechanism*, but there need not be a metaphysical causation, though it would be compatible)
+
+**Problem**: If you think probability is not real, then it would not really be mechanism but just patterns
+
+**Solution**: It's DN!

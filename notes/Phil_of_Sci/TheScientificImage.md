@@ -355,8 +355,8 @@ Four main questions
 
 **role of experimentation**
 
-1. constructs the theory by filling in blanks, and 
-2. test the empirical adequacy of a theory
+1. constructs the theory by *filling in blanks*, and 
+2. *verify* the empirical adequacy of a theory
 
 **Role of Theory**
 
@@ -371,7 +371,7 @@ Four main questions
 - **Discovery:** The theory posits some missing factor (blank), and experiment discover what it is (fill in the blank)
 
 **Objection**: What are the experimental scientists doing when they make a discovery, if the thing being discovered does not exist?
-**Defense**: They are give answer to: Assuming that the theory is empirically adequate, how the blank is to be filled
+**Defense**: They are give answer to: Assuming that the theory is empirically adequate, how the blank is to be filled; In other words, they are just developing the model
 
 **Example**: Millikan's oil drop experiment is filling a value for a quantity which was left open.
 
@@ -387,13 +387,13 @@ Therefore, experiment is the *continuation of theory construction by other means
 
 **Objection 2**: The following principle is uncontroversial
 
-1. Suppose that some principle of scientiﬁc methodology contributes to the reliability of that methodology in the following minimal sense: that its operation contributes to the likelihood that the observational consequences of accepted scientiﬁc theories will be (at least approximately) true. Then it is the business of scientiﬁc epistemology to *explain* the reliability of that principle `If a rule in scientific methodology increases the chances that the observable predictions of accepted theories are true (or close to true), then philosophers of science should explain _why_ that rule is reliable`
+1. Suppose that some principle of scientiﬁc methodology contributes to the reliability of that methodology in the following minimal sense: that its operation contributes to the likelihood that the observational consequences of accepted scientiﬁc theories will be (at least approximately) true. Then it is the business of scientiﬁc epistemology to *explain* the reliability of that principle `If a rule in scientific methodology increases the chances that the observable predictions of accepted theories are true (or close to true), then philosophers of science should explain why that rule is reliable`
 
-In specific, (P) is an example of this principle ==why? How is P related to the second principle?== 
+In specific, (P) is an instance rule of what this principle describes, and philosophers need to explain why this is reliable.
 
 (P) a proposed theory T must be experimentally tested under situations representative of those in which, in the light of collateral information, it is most likely that T will fail, if it's going to fail at all. `Pressure testing for L: find the cases where L fails it would produce different outcome`
 
-(P) is plausible, and only realism can follow (P) because you need causal claims made by the theory might plausibly go wrong
+**Objection**: (P) is plausible, and only realism can follow (P) because you need causal claims made by the theory might plausibly go wrong
 
 **Defense**: The pressure testing will confirm L to be empirically adequate as against contemplated alternatives
 

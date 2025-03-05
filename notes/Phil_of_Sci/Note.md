@@ -95,3 +95,35 @@ Humian: **The principle of the uniformity of nature**: Something like, "The futu
 Problem: "counter-induction" can justify itself by "all the counter-inductions are disaster, so the next one will be successful"
 
 **Tentative response**: Could there be some reason that does not lie in arguments, but in induction practice?
+
+Three ways to think about induction:
+
+1. Hume's problem, attempting to resolving it
+2. Even more insoluble problem: Nelson Goodman: The principle of the uniformity of nature is *VACUOUS* because... what is likeness?? in what way?? Everything is like everything.
+
+Problem: How to get a reliable induction?
+
+Definition (Grue)
+
+: x is grue iff x is green and observed before 2050 or x is blue and unobserved before 2050
+
+
+(i) All emeralds observed so far have been green
+(ii)) Therefore, all emeralds so far are grue
+
+We can induct 
+
+from (i) that an emerald first observed in 2051 will be green, and 
+from (ii) that an emerald first observed in 2051 will be grue --> It's blue!
+
+**Problem (Goodman)**: "Grue" is a bad property for induction (i.e. a bad property for projecting into future) because 
+
+**Joke**: Someone is falling off a very tall building; For every window he saw he says to himself: "So far so good." According to induction, he will be good in the future.
+
+Definition (Bleen)
+
+: x is bleen iff x is blue and observed before 2050 or x is green and unobserved before 2050
+
+Definition (Green)
+
+: x is green iff x is grue and observed before 2050 or x is bleen and unobserved before 2050
