@@ -326,6 +326,8 @@ To accept a theory is either claim its truth or to claim its empirical adequacy;
 
 ## 4. Empiricism and Scientific Methodology
 
+> How to stick science and the world? Van Fraassen: use organism
+
 Four main questions
 
 1. Does the rejection of realism leads to self-defeating skepticism?
@@ -342,7 +344,7 @@ Four main questions
 **Objection**: observable objects are just postulated entities from sense experience or sense data
 **Defense**: No. Sense data is the postulated entity from observable objects
 
-- **Objection**: The conclusion of empirical adequacy is confirmed by observables is still beyond the evidence. What are the conditions for rationally accepting the conclusion beyond evidence, then? ==why go beyond evidence but not so beyond as to say the theory is true==
+- **Objection**: The conclusion of empirical adequacy is confirmed by observables is still beyond the evidence. What are the conditions for rationally accepting the conclusion beyond evidence, then? ==why go beyond evidence but not so beyond as to say the theory is true: taking risk without talking about beliefs, just talking about acceptance==
 
 
 ### 2. Methodology and Experimental Design
@@ -406,6 +408,11 @@ We are immersed to theoretical language, how do we explain it without ontologica
 **Van Fraassen's way**: the conceptual framework of science itself distinguish observables and unobservables; and it *correlates* the what we perceive but it does not need to be metaphysical
 
 When we are immersed in the world picture, we seems to see electron and racehorse as both objectively existence. But this is not qualified. "Living in a theoretical world" does not describe one's commitments. Is it only possible to distinguish observables and unobservable after we are immersed in the scientific world. The "stepping one step away and examine one's epistemic commitments" is a reflective attitude.
+
+### 3. The Conjunction Objection
+
+top-down and experimental data; control, predict, explain; what kind of choice should I make
+
 
 ```
 to conjunction objection stop at 4.3, 23 pages

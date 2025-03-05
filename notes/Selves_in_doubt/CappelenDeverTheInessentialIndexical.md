@@ -49,3 +49,51 @@ b) Perry and Lewis developed (at least) powerful and interesting argument for th
 **Metaphysics**: Personal identify and self-consciousness
 **Philosophy of religion**: the possibility to survive death
 **Formal Epistemology:** Sleeping Beauty problem
+
+### 1.5 More Precise Articulation of Our Target: Essential Indexicality Theses and the Alleged Explanatory Roles of Indexicality
+
+Several claims supports each other:
+
+**Agency**: Ch. 3, Indexicality and de se attitudes plays an essential role in explaining rationalizing action
+**Opacity**: Ch. 4, whether the presence of indexicals in opaque contexts raises questions that are fundamentally different from general issues about opacity
+**Information**: Ch. 5 and 6, Lewisian thought that indexicality plays an essential role in explanation gathering.
+**Epistemic**: Ch. 7, whether immunity to error through misidentification is an essential feature of indexicality (if it is a feature of anything at all)
+**Perceptual Content**: Ch. 8, if there is such a thing as perceptual content, then it has to encode the perspective *from which* the perceptual experience is taking place in an indexical manner
+**PRO**: Ch. 9, indexical content is essential to the interpretation of PRO constructions
+
+Aim: All of these are false
+
+### 1.6 Basic Kaplanianism and the Goals of This Book
+
+**The content of a sentence**: truth conditional representation of a sentence
+**The character of a sentence**: a function maps from context to contents
+
+Motivation for doing this: To isolate the context-sensitive level of meaning
+
+### 1.7 Some of the Many Issues We Will Not Address
+
+Some related topics:
+
+1. Whether there are monsters in Kaplan's sense
+2. role of intention in indexical reference fixing
+3. interpretation of indexicals used on billboards and answering machines
+4. interpretation of indexicals in mixed quotation
+5. "know" or "might" is context-sensitive
+
+### 1.8 How to read this book
+
+## Chapter 2 Preliminaries: Language-Mind, Super Indexicals and Opacity
+
+### 2.1 Essential Indexicality: Language or Mind?
+
+**Linguistic indexicality**: The nature of context-sensitive terms
+**Conceptual indexicality**: Indexical thoughts
+
+**Problem**: We just take it for granted that beliefs expressed by indexical sentences are immediately indexical. But this move between language and thought is not justified
+
+> Total state of belief at t; representing the total state can be in a lot of ways
+
+How the linguistic framework is developed: the sameness of utterance "I am David Hume" have different truth value. We need to explain what is the same and what is different in these two utterance: the character is the same and the content is different.
+
+But if we move to mental states, we can say the content of the mental states are different. But what is the same? `Character?` If we do not hold a "language of thought" thesis, then it is not clear what is the same. `Fuctional equivalence?`
+
