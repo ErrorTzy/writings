@@ -177,7 +177,7 @@ Two horns of the delimma:
 
 the ideal solution: to reduce the latter to the former (explain pushes and pull by information)
 
-Railton: not argument, but account which is more isomorphic to reality
+**Railton**: not argument, but account which is more isomorphic to reality
 
 > possible way out: pluralism! With levels of reduction
 > Problem for minimalism: existential claim: that's all that exists
@@ -189,3 +189,13 @@ material implication is not enough because "all ravens are black" is not the *ca
 **Problem**: If you think probability is not real, then it would not really be mechanism but just patterns
 
 **Solution**: It's DN!
+
+Formal languages need interpretation. Natural language comes interpeted
+
+Explanatory information is info about the ideal explanatory text.
+
+Are they talking about explanatory info or exchanging explanatory explanation?
+
+Talking about explanatory info: "Ideal explanation consists exactly 100 words" (There are so many ways to give information about explanatory text) *This seems a very bad problem*
+
+What counts as an explanatory exchange?

@@ -89,11 +89,69 @@ Some related topics:
 **Linguistic indexicality**: The nature of context-sensitive terms
 **Conceptual indexicality**: Indexical thoughts
 
-**Problem**: We just take it for granted that beliefs expressed by indexical sentences are immediately indexical. But this move between language and thought is not justified
+**Problem 1 (Sameness of mental states)**: We just take it for granted that beliefs expressed by indexical sentences are immediately indexical. But this move between language and thought is not justified
 
 > Total state of belief at t; representing the total state can be in a lot of ways
 
 How the linguistic framework is developed: the sameness of utterance "I am David Hume" have different truth value. We need to explain what is the same and what is different in these two utterance: the character is the same and the content is different.
 
 But if we move to mental states, we can say the content of the mental states are different. But what is the same? `Character?` If we do not hold a "language of thought" thesis, then it is not clear what is the same. `Fuctional equivalence?`
+
+**Problem 2 (context of mental states)**: Context involves audience and time. But who's the audience of a thought?
+
+**Tentative solution from Recanati**: A theory of mental files.
+
+**Another solution**: Indexicality of thought is just a way of thinking objects; Indexicality in language is just secondary heuristics. 
+- **Objection**: This is false and will be proven in ch. 6
+
+### 2.2 Are All Indexicals Equal or Are There Super Indexicals
+
+One-essential-indexical view
+
+**McGinn 1983**: All (essential) indexicals are linked with I
+**Kaplan 1989**: All indexicals are tacit demonstratives: "I"="this person", etc.
+
+One can also hold "some-essential-indexical" view: "I","now", "here" are essential
+
+Also, if are "know","all","red", etc are context-sensitive, then are they all distinctive or can be reduced to more basic essential indexicals?
+
+### 2.3 Opacity and Essential Indexicality
+
+Indexicals cannot be substituted in opaque contexts, but does it prove that it is special?
+
+## Chapter 3 Indexicality, the de se and Agency
+
+Two goals of this chapter:
+
+1. What connection does indexicality and agency have
+2. Whether the arguments for this connection hold
+
+### 3.1 Perry on the Opacity of Explanation Context
+
+**Indexical Opcacity**: The set of indexicals, "I-set", that cannot be substituted salva veritate in action-explanation contexts by any other expressions
+
+**Generic Opacity**: Co-referential referring expressions cannot be substituted salva veritate in action explanation contexts
+
+**Superman/Clark Kent Case**: I want to tell Clark Kent that he was making a mess. But I only see superman in front of me. Suddenly I realize that superman is Clark Kent. After I realized this, I walked to superman and told him he was making a mess.
+
+Perry's case does not show that indexical opacity is different from generic opacity.
+
+### 3.2 Causation, Explanation, Motivation and Rationalization
+
+When someone did something, we could ask:
+
+**Causal**: What is the full causal history of François' action?
+**Explanation**: What is the explanation of François' performing the action
+**Motivation**: What was François' motivationfor performing the action/what are the reasons for which he performed the action?
+**Rationalization**: What made the action reasonable/rationalizable/comprehensible for Francois to perform
+
+Do these questions need "de se" attitudes?
+
+### 3.3 Impersonal vs. Personal Action Explanations/Rationalizations
+
+**Impersonal Incompleteness Claim (IIC)**: Impersonal action rationalization (IAR) are necessarily incomplete because of a missing indexical component
+
+**Objection**: There are no arguments that would support IAR-explanantion must be incomplete
+
+### 3.4 Preliminaries: Some Weaker Theses and Why We Focus on IIC
 

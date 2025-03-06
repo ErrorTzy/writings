@@ -1087,6 +1087,12 @@ Definition 7.11 (Satisfaction)
 > 9. $A \equiv \exists x B: M,s \vDash A$ iff for at least one element $m \in |M|, M,s[m/x]\vDash B$
 
 
+Let me try to explain this in short: 
+
+**Proposition 7.14**: If the free variables in formula $A$ are among $x_{1},\dots,x_{n}$, and $s_{1}(x_{i})=s_{2}(x_{i})$ for $i=1,\dots,n$, then $M,s_{1}\vDash A$ iff $M,s_{2}\vDash A$
+
+This proposition can be formalized as $\forall s_{1} \forall s_{2} \forall A (\forall x (freeinA(x) \rightarrow s_{1}(x)=s_{2}(x)))$
+
 **Corollary 7.15** If $A$ is a *sentence* and $s$ a variable assignment, then $M,s \vDash A$ iff $M,s' \vDash A$ for every variable assignment $s'$
 
 > **Proof**
