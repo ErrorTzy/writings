@@ -730,7 +730,7 @@ then $P$ holds for all formulas $A \in Frm(\mathscr{L})$
 
 The way we defined formulas guarantees that every formula has a unique reading
 
-**Lemma 6.10. 1 (Balance parenthesis in terms)**: The number of left and right parenthesis in a term $t$ are equal
+**Lemma 6.10.1 (Balance parenthesis in terms)**: The number of left and right parenthesis in a term $t$ are equal
 
 > To prove this, we need to show this holds for the base cases and the new formulas. The base cases include variables and constant symbols. The new formulas include function symbols. 
 > 
@@ -771,7 +771,7 @@ Definition (Proper prefix)
 > **Proof**
 > ?
 
-**Proposition 6. 13 (Unique atomic formula expression)**: If $A$ is an atomic formula, then it satisfies one, and only one of the following conditions:
+**Proposition 6.13 (Unique atomic formula expression)**: If $A$ is an atomic formula, then it satisfies one, and only one of the following conditions:
 
 1. $A \equiv \bot$
 2. $A \equiv R(t_{1},\dots ,t_{n})$ where $R$ is an $n$-place predicate symbol, $t_{1},\dots ,t_{n}$ are terms, and each of $R, t_{1},\dots ,t_{n}$ is uniquely determined.
@@ -1031,7 +1031,7 @@ Definition 7.9 (x-variant)
 
 > **Remark**: It's okay for $s'=s$
 
-Definition 7.10 ($S[m/x]$)
+Definition 7.10 ($s[m/x]$)
 
 : If $s$ is a variable assignment for a structure $M$ and $m \in |M|$, then the assignment $s[m/x]$ is the variable assignment defined by $$ 
 s[m/x](y)=
@@ -1052,4 +1052,80 @@ Definition 7.11 (Satisfaction)
 7. $A \equiv (A \rightarrow B): M,s \vDash A$ iff $M,s \nvDash B$ or $M,s \vDash A$ (or both)
 8. $A \equiv \forall x B: M,s \vDash A$ iff for any element $m \in |M|, M,s[m/x]\vDash B$
 9. $A \equiv \exists x B: M,s \vDash A$ iff for at least one element $m \in |M|, M,s[m/x]\vDash B$
+
+### 7.5 Variable Assignment
+
+**Proposition 7.13** If the variables in a term $t$ are among $x_{1},\dots,x_{n}$, and $s_{1}(x_{i})=s_{2}(x_{i})$ for $i=1,\dots,n$, then $Val_{s_{1}}^{M}(t)=Val_{s_{2}}^{M}(t)$
+
+> **Proof**
+> 
+> (1) $t \equiv c, Val^{M}_{s_{1}}(t)=Val^{M}_{s_{2}}(t)=c$
+> (2) $t \equiv x, Val^{M}_{s_{1}}(t)=s_{1}(x)=s_{2}(x)=Val^{M}_{s_{2}}(t)$
+> (3) Assume this holds for all $t_{1},\dots,t_{n}$, $$\begin{aligned}
+& Val^{M}_{s_{1}}(f(t_{1},\dots, t_{n})) \\
+= & f^{M}(Val^{M}_{s_{1}}(t_{1}),\dots, Val^{M}_{s _{1}}(t_{n})) \\
+= & f^{M}(Val^{M}_{s_{2}}(t_{1}),\dots, Val^{M}_{s _{2}}(t_{n})) \\
+= & Val^{M}_{s_{2}}(f(t_{1},\dots, t_{n}))
+\end{aligned}$$
+
+**Proposition 7.14**: If the free variables in formula $A$ are among $x_{1},\dots,x_{n}$, and $s_{1}(x_{i})=s_{2}(x_{i})$ for $i=1,\dots,n$, then $M,s_{1}\vDash A$ iff $M,s_{2}\vDash A$
+
+> **Proof**
+> 
+> 1. $A \equiv \bot: M, s_{1} \nvDash \bot$ and $M, s_{2} \nvDash \bot$
+> 2. $A \equiv R(t_{1},\dots, t_{n}):$ Given proposition 7.13, if $\langle Val^{M}_{s_{1}}(t_{1}),\dots,Val^{M}_{s_{1}}(t_{n}) \rangle \in R^{M}$, then $\langle Val^{M}_{s_{2}}(t_{1}),\dots,Val^{M}_{s_{2}}(t_{n}) \rangle \in R^{M}$. The converse also holds.
+> 3. $A \equiv t_{1}=t_{2}:$ Given proposition 7.13, if $Val^M_{s_1}(t_1)=Val^M_{s_1}(t_2)$ then $Val^M_{s_2}(t_1)=Val^M_{s_2}(t_2)$. The converse also holds.
+> 4. $A \equiv \neg B:$ Suppose $M,s_{1} \vDash B$ iff $M, s_{2} \vDash B$, then either $M,s_{1} \vDash B \land M,s_{2} \vDash B$ or $M,s_{1} \nvDash B \land M,s_{2} \nvDash B$. Either case it holds.
+> 5. $A \equiv (A \land B):$ Suppose $M,s_{1} \vDash A,B$ iff $M,s_{2} \vDash A,B$, again either two cases holds. Again, it is obvious that the conclusion holds.
+> 6. $A \equiv (A \lor B):$ Again there are two cases. and again the conclusion holds
+> 7. $A \equiv (A \rightarrow B):$ Similarly, this holds
+> 8. $A \equiv \forall x B:$ Suppose either
+	- $M, s_{1} \vDash B$ and $M,s_{2} \vDash B$, or
+	- $M, s_{1} \nvDash B$ and $M,s_{2} \nvDash B$
+>	Now we need to show first $M, s_{1} \vDash \forall x B \rightarrow M, s_{2} \vDash \forall x B$, and then $M, s_{1} \vDash \forall x B \rightarrow M, s_{2} \vDash \forall x B$.
+>	Given that for all $m \in |M|$, $M, s_{1}[m/x]\forall xB$
+> 9. $A \equiv \exists x B: M,s \vDash A$ iff for at least one element $m \in |M|, M,s[m/x]\vDash B$
+
+
+**Corollary 7.15** If $A$ is a *sentence* and $s$ a variable assignment, then $M,s \vDash A$ iff $M,s' \vDash A$ for every variable assignment $s'$
+
+> **Proof**
+> 
+> This is obvious, since A is a sentence, meaning there's no free variables
+
+**Proposition 7.17**: Let $M$ be a structure, $A$ be a sentence, and $s$ a variable assignment. $M \vDash A$ iff $M,s \vDash A$
+
+> **Proof**
+>
+> This is as obvious as 7.15
+
+**Proposition 7.18**: Suppose $A(x)$ only contains $x$ free, and $M$ is a structure. Then:
+
+1. $M \vDash \exists x A(x)$ iff $M,s \vDash A(x)$ for at least one variable assignment $s$
+2. $M \vDash \forall x A(x)$ iff $M,s \vDash A(x)$ for all variable assignment $s$
+
+## 7.6 Extensionality
+
+**Proposition 7.19 (Extensionality)**: Let $A$ be a formula, and $M_{1}$ and $M_{2}$ be structures with $|M_{1}|=|M_{2}|$, and $s$ a variable assignment on $|M_{1}|=|M_{2}|$. If for any constant $c$, relation $R$ or function $f$ we have $c^{M_{1}}=c^{M_{2}},R^{M_{1}}=R^{M_{2}},f^{M_{1}}=f^{M_{2}}$, then $M_{1},s \vDash A$ iff $M_{2},s \vDash A$
+
+> **Proof**
+>
+> First prove that $Val^{M_{1}}_{s}(t)=Val^{M_{2}}_{s}(t)$ for any $t$, then prove this conclusion
+
+**Corollary 7.20 (Extensionality for Sentences)**. Let $A$ be a sentence and $M_{1}$ , $M_{2}$ as in Proposition 7.19. Then $M_{1} \vDash A$ iff $M_{2} \vDash A$.
+
+> **Proof**
+> 
+> This follows from proposition 7.19 and corollary 7.15
+
+**Proposition 7.21**: Let $M$ be a structure, $t$ and $t'$ terms and $s$ a variable assignment. Then $Val^{M}_{s}(t[t'/x])=Val^{M}_{s[Val^{M}_{s}(t')/x]}(t)$
+
+> **Proof**
+>
+> Induct on $t$
+
+**Proposition 7.22**: Let $M$ be a structure, $A$ a formula, $t'$ a term and $s$ a variable assignment. Then $M,s \vDash A[t'/x]$ iff $M,s[Val_{s}^{M}(t')/x]\vDash A$
+
+> **Proof**
+## 7.7 Semantic Notions
 
