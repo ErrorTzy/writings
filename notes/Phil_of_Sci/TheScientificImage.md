@@ -304,7 +304,9 @@ Definition (Quantity)
 1. to specify a family of structures, namely *models*, and
 2. to specify substructure (the *empirical structures*) of those models as candidates for the direct representation of observable phenomena (*appearances*)
 
-**Definition (empirical adequacy)**: A theory is empirically adequate iff there is some model in it such that its empirical structure is isomorphic to all appearances
+Definition (empirical adequacy)
+
+: A theory is empirically adequate iff there is some model in it such that its empirical structure is isomorphic to at least all appearances
 
 **Example**: The "axioms" of quantum mechanics are actually using the new picture because:
 -  **Model way**: Uses *pre-defined mathematical objects* (like vectors and operators) to directly present a structure that represents physical systems.
@@ -341,10 +343,10 @@ Four main questions
 **Defense**: I still go beyond the evidence by claiming a theory is empirically adequate in the future. And confirming empirical structure by observable entities is already ampliative.
 
 
-**Objection**: observable objects are just postulated entities from sense experience or sense data
+**Objection**: observable objects are just postulated entities from sense experience or sense data. Observable are grounded by sense-data.
 **Defense**: No. Sense data is the postulated entity from observable objects
 
-- **Objection**: The conclusion of empirical adequacy is confirmed by observables is still beyond the evidence. What are the conditions for rationally accepting the conclusion beyond evidence, then? ==why go beyond evidence but not so beyond as to say the theory is true: taking risk without talking about beliefs, just talking about acceptance==
+- **Objection**: The conclusion of empirical adequacy is confirmed by observables is still beyond the evidence. What are the conditions for rationally accepting the conclusion beyond evidence, then? ==why go beyond evidence but not so beyond as to say the theory is true? Katie: taking risk without talking about beliefs, just talking about acceptance, in some sense minimize the risk. But why so?==
 
 
 ### 2. Methodology and Experimental Design
@@ -411,10 +413,89 @@ When we are immersed in the world picture, we seems to see electron and racehors
 
 ### 3. The Conjunction Objection
 
-top-down and experimental data; control, predict, explain; what kind of choice should I make
+**Problem**: In scientific practice, if theory A and theory B are both accepted, then we put these two theories together to expend them to new domain of prediction. How should we describe this phenomenon?
+
+**First Objection**: Putting the two theories together means to accept the conjunction of the two theory. The conjunction of two theories is not intelligible on an anti-realist view. 
+
+**Example**
+
+Let A, C be observable phenomena, and $\alpha$ be unobservable process.
+
+- Theory 1:
+	1. If A is observed, then there is $\alpha$.
+	2. C will be observed iff there is  $\alpha$
+- Theory 2:
+	1. If A is observed, then there is no $\alpha$.
+	2. C will be observed iff there is no $\alpha$
+
+Assume that we observe C whenever we observe A. Then Theory 1 and theory 2 are empirically adequate, but the conjunction of theory 1 and theory 2 will yield contradicting results:
+
+(P1) A is observed
+(P2) there is $\alpha$ (from 1.1) 
+(C) C will be observed. (from 1.2 and P2)
+(C') C will not be observed. (from 2.2 and P2)
+
+For realists, this problem will not arise because the theories cannot be true at the same time.
+
+==But why not just stipulate that we cannot conjoin two theories together because there are contradictions?==
+
+**Defense**: If realists are right to say that putting together two theories is to conjoin them, and if someone accepts theory A and theory B, then they would be confident about the conjunction of A and B, and therefore the conjunction of A and B are empirically adequate. But in real scientific practices, scientists are *unsure* whether A and B is empirically adequate until they test it.
+
+**Problem**: Scientists want a single theory to cover disparate domains of phenomena. What would explain this?
+
+**Second Objection**: Realists can explain this by saying that, a theory cannot be true unless it can be extended consistently. But if anti-realists are happy with empirically adequate theories, then they have no reason to be unhappy with empirically adequate theories that are incompatible with each other.
+
+**Reply 1 (Pierre Duhem)**: just give up the unity of science.
+
+- **Objection**: This is just crazy. And it would be inconvenient if we cannot use two theories together to deal with complex situation.
+
+**Reply 2 (BVF)**: If we don't want to say that complex situation is impossible, or we need to devise a theory for every complex situation, then requirement of empirical adequacy already demand us to be unhappy with disparate mini-theories.
 
 
-```
-to conjunction objection stop at 4.3, 23 pages
-```
 
+### 4. Pragmatic Virtues and Explanation
+
+#### 4.1 The other virtues
+
+Other virtues: Elegant, simple, of great scope, unifying, explanatory
+
+Distinction between reasons for using a theory and reasons for accepting a theory. The reasons for using a theory does not make a theory more likely to be true.
+
+Why is it rational to pursue explanation? Because to pursue explanation is to pursue the basic merits like empirically adequacy, empirical strength, etc..
+
+Explanatory power = Pragmatics + Empirical adequacy
+
+#### 4.2 The Incursion of Pragmatics
+
+Semantics is an abstraction of pragmatics. Indexicality is an example of how sometimes we cannot do this abstraction thoroughly.
+
+==Can we approach first person pronoun in this manner?==
+
+Natural Language has three levels:
+
+1. Syntax: the innate property within the language itself
+2. Semantics: the relation between language and the world
+3. Pragmatic: the relation between language and the speakers
+
+Semantics is an abstraction from pragmatics, though indexicality shows this cannot be done thoroughly sometimes.
+
+Similarly, we can analyze a theory in three levels:
+
+1. Internal properties: consistency, completeness, etc.
+2. Semantic properties: relation to the world, mainly truth and empirical adequacy
+3. Pragmatic properties: the explanatory power of a theory, and how we use theories to explain
+
+==An semantic properties is an abstraction from our explanation? Ideal Explanatory text specify a model? Is there a hidden argument here that explanation is scientific practice, but semantic properties is the goal of science? What do you mean the aim of science, anyway? We know language comes into existence because we want to communicate, and it is also plausible that science comes to existence because we want explanation. Then you are saying that the aim of language is truth, not communication. This is actually a narrower view of science: some explanation may be not "scientific enough" because a false theory can explain, but that's not science==
+
+#### 4.3 Pursuit of Explanation
+
+**Objection**: Scientists search for better theory when they are already empirically adequate. Only realists can explain this.
+
+**Defense**: There are always reason to doubt empirical adequacy; 
+
+positive defense: to search for explanation for the most part is aligned with other ideals like simplicity, unification and empirical adequacy ==what???==
+
+
+Explanation is not a minimal virtue: A theory cannot allow any part of it to e inconsistent, but can leave some part of it to be unexplained.
+Explanation does not override empirical adequacy: We don't say we have an explanation unless we have an acceptable theory
+Explanation does not override other inessential virtues: hidden variables in quantum mechanics explains the brute fact of correlation, but is not accepted

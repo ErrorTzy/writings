@@ -111,6 +111,3 @@ The classical truthmaker theory claims that, as long as the truthmaker exits, th
 | Catching Cheaters              | Yes                   | Arguably, by supervenience | Arguably, by supervenience    |
 | Identifying Fundamental Truths | No                    | Yes                        | No                            |
  
-
-## 3 Causation and Powers
-

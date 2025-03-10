@@ -2,7 +2,7 @@
   "debug": false,
   "convertRules": "# have fun converting!\n'Defi |' -> 'Definition |\\n\\n: '\n\n'Prop |' -> '**Proposition |**: '\n'Lemm |' -> '**Lemma |**: '\n'Theo |' -> '**Theorem |**: '\n\n'Rem |' -> '**Remark**: |'\n'Obj |' -> '**Objection**: |'\n'Def |' -> '**Defense**: |'\n\n# Selection Insert Rules\n'\"'  -> '\"' + '\"'\n'<'  -> '<' + '>'\n",
   "zoneIndicatorOn": false,
-  "autoFormatOn": true,
+  "autoFormatOn": false,
   "profiles": [
     {
       "title": "global",
