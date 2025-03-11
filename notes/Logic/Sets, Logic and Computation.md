@@ -1,7 +1,7 @@
 
 # Sets, Relations, Functions
 
-## Chap.1 Sets
+## Ch.1 Sets
 
 **Definition 1.1 (Extensionality)**
 
@@ -10,7 +10,7 @@
 **Definition 1.5 (Subset)**
 
 ~ If $\forall x(x \in A \rightarrow x \in B)$ , then we say that A is a subset of B, and write $A \subseteq B$. 
-~ If A is not a subset of B we write $A \not\subseteq B$. [[Sets, Logic and Computation]]
+~ If A is not a subset of B we write $A \not\subseteq B$. 
 ~ If $A \subseteq B$ but $A \neq B$, we write $A \subsetneq B$ and say that A is a *proper subset* of B.
 
 **Proposition 1.8**
@@ -65,7 +65,7 @@ $\langle a,b \rangle = \{\{a\}, \{a,b\}\}$
 **Theorem 1.29 (Russell’s Paradox)** 
 - There is no set $R = \{x:x \notin x\}$
 
-## Chap.2 Relations
+## Ch.2 Relations
 
 **Definition 2.1 (Binary Relation)**
 - A *binary relation on a set A* is a subset of $A^2$. 
@@ -233,7 +233,7 @@ $\langle a,b \rangle = \{\{a\}, \{a,b\}\}$
 - The transitive closure of $R$ is $R^+ = \bigcup_{0 < n \in \mathbb{N}} R^n$, where we recursively define $R^1 = R$ and $R^{n+1} = R^{n}| R$. `connecting heads and tails, operate it n times`
 - The reflexive transitive closure of $R$ is $R^* = R^+ \cup \mathrm{Id}_A$.
 
-## Chap. 3 Functions
+## Ch. 3 Functions
 
 **Definition 3.1 (Function)** A function $f:A \rightarrow B$ is a mapping of each element of A to an element of B.
 - We call A the domain of f and B the codomain of f . The elements of A are called inputs or *arguments of f* , and the element of B that is paired with an argument x by f is called the *value of f* for argument x, written f(x).
@@ -357,7 +357,7 @@ Remark: the important info here is "there is such left inverse and right inverse
 >
 >
 
-## Chap 4. The Size of Sets
+## Ch.4 The Size of Sets
 
 **Definition 4.1 (Enumeration, informally)**. Informally, an enumeration of a set $A$ is a list (*possibly infinite*) of elements of $A$ such that every element of $A$ appears on the list at some *finite* position. If $A$ has an enumeration, then $A$ is said to be *countable*.
 
@@ -528,7 +528,7 @@ $A \approx B$.
 
 # First-order logic
 
-## Chap.5 Introduction to First-order Logic
+## Ch.5 Introduction to First-order Logic
 
 ### Syntax
 
@@ -643,7 +643,7 @@ The limit of first-order languages are consequences of the compactness and Lowen
 - If $\Gamma \vDash A$ but not $\Gamma \vdash A$, the deductive system is *too weak*
 
 
-## Chap 6 Syntax of First-order Logic
+## Ch.6 Syntax of First-order Logic
 
 ### 6.2 First-order Languages
 
@@ -972,7 +972,7 @@ Definition 6.41 (Substitution in a formula)
 
 > **Remark**: This only substitutes free variables. All the bounded ones are untouched  to prevent the following from happening: $A \equiv \exists y x < y$ and $t \equiv y$, then $A[t/x]$ would be $\exists y y < y$
 
-## Chap 7 Semantics of First-order Logic
+## Ch.7 Semantics of First-order Logic
 
 ### 7.2 Structures for First-order Languages
 
@@ -988,8 +988,6 @@ Definition 7.1 (Structures)
 > **Remark**: $c^{M}$ can be understood as "the constant $c$ is interpreted by $M$ to be a member of $|M|$"; $R^{M}$ can be understood as "the predicate $R$ is interpreted by $M$ to be a member of $|M|^{n}$"; etc.
 
 ### 7.3 Covered Structures for First-order Languages
-
-
 
 Definition 7.4 (Value of closed terms)
 
@@ -1086,12 +1084,7 @@ Definition 7.11 (Satisfaction)
 >	Given that for all $m \in |M|$, $M, s_{1}[m/x]\forall xB$
 > 9. $A \equiv \exists x B: M,s \vDash A$ iff for at least one element $m \in |M|, M,s[m/x]\vDash B$
 
-
-Let me try to explain this in short: 
-
 **Proposition 7.14**: If the free variables in formula $A$ are among $x_{1},\dots,x_{n}$, and $s_{1}(x_{i})=s_{2}(x_{i})$ for $i=1,\dots,n$, then $M,s_{1}\vDash A$ iff $M,s_{2}\vDash A$
-
-This proposition can be formalized as $\forall s_{1} \forall s_{2} \forall A (\forall x (freeinA(x) \rightarrow s_{1}(x)=s_{2}(x)))$
 
 **Corollary 7.15** If $A$ is a *sentence* and $s$ a variable assignment, then $M,s \vDash A$ iff $M,s' \vDash A$ for every variable assignment $s'$
 
@@ -1110,9 +1103,9 @@ This proposition can be formalized as $\forall s_{1} \forall s_{2} \forall A (\f
 1. $M \vDash \exists x A(x)$ iff $M,s \vDash A(x)$ for at least one variable assignment $s$
 2. $M \vDash \forall x A(x)$ iff $M,s \vDash A(x)$ for all variable assignment $s$
 
-## 7.6 Extensionality
+### 7.6 Extensionality
 
-**Proposition 7.19 (Extensionality)**: Let $A$ be a formula, and $M_{1}$ and $M_{2}$ be structures with $|M_{1}|=|M_{2}|$, and $s$ a variable assignment on $|M_{1}|=|M_{2}|$. If for any constant $c$, relation $R$ or function $f$ we have $c^{M_{1}}=c^{M_{2}},R^{M_{1}}=R^{M_{2}},f^{M_{1}}=f^{M_{2}}$, then $M_{1},s \vDash A$ iff $M_{2},s \vDash A$
+**Proposition 7.19 (Extensionality)**: Let $A$ be a formula, and $M_{1}$ and $M_{2}$ be structures with $|M_{1}|=|M_{2}|$, and $s$ a variable assignment on $|M_{1}|=|M_{2}|$. If for any constant $c$, relation $R$ or function $f$ in $A$, we have $c^{M_{1}}=c^{M_{2}},R^{M_{1}}=R^{M_{2}},f^{M_{1}}=f^{M_{2}}$, then $M_{1},s \vDash A$ iff $M_{2},s \vDash A$
 
 > **Proof**
 >
@@ -1133,5 +1126,67 @@ This proposition can be formalized as $\forall s_{1} \forall s_{2} \forall A (\f
 **Proposition 7.22**: Let $M$ be a structure, $A$ a formula, $t'$ a term and $s$ a variable assignment. Then $M,s \vDash A[t'/x]$ iff $M,s[Val_{s}^{M}(t')/x]\vDash A$
 
 > **Proof**
-## 7.7 Semantic Notions
+### 7.7 Semantic Notions
+
+Definition 7.23 (Validity)
+
+: A sentence is *valid*, $\vDash A$ iff $M \vDash A$ for every structure $M$
+
+Definition 7.24 (Entailment)
+
+: A set of sentences $\Gamma$ *entails* a sentence $A,\Gamma \vDash A$ iff for every structure $M$ that $M \vDash \Gamma, M \vDash A$ ==The reason why set is introduced is because infinite conjunction might be problematic==
+
+Definition 7.25 (Satisfiability)
+
+: A set of sentences $\Gamma$ is *satisfiable* if $M \vDash \Gamma$ for some structure $M$. If $\Gamma$ is not satisfiable it is called unsatisfiable.
+
+Definition  (Model satisfy a set of sentences)
+
+: $M \vDash \Gamma$ iff $x \in \Gamma, M \vDash \Gamma$
+
+**Proposition 7.26**: A sentence $A$ is valid iff $\Gamma \vDash A$ for any set of sentences $\Gamma$
+
+> **Proof**
+> 
+> Left to right: Since every structure $M$ satisfy $A$, the structure that satisfy $\Gamma$ will also satisfy A
+> Right to left: prove by reductio
+
+**Proposition 7.27**: $\Gamma \vDash A$ iff $\Gamma \cap \{\neg A\}$ is unsatisfiable
+
+> **Proof**
+> 
+> Left to right: Reductio. Suppose $\Gamma \vDash A$ and there is some structure $M$ such that $M \vDash \Gamma \cap \{\neg A\}$. Then $M \vDash \Gamma$ and $M \vDash \neg A$, which $M \nvDash A$. But we know from inductive hypothesis that If $M \vDash \Gamma$ then $M \vDash A$. Contradiction.
+
+**Proposition 7.28**: If $\Gamma \subseteq \Gamma'$ and $\Gamma \vDash A$, then $\Gamma' \vDash A$
+
+> **Proof**
+>
+> Assume $\Gamma \subseteq \Gamma'$, any structure $M$ such that $M \vDash \Gamma, M \vDash A$ and there is some structure $M'$ such that $M \vDash \Gamma'$. Now we want to show that $M' \vDash A$. This is now very obvious.
+
+**Theorem 7.29 (Semantic Deduction Theorem)**: $\Gamma \cup \{A\} \vDash B$ iff $\Gamma \vDash A \rightarrow B$
+
+> **Proof**: Easy.
+
+**Proposition 7.30**: Let $M$ be a structure, and $A(x)$ a formula with one free variable $x$, and $t$ a closed term. Then:
+
+1. $A(t) \vDash \exists x A(x)$
+2. $\forall A(x) \vDash A(t)$
+
+## Ch.8 Theories and their models
+
+Definition 8.1
+
+: A set of sentence $\Gamma$ is *closed* iff, whenever $\Gamma \vDash A$ then $A \in \Gamma$. The closure of a set of sentences $\Gamma$ is $\{A:\Gamma \vDash A\}$. We say that $\Gamma$ is *axiomatized by* a set of sentence $\Delta$ if $\Gamma$ is the closure of $\Delta$
+
+> **Remark**: A set of sentences is closed if everything that it entails are a member of this set. The closure of a set of sentence is just whatever the sentence entails.
+
+Definition 8.2 (Model of a set)
+
+: Let $\Gamma$ be a set of sentences in a language $\mathscr{L}$. We say that a structure $M$ *is a model of* $\Gamma$ if $M \vDash A$ for all $A \in \Gamma$
+
+Definition 8.9
+
+: Let $A(v_{1},\dots,v_{n})$ be a formula of $\mathscr{L}$ in which only $v_{1},\dots,v_{n}$ occur free, and let $M$ be a structure for $\mathscr{L}$. $A(v_{1},\dots,v_{n})$ expresses the relation $R \subseteq |M|^{n}$ iff $$Ra_{1}\dots a_{n} \leftrightarrow M,s \vDash A(v_{1},\dots,v_{n})$$ for any variable assignment $s$ with $s(v_{i})= a_{i}, i = 1,\dots,n$
+
+## Ch.11 Natural Deduction
 
