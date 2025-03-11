@@ -155,3 +155,20 @@ Do these questions need "de se" attitudes?
 
 ### 3.4 Preliminaries: Some Weaker Theses and Why We Focus on IIC
 
+Is IIC a strawman?
+
+**Weakened IIC 1**: In *some* action explanations/rationalizations, indexicals occur ineliminably
+
+**Reply**: The common grounds:
+
+1. Belief attribution and action explanations exhibit opacity
+2. Indexicals have non-stable characters
+
+The weakened IIC is just a corollary of these two propositions. Anything could be non-substitutive in some context.
+
+**Weakened IIC 2**: As a matter of deep physical necessity, indexical beliefs are needed in order for human beings, constituted as they are, to act
+
+**Reply**: No argument talked about physical necessity. To reply IIC 2, one needs empirical investigation
+
+### 3.5 Motivation 1: Judgments about cases
+
