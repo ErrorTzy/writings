@@ -190,12 +190,42 @@ material implication is not enough because "all ravens are black" is not the *ca
 
 **Solution**: It's DN!
 
-Formal languages need interpretation. Natural language comes interpeted
+Formal languages need interpretation. Natural language comes interpreted
 
 Explanatory information is info about the ideal explanatory text.
 
-Are they talking about explanatory info or exchanging explanatory explanation?
+Are they talking *about* explanatory info or exchanging explanatory explanation?
 
 Talking about explanatory info: "Ideal explanation consists exactly 100 words" (There are so many ways to give information about explanatory text) *This seems a very bad problem*
 
 What counts as an explanatory exchange?
+
+### Cartwright: Do the laws of physics lie
+
+Dilemma arguments: You are doomed if you do, and you are doomed if you don'ts
+
+There is something truly incompatible with laws being true and laws being explanatory
+
+**Attempts to answer the problem**: Adding the condition where the law is true, or adding cateris parabus clause
+
+Problem: The law is no longer useful
+
+**Another attempt**: Two forces is effective when we are combining two theories; The laws describes a true component force
+
+Sometimes it's not ==how is that a relevant? I can just say sometimes laws are not true, when no composition is possible==
+
+**Yet another attempt**: Talking about power/potentiality instead of facts/actuality; 
+
+Problem: This would include modal claims
+
+> Can we understand counterfactuals as a epistemic compression? And preserve everything as actual?
+
+**Yet another attempt**: Super law!
+
+Problem: Even when we are nowhere close to have a super law, laws still have explanatory power
+
+> hits are physically impossible?
+
+> Super laws explains or not? Too many info seems to start to let us feel explanings
+
+> Science explaining particulars with laws? Ethics

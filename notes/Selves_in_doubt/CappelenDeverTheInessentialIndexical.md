@@ -172,3 +172,48 @@ The weakened IIC is just a corollary of these two propositions. Anything could b
 
 ### 3.5 Motivation 1: Judgments about cases
 
+> To explain the change of action, either it's because the current action is completed, or it turns out I'm acting under some false assumption. In Perry's case, it's because I'm acting under some false assumption that some other person's sugar is leaking. "I" as an interactive entity
+
+"I" is essential in Perry's case is only an extremely weak inductive confirmation
+
+### 3.6 Motivation 2: Bodily Movements Require Indexical Thought
+
+**Motivation 2**: To push a button, I must know where the button is relative to me. It is not enough to know where these things are in relation to another.
+
+**Reply**: 
+
+1. To move your finger, you do not need to know which muscle you need to contract. Therefore, to push the buttons, you don't need belief about where buttons are. 
+2. Even if it requires belief, it does not follow that you need to present yourself in a distinct way. You may perceive the distance directly in a relational way and make use of the data.
+
+**Fallacy 1**: Because the body is involved in the movement, the body needs to be mentally represented
+**Fallacy 2**: If some part of the body has to be represented, it has to be indexically represented
+
+**Millikan**: A special way to present self has nothing to do with indexicality.
+**Cappelen**: Why do we need a special way to represent herself at all to push this button?
+
+### 3.7 Motivation 3: Generalizations about Actions
+
+**Motivation 3**: Any person who has analogous set of beliefs and desires would be rational to act in the same way. The impersonal account fails to explain this.
+
+**Reply**: Impersonal explanation can also explain why people act in this way. No need to introduce de se content. For example, instead of saying "I am afraid" causes me to run, I can explain my running by I believe that there is a tiger right at the corner. `?? right at anywhere in the place?`
+
+### 3.8 Motivation 4: Anti-Generalizations about actions
+
+**Motivation 4**: Even two people knows one needs to turn left to get out in room A, and needs to turn right to get out in room B, they may differ in their action. If they have no de se beliefs, then we cannot explain why they act differently.
+
+**Reply**: 
+1. Since there is no way to determine whether should turn left or turn right, their behavior could be explained by chance or random choice. There does not have to be a belief that determines the outcome. (By me)
+2. There might be other beliefs that lead to differences
+
+### 3.9 The Selection Problem and a Positive Proposal: The Action Inventory Model
+
+The reason we need de se proposal is because we need a filter for beliefs: what kind of belief can directly cause action. The positive account: **The Action Inventory Model**
+
+Third-person beliefs and desires give rise to third-person intentions. If there is an action in the inventory of action that *matches* intention, then the agent will act. A desire does not lead to other people's action because the action is not available in the first place.
+
+The inventory depends on the speakers' know how. The causal power comes in degree
+
+> How is this convincing? You account may be right, but why do I need to believe it, since it is so wild.
+
+1. The agent may not *believe* the things within actionable reach because it does not have to rise to the level of belief `Mental causation?`
+2. The actionable contents is sometimes mentally represented, but sometimes it is just a metaphysical relation
