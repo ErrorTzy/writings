@@ -217,3 +217,9 @@ The inventory depends on the speakers' know how. The causal power comes in degre
 
 1. The agent may not *believe* the things within actionable reach because it does not have to rise to the level of belief `Mental causation?`
 2. The actionable contents is sometimes mentally represented, but sometimes it is just a metaphysical relation
+
+### 3.10 Clarifications, Objections and Replies
+
+**Objection**: Two people with the same desire "F should run" will not both cause F to run
+
+**Reply**: They do not both cause F to run because running is only available to F; If intuition tells us that 
