@@ -1190,3 +1190,6 @@ Definition 8.9
 
 ## Ch.11 Natural Deduction
 
+Definition 11.1 Assumption
+
+: An assumption is any sentence in the topmost position of any branch
