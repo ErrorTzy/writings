@@ -1,7 +1,6 @@
 [
   "obsidian-tidy-footnotes",
   "obsidian-footnotes",
-  "quick-latex",
   "highlightr-plugin",
   "table-editor-obsidian",
   "obsidian-enhancing-export",
@@ -16,5 +15,6 @@
   "definition-list",
   "latex-to-unicode",
   "various-complements",
-  "typing-transformer-obsidian"
+  "typing-transformer-obsidian",
+  "quick-latex"
 ]

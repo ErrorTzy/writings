@@ -127,3 +127,17 @@ Definition (Bleen)
 Definition (Green)
 
 : x is green iff x is grue and observed before 2050 or x is bleen and unobserved before 2050
+
+Case study
+
+**McConnell's worms**
+
+1. Train worms to have conditional reflex
+2. Cut them into two, still have conditional reflex
+3. Feed to untrained worms, still have conditional reflective
+
+**Skeptics**:
+
+1. Implant, not chemical transfer: The worm being fed was regenerated
+2. Worms cannot be trained at all
+3. The results cannot be reproduced

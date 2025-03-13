@@ -1037,6 +1037,12 @@ s[m/x](y)=
 m & \text{if } y \equiv x \\
 s(y) & \text{otherwise} \\
 \end{cases}$$
+
+
+**Lemma**: Let $s$ be a variable assignment. $s[m_{1}/x]\dots[m_{i}/x]=s[m_{i}/x]$ for $i \in \mathbb{Z^{+}}$
+
+**Proof of Lemma 1**: We prove by induction. When $i=1$ it is trivially true. Now assume $s[m_{1}/x]\dots[m_{n}/x]=s[m_{n}/x]$, we show that $s[m_{1}/x]\dots[m_{n}/x][m_{n+1}/x]=s[m_{n+1}/x]$. When $y \equiv x$, $s[m_{1}/x]\dots[m_{n}/x][m_{n+1}/x]=m_{n+1}=s[m_{n+1}/x]$. When $y \not\equiv x$, $s[m_{1}/x]\dots[m_{n}/x][m_{n+1}/x](y)=s[m_{1}/x]\dots[m_{n}/x](y)=s[m_{n}/x](y)=s(y)$, and $=s[m_{n+1}/x]=s(y)$. So in all cases we have $s[m_{1}/x]\dots[m_{n}/x][m_{n+1}/x]=s[m_{n+1}/x]$. This closes the induction.
+
 Definition 7.11 (Satisfaction)
 
 : Satisfaction of a formula $A$ in a structure $M$ relative to a variable assignment $s$, in symbols: $M,s \vDash A$, is defined recursively as follows.
@@ -1193,3 +1199,28 @@ Definition 8.9
 Definition 11.1 Assumption
 
 : An assumption is any sentence in the topmost position of any branch
+
+Definition 11.2 (Derivation)
+
+~ A derivation of a sentence $A$ from assumptions $\Gamma$ is a finite tree of sentences satisfying the following conditions:
+
+1. The topmost sentences of the tree are either in $\Gamma$ or are discharged by an inference in the tree
+2. The bottommost sentence of the tree is $A$
+3. Every sentence in the tree except the sentence $A$ at the bottom is a premise of a correct application of an inference rule whose conclusion stands directly below that sentence in the tree
+
+~ We then say that $A$ is the conclusion of the derivation and $\Gamma$ its undischarged assumption. If a derivation of $A$ from $\Gamma$ exists, we say that $A$ is derivable from $\Gamma$, or in symbols: $\Gamma \vdash A$. If there is a derivation of $A$ in which every assumption is discharged, we write $\vdash A$
+
+Definition 11.10 (Theorems)
+
+: A sentence $A$ is a theorem if there is a derivation of $A$ in natural deduction in which all assumptions are discharged. We write $\vdash A$ if $A$ is a theorem and $\nvdash A$ if it is not.
+
+Definition 11.11 (Derivability)
+
+: A sentence A is derivable from a set of sentences $\Gamma$, $\Gamma \vdash A$, if there is a derivation with conclusion $A$ and in which every assumption is either discharged or is in $\Gamma$. If $A$ is not derivable from $\Gamma$ we write $\Gamma \nvdash A$
+
+Definition 11.12 (Consistency)
+
+: A set of sentences $\Gamma$ is *inconsistent* iff $\Gamma \vdash \bot$. If $\Gamma$ is not inconsistent, i.e. $\Gamma \nvdash \bot$, we say it is *consistent*
+
+**Proposition 11.13 (Reflexivity)**: If $A \in \Gamma$, then $\Gamma \vdash A$
+
