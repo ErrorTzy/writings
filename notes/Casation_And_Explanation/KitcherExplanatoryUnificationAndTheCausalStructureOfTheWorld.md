@@ -74,3 +74,5 @@ Two ways to achieve the purpose: either we introduce causation at the cost of ep
 
 **Problem**: For empiricists, we can only gain causal judgments by identifying law-like regularities. Therefore, the concept of law is prior to causes, and causal notions must either be reduced, or is redundant.
 
+## 4. Explanation as Unification
+

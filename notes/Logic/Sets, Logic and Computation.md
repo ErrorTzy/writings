@@ -1224,3 +1224,85 @@ Definition 11.12 (Consistency)
 
 **Proposition 11.13 (Reflexivity)**: If $A \in \Gamma$, then $\Gamma \vdash A$
 
+**Proposition 11.14 (Monotonicity)**: If $\Gamma \subseteq \Delta$ and $\Gamma \vdash A$, then $\Delta \vdash A$
+
+**Proposition 11.15 (Transitivity)**: If $\Gamma \vdash A$ and $\{A\} \cup \Delta \vdash B$, then $\Gamma \cup \Delta \vdash B$
+
+**Proposition 11.16**: The following are equivalent.
+
+1. $\Gamma$ is inconsistent.
+2. $\Gamma \vdash A$ for every sentence $A$
+3. $\Gamma \vdash A$ and $\Gamma \vdash \neg A$ for sentence $A$
+
+**Proposition 11.17 (Compactness)**:
+
+1. If $\Gamma \vdash A$ then there is a finite subset $\Gamma_{0} \subseteq \Gamma$ such that $\Gamma_{0} \vdash A$
+2. If every finite subset of $\Gamma$ is consistent, then $\Gamma$ is consistent
+
+**Proposition 11.18**: If $\Gamma \vdash A$ and $\Gamma \cup \{A\}$ is *inconsistent*, then $\Gamma$ is *inconsistent*.
+
+> Proof$$
+
+\begin{prooftree}
+\alwaysNoLine
+
+\AxiomC{$\Gamma,[A]^1$}
+\UIC{$\vdots \delta_{2}$}
+\UIC{$\bot$}
+
+\LeftLabel{$1$}
+\RightLabel{$\neg$I}
+\singleLine
+
+\UIC{$\neg A$}
+
+
+\AXC{$\Gamma$}
+\UIC{$\vdots \delta_{1}$}
+\UIC{$A$}
+
+\RightLabel{$\neg$E}
+\singleLine
+\BIC{$\bot$}
+
+
+\end{prooftree}
+
+$$
+
+**Proposition 11.19**: $\Gamma \vdash A$ iff $\Gamma \cup \{\neg A\}$ is *inconsistent*
+
+**Proposition 11.20**: If $\Gamma \vdash A$ and $\neg A \in \Gamma$, then $\Gamma$ is *inconsistent*
+
+**Proposition 11.21**: If $\Gamma \cup \{A\}$ and $\Gamma \cup \{\neg A\}$ are both *inconsistent*, then $\Gamma$ is *inconsistent*
+
+**Proposition 11.22**: 
+
+1. Both $A \land B \vdash A$ and $A \land B \vdash B$
+2. $A,B \vdash A \land B$
+
+**Proposition 11.23**: 
+
+1. $A \lor B. \neg A, \neg B$ is inconsistent
+2. Both $A \vdash A \lor B$ and $B \vdash A \lor B$
+
+**Proposition 11.24**: 
+
+1. $A,A \rightarrow B \vdash B$
+2. Both $\neg A \vdash A \rightarrow B$ and $B \vdash A \rightarrow B$
+
+**Theorem 11.25**: If $c$ is a constant not occurring in $\Gamma$ or $A(x)$ and $\Gamma \vdash A(c)$, then $\Gamma \vdash \forall x A(x)$
+
+**Proposition 11.26**: 
+
+1. $A(t) \vdash \exists x A(x)$
+2. $\forall x A(x) \vdash A(t)$
+
+**Theorem 11.27 (Soundness)**: If A is a derivable from the undischarged assumptions $\Gamma$, then $\Gamma \vDash A$
+
+**Corollary 11.28**: If $\vdash A$, then $A$ is valid
+
+**Corollary 11.29**: If $\Gamma$ is satisfiable, then it is consistent
+
+**Proposition 11.32**. Natural deduction with rules for $=$ is sound.
+

@@ -220,6 +220,13 @@ The inventory depends on the speakers' know how. The causal power comes in degre
 
 ### 3.10 Clarifications, Objections and Replies
 
-**Objection**: Two people with the same desire "F should run" will not both cause F to run
+**Objection 1**: Two people with the same desire "F should run" will not both cause F to run
 
-**Reply**: They do not both cause F to run because running is only available to F; If intuition tells us that 
+**Reply**: They do not both cause F to run because running is only available to F; If intuition tells us that two same sets of belief-desire will lead to the same action, then it is wrong
+
+**Objection 2**: There are no tenseless action, and thus one must think "now the finger moves" in order to move it now, instead of another time
+
+**Reply**: No one has to think about the action. Therefore there's no thought content involving now
+
+**Objection 3**: The explanation seems incomplete.
+

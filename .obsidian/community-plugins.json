@@ -16,5 +16,7 @@
   "latex-to-unicode",
   "various-complements",
   "typing-transformer-obsidian",
-  "quick-latex"
+  "quick-latex",
+  "obsidian-citation-plugin",
+  "obsidian-pandoc-reference-list"
 ]

@@ -230,3 +230,8 @@ Problem: Even when we are nowhere close to have a super law, laws still have exp
 
 > Science explaining particulars with laws? Ethics
 
+> What does it even mean to explain? What count as a satisfying explanation? What is ideal explanatory text?
+
+> Perl and woodword, nesting counterfactual; Expressive framework seems expressive but it might be brought up by some illusions from formal system
+
+Mark lance theory of law
