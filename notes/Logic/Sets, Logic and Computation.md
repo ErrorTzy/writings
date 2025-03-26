@@ -1202,7 +1202,7 @@ Definition 11.1 Assumption
 
 Definition 11.2 (Derivation)
 
-~ A derivation of a sentence $A$ from assumptions $\Gamma$ is a finite tree of sentences satisfying the following conditions:
+~ A derivation of a sentence $A$ from assumptions $\Gamma$ is a *finite* tree of sentences satisfying the following conditions:
 
 1. The topmost sentences of the tree are either in $\Gamma$ or are discharged by an inference in the tree
 2. The bottommost sentence of the tree is $A$
@@ -1212,7 +1212,7 @@ Definition 11.2 (Derivation)
 
 Definition 11.10 (Theorems)
 
-: A sentence $A$ is a theorem if there is a derivation of $A$ in natural deduction in which all assumptions are discharged. We write $\vdash A$ if $A$ is a theorem and $\nvdash A$ if it is not.
+: A sentence $A$ is a *theorem* if there is a derivation of $A$ in natural deduction in which all assumptions are discharged. We write $\vdash A$ if $A$ is a theorem and $\nvdash A$ if it is not.
 
 Definition 11.11 (Derivability)
 
@@ -1305,4 +1305,6 @@ $$
 **Corollary 11.29**: If $\Gamma$ is satisfiable, then it is consistent
 
 **Proposition 11.32**. Natural deduction with rules for $=$ is sound.
+
+## Chap. 12 The Completeness Theorem
 

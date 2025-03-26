@@ -17,11 +17,11 @@ Grounding is a kind of relationship between things
 4. Has hierarchy, thus asymmetric
 5. Involved with a non-causal explanation
 
-## 1.1 Grounding: The Framework and Some of its controversies
+### 1.1 Grounding: The Framework and Some of its controversies
 
 There are some intuitive examples, but there are few agreement
 
-### 1.1.1 The Relata
+#### 1.1.1 The Relata
 
 **What can be relata?**
 
@@ -35,7 +35,7 @@ There are some intuitive examples, but there are few agreement
 - **Example**: Set is not ground on its members; The proposition that "Sets exist" is grounded on "Members of sets exist"
 - **Upside**: It has a closer connection between grounding and explanation: The table exists because its parts exists.
 
-### 1.1.2 The Relation
+#### 1.1.2 The Relation
 
 **Is grounding real?**
 
@@ -53,7 +53,7 @@ There are some intuitive examples, but there are few agreement
 - **Separatists**: grounding is objective and mind-independent, whereas explanation is thought to be inextricably tied up in our cognitive lives.
 	- **Problem**: What is the relation between grounding and explanation then? If it is a grounding relation, it seems we need to beg the question to understand grounding in the first place
 
-### 1.1.3 Further Import Features
+#### 1.1.3 Further Import Features
 
 Grounding: absolute or plural?
 
@@ -69,4 +69,137 @@ Grounding: absolute or plural?
 3. big-G is unique and tracks what we refer to when we use small-g terms (Schaffer)
 
 Metaphysical: Is reality one overarching ordering, or several series of ordering?
+
+**Metaphysical: Is there an overarching superstructure of the world?**
+
+- Yes
+- No, grounding is relativized
+
+**Fully ground vs. partially ground**: Socrates grounds $\{Socrates\}$, but Socrates' lever partially ground Socrates
+
+### 1.2 Fundamentality
+
+**A parallel** (between epistemic and metaphysical fundamentality): fundamentalist, infinitist and coherentist
+
+**Two senses of fundamentality**: absolute fundamentality and relative fundamentality
+
+The language of relative fundamentality does not require absolute fundamentality
+
+In the rest of the book, fundamentality means absolute fundamentality
+
+#### 1.2.1 Absolute Fundamentally
+
+**Fundamentality thesis**: There is some x such that x is fundamental.
+
+Kit Fine and Jessica Wilson: fundamentality is primitive
+
+##### 1.2.1.1 Independence
+
+**Independence of fundamentals**: If x is fundamental, then x is ungrounded
+
+Different interpretations: x is independent if 
+
+1. $\neg \exists y Gyx$
+2. $\forall R \in g (\neg \exists y Ryx)$
+3. $\exists R \in g (\neg \exists y Ryx)$
+
+1 and 2 are absolute, 3 is rather relativized fundamentality
+
+##### 1.2.1.2 Completeness
+
+**Completeness of fundamentals**: Some x is complete iff x at world w grounds everything else at w
+
+And thus we can also define a concept "uniquely minimally complete" by restricting it to the smallest set that is fundamental
+
+##### 1.2.1.3 Indispensable
+
+Raven 2016: Suppose there is a world where everything is material and everything has parts. Therefore, nothing is foundational but the property of being material is not eliminatable, therefore fundamental.
+
+##### 1.2.1.4 Naturalness
+
+Lewis and Sider's view: Joint carving, etc.
+
+Sets are natural but not independently exist
+
+### 1.3 Unexplained
+
+The general view is about mostly independence and partly completeness. Indispensability is an alternative, naturalness is too heavyweight.
+
+## 2 Ultimate Explanations: An Idea and its History
+
+Old topics like "God," "The one," "Being," "Ultimate Reality," etc.
+
+### 2.1 Grounding Old or New
+
+Distinction: 
+
+- **Question of ground**: Piety because of love of gods, or Love of gods because of piety
+- **Question about ground**: Whether ground is necessarily irreflexive, transitive and asymmetric
+
+Problem of this distinction: This does not prove that grounding is new; Historically there are questions about ground, and contemporary philosophers also think about questions of ground.
+
+More plausible distinct: directly and indirectly talk about problems
+
+A lot of topics in the history of philosophy can be understood as grounding talk in different terms
+
+### 2.2 Ultimate Explanation
+
+Definition (Ultimate Explanation)
+
+: Ultimate explanation are explanations that aim at explaining some phenomenon in its *generality*
+
+**Examples**: "Why there are justified beliefs?" is requesting *ultimate explanation* about the existence of justified beliefs per se. It then cannot be answered by giving an instance of justified belief (because therefore I would question why this instance is an justified belief); The explainer is typical beyond (different from) any member of the explanatory target
+
+**Explanatory target**: "x is," or x stands in need of explanation
+
+**Explanatory Assumption**: x cannot explain x (or "x is F" cannot explain "x is F")
+
+### 2.3 Ultimate Explainers
+
+Definition (Ultimate Explainers)
+
+~ 1. Natural and non-arbitrary stopping point of explanation
+~ 2. It is explanatory
+~ 3. It is relevant
+
+**Remark on 1**: what does it mean to be a "natural and non-arbitrary" stopping point? It's better explained in terms of the explainer itself does not lead us to posit it in the first place, i.e. it does not stand in need of explanation (in the same way?)
+
+**Remark on 2**: For A to be explanatory for B is to say that A bears the right kind of explanatory relation with B. 
+
+**Remark on 3**: It might be understood as, given a background theoretical framework, the stopping point will fix the explanatory chain. (Once we determined what explains there are justified beliefs, we can determine justified beliefs) For example, given that numbers do not have causal power and explanation needs causal power, numbers are not relevant
+
+**Fundamentality and ultimate explanation**:
+We presuppose that grounding relation is a right kind of relation for explanation. Independence is a necessary but not sufficient condition for being an ultimate explainer, as long as there are independent things that are isolated. If we want everything fundamental to explain, we need to guarantee that everything is ground on fundamental things. Therefore we can define:
+
+**Ultimate Explainers**: x is an ultimate explainer if $x$ is independent and $x \in F$ such that $F$ is complete
+
+### 2.4 Some Historic Examples
+
+#### 2.4.1 Prime Matter
+
+Aristotelian hylomorphism: Form + Matter = Substance;
+
+- Level 4: Personhood + Flesh = Me, by accident have Australianhood
+- Level 3: Fleshhood + Cells = Flesh, by accident have personhood
+- Level 2: Cellhood + Molecules = Biological Matter, by accident have fleshhood
+- Level 1: Biological Matterhood + Prime matter = Molecules, by accident have cellhood
+- Level 0: Prime matter, by accident have biological matterhood.
+
+The prime matter is the ultimate explainer.
+
+**Remark**: There are many possible ways to interpret Aristotle, and it is not clear why Aristotle must need prime number. One answer is that Aristotle's opposition to infinity
+
+#### 2.4.2 God
+
+
+
+
+
+P1. Nothing is self-explanatory
+P2. Any proposition can be an explanandum
+P3. For any A and B, if A explains B, then there is a right kind of relation R such that A bears relation R with B.
+P4. P3 is an explainan (of how any explanandum is explained)
+P5. P3 is an explanandum (because P3 is a proposition)
+P6. P2 is self-explanatory (from P5, P6)
+
 
