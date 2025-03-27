@@ -1298,7 +1298,7 @@ $$
 1. $A(t) \vdash \exists x A(x)$
 2. $\forall x A(x) \vdash A(t)$
 
-**Theorem 11.27 (Soundness)**: If A is a derivable from the undischarged assumptions $\Gamma$, then $\Gamma \vDash A$
+**Theorem 11.27 (Soundness)**: If A is a derivable from the undischarged assumptions $\Gamma$, then $\Gamma \vDash A$ ==complicated==
 
 **Corollary 11.28**: If $\vdash A$, then $A$ is valid
 
@@ -1307,4 +1307,18 @@ $$
 **Proposition 11.32**. Natural deduction with rules for $=$ is sound.
 
 ## Chap. 12 The Completeness Theorem
+
+model existence result: every consistent set of sentences is satisfiable
+
+proposition: $\Gamma \vdash A \rightarrow \Gamma \vDash A$
+
+outline of the proof
+
+suppose $\Gamma$ only includes atomic sentences
+
+Consider $P(a_{1},\dots,a_{n})$ where $a_{1},\dots,a_{n}$ are constants. Let $|M|=\mathbb{N}$, and we interpret each constant $a_{n}^{M}$ to a natural number $i$. Then we can construct $P^{M}$ such that $\langle k_{1},\dots,k_{n} \rangle$, where n is the index of $a$
+
+The upshot is that, we construct some model to satisfy it.
+
+Consider $\neg B$. Since $\Gamma$ is consistent, then we ensured that $B$ is not in $\Gamma$. Then we can ad hoc construct $M \nvDash B$, and therefore $M \vDash \neg B$
 
