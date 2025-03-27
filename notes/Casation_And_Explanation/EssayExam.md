@@ -1,3 +1,17 @@
+---
+documentclass: exam
+title: Essay Exam
+author: Scott
+mainfont: FreeSerif
+CJKmainfont: Noto Serif CJK SC
+mathfont: XITS Math
+---
+
+
+## Intro
+
+In this essay, I first justify the methodology of theorizing explanation based on linguistic practices. Next, I explain the motivation for positing an ideal explanatory text and clarify the aim of this project. Finally, I examine Railton's account and address the problem that certain information in the ideal text may not appear explanatory. I argue that the only viable solution is to adopt Railton's own approach.
+
 ## Methodology preference
 
 To start with, I wish to bring about an old paradox. There are two possible approaches to defining what constitutes an explanation. First, we can examine instances of explanatory practice and derive an account of explanation from them. Second, we can directly formulate an account of explanation by philosophical reflection. However, a paradox raises here.
@@ -33,14 +47,14 @@ This conversation demonstrates that A1 is appropriate but may not *fully* explai
 
 This example suggests that there are full explanations and partial explanations, and that some explanations explain more (or less) than others. The idea of an ideal explanatory text can account for these phenomena by appealing to mereological relations:
 
-(1). The ideal explanatory text for a question Q *fully* explains Q.
-(2). If an answer A is subset of the ideal explanatory text for a question Q, then A *partially* explains Q.
-(3). If A and B partially explains Q, and B is a proper subset of A, then A explains *more* than B.
+- (1). The ideal explanatory text for a question Q *fully* explains Q.
+- (2). If an answer A is subset of the ideal explanatory text for a question Q, then A *partially* explains Q.
+- (3). If A and B partially explains Q, and B is a proper subset of A, then A explains *more* than B.
 
 But there is a Euthyphro dilemma lurking in this approach. According to (2), the fact that "an answer A explains question Q" seems to be grounded in the fact that "the ideal explanatory text for Q explains Q". But why is "the ideal explanatory text for Q explains Q"? We cannot say it's because all its members explains Q, or it would be a circular explanation. In other words, we want to appeal to some structure of the ideal explanatory text itself such that
 
-A. the structure makes us think it is fully explanatory, and 
-B. this structure (ideally) determine the same set as the set of all possible appropriate answers.
+- (A). the structure makes us think it is fully explanatory, and 
+- (B). this structure (ideally) determine the same set as the set of all possible appropriate answers.
 
 Now the bad news is, we can no longer say that the ideal explanatory text is just all possible appropriate answers. But the good news is, once we can specify such a structure that satisfies A and B is, then we can still get a satisfying account of explanation.
 
@@ -50,18 +64,16 @@ What kind of structure would satisfy A? Minimally, a deductively valid proof wou
 
 For Railton, both his DN and DNP models include deductively valid proofs, though Railton includes something more, namely mechanisms. Nevertheless, condition A seems satisfied. However, the challenge for his models (or any models in the DN family) lies in satisfying condition B.
 
-Note that failing to satisfy B is not necessarily fatal. One could argue that we should revise our concept of explanation to include or exclude certain instances we currently consider appropriate explanations. However, we need further justification for undertaking such conceptual engineering.
-
 Railton’s account, however, does not fully align with the analysis I presented earlier. His formulation is as follows:  
 
-(2'). If an answer A includes _information_ from the ideal explanatory text for a question Q, then A partially explains Q.  
-(3'). If both A and B partially explain Q, and B includes more _information_ from the ideal explanatory text than A does, then A explains less than B.
+- (2'). If an answer A includes _information_ from the ideal explanatory text for a question Q, then A partially explains Q.  
+- (3'). If both A and B partially explain Q, and B includes more _information_ from the ideal explanatory text than A does, then A explains less than B.
 
 This approach carries significant risks. Not only does Railton admit that he cannot provide a precise account of what “information” is, but this formulation of (2') and (3') also gives rise to counterexamples that undermine condition B. There are many ways to provide information about the ideal explanatory text. These need not be a subset of its sentences. For instance, stating that “the ideal explanatory text consists of exactly 100 words” conveys information about the ideal explanatory text, but this does not seem explanatory at all.
 
 We can already see one solution to this problem, i.e., to stick with (2) and (3) instead of saying (2') or (3'). Then why did Railton choose to frame his account in terms of information, instead of subsets, in the first place? Clearly, the information-based approach accommodates a broader range of explanations than the subset-based approach. As Railton pointed out, he wants to include cases where the relevant ideal text is probabilistic rather than deterministic, but such probabilistic information is not necessarily part of the ideal explanatory text.
 
-In addition, there are other examples that seem explanatory but would not be included in the DNP model. For instance, explanation by analogy. Consider the following example (copied from the internet):
+In addition, there are other examples that seem explanatory but would not be included in the DNP model. For instance, *explanation by analogy*. Consider the following example (copied from the internet):
 
 > the water/hose analogy for electricity is useful for explaining voltage, current, and power. In general terms, charge is water, voltage is the pressure of water, current is the flow of the water. Power is the total amount of water flowing in given time. You can have a small pipe with high pressure, or a large pipe with low pressure each passing the same amount of water. Increasing the height of the water reservoir increases the potential energy of the water (voltage). Resistance can be explained as the roughness of the width of the pipe.
 
@@ -71,37 +83,60 @@ However, there is an intuition that Railton’s example does not actually explai
 
 But I believe the explanation by analogy has doomed (2) and (3). How would anything about water flow even occur in the ideal explanatory text of electricity at all? Now we are facing the option to 
 
-I. revise (expand) (2) and (3),
-II. revise (restrict) (2') and (3')
-III. accept (2') and (3') and claims that "the ideal explanatory text consists of exactly 100 words" explains
+- (I). revise (expand) (2) and (3),
+- (II). revise (restrict) (2') and (3')
+- (III). accept (2') and (3') and claims that "the ideal explanatory text consists of exactly 100 words" explains
 
-I believe we have strong intuition to reject III, so I will dismiss it for now. I will start from trying the first approach, since (2) and (3) follows better from the previous discourse.
+I believe we have strong intuition to reject III, so I will dismiss it for now but will talk about it at the end of this essay. I will start from trying the first approach, since (2) and (3) follows better from the previous discourse.
 
-How could we revise (2) and (3)? What dooms (2) and (3) seems to be its linguistic feature: it presupposes that the ideal explanatory text is a set of sentences. But it seems that different languages can talk about the same ideal explanatory text, and there are infinitely many ways to talk about one single sentences in the ideal explanatory text. Explanation by analogy seems to talk about the mechanism without using the relevant vocabulary that is used for normal explanation. Therefore, it seems to talk about the ideal explanatory text in terms of language will make it overly complicated.
+### From language to the world
 
-We may need to step back and appeal to propositional content rather than linguistic forms. Why so? The analogy between water and electricity exists because the movement of water molecules is similar to the movement of electrons. Thus, the water analogy refers to the mechanism underlying electricity, not any linguistic feature of explanation.
+How could we revise (2) and (3)? What dooms (2) and (3) seems to be its linguistic feature: it presupposes that the ideal explanatory text is a set of sentences. But it seems that different languages can talk about the same ideal explanatory text, and there are infinitely many ways to talk about one single sentences in the ideal explanatory text. Explanation by analogy seems to talk about the mechanism without using the relevant vocabulary that is used for normal explanation. Therefore, to talk about the ideal explanatory text in terms of language seems overly complicated.
 
-If we adopt this approach, we can view the propositional content of the ideal explanatory text as states of affairs rather than sentences. Accordingly, the ideal explanatory text becomes a set of structured facts, not structured sentences. To say that "water flow is analogous to electricity regarding the movement of water and electrons" is to identify a substructure within the ideal explanatory text for electricity by referencing the substructure of water flow.
+We may need to step back and appeal to propositional content rather than linguistic forms. Why so? The analogy between water and electricity exists because the movement of water molecules is similar to the movement of electrons. Thus, the water analogy because of real world mechanism underlying electricity, not any linguistic feature of explanation.
+
+If we adopt this approach, we can view the propositional content of the ideal explanatory text as states of affairs rather than sentences. Accordingly, the ideal explanatory text becomes a set of structured facts, not structured sentences. 
 
 This change requires us to revise the "subset" terminology in conditions (2) and (3) to "substructure" terminology:
 
-(1''). Any sentences that specify the ideal explanatory text for a question Q fully explain Q.  
-(2''). If the semantic content of answer A specifies a substructure of the ideal explanatory text for a question Q, then A partially explains Q.  
-(3''). If A and B partially explain Q, and the semantic content of B specifies a substructure contained within that of A, then A explains more than B.
+- (1''). Any sentences that specify the ideal explanatory text for a question Q fully explain Q.  
+- (2''). If the semantic content of answer A specifies a substructure of the ideal explanatory text for a question Q, then A partially explains Q.  
+- (3''). If A and B partially explain Q, and the semantic content of B specifies a substructure contained within that of A, then A explains more than B.
 
-This approach resembles Railton’s "information" framework, though there may be differences in how Railton and I formulate it. Railton emphasizes linguistic aspects by calling it an "ideal explanatory *text*", and explanation is about giving information about some text, not describing the world. However, since he specifies that information is semantic, not syntactic, conditions (1''), (2''), and (3'') can be viewed as a charitable reconstruction of his account.
+This approach resembles Railton’s "information" framework, though there may be differences in how Railton and I formulate it. Railton flirts with language by calling it an "ideal explanatory *text*", and explanation is about giving information about some text, not describing the world. However, since he specifies that information is semantic, not syntactic, conditions (1''), (2''), and (3'') can be viewed as a charitable reconstruction of his account.
 
-With this reconstruction of Railton’s account, we may go back to see the cases like "the ideal explanatory text consists of exactly 100 words." This describes a state of affairs about the text itself. However, this fact appears unrelated to why Ray is black (e.g., because all ravens are black).
+### Introducing causal link?
 
-Now consider a case where you attend a biology class because it will discuss the ideal explanatory text for why you attend. This uses metalanguage because it refers to the ideal explanatory text. But it seems to explain your attendance. Here, the state of affairs—that the class addresses this explanation—is linked to your action of attending a biology class.
+With this reconstruction of Railton’s account, we may go back to see the cases like "the ideal explanatory text consists of exactly 100 words." First of all, I call this a *metalinguistic* explanation.[^1] This describes a state of affairs about the text itself. However, this fact appears unrelated to, say, why Ray the raven is black.
 
-Therefore, one might be motivated to argue that we can appeal to relations between states of affairs. For instance, suppose only causal relations are explanatory. Since "the ideal explanatory text consists of exactly 100 words" is not causally connected to "Ray is black," it is not explanatory. Conversely, the fact that "the class will discuss the ideal explanatory text for why you attend" is causally tied to "you attend the class," making it explanatory.
+Now consider a case where you attend a class because it will discuss the ideal explanatory text for why you attend. This also uses metalanguage because it refers to the ideal explanatory text. But it seems to explain your attendance. The motivation to say so seems that, the fact that "the class talks about ideal explanation text" is causally linked to your action of attending a class.
 
-This approach raises problems. We previously discussed the Euthyphro dilemma of explanation: Do linguistic practices derive its explanatory power from the ideal explanatory text, or does the ideal text explan because all the practices are explanatory? We adopted the former view, asserting that linguistic practices are explanatory because the ideal explanatory text is explanatory. Thus, to account for explanatory power, we appealed to the ideal explanatory text.
+We intuitively want to distinguish these two cases. Obviously, we want to appeal to relations between states of affairs. For instance, suppose only causal relations are explanatory. Since "the ideal explanatory text consists of exactly 100 words" is not causally connected to "Ray is black," it is not explanatory. Conversely, the fact that "the class will discuss the ideal explanatory text for why you attend" is causally tied to "you attend the class," making it explanatory.
 
-However, if we treat explanatory relations (e.g. causal relations) as the basis for explanation, we need to realize that we are embarking on a radically different new project. We no longer need to appeal to the ideal explanatory text to account for explanatory power. The new project here seems to take the second part of the dilemma: the ideal text explains because each part of it explains. And in our new project, it seems, is to find out what kinds of relation count as explanatory. In other words, our aim is to find out a set $E$  of binary relations such that, for any $R \in E$,
+This approach raises problems. We previously discussed the Euthyphro dilemma of explanation: 
 
-A'. If $R_{xy}$, then x explains y, and
-B'. All the facts $x$ such that $Rxy$ is the same set as all the facts that all possible appropriate answers to "why $y$?" express
+- Do linguistic practices derive its explanatory power from the ideal explanatory text, or 
+- Does the ideal text explain because all the practices are explanatory? 
 
-I don't want to expand this new project here now, because I don't want to depart too much from Railton's project. After all I'm just answering prompt 3. So one may ask: is it possible to keep (1''), (2'') and (3'') intact, but introduce something like causal closure to exclude *some* metalinguistic explanation, but not all? No, I think it will lead to circular explanation. I will ask "Why some metalinguistic explanation are excluded?" Once you say "it's because explanatory practices told us so" I will press you the Euthyphro dilemma: but don't you think that the explanatory practices explains because the ideal text explains? Therefore, "it's because explanatory practices told us so" won't be a valid answer, and therefore there's no reason to exclude metalinguistic explanation if we stick to the original project.
+We adopted the former view, asserting that linguistic practices are explanatory because the ideal explanatory text is explanatory. Thus, to account for explanatory power, we appealed to the ideal explanatory text.
+
+However, if we treat explanatory relations (e.g. causal relations) as the ground of explanation, we must recognize that we are embarking on a radically different project. In this approach, we no longer rely on the ideal explanatory text to account for explanatory power. Instead, this new project appears to adopt the second horn of the Euthyphro dilemma: the ideal text is explanatory because each of its part is explanatory. The aim of this new project, it seems, is to identify which kinds of relations qualify as explanatory. In other words, we seek to define a set $E$ of binary relations such that, for any $R \in E$, two conditions hold:
+
+- (A'). If $R_{xy}$  then x explains y.
+- (B'). The set of all x such that $R_{xy}$​ holds is same set as the set of all facts expressed by appropriate answers to the question “Why $y$?”
+
+I will not elaborate further on this new project here, as my focus remains on Railton’s original framework, since I am just answering prompt 3. So the only remaining question 
+is: Can we maintain conditions (1''), (2''), and (3''), while introducing causal information to exclude some metalinguistic explanations?
+
+No, I think it leads to circular explainan. I will ask: “Why are some metalinguistic explanations excluded?” If the response is, “Because explanatory practices dictate it,” I would raise the Euthyphro dilemma: “Do explanatory practices derive their authority from the ideal explanatory text, or does the ideal text explain because the practices are explanatory?” In Railton’s original project, we assume the former, i.e. explanatory power is grounded in the ideal explanatory text. Within this framework, causal links are, by definition, irrelevant to explanatory power. Consequently, distinguishing between types of metalinguistic explanations becomes impossible without undermining Railton’s entire project.
+
+### The only way out
+
+Is there no way to save Railton’s account, then? I believe the only solution is to adopt (III), which is Railton's own solution. We bite the bullet and accept all metalinguistic explanations, including “the ideal explanatory text consists of exactly 100 words." However, this would clearly violate condition B (this structure determine the same set as the set of all possible appropriate answers).
+
+But note that failing to satisfy condition B is not necessarily fatal. One could argue that we should revise our concept of explanation to include or exclude certain instances we currently consider appropriate explanations. However, we need further justification for undertaking such conceptual engineering. Up to now, I don't think there's good reason to do that. So it may be fine for someone to talk in Railton's way, but it does not seem to be an attractive solution.
+
+
+
+
+[^1]: What I mean by metalinguistic is that, it talks about the explanation text itself, instead of some part of the world that explains the explanandum. Bing Shuo probably has a more thorough discussion about metalanguage in his essay, if he did not lie to me.

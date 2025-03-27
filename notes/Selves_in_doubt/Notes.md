@@ -114,3 +114,10 @@ Some I-blind creature can follow KP rule without being self-referential
 This reduction does not follow that the thing reduced to (i.e. single slices in the continuity) exists independently
 
 There is a difference between bilingual and can only speak PF language
+
+## Chap. 5 The impossibility of doubting the existence of other selves
+
+1. (The pride and shame requirement) A necessary condition for being sane is that one is proud or ashamed of some of one's (physical or psychological) behavior
+2. (The comparison requirement) A necessary condition for being proud or ashamed of one's behavior is that one's proud or ashamed of how one's behavior compares to that of other selves.
+3. (The certain requirement) A necessary condition for being proud or ashamed of how one's behavior compares to that of other selves to whom one is comparing one's behavior
+4. (The sanity principle) Therefore, a necessary condition for being sane is that one is certain that there exist other selves who have played a role in one's life
