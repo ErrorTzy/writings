@@ -117,7 +117,24 @@ There is a difference between bilingual and can only speak PF language
 
 ## Chap. 5 The impossibility of doubting the existence of other selves
 
-1. (The pride and shame requirement) A necessary condition for being sane is that one is proud or ashamed of some of one's (physical or psychological) behavior
-2. (The comparison requirement) A necessary condition for being proud or ashamed of one's behavior is that one's proud or ashamed of how one's behavior compares to that of other selves.
-3. (The certain requirement) A necessary condition for being proud or ashamed of how one's behavior compares to that of other selves to whom one is comparing one's behavior
-4. (The sanity principle) Therefore, a necessary condition for being sane is that one is certain that there exist other selves who have played a role in one's life
+1. **The pride and shame requirement**: A necessary condition for being sane is that one is proud or ashamed of some of one's (physical or psychological) behavior
+2. **The comparison requirement**: A necessary condition for being proud or ashamed of one's behavior is that one is proud or ashamed of how one's behavior compares to that of other selves.
+3. **The certain requirement**: A necessary condition for being proud or ashamed of how one's behavior compares to that of other selves is that one is certain that there exists other selves to whom one is comparing one's behavior
+4. **The sanity principle**: Therefore, a necessary condition for being sane is that one is certain that there exist other selves who have played a role in one's life
+
+**Defense for 3**: "I feel proud that I won the prize, but I feel doubt I won it" seems contradictory. If there cannot feel doubt when one feels proud, then one must feel certain when one feels proud. A remark here: certain here is not a *factive*, i.e. being certain that P does not require that P
+
+> What is "necessary condition"? Maybe the semantics of proud entails being certain
+>
+>.Maybe being certain is fine-grained? Being certain has contrast class
+
+**Defense for 2**: There is concession here. Eli argues that only central cases have this requirement. What's the ground for a solipsist to say he feels proud about anything? Even if one fails to meet his own expectation, it seems he is just disappointed, not ashamed.
+
+> I agree with Eli that there must be comparison. But I doubt whether we need other selves. We could just compare with our own expectation of ourselves.
+> 
+> In this case, Eli may say this is a case of disappointment, not shame. But I think it is unclear it is just disappointment. Eli has an argument to suggest it is not shame, but it seems irrelevant: Eli says, if your realize that none of your peers reached the top of the mountain, even if you expect yourself to reach the mountain, you will not feel ashamed. 
+> 
+> But this is irrelevant whether you did feel shame if there's no other selves. Your feeling ashamed could have just been defeated. I believe the only issue here is to ask whether we should call the feeling of failing to reach one's own expectation ashamed. But there's no common sense for deciding this because there's probably no one in our linguistic community claims themselves to be solipsist, and we use the word with a background that there are other selves. Therefore our linguistic practice cannot determine whether we should call this emotion shame or proud.
+>
+> The only ground for us to decide, I think, is to do an fMRI and see which part of the brain lights up when one feels proud or shame. If the solipsists' brain pattern is radically different from ours, then it seems we should not call it proud or shame.
+
