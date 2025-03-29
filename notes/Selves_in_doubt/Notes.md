@@ -128,13 +128,4 @@ There is a difference between bilingual and can only speak PF language
 >
 >.Maybe being certain is fine-grained? Being certain has contrast class
 
-**Defense for 2**: There is concession here. Eli argues that only central cases have this requirement. What's the ground for a solipsist to say he feels proud about anything? Even if one fails to meet his own expectation, it seems he is just disappointed, not ashamed.
-
-> I agree with Eli that there must be comparison. But I doubt whether we need other selves. We could just compare with our own expectation of ourselves.
-> 
-> In this case, Eli may say this is a case of disappointment, not shame. But I think it is unclear it is just disappointment. Eli has an argument to suggest it is not shame, but it seems irrelevant: Eli says, if your realize that none of your peers reached the top of the mountain, even if you expect yourself to reach the mountain, you will not feel ashamed. 
-> 
-> But this is irrelevant whether you did feel shame if there's no other selves. Your feeling ashamed could have just been defeated. I believe the only issue here is to ask whether we should call the feeling of failing to reach one's own expectation ashamed. But there's no common sense for deciding this because there's probably no one in our linguistic community claims themselves to be solipsist, and we use the word with a background that there are other selves. Therefore our linguistic practice cannot determine whether we should call this emotion shame or proud.
->
-> The only ground for us to decide, I think, is to do an fMRI and see which part of the brain lights up when one feels proud or shame. If the solipsists' brain pattern is radically different from ours, then it seems we should not call it proud or shame.
-
+**Defense for 2**: There is concession here. Eli argues that only central cases have this requirement. What's the ground for a solipsist to say he feels proud about anything? Eli think it is clear that, even if one fails to meet his own expectation, it seems he is just disappointed, not ashamed.

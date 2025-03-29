@@ -191,8 +191,71 @@ The prime matter is the ultimate explainer.
 
 #### 2.4.2 God
 
+Consider we have infinitely many books, each is explained by it's copied from another book. Since we have infinitely many books, each book is explained. But then you may still ask: 
 
+- Why have there always been such books?
+- Why were these books written?
+- Why were they written in the way they were?
 
+Different states of the world of contingent things is like a book. ==Is it necessary that there must be such answers to these questions?==
+
+#### 2.4.3 Being
+
+"Being" in Heidegger
+
+## 3 The Metaphysics of Fundamentality
+
+what something needs to be like in order to be the ultimate ground?
+
+### 3.1 Well-foundedness
+
+Definition (Well-foundedness)
+
+: For any existence, there must be an finite step to reach the fundamental existence.
+
+We should not take well-foundedness as the requirement because we can have infinitely descending grounding chain in Euclidean Space.
+
+### 3.2 Purity
+
+Definition (Purity about facts)
+
+: Fundamental facts involve only fundamental constituents
+
+**Problem**: The fact "Socrates grounds {Socrates}" cannot be fundamental, according to the purity principle. But all grounding fact must have one foot which is not fundamental. Therefore no grounding fact is fundamental. Therefore, grounding relation is not fundamental. ==how does this follow? Maybe see Barker 2022== But we want grounding to be primitive and written into the book of the world
+
+### 3.3 A Free Lunch
+
+Non-fundamental entities are an ontological free lunch; A fundamental version of the razor, the *Lasor*: We must not multiply *fundamental* entities beyond necessity.
+
+How to define "free launch"/"metaphysically innocent"?
+
+Everything derivative finds its full ground in the fundamental
+
+Problem: why should we stick to Lasor?
+
+### 3.4 On the Aptness to Ultimate Explain
+
+#### 3.4.1 Priority Pluralism
+
+What are fundamental? Something at the bottom of the mereological relation of the world
+
+The whole is grounded in parts; Therefore we need to track down the mereological relation. If we are committed to physicalism, then the basic particles are the fundamental entities
+
+#### 3.4.2 Priority Monism
+
+What are fundamental? Something at the top of the mereological relation of the world
+
+The cosmos grounds all; Somehow the grounding direction tracks upwards
+
+#### 3.4.3 Middleism
+
+What are fundamental? Something in the middle of the mereological relation of the world
+
+To create the world, God just need to create something in the middle, like bikes or alarm clocks. This is also compatible with anti-fundamentalism. One could still choose to be a plural-middleist or mono-middleist, though.
+
+#### 3.4.4 Essences
+
+What are fundamental? *Essences*.
 
 
 P1. Nothing is self-explanatory
