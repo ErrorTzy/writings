@@ -237,19 +237,19 @@ Problem: why should we stick to Lasor?
 
 #### 3.4.1 Priority Pluralism
 
-What are fundamental? Something at the bottom of the mereological relation of the world
+What are fundamental? *Something at the bottom of the mereological relation of the world*
 
 The whole is grounded in parts; Therefore we need to track down the mereological relation. If we are committed to physicalism, then the basic particles are the fundamental entities
 
 #### 3.4.2 Priority Monism
 
-What are fundamental? Something at the top of the mereological relation of the world
+What are fundamental? *Something at the top of the mereological relation of the world*
 
 The cosmos grounds all; Somehow the grounding direction tracks upwards
 
 #### 3.4.3 Middleism
 
-What are fundamental? Something in the middle of the mereological relation of the world
+What are fundamental? *Something in the middle of the mereological relation of the world*
 
 To create the world, God just need to create something in the middle, like bikes or alarm clocks. This is also compatible with anti-fundamentalism. One could still choose to be a plural-middleist or mono-middleist, though.
 
@@ -257,6 +257,126 @@ To create the world, God just need to create something in the middle, like bikes
 
 What are fundamental? *Essences*.
 
+Dasgupta: Three kinds of facts
+
+1. Facts that are apt to be grounded and have grounds
+2. Facts that are apt to have grounds and happen not to have them
+3. Facts that are not apt to have grounds at all
+
+(1) and (2) are named "substantive facts" and (3) is named "autonomous fact"
+
+**Examples**:
+
+1. Substantive: The sky is blue
+2. Autonomous: All bachelors are unmarried males
+
+==I can't ask why 2? I can't ask "why is it defined this way?"==
+
+Facts about essence are autonomous facts; Therefore it seems to be an non-arbitrary stopping point.
+
+## 4 The Epistemology of Fundamentality: Regress, Virtues and other Desiderata
+
+### 4.1 The Regress Problem (for fundamentality)
+
+Explanation for existence
+
+- Causation explanation: How the watch came to be
+- Metaphysical explanation: it has bezel, case, crown, etc
+
+**Problem**: 
+
+1. If for a metaphysical explanation of A, one must needs to appeal to its parts, then A never gets (fully) explained. (Even if the bottom it has no parts, since bottom is not explained, there's still something left unexplained.) (We should not say that, regression leads to no explanation at all. This is because at each stage, there is a successful answer. The successful answer, to the extent that answers the relevant question at this stage, is considered sufficient.)
+
+**There's no need to posit fundamental entity**:
+
+1. If there's nothing left unexplained in infinite regress, then there's no need to posit fundamental entity
+	- What's left unexplained? If it's infinite, then nothing is left unexplained. Maybe you are saying I'm not explaining the totality? But if it's ground, then nothing is left over. (see Bliss 2019b)
+
+2. Even if there's something left unexplained, positing fundamental entity does not help
+	- Maybe everything is explained but there's still something inadequate? Suppose C -E-> B -E-> A; Then the C,B is partial ground for B,A? But there's no reason to say they are partial ground; Second, non-fundamental things could as well be full grounds. Therefore, there's no need to posit fundamental 
+
+3. Who says incomplete explanation is problematic? We are okay with incomplete causal explanation all the time. There's no need to posit fundamental entity.
+
+**Response**:
+
+The argument mentioned in 2.2 ultimate explanation:
+
+1. (Explanation Target) There is an explanation for the fact that there are any derivative entities whatsoever
+2. (Explanatory Assumption) No derivative entities can explain why there are any derivative entities whatsoever
+3. Therefore, there must be something fundamental.
+
+2 is justified through the badness of vicious regression: the explanation goal cannot be achieved if there's a regression;
+
+Example: Why does this flamingo exist? If you track the parents, then you can never explain why there is any flamingo. Therefore we can formulate a principle: *no instance of a kind can explain how kinds exist in the first place.*
+
+### 4.2 Theoretical Virtues
+
+**Theoretical virtue**: it could be better if there are fundamental entities
+
+Fundamental entities make a theory more unified: fundamental entities explain everything, while infinitism can only do separate explanation.
+
+**Objection 1**: There might be three argument saying that it fundamental entities unifies a theory
+
+1. there is a subset of (plurality of) fundamental entities that ultimately grounds some non-fundamental one
+2. there is a set (plurality) of fundamental entities that ultimately grounds some non-fundamental one
+3. there is a single fundamentum that grounds some non-fundamental one
+
+Problem with (1): we can have a unified explanation with a set of non-fundamental entities
+Problem with (2): every member in this set seems to explain everything
+Problem with (3): it is like committing to god or monism, which is crazy
+
+**Reply to 1**: fundamentals can do what infinitist can't, i.e. the regression problem.
+
+**Objection 2**: Infinitism is simpler with regard to the category of entity, i.e. the derivative. Fundamentalism needs the derivative and the fundamental
+
+### 4.3 Taking Stock
+
+The argument in 4.1, i.e. why there are a kind of thing at all, *in their generality*
+
+## 5 Fundamentality
+
+problems with fundamentalism and its alternatives
+
+### 5.1 The Trouble with Fundamentality
+
+The traditional problem: how could there be such a thing as god?
+
+What we should focus on:
+
+1. What exactly it is that the fundamental are supposed to be doing?
+2. What work are they invoked in service to?
+
+#### 5.1.1 What work the fundamental?
+
+**Schaffer's account**: If mereological explanation has infinite regression, then the explanation is always deferred and never really accounted for
+
+- Explanatory Target: (particular) beings
+- Externality Assumption: No being whose being also needs to be accounted for can account for the being of any other particular being
+
+**Dasgupta's account**: "Why does things exists in general" cannot be answered by any particular explanation of existence. (unlike Shaffer, local beings can be accounted for)
+
+- Explanatory Target: How things turned out this way
+- Externality Assumption: No non-fundamental can explain how
+
+**Bliss' account**:
+
+- Explanatory target: Why there are any derivative entities whatsoever
+- Externality Assumptions: No derivative entity can explain why 
+
+**Remark**: All these three argument seems to rely on some version of PSR. But (1) PSR seems wrong because of quantum mechanics or it is not defended anyway; and (2) fundamental entities themselves seem to violate PSR.
+
+(2) is problematic; we need to explain why the fundamental can escape the scope of PSR in an non-ad hoc way.
+
+**Task**: why the fundamental can escape the scope of PSR in an non-ad hoc way
+
+- Schaffer: fundamental entities just don't need explanation
+- Dasgupta: there are autonomous facts which don't have and don't need explanations
+
+But they all seems ad hoc
+
+Another problematic: if we treat the explanatory target as a *general fact*. 
+
+---
 
 P1. Nothing is self-explanatory
 P2. Any proposition can be an explanandum

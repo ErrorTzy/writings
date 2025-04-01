@@ -1241,7 +1241,9 @@ Definition 11.12 (Consistency)
 
 **Proposition 11.18**: If $\Gamma \vdash A$ and $\Gamma \cup \{A\}$ is *inconsistent*, then $\Gamma$ is *inconsistent*.
 
-> Proof$$
+> Proof
+
+$$
 
 \begin{prooftree}
 \alwaysNoLine
@@ -1310,7 +1312,7 @@ $$
 
 model existence result: every consistent set of sentences is satisfiable
 
-proposition: $\Gamma \vdash A \rightarrow \Gamma \vDash A$
+proposition: $\Gamma \vDash A \rightarrow \Gamma \vdash A$
 
 outline of the proof
 
@@ -1321,4 +1323,46 @@ Consider $P(a_{1},\dots,a_{n})$ where $a_{1},\dots,a_{n}$ are constants. Let $|M
 The upshot is that, we construct some model to satisfy it.
 
 Consider $\neg B$. Since $\Gamma$ is consistent, then we ensured that $B$ is not in $\Gamma$. Then we can ad hoc construct $M \nvDash B$, and therefore $M \vDash \neg B$
+
+Definition 12.1 (Complete set)
+
+: A set $\Gamma$ of sentences is *complete* iff for any sentence $A$, either $A \in \Gamma$ or $\neg A \in \Gamma$
+
+> **Remark**: A complete set of sentences determines all the truth values.
+
+**Proposition 12.2**: Suppose $\Gamma$ is complete and consistent. Then:
+
+1. If $\Gamma \vdash A$, then $A \in \Gamma$
+2. $A \land B \in \Gamma$ iff both $A \in \Gamma$ and $B \in \Gamma$
+3. $A \lor B \in \Gamma$ iff either $A \in \Gamma$ or $B \in \Gamma$
+4. $A \rightarrow B \in \Gamma$ iff either $A \notin \Gamma$ or $B \in \Gamma$
+
+> **Proof**
+> (1) suppose $\Gamma \vdash A$, and by reductio we suppose $A \notin \Gamma$. Since $\Gamma$ is complete, $\neg A \in \Gamma$. Therefore $\Gamma \vdash A$, therefore $\Gamma \vdash \bot$. But $\Gamma$ is consistent. Contradiction.
+> (3) left to right: suppose $A \lor B \in \Gamma$, and by reductio we have $A \notin \Gamma$ and $B \notin \Gamma$. Obviously, $\Gamma \vdash \bot$.
+
+### Henkin Expansion
+
+**Proposition 12.3**: If $\Gamma$ is consistent in $\mathscr{L}$ and $\mathscr{L}'$ is obtained from $\mathscr{L}$ by adding a countably infinite set of new constant symbols $d_{0},d_{1},\dots,$ then $\Gamma$ is consistent in $\mathscr{L}'$
+
+Definition 12.4 (Saturated set)
+
+: A set $\Gamma$ of formulas of a language $\mathscr{L}$ is *saturated* iff for each formula $A(x) \in Frm(\mathscr{L})$ with one free variable $x$ there is a constant symbol $c \in \mathscr{L}$ such that $\exists x A(x) \rightarrow A(c) \in \Gamma$
+
+Definition 12.5
+
+~ Let $\mathscr{L}'$ be as in proposition 12.3. Fix an enumeration $A_{0}(x_{0}),A_{1}(x_{1}),\dots$ of all formulas $A_{i}(x_{i})$ of $\mathscr{L}'$ in which one variable $(x_{i})$ occurs free. We define the sentences $D_{n}$ by induction on $n$.
+~ Let $c_{0}$ be the first constant symbol among the $d_{i}$ we added to $\mathscr{L}$ which does not occur in $A_{0}(x_{0})$. Assuming that $D_{0},\dots,D_{n-1}$ have already been defined, let $c_{n}$ be the first among the new constant symbols $d_{i}$ that occurs neither $D_{0},\dots,D_{n-1}$ nor in $A_{n}(x_{n})$.
+~ Now let $D_{n}$ be the formula $\exists x_{n}A_{n}(x_{n}) \rightarrow A_{n}(c_{n})$
+
+**Lemma 12.6**: Every consistent set $\Gamma$ can be extended to a saturated consistent set $\Gamma'$
+
+**Proposition 12.7**: Suppose $\Gamma$ is complete, consistent, and saturated.
+
+1. $\exists x A(x) \in \Gamma$ iff $A(t) \in \Gamma$ for at least one closed term $t$
+2. $\forall x A(x) \in \Gamma$ iff $A(t) \in \Gamma$ for all closed terms $t$
+
+### Lindenbaum's Lemma
+
+**Lemma 12.8 (Lindenbaum's Lemma)** Every consistent set $\Gamma$ in a language $\mathscr{L}$ can be extended to a complete and consistent set $\Gamma^{*}$
 

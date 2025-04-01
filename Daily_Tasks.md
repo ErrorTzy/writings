@@ -1,2 +1,3 @@
-- [ ] Write to Eli
-- [ ] Logic Homework
+- [ ] Kate's grading
+- [ ] logic, read completeness theorem
+- [ ] Finish reading about fundamentality

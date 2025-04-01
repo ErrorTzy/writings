@@ -117,11 +117,8 @@ $$
 
 $$
 \begin{prooftree}
-                \AxiomC{$[B]^2$}
-                \AxiomC{$[\neg B]^3$}
-              \RightLabel{$\neg$E}\BinaryInfC{$\bot$}
-            \LeftLabel{$3$}\RightLabel{$\bot$C}\UnaryInfC{$B$}
-          \RightLabel{$\rightarrow$I}\LeftLabel{$8$}\UnaryInfC{$A(a) \rightarrow B$}
+            \AxiomC{$[B]^2$}
+          \RightLabel{$\rightarrow$I}\UnaryInfC{$A(a) \rightarrow B$}
         \RightLabel{$\exists$E}\UnaryInfC{$\exists y (A(y) \rightarrow B)$}
         \AxiomC{$[\neg \exists y(A(y)\rightarrow B)]^1$}
       \RightLabel{$\neg$E}\BinaryInfC{$\bot$}
