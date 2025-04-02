@@ -225,7 +225,9 @@ Definition (Purity about facts)
 
 ### 3.3 A Free Lunch
 
-Non-fundamental entities are an ontological free lunch; A fundamental version of the razor, the *Lasor*: We must not multiply *fundamental* entities beyond necessity.
+Non-fundamental entities are an ontological free lunch; A fundamental version of the razor, the 
+
+**Lasor**: We must not multiply *fundamental* entities beyond necessity.
 
 How to define "free launch"/"metaphysically innocent"?
 
@@ -356,14 +358,14 @@ What we should focus on:
 **Dasgupta's account**: "Why does things exists in general" cannot be answered by any particular explanation of existence. (unlike Shaffer, local beings can be accounted for)
 
 - Explanatory Target: How things turned out this way
-- Externality Assumption: No non-fundamental can explain how
+- Externality Assumption: No non-fundamental can explain how so
 
 **Bliss' account**:
 
 - Explanatory target: Why there are any derivative entities whatsoever
-- Externality Assumptions: No derivative entity can explain why 
+- Externality Assumptions: No derivative entity can explain why so
 
-**Remark**: All these three argument seems to rely on some version of PSR. But (1) PSR seems wrong because of quantum mechanics or it is not defended anyway; and (2) fundamental entities themselves seem to violate PSR.
+**Problem 1 (Escaping PSR)**: All these three argument seems to rely on some version of PSR. But (1) PSR seems wrong because of quantum mechanics or it is not defended anyway; and (2) fundamental entities themselves seem to violate PSR.
 
 (2) is problematic; we need to explain why the fundamental can escape the scope of PSR in an non-ad hoc way.
 
@@ -374,7 +376,107 @@ What we should focus on:
 
 But they all seems ad hoc
 
-Another problematic: if we treat the explanatory target as a *general fact*. 
+**Problem 2 (Target is just a general fact)**: if we treat the explanatory target as a *general fact*, then there's no need to ask for further explanation. The general fact is grounded in all instances. Then the question seems to be just a variant of "Why there's something, rather than nothing?" Which is regarded as nonsensical.
+
+**Problem 3 (Why externality assumption)**: Why should we believe the externality assumption? It seems we explain one derivative entity with another all the time. For example, the singleton Socrates is grounded on Socrates, and this is a full explanation. We need another requirement (e.g. complete explanation) in order to motivate externality assumption.
+
+#### 5.1.2 Overdetermination
+
+**Causal overdetermination**: some E is causally overdetermined if it has two distinct, individually sufficient causes $c_{1}$ and $c_{2}$
+
+Then we can formulate a similar thesis:
+
+**Metaphysical overdetermination**: some E is metaphysically overdetermined if it has two distinct, individually sufficient grounds $g_{1}$ and $g_{2}$
+
+**Remark**: If we understand "distinct" as ground-theoretical term, i.e. two facts are distinct iff they do not ground each other or there is a third ground grounding both, then *priority monism* can avoid overdetermination because everything is grounded by the cosmos; But *priority pluralism* seems to suffer from overdetermination.
+
+**Why is overdetermination bad?** It seems that, if we have too many (ultimate) explanation, then we have too many fundamental entities. Since fundamental entities are costly, the theory is costly. ==Is there any toy counterexample?==
+
+**Two possible motives for fundamenta in overdetermination** (e.g. singleton Socrates is fully explained by Socrates and some fundamenta):
+
+1. fundamenta *ultimately* explains
+2. fundamenta explains how things exist more generally
+
+**Two kinds of grounding**: grounded in the non-fundamentals and ground in the fundamentals
+
+### 5.2 The Alternatives
+
+Metaphysical infinitism and metaphysical coherentism
+
+#### 5.2.1 Metaphysical Infinitism
+
+Features:
+
+1. Nothing fundamental
+2. Admits the strictly hierarchical structure
+
+If metaphysical infinitism metaphysically possible?
+
+**No**: because it gives rise to a vicious infinite regression; And infinite regression may lead to (1) nothing is explained
+
+- **Objection**: Of course things are explained. 
+	- **Defense**: But you don't have ultimate explanation
+	- **Objection**: What do you mean "ultimate explanation"? If you mean an explanation that is not infinite, then this object is just begging the question. We don't need ultimate explanation.
+
+**No**: (2) something is not explained, like the generality of facts
+
+- **Objection**: appeal to the argument in 5.1: PSR is wrong, or explanatory target is just general facts.
+- **Defense**: (1) If a collection can be explained by its parts, then it would be self explanatory -- but consider a conjunction: it is grounded and explained by all of its conjuncts. (2) Never ending question is bad -- but why? because they are never-ending? (3) The answer of derivative object explaining is not satisfying per se. There is regression because we keep getting the wrong answer. This is a wrong answer because of (4) the kind-instantiation principle:
+
+**The kind-instantiation principle (KI)**: Where K is any *substantial kind*, you can't explanation for why where are any derivative entities whatsoever.
+
+Therefore, the argument for the externality assumption goes like this:
+
+(a) The kind-instantiation principle
+(b) Derivative entity is a *substantial kind*
+(c) Therefore, you cannot explain why there are any derivative entities at all by invoking only derivative entities, even if your explanation goes on forever.
+
+- **Objection**: derivative entity is not a substantial kind. It might be a dummy sortal or covering term.
+
+**Dummy sortals**: Unlike substantive sortals which provides criteria for identify, dummy sortals like "things" grammatically look like a sortals but rely on other sortals to count as identifying. E.g. How many *things* did you receive last Christmas?
+
+If "derivative entity" is a *dummy sortal*, then the question "why are there any dummy sortals at all" does not pick any target out. If so, fundamentalism is defective.
+
+**Covering term**: Something is a covering term if it covers various kinds, e.g. the small-g is a covering term for various kinds of relations.
+
+If "derivative entity" is a *covering term*, then the question will be "why you exist, and why I exist, ...", which does not need to posit fundamental entities.
+
+#### 5.2.2 Metaphysical Coherentism
+
+Two features:
+
+1. Nothing fundamental
+2. Admits of loops (deny the strictly hierarchical structure)
+
+**Weak coherentism**: grounding is anti-symmetric, transitive, non-reflexive. There's just some loop.
+**Strong coherentism**: grounding is symmetric, transitive and reflexive. Everything is grounded in everything including itself.
+
+**Remark**: Strong coherentism is crazy. Why it is even possible? Some mad Buddhists talk like this. But we can ignore them for now. Weak coherentism is more plausible because of some examples: explanatory holism, north pole and south pole of a magnet, etc. One thing needs to be noticed: any loop is an infinite regress, so whatever infinitism is facing, coherentism is also facing with it.
+
+Why being circular is problematic at all?
+
+**Distinction**:
+
+- **big loop**: allow $Gxy,Gyz,Gzx$, but deny the case of $Gxx$ (deny transitivity)
+- **small loop**: allow $Gxx$, but deny the possibility of $Gxy,Gyz,Gzx$.
+
+**Problem for big loop**: for a time traveling case where creates a causal loop, we would ask how would this loop happen in the first place. (I was informed about how to build a time machine, I built it and told the past me how to build a time machine -- but how do I get the instruction in the first place??) Therefore for grounding, we may also ask how to break into the circle at all.
+
+- **Objection 1**: the concern in the time traveling case is about temporal priority, but it does not carry to grounding.
+- **Objection 2**: this concern is misguided, because what explains the loop are just the members
+
+**Problem for small loop**: 
+
+(1) it may as well just collapse to fundamentalism; and 
+(2) it seems to flout ontological priority, since if A grounds A, A should in some sense comes before A -- but this seems begging the question. If I deny the hierarchy, I would think this "come before" in the first place.
+(3) To explain A by A seems not explanatory at all, but grounding seems to explain
+
+**Defense for small loop**: Self-groundedness is trivial, just like how self-identity is trivial.
+
+the strongest motivation for fundamentalism is probably the demand for ultimate explanation. But if we define ultimate explanation in terms of non-arbitrary stopping point, then it would beg the question to say anti-fundamentalism cannot fulfill the demand
+
+
+
 
 ---
 
