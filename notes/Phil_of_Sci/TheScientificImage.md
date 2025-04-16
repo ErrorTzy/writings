@@ -339,7 +339,7 @@ Four main questions
 
 ### 1. Empiricist Epistemology and Skepticism
 
-**Objection**: If we insist that the evidence for a theory never confirms a theory to be true, what a piece of evidence can confirm never goes beyond itself. Bu in everyday life, we do arrive at conclusions that go beyond the evidence we have
+**Objection**: If we insist that the evidence for a theory never confirms a theory to be true, what a piece of evidence can confirm never goes beyond itself. But in everyday life, we do arrive at conclusions that go beyond the evidence we have
 **Defense**: I still go beyond the evidence by claiming a theory is empirically adequate in the future. And confirming empirical structure by observable entities is already ampliative.
 
 
@@ -410,6 +410,8 @@ We are immersed to theoretical language, how do we explain it without ontologica
 **Van Fraassen's way**: the conceptual framework of science itself distinguish observables and unobservables; and it *correlates* the what we perceive but it does not need to be metaphysical
 
 When we are immersed in the world picture, we seems to see electron and racehorse as both objectively existence. But this is not qualified. "Living in a theoretical world" does not describe one's commitments. Is it only possible to distinguish observables and unobservable after we are immersed in the scientific world. The "stepping one step away and examine one's epistemic commitments" is a reflective attitude.
+
+`i.e. the theoretic vs observable distinction is an epistemic, reflective distinction`
 
 ### 3. The Conjunction Objection
 

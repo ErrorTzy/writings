@@ -13,7 +13,7 @@ toc: false
 
 **Objection 1**:
 
-- (P0) Science puts theories together.
+- (P0) Science puts accepted theories together.
 - (P1) Putting theories together means accepting the conjunction of theories.
 - (P2) Anti-realists cannot accept the conjunction of theories.
 - (C) Therefore, anti-realists are wrong.

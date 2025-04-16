@@ -1157,11 +1157,11 @@ Definition  (Model satisfy a set of sentences)
 > Left to right: Since every structure $M$ satisfy $A$, the structure that satisfy $\Gamma$ will also satisfy A
 > Right to left: prove by reductio
 
-**Proposition 7.27**: $\Gamma \vDash A$ iff $\Gamma \cap \{\neg A\}$ is unsatisfiable
+**Proposition 7.27**: $\Gamma \vDash A$ iff $\Gamma \cup \{\neg A\}$ is unsatisfiable
 
 > **Proof**
 > 
-> Left to right: Reductio. Suppose $\Gamma \vDash A$ and there is some structure $M$ such that $M \vDash \Gamma \cap \{\neg A\}$. Then $M \vDash \Gamma$ and $M \vDash \neg A$, which $M \nvDash A$. But we know from inductive hypothesis that If $M \vDash \Gamma$ then $M \vDash A$. Contradiction.
+> Left to right: Reductio. Suppose $\Gamma \vDash A$ and there is some structure $M$ such that $M \vDash \Gamma \cup \{\neg A\}$. Then $M \vDash \Gamma$ and $M \vDash \neg A$, which $M \nvDash A$. But we know from inductive hypothesis that If $M \vDash \Gamma$ then $M \vDash A$. Contradiction.
 
 **Proposition 7.28**: If $\Gamma \subseteq \Gamma'$ and $\Gamma \vDash A$, then $\Gamma' \vDash A$
 
@@ -1338,6 +1338,7 @@ Definition 12.1 (Complete set)
 4. $A \rightarrow B \in \Gamma$ iff either $A \notin \Gamma$ or $B \in \Gamma$
 
 > **Proof**
+> 
 > (1) suppose $\Gamma \vdash A$, and by reductio we suppose $A \notin \Gamma$. Since $\Gamma$ is complete, $\neg A \in \Gamma$. Therefore $\Gamma \vdash A$, therefore $\Gamma \vdash \bot$. But $\Gamma$ is consistent. Contradiction.
 > (3) left to right: suppose $A \lor B \in \Gamma$, and by reductio we have $A \notin \Gamma$ and $B \notin \Gamma$. Obviously, $\Gamma \vdash \bot$.
 
@@ -1365,4 +1366,65 @@ Definition 12.5
 ### Lindenbaum's Lemma
 
 **Lemma 12.8 (Lindenbaum's Lemma)** Every consistent set $\Gamma$ in a language $\mathscr{L}$ can be extended to a complete and consistent set $\Gamma^{*}$
+
+...(See handout)
+## Chap. 14 Turing Machine
+
+Definition (Turing Machine)
+
+: A Turing Machine $M$ is a tuple $\langle Q, \Sigma, q_{0}, \delta \rangle$ consisting of:
+
+1. A finite state of *states* $Q$,
+2. A finite alphabet (vocabulary/types of input) which includes a start symbol and empty symbol
+3. An initial state $q_{0} \in Q$
+4. A finite instruction set $\delta$, which is a partial function
+
+Definition 14.7 (Configuration). 
+
+: A configuration of Turing machine M = ⟨Q , 𝛴 ,q 0 , 𝛿⟩ is a triple ⟨C ,m,q ⟩ where
+
+1. C ∈ 𝛴 ∗ is a finite sequence of symbols from 𝛴 ,
+2. m ∈ N is a number < len(C ), and
+3. q ∈ Q
+
+Intuitively, the sequence C is the content of the tape (symbols of all squares from the leftmost square to the last non-blank or previously visited square), 
+m is the number of the square the read/write head has been scanning (beginning with 0 being the number of the leftmost square), and 
+q is the current state of the machine.
+
+Definition 14.8 (Initial configuration). The initial configuration of M for input I ∈ 𝛴 ∗ is  ⟨⊲ ⌢ I , 1,q 0 ⟩.
+
+Definition 14.9. 
+
+: We say that a configuration ⟨C ,m,q ⟩ yields the configuration ⟨C ′ ,m ′ ,q ′ ⟩ in one step (according to M ), iff
+
+1. the m-th symbol of C is 𝜎,
+2. the instruction set of M specifies 𝛿(q , 𝜎) = ⟨q ′ , 𝜎 ′ ,D⟩,
+3. the m-th symbol of C ′ is 𝜎 ′ , and
+4. 
+	a) D = L and m ′ = m − 1 if m > 0, otherwise m ′ = 0, or
+	b) D = R and m ′ = m + 1, or
+	c) D = N and m ′ = m,
+5. if m ′ = len(C ), then len(C ′ ) = len(C ) + 1 and the m ′ -th symbol of C ′ is ⊔. Otherwise len(C ′ ) = len(C ).
+6. for all i such that i < len(C ) and i ≠ m, C ′ (i ) = C (i ),
+
+Definition 14.10
+
+~ *A run of M on input I* is a sequence C i of configurations of M , where C 0 is the initial configuration of M for input I , and each C i yields C i +1 in one step.
+~ We say that *M halts on input I* after k steps if C k = ⟨C ,m,q ⟩, the mth symbol of C is 𝜎, and 𝛿(q , 𝜎) is undefined. In that case,
+~ the *output of M* for input I is O , where O is a string of symbols not ending in ⊔ such that C = ⊲ ⌢ O ⌢ ⊔ j for some i , j ∈ N.
+
+Definition 14.11 (Computation). 
+
+: A Turing machine M computes the function f : N k → N iff M halts on input $I^{n_{1}} ⊔ I^{n_{2}} ⊔ \dots ⊔ I^{n_{k}}$ with output $I^{f(n_{1},\dots,n_{k})}$
+
+**Remark**: All arguments are separated by a blank.
+
+Definition 14.17. 
+
+: A Turing machine M is disciplined iff
+
+1. it has a designated single halting state h,
+2. it halts, if it halts at all, while scanning square 1,
+3. it never erases the ⊲ symbol on square 0, and
+4. it never attempts to move left from square 0.
 
