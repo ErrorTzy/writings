@@ -41,12 +41,7 @@
     "truncateFileName": false
   },
   "idling": {
-    "daysUnused": [
-      "2025-04-07",
-      "2025-04-09",
-      "2025-04-10",
-      "2025-04-12"
-    ]
+    "daysUnused": []
   },
   "clipboard": {
     "templates": {
