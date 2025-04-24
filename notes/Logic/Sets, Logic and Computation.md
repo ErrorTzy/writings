@@ -1374,8 +1374,8 @@ Definition (Turing Machine)
 
 : A Turing Machine $M$ is a tuple $\langle Q, \Sigma, q_{0}, \delta \rangle$ consisting of:
 
-1. A finite state of *states* $Q$,
-2. A finite alphabet (vocabulary/types of input) which includes a start symbol and empty symbol
+1. A *finite* state of *states* $Q$,
+2. A *finite* alphabet (vocabulary/types of input) which includes a start symbol and empty symbol
 3. An initial state $q_{0} \in Q$
 4. A finite instruction set $\delta$, which is a partial function
 
@@ -1391,7 +1391,9 @@ Intuitively, the sequence C is the content of the tape (symbols of all squares f
 m is the number of the square the read/write head has been scanning (beginning with 0 being the number of the leftmost square), and 
 q is the current state of the machine.
 
-Definition 14.8 (Initial configuration). The initial configuration of M for input I ∈ 𝛴 ∗ is  ⟨⊲ ⌢ I , 1,q 0 ⟩.
+Definition 14.8 (Initial configuration). 
+
+: The initial configuration of M for input I ∈ 𝛴 ∗ is  ⟨⊲ ⌢ I , 1,q 0 ⟩.
 
 Definition 14.9. 
 
@@ -1418,6 +1420,15 @@ Definition 14.11 (Computation).
 : A Turing machine M computes the function f : N k → N iff M halts on input $I^{n_{1}} ⊔ I^{n_{2}} ⊔ \dots ⊔ I^{n_{k}}$ with output $I^{f(n_{1},\dots,n_{k})}$
 
 **Remark**: All arguments are separated by a blank.
+
+Definition 14.15. 
+
+: A Turing machine M computes the partial
+function f : $N^{k} \rightarrow N$ iff,
+1. M halts on input I n 1 ⌢ ⊔ ⌢ . . . ⌢ ⊔ ⌢ I nk with output
+I m if f (n 1 , . . . ,n k ) = m.
+2.M does not halt at all, or with an output that is not a single
+block of I ’s if f (n 1 , . . . ,n k ) is undefined.
 
 Definition 14.17. 
 

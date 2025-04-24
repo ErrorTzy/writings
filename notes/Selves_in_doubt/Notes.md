@@ -129,3 +129,43 @@ There is a difference between bilingual and can only speak PF language
 >.Maybe being certain is fine-grained? Being certain has contrast class
 
 **Defense for 2**: There is concession here. Eli argues that only central cases have this requirement. What's the ground for a solipsist to say he feels proud about anything? Eli think it is clear that, even if one fails to meet his own expectation, it seems he is just disappointed, not ashamed.
+
+## Chapter 7
+
+If I am sane, I do not doubt;
+
+If I do not doubt, why would I be anxious?
+
+Human "melancholy and delirium": having conflicting attitudes, and thus the epistemic anxiety?
+
+How should we characterize such conflict of belief and doubt?
+
+Frankfurt's frame work: conflicting desire
+
+One can desire *pro tanto* (all things being equal); but we cannot have a *pro tanto* belief ==What's protanto?==
+
+**Strawson's level**: doubt on the level of philosophy, and certain at the level of everyday thinking
+
+About self-deceit:
+
+Clarification 1: this level here is still "first-order" in Frankfurt's sense
+
+Clarification 2: The "really desire" here is not Frankfurt's sense of "really desire": Frankfurt's "really desire" is to identity with the desire. But someone could just really desire something deep down even if with self-deceit he identity himself with the opposite.
+
+Strawson's account would imply that the "philosophical level" is not sane, but this is "barely intelligible" ==Why this is barely intelligible?==
+
+**Broughton's Frankfurtian account**: there are second-order belief and doubt.
+
+The belief-identification principle: Necessarily, you identity with your belief B iff you believe that you have reason f1or the belief B
+
+According to this principle, Hume identity with his doubt; Kierkegaard does not identify with his belief in God. 
+
+But Hume probably does not feel pride and shame for either doubt or certainty. Hume doesn't seem to identify with either.
+
+What's level?
+
+Not independent subject; But must have some internal coherence.
+
+If having attitude A leads to having attitude B, then having A leads to having B in the same level
+
+If you have reason to doubt, then the reason and doubt must be at the same level.
