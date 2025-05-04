@@ -1,4 +1,5 @@
-## 2.1 More Than A Material World
+# #2natia
+.1 More Than A Material World
 
 Granted that concrete, familiar, material objects of world exists, do any other things, like numbers exist?
 
