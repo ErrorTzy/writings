@@ -5,7 +5,10 @@ What could "mind-independent" or "objective" mean?
 | Objective  | I'm in pain             | There is a chair       |
 | Subjective | ? The movie is an art ? | ? The movie is boring? |
 
-What's bad about mind-dependent and objective?
+What's bad about mind-dependent and objective? 
+
+Mind independence: it follows that it is publicly accessible in principle.
+Objective: No a matter of personal taste, if P is objective, the it can't be the case that someone utters P and another utters not-P, and they both hold true. The movie is boring is subjective but the movie is 2hrs long is objective.
 
 objectivity is not a matter of taste. subjectivity is a matter of taste. What could that mean?
 
