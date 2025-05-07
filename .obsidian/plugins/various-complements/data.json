@@ -80,7 +80,7 @@
   "delimiterToDivideSuggestionsForDisplayFromInsertion": "",
   "caretLocationSymbolAfterComplement": "",
   "displayedTextSuffix": " => ...",
-  "enableInternalLinkComplement": true,
+  "enableInternalLinkComplement": false,
   "suggestInternalLinkWithAlias": false,
   "excludeInternalLinkPathPrefixPatterns": "",
   "updateInternalLinksOnSave": true,
