@@ -105,10 +105,54 @@ We can derive (Q) from option (C) in the previous counterexample. Then what we w
 
 **Proof**: Given that the truth value of the sentence "The ship on Monday is the ship on Tuesday" is indeterminate, then we can construct two precisifications $\pi_{1}$ and $\pi_{2}$ such that this sentence is true on $\pi_{1}$ but false on $\pi_{2}$. We can construct $\pi_{1}$ that a ship would lose its identity when 30% of it being changed; and in $\pi_{2}$  a ship would lose its identity when 40% of it being changed. `In essence, this is precisifying ordered pairs in the binary relation "identity"? If so, then this is already denying Thesis I?` 
 
-Then under $\pi_{1}$, the following sentence is:
+Then under $\pi_{1}$, the following sentence is true:
 
 - there are some precisification (namely $\pi_{2}$) of the expression 'the ship on Monday' refers to nothing. 
 
 This is because "the ship on Monday" is interpreted by $\pi_{2}$ as some ship-like object that could persist its identity within 40% change. But there is no such object in $\pi_{1}$'s domain. Therefore, it refers to nothing.
 
-==**Remark**==: Could it be possible that, it accidentally refers to something in $\pi_{1}$'s domain?
+==**Remark**==: Could it be possible that, it *accidentally* refers to something in $\pi_{1}$'s domain?
+
+**Possible objection 1**: Then under $\pi_{1}$, the following sentence is true:
+
+(a) Under $\pi_{2}$, the expression 'the ship on Monday' refers to the ship on Monday. 
+
+But if this is true, then this is also true under $\pi_{1}$:
+
+(b) Under $\pi_{2}$, the expression 'the ship on Tuesday' refers to the ship on Tuesday. 
+
+And given (a) and (b), Then under $\pi_{1}$, the following sentence is true:
+
+(c) Under $\pi_{2}$, the sentence "The ship on Monday is the ship on Tuesday" is true iff The ship on Monday is the ship on Tuesday
+
+The truth of (c) under $\pi_{1}$ relies on the following truth under $\pi_{1}$:
+
+(d) Under $\pi_{2}$, the 2-place predicate "is" refers to the set of ordered pairs that are identical with each others.
+
+Is (d) true? Eli think it is obviously true. 
+
+==**Remark**==: How come (d) is true? Obviously "is" under $\pi_{1}$ and $\pi_{2}$ are different sets. Though it might be true that they don't disagree on the intension of "is", obviously they disagree on the extension of "is". Something more needs to be said.
+
+
+**Possible objection 2**: Then under $\pi_{1}$, the following sentence is true:
+
+(e) Under $\pi_{2}$, the expression 'the ship on Monday' refers to the succession consisting of the original ship and the ship that replace it
+
+But given the assumption of under all precisification, reduction does not entail identity, the following is true in all precisification, and thus true under $\pi_{2}$:
+
+(f) Under $\pi_{2}$, "No ship is identical with a succession of different physical bodies." is true
+
+But (f) and (e) are incompatible because (e) entails that, under $\pi_{2}$, the ship on Monday is not a succession of physical bodies. Then unless "a succession of different physical bodies" is interpreted differently under $\pi_{1}$ and $\pi_{2}$. But Eli says there's no way to argue this.
+
+==**Remark**==: But if one holds that reduction entails identity, then objection 2 will hold.
+
+**Consequence of the compatibility of (3) and (Q):** 
+
+- Given the expression "Something constructed of a thousand planks went out of existence" is true on some precisification and false on some other precisification, this expression is vague. But "constructed of a thousand planks" is precise. There is no good reason to argue only one of "something" and "existence" is vague, because they are related concept. Therefore both "*something*" and "*existence*" are vague.
+- Given the expression "over the period from Monday to Tuesday there was a set (or succession) of two different things constructed out of a thousand planks, rather than a single thing" is true on some precisification and false on some other precisification, it follow that "*the difference between a set and a thing*" is vague. ==How does this follow???==
+- Similarly, "refer" is also vague ==I don't see how this follow==
+
+**A problem**: Linguistic idealism?
+
+==**Remark**==: The domain of a precisification depend on precisification. The domain *specifies* what can be quantified over. What can be quantified over exists. Therefore the *specification* of existence depend on precisification. It does not follow that existence depend on precisification.
+
