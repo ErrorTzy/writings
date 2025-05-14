@@ -150,9 +150,15 @@ But (f) and (e) are incompatible because (e) entails that, under $\pi_{2}$, the 
 
 - Given the expression "Something constructed of a thousand planks went out of existence" is true on some precisification and false on some other precisification, this expression is vague. But "constructed of a thousand planks" is precise. There is no good reason to argue only one of "something" and "existence" is vague, because they are related concept. Therefore both "*something*" and "*existence*" are vague.
 - Given the expression "over the period from Monday to Tuesday there was a set (or succession) of two different things constructed out of a thousand planks, rather than a single thing" is true on some precisification and false on some other precisification, it follow that "*the difference between a set and a thing*" is vague. ==How does this follow???==
-- Similarly, "refer" is also vague ==I don't see how this follow==
+- Similarly, "refer" is also vague due to the sentence "On precisification 2 of the expression 'the ship in the harbor on Monday' the expression refers to nothing" ==I don't see how this follow==
 
 **A problem**: Linguistic idealism?
 
 ==**Remark**==: The domain of a precisification depend on precisification. The domain *specifies* what can be quantified over. What can be quantified over exists. Therefore the *specification* of existence depend on precisification. It does not follow that existence depend on precisification.
 
+"The terms refers" is true on all precisification, but 
+"On some precisification, the term does not refer" is also true on some precisification.
+
+## Refuting Thesis I
+
+$x$ does not have the property of determinately $x$ because "x is x is false on some precisification" is not true on all precisification, and therefore indeterminately true.

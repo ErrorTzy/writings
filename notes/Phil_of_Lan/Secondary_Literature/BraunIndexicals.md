@@ -137,7 +137,8 @@ de nunc belief: belief about now
 
 Some believe that indexical beliefs are de re beliefs, i.e. the content of belief includes objects
 
-If a speaker have a indexical belief but do not have the belief that contains the proposition parsed by the indexical semantics, then it is a *prima facie* reason for rejecting the semantics.
+If a speaker have a indexical belief but do not have the belief that contains the proposition pbrary 
+arsed by the indexical semantics, then it is a *prima facie* reason for rejecting the semantics.
 
 ### 4.1 Direct Reference Theories of indexicals, singular propositions and indexical belief
 

@@ -51,5 +51,3 @@ mathfont: XITS Math
 | q2    | 1,q2,R     | 1,q3,L     |            |
 | q3    | 1,q3,L     |            | $\triangleright$,h,R      |
 | h     |            |            |            |
-
-![](Pasted%20image%2020250430165043.png)
