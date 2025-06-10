@@ -1,3 +1,1 @@
-- [ ] Kate's grading
-- [ ] logic, read completeness theorem
-- [ ] Finish reading about fundamentality
+loop hole in my paper: I only proved that, not all proper name belief can sustain rational agency. As long as there are more fine-grained account of proper names, then we can still say that we sometimes proper names could sustain rational agency.

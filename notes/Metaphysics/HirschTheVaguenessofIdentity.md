@@ -1,6 +1,6 @@
 ## Evan-Salmon thesis
 
-**Thesis I**: There cannot be objects $x$ and $y$ such that it is indeterminate whether $x$ is $y$
+**Thesis I**: There cannot be objects $x$ and $y$ such that it is indeterminate whether $x$ is $y$g
 **Thesis II**: The only way for an identity sentence to be indeterminate in truth-value is if one of the expressions flanking the identity symbol is referentially ambiguous
 
 **Defense for thesis I**: Suppose it is indeterminate whether $y$ is $x$, it would follow that $x$ is not $y$ by Leibniz Law:

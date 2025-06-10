@@ -1,12 +1,19 @@
+---
+documentclass: exam
+title: Final Essay
+author: Scott Tang
+mainfont: FreeSerif
+CJKmainfont: Noto Serif CJK SC
+mathfont: XITS Math
+---
 
-Some central problem: No-self language cannot sustain rational agency? What does that even mean? Squirrels cannot sustain rational agency? The move from normal human rational agency is weird.
+## Intro
 
+In this paper, I first restate the thesis of de se belief being essential to rational agency. I exclude some possible moves that could be made against this thesis. In the second section, I nevertheless try to find a way for Noi to be a rational agent.
 
-First I wish to address the best argument that support de se belief is necessary for rational agency. Then I argues why there's still space to argue against it. Then given this, I argue that we may define rational agency in a way that allows no-self language to sustain it, at least partially.
+## The thesis of de se belief being essential to rational agency
 
-## The thesis of de se belief being essential to ration agency
-
-After several rounds of discussion this semester, I would like to restate—and thereby clarify—this thesis and the problem at issue. Much of what follows may sound repetitive, but I first had to convince myself: part of this paper challenges my own mid-term essay as well as Cappelen and Dever’s position.
+After several rounds of discussion this semester, I would like to restate—and thereby clarify—this thesis and the problem at issue. Some of what follows would definitely sound repetitive to you, since you seem to have kept sketching some points I mention below. But it does take some time for me to fully clarify these points and convince myself. Anyway, in this section, the main purpose is to argue against my own mid-term essay, as well as Cappelen and Dever’s position (which is mentioned in a footnote).
 
 ### A fuller clarification of what is essential
 
@@ -15,7 +22,7 @@ The central problem arises from Perry’s well-known example. To refresh our mem
 > I once followed a trail of sugar on a supermarket floor, pushing my cart down the aisle on one side of a tall counter and back the aisle on the other, seeking the shopper with the torn sack to tell him he was making a mess. With each trip around the counter, the trail became thicker. But I seemed unable to catch up. Finally it dawned on me. I was the shopper I was trying to catch.  
 > I believed at the outset that the shopper with a torn sack was making a mess, and I was right. But I did not believe that I was making a mess—at least not initially. That belief came later. And when it did, I stopped circling the counter and rearranged the torn sack in my cart. (Perry 1979)
 
-There are, of course, many ways to explain the change in behavior. A purely scientific account, for instance, could appeal to neural firings, leg-muscle contractions, and so on. Perry, however, wants to special kind of explanation, i.e. an explanation in terms of belief. Within this special type of explanation, the indexical 'I' would be essential. 
+There are, of course, many ways to explain the change in behavior. A purely scientific account, for instance, could appeal to neural firings, leg-muscle contractions, and so on. Perry, however, wants a special kind of explanation, i.e. an explanation in terms of belief. Within this special type of explanation, the indexical 'I' would be essential. 
 
 Then what type of explanation does Perry want? According to Hirsch's interpretation, it's the explanation that explains the ***rationality*** of the action. Why? Because an action guided solely by unconscious processes would not count as rational. A necessary condition for such an explanation is that the agent’s action occurs in virtue of some belief.[^1] The remaining question, then, is: Which kinds of belief can genuinely explain rational agency?
 
@@ -34,15 +41,15 @@ Given this criterion, Perry’s original belief, "I am making a mess", is not by
 3. Perry believes that, one should not act on a false assumption.
 4. Perry comes to believe that, no one else, but he *himself* has a leaking bag of sugar.
 5. Perry therefore believes that, he is chasing on a false assumption.
-6. Perry concludes that, he should not to chase.
+6. Perry concludes that, he should not chase.
 
 Because he now believes he ought not to chase, he stops chasing.
 
-Now it seems clear that, it is not totally accurate to say the de se belief "I am making a mess" is necessary for Perry's stop chasing. But the de se belief "I should stop chasing" would be necessary for Perry's stop chasing. To generalize a bit, "I should do action x" would be necessary to explain a rational action x.
+Now it seems clear that, it is not totally accurate to say the de se belief "I am making a mess" is necessary for Perry's stop chasing. But the de se belief "I should stop chasing" seems necessary for Perry's stop chasing. To generalize a bit, "I should do action x" seems necessary to explain a rational action x.
 
 ### Why proper names cannot sustain rational agency
 
-Let us reflect on how we reached this conclusion. We arrived at this conclusion by relying on our common-sense judgment. Specifically, our common-sense judgment involved considering which kinds of explanations do not adequately explain rational agency. In essence, this process shows that we are appealing to our intuitive understanding of what "rational agency" means.
+Let us reflect on how we reached this conclusion. We arrived at this conclusion by relying on our common-sense judgment. Specifically, our common-sense judgment involved considering which kinds of explanations do not adequately explain rational agency. In essence, this process shows that we are appealing to our intuitive understanding of what "rational agency" means. Maybe we can give some more solid argument than just appealing to intuition.
 
 To clarify this point further, let us revisit an example from our earlier discussion. We stated that the belief "one should keep chasing" does not explain why a person _stops_ chasing. The reason for this assertion is straightforward: such an explanation would be clearly absurd. If an agent genuinely held the belief "I should keep chasing," this belief would not provide any reason for that agent to stop chasing. On the contrary, that belief would give the agent a direct reason _not_ to stop chasing.
 
@@ -60,44 +67,61 @@ Maybe let us entertain this hypothetical scenario further. Imagine an account ex
 
 Similarly, the explanation cannot solely be the physical appearance of the person on television. This is because the person on screen could be Perry's identical twin brother (assuming Perry has one). If it were his twin, the person would look like Perry, but would not be Perry himself. 
 
-Moreover, imagine the person on television looks exactly like Perry and is also named Perry. However, suppose this individual is actually someone else entirely, for example, a person named Jay Perry, not John Perry. If the hypothetical account suggests that our John Perry would only run if the person on screen were truly himself, then he would not run upon seeing this Jay Perry. But the problem here is that Perry, due to his amnesia, has no way to make these distinctions. He cannot determine if the "Perry" he sees on television is himself. He also cannot determine if it is a different person who shares his name, or perhaps an identical-looking individual like his hypothetical twin or the aforementioned Jay Perry. From the amnesiac Perry's perspective, these different possibilities are indistinguishable.[^3]
+Moreover, imagine the person on television looks exactly like Perry and is also named Perry. However, suppose this individual is actually someone else entirely, for example, a person named Jay Perry, not John Perry. If the hypothetical account suggests that our John Perry would only run if the person on screen were truly himself, then he would not run upon seeing this Jay Perry. But the problem here is that Perry, due to his amnesia, has no way to make these distinctions. He cannot determine if the "Perry" he sees on television is himself. He also cannot determine if it is a different person who shares his name, or perhaps an identical-looking individual like his hypothetical twin or the aforementioned Jay Perry. From the amnesiac Perry's perspective, these different possibilities are indistinguishable.[^2]
 
 Therefore, it seems clear that no account can exist which relies on Perry making distinctions he is incapable of making, either consciously or unconsciously.Thus, such a hypothetical account does not seem to exist.
 
 Now we seem to have established that explanations relying solely on proper names are not sufficient. They cannot provide a truly rational explanation of an action. In other words, merely stating "Perry should do X" does not adequately explain why Perry rationally does X.
 
-### Belief narration and action rationalization
+## Belief narration and action rationalization
 
-And now, it seems we have arrived the conclusion that I-beliefs are necessary for such an explanation. But, again, why? Why do we consider a belief like "I should stop chasing" to be a successful explanation for rational action? So far in our discussion, we have primarily appealed to intuition. But what is the underlying reason for this intuition? Is it possible to provide a more detailed, reasoned justification for this intuitive judgment? Or, this is the point that explanation comes to an end?
+And now, it seems we have arrived at Perry's conclusion that I-beliefs are necessary for such an explanation. But, again, why? Why do we consider a belief like "I should stop chasing" to be a successful explanation for rational action? So far in our discussion, we have primarily appealed to intuition. But what is the underlying reason for this intuition? Is it possible to provide a more detailed, reasoned justification for this intuitive judgment? Or, this is the point that explanation comes to an end?
 
-Perhaps we can analyze how we arrive at this intuition. What is the thought process that leads us to it? First, we might imagine ourselves performing a particular action—for example, drinking water. We then stipulate that we are performing this action as rational agents, meaning we assume our action is guided by our beliefs and intentions.
+Perhaps we can analyze how we arrive at this intuition. What is the thought process that leads us to it? First, we might imagine ourselves performing a particular action—for example, drinking water. We then stipulate that we are performing this action as rational agents, meaning we assume our action is guided by some doxastic attitude.
 
-Next, we pose a question to ourselves: If I am performing this action as a rational agent, how would I characterize the mental state causing and rationalizing it? It appears that, through introspection, we would narrate this state as a belief starting with 'I.' For example, one might engage in the following reflective process: 'Suppose the case that I am thirsty and, as a rational agent, I drink water. What belief would explain this action? The thought guiding me would likely be something like, "I am thirsty, and *I should drink water*."' Therefore, it is an 'I-thought' that narrates the reason for this behavior. 
+Next, we pose a question to ourselves: If I am performing this action as a rational agent, how would I characterize the mental state causing it? It appears that, through introspection, we would narrate this state as a belief starting with 'I.' For example, one might engage in the following reflective process: 'Suppose that I am thirsty and, as a rational agent, I drink water. What belief would rationalize this action? The thought rationalize my action would likely be something like, "I am thirsty, and *I should drink water*."' Therefore, it is an 'I-thought' that narrates the reason for this behavior. 
 
-I believe this is the right process. We must first imagine the mental state involved in performing a rational action, and then consider how we would narrate the belief that rationalizes this action. Attempting the reverse, that is, starting by positing a belief (e.g., "I should do X") and then trying to ascertain if it would necessarily lead to a rational action, is problematic. The reason for this lies in the distinction between the *narration* of a belief, which is often coarse-grained, and the actual *mental content*, which is fine-grained. Kripke's puzzle about belief exemplifies this issue: when we try to narrate Pierre's beliefs about London, we discover that his complex doxastic state eludes simple descriptions such as "Pierre believes London is beautiful" or "Pierre does not believe London is beautiful." Therefore, it is plausible that while we can envisage a particular mental content and subsequently articulate it as a belief, we cannot, conversely, take a stated belief (like "I should...") and uniquely determine the precise mental content it signifies.
+I believe this is the right process. We must first imagine the mental state involved in performing a rational action, and then consider how we would narrate the belief that rationalizes this action. Attempting the reverse, that is, starting by positing a belief (e.g., "I should do X") and then trying to ascertain if it would necessarily lead to a rational action, is problematic. The reason for this lies in the distinction between the *narration* of a belief, which is often coarse-grained, and the actual *mental content*, which is fine-grained. Kripke's puzzle about belief exemplifies this issue: when we try to narrate Pierre's beliefs about London, we discover that his complex doxastic state eludes simple descriptions such as "Pierre believes London is beautiful" or "Pierre does not believe London is beautiful." Therefore, it is plausible that while we can envisage a particular mental content and subsequently articulate it as a belief, we cannot, conversely, take a stated belief (like "I should...") and uniquely determine the precise mental content it narrates.
 
-Now the problem is, does this establish the fact that, de se attitude is necessary for rational action? 
+### Noi's rationalization
 
----
+Given the clarification above, the question then becomes whether the preceding arguments establish that de se belief is indeed necessary for rational action. To explore this further, a rigorous definition of de se belief is required. Hirsch describes a de se belief as a _belief-that-I_. This characterization, however, does not depend solely on the English pronoun 'I' but extends to first-person pronouns in general. A first-person pronoun is defined by the KP rule: an utterance of a first-person pronoun refers to the individual who issues that utterance. Therefore, we can define de se belief as follows:
 
-Two questions: But this establish the fact that, only this kind of narration is possible? And if this is the only possible narration, does it entail that, no-self language cannot sustain rational agency?
+- A de se belief is a type of belief such that, its content includes a person as the propositional subject, and the person is represented as the thinker of that very belief.
 
-Let's try to answer the first question. Is it possible that, there could be some case where we have no idea how to narrate our belief in language?
+Now is it possible for someone to have belief other than de se belief, but still rationalizes their action?
 
-Let's try this out: assume there are two uses of 'I', the substantial use and the dummy use. According to de definition, only the substantial use conforms to the KP rule, and thus count as 'I-thought'. We don't need to know who's 'it' in the sentence "it's raining", and not knowing this does not mean we are secretly thinking in another language. Noi can narrate his belief in English in this way, without knowing what 'it' refers to. I do not want to make claim about whether we sometimes use 'I' in substantial use or dummy use. But Noi certainly can narrate in this way. 
+To set up the stage, I want to first distinguish between two uses of 'I' in language. The first type of use is what we can term _the dummy use_ of 'I'. For example, imagine you are in a dark room and you stub your toe. You might exclaim, "Ouch! I feel pain!" In this scenario, the speaker is not necessarily emphasizing themselves as the individual experiencing the pain. Instead, they are simply reporting the presence of a sensation. 
 
-Now is the problem. What is a rational action, or maybe, a rationalized action? A rational action is an action that has a reason, or a rational explanation. 
+This utterance is comparable to saying "There is pain" or "Pain is happening." This dummy use of 'I' can be compared to the use of 'it' in the sentence, "It is raining." In "It is raining," the pronoun 'it' does not refer to anything. Furthermore, the speaker does not need to have any idea about the referent for 'it'. Similarly, when 'I' is used in this dummy sense, the speaker does not refer to anything. This use of 'I' could be understood as a linguistic convention, perhaps a habit of speaking in complete sentences when reporting events or sensations.
 
-This kind of case is possible in Kripke's puzzle about belief: we don't know how to narrate Pierre's belief whether London is beautiful. But this is a problem to narrate other people's belief. Pierre have no trouble narrate his own belief.
+The second use of 'I' is what we can call _the substantial use_ of 'I'. This is the standard way we use 'I'. In the substantial use, the pronoun 'I' genuinely refers to the speaker, who is the individual uttering the sentence.
+
+To clarify, I am not claiming this dummy use of 'I' ever occurs in our language. I leave it open that we ever truly have this kind of use. The point is, if we narrate a belief using the dummy 'I', then this belief is not a de se belief. It is not de se because, in this dummy usage, the 'I' does not refer to the thinker as the subject of the belief.
+
+We stipulated that Noi cannot form beliefs that follow the KP rule. If the dummy use of 'I' does not require 'I' to refer to the speaker, then this use does not adhere to the KP rule. Since we allow Noi to experience, Noi is able to narrate mental state. Therefore, there would be no restriction preventing Noi from using this dummy 'I' to narrate a mental state.
+
+In addition, Noi can certainly pick out the correct belief that causes a particular action. Noi is able to do this because, as far as I can see, causation does not depend on de se thought. Therefore, Noi can know which mental state causes the action. Therefore, Noi can provide a full narration of similar to our own.
+
+Let us use an example to make this point clearer. Imagine we want to know if Noi can rationalize the action of drinking water. We might ask Noi the following question: "What is your reason for drinking water?" Noi's sincere response would likely be: "Because I should drink water when I am thirsty." (Though in Noi's head, it's actually "Because it should be the case that drinking water happens when thirst occurs")
+
+Now, let us use Kripke's disquotational principle that, if an English speaker sincerely asserts a statement, we can infer that the agent believes that statement. Applying this principle to Noi's sincere assertion, Noi's action of drinking water seems to be rationalized by Noi's belief that "I should drink water."
+
+Two objections may immediately arise. The first is that Noi is, in effect, using a private language distinct from ours because the grammar governing 'I' would have changed in Noi's usage. Consequently, Noi's sincere assertions would not be statements in English, and Kripke's disquotational principle would not apply.
+
+Admittedly, in purely formal semantic terms, Noi's language would indeed differ from standard English. Yet, in another significant sense, what compelling reason would there be to claim that Noi is not participating in the same language game as other English speakers? Noi's utterances would be normal and contextually appropriate. How? We have introduced the strategy of using dummy 'I' to refer mental states. What about physical self-locating report? After all, Noi can't say "I'm raining".
+
+Since Noi can have experiences and perceptions, Noi, like us, also inhabits in a centered world. Such a centered world does not inherently presuppose a subjective concept of 'self,' as its structure could even potentially be described in mathematical terms. Therefore, in the case of physical self-locating report, Noi could use 'I' to refer to the center of the experiences. For instance, when Noi reports, "I am in the room," Noi might simply be expressing that "the current centered perspective is located in the room." Similarly, an utterance of "I am Noi" could mean that the world, from this perspective, is centered on Noi. Moreover, Noi can distinguish which part of the world is "my body" because tactile experiences are centered around body. Given that Noi's utterances would be so similar to those of other English speakers, there seems to be no decisive reason to maintain that Noi is not playing the same language game. By the principle of interpretive charity, we should then conclude that Noi is speaking English.
+
+The second objection is that Noi's narration does not genuinely rationalize the behavior in question, at least not in our ordinary understanding of what it means to be "rational." The objector might argue that the conceptual maneuver involving the "dummy 'I'" does not alter this point. Interpretive charity, they would contend, is merely a pragmatic principle. Given our stipulation that Noi lacks genuine _de se_ beliefs (or "I-thoughts" in the relevant, robust sense), the objector would conclude that Noi therefore lacks rational agency.
+
+In one sense, this objection is challenging to address. This is because it presupposes that de se belief is necessary for rational agency. If this is taken as a foundational, unarguable truth, how could one effectively argue against the conclusion that Noi is not rational? 
+
+However, something may be said. If Noi communicates and justifies his actions in a manner behaviorally indistinguishable from an ordinary rational person, offering reasons that appear coherent and appropriate, what substantive basis remains for definitively denying him rational agency? What essential deficit persists if his explanatory practices align with ours?
 
 
-I first think of the action, and then think of belief. Maybe there's still gap between. 
 
-The reason I construe this process in this way is because belief is fine-grained. In Kripke's puzzle about belief, the belief that "London is beautiful" can in some sense believed in different way, and causing two belief "London is beautiful" and "London is not beautiful" does not contradict with each other semantically. Therefore, rather than 
 
-Let's see how far it goes. 
-
-"from Noi’s perspective there is no relevant difference between Noi and Mary"
 
 [^1]: One could reformulate this point in causal terms—saying that the belief *causes* the action. But I want to avoid the complications of mental causation. Because causal talk is a species of explanatory talk, the vocabulary of explanation suffices here.
-[^3]: @cappelenInessentialIndexicalPhilosophical2015 argued an account of Action Inventory Model that does not need Perry to distinguish between the cases on the level of belief. The model says that Perry keeps an inventory of possible actions. When Perry watches TV and really cares about what he sees, he forms an intention to act. If the intention matches one of the actions in the inventory, Perry acts. If the person on the screen is not John Perry, no action in the inventory matches the intention. The intention has nothing to attach to, so Perry does nothing. If the person is John Perry, one action does fit, and Perry acts. The problem, however, is how Perry can form an intention that distinguish John Perry from anyone who merely looks like him or shares his name, like Jay Perry. Therefore, this account seems to only postpone the problem of individuation.
+[^2]: @cappelenInessentialIndexicalPhilosophical2015 argued an account of Action Inventory Model that does not need Perry to distinguishes between the cases on the level of belief. The model says that Perry keeps an inventory of possible actions. When Perry watches TV and really cares about what he sees, he forms an intention to act. If the intention matches one of the actions in the inventory, Perry acts. If the person on the screen is not John Perry, no action in the inventory matches the intention. The intention has nothing to attach to, so Perry does nothing. If the person is John Perry, one action does fit, and Perry acts. The problem, however, is how Perry can form an intention that distinguish John Perry from anyone who merely looks like him or shares his name, like Jay Perry. Therefore, this account seems to only postpone the problem of individuation.
