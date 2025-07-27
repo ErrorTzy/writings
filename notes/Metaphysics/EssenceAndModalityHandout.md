@@ -1,6 +1,6 @@
 ## The Background
 
-> Sometimes it is very easy to get lost in journal papers. I am always puzzled by the question of what's the point of this paper or topic. Why is this topic interesting at all?
+> Sometimes it is very easy to get lost in journal papers. I am always puzzled by the question of what's the point of this paper or topic. Why is this topic interesting at all? To answer this we need to introduce some background.
 
 ### Modality:
 
