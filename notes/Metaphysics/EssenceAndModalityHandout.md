@@ -92,3 +92,15 @@ If $x=x$ is existence entailing, then it collapses to (2); If $x=x$ is not exist
 
 #### Diagnosis
 
+A believes a person bears the abstraction relation with mind and body, while B believes mind and a person bears the abstraction relation with the body. But they can agree on all the modal facts about persons, mind and body. (This is a similar diagnosis of supervenience: it does not distinguish idealism from materialism)
+
+Essence(x,P) is the truth maker of $\square Px$. If $P$ is a one-place predicate, it does not cause any problem. But it will cause problem when $P$ is a n-place predicate. It does not distinguish whose essence, among the parameters, made the sentence true.
+
+### Definition
+
+- The meaning of a word grounds the analyticity of a definition
+- The essence of a word grounds the necessity of a fact
+
+**Problem**: 
+
+Which meaning determines the analyticity
