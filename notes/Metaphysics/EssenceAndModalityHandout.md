@@ -73,7 +73,7 @@ If $x=x$ is existence entailing, then it collapses to (2); If $x=x$ is not exist
 
 #### Objections
 
-**From asymmetry**: Let a refers to Socrates and let b refers to the singleton Socrates. Then it is necessary that $\square a \in b$. Then we immediately have $\square (\lambda x. x \in b)(a)$ and $\square (\lambda x. a \in x)(b)$. (To make 2 also suffer from symmetry, the lambda abstraction will become $\square (\lambda x. \exists y (y = a) \rightarrow x \in b)(a)$ and $\square (\lambda x. \exists y (y = a) \rightarrow a \in x)(b)$) But we want to say $\lambda x. x \in b$ is not essential to a, but $\lambda x. a \in x$ is essential to b. This can be generalized to any necessary truth that involves an n-place predicate.
+**From asymmetry**: Let a refers to Socrates and let b refers to the singleton Socrates. Then it is necessary that $\square a \in b$. Then we immediately have $\square (\lambda x. x \in b)(a)$ and $\square (\lambda x. a \in x)(b)$. (To make 2 also suffer from symmetry, the lambda abstraction will become $\square (\lambda x. \exists y (y = a) \rightarrow x \in b)(a)$ and $\square (\lambda x. \exists y (y = a) \rightarrow a \in x)(b)$ ) But we want to say $\lambda x. x \in b$ is not essential to a, but $\lambda x. a \in x$ is essential to b. This can be generalized to any necessary truth that involves an n-place predicate.
 
 - **Defense**: adding relevance condition
 - **Objection**: but why Socrates is not relevant to being a member of the singleton Socrates, while the singleton Socrates is relevant to containing Socrates as a member? After all they are the same proposition after beta-conversion
@@ -85,7 +85,7 @@ If $x=x$ is existence entailing, then it collapses to (2); If $x=x$ is not exist
 
 > I believe these two objection has the same source because we want to say essence is intrinsic to an object. Our intuition for asymmetry is because we think Socrates is intrinsic to the singleton Socrates, but the singleton Socrates is not intrinsic to Socrates. The example of the Eiffel Tower and Socrates being distinct shows that it is not really an objection from asymmetry, but an objection from intrinsicness. And aboutness is also motivated by intrinsicness.
 
-**Especially for the conditional account**: It will make existence an essential property for everything. But the intended meaning for essence is taht it necessitate de dicto modality: P is the essence of Socrates necessitates (and explains) it is necessary that Socrates has P. If we adopt the conditional account, everything exists necessarily.
+**Especially for the conditional account**: It will make existence an essential property for everything. But the intended meaning for essence is that it necessitate de dicto modality: P is the essence of Socrates necessitates (and explains) it is necessary that Socrates has P. If we adopt the conditional account, everything exists necessarily.
 
 - **Defense**: ambiguity or disjunctive meaning: $(P\equiv \lambda x. \exists y(y=x)\rightarrow (\exists y (y=x) \rightarrow Px)) \lor (\neg (P\equiv \lambda x. \exists y(y=x)) \rightarrow Px)$
 - **Objection**: First, this is ad hoc. Second, this view is inconsistent with the possibility of contingent object having existence entailing properties
@@ -98,10 +98,19 @@ Essence(x,P) is the truth maker of $\square Px$. If $P$ is a one-place predicate
 
 ### Definition
 
-- The meaning of a word grounds the analyticity of a definition
-- The essence of a word grounds the necessity of a fact
+- The meaning of a concept grounds the analyticity of a proposition
+- The essence of an object grounds the necessity of a fact
 
 **Problem**: which meaning determines the analyticity may be relative to concept scheme.
 
 **Fine**: He disagree but he think it's hard to deny
 
+**Why analyticity fails to define meaning?** Analyticity does not distinguish the source. We cannot say an analytic statement is true in virtue of meaning. People can agree on the analyticity of a proposition while disagree with why it is analytic.
+
+> Why do I need to distinguish the source of analyticity anyway? Can't I just say this is stipulated to be true, like a rule in chess? "There is a queen" is true because it is a rule, bot because of the meaning of queen or chess.
+> Kit Fine might respond that, I have to take all analytic truth to be primitive. But surely we want to say some analytic truth has explanation and is not primitive. Therefore we need a finer-grained concept of meaning.
+> Also, I can say there is a set of primitive vocabulary. Any non-primitive vocabulary must be defined in terms of primitive vocabulary. Then an analytic sentence is true in virtue of all the non-primitive vocabulary in a sentence. This solution may cause the problem that $P=P$ is analytic in virtue of the meaning of P, though. But I believe there are some complicated technical move that may avoid this.
+
+### Conceptual Analysis
+
+The relation between definendum and definiens cannot be captured by synonyms. Giveing an artificial definition is pesudo-analysis.
