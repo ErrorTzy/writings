@@ -1,6 +1,6 @@
 ## The Background
 
-> Sometimes it is very easy to get lost in journal papers. I am always puzzle by the question of what's the point of this paper or topic. Why is this topic interesting at all?
+> Sometimes it is very easy to get lost in journal papers. I am always puzzled by the question of what's the point of this paper or topic. Why is this topic interesting at all?
 
 ### Modality:
 
@@ -101,6 +101,7 @@ Essence(x,P) is the truth maker of $\square Px$. If $P$ is a one-place predicate
 - The meaning of a word grounds the analyticity of a definition
 - The essence of a word grounds the necessity of a fact
 
-**Problem**: 
+**Problem**: which meaning determines the analyticity may be relative to concept scheme.
 
-Which meaning determines the analyticity
+**Fine**: He disagree but he think it's hard to deny
+
