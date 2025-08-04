@@ -45,3 +45,7 @@ Let me try to answer this quesion. In the case of "pain", the reference fixing p
 On motivation:
 
 Deflationism is powerful. Their argument seems convincing. No one can deny that, all our philosophical work depend on our conceptual scheme and our language. We can't do philosophy without it. But the consequence of a thorough Carnapian deflationism is utterly insane: Eventually we can't say how the world REALLY is. All we can say is something true relative to a conceptual scheme. How can everything be a matter of language? It can't be the case that all we can talk about is how to use our language, not about the world. To say this is to destroy metaphysics for good.
+
+On Grounding
+
+The standard explanation of grounding is talking about "in virtue of", and "because". But they are intended to be worldly. This is strange: it's like talking about an omelette and intend it to be egg-free. Bennett's formulation is better: it's about building. And in some sense we can admit that building is more of an objective relation. But eventually Bennett succumbed to the talk of "in virtue of". 
