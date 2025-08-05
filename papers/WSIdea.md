@@ -48,4 +48,6 @@ Deflationism is powerful. Their argument seems convincing. No one can deny that,
 
 On Grounding
 
-The standard explanation of grounding is talking about "in virtue of", and "because". But they are intended to be worldly. This is strange: it's like talking about an omelette and intend it to be egg-free. Bennett's formulation is better: it's about building. And in some sense we can admit that building is more of an objective relation. But eventually Bennett succumbed to the talk of "in virtue of". 
+The standard explanation of grounding is talking about "in virtue of", and "because". But they are intended to be worldly. This is strange: it's like talking about an omelette and intend it to be egg-free. Bennett's formulation is better: it's about building. And in some sense we can admit that building is more of an objective relation. But eventually Bennett succumbed to the talk of "in virtue of" -- by succumbing to this talk, Bennett admit she leans towards deflationism: the "in virtue of" is merely a convention and there's no absolute, deeper truth about it. See P59 for further problem, this claim needs much detailed discussion. In fact Bennett explicitly tried to not use the term explanation (P61), and instead used the word "generative". But she cannot dodge it.
+
+Explanation is in the realm of rationality, therefore it is easy to do philosophy that violates sanity.
