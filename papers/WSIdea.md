@@ -7,7 +7,7 @@ All names may have
 
 A priori entities leaves (1) blank. Fictional entities deny that there can ever be (1).
 
-On the relativity of Goodman's puzzle:
+## On the relativity of Goodman's puzzle:
 
 In your philosophy of science class, you told us about the Goodman's puzzle of induction. Goodman's puzzle seems to suggest that, if grue is problematic, then naturalness is objective: only natural properties can sustain induction. (I believe there are other ways to answer the riddle; But I assume here naturalness use its capacity to solve the riddle to show its objectivity.) But recently I found that it turns out the grue-induction is perfectly reliable. If that is so, then different conceptual schemes will have different attribution of naturalness. But I know from Ted Sider that naturalness is supposed to be absolute, and there can only be one true naturalness that carves the world at its joints. And there's even a natural quantifier. But I don't know how naturalness can be objective and invariant in different conceptual scheme. Given you are a Lewisian, I figure you must know much more than me. So I want to ask you if there are any other argument that might establish the objectivity or absoluteness of naturalness in different conceptual schemes, and if my understanding of the Goodman's riddle missed some points.
 
@@ -21,7 +21,7 @@ Of course the above picture might be overly simple. I assumed that the kind "eme
 
 But this argument shows that, laws of nature specifies natural properties. And as long as laws of nature are objective, then naturalness is objective. All the properties that laws of nature necessitates are natural. Given the laws of nature shows that all emeralds are green, then should we conclude that, after all, grue is metaphysically defective? This line of critique is true only if the law of nature is really that, all emeralds are green. But given that we haven't reached 2050 yet, how can we conclude from the observed cases that, the law of nature is: emeralds are green, not emeralds are grue? And even after 2050, we can still define another concept "grue*" such that it is green and observed before 2051, or blue and unobserved before 2051. In fact, there are infinitely many grue-like concepts that observed cases have. What would be the reason for us to determine the laws of nature as just being "emeralds are green", instead of "emeralds are grue", or "emeralds are grue*"?
 
-On referring to something essentially:
+## On referring to something essentially:
 
 To refer to a property requires us to have a way to fix the reference. But it is not always the case that, out way to fix the reference is absolutely reliable. In some cases, we may correctly use the reference-fixing property but still refer to the wrong kind of referent.  
 
@@ -42,12 +42,76 @@ Let me try to answer this quesion. In the case of "pain", the reference fixing p
 (I believe this is plausible. But this has a sweeping consequence: it turns out that natural kinds are actually interest relative, and are actually functional kinds in disguise. Only if we treat "scientific function" as natural can we really say something is a natural kind.)
 
 
-On motivation:
+Upshot 2: we can create objects with essential properties, by stipulation. I say Aristotle is necessarily born from his parents, but he may not be human (Aristotle who mutated to a gorilla, say); While someone else says Aristotle is necessarily a human, but he may be born from some else (For example, his parents mutated to a gorilla, and then Aristotle mutates back to human). Then we refer to different objects by the name Aristotle.
 
-Deflationism is powerful. Their argument seems convincing. No one can deny that, all our philosophical work depend on our conceptual scheme and our language. We can't do philosophy without it. But the consequence of a thorough Carnapian deflationism is utterly insane: Eventually we can't say how the world REALLY is. All we can say is something true relative to a conceptual scheme. How can everything be a matter of language? It can't be the case that all we can talk about is how to use our language, not about the world. To say this is to destroy metaphysics for good.
+## On motivation
 
-On Grounding
+In this paper, I want to discuss the question: How much reality should we read off our language? For example, almost all natural languages have a subject-predicate structure. Should we then say, the world itself is constituted of objects and properties? The proposition $P$ seems syntactically more primitive than $\neg \neg P$. Should we read this structure off our language and say $P$ is in some sense more fundamental than $\neg \neg P$? Quantum physics describes the world in terms of wave functions. Should we conclude that reality is in some sense just a bunch of waves (or maybe, a huge, holistic wave)? These kind of questions are central to maybe all metaphysical problems.
 
-The standard explanation of grounding is talking about "in virtue of", and "because". But they are intended to be worldly. This is strange: it's like talking about an omelette and intend it to be egg-free. Bennett's formulation is better: it's about building. And in some sense we can admit that building is more of an objective relation. But eventually Bennett succumbed to the talk of "in virtue of" -- by succumbing to this talk, Bennett admit she leans towards deflationism: the "in virtue of" is merely a convention and there's no absolute, deeper truth about it. See P59 for further problem, this claim needs much detailed discussion. In fact Bennett explicitly tried to not use the term explanation (P61), and instead used the word "generative". But she cannot dodge it.
+But this question is not actually formulated precisely. We aren't exactly reading reality off our language, because sometimes the meaning of our terms could be vague. 
+
+
+
+What I mean by metaphysical deflationism (I will simply use the term "deflationism" for the rest of the paper for a shorthand for metaphysical deflationism) : ==all metaphysical problems are merely a matter of what we mean when we use our language.== Doing metaphysics is nothing more than conceptual (reverse) engineering ==Thomasson Rethinking Metaphysics==. It is usually related to a bunch of notorious positions, like anti-realism, relativism or maybe even idealism. Indeed, the consequence of a thorough deflationism is utterly insane: Eventually we can't say how the world REALLY is. All we can say is something true relative to a conceptual scheme. 
+
+But how can everything be a matter of language? We do metaphysics because we want to reveal some deep, objective facts about our world, not to reveal the way we use our languages. We want to know how the world is like, not how we talk about our world. It can't be the case that all we can talk about is how to use our language, not about the world. To say this is to destroy metaphysics for good.
+
+But deflationary arguments are powerful. It simply relies on an innocent motivation that all languages needs interpretation. We can't say anything meaningful unless we attribute meaning to sentences. And it is also an innocent fact that we can use our languages in different ways, attribute meaning to sentences differently.
+
+(What i want to say: for any "absolute" truth, we can always find an equivalent conceptual scheme that destroy the absoluteness. And given that we can agree with the alternative conceptual scheme, there seems nothing bad about it. The move is to say one conceptual scheme is more privileged, but it is not clear to see how)
+
+What's the problem/puzzling feature about deflationism? What's at stake? Pursuit for objectivity. Just like we can talk about fictional characters in in some sense exist, but they don't 'really exist'. What REALLY exists? What REALLY is real? ==Fine 2009== Fine argued for a "Real" operator.
+
+What is deflationism? QV: Alternative language, 
+
+## On formalism, or truth by convention
+
+We have an intuition that quarks, leptons, and bosons are the most basic components of our world, and they are more fundamental than chairs and tables. More importantly, we want to say this is an objective feature of the world. 
+
+Any theory, as long as it is theorized, no matter how "deep" the theory is, it will become just a manipulation of symbols. And as long as it becomes a manipulation of symbols, there's no deep fact about which group of symbols is privileged. For example, for propositional logic, we usually have $\neg , \land , \lor , \rightarrow$, but we can pick $\neg$ and any one of the $\land, \lor, \rightarrow$ we can define the rest. For example, if we pick $\{\neg, \land\}$ as primitive, then we can define $A \lor B$ as $\neg (\neg A \land \neg B)$, and $A \rightarrow B$ as $\neg (A \land \neg B)$. And we can similarly do the same if we take $\{\neg, \lor\}$ and $\{\neg, \rightarrow \}$. But should we say $\neg$ is necessarily somehow more primitive than others? But we can also introduce $\uparrow, \downarrow$ (NAND and NOR). We can define $A \uparrow B$ in terms of $\neg (A \land B)$, and $A \downarrow B$ in terms of $\neg (A \lor B)$. But we can take them to be primitive and define all $\neg , \land , \lor , \rightarrow$ with either of them:
+
+|                   | taking $\uparrow$ as primitive           | taking $\downarrow$ as primitive                                             |
+| :---------------- | :--------------------------------------- | :--------------------------------------------------------------------------- |
+| $\neg A$          | $A \uparrow A$                           | $A \downarrow A$                                                             |
+| $A \land B$       | $(A \uparrow B) \uparrow (A \uparrow B)$ | $(A \downarrow A) \downarrow (B \downarrow B)$                               |
+| $A \lor B$        | $(A \uparrow A) \uparrow (B \uparrow B)$ | $(A \downarrow B) \downarrow (A \downarrow B)$                               |
+| $A \rightarrow B$ | $A \uparrow (B \uparrow B)$              | $((A \downarrow A) \downarrow B) \downarrow ((A \downarrow A) \downarrow B)$ |
+
+In other words, $\{\uparrow\}, \{\downarrow\}, \{\neg,\land\},\{\neg,\lor\},\{\neg,\rightarrow\}$ are equally good primitive vocabulary for propositional logic. In fact we can construct infinitely many candidates for primitive vocabulary (There are only 16 definable 2-place logical connectives available, but we don't have to constrain ourselves to 2-place connectives. For example, the 3-place NAND, i.e. $\uparrow_{3}(A,B,C) \leftrightarrow \neg (A \land B \land C)$ is also complete). But they yield very different results about fundamentality (==some citation about logical grounds==). For example, if we take $\uparrow$ to be primitive, then the fact that $A \uparrow B$ seems more fundamental then the fact that $\neg (A \land B)$, which is an abbreviation for $((A \uparrow B) \uparrow (A \uparrow B)) \uparrow ((A \uparrow B) \uparrow (A \uparrow B))$ (even according to Dorr's citeria -- ==some discussion about granulity of facts needs to be discussed here==). But if we take $\{\neg,\land\}$ as primitive, then the fact that $\neg (A \land B)$ is just the fact that $A \uparrow B$ because $A \uparrow B$ is just an abbreviation of $\neg (A \land B)$.
+
+Should we then any one of them is somehow privileged? And parsimony couldn't help pick out the "one true logic" here, because $\uparrow$ and $\downarrow$ are both complete. It's also hard to see if any of them is somehow more natural. Is material implication more natural than disjunction, or disjunction is more natural than material implication? It seems there is no way out for this. If we accept there's no privileged "absolutely most fundamental" set of connectives, then for any formal system that is stronger than propositional logic, there are some cases of fundamentality being a relative matter.
+
+
+## On Grounding
+
+The standard explanation of grounding is talking about "in virtue of", and "because". But as ==xxx== points out, it cannot just be the explanatory relation, for explanatory relation is context relative and subjective. But "grounding" are intended to be worldly. If we are to understand it as some sort of "objective explanation", then it would be very strange. It's like talking about an omelette and intend it to be egg-free. (Unionists) We must be separatists. But if explanatory relation is separate from grounding relation, then we shouldn't start our examples, intuition and formalization from the talk of "in virtue of". For example, a red apple backs the experience of a red apple. But we shouldn't try to formalize the pure logic of red apples from the experience of apples. There's no guarantee that we can find the right kind of worldly feature in these instances. ==say more about this==
+
+Bennett's formulation is better: it's about building. And in some sense we can admit that building is more of an objective relation. But eventually Bennett succumbed to the talk of "in virtue of" -- by succumbing to this talk, Bennett admit she leans towards deflationism: the "in virtue of" is merely a convention and there's no absolute, deeper truth about it. See P59 for further problem, this claim needs much detailed discussion. In fact Bennett explicitly tried to not use the term explanation (P61), and instead used the word "generative". But she cannot dodge it.
 
 Explanation is in the realm of rationality, therefore it is easy to do philosophy that violates sanity.
+
+## On Metametaphysics
+
+Quine's view: to find out what there is
+Lewis' extension: Modal operator is just disguised quantifier over worlds, and existence of possible worlds determine the truth of de dicto modality. And de re modality is determined by counterparts, which in turn is determined by similarity.
+Hirsch's thesis: 
+
+
+## On Modal Logic
+
+According to two dimensional semantics, some sentence could be a priori contingent. A sentence is a priori when it is 2D-valid, i.e. no matter which world the speaker of the utterance is in, the utterance is guaranteed to be true in that world. A sentence is (superficially) contingent if no matter which world the speaker is in, the utterance is possible to be evaluated as false, and possible to be evaluated as true by people in other worlds. For example, the sentence "The length of the standard meter bar is the actual length of standard meter bar" is a priori because no matter which world this sentence is uttered, this sentence is true in that world. But if we evaluate this sentence in worlds other than the speaker's world, then it is possible to be false because "the actual length of standard meter bar" refers to 1-m-length in the speaker's world, while "the length of the standard meter bar" refers to 1-m-length in the evaluation world.
+
+A posteriori necessity is stranger. A sentence is a posteriori when it is not 2D-valid, i.e. it is not guaranteed that, no matter which world the speaker of the utterance is in, the utterance is guaranteed to be true in that world. But in what sense, then,  is a sentence still necessary when it is not 2D-valid? We invoke the concept of "realistic model": an a posteriori necessary sentence is valid in any realistic model. For example, "the actual morning star is the actual evening star" ('morning star' and 'evening star' taken as rigid descriptions) is a posteriori necessary because for any realistic model, the sentence is true whereever the speaker is, and whichever the possible world it is evaluated. (Of course it is better to revise the sentences into, "if the actual morning star uniquely exists, then the actual morning star is the actual evening star")
+
+Quantifier Variance: the uttered sentence and the interpretation of a sentence. From one 
+
+## On Sanity
+
+Argue from two sides:
+
+Epistemic norm: 
+
+Are beliefs truth-tracking? But if there's any epistemic norm, then belief beyond doubt
+
+
+Pragmatic virtue: to choose a theory presupposes rational agency
