@@ -2,7 +2,6 @@
   "table-editor-obsidian",
   "obsidian-enhancing-export",
   "better-word-count",
-  "definition-list",
   "enhanced-annotations",
   "obsidian-footnotes",
   "obsidian-git",
@@ -17,5 +16,6 @@
   "obsidian-graphviz",
   "obsidian-citation-plugin",
   "obsidian-zotero-desktop-connector",
-  "obsidian-pandoc-reference-list"
+  "obsidian-pandoc-reference-list",
+  "pandoc-lists"
 ]

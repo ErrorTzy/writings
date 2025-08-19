@@ -33,6 +33,6 @@
   "vimMode": true,
   "showLineNumber": true,
   "autoPairMarkdown": true,
-  "smartIndentList": false,
+  "smartIndentList": true,
   "useTab": true
 }

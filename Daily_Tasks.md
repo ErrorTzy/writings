@@ -13,3 +13,7 @@ Notes:
 3. A weird feature of QV: you cannot really admit there are creatures who think in alternative langauage. You must say they are people who are really thinking in your language, but talks in a weird way.
 4. Mentioned in "# [Why the exclusion problem seems intractable and how, just maybe, to tract it](https://philpapers.org/go.pl?id=BENWTE&proxyId=&u=https%3A%2F%2Fdx.doi.org%2F10.1111%2F1468-0068.00447)": different causal pathway as different senses of causation.
 5. I deny probabilistic causation because it is correlation on the statsical level, like "smoking causes cancer".
+
+
+
+

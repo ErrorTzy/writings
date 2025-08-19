@@ -46,9 +46,13 @@ Upshot 2: we can create objects with essential properties, by stipulation. I say
 
 ## On motivation
 
-In this paper, I want to discuss the question: How much reality should we read off our language? For example, almost all natural languages have a subject-predicate structure. Should we then say, the world itself is constituted of objects and properties? The proposition $P$ seems syntactically more primitive than $\neg \neg P$. Should we read this structure off our language and say $P$ is in some sense more fundamental than $\neg \neg P$? Quantum physics describes the world in terms of wave functions. Should we conclude that reality is in some sense just a bunch of waves (or maybe, a huge, holistic wave)? These kind of questions are central to maybe all metaphysical problems.
+In this paper, I want to discuss the question: How much reality should we read off our language? For example, almost all natural languages have a subject-predicate structure. Should we then say, the world itself is constituted of objects and properties? And especially, we say things are good or bad. Then should we read them off our language and say there are such properties in the world? Also, the proposition $P$ seems syntactically more primitive than $\neg \neg P$. Should we read this structure off our language and say $P$ is in some sense more fundamental than $\neg \neg P$? Quantum physics describes the world in terms of wave functions. Should we conclude that reality is in some sense just a bunch of waves (or maybe, a huge, holistic wave)? These kind of questions are central to maybe all metaphysical problems.
 
-But this question is not actually formulated precisely. We aren't exactly reading reality off our language, because sometimes the meaning of our terms could be vague. 
+But in fact this question is not totally accurate. It's better to ask, How much reality should we read off our *interpretation* of language? We aren't exactly reading reality off our language, as least as long as we take the model-theoretic meaning of "language" and contrast it with its interpretation. For example, syntactically speaking, there's no difference between banks. For the sake of the argument, let's assume kinds to be worldly. Then if we are reading reality off our syntax, then we should take bank to be a unified kind. But normally we don't think so. We think "bank" is ambiguous and there are two different kinds of bank in the world instead of one. Therefore, our normal practice is to read reality off our interpretation of language, not the language per se.[^1]
+
+Technically speaking, the interpretation of a language is a model. But as long as we are talking about the interpretation of natural language, the model-theoretic talk is best understood as either a reconstruction or a representation of our interpretation. I take it to be obvious that no one really think in terms of domains, predicate interpretations and variant assignments when we speak.
+
+Intended conclusion: our interpretation is our disposition.
 
 
 
@@ -107,6 +111,11 @@ Quantifier Variance: the uttered sentence and the interpretation of a sentence. 
 
 ## On Sanity
 
+
+rationality: practical rationality and epistemic rationality
+
+rational agency is required by rational agency
+
 Argue from two sides:
 
 Epistemic norm: 
@@ -115,3 +124,10 @@ Are beliefs truth-tracking? But if there's any epistemic norm, then belief beyon
 
 
 Pragmatic virtue: to choose a theory presupposes rational agency
+
+
+## On Charity
+
+Calling it rational doesn't make it automatically rational.
+
+[^1]: aaa

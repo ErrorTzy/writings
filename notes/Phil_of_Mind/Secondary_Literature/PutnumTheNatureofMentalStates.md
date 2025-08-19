@@ -10,7 +10,7 @@ When answering similar identity questions, analytical philosophy has two presupp
 1. Being A = being B ↔ the meaning of A = the meaning of B
 2. Being A is being B is informative only when it is reductive `i.e. A can be reduced to B`
 
-<Techinical> Definition of terms:
+\<Technical\> Definition of terms:
 
 - Property: predicates or functors
 - Concept: The concept of x can identify x, but is not x
@@ -26,7 +26,7 @@ Two questions:
 
 Refuting Carnap, Meaning and Necessity: property = concept
 
-<Example>: Temperature is mean molecular kinetic energy, but the *concept* of temperature is not the *concept* of kinetic energy.
+\<Example\>: Temperature is mean molecular kinetic energy, but the *concept* of temperature is not the *concept* of kinetic energy.
 
 > What's Carnap's argument?
 
@@ -69,7 +69,7 @@ This is sensible because the purpose of philosophy is to give hypothesis.
 
 > This is not plausible, but let's accept it for the sake of argument
 
-<Techinical> 
+\<Technical\> 
 
 **Probabilistic Automaton:**
 
@@ -81,7 +81,7 @@ True statement of a system that, S has several related but distinct states, and 
 
 > Description means 'structure of functions?'
 
-<Techinical>
+\<Technical\>
 
 ### Hypothesis
 
