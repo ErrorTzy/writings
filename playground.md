@@ -83,11 +83,6 @@ The following definition is:
 Term 1
 
 :   Definition
-with lazy continuation.
-
-    Second paragraph of the definition.
-
-Yes, this is a definition
 
 ### Compact Definition List
 
@@ -141,5 +136,3 @@ Remember example (@example1) when implementing these concepts.
 - Bullet list
 - Another bullet
 - Third bullet
-
-
