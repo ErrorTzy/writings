@@ -77,18 +77,13 @@ var definitionListPlugin = import_view.ViewPlugin.fromClass(class {
         lastLineWasDefinition = false;
         continue;
       }
-
       const definitionMatch = DEFINITION_REGEX.exec(lineText);
-      const nextLineText = i < doc.lines ? doc.line(i + 1).text : "";
-      const nextLineTrimmedText = nextLineText.trim();
-      const isNextLineDefinition = DEFINITION_REGEX.test(nextLineTrimmedText);
-      const isNextLineBlank = nextLineTrimmedText === "";
-      const nextNextLineText = i < doc.lines - 1 ? doc.line(i + 2).text : "";
-      const nextNextLineTrimmedText = nextNextLineText.trim();
-      const isNextNextLineDefinition = DEFINITION_REGEX.test(nextNextLineTrimmedText);
-
-
-      if (definitionMatch && lastLineWasTerm) { // Modified condition: only check lastLineWasTerm
+      const nextLine = i < doc.lines ? doc.line(i + 1).text : "";
+      const isNextLineDefinition = DEFINITION_REGEX.test(nextLine.trim());
+      if (trimmedLineText === "") {
+        lastLineWasTerm = false;
+        lastLineWasDefinition = false;
+      } else if (definitionMatch && (lastLineWasTerm || lastLineWasDefinition)) {
         const [, indent, marker] = definitionMatch;
         const isIndented = indent.length > 0;
         builder.add(
@@ -111,8 +106,8 @@ var definitionListPlugin = import_view.ViewPlugin.fromClass(class {
           })
         );
         lastLineWasDefinition = true;
-        lastLineWasTerm = true; // Keep lastLineWasTerm true for subsequent definitions
-      } else if (!isNotTerm(trimmedLineText) && (isNextLineDefinition || (isNextLineBlank && isNextNextLineDefinition))) { // Modified term detection logic
+        lastLineWasTerm = false;
+      } else if (isNextLineDefinition && !isNotTerm(trimmedLineText)) {
         builder.add(
           line.from,
           line.from,
@@ -122,11 +117,7 @@ var definitionListPlugin = import_view.ViewPlugin.fromClass(class {
         );
         lastLineWasTerm = true;
         lastLineWasDefinition = false;
-      } else if (trimmedLineText === "") {
-        // Do not reset lastLineWasTerm or lastLineWasDefinition for blank lines
-        continue;
-      }
-       else {
+      } else {
         lastLineWasTerm = false;
         lastLineWasDefinition = false;
       }
@@ -141,6 +132,9 @@ var DefinitionListPlugin = class extends import_obsidian.Plugin {
     super(...arguments);
     // Post-processor for handling definition lists in reading mode
     this.definitionListPostProcessor = (element) => {
+      const activeView = this.app.workspace.getActiveViewOfType(import_obsidian.MarkdownView);
+      if (!activeView || activeView.getMode() === "source")
+        return;
       function isNotTerm(content) {
         return content.match(/^#+\s/) !== null || // Heading
         content.match(/^\s*(-|\d+\.)\s/) !== null || // List item
@@ -153,6 +147,7 @@ var DefinitionListPlugin = class extends import_obsidian.Plugin {
         content.startsWith("$$") || // Math block
         content.startsWith("^");
       }
+      console.log("Post processor running");
       const paragraphs = element.querySelectorAll("p");
       paragraphs.forEach((paragraph) => {
         const lines = paragraph.innerHTML.split("<br>");
@@ -189,9 +184,6 @@ var DefinitionListPlugin = class extends import_obsidian.Plugin {
               invalidateCurrentPair = false;
             }
           } else if (isNextLineDefinition && !isNotTerm(line) && !invalidateCurrentPair) {
-            if (currentTerm) {
-              newContent.push(currentTerm + "<br>");
-            }
             currentTerm = line;
             dl = null;
           } else {
@@ -216,6 +208,7 @@ var DefinitionListPlugin = class extends import_obsidian.Plugin {
     };
   }
   async onload() {
+    console.log("Definition List Plugin loaded");
     this.registerMarkdownPostProcessor(this.definitionListPostProcessor);
     this.registerEditorExtension(definitionListPlugin);
   }

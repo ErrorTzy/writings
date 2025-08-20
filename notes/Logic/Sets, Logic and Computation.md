@@ -7,7 +7,7 @@
 
 : If A and B are sets, then $A = B$ iff every element of A is also an element of B, and vice versa.
 
-**Definition 1.5 (Subset)**
+Definition 1.5 (Subset)
 
 ~ If $\forall x(x \in A \rightarrow x \in B)$ , then we say that A is a subset of B, and write $A \subseteq B$. 
 ~ If A is not a subset of B we write $A \not\subseteq B$. 
@@ -275,6 +275,7 @@ Then R is the graph of the function $f:A \rightarrow B$ defined by $f(x)=y$ iff 
 
 **Definition 3.14** Let $f: A \rightarrow B$ be a function with $C \subseteq A$.
 - The restriction of $f$ to $C$ is the function $f \upharpoonright_{C}: C \rightarrow B$ is defined by $(f \upharpoonright_{C})(x) = f(x)$ for all $x \in C$. In other words,  $f \upharpoonright_{C}=\{\langle x,y \rangle \in R_{f}: x \in C\}$
+
 - The application of $f$ to $C$ is $f[c] = \{f(x):x \in C\}$. We also call this the *image* of C under f
 
 ### Inverse of Functions

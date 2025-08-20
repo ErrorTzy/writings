@@ -1,6 +1,6 @@
-loop hole in my paper: I only proved that, not all proper name belief can sustain rational agency. As long as there are more fine-grained account of proper names, then we can still say that we sometimes proper names could sustain rational agency.
+Loophole in my paper: I only proved that, not all proper name belief can sustain rational agency. As long as there are more fine-grained account of proper names, then we can still say that we sometimes proper names could sustain rational agency.
 
-What does it mean to say that none of these direction is “intrinsic to” or “built into” space, or that none of them is “distinguished”? 
+What does it mean to say that none of this direction is “intrinsic to” or “built into” space, or that none of them is “distinguished”? 
 
 And there are many functions from points to real numbers with the right formal features to count as “distance functions”—infinitely many of them, in fact. Many of these, intuitively, do not correspond to the “intrinsic” distance facts. For instance, suppose $d$ is the function that assigns the “real” or “correct” or “built-in” distances between any pair of points. Where $f$ is any one-to-one function from the set of points onto itself, we can define another function $d'$ from d as follows: $d'(x, y) = d(f (x), f (y))$ 
 
@@ -9,11 +9,19 @@ This function will have the same formal features as $d$ does, so that it counts 
 Notes:
 
 1. The pressure posed by QV: there are multiple possible conceptual scheme that are equally true. The question is to find out the most privileged one.
-2. The standard diagnose of fictional names is that, when we are telling a story and say "There is a person Pegasus", we are merely pretending that Pegasus refers. By doing so, we are saying something true "by the way we talk", or to say, we are saying something true by the rules of the current language game. Therefore, it opens up the possibility that, we can correctly speak a language without adopting the ontology of this language. (For example, we can speak a proposition that quantify over Pegasus, but do not adopt that there is really Pegasus.) This is a nice and powerful tool. For example we can deflate abstract objects by saying that they are fictions. But once the gate is open, there is a risk of catastrophe. Why don't we say, everything is true by the way we talk, and we can have no ontological commitment at all? Why not say, everything is fictional and "according to the story"? For example, we may say, according to the story told by my visual experience, there is a person called Smith standing in front of me. And by linguistic rules (e.g. if you see a Smith-shaped visual image, then you can say there is Smith), you are saying something true. But this does not give you any further reason to believe "Smith is REALLY out there". In other words, it seems that, according to the use theory, truth is cheap and we can say anything without ontological commitment, and we can take anything "exist" as a fiction or according to the story. But this is surely insane, wild and crazy. We definitely want to draw the line and say Pegasus is fictional but Smith who is standing in front of me is not. Then what draw this line of fiction and non-fiction? Or in another way of saying, is there any rational way to draw this line?
-3. A weird feature of QV: you cannot really admit there are creatures who think in alternative langauage. You must say they are people who are really thinking in your language, but talks in a weird way.
+2. The standard diagnose of fictional names is that, when we are telling a story and say "There is a person Pegasus", we are merely pretending that Pegasus refers. By doing so, we are saying something true "by the way we talk", or to say, we are saying something true by the rules of the current language game. Therefore, it opens up the possibility that, we can correctly speak a language without adopting the ontology of this language. (For example, we can speak a proposition that quantify over Pegasus, but do not adopt that there is really Pegasus.) This is a nice and powerful tool. For example, we can deflate abstract objects by saying that they are fictions. But once the gate is open, there is a risk of catastrophe. Why don't we say, everything is true by the way we talk, and we can have no ontological commitment at all? Why not say, everything is fictional and "according to the story"? For example, we may say, according to the story told by my visual experience, there is a person called Smith standing in front of me. And by linguistic rules (e.g. if you see a Smith-shaped visual image, then you can say there is Smith), you are saying something true. But this does not give you any further reason to believe "Smith is REALLY out there". In other words, it seems that, according to the use theory, truth is cheap, and we can say anything without ontological commitment, and we can take anything "exist" as a fiction or according to the story. But this is surely insane, wild and crazy. We definitely want to draw the line and say Pegasus is fictional but Smith who is standing in front of me is not. Then what draw this line of fiction and non-fiction? Or in another way of saying, is there any rational way to draw this line?
+3. A weird feature of QV: you cannot really admit there are creatures who think in alternative language. You must say they are people who are really thinking in your language, but talks in a weird way.
 4. Mentioned in "# [Why the exclusion problem seems intractable and how, just maybe, to tract it](https://philpapers.org/go.pl?id=BENWTE&proxyId=&u=https%3A%2F%2Fdx.doi.org%2F10.1111%2F1468-0068.00447)": different causal pathway as different senses of causation.
-5. I deny probabilistic causation because it is correlation on the statsical level, like "smoking causes cancer".
+5. I deny probabilistic causation because it is correlation on the statistical level, like "smoking causes cancer".
 
+```
+First Term
+: First definition.
 
+Second Term
+~ Second definition
+~ Alternate second definition with _italics_ and [a link](https://example.com).
 
-
+Third Term, with _Italics_ and ==Highlighting==
+  : Third definition, indented
+```

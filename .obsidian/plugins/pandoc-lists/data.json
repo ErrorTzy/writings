@@ -1,3 +1,4 @@
 {
-  "strictPandocMode": true
+  "strictPandocMode": true,
+  "autoRenumberLists": true
 }

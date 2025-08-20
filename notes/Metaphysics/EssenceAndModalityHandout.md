@@ -46,7 +46,7 @@ For example, the sentence "Aristotle could have been a pig". You need to find po
 3. Make sense of the talk of essence
 4. definition of *concepts*, which is needed for ontological dependence and substance (understood maybe in bundle theory)
 
-> Remark on the difference between grounding and essence: essence is the relationship between an entity and some properties. grounding is the relationship between facts. Of course it is a problem whether the fact that "P is essential to x" grounds the fact that "x is P".
+> Remark on the difference between grounding and essence: essence is the relationship between an entity and some properties. Grounding is the relationship between facts. Of course, it is a problem whether the fact that "P is essential to x" grounds the fact that "x is P".
 
 **The history of essence**
 
@@ -66,7 +66,7 @@ Three ways to formulate essence
 > A remark on modal logic: 
 >
 > What is the difference between the categorical account and the conditional account? How can "Socrates is a member of the singleton Socrates" be true in a world where Socrates does not exist?
-> This is explained by the special structure of the domain in modal logic. Constants in a sentence refer to objects in a super-domain which includes all possible objects. But a quantifier can quantify over a sub-domain where contains all the objects in a world w. This prevent us from saying Hesperus necessarily exist because it is not the case that Hesperus exists in all possible worlds, given that "exists" can only quantify over the objects in a world, not in all possible worlds. But this allow us to say that Hesperus is Phosphorus because they refer to the same thing in the super-domain.
+> This is explained by the special structure of the domain in modal logic. Constants in a sentence refer to objects in a super-domain which includes all possible objects. But a quantifier can quantify over a sub-domain where contains all the objects in a world w. This prevents us from saying Hesperus necessarily exist because it is not the case that Hesperus exists in all possible worlds, given that "exists" can only quantify over the objects in a world, not in all possible worlds. But this allows us to say that Hesperus is Phosphorus because they refer to the same thing in the super-domain.
 > It will lead to the consequence that, if being human is essential to Socrates, then by the categorical account, "Socrates is member of the singleton Socrates" must be true even in a world where Socrates does not exist. The conditional account invokes the notion of weak necessity. By invoking such concept, we are only saying Socrates only needs to be a member of the singleton Socrates where Socrates exist. Weak necessity is useful if we want to say some contingent object has some existence entailing properties. For example, if we think the essence of Socrates is being a human, and something being a human entails that something exist, then according to the categorical account of essence, Socrates is a human is true in all possible worlds, which entails that Socrates exists in all possible worlds. But we have assumed that Socrates is a contingent being. Therefore, the categorical account of essence must be false if it is possible for a contingent being to have existence entailing essence.
 
 If $x=x$ is existence entailing, then it collapses to (2); If $x=x$ is not existence entailing, it seems it does not restrict the quantifier over world in any way. Therefore it collapses to (1)
@@ -103,14 +103,14 @@ Essence(x,P) is the truth maker of $\square Px$. If $P$ is a one-place predicate
 
 **Problem**: which meaning determines the analyticity may be relative to concept scheme.
 
-**Fine**: He disagree but he think it's hard to deny
+**Fine**: He disagrees, but he thinks it's hard to deny
 
 **Why analyticity fails to define meaning?** Analyticity does not distinguish the source. We cannot say an analytic statement is true in virtue of meaning. People can agree on the analyticity of a proposition while disagree with why it is analytic.
 
 > Why do I need to distinguish the source of analyticity anyway? Can't I just say this is stipulated to be true, like a rule in chess? "There is a queen" is true because it is a rule, bot because of the meaning of queen or chess.
-> Kit Fine might respond that, I have to take all analytic truth to be primitive. But surely we want to say some analytic truth has explanation and is not primitive. Therefore we need a finer-grained concept of meaning.
+> Kit Fine might respond that, I have to take all analytic truth to be primitive. But surely we want to say some analytic truth has explanation and is not primitive. Therefore, we need a finer-grained concept of meaning.
 > Also, I can say there is a set of primitive vocabulary. Any non-primitive vocabulary must be defined in terms of primitive vocabulary. Then an analytic sentence is true in virtue of all the non-primitive vocabulary in a sentence. This solution may cause the problem that $P=P$ is analytic in virtue of the meaning of P, though. But I believe there are some complicated technical move that may avoid this.
 
 ### Conceptual Analysis
 
-The relation between definendum and definiens cannot be captured by synonyms. Giveing an artificial definition is pesudo-analysis.
+The relation between definiendum and definiens cannot be captured by synonyms. Giving an artificial definition is pseudo-analysis.

@@ -1,0 +1,25 @@
+{
+  "serverUrl": "http://localhost:8081",
+  "autoCheckDelay": 3000,
+  "shouldAutoCheck": true,
+  "languageVariety": {
+    "en": "en-US",
+    "de": "de-DE",
+    "pt": "pt-PT",
+    "ca": "ca-ES"
+  },
+  "dictionary": [
+    "aboutness",
+    "de dico",
+    "de re",
+    "intrinsicness",
+    "Metametaphysics",
+    "Neo-Carnapian",
+    "QV",
+    "supervenience",
+    "transworld"
+  ],
+  "syncDictionary": false,
+  "remoteDictionary": [],
+  "pickyMode": false
+}

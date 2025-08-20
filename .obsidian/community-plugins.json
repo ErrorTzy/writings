@@ -13,9 +13,9 @@
   "obsidian-tidy-footnotes",
   "typing-transformer-obsidian",
   "various-complements",
-  "obsidian-graphviz",
   "obsidian-citation-plugin",
   "obsidian-zotero-desktop-connector",
   "obsidian-pandoc-reference-list",
-  "pandoc-lists"
+  "pandoc-lists",
+  "languagetool"
 ]
