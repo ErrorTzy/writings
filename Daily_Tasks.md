@@ -14,7 +14,7 @@ Notes:
 4. Mentioned in "# [Why the exclusion problem seems intractable and how, just maybe, to tract it](https://philpapers.org/go.pl?id=BENWTE&proxyId=&u=https%3A%2F%2Fdx.doi.org%2F10.1111%2F1468-0068.00447)": different causal pathway as different senses of causation.
 5. I deny probabilistic causation because it is correlation on the statistical level, like "smoking causes cancer".
 
-```
+
 First Term
 : First definition.
 
@@ -24,4 +24,3 @@ Second Term
 
 Third Term, with _Italics_ and ==Highlighting==
   : Third definition, indented
-```
