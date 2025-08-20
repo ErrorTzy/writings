@@ -16,6 +16,7 @@
   "obsidian-citation-plugin",
   "obsidian-zotero-desktop-connector",
   "obsidian-pandoc-reference-list",
+  "languagetool",
   "pandoc-lists",
-  "languagetool"
+  "pandoc-extended-markdown"
 ]

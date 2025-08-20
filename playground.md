@@ -16,9 +16,6 @@ A.  中文
 B.  ==Second item==
 C.  Third item
 
-
-
-
 ### Lowercase Letters with Parentheses
 
 a) First item
@@ -71,6 +68,7 @@ Later we might refer back to (@another).
 ## Definition Lists
 
 Term 1
+
 :   Definition 1 - This is the first definition
 
 Term 2 with *inline markup*
@@ -90,6 +88,7 @@ Term 1
 ### Compact Definition List
 
 Term 1
+
   ~ Definition 1a - First variant
   ~ Definition 1b - Second variant
   ~ Definition 1c - Third variant
