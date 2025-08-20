@@ -12,9 +12,12 @@ mathfont: XITS Math
 
 ### Uppercase Letters
 
-A.  First item
-B.  Second item
+A.  中文
+B.  ==Second item==
 C.  Third item
+
+
+
 
 ### Lowercase Letters with Parentheses
 
