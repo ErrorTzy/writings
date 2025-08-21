@@ -138,3 +138,38 @@ Remember example (@example1) when implementing these concepts.
 - Bullet list
 - Another bullet
 - Third bullet
+
+
+## Testing Example Lists Bug Fix
+
+### Test Case 1: Mixed labeled and unlabeled examples
+
+(@) My first example will be numbered one.
+(@good) This is a good example.
+(@) My second example will be numbered two.
+
+As we can see in example (@good), this demonstrates the concept well.
+
+### Test Case 2: Multiple labeled references
+
+(@first) First labeled example
+(@) Unlabeled example 
+(@second) Second labeled example
+(@) Another unlabeled
+
+References: (@first) and (@second)
+
+### Test Case 3: All unlabeled
+
+(@) Example one
+(@) Example two  
+(@) Example three
+
+### Test Case 4: All labeled
+
+(@alpha) Alpha example
+(@beta) Beta example
+(@gamma) Gamma example
+
+See (@alpha), (@beta), and (@gamma)
+
