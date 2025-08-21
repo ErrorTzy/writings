@@ -88,6 +88,11 @@
     text-decoration: underline;
 }
 
+/* CodeMirror-specific definition term styling */
+.cm-pandoc-definition-term {
+    text-decoration: underline;
+}
+
 .cm-line .pandoc-definition-marker {
     display: none;
 }
@@ -97,12 +102,12 @@
     counter-reset: none;
 }
 
-.pandoc-example-item {
+li.pandoc-example-item {
     list-style: none;
     position: relative;
 }
 
-.pandoc-example-item::before {
+li.pandoc-example-item::before {
     content: "(" attr(data-example-number) ") ";
     position: absolute;
     left: -3em;
@@ -115,6 +120,13 @@
 
 .pandoc-example-reference:hover {
     text-decoration: underline;
+}
+
+/* Duplicate example list labels */
+.pandoc-example-duplicate {
+    color: var(--text-error);
+    text-decoration: underline;
+    cursor: help;
 }
 
 /* Live Preview Mode Specific */
