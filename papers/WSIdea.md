@@ -41,7 +41,6 @@ Let me try to answer this quesion. In the case of "pain", the reference fixing p
 
 (I believe this is plausible. But this has a sweeping consequence: it turns out that natural kinds are actually interest relative, and are actually functional kinds in disguise. Only if we treat "scientific function" as natural can we really say something is a natural kind.)
 
-
 Upshot 2: we can create objects with essential properties, by stipulation. I say Aristotle is necessarily born from his parents, but he may not be human (Aristotle who mutated to a gorilla, say); While someone else says Aristotle is necessarily a human, but he may be born from some else (For example, his parents mutated to a gorilla, and then Aristotle mutates back to human). Then we refer to different objects by the name Aristotle.
 
 ## On motivation
@@ -53,8 +52,6 @@ But in fact this question is not totally accurate. It's better to ask, How much 
 Technically speaking, the interpretation of a language is a model. But as long as we are talking about the interpretation of natural language, the model-theoretic talk is best understood as either a reconstruction or a representation of our interpretation. I take it to be obvious that no one really think in terms of domains, predicate interpretations and variant assignments when we speak.
 
 Intended conclusion: our interpretation is our disposition.
-
-
 
 What I mean by metaphysical deflationism (I will simply use the term "deflationism" for the rest of the paper for a shorthand for metaphysical deflationism) : ==all metaphysical problems are merely a matter of what we mean when we use our language.== Doing metaphysics is nothing more than conceptual (reverse) engineering ==Thomasson Rethinking Metaphysics==. It is usually related to a bunch of notorious positions, like anti-realism, relativism or maybe even idealism. Indeed, the consequence of a thorough deflationism is utterly insane: Eventually we can't say how the world REALLY is. All we can say is something true relative to a conceptual scheme. 
 
@@ -85,7 +82,6 @@ In other words, $\{\uparrow\}, \{\downarrow\}, \{\neg,\land\},\{\neg,\lor\},\{\n
 
 Should we then any one of them is somehow privileged? And parsimony couldn't help pick out the "one true logic" here, because $\uparrow$ and $\downarrow$ are both complete. It's also hard to see if any of them is somehow more natural. Is material implication more natural than disjunction, or disjunction is more natural than material implication? It seems there is no way out for this. If we accept there's no privileged "absolutely most fundamental" set of connectives, then for any formal system that is stronger than propositional logic, there are some cases of fundamentality being a relative matter.
 
-
 ## On Grounding
 
 The standard explanation of grounding is talking about "in virtue of", and "because". But as ==xxx== points out, it cannot just be the explanatory relation, for explanatory relation is context relative and subjective. But "grounding" are intended to be worldly. If we are to understand it as some sort of "objective explanation", then it would be very strange. It's like talking about an omelette and intend it to be egg-free. (Unionists) We must be separatists. But if explanatory relation is separate from grounding relation, then we shouldn't start our examples, intuition and formalization from the talk of "in virtue of". For example, a red apple backs the experience of a red apple. But we shouldn't try to formalize the pure logic of red apples from the experience of apples. There's no guarantee that we can find the right kind of worldly feature in these instances. ==say more about this==
@@ -100,7 +96,6 @@ Quine's view: to find out what there is
 Lewis' extension: Modal operator is just disguised quantifier over worlds, and existence of possible worlds determine the truth of de dicto modality. And de re modality is determined by counterparts, which in turn is determined by similarity.
 Hirsch's thesis: 
 
-
 ## On Modal Logic
 
 According to two dimensional semantics, some sentence could be a priori contingent. A sentence is a priori when it is 2D-valid, i.e. no matter which world the speaker of the utterance is in, the utterance is guaranteed to be true in that world. A sentence is (superficially) contingent if no matter which world the speaker is in, the utterance is possible to be evaluated as false, and possible to be evaluated as true by people in other worlds. For example, the sentence "The length of the standard meter bar is the actual length of standard meter bar" is a priori because no matter which world this sentence is uttered, this sentence is true in that world. But if we evaluate this sentence in worlds other than the speaker's world, then it is possible to be false because "the actual length of standard meter bar" refers to 1-m-length in the speaker's world, while "the length of the standard meter bar" refers to 1-m-length in the evaluation world.
@@ -110,7 +105,6 @@ A posteriori necessity is stranger. A sentence is a posteriori when it is not 2D
 Quantifier Variance: the uttered sentence and the interpretation of a sentence. From one 
 
 ## On Sanity
-
 
 rationality: practical rationality and epistemic rationality
 
@@ -122,9 +116,7 @@ Epistemic norm:
 
 Are beliefs truth-tracking? But if there's any epistemic norm, then belief beyond doubt
 
-
 Pragmatic virtue: to choose a theory presupposes rational agency
-
 
 ## On Charity
 
