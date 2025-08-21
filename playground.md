@@ -17,7 +17,7 @@ mathfont: XITS Math
 ## Mixed labeled and unlabeled
 
 (@alpha) Example one
-(@) Unlabeled example
+(@) Unlabeled example^[aaaaaa]
 (@beta) Example three
 (@) Another unlabeled 
 (@gamma) Example five
@@ -28,31 +28,3 @@ mathfont: XITS Math
 
 See examples (@first), (@second), and (@third)
 Also see (@alpha), (@beta), and (@gamma)
-
-
-```mermaid
-flowchart TB
-    Start[Text: "@good) Example"]
-    Scan[Scan Document]
-    Parse[Parse Example]
-    State[Update State]
-    Render[Render]
-    End[Display: "1) Example"]
-    
-    Start --> Scan
-    Scan --> |"Map: good -> 1"| Parse
-    Parse --> |"Type: example<br/>Label: good"| State
-    State --> |"Counter: 1<br/>Content: Example"| Render
-    Render --> End
-    
-    Ref["Text: See (@good)"]
-    RefParse[Parse Reference]
-    RefLookup[Lookup Label]
-    RefRender[Render Reference]
-    RefEnd["Display: See (1)"]
-    
-    Ref --> RefParse
-    RefParse --> |"Label: good"| RefLookup
-    RefLookup --> |"Number: 1"| RefRender
-    RefRender --> RefEnd
-```
