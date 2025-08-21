@@ -1,4 +1,3 @@
-
 # Sets, Relations, Functions
 
 ## Ch.1 Sets
@@ -35,57 +34,70 @@ Definition 1.5 (Subset)
 **Definition 1.17 (Intersection)**
 
 ~ The intersection of two sets A and B, written $A \cap B$, is the set of all things which are elements
+
 of both A and B.
+
 ~ $A \cup B = \{x:x \in A \land x \in B\}$
 ~ Two sets are called *disjoint* if their intersection is empty
 
 **Definition 1.19 (big cup)**
+
 - If A is a set of sets, then $\bigcup A$ is the set of elements of elements of A:
 - $\bigcup A$ = {x : x belongs to an element of A}, i.e., = {x : there is a $B \in A$ so that $x \in B$ }
 
 **Definition 1.20 (big cap)**
+
 - If A is a set of sets, then $\bigcap A$ is the set of objects which all elements of A have in common:
 - $\bigcap A$ = {x : x belongs to every element of A}, i.e. = {x : for all $B \in A, x \in B$ }
 
 **Definition 1.22 (Difference)**. 
+
 - The set difference $A \setminus B$ is the set of all elements of A which are not also elements of B, i.e., $$A \setminus B = \{x:x \in A \land x \notin B\}$$
 
 **Definition 1.23 (Ordered pair)**
 $\langle a,b \rangle = \{\{a\}, \{a,b\}\}$
 
 **Definition 1.24 (Cartesian product)**
+
 - Given sets A and B, their Cartesian product $A \times B$ is defined by $$A \times B = \{\langle x,y\rangle: x \in A \land y \in B\}$$
 
 **Example**: $\{0, 1, 2\} \times \{a, b\} = \{\langle 0,a \rangle, \langle 0,b\rangle, \langle 1,a \rangle, \langle 1,b \rangle, \langle 2,a \rangle, \langle 2,b \rangle \}$
 
-
 **Proposition 1.27**
+
  - If A has n elements and B has m elements, then $A \times B$  has $n \cdot m$ elements.
 
 **Theorem 1.29 (Russell’s Paradox)** 
+
 - There is no set $R = \{x:x \notin x\}$
 
 ## Ch.2 Relations
 
 **Definition 2.1 (Binary Relation)**
+
 - A *binary relation on a set A* is a subset of $A^2$. 
 - If $R \subseteq A^2$ is a binary relation on A and $x,y \in A$, we sometimes write $Rxy$ or $xRy$ for $\langle x,y \rangle \in R$
 
 ### Properties of relations: SCRT
 
 **Definition 2.3 (Reflexivity)**
+
 - A relation $R \subseteq A^2$ is *reflexive* iff, $\forall x \in A(Rxx)$
 
 **Definition 2.8 (Irreflexivity)**
+
 - A relation $R \subseteq A^2$ is *irreflexive* iff, $\forall x \in A(\neg Rxx)$
 
 **Definition 2.5 (Symmetry)**
+
 - A relation $R \subseteq A^2$ is *symmetric* iff, whenever $Rxy$, then also $Ryx$
 
 **Definition 2.6 (Anti-symmetry: Asymmetry except identity)**
+
 - A relation $R \subseteq A^2$ is *anti-symmetry* iff, whenever both $Rxy$ and $Ryx$, then $x=y$
 
 **Definition 2.9 (Asymmetry)**
+
 - A relation $R \subseteq A^2$ is *asymmetry* iff, there is no $\langle x,y \rangle (x,y \in A)$ such that $Rxy \land Ryx$
 
 > Notice that, a relation can be 
@@ -93,21 +105,23 @@ $\langle a,b \rangle = \{\{a\}, \{a,b\}\}$
 > - both asymmetry and anti-symmetry when for all pairs <x,y>, x $\neq$ y
 > - Asymmetry entails anti-symmetry
 
-
 **Definition 2.7 (Connectivity)**
+
 - A relation $R \subseteq A^2$ is *connected* if for all $x,y \in A$, if $x \neq y$, then either $Rxy$ or $Ryx$
 
 **Definition 2.4 (Transitivity)**
-- A relation $R \subseteq A^2$ is *transitive* iff, whenever $Rxy$ and $Ryz$, then also $Rxz$
 
+- A relation $R \subseteq A^2$ is *transitive* iff, whenever $Rxy$ and $Ryz$, then also $Rxz$
 
 ### Equivalence Relations
 
 **Definition 2.10 (Equivalence relation)**
+
 - A relation $R \subseteq A^2$ that is *reflexive, symmetric and transitive* is called an equivalence relation.
 - Elements x and y are said to be R-equivalent if $Rxy$
 
 **Definition 2.11 (Partition)**
+
 - Let $R \subseteq A^2$ be an equivalence relation. For each $x \in A$, the equivalence class of x in A is the set $[x]_{R}= \{y \in A : Rxy\}$
 - The quotient of A under R is $\frac{A}{R}= \{[x]_{R}:x \in A\}$ 
 
@@ -116,6 +130,7 @@ $\langle a,b \rangle = \{\{a\}, \{a,b\}\}$
 > This is intended to define the "partition" of a set. Within each partition, all elements have R-equivalence. And no element outside the partition has R-equivalence with any element inside partition
 
 **Proposition 2.12 (Equivalence means same partition)**
+
 - If $R \subseteq A^2$ is an equivalence relation, then $\forall x, y \in A, Rxy$ iff $[x]_{R}=[y]_{R}$
 
 > 
@@ -126,7 +141,6 @@ $\langle a,b \rangle = \{\{a\}, \{a,b\}\}$
 > If $z \in [x]_{R}$ then we have $Rxz$. Since we have $Ryx$ we have $Ryz$. Therefore, $z \in [y]_{R}$.
 > Similarly, we have $[y]_{R} \subseteq [x]_{R}$. Therefore, $[x]_{R}=[y]_{R}$
 > 
-
 
 > ==Remark of Proof==
 > 
@@ -140,18 +154,23 @@ $\langle a,b \rangle = \{\{a\}, \{a,b\}\}$
 ### Orders
 
 **Definition 2.14 (Preorder)**
+
 - A relation which is both *reflexive* and *transitive* is called a *preorder*.
 
 **Definition 2.15 (Partial order)**
+
 - A preorder which is also *anti-symmetric* is called a *partial order*.
 
 **Definition 2.16 (Linear order)**
+
 - A partial order which is also connected is called a *total order* or *linear order*
 
 **Definition 2.21 (Strict order)**
+
 - A *strict order* is a relation which is irreflexive, asymmetric and transitive
 
 **Definition 2.22 (Strict linear order)**
+
 - A strict order that is also connected is called a *strict total/linear order*.
 
 |                     | Reflexive | Transitive | Anti-symmetric        | Symmetric | Connected |
@@ -162,8 +181,8 @@ $\langle a,b \rangle = \{\{a\}, \{a,b\}\}$
 | Strict order        | A         | T          | entailed by Asymmetry | A         | /         |
 | Strict Linear order | A         | T          | entailed by Asymmetry | A         | T         |
 
-
 **Definition 2.24**
+
 - If R is a strict order on A, then $R^{+}= R \cup Id_{A}$ is a partial order. Moreover, if R is a strict linear order, then $R^{+}$ is a linear order ($Id_{A}$ is the relation that defined the identity on A)
 
 > **Proof**
@@ -181,7 +200,6 @@ $\langle a,b \rangle = \{\{a\}, \{a,b\}\}$
 > 
 > Moreover clause: connectedness
 > Since R is connected, then $\langle x,y \rangle \in R \lor \langle y,x \rangle \in R$. Obviously, this would also hold true for $R^{+}$.
-
 
 **Proposition 2.25** If $R$ is a partial order on $A$, then $R- = R \setminus Id_{A}$ is a strict order. Moreover, if $R$ is a linear order, then $R−$ is a strict linear order.
 
@@ -224,18 +242,21 @@ $\langle a,b \rangle = \{\{a\}, \{a,b\}\}$
 ### Operations on Relations
 
 **Definition 2.29.** Let R, S be relations, and A be any set.
+
 - The *inverse* of R is $R^{-1} = \{\langle y,x \rangle : \langle x, y \rangle \in R\}$. `swapping x and y`
 - The *relative product* of R and S is $(R | S) = \{\langle x, z \rangle : \exists y (Rxy \land S yz)\}$.
 - The *restriction* of R to A is $R\upharpoonright_{A} = R \cap A^2$
 - The *application* of R to A is $R[A] = \{y : (\exists x \in A)Rxy \}$
 
 **Definition 2.31 (Transitive closure)**. Let $R \subseteq A^2$ be a binary relation.
+
 - The transitive closure of $R$ is $R^+ = \bigcup_{0 < n \in \mathbb{N}} R^n$, where we recursively define $R^1 = R$ and $R^{n+1} = R^{n}| R$. `connecting heads and tails, operate it n times`
 - The reflexive transitive closure of $R$ is $R^* = R^+ \cup \mathrm{Id}_A$.
 
 ## Ch. 3 Functions
 
 **Definition 3.1 (Function)** A function $f:A \rightarrow B$ is a mapping of each element of A to an element of B.
+
 - We call A the domain of f and B the codomain of f . The elements of A are called inputs or *arguments of f* , and the element of B that is paired with an argument x by f is called the *value of f* for argument x, written f(x).
 - The range ran(f) of f is the subset of the codomain consisting of the values of f for some argument; ran(f) = {f(x) : x ∈ A}.
 
@@ -265,8 +286,10 @@ if $f (x) = f (y)$, then $x = y$.
 **Implicit (extensionality of function)**. if ∀x f (x) = g (x), then f = g
 
 **Proposition 3.13**. Let $R \subseteq A \times B$ be such that:
+
 1. If $R_{xy}$ and $R_{xz}$ then $y=z$; and
 2. for every $x \in A$ there is some $y \in B$ such that $\langle x,y \rangle \in R$
+
 Then R is the graph of the function $f:A \rightarrow B$ defined by $f(x)=y$ iff $Rxy$
 
 > **Proof**
@@ -274,6 +297,7 @@ Then R is the graph of the function $f:A \rightarrow B$ defined by $f(x)=y$ iff 
 > ? I don't think the textbook provided any rigorous proof
 
 **Definition 3.14** Let $f: A \rightarrow B$ be a function with $C \subseteq A$.
+
 - The restriction of $f$ to $C$ is the function $f \upharpoonright_{C}: C \rightarrow B$ is defined by $(f \upharpoonright_{C})(x) = f(x)$ for all $x \in C$. In other words,  $f \upharpoonright_{C}=\{\langle x,y \rangle \in R_{f}: x \in C\}$
 
 - The application of $f$ to $C$ is $f[c] = \{f(x):x \in C\}$. We also call this the *image* of C under f
@@ -403,7 +427,6 @@ Remark: the important info here is "there is such left inverse and right inverse
 
 Mapping Cantor’s zig-zag array:
 
-
 |     | 0   | 1   | 2   | ... |
 | --- | --- | --- | --- | --- |
 | 0   | 0   | 1   | 3   | ... |
@@ -450,7 +473,6 @@ $B^{\omega}$ represents the set of all possible infinite strings (or sequences) 
 > 
 > We prove this by reductio. Assume there is list $s_1,s_2,...$ of all elements in $B^\omega$. We can define $s_{i}(j)$ as the $j^{th}$  digit of $s_{i}$. Then we may list elements in $B^\omega$ in the following way:
 
-
 |       | 1              | 2              | 3              | 4              | ...     |
 | ----- | -------------- | -------------- | -------------- | -------------- | ------- |
 | $s_1$ | **$s_{1}(1)$** | $s_{1}(2)$     | $s_{1}(3)$     | $s_{1}(4)$     | ...     |
@@ -458,7 +480,6 @@ $B^{\omega}$ represents the set of all possible infinite strings (or sequences) 
 | $s_3$ | $s_{3}(1)$     | $s_{3}(2)$     | **$s_{3}(3)$** | $s_{3}(4)$     | ...     |
 | $s_4$ | $s_{4}(1)$     | $s_{4}(2)$     | $s_{4}(3)$     | **$s_{4}(4)$** | ...     |
 | ...   | ...            | ...            | ...            | ...            | **...** |
-
 
 > Now we construct a sequence of $s' \in A$ but not in our diagram. We can specify $s'(n)$ for all $n \in \mathbb{Z^{+}}$: 
  $$
@@ -475,7 +496,6 @@ $B^{\omega}$ represents the set of all possible infinite strings (or sequences) 
 > **Proof**
 > 
 > Suppose there is a list of subsets $\mathbb{Z^+}$. We can always define a $Z'=\{n \in \mathbb{Z^{+}}: n \notin Z_{n}\}$.
-
 
 ### Reduction
 
@@ -554,8 +574,6 @@ Definition (Terms)
 
 There could be other ways. This is just an example.
 
-
-
 ### Satisfaction
 
 **Definition (structure)**
@@ -587,11 +605,13 @@ Definition (derivation, syntactic)
 1. $P (a)$ is satisfied in $M$ iff $a^M \in  P^M$ .
 2. $\neg A$ is satisfied in $M$ iff $A$ is not satisfied in $M$.
 3. $(A \land B)$ is satisfied in $M$ iff $A$ is satisfied in $M$, and $B$ is
+
 satisfied in $M$ as well.
 
 Satisfaction with quantifiers:  we introduce **variable assignments**. 
 
 Definition (quantified formula satisfies a structure)
+
 : “A is satisfied in M, s” (in symbols: $M,s \vDash A$) for sentences $A$, structures $M$ and function $s:\{x:x=v_{i}\} \rightarrow |M|$ 
 
 Definition (specify assignment)
@@ -599,6 +619,7 @@ Definition (specify assignment)
 : If $s(v_{i})=m$, then we we write $s$ as $s[m/v_i]$
 
 **Definition (Satisfaction with quantifiers)**
+
 : A variable assignment is simply a function $s$ that maps variables to elements of $|M|$
 
 1. $M,s \vDash P (a)$ iff $a^{M}\in P^{M}$
@@ -643,7 +664,6 @@ The limit of first-order languages are consequences of the compactness and Lowen
 - If $\Gamma \vdash A$ but not $\Gamma \vDash A$, the deductive system is *too strong*
 - If $\Gamma \vDash A$ but not $\Gamma \vdash A$, the deductive system is *too weak*
 
-
 ## Ch.6 Syntax of First-order Logic
 
 ### 6.2 First-order Languages
@@ -668,7 +688,6 @@ Expressions of first-order logic are built up from:
 > Non-logical symbols depend on the particular structure; Logical symbols are fixed by first-order logic. Therefore, variables are logical symbols.
 >
 > Things like variables are infinite because some proofs needs there always be fresh symbols. It is countable because being countable is enough.
-
 
 ### 6.3 Terms and Formulas
 
@@ -757,9 +776,9 @@ The way we defined formulas guarantees that every formula has a unique reading
 >
 > Now we have shown the base cases. Next, we assume that the formulas used has $l(A)=r(B)$ and see if this still holds for the new formula generated:
 >
-> 1. $A \equiv \neg B$ and assume $l(B)=r(B)$: We have $l(A)=l(B)$ and $r(A)=r(B)$. Therefore $l(A)=r(A)$
-> 2. $A \equiv (B*C)$ where $*=\land, \lor, \rightarrow$, and assumption $l(B)=r(B),l(C)=r(C)$: We have $l(A)=l(B)+l(c)+1$ and $r(A)=r(B)+r(c)+1$. Therefore, $l(A)=r(A)$.
-> 3. $A \equiv *xB$ where $*=\exists, \forall$: Similar to 1
+> 4. $A \equiv \neg B$ and assume $l(B)=r(B)$: We have $l(A)=l(B)$ and $r(A)=r(B)$. Therefore $l(A)=r(A)$
+> 5. $A \equiv (B*C)$ where $*=\land, \lor, \rightarrow$, and assumption $l(B)=r(B),l(C)=r(C)$: We have $l(A)=l(B)+l(c)+1$ and $r(A)=r(B)+r(c)+1$. Therefore, $l(A)=r(A)$.
+> 6. $A \equiv *xB$ where $*=\exists, \forall$: Similar to 1
 > 
 > Given this, we have shown that all formula has the property of having the same number of left and right parenthesis
 
@@ -857,6 +876,7 @@ Definition 6.25 (Formation sequences for formulas)
 (ii) for all $i \le n$, either 
 	(a) $A_{i}$ is an atomic formula, or 
 	(b) there exit $j, k<i$ and a variable $x$ such that one of the following holds:
+
 		1. $A_{i} \equiv \neg A_{j}$
 		2. $A_{i} \equiv (A_{j}*A_{k}), *=\land, \lor, \rightarrow$
 		3. $A_{i} \equiv *xA_{j},*=\exists, \forall$
@@ -885,14 +905,18 @@ Definition 6.25 (Formation sequences for formulas)
 > 
 > (1) $A_{k} \equiv A_{k}$, which is obviously true, and
 > (2) for all $i \le k$, either $A_{i}$ is an atomic formula, or there is some $p,q$ such that one of the following holds:
+
 	1. $A_{i} \equiv \neg A_{p}$
 	2. $A_{i} \equiv (A_{p}*A_{q}), *=\land, \lor, \rightarrow$
 	3. $A_{i} \equiv *xA_{p},*=\exists, \forall$
+
 > 
 > We know that $\langle A_{0},\dots ,A_{n} \rangle$ is a formation sequence for $A_{n}$. That is to say, (2) for all $i \le n$, either $A_{i}$ is an atomic formula, or there is some $p,q$ such that one of the following holds:
+
 	4. $A_{i} \equiv \neg A_{p}$
 	5. $A_{i} \equiv (A_{p}*A_{q}), *=\land, \lor, \rightarrow$
 	6. $A_{i} \equiv *xA_{p},*=\exists, \forall$
+
 > 
 > Since $k\le n$, (2) is also true. Therefore (1) and (2) are all true, making $\langle A_{0},\dots ,A_{k} \rangle$ a formation sequence for $A_{k}$.
 
@@ -996,6 +1020,7 @@ Definition 7.4 (Value of closed terms)
 
 1. If $t$ is just the constant symbol $c$, then $Val^{M}(c)=c^{M}$
 2. If $t$ is of the form $f(t_{1},\dots,t_{n})$, then $$ Val^{M}(t)=f^M(Val^{M}(t_{1}),\dots,Val^{M}(t_{n}))$$
+
 Definition 7.5 (Covered Structure)
 
 : A structure is covered if every element of the domain is the value of some closed term.
@@ -1033,12 +1058,12 @@ Definition 7.9 (x-variant)
 Definition 7.10 ($s[m/x]$)
 
 : If $s$ is a variable assignment for a structure $M$ and $m \in |M|$, then the assignment $s[m/x]$ is the variable assignment defined by $$ 
+
 s[m/x](y)=
 \begin{cases}
 m & \text{if } y \equiv x \\
 s(y) & \text{otherwise} \\
 \end{cases}$$
-
 
 **Lemma**: Let $s$ be a variable assignment. $s[m_{1}/x]\dots[m_{i}/x]=s[m_{i}/x]$ for $i \in \mathbb{Z^{+}}$
 
@@ -1085,8 +1110,10 @@ Definition 7.11 (Satisfaction)
 > 6. $A \equiv (A \lor B):$ Again there are two cases. and again the conclusion holds
 > 7. $A \equiv (A \rightarrow B):$ Similarly, this holds
 > 8. $A \equiv \forall x B:$ Suppose either
+
 	- $M, s_{1} \vDash B$ and $M,s_{2} \vDash B$, or
 	- $M, s_{1} \nvDash B$ and $M,s_{2} \nvDash B$
+
 >	Now we need to show first $M, s_{1} \vDash \forall x B \rightarrow M, s_{2} \vDash \forall x B$, and then $M, s_{1} \vDash \forall x B \rightarrow M, s_{2} \vDash \forall x B$.
 >	Given that for all $m \in |M|$, $M, s_{1}[m/x]\forall xB$
 > 9. $A \equiv \exists x B: M,s \vDash A$ iff for at least one element $m \in |M|, M,s[m/x]\vDash B$
@@ -1133,6 +1160,7 @@ Definition 7.11 (Satisfaction)
 **Proposition 7.22**: Let $M$ be a structure, $A$ a formula, $t'$ a term and $s$ a variable assignment. Then $M,s \vDash A[t'/x]$ iff $M,s[Val_{s}^{M}(t')/x]\vDash A$
 
 > **Proof**
+
 ### 7.7 Semantic Notions
 
 Definition 7.23 (Validity)
@@ -1259,7 +1287,6 @@ $$
 
 \UIC{$\neg A$}
 
-
 \AXC{$\Gamma$}
 \UIC{$\vdots \delta_{1}$}
 \UIC{$A$}
@@ -1267,7 +1294,6 @@ $$
 \RightLabel{$\neg$E}
 \singleLine
 \BIC{$\bot$}
-
 
 \end{prooftree}
 
@@ -1369,6 +1395,7 @@ Definition 12.5
 **Lemma 12.8 (Lindenbaum's Lemma)** Every consistent set $\Gamma$ in a language $\mathscr{L}$ can be extended to a complete and consistent set $\Gamma^{*}$
 
 ...(See handout)
+
 ## Chap. 14 Turing Machine
 
 Definition (Turing Machine)
@@ -1425,8 +1452,11 @@ Definition 14.11 (Computation).
 Definition 14.15. 
 
 : A Turing machine M computes the partial
+
 function f : $N^{k} \rightarrow N$ iff,
+
 1. M halts on input I n 1 ⌢ ⊔ ⌢ . . . ⌢ ⊔ ⌢ I nk with output
+
 I m if f (n 1 , . . . ,n k ) = m.
 2.M does not halt at all, or with an output that is not a single
 block of I ’s if f (n 1 , . . . ,n k ) is undefined.
@@ -1439,4 +1469,3 @@ Definition 14.17.
 2. it halts, if it halts at all, while scanning square 1,
 3. it never erases the ⊲ symbol on square 0, and
 4. it never attempts to move left from square 0.
-

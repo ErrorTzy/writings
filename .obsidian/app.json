@@ -28,7 +28,7 @@
     "Thrasymachus",
     "immoralism"
   ],
-  "strictLineBreaks": false,
+  "strictLineBreaks": true,
   "alwaysUpdateLinks": true,
   "vimMode": true,
   "showLineNumber": true,

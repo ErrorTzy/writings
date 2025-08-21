@@ -9,7 +9,6 @@
   "obsidian-git",
   "languagetool",
   "obsidian-latex-suite",
-  "pandoc-extended-markdown",
   "obsidian-zotero-desktop-connector",
   "various-complements",
   "typing-transformer-obsidian",
@@ -18,5 +17,6 @@
   "obsidian-smarter-md-hotkeys",
   "quick-latex",
   "obsidian-pandoc-reference-list",
-  "obsidian-minimal-settings"
+  "obsidian-minimal-settings",
+  "pandoc-extended-markdown"
 ]

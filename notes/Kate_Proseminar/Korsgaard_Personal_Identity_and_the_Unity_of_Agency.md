@@ -16,41 +16,32 @@ Example: On "what should be done for them"
 - **Utilitarians**(Hume): Kantians wrong! I can reduce this to a feeling of acting together!
 - **Kantians**(Korsgaard): From a moral point of view, utilitarians wrong! You cannot reduce me into experience! I will reduce you into agency instead!
 
-
 ## Parfit's Theory of Personal Identity
 
 ### What is personal identity?
 
 **Physical Continuity**: continuity of human body
 
-
 - **Parfit**: Physical Continuity view wrong!
 	- Not sufficient: A changed so radically to be the same person
 	- Not necessary: A swaps body to B, no continuity between A-body person and B-body person
-
 
 **Psychological Continuity**: continuity of psychology
 
 1. **Non-reduction view**: Cartesian ego/subject is a non-reducible entity
 2. **Reduction view**: Nothing over and above a series of *R-related* physical and mental events
 
-
 - **Parfit**: Non-reductionists wrong! 
 	- `No argument?`
 
-
 ### Parfit's definition
 
-
 **Definition**: A and B are the same person iff. A and B are continued and unique.
-
 
 - **Parfit**: Personal identity does not matter.
 	- There is no case where you would care about identity as long as you have psychological continuity (i.e. you survived).
 
-
 ### Consequence on morality
-
 
 - **Parfit**: Some responsibilities[^1] are not grounded by metaphysical facts.
 	1)  Some responsibilities are only grounded by some special relationship.
@@ -58,9 +49,7 @@ Example: On "what should be done for them"
 	3)  R-relation is the most special relationship you can get. 
 	4)  Therefore, some responsibilities are not grounded by metaphysical facts.
 
-
 ## The Unity of Agency
-
 
 Even if there is no metaphysical ground, there can be some practical ground.
 
@@ -72,19 +61,14 @@ Two needs of pragmatic unity
 - **Deliberation standpoint**: If we deliberate and choose, then we are doing it in the coordinator position. The fact that there is a coordinator shows the unity of agency. 
 	- `Why is this a pragmatic argument? This seems vey factual.`
 
-
-
-
 - **Korsgaard**: This practical ground is better than Parfit's metaphysical ground.
 	- Metaphysical ground need to explain where the normative power comes from.
 	- It is clear that we have the need of pragmatic unity.
-
 
 ### Unity over time
 
 - **Need of Plans and Long Term Relationship**: To do anything takes time. We have needs to achieve some ends that requires planning the future and maintaining relationship. In order to carrying out plans, you have to assume you are one continuous person.
 	- `This seems less factual and sounds like wishful thinking. There can be someone who is always planning and changes the plan at the next moment. The normativity of the abolished plan is unclear.`
-
 
 ### What kind of things bear unity? 
 
@@ -109,6 +93,7 @@ Consciousness is unified, since it is always continuous and can directly access 
 ## Agency and Identity
 
 Going back to Kant:
+
 - Attitude from **theoretical reason**: Explanation and prediction
 - Attitude from **practical reason**: Justification and choices
 
@@ -161,6 +146,5 @@ Two meanings of morally neutral:
 - (2) is worth having, but Parfit does not have it:
 	- Parfit presupposes that life is a series of experience. This is taking the theoretical point of view instead of the practical point of view.
 	- But only from the practical point of view can moral concepts generated.
-
 
 [^1]: e.g. being responsible for past crimes, taking care of the future self, etc.
