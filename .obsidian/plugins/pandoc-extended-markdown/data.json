@@ -1,4 +1,6 @@
 {
   "strictPandocMode": true,
-  "autoRenumberLists": true
+  "autoRenumberLists": true,
+  "moreExtendedSyntax": true,
+  "strictCustomLabelMode": true
 }

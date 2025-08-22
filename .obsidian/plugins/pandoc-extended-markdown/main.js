@@ -24,12 +24,13 @@ var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: tru
 // src/main.ts
 var main_exports = {};
 __export(main_exports, {
-  default: () => PandocExtendedMarkdownPlugin
+  PandocExtendedMarkdownPlugin: () => PandocExtendedMarkdownPlugin,
+  default: () => main_default
 });
 module.exports = __toCommonJS(main_exports);
-var import_obsidian8 = require("obsidian");
+var import_obsidian9 = require("obsidian");
 var import_state3 = require("@codemirror/state");
-var import_view9 = require("@codemirror/view");
+var import_view11 = require("@codemirror/view");
 
 // src/settings.ts
 var import_obsidian = require("obsidian");
@@ -37,7 +38,8 @@ var import_obsidian = require("obsidian");
 // src/types/settingsTypes.ts
 var DEFAULT_SETTINGS = {
   strictPandocMode: false,
-  autoRenumberLists: false
+  autoRenumberLists: false,
+  moreExtendedSyntax: false
 };
 
 // src/settings.ts
@@ -57,20 +59,27 @@ var PandocExtendedMarkdownSettingTab = class extends import_obsidian.PluginSetti
       this.plugin.settings.autoRenumberLists = value;
       await this.plugin.saveSettings();
     }));
+    new import_obsidian.Setting(containerEl).setName("More extended syntax").setDesc("Should use it together with more_extended_syntax.lua to enhance pandoc output. Enables custom label lists using {::LABEL} syntax. When strict pandoc mode is enabled, custom label lists must be preceded and followed by blank lines.").addToggle((toggle) => toggle.setValue(this.plugin.settings.moreExtendedSyntax).onChange(async (value) => {
+      this.plugin.settings.moreExtendedSyntax = value;
+      await this.plugin.saveSettings();
+    }));
   }
 };
 
 // src/types/ProcessorConfig.ts
 function createProcessorConfig(vaultConfig, pluginSettings) {
-  var _a, _b;
+  var _a, _b, _c;
+  const moreExtendedSyntax = (_a = pluginSettings.moreExtendedSyntax) != null ? _a : false;
   return {
-    strictLineBreaks: (_a = vaultConfig.strictLineBreaks) != null ? _a : false,
-    strictPandocMode: (_b = pluginSettings.strictPandocMode) != null ? _b : false,
+    strictLineBreaks: (_b = vaultConfig.strictLineBreaks) != null ? _b : false,
+    strictPandocMode: (_c = pluginSettings.strictPandocMode) != null ? _c : false,
+    moreExtendedSyntax,
     enableHashLists: true,
     enableFancyLists: true,
     enableExampleLists: true,
     enableDefinitionLists: true,
-    enableSuperSubscripts: true
+    enableSuperSubscripts: true,
+    enableCustomLabelLists: moreExtendedSyntax
   };
 }
 
@@ -136,6 +145,7 @@ var MESSAGES = {
   FORMAT_ALREADY_COMPLIANT: "Document already follows pandoc standard",
   PANDOC_COMPLIANT: "Document follows pandoc formatting standards",
   TOGGLE_BOLD_SUCCESS: "Definition terms bold style toggled",
+  TOGGLE_UNDERLINE_SUCCESS: "Definition terms underline style toggled",
   // Error messages
   NO_DEFINITION_TERMS: "No definition terms found to toggle",
   // Formatting issue messages
@@ -144,7 +154,8 @@ var MESSAGES = {
 var COMMANDS = {
   CHECK_PANDOC: "check-pandoc-formatting",
   FORMAT_PANDOC: "format-to-pandoc-standard",
-  TOGGLE_DEFINITION_BOLD: "toggle-definition-bold-style"
+  TOGGLE_DEFINITION_BOLD: "toggle-definition-bold-style",
+  TOGGLE_DEFINITION_UNDERLINE: "toggle-definition-underline-style"
 };
 var UI_CONSTANTS = {
   NOTICE_DURATION_MS: 1e4
@@ -236,18 +247,113 @@ var ListPatterns = class {
     }
     return matches;
   }
+  /**
+   * Test if a line matches a custom label list pattern.
+   */
+  static isCustomLabelList(line) {
+    return line.match(this.CUSTOM_LABEL_LIST);
+  }
+  /**
+   * Test if a label is valid for custom label lists.
+   */
+  static isValidCustomLabel(label) {
+    return this.VALID_CUSTOM_LABEL.test(label);
+  }
+  /**
+   * Find all custom label references in a text.
+   */
+  static findCustomLabelReferences(text) {
+    const matches = [];
+    const regex = new RegExp(this.CUSTOM_LABEL_REFERENCE.source, "g");
+    let match;
+    while ((match = regex.exec(text)) !== null) {
+      matches.push(match);
+    }
+    return matches;
+  }
+  /**
+   * Test if a line is a heading.
+   */
+  static isHeading(line) {
+    return this.HEADING.test(line);
+  }
+  /**
+   * Test if text might be a definition term (not a marker or indented).
+   */
+  static isDefinitionTerm(line) {
+    const trimmed = line.trim();
+    return trimmed !== "" && !this.isDefinitionMarker(trimmed) && !this.isIndentedContent(line);
+  }
+  /**
+   * Extract letter and delimiter from a fancy list marker.
+   */
+  static extractLetterMarker(marker) {
+    return marker.match(/^([A-Za-z]+)([.)])$/);
+  }
+  /**
+   * Extract roman numeral and delimiter from a fancy list marker.
+   */
+  static extractRomanMarker(marker) {
+    return marker.match(/^([ivxlcdmIVXLCDM]+)([.)])$/);
+  }
+  /**
+   * Check if text starts with a formatting marker.
+   */
+  static startsWithFormatting(text) {
+    return /^(\*\*|__|\*|_|`)/.test(text);
+  }
+  /**
+   * Get indent from a line.
+   */
+  static getIndent(line) {
+    const match = line.match(this.INDENT_ONLY);
+    return match ? match[1] : "";
+  }
+  /**
+   * Replace escaped spaces with regular spaces.
+   */
+  static unescapeSpaces(text) {
+    return text.replace(this.ESCAPED_SPACE, " ");
+  }
+  /**
+   * Find all example reference starts in text.
+   */
+  static findExampleRefStarts(text) {
+    return [...text.matchAll(this.EXAMPLE_REF_START)];
+  }
+  /**
+   * Find all custom label reference starts in text.
+   */
+  static findCustomLabelRefStarts(text) {
+    return [...text.matchAll(this.CUSTOM_LABEL_REF_START)];
+  }
+  /**
+   * Split text by inline formatting markers.
+   */
+  static splitByInlineFormatting(text) {
+    return text.split(this.INLINE_FORMATTING_SPLIT);
+  }
 };
 // Base patterns as static readonly properties
 ListPatterns.HASH_LIST = /^(\s*)(#\.)(\s+)/;
 ListPatterns.FANCY_LIST = /^(\s*)(([A-Z]+|[a-z]+|[IVXLCDM]+|[ivxlcdm]+)([.)]))(\s+)/;
 ListPatterns.EXAMPLE_LIST = /^(\s*)(\(@([a-zA-Z0-9_-]*)\))(\s+)/;
+ListPatterns.EXAMPLE_LIST_WITH_CONTENT = /^(\s*)\(@([a-zA-Z0-9_-]+)\)\s+(.*)$/;
 ListPatterns.EXAMPLE_REFERENCE = /\(@([a-zA-Z0-9_-]+)\)/g;
 ListPatterns.DEFINITION_MARKER = /^(\s*)([~:])(\s+)/;
 ListPatterns.DEFINITION_MARKER_WITH_INDENT = /^(\s*)([~:])(\s+)/;
 ListPatterns.DEFINITION_INDENTED = /^(    |\t)/;
+ListPatterns.DEFINITION_INDENTED_WITH_CONTENT = /^(    |\t)(.*)$/;
+ListPatterns.DEFINITION_TERM_PATTERN = /^([^\n:~]+)$/;
 ListPatterns.NUMBERED_LIST = /^(\s*)([0-9]+[.)])/;
 ListPatterns.UNORDERED_LIST = /^(\s*)[-*+]\s+/;
 ListPatterns.CAPITAL_LETTER_LIST = /^(\s*)([A-Z])(\.)(\s+)/;
+// Additional list patterns for validation
+ListPatterns.STANDARD_ORDERED_LIST = /^(\s*)\d+\.\s+/;
+ListPatterns.CAPITAL_LETTER_REPLACE = /^(\s*)([A-Z]\.)(\s+)/;
+ListPatterns.UNLABELED_EXAMPLE_LIST = /^(\s*)\(@\)\s+/;
+// Combined fancy list pattern for validation (includes numbers)
+ListPatterns.FANCY_LIST_WITH_NUMBERS = /^(\s*)(([A-Z]+|[a-z]+|[IVXLCDM]+|[ivxlcdm]+|[0-9]+|#)([.)]))(\s+)/;
 ListPatterns.ROMAN_NUMERALS = /^[IVXLCDM]+$/;
 ListPatterns.LOWER_ROMAN_NUMERALS = /^[ivxlcdm]+$/;
 // Character type patterns for fancy list parsing
@@ -277,23 +383,45 @@ ListPatterns.EMPTY_FANCY_LIST = /^(\s*)([A-Za-z]+|[ivxlcdmIVXLCDM]+)([.)])(\s*)$
 ListPatterns.EMPTY_EXAMPLE_LIST = /^(\s*)\(@([a-zA-Z0-9_-]*)\)(\s*)$/;
 ListPatterns.EMPTY_EXAMPLE_LIST_NO_LABEL = /^(\s*)\(@\)(\s*)$/;
 ListPatterns.EMPTY_DEFINITION_LIST = /^(\s*)([~:])(\s*)$/;
+ListPatterns.EMPTY_CUSTOM_LABEL_LIST = /^(\s*)(\{::([a-zA-Z][a-zA-Z0-9_']*)*\})(\s*)$/;
+ListPatterns.EMPTY_CUSTOM_LABEL_LIST_NO_LABEL = /^(\s*)(\{::\})(\s*)$/;
 // Complex list patterns for autocompletion
-ListPatterns.ANY_LIST_MARKER = /^(\s*)(#\.|[A-Za-z]+[.)]|[ivxlcdmIVXLCDM]+[.)]|\(@[a-zA-Z0-9_-]*\)|[~:])/;
-ListPatterns.ANY_LIST_MARKER_WITH_SPACE = /^(\s*)(#\.|[A-Za-z]+[.)]|[ivxlcdmIVXLCDM]+[.)]|\(@[a-zA-Z0-9_-]*\)|[~:])(\s+)/;
-ListPatterns.ANY_LIST_MARKER_WITH_INDENT_AND_SPACE = /^(\s+)(#\.|[A-Za-z]+[.)]|[ivxlcdmIVXLCDM]+[.)]|\(@[a-zA-Z0-9_-]*\)|[~:])(\s+)/;
+ListPatterns.ANY_LIST_MARKER = /^(\s*)(#\.|[A-Za-z]+[.)]|[ivxlcdmIVXLCDM]+[.)]|\(@[a-zA-Z0-9_-]*\)|[~:]|\{::[a-zA-Z][a-zA-Z0-9_']*\})/;
+ListPatterns.ANY_LIST_MARKER_WITH_SPACE = /^(\s*)(#\.|[A-Za-z]+[.)]|[ivxlcdmIVXLCDM]+[.)]|\(@[a-zA-Z0-9_-]*\)|[~:]|\{::[a-zA-Z][a-zA-Z0-9_']*\})(\s+)/;
+ListPatterns.ANY_LIST_MARKER_WITH_INDENT_AND_SPACE = /^(\s+)(#\.|[A-Za-z]+[.)]|[ivxlcdmIVXLCDM]+[.)]|\(@[a-zA-Z0-9_-]*\)|[~:]|\{::[a-zA-Z][a-zA-Z0-9_']*\})(\s+)/;
 // Indentation patterns
 ListPatterns.INDENT_ONLY = /^(\s*)/;
 // Text formatting patterns
 ListPatterns.BOLD_TEXT = /^\*\*(.+)\*\*$/;
+ListPatterns.UNDERLINE_SPAN = /^<span class="underline">(.+)<\/span>$/;
+// Inline formatting patterns for parsing
+ListPatterns.INLINE_FORMATTING_SPLIT = /(__(.+?)__|\*\*(.+?)\*\*|_(.+?)_|\*(.+?)\*|`(.+?)`)/g;
+// Escaped space pattern
+ListPatterns.ESCAPED_SPACE = /\\[ ]/g;
+// Example reference start pattern (for autocomplete)
+ListPatterns.EXAMPLE_REF_START = /\(@/g;
+// Custom label reference start pattern (for autocomplete)
+ListPatterns.CUSTOM_LABEL_REF_START = /\{::/g;
+// Heading patterns
+ListPatterns.HEADING = /^#{1,6}\s+/;
+ListPatterns.HEADING_WITH_CONTENT = /^(#{1,6})\s+(.*)$/;
 // Superscript and subscript patterns
 // Matches ^text^ for superscript and ~text~ for subscript
 // Text can contain escaped spaces (\ ) but not unescaped spaces
 ListPatterns.SUPERSCRIPT = /\^([^\^\s]|\\[ ])+?\^/g;
 ListPatterns.SUBSCRIPT = /~([^~\s]|\\[ ])+?~/g;
+// Custom label list patterns for More Extended Syntax
+// Matches {::LABEL} at start of line with required space after
+ListPatterns.CUSTOM_LABEL_LIST = /^(\s*)(\{::([a-zA-Z][a-zA-Z0-9_']*)\})(\s+)/;
+ListPatterns.CUSTOM_LABEL_LIST_WITH_CONTENT = /^(\s*)(\{::([a-zA-Z][a-zA-Z0-9_']*)\})(\s+)(.*)$/;
+// Reference to custom label anywhere in text
+ListPatterns.CUSTOM_LABEL_REFERENCE = /\{::([a-zA-Z][a-zA-Z0-9_']*)\}/g;
+// Valid label pattern (for validation)
+ListPatterns.VALID_CUSTOM_LABEL = /^[a-zA-Z][a-zA-Z0-9_']*$/;
 
-// src/decorations/pandocListsExtension.ts
+// src/decorations/pandocExtendedMarkdownExtension.ts
 var import_state = require("@codemirror/state");
-var import_view8 = require("@codemirror/view");
+var import_view10 = require("@codemirror/view");
 var import_obsidian4 = require("obsidian");
 
 // src/decorations/validators/listBlockValidator.ts
@@ -316,7 +444,7 @@ var ListBlockValidator = class {
       const line = lines[i];
       const isCurrentList = this.isListItemForValidation(line);
       const prevIsListOrEmpty = i > 0 && (this.isListItemForValidation(lines[i - 1]) || lines[i - 1].trim() === "");
-      const prevIsDefinitionTerm = i > 0 && lines[i - 1].trim() && !lines[i - 1].match(/^\s*[~:]\s+/) && !lines[i - 1].match(/^(    |\t)/) && line.match(/^\s*[~:]\s+/);
+      const prevIsDefinitionTerm = i > 0 && lines[i - 1].trim() && !ListPatterns.isDefinitionMarker(lines[i - 1]) && !ListPatterns.isIndentedContent(lines[i - 1]) && ListPatterns.isDefinitionMarker(line);
       if (isCurrentList && listBlockStart === -1) {
         listBlockStart = i;
         if (i > 0 && lines[i - 1].trim() !== "" && !prevIsDefinitionTerm) {
@@ -366,7 +494,7 @@ function scanExampleLabels(view, settings) {
       continue;
     }
     const line = lines[i];
-    const match = line.match(/^(\s*)\(@([a-zA-Z0-9_-]+)\)\s+(.*)$/);
+    const match = line.match(ListPatterns.EXAMPLE_LIST_WITH_CONTENT);
     if (match) {
       const label = match[2];
       const content = match[3].trim();
@@ -381,7 +509,7 @@ function scanExampleLabels(view, settings) {
       result.exampleLineNumbers.set(i + 1, counter);
       counter++;
     } else {
-      const unlabeledMatch = line.match(/^(\s*)\(@\)\s+/);
+      const unlabeledMatch = line.match(ListPatterns.UNLABELED_EXAMPLE_LIST);
       if (unlabeledMatch) {
         result.exampleLineNumbers.set(i + 1, counter);
         counter++;
@@ -389,6 +517,81 @@ function scanExampleLabels(view, settings) {
     }
   }
   return result;
+}
+
+// src/decorations/scanners/customLabelScanner.ts
+function scanCustomLabels(doc, settings) {
+  const customLabels = /* @__PURE__ */ new Map();
+  const duplicateLabels = /* @__PURE__ */ new Set();
+  const seenLabels = /* @__PURE__ */ new Set();
+  if (!settings.moreExtendedSyntax) {
+    return { customLabels, duplicateLabels };
+  }
+  for (let i = 1; i <= doc.lines; i++) {
+    const line = doc.line(i);
+    const lineText = line.text;
+    const match = ListPatterns.isCustomLabelList(lineText);
+    if (match) {
+      const label = match[3];
+      if (seenLabels.has(label)) {
+        duplicateLabels.add(label);
+      } else {
+        seenLabels.add(label);
+        const contentStart = match[0].length;
+        const content = lineText.substring(contentStart).trim();
+        if (content) {
+          customLabels.set(label, content);
+        }
+      }
+    }
+  }
+  return { customLabels, duplicateLabels };
+}
+function validateCustomLabelBlocks(doc, settings) {
+  const invalidLines = /* @__PURE__ */ new Set();
+  if (!settings.moreExtendedSyntax || !settings.strictPandocMode) {
+    return invalidLines;
+  }
+  const blocks = [];
+  let inBlock = false;
+  let blockStart = -1;
+  let blockValid = true;
+  for (let i = 1; i <= doc.lines; i++) {
+    const line = doc.line(i);
+    const lineText = line.text;
+    const isCustomLabel = ListPatterns.isCustomLabelList(lineText);
+    if (isCustomLabel) {
+      if (!inBlock) {
+        inBlock = true;
+        blockStart = i;
+        blockValid = true;
+        if (i > 1) {
+          const prevLine = doc.line(i - 1);
+          if (prevLine.text.trim() !== "") {
+            blockValid = false;
+          }
+        }
+      }
+    } else if (inBlock) {
+      const blockEnd = i - 1;
+      if (line.text.trim() !== "") {
+        blockValid = false;
+      }
+      blocks.push({ start: blockStart, end: blockEnd, valid: blockValid });
+      inBlock = false;
+    }
+  }
+  if (inBlock) {
+    blocks.push({ start: blockStart, end: doc.lines, valid: blockValid });
+  }
+  for (const block of blocks) {
+    if (!block.valid) {
+      for (let i = block.start; i <= block.end; i++) {
+        invalidLines.add(i - 1);
+      }
+    }
+  }
+  return invalidLines;
 }
 
 // src/decorations/processors/listProcessors.ts
@@ -411,7 +614,7 @@ var FancyListMarkerWidget = class extends import_view.WidgetType {
     span.className = `${CSS_CLASSES.CM_FORMATTING} ${CSS_CLASSES.CM_FORMATTING_LIST} ${CSS_CLASSES.CM_FORMATTING_LIST_OL} ${CSS_CLASSES.CM_LIST_1} ${CSS_CLASSES.PANDOC_LIST_MARKER}`;
     const innerSpan = document.createElement("span");
     innerSpan.className = "list-number";
-    innerSpan.textContent = this.marker;
+    innerSpan.textContent = this.marker + " ";
     span.appendChild(innerSpan);
     if (this.view && this.pos !== void 0) {
       span.addEventListener("mousedown", (e) => {
@@ -671,7 +874,7 @@ var SubscriptWidget = class extends import_view4.WidgetType {
 function processHashList(context, hashCounter) {
   const { line, lineNum, lineText, cursorPos, view, invalidListBlocks, settings } = context;
   const decorations = [];
-  const hashMatch = lineText.match(/^(\s*)(#\.)(\s+)/);
+  const hashMatch = ListPatterns.isHashList(lineText);
   if (!hashMatch) return null;
   if (settings.strictPandocMode && invalidListBlocks.has(lineNum - 1)) {
     return null;
@@ -686,10 +889,7 @@ function processHashList(context, hashCounter) {
     from: line.from,
     to: line.from,
     decoration: import_view5.Decoration.line({
-      class: "HyperMD-list-line HyperMD-list-line-1",
-      attributes: {
-        style: "text-indent: -29px; padding-inline-start: 29px;"
-      }
+      class: "HyperMD-list-line HyperMD-list-line-1 pandoc-list-line"
     })
   });
   if (!cursorInMarker) {
@@ -726,8 +926,8 @@ function processFancyList(context) {
   const markerEnd = line.from + indent.length + marker.length + space.length;
   const cursorInMarker = cursorPos >= markerStart && cursorPos < markerEnd;
   let listClass = CSS_CLASSES.FANCY_LIST_UPPER_ALPHA;
-  const letterMatch = marker.match(/^([A-Za-z]+)([.)])$/);
-  const romanMatch = marker.match(/^([ivxlcdmIVXLCDM]+)([.)])$/);
+  const letterMatch = ListPatterns.extractLetterMarker(marker);
+  const romanMatch = ListPatterns.extractRomanMarker(marker);
   if (letterMatch) {
     const letter = letterMatch[1];
     if (letter[0] === letter[0].toLowerCase()) {
@@ -745,10 +945,7 @@ function processFancyList(context) {
     from: line.from,
     to: line.from,
     decoration: import_view5.Decoration.line({
-      class: "HyperMD-list-line HyperMD-list-line-1",
-      attributes: {
-        style: "text-indent: -29px; padding-inline-start: 29px;"
-      }
+      class: "HyperMD-list-line HyperMD-list-line-1 pandoc-list-line"
     })
   });
   if (!cursorInMarker) {
@@ -784,7 +981,7 @@ function processExampleList(context) {
     duplicateLabelContent
   } = context;
   const decorations = [];
-  const exampleMatch = lineText.match(/^(\s*)(\(@([a-zA-Z0-9_-]*)\))(\s+)/);
+  const exampleMatch = ListPatterns.isExampleList(lineText);
   if (!exampleMatch) return null;
   if (settings.strictPandocMode && invalidListBlocks.has(lineNum - 1)) {
     return null;
@@ -801,10 +998,7 @@ function processExampleList(context) {
     from: line.from,
     to: line.from,
     decoration: import_view5.Decoration.line({
-      class: "HyperMD-list-line HyperMD-list-line-1",
-      attributes: {
-        style: "text-indent: -29px; padding-inline-start: 29px;"
-      }
+      class: "HyperMD-list-line HyperMD-list-line-1 pandoc-list-line"
     })
   });
   const isDuplicate = label && (duplicateLabels == null ? void 0 : duplicateLabels.has(label)) && duplicateLabels.get(label) !== lineNum;
@@ -844,7 +1038,7 @@ var import_view6 = require("@codemirror/view");
 function processDefinitionItem(context) {
   const { line, lineNum, lineText, cursorPos, view, invalidListBlocks, settings } = context;
   const decorations = [];
-  const defItemMatch = lineText.match(/^(\s*)([~:])(\s+)/);
+  const defItemMatch = ListPatterns.isDefinitionMarker(lineText);
   if (!defItemMatch) return null;
   if (settings.strictPandocMode && invalidListBlocks.has(lineNum - 1)) {
     return null;
@@ -869,18 +1063,18 @@ function processDefinitionItem(context) {
 function processDefinitionTerm(context) {
   const { line, lineText, view } = context;
   const decorations = [];
-  if (!lineText.trim() || lineText.match(/^\s*[~:]\s*/) || lineText.match(/^(    |\t)/)) {
+  if (!lineText.trim() || ListPatterns.isDefinitionMarker(lineText) || ListPatterns.isIndentedContent(lineText)) {
     return null;
   }
   let isDefinitionTerm = false;
   if (line.number < view.state.doc.lines) {
     const nextLine = view.state.doc.line(line.number + 1);
     const nextText = nextLine.text;
-    if (nextText.match(/^\s*[~:]\s+/)) {
+    if (ListPatterns.isDefinitionMarker(nextText)) {
       isDefinitionTerm = true;
     } else if (nextText.trim() === "" && line.number + 1 < view.state.doc.lines) {
       const lineAfterEmpty = view.state.doc.line(line.number + 2);
-      if (lineAfterEmpty.text.match(/^\s*[~:]\s+/)) {
+      if (ListPatterns.isDefinitionMarker(lineAfterEmpty.text)) {
         isDefinitionTerm = true;
       }
     }
@@ -900,17 +1094,17 @@ function processDefinitionTerm(context) {
 function processDefinitionParagraph(context) {
   const { line, lineNum, lineText, view } = context;
   const decorations = [];
-  const indentMatch = lineText.match(/^(    |\t)(.*)$/);
+  const indentMatch = ListPatterns.isIndentedContent(lineText) ? lineText.match(ListPatterns.DEFINITION_INDENTED_WITH_CONTENT) : null;
   if (!indentMatch) return null;
   let inDefinitionContext = false;
   for (let checkLine = lineNum - 1; checkLine >= 1; checkLine--) {
     const prevLine = view.state.doc.line(checkLine);
     const prevText = prevLine.text;
-    if (prevText.match(/^\s*[~:]\s+/)) {
+    if (ListPatterns.isDefinitionMarker(prevText)) {
       inDefinitionContext = true;
       break;
     }
-    if (prevText.trim() && !prevText.match(/^(    |\t)/) && !prevText.match(/^\s*[~:]\s+/)) {
+    if (prevText.trim() && !ListPatterns.isIndentedContent(prevText) && !ListPatterns.isDefinitionMarker(prevText)) {
       break;
     }
   }
@@ -944,7 +1138,7 @@ function processExampleReferences(context) {
   const { line, lineText, cursorPos, exampleLabels, exampleContent } = context;
   const decorations = [];
   if (!exampleLabels) return decorations;
-  const refRegex = /\(@([a-zA-Z0-9_-]+)\)/g;
+  const refRegex = ListPatterns.EXAMPLE_REFERENCE;
   let match;
   while ((match = refRegex.exec(lineText)) !== null) {
     const label = match[1];
@@ -977,7 +1171,7 @@ function processSuperscripts(context) {
     const supEnd = line.from + supMatch.index + supMatch[0].length;
     const cursorInSup = cursorPos >= supStart && cursorPos <= supEnd;
     if (!cursorInSup) {
-      const content = supMatch[0].slice(1, -1).replace(/\\[ ]/g, " ");
+      const content = ListPatterns.unescapeSpaces(supMatch[0].slice(1, -1));
       decorations.push({
         from: supStart,
         to: supEnd,
@@ -998,7 +1192,7 @@ function processSubscripts(context) {
     const subEnd = line.from + subMatch.index + subMatch[0].length;
     const cursorInSub = cursorPos >= subStart && cursorPos <= subEnd;
     if (!cursorInSub) {
-      const content = subMatch[0].slice(1, -1).replace(/\\[ ]/g, " ");
+      const content = ListPatterns.unescapeSpaces(subMatch[0].slice(1, -1));
       decorations.push({
         from: subStart,
         to: subEnd,
@@ -1011,12 +1205,170 @@ function processSubscripts(context) {
   return decorations;
 }
 
-// src/decorations/pandocListsExtension.ts
-var pandocListsPlugin = (getSettings) => import_view8.ViewPlugin.fromClass(
-  class PandocListsView {
+// src/decorations/processors/customLabelProcessor.ts
+var import_view9 = require("@codemirror/view");
+
+// src/decorations/widgets/customLabelWidget.ts
+var import_view8 = require("@codemirror/view");
+var CustomLabelMarkerWidget = class extends import_view8.WidgetType {
+  constructor(label, view, position) {
+    super();
+    this.label = label;
+    this.view = view;
+    this.position = position;
+    this.controller = new AbortController();
+  }
+  toDOM() {
+    const span = document.createElement("span");
+    span.className = `${CSS_CLASSES.CM_FORMATTING} ${CSS_CLASSES.CM_FORMATTING_LIST} ${CSS_CLASSES.CM_FORMATTING_LIST_OL} ${CSS_CLASSES.CM_LIST_1} ${CSS_CLASSES.PANDOC_LIST_MARKER}`;
+    const innerSpan = document.createElement("span");
+    innerSpan.className = "list-number";
+    innerSpan.textContent = `(${this.label}) `;
+    span.appendChild(innerSpan);
+    if (this.view && this.position !== void 0) {
+      span.classList.add("pandoc-custom-label-ref-clickable");
+      span.addEventListener("click", () => {
+        if (this.view && this.position !== void 0) {
+          this.view.dispatch({
+            selection: { anchor: this.position }
+          });
+          this.view.focus();
+        }
+      }, { signal: this.controller.signal });
+    }
+    return span;
+  }
+  eq(other) {
+    return other.label === this.label && other.position === this.position;
+  }
+  ignoreEvent(event) {
+    return event.type !== "mousedown";
+  }
+  destroy() {
+    this.controller.abort();
+  }
+};
+var CustomLabelReferenceWidget = class extends import_view8.WidgetType {
+  constructor(label, content, view, position) {
+    super();
+    this.label = label;
+    this.content = content;
+    this.view = view;
+    this.position = position;
+  }
+  toDOM() {
+    const span = document.createElement("span");
+    span.className = CSS_CLASSES.EXAMPLE_REF;
+    span.setAttribute("data-custom-label-ref", this.label);
+    span.textContent = `(${this.label})`;
+    if (this.content) {
+      span.setAttribute("title", this.content);
+    }
+    return span;
+  }
+  eq(other) {
+    return other.label === this.label && other.content === this.content && other.position === this.position;
+  }
+  ignoreEvent() {
+    return false;
+  }
+};
+
+// src/decorations/processors/customLabelProcessor.ts
+function processCustomLabelList(context) {
+  const {
+    line,
+    lineNum,
+    lineText,
+    cursorPos,
+    view,
+    invalidListBlocks,
+    settings,
+    customLabels
+  } = context;
+  if (!settings.moreExtendedSyntax) {
+    return null;
+  }
+  const decorations = [];
+  const customLabelMatch = ListPatterns.isCustomLabelList(lineText);
+  if (!customLabelMatch) return null;
+  if (settings.strictPandocMode && invalidListBlocks.has(lineNum - 1)) {
+    return null;
+  }
+  const indent = customLabelMatch[1];
+  const fullMarker = customLabelMatch[2];
+  const label = customLabelMatch[3];
+  const space = customLabelMatch[4];
+  const markerStart = line.from + indent.length;
+  const markerEnd = line.from + indent.length + fullMarker.length + space.length;
+  const cursorInMarker = cursorPos >= markerStart && cursorPos < markerEnd;
+  decorations.push({
+    from: line.from,
+    to: line.from,
+    decoration: import_view9.Decoration.line({
+      class: "HyperMD-list-line HyperMD-list-line-1 pandoc-list-line-indent"
+    })
+  });
+  if (!cursorInMarker) {
+    decorations.push({
+      from: markerStart,
+      to: markerEnd,
+      decoration: import_view9.Decoration.replace({
+        widget: new CustomLabelMarkerWidget(label, view, markerStart)
+      })
+    });
+  }
+  decorations.push({
+    from: line.from + indent.length + fullMarker.length + space.length,
+    to: line.to,
+    decoration: import_view9.Decoration.mark({
+      class: "cm-list-1 pandoc-custom-label-item"
+    })
+  });
+  if (customLabels) {
+    const contentStart = indent.length + fullMarker.length + space.length;
+    const content = lineText.substring(contentStart).trim();
+    if (content) {
+      customLabels.set(label, content);
+    }
+  }
+  return decorations;
+}
+function processCustomLabelReferences(text, from, customLabels, view, cursorPos, settings, isValidLine = true) {
+  const decorations = [];
+  if (!settings.moreExtendedSyntax) {
+    return decorations;
+  }
+  if (!isValidLine && ListPatterns.isCustomLabelList(text)) {
+    return decorations;
+  }
+  const matches = ListPatterns.findCustomLabelReferences(text);
+  matches.forEach((match) => {
+    const label = match[1];
+    const content = customLabels.get(label);
+    const matchStart = from + (match.index || 0);
+    const matchEnd = matchStart + match[0].length;
+    const cursorInReference = cursorPos >= matchStart && cursorPos < matchEnd;
+    if (!cursorInReference && customLabels.has(label)) {
+      decorations.push({
+        from: matchStart,
+        to: matchEnd,
+        decoration: import_view9.Decoration.replace({
+          widget: new CustomLabelReferenceWidget(label, content, view, matchStart)
+        })
+      });
+    }
+  });
+  return decorations;
+}
+
+// src/decorations/pandocExtendedMarkdownExtension.ts
+var pandocExtendedMarkdownPlugin = (getSettings) => import_view10.ViewPlugin.fromClass(
+  class PandocExtendedMarkdownView {
     constructor(view) {
       const settings = getSettings();
       this.scanResult = scanExampleLabels(view, settings);
+      this.customLabelScanResult = scanCustomLabels(view.state.doc, settings);
       this.decorations = this.buildDecorations(view);
     }
     update(update) {
@@ -1027,6 +1379,7 @@ var pandocListsPlugin = (getSettings) => import_view8.ViewPlugin.fromClass(
         if (update.docChanged) {
           const settings = getSettings();
           this.scanResult = scanExampleLabels(update.view, settings);
+          this.customLabelScanResult = scanCustomLabels(update.view.state.doc, settings);
         }
         this.decorations = this.buildDecorations(update.view);
       }
@@ -1044,6 +1397,7 @@ var pandocListsPlugin = (getSettings) => import_view8.ViewPlugin.fromClass(
       const decorations = [];
       const hashCounter = { value: 1 };
       const invalidListBlocks = ListBlockValidator.validateListBlocks(lines, settings);
+      const invalidCustomLabelBlocks = validateCustomLabelBlocks(view.state.doc, settings);
       for (let lineNum = 1; lineNum <= view.state.doc.lines; lineNum++) {
         const line = view.state.doc.line(lineNum);
         const lineText = line.text;
@@ -1074,6 +1428,23 @@ var pandocListsPlugin = (getSettings) => import_view8.ViewPlugin.fromClass(
         if (exampleDecorations) {
           decorations.push(...exampleDecorations);
           continue;
+        }
+        if (settings.moreExtendedSyntax) {
+          const customLabelContext = {
+            line,
+            lineNum,
+            lineText,
+            cursorPos,
+            view,
+            invalidListBlocks: invalidCustomLabelBlocks,
+            settings,
+            customLabels: this.customLabelScanResult.customLabels
+          };
+          const customLabelDecorations = processCustomLabelList(customLabelContext);
+          if (customLabelDecorations) {
+            decorations.push(...customLabelDecorations);
+            continue;
+          }
         }
         const definitionContext = {
           line,
@@ -1108,6 +1479,19 @@ var pandocListsPlugin = (getSettings) => import_view8.ViewPlugin.fromClass(
         decorations.push(...processExampleReferences(inlineContext));
         decorations.push(...processSuperscripts(inlineContext));
         decorations.push(...processSubscripts(inlineContext));
+        if (settings.moreExtendedSyntax) {
+          const isValidLine = !invalidCustomLabelBlocks.has(lineNum - 1);
+          const customLabelRefs = processCustomLabelReferences(
+            lineText,
+            line.from,
+            this.customLabelScanResult.customLabels,
+            view,
+            cursorPos,
+            settings,
+            isValidLine
+          );
+          decorations.push(...customLabelRefs);
+        }
       }
       decorations.sort((a, b) => a.from - b.from || a.to - b.to);
       for (const { from, to, decoration } of decorations) {
@@ -1120,8 +1504,8 @@ var pandocListsPlugin = (getSettings) => import_view8.ViewPlugin.fromClass(
     decorations: (v) => v.decorations
   }
 );
-function pandocListsExtension(getSettings) {
-  return pandocListsPlugin(getSettings);
+function pandocExtendedMarkdownExtension(getSettings) {
+  return pandocExtendedMarkdownPlugin(getSettings);
 }
 
 // src/types/obsidian-extended.ts
@@ -1202,7 +1586,7 @@ function parseExampleListMarker(line) {
 // src/parsers/superSubParser.ts
 function extractContent(match, delimiter) {
   const content = match.slice(1, -1);
-  return content.replace(/\\[ ]/g, " ");
+  return ListPatterns.unescapeSpaces(content);
 }
 function findSuperSubInText(text) {
   const matches = [];
@@ -1285,7 +1669,7 @@ function processSuperSub(element) {
 
 // src/parsers/definitionListParser.ts
 function parseDefinitionListMarker(line) {
-  const termMatch = line.match(/^([^\n:~]+)$/);
+  const termMatch = line.match(ListPatterns.DEFINITION_TERM_PATTERN);
   if (termMatch && !line.includes("*") && !line.includes("-") && !line.match(ListPatterns.NUMBERED_LIST)) {
     const nextLineIndex = line.indexOf("\n");
     if (nextLineIndex === -1 || nextLineIndex === line.length - 1) {
@@ -1406,7 +1790,7 @@ var ReadingModeParser = class {
    */
   findExampleReferences(text) {
     const references = [];
-    const regex = /\(@([a-zA-Z0-9_-]+)\)/g;
+    const regex = ListPatterns.EXAMPLE_REFERENCE;
     let match;
     while ((match = regex.exec(text)) !== null) {
       references.push({
@@ -1831,14 +2215,122 @@ var PluginStateManager = class {
 };
 var pluginStateManager = new PluginStateManager();
 
+// src/parsers/customLabelListParser.ts
+function processCustomLabelLists(element, context) {
+  if (!element.textContent || !element.textContent.includes("{::")) {
+    return;
+  }
+  const paragraphs = element.querySelectorAll("p");
+  paragraphs.forEach((p) => {
+    processElement(p);
+  });
+  const listItems = element.querySelectorAll("li");
+  listItems.forEach((li) => {
+    processElement(li);
+    if (li.querySelector(`.${CSS_CLASSES.PANDOC_LIST_MARKER}`)) {
+      li.classList.add("pandoc-custom-label-item");
+    }
+  });
+}
+function processTextNode(node, container) {
+  const text = node.textContent || "";
+  const listMatch = text.match(ListPatterns.CUSTOM_LABEL_LIST_WITH_CONTENT);
+  if (listMatch) {
+    const indent = listMatch[1];
+    const label = listMatch[3];
+    const space = listMatch[4];
+    const rest = listMatch[5];
+    if (indent) {
+      container.appendChild(document.createTextNode(indent));
+    }
+    const markerSpan = document.createElement("span");
+    markerSpan.className = CSS_CLASSES.PANDOC_LIST_MARKER;
+    markerSpan.textContent = `(${label})`;
+    container.appendChild(markerSpan);
+    container.appendChild(document.createTextNode(space));
+    processReferencesInText(rest, container);
+  } else {
+    processReferencesInText(text, container);
+  }
+}
+function processReferencesInText(text, container) {
+  const refPattern = ListPatterns.CUSTOM_LABEL_REFERENCE;
+  let lastIndex = 0;
+  let match;
+  while ((match = refPattern.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      container.appendChild(document.createTextNode(text.substring(lastIndex, match.index)));
+    }
+    const refSpan = document.createElement("span");
+    refSpan.className = CSS_CLASSES.EXAMPLE_REF;
+    refSpan.setAttribute("data-custom-label-ref", match[1]);
+    refSpan.textContent = `(${match[1]})`;
+    container.appendChild(refSpan);
+    lastIndex = refPattern.lastIndex;
+  }
+  if (lastIndex < text.length) {
+    container.appendChild(document.createTextNode(text.substring(lastIndex)));
+  }
+}
+function processElement(elem) {
+  if (elem.querySelector("code, pre") || elem.closest("code, pre")) {
+    return;
+  }
+  if (!elem.textContent || !elem.textContent.includes("{::")) {
+    return;
+  }
+  const newContainer = document.createElement("div");
+  const childNodes = Array.from(elem.childNodes);
+  for (const node of childNodes) {
+    if (node.nodeType === Node.TEXT_NODE) {
+      const text = node.textContent || "";
+      const lines = text.split("\n");
+      for (let i = 0; i < lines.length; i++) {
+        if (i > 0) {
+          newContainer.appendChild(document.createTextNode("\n"));
+        }
+        if (lines[i]) {
+          processTextNode({ textContent: lines[i] }, newContainer);
+        }
+      }
+    } else if (node.nodeType === Node.ELEMENT_NODE && node.tagName === "BR") {
+      newContainer.appendChild(node.cloneNode(true));
+    } else if (node.nodeType === Node.ELEMENT_NODE) {
+      const elemNode = node;
+      if (elemNode.textContent && elemNode.textContent.includes("{::")) {
+        const clonedElem = elemNode.cloneNode(false);
+        const tempContainer = document.createElement("div");
+        Array.from(elemNode.childNodes).forEach((child) => {
+          tempContainer.appendChild(child.cloneNode(true));
+        });
+        processElement(tempContainer);
+        while (tempContainer.firstChild) {
+          clonedElem.appendChild(tempContainer.firstChild);
+        }
+        newContainer.appendChild(clonedElem);
+      } else {
+        newContainer.appendChild(node.cloneNode(true));
+      }
+    } else {
+      newContainer.appendChild(node.cloneNode(true));
+    }
+  }
+  while (elem.firstChild) {
+    elem.removeChild(elem.firstChild);
+  }
+  while (newContainer.firstChild) {
+    elem.appendChild(newContainer.firstChild);
+  }
+}
+
 // src/pandocValidator.ts
-function isStrictPandocList(context, strictMode) {
+function isStrictPandocFormatting(context, strictMode) {
   if (!strictMode) {
     return true;
   }
   const { lines, currentLine } = context;
   const line = lines[currentLine];
-  const isPartOfListBlock = currentLine > 0 && isListItem(lines[currentLine - 1]);
+  const isPartOfListBlock = currentLine > 0 && isListItem(lines[currentLine - 1], false);
   if (currentLine > 0 && !isPartOfListBlock) {
     const prevLine = lines[currentLine - 1];
     if (prevLine.trim() !== "") {
@@ -1854,7 +2346,7 @@ function isStrictPandocList(context, strictMode) {
   let isLastItemInList = true;
   if (currentLine < lines.length - 1) {
     const nextLine = lines[currentLine + 1];
-    const nextIsListItem = isListItem(nextLine);
+    const nextIsListItem = isListItem(nextLine, false);
     if (!nextIsListItem && nextLine.trim() !== "") {
       return false;
     }
@@ -1864,30 +2356,24 @@ function isStrictPandocList(context, strictMode) {
   }
   return true;
 }
-function isListItem(line) {
-  const patterns = [
-    /^(\s*)(([A-Z]+|[a-z]+|[IVXLCDM]+|[ivxlcdm]+|[0-9]+|#)([.)]))(\s+)/,
-    // Fancy lists
-    /^(\s*)\d+\.\s+/,
-    // Standard ordered lists (1. 2. 3. etc.)
-    /^(\s*)[-*+]\s+/,
-    // Unordered lists
-    /^(\s*)\(@([a-zA-Z0-9_-]*)\)\s+/,
-    // Example lists
-    /^(\s*)[~:]\s+/
-    // Definition lists
-  ];
-  return patterns.some((pattern) => pattern.test(line));
+function isListItem(line, includeCustomLabels = false) {
+  if (ListPatterns.FANCY_LIST_WITH_NUMBERS.test(line) || ListPatterns.STANDARD_ORDERED_LIST.test(line) || ListPatterns.UNORDERED_LIST.test(line) || ListPatterns.isExampleList(line) || ListPatterns.isDefinitionMarker(line)) {
+    return true;
+  }
+  if (includeCustomLabels && ListPatterns.isCustomLabelList(line)) {
+    return true;
+  }
+  return false;
 }
-function formatToPandocStandard(content) {
+function formatToPandocStandard(content, moreExtendedSyntax = false) {
   const lines = content.split("\n");
   const result = [];
   let inListBlock = false;
   let lastWasEmpty = false;
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
-    const isCurrentLineList = isListItem(line);
-    const isCurrentLineHeading = line.match(/^#{1,6}\s+/) !== null;
+    const isCurrentLineList = isListItem(line, moreExtendedSyntax);
+    const isCurrentLineHeading = ListPatterns.isHeading(line);
     const isEmpty = line.trim() === "";
     if (isCurrentLineList && !inListBlock) {
       if (result.length > 0 && !lastWasEmpty) {
@@ -1917,7 +2403,7 @@ function formatToPandocStandard(content) {
     }
     const capitalLetterMatch = line.match(ListPatterns.CAPITAL_LETTER_LIST);
     if (capitalLetterMatch && capitalLetterMatch[4].length < INDENTATION.DOUBLE_SPACE) {
-      const formattedLine = line.replace(/^(\s*)([A-Z]\.)(\s+)/, "$1$2  ");
+      const formattedLine = line.replace(ListPatterns.CAPITAL_LETTER_REPLACE, "$1$2  ");
       result.push(formattedLine);
     } else {
       result.push(line);
@@ -1939,14 +2425,14 @@ function formatToPandocStandard(content) {
   }
   return cleanedResult.join("\n");
 }
-function checkPandocFormatting(content) {
+function checkPandocFormatting(content, moreExtendedSyntax = false) {
   const lines = content.split("\n");
   const issues = [];
   let inListBlock = false;
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
-    const isCurrentLineList = isListItem(line);
-    const isCurrentLineHeading = line.match(/^#{1,6}\s+/) !== null;
+    const isCurrentLineList = isListItem(line, moreExtendedSyntax);
+    const isCurrentLineHeading = ListPatterns.isHeading(line);
     const isEmpty = line.trim() === "";
     if (isCurrentLineList) {
       if (!inListBlock && i > 0 && lines[i - 1].trim() !== "") {
@@ -2019,6 +2505,9 @@ function processReadingMode(element, context, config) {
   if (config.enableSuperSubscripts) {
     processSuperSub(element);
   }
+  if (config.enableCustomLabelLists) {
+    processCustomLabelLists(element, context);
+  }
 }
 function processElementTextNodes(elem, parser, renderer, config, docPath, validationLines) {
   const walker = document.createTreeWalker(
@@ -2037,7 +2526,7 @@ function processElementTextNodes(elem, parser, renderer, config, docPath, valida
       return;
     }
     const text = node.textContent || "";
-    if (!containsPandocSyntax(text)) {
+    if (!containsPandocSyntax(text, config)) {
       return;
     }
     const isInParagraph = parent.nodeName === "P";
@@ -2087,8 +2576,10 @@ function processElementTextNodes(elem, parser, renderer, config, docPath, valida
     }
   });
 }
-function containsPandocSyntax(text) {
-  return ListPatterns.isHashList(text) || ListPatterns.isFancyList(text) || ListPatterns.isExampleList(text) || ListPatterns.isDefinitionMarker(text) || ListPatterns.findExampleReferences(text).length > 0;
+function containsPandocSyntax(text, config) {
+  const hasBasicSyntax = ListPatterns.isHashList(text) || ListPatterns.isFancyList(text) || ListPatterns.isExampleList(text) || ListPatterns.isDefinitionMarker(text) || ListPatterns.findExampleReferences(text).length > 0;
+  const hasCustomLabelSyntax = (config == null ? void 0 : config.enableCustomLabelLists) && (ListPatterns.isCustomLabelList(text) || ListPatterns.findCustomLabelReferences(text).length > 0);
+  return hasBasicSyntax || hasCustomLabelSyntax;
 }
 function validateListInStrictMode(line, documentLines, config) {
   let lineNum = -1;
@@ -2103,7 +2594,7 @@ function validateListInStrictMode(line, documentLines, config) {
       lines: documentLines,
       currentLine: lineNum
     };
-    return isStrictPandocList(validationContext, config.strictPandocMode);
+    return isStrictPandocFormatting(validationContext, config.strictPandocMode);
   }
   return true;
 }
@@ -2118,7 +2609,7 @@ var ExampleReferenceSuggestFixed = class extends import_obsidian7.EditorSuggest 
   onTrigger(cursor, editor, file) {
     const line = editor.getLine(cursor.line).substring(0, cursor.ch);
     if (!line.contains("(@")) return null;
-    const matches = [...line.matchAll(/\(@/g)];
+    const matches = ListPatterns.findExampleRefStarts(line);
     if (matches.length === 0) return null;
     const lastMatch = matches[matches.length - 1];
     const startIndex = lastMatch.index;
@@ -2193,6 +2684,98 @@ var ExampleReferenceSuggestFixed = class extends import_obsidian7.EditorSuggest 
     editor.replaceRange(replacement, start, end);
     let newCh = start.ch + replacement.length;
     if (hasClosingParen) {
+      newCh += 1;
+    }
+    editor.setCursor({
+      line: start.line,
+      ch: newCh
+    });
+  }
+};
+
+// src/customLabelReferenceSuggest.ts
+var import_obsidian8 = require("obsidian");
+var CustomLabelReferenceSuggest = class extends import_obsidian8.EditorSuggest {
+  constructor(plugin) {
+    super(plugin.app);
+    this.plugin = plugin;
+  }
+  onTrigger(cursor, editor, file) {
+    if (!this.plugin.settings.moreExtendedSyntax) return null;
+    const line = editor.getLine(cursor.line).substring(0, cursor.ch);
+    if (!line.includes("{::")) return null;
+    const matches = ListPatterns.findCustomLabelRefStarts(line);
+    if (matches.length === 0) return null;
+    const lastMatch = matches[matches.length - 1];
+    const startIndex = lastMatch.index;
+    const afterStart = line.substring(startIndex + 3);
+    if (afterStart.includes("}")) return null;
+    const query = afterStart;
+    return {
+      start: {
+        ch: startIndex,
+        line: cursor.line
+      },
+      end: cursor,
+      query
+    };
+  }
+  getSuggestions(context) {
+    const { query } = context;
+    const doc = context.editor.getValue();
+    const lines = doc.split("\n");
+    const labelData = /* @__PURE__ */ new Map();
+    for (const line of lines) {
+      const match = ListPatterns.isCustomLabelList(line);
+      if (match) {
+        const label = match[3];
+        if (label) {
+          const markerEnd = match[0].length;
+          const text = line.substring(markerEnd).trim();
+          if (!labelData.has(label)) {
+            labelData.set(label, text);
+          }
+        }
+      }
+    }
+    const suggestions = [];
+    for (const [label, text] of labelData) {
+      if (!query || label.toLowerCase().startsWith(query.toLowerCase())) {
+        let previewText = text;
+        if (previewText.length > 30) {
+          previewText = previewText.substring(0, 30) + "...";
+        }
+        suggestions.push({
+          label,
+          previewText: previewText || "(no description)"
+        });
+      }
+    }
+    suggestions.sort((a, b) => a.label.localeCompare(b.label));
+    return suggestions;
+  }
+  renderSuggestion(suggestion, el) {
+    const container = el.createDiv({ cls: CSS_CLASSES.SUGGESTION_CONTENT });
+    const title = container.createDiv({ cls: CSS_CLASSES.SUGGESTION_TITLE });
+    title.setText(`::${suggestion.label}`);
+    const preview = container.createDiv({ cls: CSS_CLASSES.SUGGESTION_PREVIEW });
+    preview.setText(suggestion.previewText);
+  }
+  selectSuggestion(suggestion, evt) {
+    if (!this.context) return;
+    const { editor, start, end } = this.context;
+    const line = editor.getLine(end.line);
+    const afterCursor = line.substring(end.ch);
+    const hasClosingBrace = afterCursor.startsWith("}");
+    let replacement;
+    if (hasClosingBrace) {
+      replacement = `{::${suggestion.label}`;
+    } else {
+      replacement = `{::${suggestion.label}}`;
+    }
+    editor.replaceRange(replacement, start, end);
+    let newCh = start.ch + replacement.length;
+    if (hasClosingBrace) {
       newCh += 1;
     }
     editor.setCursor({
@@ -2307,6 +2890,12 @@ function getNextListMarker(currentLine, allLines, currentLineIndex) {
   const hashMatch = ListPatterns.isHashList(currentLine);
   if (hashMatch) {
     return { marker: "#.", indent: hashMatch[1], spaces: hashMatch[3] };
+  }
+  const customLabelMatch = ListPatterns.isCustomLabelList(currentLine);
+  if (customLabelMatch) {
+    const indent = customLabelMatch[1];
+    const spaces = customLabelMatch[4];
+    return { marker: "{::}", indent, spaces };
   }
   const listMatch = currentLine.match(ListPatterns.LETTER_OR_ROMAN_LIST);
   if (listMatch) {
@@ -2426,7 +3015,7 @@ function renumberListItems(view, insertedLineNum) {
     if (!line.trim()) {
       continue;
     }
-    const listMatch = line.match(/^(\s*)([A-Za-z]+|[ivxlcdmIVXLCDM]+|#)([.)])(\s+)/);
+    const listMatch = line.match(ListPatterns.LETTER_OR_ROMAN_OR_HASH_LIST);
     if (!listMatch) {
       break;
     }
@@ -2517,7 +3106,7 @@ function renumberListItems(view, insertedLineNum) {
 function isEmptyListItem(line) {
   if (line.match(ListPatterns.EMPTY_HASH_LIST)) return true;
   if (line.match(ListPatterns.EMPTY_FANCY_LIST)) return true;
-  if (line.match(ListPatterns.EMPTY_EXAMPLE_LIST)) return true;
+  if (line.match(ListPatterns.EMPTY_CUSTOM_LABEL_LIST_NO_LABEL)) return true;
   if (line.match(ListPatterns.EMPTY_DEFINITION_LIST)) return true;
   return false;
 }
@@ -2531,8 +3120,29 @@ function createListAutocompletionKeymap(settings) {
       const lineText = line.text;
       const isEmptyExampleList = lineText.match(ListPatterns.EMPTY_EXAMPLE_LIST_NO_LABEL);
       if (isEmptyExampleList) {
-        const beforeCursor = state.sliceDoc(line.from, selection.from);
-        if (beforeCursor.endsWith("(@")) {
+        const beforeCursor = state.doc.sliceString(line.from, selection.from);
+        const afterCursor = state.doc.sliceString(selection.from, line.to);
+        if (beforeCursor.endsWith("(@") && afterCursor.startsWith(")")) {
+          const indentMatch = lineText.match(ListPatterns.INDENT_ONLY);
+          const indent = indentMatch ? indentMatch[1] : "";
+          const changes = {
+            from: line.from,
+            to: line.to,
+            insert: indent
+          };
+          const transaction = state.update({
+            changes,
+            selection: import_state2.EditorSelection.cursor(line.from + indent.length)
+          });
+          view.dispatch(transaction);
+          return true;
+        }
+      }
+      const isEmptyCustomLabelList = lineText.match(ListPatterns.EMPTY_CUSTOM_LABEL_LIST_NO_LABEL);
+      if (isEmptyCustomLabelList) {
+        const beforeCursor = state.doc.sliceString(line.from, selection.from);
+        const afterCursor = state.doc.sliceString(selection.from, line.to);
+        if (beforeCursor.endsWith("{::") && afterCursor.startsWith("}")) {
           const indentMatch = lineText.match(ListPatterns.INDENT_ONLY);
           const indent = indentMatch ? indentMatch[1] : "";
           const changes = {
@@ -2629,13 +3239,13 @@ ${markerInfo.indent}${markerInfo.marker}${spaces}`;
           to: insertPos,
           insert: newLine
         };
-        const cursorOffset = markerInfo.marker === "(@)" ? newLine.length - spaces.length - 1 : newLine.length;
+        const cursorOffset = markerInfo.marker === "(@)" ? newLine.length - spaces.length - 1 : markerInfo.marker === "{::}" ? newLine.length - spaces.length - 1 : newLine.length;
         const transaction = state.update({
           changes,
           selection: import_state2.EditorSelection.cursor(insertPos + cursorOffset)
         });
         view.dispatch(transaction);
-        if (settings.autoRenumberLists && markerInfo.marker !== "(@)" && markerInfo.marker !== "#." && !markerInfo.marker.match(ListPatterns.DEFINITION_MARKER_ONLY)) {
+        if (settings.autoRenumberLists && markerInfo.marker !== "(@)" && markerInfo.marker !== "{::}" && markerInfo.marker !== "#." && !markerInfo.marker.match(ListPatterns.DEFINITION_MARKER_ONLY)) {
           const newLineNum = line.number;
           setTimeout(() => {
             renumberListItems(view, newLineNum);
@@ -2726,7 +3336,7 @@ ${markerInfo.indent}${markerInfo.marker}${spaces}`;
 }
 
 // src/main.ts
-var PandocExtendedMarkdownPlugin = class extends import_obsidian8.Plugin {
+var PandocExtendedMarkdownPlugin = class extends import_obsidian9.Plugin {
   async onload() {
     await this.loadSettings();
     this.addSettingTab(new PandocExtendedMarkdownSettingTab(this.app, this));
@@ -2735,11 +3345,13 @@ var PandocExtendedMarkdownPlugin = class extends import_obsidian8.Plugin {
     this.setupModeChangeDetection();
     this.suggester = new ExampleReferenceSuggestFixed(this);
     this.registerEditorSuggest(this.suggester);
+    this.customLabelSuggester = new CustomLabelReferenceSuggest(this);
+    this.registerEditorSuggest(this.customLabelSuggester);
     this.registerCommands();
   }
   registerExtensions() {
-    this.registerEditorExtension(pandocListsExtension(() => this.settings));
-    this.registerEditorExtension(import_state3.Prec.highest(import_view9.keymap.of(createListAutocompletionKeymap(this.settings))));
+    this.registerEditorExtension(pandocExtendedMarkdownExtension(() => this.settings));
+    this.registerEditorExtension(import_state3.Prec.highest(import_view11.keymap.of(createListAutocompletionKeymap(this.settings))));
   }
   registerPostProcessor() {
     this.registerMarkdownPostProcessor((element, context) => {
@@ -2775,14 +3387,14 @@ var PandocExtendedMarkdownPlugin = class extends import_obsidian8.Plugin {
       name: "Check pandoc formatting",
       editorCallback: (editor) => {
         const content = editor.getValue();
-        const issues = checkPandocFormatting(content);
+        const issues = checkPandocFormatting(content, this.settings.moreExtendedSyntax);
         if (issues.length === 0) {
-          new import_obsidian8.Notice(MESSAGES.PANDOC_COMPLIANT);
+          new import_obsidian9.Notice(MESSAGES.PANDOC_COMPLIANT);
         } else {
           const issueList = issues.map(
             (issue) => `Line ${issue.line}: ${issue.message}`
           ).join("\n");
-          new import_obsidian8.Notice(`${MESSAGES.FORMATTING_ISSUES(issues.length)}:
+          new import_obsidian9.Notice(`${MESSAGES.FORMATTING_ISSUES(issues.length)}:
 ${issueList}`, UI_CONSTANTS.NOTICE_DURATION_MS);
         }
       }
@@ -2792,12 +3404,12 @@ ${issueList}`, UI_CONSTANTS.NOTICE_DURATION_MS);
       name: "Format document to pandoc standard",
       editorCallback: (editor) => {
         const content = editor.getValue();
-        const formatted = formatToPandocStandard(content);
+        const formatted = formatToPandocStandard(content, this.settings.moreExtendedSyntax);
         if (content !== formatted) {
           editor.setValue(formatted);
-          new import_obsidian8.Notice(MESSAGES.FORMAT_SUCCESS);
+          new import_obsidian9.Notice(MESSAGES.FORMAT_SUCCESS);
         } else {
-          new import_obsidian8.Notice(MESSAGES.FORMAT_ALREADY_COMPLIANT);
+          new import_obsidian9.Notice(MESSAGES.FORMAT_ALREADY_COMPLIANT);
         }
       }
     });
@@ -2809,9 +3421,23 @@ ${issueList}`, UI_CONSTANTS.NOTICE_DURATION_MS);
         const toggled = this.toggleDefinitionBoldStyle(content);
         if (content !== toggled) {
           editor.setValue(toggled);
-          new import_obsidian8.Notice(MESSAGES.TOGGLE_BOLD_SUCCESS);
+          new import_obsidian9.Notice(MESSAGES.TOGGLE_BOLD_SUCCESS);
         } else {
-          new import_obsidian8.Notice(MESSAGES.NO_DEFINITION_TERMS);
+          new import_obsidian9.Notice(MESSAGES.NO_DEFINITION_TERMS);
+        }
+      }
+    });
+    this.addCommand({
+      id: COMMANDS.TOGGLE_DEFINITION_UNDERLINE,
+      name: "Toggle definition list underline style",
+      editorCallback: (editor) => {
+        const content = editor.getValue();
+        const toggled = this.toggleDefinitionUnderlineStyle(content);
+        if (content !== toggled) {
+          editor.setValue(toggled);
+          new import_obsidian9.Notice(MESSAGES.TOGGLE_UNDERLINE_SUCCESS);
+        } else {
+          new import_obsidian9.Notice(MESSAGES.NO_DEFINITION_TERMS);
         }
       }
     });
@@ -2857,15 +3483,32 @@ ${issueList}`, UI_CONSTANTS.NOTICE_DURATION_MS);
     }
     return { terms: definitionTerms, anyHasBold };
   }
+  identifyDefinitionTermsWithUnderline(lines) {
+    const definitionTerms = [];
+    let anyHasUnderline = false;
+    for (let i = 0; i < lines.length; i++) {
+      const trimmedLine = lines[i].trim();
+      if (!trimmedLine || ListPatterns.isDefinitionMarker(trimmedLine)) {
+        continue;
+      }
+      if (this.isDefinitionTerm(lines, i)) {
+        const hasUnderline = ListPatterns.UNDERLINE_SPAN.test(trimmedLine);
+        definitionTerms.push({ index: i, hasUnderline });
+        if (hasUnderline) {
+          anyHasUnderline = true;
+        }
+      }
+    }
+    return { terms: definitionTerms, anyHasUnderline };
+  }
   toggleDefinitionBoldStyle(content) {
-    var _a;
     const lines = content.split("\n");
     const modifiedLines = [...lines];
     const { terms, anyHasBold } = this.identifyDefinitionTerms(lines);
     for (const term of terms) {
       const line = lines[term.index];
       const trimmedLine = line.trim();
-      const originalIndent = ((_a = line.match(/^(\s*)/)) == null ? void 0 : _a[1]) || "";
+      const originalIndent = ListPatterns.getIndent(line);
       if (anyHasBold) {
         const match = trimmedLine.match(ListPatterns.BOLD_TEXT);
         if (match) {
@@ -2879,4 +3522,26 @@ ${issueList}`, UI_CONSTANTS.NOTICE_DURATION_MS);
     }
     return modifiedLines.join("\n");
   }
+  toggleDefinitionUnderlineStyle(content) {
+    const lines = content.split("\n");
+    const modifiedLines = [...lines];
+    const { terms, anyHasUnderline } = this.identifyDefinitionTermsWithUnderline(lines);
+    for (const term of terms) {
+      const line = lines[term.index];
+      const trimmedLine = line.trim();
+      const originalIndent = ListPatterns.getIndent(line);
+      if (anyHasUnderline) {
+        const match = trimmedLine.match(ListPatterns.UNDERLINE_SPAN);
+        if (match) {
+          modifiedLines[term.index] = originalIndent + match[1];
+        }
+      } else {
+        if (!ListPatterns.UNDERLINE_SPAN.test(trimmedLine)) {
+          modifiedLines[term.index] = originalIndent + '<span class="underline">' + trimmedLine + "</span>";
+        }
+      }
+    }
+    return modifiedLines.join("\n");
+  }
 };
+var main_default = PandocExtendedMarkdownPlugin;
