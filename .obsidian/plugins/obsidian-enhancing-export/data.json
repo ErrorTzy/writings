@@ -19,7 +19,7 @@
     {
       "name": "PDF",
       "customArguments": "--pdf-engine=xelatex",
-      "arguments": "-f ${fromFormat} --lua-filter=\"${luaDir}/more_extended_syntax.lua\" --lua-filter=\"${luaDir}/diagram-generator.lua\" --lua-filter=\"${luaDir}/highlight.lua\" --resource-path=\"${currentDir}\" --resource-path=\"${attachmentFolderPath}\" --lua-filter=\"${luaDir}/pdf.lua\" ${ options.textemplate ? `--resource-path=\"${pluginDir}/textemplate\" --template=\"${options.textemplate}\"` : ` ` } -o \"${outputPath}\" -t pdf"
+      "arguments": "-f ${fromFormat}-smart --lua-filter=\"${luaDir}/more_extended_syntax.lua\" --lua-filter=\"${luaDir}/diagram-generator.lua\" --lua-filter=\"${luaDir}/highlight.lua\" --resource-path=\"${currentDir}\" --resource-path=\"${attachmentFolderPath}\" --lua-filter=\"${luaDir}/pdf.lua\" ${ options.textemplate ? `--resource-path=\"${pluginDir}/textemplate\" --template=\"${options.textemplate}\"` : ` ` } -o \"${outputPath}\" -t pdf"
     },
     {
       "name": "Word (.docx)",
