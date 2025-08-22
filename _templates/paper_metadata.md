@@ -16,6 +16,10 @@ include-before:
 header-includes:
   - \usepackage{enumitem}
   - \setlist[description]{style=nextline}
+  - \usepackage{ulem}
+  - \renewcommand{\descriptionlabel}[1]{\hspace{\labelsep}\textbf{\uline{#1}}}
+---
+
 linestretch: "1.5"
 fontsize: "10"
 ---
