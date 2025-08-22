@@ -1,8 +1,6 @@
 [
   "pandoc-lists",
   "table-editor-obsidian",
-  "better-word-count",
-  "obsidian-citation-plugin",
   "enhanced-annotations",
   "obsidian-enhancing-export",
   "obsidian-footnotes",
@@ -10,13 +8,14 @@
   "languagetool",
   "obsidian-latex-suite",
   "obsidian-zotero-desktop-connector",
-  "various-complements",
-  "typing-transformer-obsidian",
   "obsidian-tidy-footnotes",
   "obsidian-style-settings",
   "obsidian-smarter-md-hotkeys",
   "quick-latex",
   "obsidian-pandoc-reference-list",
   "obsidian-minimal-settings",
-  "pandoc-extended-markdown"
+  "pandoc-extended-markdown",
+  "obsidian-citation-plugin",
+  "various-complements",
+  "typing-transformer-obsidian"
 ]

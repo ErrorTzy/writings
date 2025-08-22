@@ -1,13 +1,5 @@
----
-documentclass: exam
-title: Assignment
-author: Scott Tang
-mainfont: FreeSerif
-CJKmainfont: Noto Serif CJK SC
-mathfont: XITS Math
----
+{::P1} Chairs has no parts
+{::P2}  Every thing has parts
+{::C}  Chairs do not exist
 
-{::P1} Premise 1
-{::P2} Premise 2 
-
- Premise {::P1} is sound.
+Now, {::C} is obviously absurd. But {::P1} and {::P2} sounds plausible.

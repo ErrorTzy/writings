@@ -30,7 +30,7 @@
   ],
   "strictLineBreaks": false,
   "alwaysUpdateLinks": true,
-  "vimMode": true,
+  "vimMode": false,
   "showLineNumber": true,
   "autoPairMarkdown": true,
   "smartIndentList": true,
