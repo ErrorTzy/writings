@@ -1,5 +1,7 @@
-{::P1'} Chairs has no parts
-{::P2}  Every thing has parts
-{::C}  Chairs do not exist
 
-Now, {::C} is obviously absurd. But {::P1'} and {::P2} sounds plausible.
+{::P(#a)} Chairs has no parts
+{::P(#d)} aaaa 
+{::P(#b)}  Every thing has parts
+{::P(#c)} AAA  
+
+Problem: On new placeholder creation, did not reset. Changing mode or switching document also does not reset the value. Placeholders are not correctly reset.
