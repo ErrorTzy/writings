@@ -118,6 +118,12 @@ Are beliefs truth-tracking? But if there's any epistemic norm, then belief beyon
 
 Pragmatic virtue: to choose a theory presupposes rational agency
 
+Why rational agency, or the ability to make choices an decision? Hirsch's answer: assume there is a language that use rational* instead of rational. Then it follows that, it is more rational* to be rational* than to be rational; and it is more rational to be rational than to be rational*. 
+
+This should not be taken as a trivial claim that, "rational" could mean something else, like hello.
+
+
+The problem with this answer is to asume the normative power we attribute to our language did not change.
 ## On Charity
 
 Calling it rational doesn't make it automatically rational.
