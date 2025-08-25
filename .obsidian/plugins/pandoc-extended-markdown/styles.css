@@ -253,67 +253,191 @@ sub.pandoc-subscript {
     line-height: 0;
 }
 
-/* Custom Label View Styles */
-.custom-label-view-container {
-    padding: 8px;
-    overflow-y: auto;
+/* List Panel View Styles */
+.pandoc-list-panel-view-container {
+    display: flex;
+    flex-direction: column;
     height: 100%;
+    padding: 8px;
 }
 
-.custom-label-view-header {
-    display: grid;
-    grid-template-columns: 60px 1fr;
-    gap: 12px;
-    padding: 8px 4px;
-    border-bottom: 1px solid var(--background-modifier-border);
-    font-weight: 600;
-    font-size: 0.9em;
+.pandoc-list-panel-icon-row {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    padding: 4px 0;
+    margin-bottom: 4px;
+}
+
+.pandoc-list-panel-icon-button {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 4px;
+    background-color: var(--background-primary);
+    transition: all 0.2s ease;
+}
+
+.pandoc-list-panel-icon-button:hover {
+    background-color: var(--background-modifier-hover);
+    border-color: var(--text-accent);
+}
+
+.pandoc-list-panel-icon-button.is-active {
+    background-color: var(--interactive-accent);
+    border-color: var(--interactive-accent);
+}
+
+.pandoc-list-panel-icon-button.is-active svg {
+    color: var(--text-on-accent);
+}
+
+.pandoc-list-panel-icon-button svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Panel icon container */
+.pandoc-panel-icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+}
+
+/* Text-based icons for panels */
+.pandoc-icon-custom-label,
+.pandoc-icon-example-list {
+    font-family: var(--font-monospace);
+    font-weight: bold;
+    font-size: 10px;
+    line-height: 20px;
     color: var(--text-muted);
 }
 
-.custom-label-view-header-label {
-    text-align: left;
+.pandoc-list-panel-icon-button.is-active .pandoc-icon-custom-label,
+.pandoc-list-panel-icon-button.is-active .pandoc-icon-example-list {
+    color: var(--text-on-accent);
 }
 
-.custom-label-view-header-content {
-    text-align: left;
+.pandoc-list-panel-icon-button:hover .pandoc-icon-custom-label,
+.pandoc-list-panel-icon-button:hover .pandoc-icon-example-list {
+    color: var(--text-normal);
 }
 
-.custom-label-view-row {
-    display: grid;
-    grid-template-columns: 60px 1fr;
+.pandoc-list-panel-separator {
+    margin: 8px 0;
+    border: none;
+    border-top: 1px solid var(--background-modifier-border);
+}
+
+.pandoc-list-panel-content-container {
+    flex: 1;
+    overflow-y: auto;
+}
+
+/* Panel Order Settings Styles */
+.pandoc-panel-order-info {
+    flex: 0 0 auto;
+    max-width: 200px;
+}
+
+.pandoc-panel-order-container {
+    display: flex;
     gap: 12px;
-    padding: 6px 4px;
+    width: 100%;
+}
+
+.pandoc-panel-order-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+    min-width: 300px;
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 6px;
+    padding: 8px;
+}
+
+.pandoc-panel-order-item {
+    padding: 6px 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.pandoc-panel-order-item.is-selected {
+    background-color: var(--interactive-accent);
+    color: var(--text-on-accent);
+}
+
+.pandoc-panel-order-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+.pandoc-panel-order-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 140px;
+}
+
+.pandoc-panel-order-button {
+    width: 100%;
+}
+
+/* Custom Label View Styles */
+table.custom-label-view-container {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+}
+
+/* Header styles removed - no longer using header */
+
+tr.custom-label-view-row {
     border-bottom: 1px solid var(--background-modifier-border-hover);
     transition: background-color 0.15s ease;
 }
 
-.custom-label-view-row:hover {
+tr.custom-label-view-row:hover {
     background-color: var(--background-modifier-hover);
 }
 
-.custom-label-view-label {
+td.custom-label-view-label {
     font-family: var(--font-monospace);
     font-size: 0.9em;
     color: var(--text-accent);
     cursor: pointer;
-    padding: 2px 4px;
+    padding: 6px 8px;
     border-radius: 3px;
     transition: background-color 0.15s ease;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    width: 1%;
+    min-width: fit-content;
 }
 
-.custom-label-view-label:hover {
+td.custom-label-view-label:hover {
     background-color: var(--background-modifier-hover);
 }
 
-.custom-label-view-content {
+td.custom-label-view-content {
     font-size: 0.9em;
     color: var(--text-normal);
     cursor: pointer;
-    padding: 2px 4px;
+    padding: 6px 8px;
     border-radius: 3px;
     transition: background-color 0.15s ease;
     white-space: pre-wrap;
@@ -323,14 +447,151 @@ sub.pandoc-subscript {
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
+    line-height: 1.3;
 }
 
-.custom-label-view-content:hover {
+/* Normalize paragraph spacing in custom label panel content */
+td.custom-label-view-content p {
+    margin: 0;
+    line-height: 1.3;
+}
+
+td.custom-label-view-content p:not(:last-child) {
+    margin-bottom: 0.3em;
+}
+
+/* Also normalize lists in custom label panel */
+td.custom-label-view-content ul,
+td.custom-label-view-content ol {
+    margin: 0;
+    padding-left: 1.2em;
+    line-height: 1.3;
+}
+
+td.custom-label-view-content ul:not(:last-child),
+td.custom-label-view-content ol:not(:last-child) {
+    margin-bottom: 0.3em;
+}
+
+td.custom-label-view-content li {
+    margin: 0;
+    line-height: 1.3;
+}
+
+td.custom-label-view-content:hover {
     background-color: var(--background-modifier-hover);
     color: var(--text-accent);
 }
 
 .custom-label-view-empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+/* Example List View Styles */
+table.pandoc-example-list-view-container {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+}
+
+tr.pandoc-example-list-view-row {
+    border-bottom: 1px solid var(--background-modifier-border-hover);
+    transition: background-color 0.15s ease;
+}
+
+tr.pandoc-example-list-view-row:hover {
+    background-color: var(--background-modifier-hover);
+}
+
+td.pandoc-example-list-view-number {
+    font-family: var(--font-monospace);
+    font-size: 0.9em;
+    color: var(--text-muted);
+    cursor: default;
+    padding: 6px 8px;
+    border-radius: 3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 1%;
+    min-width: fit-content;
+}
+
+td.pandoc-example-list-view-label {
+    font-family: var(--font-monospace);
+    font-size: 0.9em;
+    color: var(--text-accent);
+    cursor: pointer;
+    padding: 6px 8px;
+    border-radius: 3px;
+    transition: background-color 0.15s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 1%;
+    min-width: fit-content;
+}
+
+td.pandoc-example-list-view-label:hover {
+    background-color: var(--background-modifier-hover);
+}
+
+td.pandoc-example-list-view-content {
+    font-size: 0.9em;
+    color: var(--text-normal);
+    cursor: pointer;
+    padding: 6px 8px;
+    border-radius: 3px;
+    transition: background-color 0.15s ease;
+    white-space: pre-wrap;
+    word-break: break-word;
+    max-height: 4.5em;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    line-height: 1.3;
+}
+
+/* Normalize paragraph spacing in example list panel content */
+td.pandoc-example-list-view-content p {
+    margin: 0;
+    line-height: 1.3;
+}
+
+td.pandoc-example-list-view-content p:not(:last-child) {
+    margin-bottom: 0.3em;
+}
+
+/* Also normalize lists in example list panel */
+td.pandoc-example-list-view-content ul,
+td.pandoc-example-list-view-content ol {
+    margin: 0;
+    padding-left: 1.2em;
+    line-height: 1.3;
+}
+
+td.pandoc-example-list-view-content ul:not(:last-child),
+td.pandoc-example-list-view-content ol:not(:last-child) {
+    margin-bottom: 0.3em;
+}
+
+td.pandoc-example-list-view-content li {
+    margin: 0;
+    line-height: 1.3;
+}
+
+td.pandoc-example-list-view-content:hover {
+    background-color: var(--background-modifier-hover);
+    color: var(--text-accent);
+}
+
+.pandoc-example-list-view-empty {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -362,6 +623,34 @@ sub.pandoc-subscript {
     overflow: auto;
     white-space: pre-wrap;
     word-break: break-word;
+}
+
+/* Fix excessive line height in popover paragraphs */
+.pandoc-hover-popover p {
+    margin: 0;
+    line-height: 1.5;
+}
+
+.pandoc-hover-popover p:not(:last-child) {
+    margin-bottom: 0.5em;
+}
+
+/* Also normalize other block elements that might appear in popovers */
+.pandoc-hover-popover ul,
+.pandoc-hover-popover ol {
+    margin: 0;
+    padding-left: 1.5em;
+    line-height: 1.5;
+}
+
+.pandoc-hover-popover ul:not(:last-child),
+.pandoc-hover-popover ol:not(:last-child) {
+    margin-bottom: 0.5em;
+}
+
+.pandoc-hover-popover li {
+    margin: 0;
+    line-height: 1.5;
 }
 
 /* Highlight animation for scrolled-to lines */

@@ -2,5 +2,10 @@
   "strictPandocMode": true,
   "autoRenumberLists": true,
   "moreExtendedSyntax": true,
+  "panelOrder": [
+    "example-lists",
+    "custom-labels"
+  ],
+  "useNewPipeline": true,
   "strictCustomLabelMode": true
 }
