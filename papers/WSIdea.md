@@ -1,7 +1,7 @@
 All names may have
 
-(1) representation, and 
-(2) inferential rules
+1) representation, and 
+2) inferential rules
 
 (1) might be deferred to the community. We need representation to really make sense of something being really there. And not all representation counts: a painting, a statue (representation of representation) may not be a sufficient representation for us to say, it is really there. All we can is a painting and a statue is there.
 
