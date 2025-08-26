@@ -45,9 +45,9 @@ Upshot 2: we can create objects with essential properties, by stipulation. I say
 
 ## On motivation
 
-In this paper, I want to discuss the question: How much reality should we read off our language? For example, almost all natural languages have a subject-predicate structure. Should we then say, the world itself is constituted of objects and properties? And especially, we say things are good or bad. Then should we read them off our language and say there are such properties in the world? Also, the proposition $P$ seems syntactically more primitive than $\neg \neg P$. Should we read this structure off our language and say $P$ is in some sense more fundamental than $\neg \neg P$? Quantum physics describes the world in terms of wave functions. Should we conclude that reality is in some sense just a bunch of waves (or maybe, a huge, holistic wave)? These kind of questions are central to maybe all metaphysical problems.
+In this paper, the underlying the question is: How much reality should we read off our language? In fact, this might be an overly broad question. For example, almost all natural languages have a subject-predicate structure. Should we then say, the world itself is constituted of objects and properties? And especially, we say things are good or bad. Then should we read them off our language and say there are such properties in the world? Also, the proposition $P$ seems syntactically more primitive than $\neg \neg P$. Should we read this structure off our language and say $P$ is in some sense more fundamental than $\neg \neg P$? Quantum physics describes the world in terms of wave functions. Should we conclude that reality is in some sense just a bunch of waves (or maybe, a huge, holistic wave)? These kinds of questions are central to maybe all metaphysical problems.
 
-But in fact this question is not totally accurate. It's better to ask, How much reality should we read off our *interpretation* of language? We aren't exactly reading reality off our language, as least as long as we take the model-theoretic meaning of "language" and contrast it with its interpretation. For example, syntactically speaking, there's no difference between banks. For the sake of the argument, let's assume kinds to be worldly. Then if we are reading reality off our syntax, then we should take bank to be a unified kind. But normally we don't think so. We think "bank" is ambiguous and there are two different kinds of bank in the world instead of one. Therefore, our normal practice is to read reality off our interpretation of language, not the language per se.[^1]
+But in fact this question is not totally accurate. It's better to ask, How much reality should we read off our *interpretation* of language? We aren't exactly reading reality off our language, as least as long as we take the model-theoretic meaning of "language" and contrast it with its interpretation. For example, syntactically speaking, there's no difference between banks. (For the sake of the argument, let's assume all kinds to be worldly.) Then if we are reading reality off our syntax, then we should take bank to be a unified kind. But normally we don't think so. We think "bank" is ambiguous and there are two different kinds of bank in the world instead of one. Therefore, our normal practice is to read reality off our interpretation of language, not the language per se.[^1]
 
 Technically speaking, the interpretation of a language is a model. But as long as we are talking about the interpretation of natural language, the model-theoretic talk is best understood as either a reconstruction or a representation of our interpretation. I take it to be obvious that no one really think in terms of domains, predicate interpretations and variant assignments when we speak.
 
@@ -92,13 +92,35 @@ Explanation is in the realm of rationality, therefore it is easy to do philosoph
 
 ## On Metametaphysics
 
+Neo-quinean metaphysics: on what there is
+
 Quine's view: to find out what there is
 Lewis' extension: Modal operator is just disguised quantifier over worlds, and existence of possible worlds determine the truth of de dicto modality. And de re modality is determined by counterparts, which in turn is determined by similarity.
-Hirsch's thesis: 
+
+Neo-Carnapians: deflating questions about existence
+
+Hirsch's thesis: verbal dispute about two bi-interpretive language, some existence questions are not substantial.
+Thomasson's thesis: easy ontology, we can get easy answers for ontological questions.
+
+Neo-Aristotelians: 
+
+Existence questions are trivial, the more important question is about fundamentality
+
+Problem: are Neo-Aristotelians really escaping the attack from Neo-Carnapians? The gist of the Neo-Carnapian theory is not really about existence only, but semantic variance. Their argument should not only apply to existential ones. So the 
+
+## On theory choice
+
+Why we need to care about theory choice? All we need to do is to determine which theory is correct. To talk about choosing theory in metaphysics risk conflating metaphysics with epistemology. I am pretty willing to believe that there is one true reality, and therefore *in some sense* there is "the one true metaphysics" independent of any epistemic argument. 
+
+But the pressure comes from radical skepticism. What if everything happens because there is a god doing all the push and pulls to make it look like it has laws of nature? What if we are having a realistic dream about the reality? In other words, these kind of skepticism points to the possiblity that, we do not have the ability to fix the "one true metaphysics". Given all what we can get (including any philosophical argument or any possible empirical evidence), there are in principle no way to rule out radical skepticism.
+
+In contemporary metaphysics, metaphysicians usually
+
+I don't see any metaphysical account per se can rule out these kinds of possibility. 
 
 ## On Modal Logic
 
-According to two dimensional semantics, some sentence could be a priori contingent. A sentence is a priori when it is 2D-valid, i.e. no matter which world the speaker of the utterance is in, the utterance is guaranteed to be true in that world. A sentence is (superficially) contingent if no matter which world the speaker is in, the utterance is possible to be evaluated as false, and possible to be evaluated as true by people in other worlds. For example, the sentence "The length of the standard meter bar is the actual length of standard meter bar" is a priori because no matter which world this sentence is uttered, this sentence is true in that world. But if we evaluate this sentence in worlds other than the speaker's world, then it is possible to be false because "the actual length of standard meter bar" refers to 1-m-length in the speaker's world, while "the length of the standard meter bar" refers to 1-m-length in the evaluation world.
+According to two-dimensional semantics, some sentence could be a priori contingent. A sentence is a priori when it is 2D-valid, i.e. no matter which world the speaker of the utterance is in, the utterance is guaranteed to be true in that world. A sentence is (superficially) contingent if no matter which world the speaker is in, the utterance is possible to be evaluated as false, and possible to be evaluated as true by people in other worlds. For example, the sentence "The length of the standard meter bar is the actual length of standard meter bar" is a priori because no matter which world this sentence is uttered, this sentence is true in that world. But if we evaluate this sentence in worlds other than the speaker's world, then it is possible to be false because "the actual length of standard meter bar" refers to 1-m-length in the speaker's world, while "the length of the standard meter bar" refers to 1-m-length in the evaluation world.
 
 A posteriori necessity is stranger. A sentence is a posteriori when it is not 2D-valid, i.e. it is not guaranteed that, no matter which world the speaker of the utterance is in, the utterance is guaranteed to be true in that world. But in what sense, then,  is a sentence still necessary when it is not 2D-valid? We invoke the concept of "realistic model": an a posteriori necessary sentence is valid in any realistic model. For example, "the actual morning star is the actual evening star" ('morning star' and 'evening star' taken as rigid descriptions) is a posteriori necessary because for any realistic model, the sentence is true whereever the speaker is, and whichever the possible world it is evaluated. (Of course it is better to revise the sentences into, "if the actual morning star uniquely exists, then the actual morning star is the actual evening star")
 
