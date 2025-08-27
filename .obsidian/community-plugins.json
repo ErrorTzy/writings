@@ -17,5 +17,6 @@
   "pandoc-extended-markdown",
   "obsidian-citation-plugin",
   "various-complements",
-  "typing-transformer-obsidian"
+  "typing-transformer-obsidian",
+  "better-word-count"
 ]

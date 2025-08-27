@@ -92,10 +92,16 @@ Explanation is in the realm of rationality, therefore it is easy to do philosoph
 
 ## On Metametaphysics
 
-Neo-quinean metaphysics: on what there is
+For the context, let me briefly sketch the familiar story of the development of contemporary metaphysics (The story has been told in ==schaffer what grounds what==. I am merely sketching it). 
+
+I will use "neo-Quinean", "neo-Carnapian" and "neo-Aristotelian" as some sort of broad label.
+
+For "neo-Quinean", I mean metaphysicians who think metaphysics as a discipline for questions about existence. 
 
 Quine's view: to find out what there is
 Lewis' extension: Modal operator is just disguised quantifier over worlds, and existence of possible worlds determine the truth of de dicto modality. And de re modality is determined by counterparts, which in turn is determined by similarity.
+
+For "neo-Carnapian", I mean metaphysicians who think at least some metaphysical debates are in fact talking past each other because they are using language differently.
 
 Neo-Carnapians: deflating questions about existence
 
@@ -104,9 +110,20 @@ Thomasson's thesis: easy ontology, we can get easy answers for ontological quest
 
 Neo-Aristotelians: 
 
-Existence questions are trivial, the more important question is about fundamentality
+Existence questions are trivial, the more important question is about fundamentality. (citation from "rethinking metaphysics: Neo-Aristotelians are tried of neo-Carnapians and neo-Quineans.") Even if we get a list of indispensable existence, it seems we still miss out some important fact about our reality. So we can move forward our metaphysics because the old way of inquiry missed out something important. And since neo-Carnapian are targeting at neo-Quineans, then we can also ignore the neo-Carnapians.
 
-Problem: are Neo-Aristotelians really escaping the attack from Neo-Carnapians? The gist of the Neo-Carnapian theory is not really about existence only, but semantic variance. Their argument should not only apply to existential ones. So the 
+Problem: are Neo-Aristotelians really escaping the attack from Neo-Carnapians? The gist of the Neo-Carnapian theory is not really about existence only, but all possible semantic variance of terms. Their argument should not only apply to existential ones. So the question is, are Neo-Aristotelians immune to neo-Carnapian deflationism?
+
+Three ways of talking about fundamentality. Neo-Quineans, by inheriting the legacy of Lewis, talks about fundamentality in terms of naturalness and structure.
+
+Naturalness (Target: Ted sider and Goodman's riddle)
+(small-)grounding/building (Target: Bennett)
+Essence (Target: Kit Fine Essence and modality) closely related. Singleton Socrates. The incorrectness of singleton Socrates example. We think Socrates is somewhat internal to $\{Socrates\}$, while $\{Socrates\}$ is somehow external to Socrates. But why set formulation must have this interpretation of being external? Partly the reason comes from syntax. If we write $\{\}-Socrates$, I am afraid the intuition for would change.
+
+
+
+The only reason I can think of
+
 
 ## On theory choice
 
@@ -114,7 +131,7 @@ Why we need to care about theory choice? All we need to do is to determine which
 
 But the pressure comes from radical skepticism. What if everything happens because there is a god doing all the push and pulls to make it look like it has laws of nature? What if we are having a realistic dream about the reality? In other words, these kind of skepticism points to the possiblity that, we do not have the ability to fix the "one true metaphysics". Given all what we can get (including any philosophical argument or any possible empirical evidence), there are in principle no way to rule out radical skepticism.
 
-In contemporary metaphysics, metaphysicians usually
+In contemporary metaphysics, metaphysicians usually dismiss radical skepticism as being crazy (e.g. Yablo: "but that's radical skepticism"). I believe that's correct, but it does reveal something. To reject radical skepticism, most often we appeal to rationality. For example, we may say we are We can't do metaphysics without epistemology
 
 I don't see any metaphysical account per se can rule out these kinds of possibility. 
 
@@ -146,9 +163,13 @@ This should not be taken as a trivial claim that, "rational" could mean somethin
 
 
 The problem with this answer is to asume the normative power we attribute to our language did not change.
+
+"trust the reality"
 ## On Charity
 
 Calling it rational doesn't make it automatically rational.
 
 
 Moving from "content" to "circumstance"
+
+## On Agency and causation
