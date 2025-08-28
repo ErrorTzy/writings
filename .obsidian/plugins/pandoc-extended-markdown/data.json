@@ -1,5 +1,5 @@
 {
-  "strictPandocMode": true,
+  "strictPandocMode": false,
   "autoRenumberLists": true,
   "moreExtendedSyntax": true,
   "panelOrder": [
