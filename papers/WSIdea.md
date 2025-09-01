@@ -173,3 +173,5 @@ Calling it rational doesn't make it automatically rational.
 Moving from "content" to "circumstance"
 
 ## On Agency and causation
+
+The difference between causal and non-causal building is about manipulating variables in the foreground or the background. 
