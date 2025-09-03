@@ -165,6 +165,11 @@ This should not be taken as a trivial claim that, "rational" could mean somethin
 The problem with this answer is to asume the normative power we attribute to our language did not change.
 
 "trust the reality"
+
+Hieronymi:
+
+1. We may actually form beliefs automatically and non-voluntarily
+2. We have the freedom to 
 ## On Charity
 
 Calling it rational doesn't make it automatically rational.
