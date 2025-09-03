@@ -166,10 +166,34 @@ The problem with this answer is to asume the normative power we attribute to our
 
 "trust the reality"
 
+My reason against "truth-trackingness": 
+
+What is the thing being tracked? In normal cases, we track truth by empirical evidence. We can know it's raining when you see raindrops falling down. So we say this evidence gives reason for believing that it's raining. But the problem is why this must tracks the fact that "it's raining", instead of "someone is playing a video that it is raining by the window" (because this evidence does not distinguish between these two cases). 
+
+I understand that radical skepticism is somewhat a taboo in contemporary analytic philosophy. But for the sake of the argument let's put the worry that I am running into radical skepticism aside for now. 
+
+The Bayesian principle for initial distribution of credence can in some sense solve the problem: our initial distribution for the credence for "it's raining" is higher than "someone is playing a video that it is raining by the window". But does this initial distribution track the truth? It doesn't. But if we say we cannot rationally believe "it is raining" when I look at the window and the raindrops are falling, then I don't know how to live a normal life.
+
+**If you throw away all the intuitions, you cannot establish anything**
+
+We always assume everyone has the same intuition, same disposition and, in some sense, the same form of life. But it is almost certain that it is not the case. We have subtle different intuitions and forms of life. Maybe not so radically different, so that even people in the opposite of the globe wouldn't interpret "plus" as "quus". And maybe there might be some biological reasons. But what if there are aliens (or artificial intelligence) who are radically different from us?
+
 Hieronymi:
 
-1. We may actually form beliefs automatically and non-voluntarily
-2. We have the freedom to 
+- Possibly, we actually form beliefs automatically and non-voluntarily
+- We have the freedom to investigate our beliefs and thus have indirect control
+
+Remark: If there is creature that is able to form beliefs voluntarily, then probably they would be responsible. Therefore, voluntariness is a sufficient condition. Yet it is not necessary. Therefore, we don't have to voluntarily form beliefs.
+
+- It is sufficient for us to be responsible for our beliefs if we have the ability to be answerable for them
+- To rationally believe that P is to come to a settlement of the particular question "Is P true?" (instead of whether "is P good to believe"); if we have the ability to 
+
+Question: 
+
+1. Why beliefs cannot be voluntary?
+2. Is Hieronymi still presupposing some sort of voluntary control of belief (by examine and investigation)?
+3. Why answerability gives rise to responsibility?
+4. Is the claim about truth-tracking separable from the claim that we can still be responsible?
 ## On Charity
 
 Calling it rational doesn't make it automatically rational.

@@ -1,7 +1,7 @@
 {
   "serverUrl": "http://localhost:8081",
   "autoCheckDelay": 3000,
-  "shouldAutoCheck": false,
+  "shouldAutoCheck": true,
   "languageVariety": {
     "en": "en-US",
     "de": "de-DE",
@@ -15,6 +15,7 @@
     "deflationism",
     "dicto",
     "fundamentality",
+    "Hieronymi",
     "intrinsicness",
     "Metametaphysics",
     "neo-",
@@ -25,9 +26,11 @@
     "neo-Quinean",
     "neo-Quineans",
     "Neo-Quineans",
+    "quus",
     "QV",
     "supervenience",
     "transworld",
+    "truth-trackingness",
     "Yablo"
   ],
   "syncDictionary": false,
