@@ -194,6 +194,18 @@ Question:
 2. Is Hieronymi still presupposing some sort of voluntary control of belief (by examine and investigation)?
 3. Why answerability gives rise to responsibility?
 4. Is the claim about truth-tracking separable from the claim that we can still be responsible?
+
+The epistemic agency presupposed here is not what involuntarists is attacking on. The relevant sense of epistemic agency here means any kind of control over our beliefs, including the indirect control, like examing the evidence, investigating new evidence, etc.. Involuntarists like Hieronymi 2008 also agrees that we have such kind of epistemic agency. Therefore, it is rather uncontroversial that, we do have epistemic agency and are able to choose between theories voluntarily in the relevant sense.
+
+Question: can there be a creature who has no agency for belief in any sense, but can still have beliefs and ?
+
+What would undermine my principle of sanity, i.e. we cannot genuinely believe that we have no rational agency, and therefore epistemic norm are not always truth-tracking?
+
+The possiblity
+
+According to Hieronymi, for $x$ to believe that $P$ means that $x$ is answerable to the question that "Is $P$ true?". And to be answerable to any question at all, one must be able to use language. But language presuppose intentionality: a dinasour who accidentally uses its claws to draw the shape of the symbol "water" in Jurassic age is not an evidence that the dinasour is using language. And it is uncontroversial to say that, to intentionality do something requires agency. Therefore, according to Hieronymi, it seems it is impossible for creatures to have belief states if this creature does not have any sort of agency at all. 
+
+But maybe this is too intelletualist.  Let's say it is possible that we can invent a philosophy machine that can be said to have belief states, and are able to revise beliefs based on investigations, etc. is completely pre-programmed, and has no agency. Then it seems that this machine 
 ## On Charity
 
 Calling it rational doesn't make it automatically rational.
