@@ -195,7 +195,7 @@ Question:
 3. Why answerability gives rise to responsibility?
 4. Is the claim about truth-tracking separable from the claim that we can still be responsible?
 
-The epistemic agency presupposed here is not what involuntarists is attacking on. The relevant sense of epistemic agency here means any kind of control over our beliefs, including the indirect control, like examing the evidence, investigating new evidence, etc.. Involuntarists like Hieronymi 2008 also agrees that we have such kind of epistemic agency. Therefore, it is rather uncontroversial that, we do have epistemic agency and are able to choose between theories voluntarily in the relevant sense.
+The epistemic agency presupposed here is not what doxastic involuntarists is attacking on. The relevant sense of epistemic agency here means any kind of control over our beliefs, including the indirect control, like examing the evidence, investigating new evidence, etc.. Involuntarists like Hieronymi 2008 also agrees that we have such kind of epistemic agency. Therefore, it is rather uncontroversial that, we do have epistemic agency and are able to choose between theories voluntarily in the relevant sense.
 
 Question: can there be a creature who has no agency for belief in any sense, but can still have beliefs and ?
 
@@ -205,25 +205,24 @@ What would undermine my principle of sanity, i.e. we cannot genuinely believe th
 
 Reason: Impossibility to track the truth; in terms of truth, there are always choice about alternatives
 
-**The principle of sanity**: Impossibility to believe that I am not a rational agent
 
-Reason: This is the axiom.
 
-To argue against this thesis, then it must be possible that, there is a creature that can do philosophy without believing to having rational agency. And here, by doing philosophy, I mean examing and revising belief, choosing between theories, etc. 
+**The principle of sanity**: For someone who is capable of philosophical reflection, it is impossible to believe oneself to not be a rational agent.
 
-Argument for In a trivial sense, it is impossible to use language without intentionality. And if doing philosophy requires using language to make inference, then it is impossible to do philosophy without .
+Here, "philosophical reflection" refers to activities such as examining and revising one's beliefs, analyzing arguments, and choosing between competing theories. The condition "for a person capable of philosophical reflection" is to rule out certain aberrant counterexamples. For instance, someone who has been so thoroughly brainwashed that their only possible belief is "I am not a rational agent" would not qualify as a counterexample.
 
-Intentionality is n&s for epistemic agency
+The precise meaning of "rational agency" is, of course, highly controversial and open to multiple interpretations. Consequently, this principle will have different variants depending on how one chooses to define the term. However, I contend that the **principle of sanity** is plausible under most, if not all, of these interpretations. This principle also applies to acceptance (i.e. It is impossible for someone to accept oneself to not be a rational agent), but I will focus on belief in the rest of the paper unless specified otherwise.
 
-A trivial sense in which one cannot be a 
+For now, I will start by adopting a minimal account of rational agency as *epistemic agency*. What I mean by "epistemic agency" here is not the kind of agency resisted by doxastic involuntarists. According to doxastic involuntarists, *direct* voluntary control over belief is not possible for us. But here, I use "epistemic agency" to refer to any sort of agential control over our beliefs, no matter how indirect. For example, we have the ability to choose to re-examine our beliefs and investigate new evidence. Doxastic involuntarists, like Hieronymi 2008, also acknowledge that we possess this kind of indirect control. Therefore, it is uncontroversial that we have epistemic agency in the relevant sense.
 
-This is the axiom. No sane people could do this.
+**Reason for this principle**: First, implicitly, this is already a widely accepted principle. Aristotle seems to have adopted this principle. In Ch. 9 of *De Interpretatione*, ...; In modern time, people also reject epiphenomenalism largely due to the reason that, it's insane to say we do not have any sort of mental causation. Therefore, in fact people has been implicitly using this principle to reject theories. 
 
-An evidence in cognitive science: sense of agency is always present.
+Nonetheless, I will try to sketch a direct defense for this principle. If the principle were false, then it would be possible for a creature to engage in philosophical reflection without believing itself to have rational agency. But philosophical reflection inherently requires making inferences and utilizing abstract concepts. Let's assume, as is widely held, that such complex thought requires language (or some language-like mentalese). Then, using language for this purpose necessitates rational agency.
 
-According to Hieronymi, for $x$ to believe that $P$ means that $x$ is answerable to the question that "Is $P$ true?". And to be answerable to any question at all, one must be able to use language. But language presuppose intentionality: a dinasour who accidentally uses its claws to draw the shape of the symbol "water" in Jurassic age is not an evidence that the dinasour is using language. And it is uncontroversial to say that, to intentionality do something requires agency. Therefore, according to Hieronymi, it seems it is impossible for creatures to have belief states if this creature does not have any sort of agency at all. 
+To use language requires intentionality. For example, a dinosaur that accidentally scratches the shape of the symbol "water" into the ground is not using language, because it does not use the symbol intentionally to represent something. Therefore, intentionality is necessary for language use. But to use representation intentionally for philosophical reflection is just to exercise the very sort of indirect, agential control over one's beliefs by potentially revising what one holds to be true. And we must be able, at least to some extent, to be aware of our own intentions. Thus, if we use language to engage in philosophical reflection, we must have epistemic agency.
 
-But maybe this is too intelletualist.  Let's say it is possible that we can invent a philosophy machine that can be said to have belief states, and are able to revise beliefs based on investigations, etc. is completely pre-programmed, and has no agency. Then it seems that this machine 
+I do not take this to be an invincible argument. Perhaps with a heavy argument, one could claim we can build a "philosophy machine" that can reflect on arguments and produce a philosophy paper while being completely non-agential. However, I believe it is quite obvious that rejecting the principle of sanity, tautologically, is (very close) to be insane.
+
 ## On Charity
 
 Calling it rational doesn't make it automatically rational.

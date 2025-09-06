@@ -1,7 +1,7 @@
 {
   "serverUrl": "http://localhost:8081",
   "autoCheckDelay": 3000,
-  "shouldAutoCheck": false,
+  "shouldAutoCheck": true,
   "languageVariety": {
     "en": "en-US",
     "de": "de-DE",
@@ -31,7 +31,9 @@
     "supervenience",
     "transworld",
     "truth-trackingness",
-    "Yablo"
+    "Yablo",
+    "involuntarists",
+    "mentalese"
   ],
   "syncDictionary": false,
   "remoteDictionary": [],
