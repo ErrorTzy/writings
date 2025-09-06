@@ -199,9 +199,25 @@ The epistemic agency presupposed here is not what involuntarists is attacking on
 
 Question: can there be a creature who has no agency for belief in any sense, but can still have beliefs and ?
 
-What would undermine my principle of sanity, i.e. we cannot genuinely believe that we have no rational agency, and therefore epistemic norm are not always truth-tracking?
+What would undermine my principle of sanity, i.e. we cannot genuinely believe that we have no rational agency, and therefore epistemic norms are not always truth-tracking?
 
-The possiblity
+**Against the thesis that epistemic norms are not always truth tracking**: 
+
+Reason: Impossibility to track the truth; in terms of truth, there are always choice about alternatives
+
+**The principle of sanity**: Impossibility to believe that I am not a rational agent
+
+Reason: This is the axiom.
+
+To argue against this thesis, then it must be possible that, there is a creature that can do philosophy without believing to having rational agency. And here, by doing philosophy, I mean examing and revising belief, choosing between theories, etc. In a trivial sense, it is impossible to use language without intentionality. And if doing philosophy requires using language to make inference, then it is impossible to do philosophy without .
+
+Intentionality is n&s for epistemic agency
+
+A trivial sense in which one cannot be a 
+
+This is the axiom. No sane people could do this.
+
+An evidence in cognitive science: sense of agency is always present.
 
 According to Hieronymi, for $x$ to believe that $P$ means that $x$ is answerable to the question that "Is $P$ true?". And to be answerable to any question at all, one must be able to use language. But language presuppose intentionality: a dinasour who accidentally uses its claws to draw the shape of the symbol "water" in Jurassic age is not an evidence that the dinasour is using language. And it is uncontroversial to say that, to intentionality do something requires agency. Therefore, according to Hieronymi, it seems it is impossible for creatures to have belief states if this creature does not have any sort of agency at all. 
 
