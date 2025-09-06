@@ -209,7 +209,9 @@ Reason: Impossibility to track the truth; in terms of truth, there are always ch
 
 Reason: This is the axiom.
 
-To argue against this thesis, then it must be possible that, there is a creature that can do philosophy without believing to having rational agency. And here, by doing philosophy, I mean examing and revising belief, choosing between theories, etc. In a trivial sense, it is impossible to use language without intentionality. And if doing philosophy requires using language to make inference, then it is impossible to do philosophy without .
+To argue against this thesis, then it must be possible that, there is a creature that can do philosophy without believing to having rational agency. And here, by doing philosophy, I mean examing and revising belief, choosing between theories, etc. 
+
+Argument for In a trivial sense, it is impossible to use language without intentionality. And if doing philosophy requires using language to make inference, then it is impossible to do philosophy without .
 
 Intentionality is n&s for epistemic agency
 
