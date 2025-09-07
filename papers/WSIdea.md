@@ -178,52 +178,33 @@ The Bayesian principle for initial distribution of credence can in some sense so
 
 We always assume everyone has the same intuition, same disposition and, in some sense, the same form of life. But it is almost certain that it is not the case. We have subtle different intuitions and forms of life. Maybe not so radically different, so that even people in the opposite of the globe wouldn't interpret "plus" as "quus". And maybe there might be some biological reasons. But what if there are aliens (or artificial intelligence) who are radically different from us?
 
-Hieronymi:
-
-- Possibly, we actually form beliefs automatically and non-voluntarily
-- We have the freedom to investigate our beliefs and thus have indirect control
-
-Remark: If there is creature that is able to form beliefs voluntarily, then probably they would be responsible. Therefore, voluntariness is a sufficient condition. Yet it is not necessary. Therefore, we don't have to voluntarily form beliefs.
-
-- It is sufficient for us to be responsible for our beliefs if we have the ability to be answerable for them
-- To rationally believe that P is to come to a settlement of the particular question "Is P true?" (instead of whether "is P good to believe"); if we have the ability to 
-
-Question: 
-
-1. Why beliefs cannot be voluntary?
-2. Is Hieronymi still presupposing some sort of voluntary control of belief (by examine and investigation)?
-3. Why answerability gives rise to responsibility?
-4. Is the claim about truth-tracking separable from the claim that we can still be responsible?
-
-The epistemic agency presupposed here is not what doxastic involuntarists is attacking on. The relevant sense of epistemic agency here means any kind of control over our beliefs, including the indirect control, like examing the evidence, investigating new evidence, etc.. Involuntarists like Hieronymi 2008 also agrees that we have such kind of epistemic agency. Therefore, it is rather uncontroversial that, we do have epistemic agency and are able to choose between theories voluntarily in the relevant sense.
-
-Question: can there be a creature who has no agency for belief in any sense, but can still have beliefs and ?
-
-What would undermine my principle of sanity, i.e. we cannot genuinely believe that we have no rational agency, and therefore epistemic norms are not always truth-tracking?
-
-**Against the thesis that epistemic norms are not always truth tracking**: 
-
-Reason: Impossibility to track the truth; in terms of truth, there are always choice about alternatives
 
 
+- **The principle of sanity**: For someone who is capable of philosophical reflection, it is impossible to genuinely believe oneself to not be a rational agent.
 
-**The principle of sanity**: For someone who is capable of philosophical reflection, it is impossible to believe oneself to not be a rational agent.
-
-Here, "philosophical reflection" refers to activities such as examining and revising one's beliefs, analyzing arguments, and choosing between competing theories. The condition "for a person capable of philosophical reflection" is to rule out certain aberrant counterexamples. For instance, someone who has been so thoroughly brainwashed that their only possible belief is "I am not a rational agent" would not qualify as a counterexample.
+**Clarification for this principle**: Here, "philosophical reflection" refers to activities such as examining and revising one's beliefs, analyzing arguments, and choosing between competing theories. The condition "for a person capable of philosophical reflection" is to rule out certain aberrant counterexamples. For instance, someone who has been so thoroughly brainwashed that their only possible belief is "I am not a rational agent" would not qualify as a counterexample.
 
 The precise meaning of "rational agency" is, of course, highly controversial and open to multiple interpretations. Consequently, this principle will have different variants depending on how one chooses to define the term. However, I contend that the **principle of sanity** is plausible under most, if not all, of these interpretations. This principle also applies to acceptance (i.e. It is impossible for someone to accept oneself to not be a rational agent), but I will focus on belief in the rest of the paper unless specified otherwise.
 
 For now, I will start by adopting a minimal account of rational agency as *epistemic agency*. What I mean by "epistemic agency" here is not the kind of agency resisted by doxastic involuntarists. According to doxastic involuntarists, *direct* voluntary control over belief is not possible for us. But here, I use "epistemic agency" to refer to any sort of agential control over our beliefs, no matter how indirect. For example, we have the ability to choose to re-examine our beliefs and investigate new evidence. Doxastic involuntarists, like Hieronymi 2008, also acknowledge that we possess this kind of indirect control. Therefore, it is uncontroversial that we have epistemic agency in the relevant sense.
 
-**Reason for this principle**: First, implicitly, this is already a widely accepted principle. Aristotle seems to have adopted this principle. In Ch. 9 of *De Interpretatione*, ...; In modern time, people also reject epiphenomenalism largely due to the reason that, it's insane to say we do not have any sort of mental causation. Therefore, in fact people have been implicitly using this principle to reject theories. 
+**Reason for this principle**: This is more or less an axiom in this paper that I take to be self-evident. But I will still try to give some defense. First, implicitly, this is already a widely accepted principle. Aristotle seems to have adopted this principle. In Ch. 9 of *De Interpretatione*, ...; In modern time, people also reject epiphenomenalism largely due to the reason that, it's insane to say we do not have any sort of mental causation. And I will argue later that, a widely held metasemantics principle, **the Principle of Charity**, is a derivation of a stronger version of **the Principle of Sanity**. Therefore, in fact people have been implicitly using this principle to reject theories. 
 
-Nonetheless, I will try to sketch a direct defense for this principle. If the principle were false, then it would be possible for a creature to engage in philosophical reflection without believing itself to have rational agency. But philosophical reflection inherently requires making inferences and utilizing abstract concepts. Let's assume, as is widely held, that such complex thought requires language (or some language-like mentalese). Then, using language for this purpose necessitates rational agency.
+Nonetheless, I will also try to sketch a direct defense. If the principle were false, then it would be possible for a creature to engage in philosophical reflection without believing itself to have rational agency. But philosophical reflection inherently requires making inferences and utilizing abstract concepts. Let's assume, as is widely held, that such complex thought requires language (or some language-like mentalese). Then, using language for this purpose necessitates rational agency.
 
 To use language requires intentionality. For example, a dinosaur that accidentally scratches the shape of the symbol "water" into the ground is not using language, because it does not use the symbol intentionally to represent something. Therefore, intentionality is necessary for language use. But to use representation intentionally for philosophical reflection is just to exercise the very sort of indirect, agential control over one's beliefs by potentially revising what one holds to be true. And we must be able, at least to some extent, to be aware of our own intentions. Thus, if we use language to engage in philosophical reflection, we must have epistemic agency.
 
-I do not take this to be an invincible argument. Perhaps with a heavy argument, one could claim we can build a "philosophy machine" that can reflect on arguments and produce a philosophy paper while being completely non-agential. However, I believe it is quite obvious that rejecting the principle of sanity, plainly, is to be insane. Even if such a "philosophy machine" is possible, I think no person should reject this principle, because we should not be insane.
+I do not take this to be an invincible argument. Perhaps with some heavy argument, one may claim we can build a "philosophy machine" that can reflect on arguments and produce a philosophy paper while being completely non-agential. However, I believe it is quite obvious that rejecting the principle of sanity, plainly, is to be insane. Even if such a "philosophy machine" is possible, I still think no person should reject this principle, simply because we should not be insane.
 
-There are obvious consequence for adopting this principle. Together with the innocent principle that *ought implies can*, it follows that we are not always obliged to form beliefs in a truth-tracking way. Therefore, this is already a non-trivial principle. Should we say, given that it 
+There are obvious consequence for adopting this principle. Together with the following innocent principle that:
+
+- **Ought Implies Can**: If it is impossible for us to believe that P, then it is not the case that we ought to believe that P.
+
+It follows that **the Principle of Sanity** is incompatible with the traditional account of rationality: A belief is rational iff the reason to believe is truth-tracking. This is because the principle of sanity commits us to a belief we must hold (that we are rational agents), regardless of the evidence. Assume our epistemic norm is to hold only true beliefs, and scientists tell us that rational agency is just an illusion, then we would be obligated to believe that we are not rational agents. But according to the principle that **Ought Implies Can**, there is no such obligation.
+
+Then immediately, one might object that if epistemic norms must be truth-tracking, then we are rationally required to reject the principle of sanity itself. However, what does it mean to "rationally reject" a principle? If doing so is an act of philosophical reflection, then, as argued earlier, the very act requires us to presuppose our own epistemic agency. Therefore, any attempt to "rationally reject" the principle of sanity is self-defeating, as the act of rejection presupposes the very rational agency the principle commands us to accept.
+
+There is also an auxiliary argument that help me establish the metaphysical argument that I want to establish. According to the neo-Quinean view on metametaphysics, choosing between empirically-equivalent theories is a matter of comparing their pragmatic virtues. And usually, they were considering theoretic simplicity, elegance, etc. But what how could these pragmatic virtues more valuable than our rational agency? 
 
 ## On Charity
 
