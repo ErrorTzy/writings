@@ -45,7 +45,7 @@ Upshot 2: we can create objects with essential properties, by stipulation. I say
 
 ## On motivation
 
-This paper mainly engages with metaphysics, but the underlying motivation is ==?==. 
+This paper mainly engages with metaphysics, but the application is more general. The motivation of this paper comes from the following claim: If we throw away all of our intuition (or disposition, sentiment, etc.), then we cannot establish anything. But a lot of our intuition seems contingent and subject to change. Then the problem is, which part of our intuition should not be thrown away, and what would this establish?
 
 In this paper, the underlying the question is: How much reality should we read off our language? In fact, this might be an overly broad question. For example, almost all natural languages have a subject-predicate structure. Should we then say, the world itself is constituted of objects and properties? And especially, we say things are good or bad. Then should we read them off our language and say there are such properties in the world? Also, the proposition $P$ seems syntactically more primitive than $\neg \neg P$. Should we read this structure off our language and say $P$ is in some sense more fundamental than $\neg \neg P$? Quantum physics describes the world in terms of wave functions. Should we conclude that reality is in some sense just a bunch of waves (or maybe, a huge, holistic wave)? These kinds of questions are central to maybe all metaphysical problems.
 
