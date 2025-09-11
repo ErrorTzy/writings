@@ -14,9 +14,9 @@
   "quick-latex",
   "obsidian-pandoc-reference-list",
   "obsidian-minimal-settings",
-  "pandoc-extended-markdown",
   "obsidian-citation-plugin",
   "various-complements",
   "typing-transformer-obsidian",
-  "better-word-count"
+  "better-word-count",
+  "pandoc-extended-markdown"
 ]
