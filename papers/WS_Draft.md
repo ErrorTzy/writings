@@ -21,6 +21,8 @@ Indeed, this question appears central to almost all metaphysical problems. For e
 
 It obvious that not every linguistic feature reveals reality. Take the names "Superman" and "Clark Kent." We don't think there are really two distinct entities out there connected by a relation named "identity". This is non-trivial. Formally, one could construct a toy model $M = \langle D, I \rangle$ with $D = \{s, c\}$, $I(\text{'Superman'}) = s$, $I(\text{'Clark Kent'}) = c$ and $I(\text{'is'})= \{ \langle s,c \rangle, \langle c,s \rangle \}$. Such model would satisfy 'Superman is Clark Kent'. But intuitively we do not take such a model to capture reality because we think 'Superman' and 'Clark Kent' should refer to the same entity in the domain. 
 
+Another thing needs to be clarified. What I mean by "language" is used in a very broad sense. It also includes inferential rules, or language-like mental process. 
+
 This question is intended to bypass Amie Thomasson style argument that, adopting a language is easy, and thus ontology is easy. Ontology can't be that easy because it is not trivial to freely read reality off any language we like. And the explicit question of reality is intend to capture the heavyweight idea of what is "really" out there.
 
 (**Types of answers to the question:** There is of course a spectrum of views. On one extreme, we can never read anything off language. Kantian idealism seems to be this kind of *never-ism*. They may say any structure or category comes from the built-in categories of our cognition. We are simply projecting them onto reality. So, we can never know anything about reality *in itself*.
