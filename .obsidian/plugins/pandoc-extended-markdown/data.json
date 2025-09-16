@@ -1,10 +1,11 @@
 {
-  "strictPandocMode": false,
+  "strictPandocMode": true,
   "autoRenumberLists": true,
   "moreExtendedSyntax": true,
   "panelOrder": [
+    "custom-labels",
     "example-lists",
-    "custom-labels"
+    "definition-lists"
   ],
   "useNewPipeline": true,
   "strictCustomLabelMode": true
