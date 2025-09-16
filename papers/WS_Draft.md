@@ -71,7 +71,7 @@ Now we can clearly see the issue. Neo-Carnapians are arguing for a general form 
 
 I will later defend sometimes-ism against always-ism, but for now I will put on the hat of neo-Carnapians and explain why the neo-Aristotelians did not give a satisfying answer.
 
-Let me start with a way to establish the privilege of definition with a familiar concept: naturalness. This notion is famously introduced by Lewis (==Citation a new theory of universals==), but it was generally restricted to properties. But it was Sider who attempt to use this to establish fundamentality (==Citation writing the book of the world==). 
+Let me start with a way to establish the privilege of definition with a familiar concept: naturalness. This notion is famously introduced by Lewis (==Citation a new theory of universals==), but it was generally restricted to properties. But it was Sider who attempt to use this to establish fundamentality (==Citation writing the book of the world==). Basically, Sider contends that the most natural entities and predicates are the most fundamental things, and the more natural is more fundamental than the less fundamental.
 
 More natural, less natural
 Essence
