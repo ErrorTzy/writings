@@ -1,5 +1,5 @@
 --[[
-Add support for a custom inline syntax with XeLaTeX-compatible highlighting.
+Add support for a custom inline syntax.
 
 This pandoc Lua filter allows to add a custom markup syntax
 extension. It is designed to be adjustable; it should not be
@@ -9,9 +9,7 @@ The example here allows to add highlighted text by enclosing the
 text with `==` on each side. Pandoc supports this for HTML output
 out of the box. Other outputs will need additional filters.
 
-This version uses xesoul package for XeLaTeX compatibility with soul highlighting.
-
-Copyright: © 2022 Albert Krewinkel (modified for XeLaTeX compatibility)
+Copyright: © 2022 Albert Krewinkel
 License: MIT
 ]]
 
@@ -135,60 +133,4 @@ function Inlines (inlines)
   end
 
   return result
-end
-
--- Transform Span elements with class="mark" to LaTeX-compatible highlighting
-function Span(elem)
-  if elem.classes:includes("mark") then
-    if FORMAT and (FORMAT:match("latex") or FORMAT:match("pdf")) then
-      -- Use \hl from soul package with xesoul for XeLaTeX compatibility
-      return {
-        pandoc.RawInline('latex', '\\hl{'),
-        table.unpack(elem.content),
-        pandoc.RawInline('latex', '}')
-      }
-    end
-  end
-  return elem
-end
-
--- Replace existing \hl{...} commands (if any) that come from pandoc's mark extension
-function RawInline(elem)
-  if elem.format == "latex" or elem.format == "tex" then
-    -- Just return the element as-is since xesoul will handle it
-    return elem
-  end
-  return elem
-end
-
--- Add header includes for LaTeX to ensure xesoul and xcolor packages are loaded
-function Meta(meta)
-  if FORMAT and (FORMAT:match("latex") or FORMAT:match("pdf")) then
-    -- Add xesoul (for XeLaTeX soul compatibility) and xcolor packages
-    local header = pandoc.List({
-      pandoc.RawBlock('latex', '\\usepackage{xcolor}'),
-      pandoc.RawBlock('latex', '\\usepackage{xesoul}'),
-      pandoc.RawBlock('latex', '\\sethlcolor{yellow}')
-    })
-
-    if not meta['header-includes'] then
-      meta['header-includes'] = pandoc.MetaBlocks(header)
-    else
-      -- Append to existing header-includes
-      local existing = meta['header-includes']
-      if existing.t == 'MetaBlocks' then
-        for _, item in ipairs(header) do
-          table.insert(existing, item)
-        end
-      elseif existing.t == 'MetaInlines' then
-        meta['header-includes'] = pandoc.MetaBlocks{
-          pandoc.Plain(existing),
-          table.unpack(header)
-        }
-      else
-        meta['header-includes'] = pandoc.MetaBlocks(header)
-      end
-    end
-  end
-  return meta
 end

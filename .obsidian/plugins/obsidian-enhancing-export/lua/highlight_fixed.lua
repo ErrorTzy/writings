@@ -1,5 +1,5 @@
 --[[
-Add support for a custom inline syntax with XeLaTeX-compatible highlighting.
+Add support for a custom inline syntax with XeLaTeX compatibility.
 
 This pandoc Lua filter allows to add a custom markup syntax
 extension. It is designed to be adjustable; it should not be
@@ -9,9 +9,9 @@ The example here allows to add highlighted text by enclosing the
 text with `==` on each side. Pandoc supports this for HTML output
 out of the box. Other outputs will need additional filters.
 
-This version uses xesoul package for XeLaTeX compatibility with soul highlighting.
+This version adds XeLaTeX compatibility by using colorbox instead of \hl
 
-Copyright: © 2022 Albert Krewinkel (modified for XeLaTeX compatibility)
+Copyright: © 2022 Albert Krewinkel (modified for XeLaTeX)
 License: MIT
 ]]
 
@@ -27,7 +27,20 @@ local nospace = true
 -- Function converting the enclosed inlines to their internal pandoc
 -- representation.
 local function markup_inlines (inlines)
-  return pandoc.Span(inlines, {class="mark"})
+  -- Check if we're outputting to LaTeX/PDF
+  if FORMAT:match("latex") or FORMAT:match("pdf") then
+    -- For LaTeX/PDF, use colorbox for highlighting (XeLaTeX compatible)
+    -- This requires xcolor package but is more compatible than soul package
+    local latex_start = pandoc.RawInline('latex', '\\colorbox{yellow}{')
+    local latex_end = pandoc.RawInline('latex', '}')
+    local result = pandoc.Inlines{latex_start}
+    result:extend(inlines)
+    result:insert(latex_end)
+    return result
+  else
+    -- For other formats, use a span with class="mark"
+    return pandoc.Span(inlines, {class="mark"})
+  end
 end
 
 ------------------------------------------------------------------------
@@ -137,56 +150,27 @@ function Inlines (inlines)
   return result
 end
 
--- Transform Span elements with class="mark" to LaTeX-compatible highlighting
-function Span(elem)
-  if elem.classes:includes("mark") then
-    if FORMAT and (FORMAT:match("latex") or FORMAT:match("pdf")) then
-      -- Use \hl from soul package with xesoul for XeLaTeX compatibility
-      return {
-        pandoc.RawInline('latex', '\\hl{'),
-        table.unpack(elem.content),
-        pandoc.RawInline('latex', '}')
-      }
-    end
-  end
-  return elem
-end
-
--- Replace existing \hl{...} commands (if any) that come from pandoc's mark extension
-function RawInline(elem)
-  if elem.format == "latex" or elem.format == "tex" then
-    -- Just return the element as-is since xesoul will handle it
-    return elem
-  end
-  return elem
-end
-
--- Add header includes for LaTeX to ensure xesoul and xcolor packages are loaded
+-- Add header includes for LaTeX to ensure xcolor package is loaded
 function Meta(meta)
-  if FORMAT and (FORMAT:match("latex") or FORMAT:match("pdf")) then
-    -- Add xesoul (for XeLaTeX soul compatibility) and xcolor packages
-    local header = pandoc.List({
-      pandoc.RawBlock('latex', '\\usepackage{xcolor}'),
-      pandoc.RawBlock('latex', '\\usepackage{xesoul}'),
-      pandoc.RawBlock('latex', '\\sethlcolor{yellow}')
-    })
+  if FORMAT:match("latex") or FORMAT:match("pdf") then
+    local header = pandoc.MetaBlocks{
+      pandoc.RawBlock('latex', '\\usepackage{xcolor}')
+    }
 
     if not meta['header-includes'] then
-      meta['header-includes'] = pandoc.MetaBlocks(header)
+      meta['header-includes'] = header
     else
       -- Append to existing header-includes
       local existing = meta['header-includes']
       if existing.t == 'MetaBlocks' then
-        for _, item in ipairs(header) do
-          table.insert(existing, item)
-        end
+        existing = pandoc.MetaBlocks(existing)
+        table.insert(existing, pandoc.RawBlock('latex', '\\usepackage{xcolor}'))
+        meta['header-includes'] = existing
       elseif existing.t == 'MetaInlines' then
         meta['header-includes'] = pandoc.MetaBlocks{
           pandoc.Plain(existing),
-          table.unpack(header)
+          pandoc.RawBlock('latex', '\\usepackage{xcolor}')
         }
-      else
-        meta['header-includes'] = pandoc.MetaBlocks(header)
       end
     end
   end
