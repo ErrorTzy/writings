@@ -80,9 +80,11 @@ The innitial motivation to posit reference magnetism is to explain why our '+' m
 
 Let's return to the original problem: what makes the meaning of "naturalness" invariant across languages? More generally, when is any term's meaning fixed in this way?
 
-In a trivial sense, of course, any symbol can be a mere placeholder; "naturalness" could be used to mean "hello," for instance. But this isn't the kind of meaningful variation we're concerned with here. There might be several ways to explain "invariance".[^10] But the relevant idea might help establish the invariance of "naturalness" here is that, the world can somehow teach us whether we are getting the right concept. The most prominent example used to support an "objectively objective naturalness" is Goodman's riddle of induction. The argument is that a concept like "grue" must be flawed because it leads to wrong conclusions, which suggests some concepts are objectively better than others. This is perhaps the strongest case for an objective standard of naturalness, but I believe it ultimately fails.
+In a trivial sense, of course, any symbol can be a mere placeholder; "naturalness" could be used to mean "hello," for instance. But this isn't the kind of meaningful variation we're concerned with here. There might be several ways to explain "invariance".[^10] But the relevant idea might help establish the invariance of "naturalness" here is that, the world can somehow teach us whether we are getting the right concept. If we are using a wrong concept, the world will correct us. For example, empirical facts tell us that changes of inertial perspective are, surprisingly, not sheer transformations. Then there are some privileged transformations, like Lorentz transformations, that objectively does better job at describing the world.
 
-To recap the riddle: Since all emeralds observed before 2050 are green, they are also by definition "grue" (where grue means green and observed before 2050, or blue otherwise). Standard induction would tell us that the next emerald we see will also be grue. However, we intuitively know the next emerald will be green, meaning it will not be grue. Since the form of the induction seems valid, the concept "grue" itself must be the problem.
+The parallel example used to support an "objectively objective naturalness" is Goodman's riddle of induction. The argument is that a concept like "grue" must be flawed because it leads to wrong conclusions, which suggests some concepts are objectively better than others. This is perhaps the strongest case for an objective standard of naturalness, but I believe it ultimately fails.
+
+To recap the riddle: Since all emeralds observed before 2050 are green, they are also by definition "grue" (where grue means green and observed before 2050, or blue otherwise). Standard induction would tell us that the next emerald we see will also be grue. However, we intuitively know the next emerald will be green, meaning it will not be grue. Since the form of the induction seems right, the concept "grue" itself must be the problem.
 
 But I think there is no problem for grue-speakers to do grue-induction. Let's consider two cases.
 
@@ -106,7 +108,9 @@ But this critique only works if we already know the true law is "emeralds are gr
 
 Maybe "naturalness" is already too niche. Indeed, the most orthodoxical way to establish fundamentality is through concepts like grounding or essence. For example, the most fundamental layer is ungrounded (i.e. independent), and everything is either the most fundamental, or is grounded by the most fundamentals (i.e. compleness). In my terminology, $P$ "really" explains $Q$ iff $P$ is grounded by $Q$. In other words, the *sometimes-ism* about explanation is explained by grounding 
 
-The concept of grounding, however, notoriously lacks consensus. What I here mean by grounding means what is referred to as "small-g", or in Bennett's term, "building". But before getting further into this, I wish to go into another concept.
+The concept of grounding, however, notoriously lacks consensus. What I here mean by grounding means what is referred to as "small-g", or in Bennett's term, "building". But before getting further into this, I wish to go into another concept, i.e. essence.
+
+
 
 
 
