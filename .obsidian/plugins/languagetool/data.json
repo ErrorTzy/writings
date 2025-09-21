@@ -1,7 +1,7 @@
 {
   "serverUrl": "http://localhost:8081",
   "autoCheckDelay": 3000,
-  "shouldAutoCheck": true,
+  "shouldAutoCheck": false,
   "languageVariety": {
     "en": "en-US",
     "de": "de-DE",
