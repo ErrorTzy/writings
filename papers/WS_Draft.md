@@ -128,7 +128,7 @@ Immediately, this account of fundamentality is already relative, because there a
 
 In the discussion of essence, I have talked about the directness given by set-formation is problematic: the members of a set forms a set does not follow that the members are more fundamental than the set. For Robo, this direction might be reversed. Therefore, we have no reason to say it is "objectively objective" that, Socrates *really* defines $\{Socrates\}$. This kind of problem seems to plague all the building relations.
 
-The hardest bone seems to be composition. Our intuition for composition is so strong such that, even if we may say parts are theoretical constructions of the whole, it seems we are still willing to say the parts are more fundamental than the whole. But interestingly, the leading grounding theorists, Schaffer, has argued for the opposite that, the whole is prior to the parts. 
+The hardest bone seems to be composition. Our intuition for composition is so strong such that, even if we may say parts are theoretical constructions of the whole, it seems we are still willing to say the parts are more fundamental than the whole. But interestingly, the leading grounding theorists, Schaffer, has argued for the opposite that, the whole could sometimes prior to the parts. So we don't need to imagine a strange creature in order to give an counterargument.
 
 
 
