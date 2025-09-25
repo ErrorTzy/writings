@@ -152,7 +152,7 @@ If there is nothing wrong with Robo's metaphysics, then there are still two ways
 
 The first way is to simply not rule out the alternative relations $R^{*}$. This suggestion, however, implies that the "generative" constraint is redundant. It would mean that for any group of mutually necessitating entities, we could order them however we want and claim that our arbitrary ordering reveals a sense of fundamentality. But if a collection of things can be ordered in any arbitrary way, it seems the best way to describe the situation is to say that the things themselves have no intrinsic order. Therefore, this seems to be a bad suggestion.
 
-The second way out is that, we deny that there can be mutually necessitating building relation. This consequence would be banning fundamentality in mathematics and logic. 
+The second way out is that, we deny that there can be mutually necessitating building relation. This consequence would be banning fundamentality in mathematics and logic. But the building relations that connects contingent things will be preserved. For example, if we do not adopt mereological essentialism, then composition is not mutually necessitating, because parts necessitate the whole, but the whole does not necessitate parts.
 
 Therefore, we have no reason to say it is "objectively objective" that, Socrates *really* defines $\{Socrates\}$. This kind of problem seems to plague all the building relations.
 
