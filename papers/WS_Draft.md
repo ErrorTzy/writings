@@ -161,13 +161,15 @@ A second way out is to deny that there can be mutually necessitating building re
 
 But this move still does not make the set of building relations invariant. For example, the meaning of "composition" can vary. Mereological nihilists, organicists, common sense metaphysicians, and four-dimensionalists all have different interpretations of "composition". If we allow any of these interpretations to count as a building relation, then what is considered fundamental becomes arbitrary. This, again, seems to depart from the intended meaning of fundamentality.
 
-In addition, it is not only the generative constraint that may lead to semantic variance. The necessitating constraint may also lead to variance, given that there are different senses of necessitation. This has been discussed by Sidelle (==The Grounding Mystique==): Given that modality is at least partly conventional, the deflationary challenge for metaphysical necessity extends equally to grounding
+In addition, it is not only the generative constraint that may lead to semantic variance. The necessitating constraint may also lead to variance, given that there are different senses of necessitation. This has been discussed by Sidelle (==The Grounding Mystique==): Given that modality is at least partly conventional, the deflationary challenge for metaphysical necessity extends equally to grounding.
 ## Upshot
 
 
 
 
 irreducible intentionality
+
+normativity and mistakes: the normality, wrongness
 
 # II
 
