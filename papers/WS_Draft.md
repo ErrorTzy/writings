@@ -155,27 +155,23 @@ Therefore, if there is any mutually necessitating relation $R$ in the set of bui
 
 Indeed, I believe this is the most problematic part of Bennett's account of building relation. Even Bennett concede that what counts generative may be arbitrary, conventional, framework-dependent and "nothing further to be said" (==p. 59==) If this is the case, then how can we save the idea that the set of building relations is invariant and "objectively objective"? I can only see the following two ways out.
 
-The first way is to simply not rule out the alternative relations $R^{*}$. This suggestion, however, makes the "generative" constraint redundant. It would mean that for any group of mutually necessitating entities, we could order them however we want and claim that our arbitrary ordering reveals a sense of fundamentality. But if a collection of things can be ordered in any arbitrary way, it seems the best way to describe the situation is to say that the things themselves have no intrinsic order. They just merely necessitate each other. Therefore, even if this solution formally works, this move will depart from the intended meaning of fundamentality.
+The first way is to simply not rule out the alternative relations $R^{*}$. This suggestion, however, makes the generative constraint redundant. It would mean that for any group of mutually necessitating entities, we could order them however we want and claim that our arbitrary ordering reveals a sense of fundamentality. But if a collection of things can be ordered in any arbitrary way, it seems the best way to describe the situation is to say that the things themselves have no intrinsic order. They just merely necessitate each other. Therefore, even if this solution formally works, this move will depart from the intended meaning of fundamentality.
 
 A second way out is to deny that there can be mutually necessitating building relations altogether. If so, then relations like set-formation, the successor relation, and logical connectives would be removed from the list of building relations. This would essentially mean that applying "fundamentality" to abstract objects is a category mistake. However, some other relations, like composition, would be preserved. For example, if we do not adopt mereological essentialism, then material composition is not mutually necessitating, because the parts necessitate the whole, but the whole does not necessitate those specific parts.
 
 But this move still does not make the set of building relations invariant. For example, the meaning of "composition" can vary. Mereological nihilists, organicists, common sense metaphysicians, and four-dimensionalists all have different interpretations of "composition". If we allow any of these interpretations to count as a building relation, then what is considered fundamental becomes arbitrary. This, again, seems to depart from the intended meaning of fundamentality.
 
-In addition, it is not only the generative constraint that may lead to semantic variance. The necessitating constraint may also lead to variance, given that there are different senses of necessitation. This has been discussed by Sidelle (==The Grounding Mystique==). Given that modality is at least partly conventional, 
+In addition, it is not only the generative constraint that may lead to semantic variance. The necessitating constraint may also lead to variance, given that there are different senses of necessitation. This has been discussed by Sidelle (==The Grounding Mystique==): Given that modality is at least partly conventional, the deflationary challenge for metaphysical necessity extends equally to grounding
 ## Upshot
 
 
 
 
+irreducible intentionality
 
-1. strange grounding structure
-2. debunking grounding intuition
+# II
 
-Non-logical circle
-
-## II
-
-### The principle of Sanity
+## The principle of Sanity
 
 
 - **The principle of sanity**: For someone who is capable of philosophical reflection, it is impossible to genuinely believe oneself to not be a rational agent.
