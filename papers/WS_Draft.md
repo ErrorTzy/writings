@@ -169,7 +169,7 @@ In addition, it is not only the generative constraint that may lead to semantic 
 
 irreducible intentionality
 
-normativity and mistakes: the normality, wrongness
+normativity and mistakes: the normality, wrongness; the concept of "mistake" itself is learned through social interaction.
 
 # II
 
