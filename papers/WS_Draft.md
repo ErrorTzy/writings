@@ -164,6 +164,9 @@ But this move still does not make the set of building relations invariant. For e
 In addition, it is not only the generative constraint that may lead to semantic variance. The necessitating constraint may also lead to variance, given that there are different senses of necessitation. This has been discussed by Sidelle (==The Grounding Mystique==): Given that modality is at least partly conventional, the deflationary challenge for metaphysical necessity extends equally to grounding.
 ## Upshot
 
+The gist of the tedious discussion above is simple. Imagine an alien whose language contains "fundamentality" that plays the same role in their metaphysics as our "fundamentality" does in our metaphysics. However, their "fundamentality" has a different extension. If we claim that fundamentality is a *worldly, objective feature*, we must be able to show why their concept is *objectively* wrong. Crucially, the reason we provide must not be symmetric; it can't be a reason the aliens could also use against us (e.g., "it violates *our* intuitions"). As the previous sections have shown, it seems we cannot find such a reason in the current way of establishing fundamentality.
+
+It seems the only hope for finding this kind of non-symmetric reason would be the following: the world itself could teach us which "fundamentality" is the correct use. But challenges like the one involving the alien species essentially press the following question: if we were to throw away some of our intuitions, would the world still be able to teach us anything? The upshot of the discussion is that it would not. In a slogan: ***If we are willing to throw away our intuitions, the world cannot teach us anything.***
 
 
 
