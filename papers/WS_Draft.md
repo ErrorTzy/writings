@@ -17,7 +17,7 @@ In the background, this paper deals with a central tension. On one hand, it seem
 
 In the foreground, this paper focuses mainly on metaphysics, but the argument I made for metaphysics also extends to other areas, like ethics. To be specific, I first argue that the background tension is somehow ignored in discussions about fundamentality. As a result, the idea that some things are objectively fundamental, though well-motivated, seems to rely on magic or wishful thinking. 
 
-Then I argue for a principle that basically says, we cannot throw away our rational agency. The rest of the paper explores the consequences of this principle. I mostly use it to establish a direct, non-magical account of fundamentality. But to show the principle's broader power, I also apply it to a completely different problem: why we should sometimes trust a friend's word, even when it goes against the evidence.
+Then I argue for a principle that basically says, we cannot throw away our rational agency. The rest of the paper explores the consequences of this principle. I mostly use it to establish a direct, non-magical account of fundamentality. But to show the principle's broader power, I also apply it to a problem in ethics: why we should sometimes trust a friend's word, even when it goes against the evidence.
 
 ## The Question of Reality
 
@@ -27,7 +27,7 @@ This way of asking immediately requires clarification. First, it seems to sugges
 
 Without language, we might still have ways to understand reality, perhaps through perception or mysterious experiences. But, this is not how metaphysics works. In metaphysics, we inevitably rely on sophisticated argument that relies on intuitive premises. But this has generated a long-standing worry in philosophy. Since medieval times, philosophers (e.g. nominalists) have been worrying that our intuition about the world comes from words instead of reality. Hence my question: when we try to talk about reality, which parts genuinely reflect how things are, and which parts are mere "shadows of language"?
 
-Indeed, this question appears central to almost all metaphysical problems. For example, 
+This question appears central to almost all metaphysical problems. For example, 
 
 - Almost all natural languages have a subject-predicate structure. Should we then say, the world itself is constituted of objects and properties? 
 - Grammatically we have predicates like 'good' or 'bad'. Then should we read them off our language and say there are such properties in the world? 
@@ -80,7 +80,9 @@ Given this distinction, we cannot say that any definition in our language establ
 
 Now we can clearly see the issue. Neo-Carnapians are arguing for a general form of *always-ism*, which would naturally includes the *always-ism about explanation or definition*. The pressure that the neo-Carnapian argument would put on the neo-Aristotelians' *sometimes-ism* is that, what makes some definition or explanation privileged so that they get to trace fundamentality, but the other doesn't? 
 
-I will later defend sometimes-ism against always-ism. In fact, the *general form of always-ism* is already under pressure. In the previous paragraph, I constructed an exotic toy model that satisfies "Superman is Clark Kent". According to always-ism, there is no problem with this model. Something already seems wrong. ==I later address this problem. Will I?== But for now I will ignore these problems, put on the hat of neo-Carnapians and explain why the neo-Aristotelians did not give any satisfying answer.
+I will later defend sometimes-ism against always-ism. In fact, the *general form of always-ism* is already under pressure. In the previous paragraph, I constructed an exotic toy model that satisfies "Superman is Clark Kent". According to always-ism, there is no problem with this model. Something already seems wrong. ==I later address this problem. Will I?== But for now I will ignore these problems, put on the hat of neo-Carnapians and explain why the neo-Aristotelians did not give any satisfying answer. 
+
+In the following three sections, I will leave aside the neo-Quinean-flavored view that, fundamentality is established by fallible epistemology determined by the best theory of fundamentality that has the most pragmatic virtues like simplicity, elegance and explanatory power. I argue against this view in the second part of this paper. In the next three sections, I attack the view that, we can objectively establish an absolute account of fundamentality that does not lead to semantic variance.
 
 ### Naturalness
 
@@ -106,34 +108,24 @@ The parallel example used to support an "objectively objective naturalness" is G
 
 To recap the riddle: Since all emeralds observed before 2050 are green, these emeralds are also by definition "grue" (where grue means green and observed before 2050, or blue otherwise). If we use grue for induction, the grue-induction would tell us that the next emerald we see after 2050 will be grue. However, we intuitively know the next emerald will be green, meaning it will not be grue. Since the green-induction and the grue-induction are formally the same, the problem does not lie in the structure of induction. Then the concept "grue" itself must be the problem.
 
-But I think there is no problem for grue-speakers to do grue-induction. Let's consider two cases.
+But I think the world cannot teach grue-speakers that grue-induction is problematic. And therefore, for grue-speakers, there is nothing wrong with grue. Let's consider two cases.
 
 **Case 1**: In the first case, *we* assume that "being green" is an essential property of the kind "emerald." But why would *grue-speakers* accept this? By the same token, they might take "being grue" as the essence of an "emerald." If we showed them a green emerald in 2051, they would simply say, "*This isn't an emerald, because it's not grue.*" In that case, their induction is perfectly reliable: everything they call an "emerald" is, in fact, grue. Of course, this scenario is overly simple because it assumes the kind "emerald" is defined solely by its color. If so, the disagreement becomes a matter of a priori definition, not a failure of induction.
 
 **Case 2**: So, let's consider a more realistic and relevant case. Assume both we and the grue-speakers agree that emeralds are defined by their chemical structure ZYX, not their color. Through induction, our science posit a law of nature that "*ZYX necessitates greenness.*" In grue-science, however, induction would posit a law that "*ZYX necessitates grue-ness.*" Assume that when 2050 arrives, the next emerald turns out green. Therefore, grue-law will be falsified. Then it follows that, the laws of nature is simpler when formulated in terms of green. Thus, the world teaches us that, green is objectively better than grue. 
 
-But this doesn't seem right for two reasons. First, Inductive failure is normal. A predicate can be natural, but simply fail to apply to the kind for induction. For example, we might inductively conclude that all swans are white. The discovery of a black swan doesn't make the property "white" is objectively worse than "white or black". It just means we hit on a false hypothesis.
+But this argument doesn't seem right for two reasons. First, Inductive failure is normal. A predicate can be natural, but simply fail to apply to the induction. For example, we might inductively conclude that all swans are white. The discovery of a black swan doesn't make the property "white" is objectively worse than "white or black". It just means we hit on a false hypothesis.
 
-Second, the whole argument relies on the presupposition that in grue-science the grue-speakers start with the hypothesis *ZYX necessitates grue-ness.* But if they take the property "green if observed before 2050, or blue otherwise" to be simpler than "green", why wouldn't they instead adopt the hypothesis *ZYX necessitates grue-ness if observed before 2050, or bleen-ness if unobserved before 2050* as simpler and more natural than *ZYX necessitates grue-ness*?
+Second, the whole argument relies on the presupposition that in grue-science the grue-speakers start with the hypothesis *ZYX necessitates grue-ness.* But given they take the property "green if observed before 2050, or blue otherwise" to be simpler than "green", why wouldn't they instead adopt the hypothesis "*ZYX necessitates grue-ness if observed before 2050, or bleen-ness if unobserved before 2050*" as simpler than "*ZYX necessitates grue-ness*"?
 
-To prevent further complications, assume that ZYX is invariant in both our law and the grue-law. Let us even grant that the grue-speakers initially start with the hypothesis *ZYX necessitates grue-ness*, and that this hypothesis is falsified by the first emerald after 2050. After further work, grue scientists discover that the corrected grue-law, like "*ZYX necessitates grue-ness if observed before 2050, or bleen-ness if unobserved before 2050*", is the correct one. Now, the previous argument runs, our law "*ZYX necessitates green*" is objectively simpler than this corrected grue-law. Therefore, green appears to exhibit objective similarity — it seems to 'carve nature at its joints'.
+To prevent further complications, assume that ZYX is invariant in both our law and the grue-law. Let us even grant that the grue-speakers initially start with the hypothesis *ZYX necessitates grue-ness*, and that this hypothesis is falsified by the first emerald after 2050. After further work, grue scientists discover that the corrected grue-law, like "*ZYX necessitates grue-ness if observed before 2050, or bleen-ness if unobserved before 2050*", is the right one. Now, the previous argument runs, our law "*ZYX necessitates green*" is objectively simpler than this corrected grue-law. Therefore, green appears to exhibit objective similarity. This is because the properties in the laws of nature 'carve nature at its joints'.
 
-But why would the grue-speakers accept this argument? My stipulation is that grue-speakers have different intuitions about simplicity and similarity from ours. They take properties that are disjunctive in our terms to be genuinely simple and genuinely similar; likewise they treat disjunctive propositions as simple. Given this stipulation, they would say their corrected law is indeed simpler than ours, and thus grue and bleen are more privileged than green.
+But why would the grue-speakers accept this argument? My stipulation is that grue-speakers have different intuitions about simplicity and similarity from ours. They take properties, that are disjunctive in our terms, to be genuinely simple similar; likewise they treat disjunctive propositions as simpler. Given this stipulation, they would say their corrected law is indeed simpler than ours, and thus grue and bleen are more privileged than green.
 
+In other words, if the meaning of "the best system" could vary, then the best system account of laws of nature cannot be objectively established. If natural properties are specified by the laws of nature, while the laws of nature can vary in different frameworks, then "naturalness" can vary in different frameworks. Therefore, even if the grue-speakers agree with us that, natural properties are metaphysically privileged, the world cannot force the grue-speakers having a different extension of "natural properties".
 
----
+Surely for us, there is no problem, in accordance with Bayesian principles, to adopt a higher credence for green-laws based on prior distribution. This may be enough to say we are justified to believe green-law, and this is enough for our confirmation. But there is no theoretical reason to take greenness as the metaphysically privileged concept across different frameworks. Nothing can stop "naturalness" having semantic variance.
 
-
-
- Our science is better only if we assume that laws of nature is the green-law, not the grue-law. But why would the grue-speakers accept this? From their point of view, our properties are the strange ones.
-
-Even if it turns out that the true laws of nature do involve "green" instead of "grue," the grue-speakers aren't at a theoretical disadvantage. After their initial hypothesis is falsified, they can simply revise their theory. They can still define "green" using their own concepts and eventually arrive at the same scientific law we do.
-
-One might argue that the laws of nature themselves specify which properties are natural. If these laws are objective, then naturalness would be too. So, if a law of nature shows that all emeralds are green, we could conclude that "grue" is metaphysically defective.
-
-But this critique only works if we already know the true law is "emeralds are green." Given that we haven't reached 2050 yet, how can we conclude that the law is "emeralds are green" and not "emeralds are grue"? Moreover, even if it turns out that grue is the wrong concept, we could just invent other grue-like concepts, such as "green if observed before 2051, or blue otherwise." In fact, for any set of observations, there are infinitely many grue-like concepts that are consistent with the data. What reason, then, do we have to single out "emeralds are green" as the one true law of nature? Surely there is no problem, according to Bayesian principles, to adopt a higher credence for green-laws based on prior distribution. And this is enough for confirmation. But there is no theoretical reason to single out greenness as *THE* metaphysically privileged concept, because there are infinitely many grue-like concepts that cannot be ruled out.
-
----
 ### Essence
 
 Maybe "naturalness" is already too niche. Indeed, the most orthodoxical neo-Aristotelian way to establish fundamentality is through concepts like grounding or essence. For example, the most fundamental layer is ungrounded (i.e. independent), and everything is either the most fundamental, or is grounded by the most fundamentals (i.e. compleness). In my terminology, $P$ "really" explains $Q$ iff $P$ is grounded by $Q$. In other words, the *sometimes-ism* about explanation is explained by grounding 
@@ -158,17 +150,17 @@ Building relation is in fact a set of relations that are directed, necessitating
 
 Immediately, this account of fundamentality is already *relative*, because there are different building relations. For example, according Shaffer's priority monism, the entire cosmos $builds_{grounds}$ its parts, but its parts $build_{compose}$ the cosmos. According to this view, there is no "objectively objective" fact of something being absoutely fundamental; Rather, something can only be fundamental *relative to a building relation*.
 
-Even if so, we may still say, the set of relations that count as building relation is absolute and objectively objective. If so, then fundamentality, though being relative to a specific building relation, is still invariant across different language. The problem, then again, is whether this can be established.
+Even if so, we may still say, *the set of relations* that count as building relation is absolute and objectively objective. If so, then fundamentality, though being relative to a specific building relation, is still invariant across different language. The problem, then again, is whether this can be established.
 
 In the discussion of essence, I have talked about the directness given by set-formation is problematic: the members of a set forms a set does not follow that the members are more fundamental than the set. For Robo, this direction might be reversed: instead of set-formation being a building relation, they take set-membership as a building relation. 
 
-Recall Bennett's account about building: a building relation has to be *directed*, *necessitating* and *generative*. The problem here is generative requirement. It is this requirement that Robo and us would have different set of building relations. According to Bennett, the generative is that,
+Recall Bennett's account about building: a building relation has to be *directed*, *necessitating* and *generative*. The problem here is generative requirement. It is this requirement that Robo and us would have different set of building relations. According to Bennett, the generative requirement is that,
 
 > (G) For all building relations B, and all x and y, x's B-ing y makes true certain explanatory and generative claims. For example, if a builds b, then b exists (obtains, is instantiated . . . ) because a does, b exists (obtains, is instantiated) in virtue of a, a makes b exist (obtain, be instantiated), and so forth.
 
-Surely, Robo agree with us that $\text{Socrates} \in \{Socrates\}$. But what they disagree with us is that, they instead think set-formation is not generative, while set-membership is generative.
+Surely, Robo agree with us that $\text{Socrates} \in \{Socrates\}$. But what they disagree with us that set-formation is not generative. They think set-membership is generative.
 
-If $Rxy$ makes $\square (x \leftrightarrow y)$ true, then let's call the relation $R$ *mutually necessitating*.[^11] Given any directed and mutually necessitating relation, we can always find a reverse relation that is also directed and necessitating. And reversal is not the only formal maneuver we can do. Let's use a toy example. Say a binary asymmetric relation $R\subseteq D\times D$ is mutually necessitating, i.e. $\forall x\forall y(Rxy\rightarrow\Box(x\leftrightarrow y))$. Then we can define inverse $R^{-1}=\{(x,y)\in D\times D \mid R(y,x)\}$. Given that $R^{-1}(x,y) \leftrightarrow R(y,x)$, it is easy to see $R^{-1}$ is also asymmetric and necessitating. Moreover, let $x\equiv_{\Box}y$ abbreviate $\Box(x\leftrightarrow y)$. $R$ lies inside the union of $\equiv_{\Box}$-classes, i.e. $R\subseteq\bigcup_{C\in D/\!\equiv_{\Box}}(C\times C)$. Hence within each $\equiv_{\Box}$-class $C$ of size $n$ one may independently pick for every unordered pair $\{u,v\}\subset C$ either $u\to v$, $v\to u$, or neither, producing $3^{\binom{n}{2}}$ asymmetric, necessitating relations on $C$. Whenever some $\equiv_{\Box}$-class has $n\ge 2$ there are therefore combinatorially many relations $R^{*}$ that (i) predicate over the same domain, (ii) are necessitating and directed, yet (iii) are extensionally different from a given directed, necessitating $R$.
+The problem can be made more general. If $Rxy$ makes $\square (x \leftrightarrow y)$ true, then let's call the relation $R$ *mutually necessitating*.[^11] Given any directed and mutually necessitating relation, we can always find a reverse relation that is also directed and necessitating. And reversal is not the only formal maneuver we can do. Say a binary asymmetric relation $R\subseteq D\times D$ is mutually necessitating. Then we can define inverse $R^{-1}=\{(x,y)\in D\times D \mid R(y,x)\}$. Given that $R^{-1}(x,y) \leftrightarrow R(y,x)$, it is easy to see $R^{-1}$ is also asymmetric and necessitating. Moreover, let $x\equiv_{\Box}y$ abbreviate $\Box(x\leftrightarrow y)$. $R$ lies inside the union of $\equiv_{\Box}$-classes, i.e. $R\subseteq\bigcup_{C\in D/\!\equiv_{\Box}}(C\times C)$. Hence within each $\equiv_{\Box}$-class $C$ of size $n$ one may independently pick for every unordered pair $\{u,v\}\subset C$ either $u\to v$, $v\to u$, or neither, producing $3^{\binom{n}{2}}$ asymmetric, necessitating relations on $C$. Whenever some $\equiv_{\Box}$-class has $n\ge 2$ there are therefore combinatorially many relations $R^{*}$ that (i) predicate over the same domain, (ii) are necessitating and directed, yet (iii) are extensionally different from a given directed, necessitating $R$.
 
 Therefore, if there is any mutually necessitating relation $R$ in the set of building relations, and we want to rule out $R^{*}$, then the problem is how. Bennett suggest the generative constraint, but this constraint cannot establish the invariance of the set of building relations, because for Robo, $\{Socrates\}$ exists explains Socrates exists. But we cannot say this is not the "real" explanation because Socrates is more fundamental than $\{Socrates\}$, for this just begs the question. And I don't see other reason to say there is any problem with Robo's understanding of fundamentality.
 
@@ -183,16 +175,29 @@ But this move still does not make the set of building relations invariant. For e
 In addition, it is not only the generative constraint that may lead to semantic variance. The necessitating constraint may also lead to variance, given that there are different senses of necessitation. This has been discussed by Sidelle (==The Grounding Mystique==): Given that modality is at least partly conventional, the deflationary challenge for metaphysical necessity extends equally to grounding.
 ## Upshot
 
-The gist of the tedious discussion above is simple. Imagine an alien whose language contains "fundamentality" that plays the same role in their metaphysics as our "fundamentality" does in our metaphysics. However, their "fundamentality" has a different extension. If we claim that fundamentality is a *worldly, objective feature*, we must be able to show why their concept is *objectively* wrong. Crucially, the reason we provide must not be symmetric; it can't be a reason the aliens could also use against us (e.g., "it violates *our* intuitions"). As the previous sections have shown, it seems we cannot find such a reason in the current way of establishing fundamentality.
+The gist of the tedious discussion above is simple. Imagine an alien whose language contains "fundamentality" that plays the same role in their metaphysics as our "fundamentality" does in our metaphysics. However, their "fundamentality" has a different extension. If we does not rely on the Quinean epistemology, and claim that fundamentality is a *worldly, objective feature*, then we must be able to show why their concept is *objectively* wrong. Crucially, the reason we provide must not be symmetric; it can't be a reason the aliens could also use against us (e.g., "it violates *our* intuitions"). As the previous sections have shown, it seems we cannot find such a non-question-begging reason in the current way of establishing fundamentality.
 
-It seems the only hope for finding this kind of non-symmetric reason would be the following: the world itself could teach us which "fundamentality" is the correct use. But challenges like the one involving the alien species essentially press the following question: if we were to throw away some of our intuitions, would the world still be able to teach us anything? The upshot of the discussion is that it would not. In a slogan: ***If we are willing to throw away our intuitions, the world cannot teach us anything.***
+It seems the only hope for finding this kind of non-symmetric reason would be the following: the world itself could teach us which "fundamentality" is the correct use. But challenges from strange creatures essentially press the following question: if we were to throw away some of our intuitions, would the world still be able to teach us anything? The upshot of the discussion is that it would not. In a slogan: ***If we are willing to throw away our intuitions, the world cannot teach us anything.***
 
-I believe this slogan is true. However, in the next part of this paper, I show that 
+I believe this slogan is true. However, in the next part of this paper, I show that some of our intuitions cannot be thrown away, and it would lead to substantial consequences.
 
 # II
 
+The arguments discussed in the previous section share a common pattern: we imagine a strange creature who thinks and speaks a radically different language. The challenge is that we seem unable to prove their language is metaphysically worse than ours.
+
+A natural, initial response is to dismiss these creatures as simply _insane_. This is, in fact, the kind of response I want to defend. My strategy, however, isn't to argue that there is something wrong with these alien languages _per se_. Instead, I want to focus on what's wrong with the relationship between _us_ and these languages.
+
+To put it simply, *certain constraints prevents us from coherently adopting and committing to just any theory*. If these constraints have substantial metaphysical consequences, then any theory we can coherently adopt must be consistent with them. Moreover, these metaphysical consequences will be invariant across all theories available to us.
+
+Before getting into my account, one immediate problem arises. The criticism is that what I am saying is mere pragmatism, and that deep metaphysical truth cannot be revealed by pragmatism.
+
+There is some force to this criticism. But consider one uncontroversial constraint: inconsistency. Why do we think an inconsistent theory is wrong? Indeed, we might even worry that the world itself is inconsistent. Yet we dismiss inconsistent theories. The reason is simple: we are incapable of following an inconsistent theory.[^13]
+
+In other words, if the aim of metaphysics is to understand reality, we cannot coherently understand inconsistent theories. If the world were truly inconsistent, that kind of metaphysical knowledge, in Socratic terms, would belong not to human beings but to God. For human beings, then, we should pursue human knowledge and understand reality in a human way, not in God's way. Therefore, if metaphysics is to be a subject of human inquiry at all, it must accept our human limitations, and thus accept these constraints on theory choice.
+
 ## The principle of Sanity
 
+The constraint I suggest is the following:
 
 - **The principle of sanity**: For someone who is capable of philosophical reflection, it is impossible to genuinely believe oneself to not be a rational agent.
 
@@ -226,15 +231,19 @@ It follows that *the Principle of Sanity* is incompatible with the traditional a
 
 Then immediately, one might object that if epistemic norms must be truth-tracking, then we should rationally reject *the Principle of Sanity* itself. However, what does it mean to "rationally reject" a principle? If doing so is an act of philosophical reflection, then, as argued earlier, the very act requires us to presuppose our own epistemic agency. Therefore, any attempt to "rationally reject" *the Principle of Sanity* is self-defeating, as the act of rejection presupposes the very rational agency the principle commands us to accept.
 
-There is also an auxiliary argument that help me establish the metaphysical argument that I want to establish. According to the neo-Quinean view on metametaphysics, choosing between empirically-equivalent theories is a matter of comparing their pragmatic virtues. And usually, they were considering theoretic simplicity, elegance, etc. But what how could these pragmatic virtues more valuable than our rational agency?
+There is also an auxiliary argument that help me establish the metaphysical argument that I want to establish. In the first part of this paper, I put aside the neo-Quinean epistemology for establishing fundamentality. According to this view, the best theory of fundamentality that has the most pragmatic virtues like simplicity, elegance and explanatory power. But what how could these pragmatic virtues more valuable than our rational agency?
+
+## Metaphysical Consequences
 
 Direct consequence of the Sanity Principle: Cannot eliminate first person and causation
 
 Indirect consequence of the Sanity Principle: establishing fundamentality without magic
 
-Beyond metaphysics: trusting friends against evidence
+## Beyond metaphysics: trusting friends against evidence
 
 Conclusion
+
+
 
 [^1]: Needless to say, in a complete model for English language, many other vocabularies need different interpretations.
 [^2]: I'm focusing on quantifier variance because I believe it's the most plausible and basic form of the neo-Carnapian position. ==Thomasson (2015 p. 70)== herself thinks her easy ontology doesn't depend on quantifier variance, but this is surely mistaken. Her project relies on the triviality of changing the extension of the predicate "exists". But this surely changes the meaning of the quantifier.
@@ -248,3 +257,4 @@ Conclusion
 [^10]: If this example is puzzling to you, you can try the following notation: she uses "Socrates" to refer to $\{Socrates\}$, and "-Socrates-" to refer to Socrates. Mathematically speaking, set formation has nothing to do with intrinsicality. Our intuition that *a member of a set* is somehow intrinsic and thus more fundamental than *the set itself* is just our *interpretation* of set formation, influenced by ordinary language words like "member" and how we use brackets to warp the members. But we could have used alternative notations, like using "M-relation" instead of membership, and use $\{\}-Socrates$ intead of $\{Socrates\}$.
 [^11]: Bennett's formulation of the necessitating requirement is a bit more complicated than this. She also consider the circumstance of necessitation (==p.52-54==). But here I will just use the cleaner way to formulating it for the toy example.
 [^12]: In other words, I am in fact suggesting two different principles. The stronger version is what I explicitly laid down and inclined to stand with. But even if one somehow resisted it, my conclusion can still be established by the weaker version, i.e. if we are capable of philosophical reflection, then we should not believe we are not rational agents.
+[^13]: This is an empirical claim about our limits. I don't deny the possibility that a few intellectually superior beings, perhaps through mutation, or perhaps like Hegel, could handle inconsistent theories.
