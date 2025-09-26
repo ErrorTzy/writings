@@ -296,4 +296,8 @@ Moving from "content" to "circumstance"
 ## On Agency and causation
 
 The difference between causal and non-causal building is about manipulating variables in the foreground or the background. 
-[^2]: 
+
+
+irreducible intentionality
+
+normativity and mistakes: the normality, wrongness; the concept of "mistake" itself is learned through social interaction.
