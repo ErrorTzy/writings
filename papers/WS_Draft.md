@@ -114,7 +114,11 @@ But I think there is no problem for grue-speakers to do grue-induction. Let's co
 
 But this doesn't seem right for two reasons. First, Inductive failure is normal. A predicate can be natural, but simply fail to apply to the kind for induction. For example, we might inductively conclude that all swans are white. The discovery of a black swan doesn't make the property "white" is objectively worse than "white or black". It just means we hit on a false hypothesis.
 
-Second, the argument is circular. Green is objectively better only if we assume the law of nature itself is not grue-like.
+Second, even if when 2050 arrives, the grue-speakers may not admit that the laws of nature is simpler when formulated in terms of green. Let's assume that, the grue-speakers also have a different intuition about similarity from ours. They not only take grue entities to be similar, but also naturally take laws of nature to be grue-like. For them, the simplest law of nature is a law that changes in 2050. To prevent further complications, let's the grue speakers take ZYX as invariant through time. Then what the grue-speakers would take to be the simplest law would be also be disjunctive: ZYX necessitates grue before 2050, or bleen otherwise. 
+
+(Given that our predicates can be expressed in one word, it is easy to invent syntactically simple disjunctive properties like "grue". But it is harder to do similar trick to propositions. One way to do this is to use "BLUE" to refer to the proposition that "ZYX necessitates blue", and "GREEN" to refer to the proposition that "ZYX necessitates green". Then the proposition "GRUE" is the proposition that, )
+
+Green is objectively better only if we assume the law of nature itself is not grue-like.
 
 
 ---
