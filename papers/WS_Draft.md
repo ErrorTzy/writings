@@ -22,8 +22,9 @@ Then I argue for a principle that basically says, we cannot throw away our ratio
 ## The Question of Reality
 
 The starting point of this paper comes from the following question: *How much reality should we read off our linguistic features?*
+### clarification
 
-This way of asking immediately requires clarification. First, it seems to suggest linguistic idealism. It doesn't. Reality certainly is not metaphysically constructed upon our language in any way.
+First, it seems to suggest linguistic idealism. It doesn't. Reality certainly is not metaphysically constructed upon our language in any way.
 
 Without language, we might still have ways to understand reality, perhaps through perception or mysterious experiences. But, this is not how metaphysics works. In metaphysics, we inevitably rely on sophisticated argument that relies on intuitive premises. But this has generated a long-standing worry in philosophy. Since medieval times, philosophers (e.g. nominalists) have been worrying that our intuition about the world comes from words instead of reality. Hence my question: when we try to talk about reality, which parts genuinely reflect how things are, and which parts are mere "shadows of language"?
 
@@ -42,11 +43,11 @@ However, this way of framing the debate relies on a problematic conception of tr
 
 The traditional way of framing realism in terms of truth creates a loophole for deflationists. It allows them to call themselves "lightweight realists" simply by agreeing that our metaphysical claims are true, while maintaining that this truth is superficial. But we do have a strong intuition to say, there is something deeper than the lightweight view. If we frame the question of realism in my fashion, however, then the deflationists must say more. For example, according to easy ontologists, adopting a language is easy, and thus ontology is easy. (==citation from Amie Thomasson==) But ontology can't be that easy, because it is not trivial to freely read reality off language. And the explicit distinction between language and reality is intended to capture the heavyweight idea of what is "really" out there. For example, Sider's project about Ontologese is best understood as, we should only read the (most fundamental) reality off the perfectly natural language, not unnatural languages that include kinds like "incars" and "outcars".
 
-Another thing needs to be clarified. I use "language" in a broad fashion. First, it includes inferential rules and laws. In other words, "theory" and "language" are interchangeable in this paper. For example, Newtonian physics and classic logic are arguably part of our ordinary language. Second, language-like mental process also count as language. When I say someone is "using a language", I mean that person is also *thinking in this language*. For example, one is *not* using English if they are in fact thinking in German, then use Google Translate so that eventually the utterance comes out in English.
+Another thing must be clarified. One must bear in mind that I use "language" in a broad fashion. First, it includes inferential rules and laws. In other words, that "theory" and "language" are interchangeable in this paper. For example, Newtonian physics and classic logic are arguably part of our ordinary language. Second, language-like mental process also count as language. When I say someone "adopted a language", I mean that person is also *thinking in this language*. For example, one didn't *adopt* English if they are in fact thinking in German, then use Google Translate so that eventually the utterance comes out in English.
 
 The way I've framed the question, i.e. how much reality we should read off our linguistic features, is different from the standard story told in metametaphysics. I think the standard narrative, which I'll lay out in a moment, tends to miss something important. I take the familiar story told by ==Schaffer (2009 on what grounds what)==, which is the most-cited paper in this field, as the orthodox version (though I'll be telling a bit differently).
 
-### The standard story
+## The standard story
 
 It goes something like this: contemporary metaphysics began with the Quine-Carnap debate. After Quine arguably won the debate, his approach to metaphysics prevailed. For Quine, the main task of metaphysics is to figure out what indispensably exists. Whether numbers or electrons exist depends on whether we must quantify over them in our best theories. This methodology was extended to other topics. Lewis, in some sense, can be seen as following the Quinean methodology: Since our best account of modality requires quantifying over possible worlds, possible worlds are real. From there, other concepts can be analyzed. Causation is explained by counterfactuals, which are analyzed in terms of real possible worlds. Modality de re can be analyzed by real possible worlds, plus some pragmatic, context-sensitive similarities. The takeaway is that most problems in metaphysics can be solved by first figuring out what exists and then maybe add a dash of pragmatics.
 
@@ -77,12 +78,13 @@ In order to see this more clearly, let's return to the question I framed at the 
 The essential feature of definitions (and explanations) is that they are inherently *asymmetric*: nothing can define itself, and if $A$ is defined by $B$, then $B$ cannot be defined by $A$. However, this only applies to "real definitions," not "nominal definitions." For example, we may nominally define "A is on the left side of B" by "B is on the right side of A," and define "B is on the right side of A" by "A is on the left side of B." In fact, this kind of circularity probably appears occasionally when terms are defined in the dictionary.
 
 Given this distinction, we cannot say that any definition in our language establishes fundamentality. Only the "real" ones trace fundamentality. The same principle applies to explanation. Although grounding relations are explanatory, they are not explanation relations per se. Explanation is (in)famously context-sensitive (==citation to van Fraassen, Kitcher==). It depends on things such as what we're emphasizing, and what interests our audience. Grounding relations, by contrast, are intended to be worldly, "objectively objective", and context-independent. Since they are separate, only "real" explanation can trace fundamentality. This leads neo-Aristotelians to embrace *sometimes-ism* about explanation or definition.
+## Objective Metaphysical Privilege
 
 Now we can clearly see the issue. Neo-Carnapians are arguing for a general form of *always-ism*, which would naturally includes the *always-ism about explanation or definition*. The pressure that the neo-Carnapian argument would put on the neo-Aristotelians' *sometimes-ism* is that, what makes some definition or explanation privileged so that they get to trace fundamentality, but the other doesn't? 
 
 I will later defend sometimes-ism against always-ism. In fact, the *general form of always-ism* is already under pressure. In the previous paragraph, I constructed an exotic toy model that satisfies "Superman is Clark Kent". According to always-ism, there is no problem with this model. Something already seems wrong. ==I later address this problem. Will I?== But for now I will ignore these problems, put on the hat of neo-Carnapians and explain why the neo-Aristotelians did not give any satisfying answer. 
 
-In the following three sections, I will leave aside the neo-Quinean-flavored view that, fundamentality is established by fallible epistemology determined by the best theory of fundamentality that has the most pragmatic virtues like simplicity, elegance and explanatory power. I argue against this view in the second part of this paper. In the next three sections, I attack the view that, we can objectively establish an absolute account of fundamentality that does not lead to semantic variance.
+In the following three sections, I will leave aside the neo-Quinean-flavored view. This view establish fundamentality by pragmatic epistemology, i.e. the fact is determined by the best system that has the most pragmatic virtues like simplicity, elegance and explanatory power. I argue against this view in the second part of this paper. In the next three sections, I attack the non-pragmatic neo-Aristotlian view that, we can objectively establish an absolute account of fundamentality that does not lead to semantic variance.
 
 ### Naturalness
 
@@ -191,9 +193,17 @@ To put it simply, *certain constraints prevents us from coherently adopting and 
 
 Before getting into my account, one immediate problem arises. The criticism is that what I am saying is mere pragmatism, and that deep metaphysical truth cannot be revealed by pragmatism.
 
-There is some force to this criticism, and this force is related to footnote 6. But here consider one uncontroversial constraint: inconsistency. Why do we think an inconsistent theory is wrong? Indeed, we might even worry that the world itself is inconsistent. Yet we dismiss inconsistent theories. The reason is simple: we are incapable of following an inconsistent theory.[^12]
+There is some force to this criticism, and may require a much longer reply to fully address it. But here consider one uncontroversial constraint: inconsistency. Why do we think an inconsistent theory is wrong? Indeed, we might even worry that the world itself is inconsistent. Yet we dismiss inconsistent theories. The reason is simple: we are incapable of following an inconsistent theory.[^12]
 
-In other words, if the aim of metaphysics is to understand reality, we cannot coherently understand inconsistent theories. If the world were truly inconsistent, that kind of metaphysical knowledge, in Socratic terms, would belong not to human beings but to God. For human beings, then, we should pursue human knowledge and understand reality in a human way, not in God's way. Therefore, if metaphysics is to be a subject of human inquiry at all, it must accept our human limitations, and thus accept these constraints on theory choice.
+In other words, if the aim of metaphysics is to understand reality, we cannot coherently understand inconsistent theories. If the world were truly inconsistent, that kind of metaphysical knowledge, in Socratic terms, would belong not to human beings but to God. For human beings, then, we should pursue human knowledge and understand reality in a human way, not in Goe should pursue human knowledge and understand reality in a human way, not in God's way. Therefore, if metaphysics is to be a subject of human inquiry at all, it must accept our human limitations, and thus accept these constraints on theory choice.
+
+Let me clarify further. One might object that physics already presents a picture of reality that is far beyond our understanding. For example, it's very difficult to truly make sense of concepts like fields, curved spacetime, or probabilistic states. Yet, these are highly successful theories, and we don't reject them. In fact, we utilize them all the time.
+
+To reply, I want to distinguish between *adopting* a theory and merely *utilizing* it. To use a theory is to follow its rules, without reading anything off the theory. For example, a calculator utilize the rules of arithmetic to produce results. In this sense we can say a calculator utilize arithmetic. However, to adopt a theory is, at least to some extent, accept its picture of reality it implies. Surely a calculator does not adopt arithmetic.
+
+This distinction is clear in quantum mechanics. Physicists apply the Schrödinger equation to compute predictions and do experiments. Yet they may remain silent about how to interpret the equation. They just shut up and calculate. Therefore, they are merely utilizing these equations without adopting them into their worldview.
+
+What I am arguing for is the constraint on adopting a theory. There is no problem with using a theory that violates these constraints to do experiments or make predictions. However, as long as we want to truly understand the reality a theory claims to reveal, these constraints apply.
 
 ## The principle of Sanity
 
@@ -201,9 +211,11 @@ The constraint I suggest is the following:
 
 - **The principle of sanity**: For someone who is capable of philosophical reflection, it is impossible to genuinely believe oneself to not be a rational agent.
 
-**Clarification for this principle**: This principle also applies to acceptance (i.e. It is impossible for someone to accept oneself to not be a rational agent), but I will focus on belief in the rest of the paper unless specified otherwise. Anyway, the upshot is, it is impossible for us to really adopt a theory that eliminates rational agency.
+### Clarification
 
-Here, "philosophical reflection" roughly refers to activities such as examining and revising one's beliefs, analyzing arguments, and choosing between competing theories. The condition "for a person capable of philosophical reflection" is to rule out certain exotic counterexamples. For instance, someone who has been so thoroughly brainwashed that their only possible belief is "I am not a rational agent" would not qualify as a counterexample. I assume all readers who have already made it here are automatically capable of philsosophical reflection. Similarly, saying "genuinely believe" is to rule out counterexamples from self-deception.
+This principle also applies to acceptance (i.e. It is impossible for someone to accept oneself to not be a rational agent), but I will focus on belief in the rest of the paper unless specified otherwise. Anyway, the upshot is, it is impossible for us to really adopt a theory that eliminates rational agency.
+
+Here, "philosophical reflection" roughly refers to activities such as examining and revising one's beliefs, analyzing arguments, and choosing between competing theories. The condition "for a person capable of philosophical reflection" is to rule out certain exotic counterexamples. For instance, someone who has been so thoroughly brainwashed that their only possible belief is "I am not a rational agent" would not qualify as a counterexample. I assume all readers who have already made it here are automatically capable of philsosophical reflection.
 
 What I mean by "rational" here is a minimal sense of means-end coherence. For example, someone who wills their hand to rise but finds their leg going up instead would lack this coherence. Thus, even if this could somehow be a case of agency, it wouldn't be rational agency in the relevant sense.
 
@@ -211,7 +223,9 @@ The precise meaning of "rational agency", of course, is highly controversial and
 
 For current purpose, it will suffice by adopting a minimal account of rational agency as *epistemic agency*. But I will add more to "rational agency" later in this paper. What I mean by "epistemic agency" here is not the kind of agency resisted by doxastic involuntarists. According to doxastic involuntarists, *direct* voluntary control over belief is not possible for us. But here, I use "epistemic agency" to refer to any sort of control over our beliefs, no matter how indirect. For example, we have the ability to choose to re-examine our beliefs and investigate new evidence. Doxastic involuntarists, like ==Hieronymi 2008==, also acknowledge that we possess this kind of indirect control. Therefore, it is uncontroversial that we have epistemic agency in the intended sense.
 
-**Reasons for this principle**: This is more or less an axiom in this paper that I take to be self-evident. But I will still try to give some defense. 
+### Defense for this principle
+
+This is more or less an axiom in this paper that I take to be self-evident. But I will still try to give some defense. 
 
 First, implicitly, this is already a widely accepted principle. Aristotle appears to adopt this principle in Chapter 9 of _De Interpretatione_. There, he rejects the principle of bivalence due to our deliberation and action. He argues that, deliberation and action requires that, propositions about the future must be open (19a10). Then they cannot have a truth value now (19a26). Therefore the principle of bivalence is false. However, Aristotle's argument seems to epistemic instead of metaphysical. When he writes that "what will be has an origin both in deliberation and in action" (19a6-9), the plausible interpretation is that our *beliefs* about the future originate from these rational activities, not the future state of affairs itself. If so, his argument is best understood as follows: it is impossible for us to genuinely *believe* that the future is predetermined while simultaneously viewing ourselves as rational agents who deliberate. Therefore, by *the principle of sanity*, we cannot adopt the principle of bivalence.
 
@@ -231,11 +245,21 @@ It follows that *the Principle of Sanity* is incompatible with the traditional a
 
 Then immediately, one might object that if epistemic norms must be truth-tracking, then we should rationally reject *the Principle of Sanity* itself. However, what does it mean to "rationally reject" a principle? If doing so is an act of philosophical reflection, then, as argued earlier, the very act requires us to presuppose our own epistemic agency. Therefore, any attempt to "rationally reject" *the Principle of Sanity* is self-defeating, as the act of rejection presupposes the very rational agency the principle commands us to accept.
 
-There is also an auxiliary argument that help me establish the metaphysical argument that I want to establish. In the first part of this paper, I put aside the neo-Quinean epistemology for establishing fundamentality. According to this view, the best theory of fundamentality that has the most pragmatic virtues like simplicity, elegance and explanatory power. But what how could these pragmatic virtues more valuable than our rational agency?
+There is also an auxiliary argument. In the first part of this paper, I put aside the neo-Quinean epistemology for establishing fundamentality. According to this view, the best theory of fundamentality that has the most pragmatic virtues like simplicity, elegance and explanatory power. But what how could these pragmatic virtues more valuable than our own rational agency?
 
 ## Metaphysical Consequences
 
-Given this Principle of Sanity, there are some 
+Given the Principle of Sanity, some direct corollaries follow. The basic idea is, given that we must think we are epistemic agents, we cannot coherently adopt a theory that says we aren't.
+
+One corollary is about causation. To be an agent means to bring something about. 'Bringing about' is a causal notion. Therefore it is analytically true that, there is agency only if there is causation. It directly follows that, we cannot the following kind of theory: There is no such thing as causation. All there is is just Humean regularity, counterfactuals, etc.
+
+To clarify, I am not against non-eliminative analysis of causation. It is meaningful to show how causation connects to other ideas. All I am saying is that, if we eliminate causation yet still believe we are epistemic agents, we would be inconsistent.
+
+Another corollary is about personal identity. Let me state the conclusion first and then explain why. Given the principle of sanity, we cannot adopt a theory that says "I" does not exist, all there is is just psychologically continuous or connected personal states.[^14]
+
+This is the kind of view that ==Parfit 1984== advocates. According to Parfit, 
+
+
 Direct consequence of the Sanity Principle: Cannot eliminate first person and causation
 
 Indirect consequence of the Sanity Principle: establishing fundamentality without magic
@@ -259,3 +283,4 @@ Conclusion
 [^11]: Bennett's formulation of the necessitating requirement is a bit more complicated than this. She also consider the circumstance of necessitation (==p.52-54==). But here I will just use the cleaner way to formulating it for the toy example.
 [^12]: This is an empirical claim about our limits. I don't deny the possibility that a few intellectually superior beings, perhaps through mutation, or perhaps like Hegel, could handle inconsistent theories.
 [^13]: In other words, I am in fact suggesting two different principles. The stronger version is what I explicitly laid down and inclined to stand with. But even if one somehow resisted it, my conclusion can still be established by the weaker version, i.e. if we are capable of philosophical reflection, then we should not believe we are not rational agents.
+[^14]: ==Hirsch forthcoming== also discussed this corollary in chap. 3
