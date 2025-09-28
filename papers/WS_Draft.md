@@ -78,7 +78,7 @@ In order to see this more clearly, let's return to the question I framed at the 
 
 The essential feature of definitions (and explanations) is that they are inherently *asymmetric*: nothing can define itself, and if $A$ is defined by $B$, then $B$ cannot be defined by $A$. However, this only applies to "real definitions," not "nominal definitions." For example, we may nominally define "A is on the left side of B" by "B is on the right side of A," and define "B is on the right side of A" by "A is on the left side of B." In fact, this kind of circularity probably appears occasionally when terms are defined in the dictionary.
 
-Given this distinction, we cannot say that any definition in our language establishes fundamentality. Only the "real" ones trace fundamentality. The same principle applies to explanation. Although grounding relations are explanatory, they are not explanation relations per se. Explanation is (in)famously context-sensitive (==citation to van Fraassen, Kitcher==). It depends on things such as what we're emphasizing, and what interests our audience. Grounding relations, by contrast, are intended to be worldly, "objectively objective", and context-independent. Since they are separate, only "real" explanation can trace fundamentality. This leads neo-Aristotelians to embrace *sometimes-ism* about explanation or definition.
+Given this distinction, we cannot say that any definition in our language trace fundamentality. Only the "real" ones trace fundamentality. The same principle applies to explanation. Although grounding relations are explanatory, they are not explanation relations per se. Explanation is (in)famously context-sensitive (==citation to van Fraassen, Kitcher==). It depends on things such as what we're emphasizing, and what interests our audience. Grounding relations, by contrast, are intended to be worldly, "objectively objective", and context-independent. Since they are separate, only "real" explanation can trace fundamentality. This leads neo-Aristotelians to embrace *sometimes-ism* about explanation or definition.
 
 ## Objective Metaphysical Privilege
 
@@ -256,11 +256,11 @@ There is also an auxiliary argument. In the first part of this paper, I put asid
 
 Given the Principle of Sanity, some direct corollaries follow. The basic idea is, given that we must think we are epistemic agents, we cannot coherently adopt a theory that says we aren't.
 
-**One straightforward corollary is about causation.** To be an agent means to bring something about. 'Bringing about' is a causal notion. Therefore it is analytically true that, there is agency only if there is causation. It directly follows that, we cannot the following kind of theory: There is no such thing as causation. All there is is just Humean regularity, counterfactuals, etc.
+**One straightforward corollary is on causation.** To be an agent means to bring something about. 'Bringing about' is a causal notion. Therefore it is analytically true that, there is agency only if there is causation. It directly follows that, we cannot the following kind of theory: There is no such thing as causation. All there is is just Humean regularity, counterfactuals, etc.
 
 To clarify, I am not against non-eliminative analysis of causation. It is meaningful to show how causation connects to other ideas. All I am saying is that, if we eliminate causation yet still believe we are epistemic agents, we would be inconsistent.
 
-**Another corollary is about personal identity.** Let me state the conclusion first and then explain why. Given the Principle of Sanity, we cannot adopt the following kind of theory: "I" is an illusion and/or does not exist. All there is is just psychologically continuous or connected personal states.[^14]
+**Another corollary is on personal identity.** Let me state the conclusion first and then explain why. Given the Principle of Sanity, we cannot adopt the following kind of theory: "I" is an illusion and/or does not exist. All there is is just psychologically continuous or connected personal states.[^14]
 
 This is the kind of view that ==Parfit 1984== advocates. According to Parfit, it would be better if we describe our lives in an impersonal way, without using the first-person pronoun "I" or claiming that persons, as distinct entities, exist. He argues that doing so reveals a deep and liberating truth about our nature.
 
@@ -297,9 +297,11 @@ Unknown to him, the footage is old and the person on screen is actually himself.
 
 But let's even grant it that, in this case, Perry produces a rational action. Here, the bigger problem is the following. We can construct a similar scenario in which the person on the screen is Perry's identical twin brother, Berry (assuming there is such a person). In that scenario, Perry's qualitative experiences are identical to the original case; therefore the intentions he forms are the same. So Perry should produce the same action in both cases. But according to the Action Inventory Model, Berry's running is not available to Perry. Hence, if Berry is the person on television, Perry would not run. 
 
-In other words, the problem with any denial of *de se* essentialism is this: It not only yields strange results, but it leads to different results in two qualitatively identical scenarios. In any situation where Perry produces a rational action, we can always construct a case where everything is qualitatively identical for Perry. But the content of the *de re* belief is, accidentally, about someone else. If action depends on *de re* content, then the same intention would accidentally produce different unexpected results. But I have clarified earlier that this is not rational action because it lacks minimal means-end coherence.
+In other words, the problem with any denial of *de se* essentialism is this: It not only yields strange results, but it leads to different results in qualitatively identical scenarios. In any situation where Perry produces a rational action, we can always construct a case where everything is qualitatively identical for Perry. But in this case, the content of the *de re* belief is, accidentally, about someone else. If action depends on *de re* content, then the same intention would accidentally produce different unexpected results. But I have clarified earlier that this is not rational action because it lacks minimal means-end coherence.
 
-Now, we have provided two direct corollary of the Principle of Sanity, one on causation and another on personal identity. These two corollaries are purely negative: it tells us what we cannot adopt. But the Principle of Sanity can achieve more. 
+Now, we have provided two direct corollary of the Principle of Sanity, one on causation and another on personal identity. These two corollaries are purely negative: it tells us what we *cannot* adopt. But the Principle of Sanity can also achieve positive results. 
+
+As I have argued earlier, if the Principle of Sanity entails that there is $x$, 
 
 
 
