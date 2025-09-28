@@ -62,9 +62,9 @@ Meanwhile the Neo-Aristotelians also come into play.[^3] They also attack on the
 
 ### The problem with the standard story
 
-Here's the problem. From the neo-Aristotelian perspective, this makes them look like the next logical step. In this view, the neo-Carnapians performed a useful, but purely *negative*, task by showing the flaws in the neo-Quinean focus on existence. With that groundwork laid, the neo-Aristotelians can then step in to offer a *positive* new project, turning the page on the neo-Quine-Carnap debate and building something new around concepts like grounding and fundamentality. (==citation==)
+Here's the problem. From the neo-Aristotelian perspective, this makes them look like the next logical step. In this view, the neo-Carnapians performed a useful, but purely *negative*, task by showing the flaws in the neo-Quinean focus on existence: the meaning of "exist" could vary. With that groundwork laid, the neo-Aristotelians can then step in to offer a *positive* new project, and say the various meaning of "exist" are "exist-more-fundamentally" and "exist-less-fundamentally". Thus, they turning the page on the neo-Quine-Carnap debate and building something new around fundamentality. (==citation==)
 
-As a result of this framing, the standard story tends to sideline the neo-Carnapians. This isn't to say they're completely ignored, of course; people like Sider, Schaffer, and Bennett certainly take them seriously. Rather, the problem is that the standard story implies the neo-Carnapian critique is *only* about existence. And if that's the case, then the neo-Aristotelians, with their new focus, can safely disregard it. 
+As a result of this framing, the standard story tends to sideline the neo-Carnapians. This isn't to say they're completely ignored, of course; people like Sider, Schaffer, and Bennett certainly take them seriously. Rather, the problem is that the standard story implies the neo-Carnapian critique is *only* about existence. And if that's the case, then the neo-Aristotelians, with their new focus on fundamentality, can safely disregard it. 
 
 But this is surely *not* the case. The neo-Carnapian argument, on a high level, is about semantic variance. Therefore, it applies to any theory as long as the theory allows semantic variance. 
 
@@ -256,6 +256,8 @@ There is also an auxiliary argument. In the first part of this paper, I put asid
 
 Given the Principle of Sanity, some direct corollaries follow. The basic idea is, given that we must think we are epistemic agents, we cannot coherently adopt a theory that says we aren't.
 
+### Negative Corollaries on causation and personal identity
+
 **One straightforward corollary is on causation.** To be an agent means to bring something about. 'Bringing about' is a causal notion. Therefore it is analytically true that, there is agency only if there is causation. It directly follows that, we cannot the following kind of theory: There is no such thing as causation. All there is is just Humean regularity, counterfactuals, etc.
 
 To clarify, I am not against non-eliminative analysis of causation. It is meaningful to show how causation connects to other ideas. All I am saying is that, if we eliminate causation yet still believe we are epistemic agents, we would be inconsistent.
@@ -299,9 +301,11 @@ But let's even grant it that, in this case, Perry produces a rational action. He
 
 In other words, the problem with any denial of *de se* essentialism is this: It not only yields strange results, but it leads to different results in qualitatively identical scenarios. In any situation where Perry produces a rational action, we can always construct a case where everything is qualitatively identical for Perry. But in this case, the content of the *de re* belief is, accidentally, about someone else. If action depends on *de re* content, then the same intention would accidentally produce different unexpected results. But I have clarified earlier that this is not rational action because it lacks minimal means-end coherence.
 
-Now, we have provided two direct corollary of the Principle of Sanity, one on causation and another on personal identity. These two corollaries are purely negative: it tells us what we *cannot* adopt. But the Principle of Sanity can also achieve positive results. 
+### Positive Corollary on causation and fundamentality
 
-As I have argued earlier, if the Principle of Sanity entails that there is $x$, 
+Now, we have provided two direct corollary of the Principle of Sanity, one on causation and another on personal identity. These two corollaries are purely negative: it tells us what we *cannot* adopt. But the Principle of Sanity can also achieve positive results. If the Principle of Sanity entails that $P$, then $P$ must stay invariant across different theories. Any attempt to vary the meaning of $P$ would violate The Principle of Sanity.
+
+This, of course, needs further clarification. As I said, the Principle of Sanity itself may vary, based on different interpretation of "rational agency". And it would lead to different entailment. But this would not challenge my point. Once the Principle of Sanity is fixed, the set of $P$ that are entailed by the principle is also fixed.
 
 
 
@@ -311,7 +315,11 @@ Indirect consequence of the Sanity Principle: establishing fundamentality withou
 
 ## Beyond metaphysics: trusting friends against evidence
 
-Conclusion
+
+
+## Conclusion
+
+
 
 [^1]: Needless to say, in a complete model for English language, many other vocabularies need different interpretations.
 [^2]: I'm focusing on quantifier variance because I believe it's the most plausible and basic form of the neo-Carnapian position. ==Thomasson (2015 p. 70)== herself thinks her easy ontology doesn't depend on quantifier variance, but this is surely mistaken. Her project relies on the triviality of changing the extension of the predicate "exists". But this surely changes the meaning of the quantifier.
