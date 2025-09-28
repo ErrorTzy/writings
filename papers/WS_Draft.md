@@ -264,11 +264,11 @@ To clarify, I am not against non-eliminative analysis of causation. It is meanin
 
 **Another corollary is on personal identity.** Let me state the conclusion first and then explain why. Given the Principle of Sanity, we cannot adopt the following kind of theory: "I" is an illusion and/or does not exist. All there is is just psychologically continuous or connected personal states.[^14]
 
-This is the kind of view that ==Parfit 1984== advocates. According to Parfit, it would be better if we describe our lives in an impersonal way, without using the first-person pronoun "I" or claiming that persons, as distinct entities, exist. He argues that doing so reveals a deep and liberating truth about our nature.
+This is the kind of impersonal view that ==Parfit 1984== advocates. According to Parfit, it would be better if we describe our lives in an impersonal way, without using the first-person pronoun "I" or claiming that persons, as distinct entities, exist. He argues that doing so reveals a deep and liberating truth about our nature.
 
 However, according to the Principle of Sanity, we cannot adopt such a language. This is because rational agency requires first person pronoun. To prove this, I will go back to the more general "rational agency" instead of the specific "epistemic rational agency". But nothing important hangs on this. The proof also applies to "epistemic rational agency" with some modification of the example.
 
-The proof is as follows: Rational agency requies de se attitude. De se attitudes requires the *adoption* of first person pronouns 'I' (or other syntactic equivalence). Therefore, rational agency requires us to adopt the existence of "I". 
+The proof is as follows: Rational agency requies de se attitude. De se attitudes requires the *adoption* of first person pronouns 'I' (or other syntactic equivalence). Therefore, rational agency requires us to read reality off "I" and adopt the existence of "I". 
 
 What is attitude de se? This terminology is introduced by Lewis (==attitudes de dicto and de se==), but the motivation comes from Perry (==the essential indexical==). In a nutshell, there are a type of propositional attitude that are essentially different from other kinds of attitudes: believing that I..., intending that I..., regretting that I.... This uniqueness of this attitude is illustrated in the Perry's famous example:
 
@@ -305,7 +305,7 @@ In other words, the problem with any denial of *de se* essentialism is this: It 
 
 Now, we have provided two direct corollary of the Principle of Sanity, one on causation and another on personal identity. These two corollaries are purely negative: it tells us what we *cannot* adopt. But the Principle of Sanity can also achieve positive results. If the Principle of Sanity entails that $P$, then $P$ must stay invariant across different theories. Any attempt to vary the meaning of $P$ would violate The Principle of Sanity.
 
-This, of course, needs further clarification. As I said, the Principle of Sanity itself may vary, based on different interpretation of "rational agency". And it would lead to different entailment. But this would not challenge my point. Once the Principle of Sanity is fixed, the set of $P$ that are entailed by the principle is also fixed.
+Let me clarify further. As I said, the Principle of Sanity itself may vary, based on different interpretations of "rational agency". And it would lead to different entailment. But this would not challenge my point. Once the Principle of Sanity is fixed, the set of $P$ that are entailed by the principle is also fixed.
 
 
 
