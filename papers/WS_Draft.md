@@ -236,9 +236,11 @@ First, implicitly, this is already a widely accepted principle. Aristotle appear
 
 There are also more contemporary cases.People seems to reject epiphenomenalism largely due to the reason that, if there's no mental causation, then it seems we wouldn't have any agency, which is insane. And I will argue later that, the motivation of a widely held metasemantics principle, *the Principle of Charity*, actually comes from of a stronger version of *the Principle of Sanity*. Therefore, in fact people have been implicitly using this principle.
 
-Nonetheless, I will also try to sketch a direct defense. If the principle were false, then it would be possible for a creature to engage in philosophical reflection without believing itself to have rational agency. But philosophical reflection inherently requires making inferences and utilizing abstract concepts. Let's assume, as is widely held, that such complex thought requires language (or at least some language-like mentalese). Then, I argue in the following paragraph that using language for this purpose necessitates rational agency. Therefore this creature is impossible.
+Nonetheless, I will also try to sketch a direct defense. If the principle were false, then it would be possible for a creature to engage in philosophical reflection without genuinely believing itself to have epistemic agency. But philosophical reflection is not just mechanically following rules. It essentially involves understanding of abstract concepts. This requires one to adopt a language. But adopting language for this purpose necessitates epistemic agency. And one cannot be unaware their own intention. Therefore, an epistemic agent cannot genuinely believe oneself not having epistemic agency. Therefore this creature is impossible.
 
-To use language requires intentionality. For example, a dinosaur that accidentally scratches the shape of the symbol "water" into the ground is not using language, because it does not use the symbol intentionally to represent something. Therefore, intentionality is necessary for language use. But to use representation intentionally for philosophical reflection just is to exercise the very sort of indirect, agential control over one's beliefs by potentially revising what one holds to be true. And we must be able, at least to some extent (including subconsciously), to be aware of our own intentions. If we are aware of our intentions to some extent, we believe that we have such intentions. Thus, if we use language to engage in philosophical reflection, we must believe in epistemic agency.
+To adopt and think in a language requires intentionality. For example, a dinosaur that accidentally scratches the shape of the symbol "water" into the ground is not using language, because it does not use the symbol intentionally to represent something. Therefore, intentionality is necessary for adopting a language. But to use representation intentionally for philosophical reflection just is to exercise the very sort of indirect, agential control over one's beliefs by potentially revising what one holds to be true. 
+
+And we must be able, at least to some extent (including subconsciously), to be aware of our own intentions. If we are aware of our intentions to some extent, we believe that we have such intentions to that extent. Thus, if we adopt a language to engage in philosophical reflection, we cannot genuinely disbelieve epistemic agency.
 
 Maybe this is not an invincible argument. Perhaps with some heavy argument, one may claim we can build a "philosophy machine" that can reflect on arguments and produce a philosophy paper while being completely non-agential. Even if so, I believe it is quite obvious that rejecting the principle of sanity, plainly, is to be insane. Even if such a "philosophy machine" is possible, I still think no human being should reject this principle, simply because we should not be insane.[^13]
 
@@ -301,13 +303,20 @@ But let's even grant it that, in this case, Perry produces a rational action. He
 
 In other words, the problem with any denial of *de se* essentialism is this: It not only yields strange results, but it leads to different results in qualitatively identical scenarios. In any situation where Perry produces a rational action, we can always construct a case where everything is qualitatively identical for Perry. But in this case, the content of the *de re* belief is, accidentally, about someone else. If action depends on *de re* content, then the same intention would accidentally produce different unexpected results. But I have clarified earlier that this is not rational action because it lacks minimal means-end coherence.
 
-### Positive Corollary on causation and fundamentality
+### Positive Corollaries on causation and fundamentality
 
-Now, we have provided two direct corollary of the Principle of Sanity, one on causation and another on personal identity. These two corollaries are purely negative: it tells us what we *cannot* adopt. But the Principle of Sanity can also achieve positive results. If the Principle of Sanity entails that $P$, then $P$ must stay invariant across different theories. Any attempt to vary the meaning of $P$ would violate The Principle of Sanity.
+So far, I've illustrated two direct corollaries of the Principle of Sanity on causation and personal identity. These are *negative* conclusions, telling us which theories we _cannot_ adopt. However, the principle can also yield *positive* results.
 
-Let me clarify further. As I said, the Principle of Sanity itself may vary, based on different interpretations of "rational agency". And it would lead to different entailment. But this would not challenge my point. Once the Principle of Sanity is fixed, the set of $P$ that are entailed by the principle is also fixed.
+Here's the basic idea: If the Principle of Sanity entails a metaphysical conclusion that $P$, then $P$ becomes an invariable part for any metaphysical theory we can coherently adopt. Any attempt to vary $P$ semantically would violate the Principle of Sanity and thus be impossible for us to adopt.
+
+To clarify, as I said, the Principle of Sanity itself can vary depending on the interpretation of "rational agency." This, however, doesn't weaken my argument. Once an interpretation of "rational agency" is fixed, so too is the set of $P$s that the principle requires us to accept.
+
+Immediately a question arises here. The Principle of Sanity is a meta-theoretical constraint. Why should an object-level theory has to adopt the content of the meta-level theory.
+
+The answer is, we have to notice an important fact that is always ignored: Surprisingly, we are part of the world. We are not mysterious entities roaming outside the world. If the Principle of Sanity entails a fact about *us*, and we are objectively a part of the world, then the Principle of Sanity entails a fact about the world. On the other hand, the object-level metaphysical theory aims to provide a complete description of the world. Therefore, it must account for the creatures in it, including us. Therefore, any true and complete metaphysics must include truths about its own theorists. A fact about our cognitive limitations (a meta-level constraint) is also an objective fact about a component of reality (us), and must therefore be reflected in any adequate object-level theory.
 
 
+A theory of metaphysics is supp
 
 Direct consequence of the Sanity Principle: Cannot eliminate first person and causation
 
