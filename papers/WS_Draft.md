@@ -218,7 +218,7 @@ The constraint I suggest is the following:
 
 This principle also applies to acceptance (i.e. It is impossible for someone to accept oneself to not be a rational agent), but I will focus on belief in the rest of the paper unless specified otherwise. Anyway, the upshot is, it is impossible for us to really adopt a theory that eliminates rational agency.
 
-Here, "philosophical reflection" roughly refers to activities such as examining and revising one's beliefs, analyzing arguments, and choosing between competing theories. The condition "for a person capable of philosophical reflection" is to rule out certain exotic counterexamples. For instance, someone who has been so thoroughly brainwashed that their only possible belief is "I am not a rational agent" would not qualify as a counterexample. I assume all readers who have already made it here are automatically capable of philsosophical reflection.
+Here, "philosophical reflection" roughly refers to activities such as examining and revising one's beliefs, analyzing arguments, and choosing between competing theories. The condition "for a person capable of philosophical reflection" is to rule out certain exotic counterexamples. For instance, someone who has been so thoroughly brainwashed that their only possible belief is "I am not a rational agent" would not qualify as a counterexample. I assume all readers who have already made it here are automatically capable of philosophical reflection.
 
 What I mean by "rational" here is a minimal sense of means-end coherence. For example, someone who wills their hand to rise but randomly cause their leg going up would lack this coherence. Thus, even if this randomness could somehow count as agency, it wouldn't be rational agency in the relevant sense.
 
@@ -236,11 +236,11 @@ First, implicitly, this is already a widely accepted principle. Aristotle appear
 
 There are also more contemporary cases.People seems to reject epiphenomenalism largely due to the reason that, if there's no mental causation, then it seems we wouldn't have any agency, which is insane. And I will argue later that, the motivation of a widely held metasemantics principle, *the Principle of Charity*, actually comes from of a stronger version of *the Principle of Sanity*. Therefore, in fact people have been implicitly using this principle.
 
-Nonetheless, I will also try to sketch a direct defense. If the principle were false, then it would be possible for a creature to engage in philosophical reflection without genuinely believing itself to have epistemic agency. But philosophical reflection is not just mechanically following rules. It essentially involves understanding of abstract concepts. This requires one to adopt a language. But adopting language for this purpose necessitates epistemic agency. And one cannot be unaware their own intention. Therefore, an epistemic agent cannot genuinely believe oneself not having epistemic agency. Therefore this creature is impossible.
+Nonetheless, I will also try to sketch a direct defense. If the principle were false, then it would be possible for a creature to engage in philosophical reflection without genuinely believing itself to have epistemic agency. I claim that this is impossible.
 
-To adopt and think in a language requires intentionality. For example, a dinosaur that accidentally scratches the shape of the symbol "water" into the ground is not using language, because it does not use the symbol intentionally to represent something. Therefore, intentionality is necessary for adopting a language. But to use representation intentionally for philosophical reflection just is to exercise the very sort of indirect, agential control over one's beliefs by potentially revising what one holds to be true. 
+Philosophical reflection requires understanding. Therefore, it is not enough to just mechanically following linguistic rules. One must *adopt* a language and form concepts out of it. Here, the relevant sense of forming concept must involve intentionality. Mere production of symbols without intentionality does not count as adopting a language. For instance, a dinosaur may always scratch the ground in a way look like the symbol "water". But does not count as an evidence that some dinosaurs speak English. But the intentional, goal-directed use of language for philosophical reflection is itself an exercise of epistemic agency. It puts the agent in a position to choose to examine, endorse, or revise particular beliefs. 
 
-And we must be able, at least to some extent (including subconsciously), to be aware of our own intentions. If we are aware of our intentions to some extent, we believe that we have such intentions to that extent. Thus, if we adopt a language to engage in philosophical reflection, we cannot genuinely disbelieve epistemic agency.
+Moreover, when one intentionally uses language in this way, they must have a minimal awareness to the intentions. This minimal awareness of intention entails a minimal belief in one's epistemic agency. Therefore, a creature that engages in philosophical reflection cannot genuinely disbelieve epistemic agency.
 
 Maybe this is not an invincible argument. Perhaps with some heavy argument, one may claim we can build a "philosophy machine" that can reflect on arguments and produce a philosophy paper while being completely non-agential. Even if so, I believe it is quite obvious that rejecting the principle of sanity, plainly, is to be insane. Even if such a "philosophy machine" is possible, I still think no human being should reject this principle, simply because we should not be insane.[^13]
 
@@ -311,17 +311,21 @@ Here's the basic idea: If the Principle of Sanity entails a metaphysical conclus
 
 To clarify, as I said, the Principle of Sanity itself can vary depending on the interpretation of "rational agency." This, however, doesn't weaken my argument. Once an interpretation of "rational agency" is fixed, so too is the set of $P$s that the principle requires us to accept.
 
-Immediately a question arises here. The Principle of Sanity is a meta-theoretical constraint. Why should an object-level theory has to adopt the content of the meta-level theory.
+Immediately a question arises here. The Principle of Sanity is a meta-theoretical constraint. Why should an object-level theory has to adopt the content of the meta-level theory?
 
-The answer is, we have to notice an important fact that is always ignored: Surprisingly, we are part of the world. We are not mysterious entities roaming outside the world. If the Principle of Sanity entails a fact about *us*, and we are objectively a part of the world, then the Principle of Sanity entails a fact about the world. On the other hand, the object-level metaphysical theory aims to provide a complete description of the world. Therefore, it must account for the creatures in it, including us. Therefore, any true and complete metaphysics must include truths about its own theorists. A fact about our cognitive limitations (a meta-level constraint) is also an objective fact about a component of reality (us), and must therefore be reflected in any adequate object-level theory.
+The answer is, we have to notice an important fact that is always ignored: Surprisingly, we are part of the world. We are not mysterious entities roaming outside the world. If the Principle of Sanity entails a fact about *us*, and we are objectively a part of the world, then the Principle of Sanity entails a fact about the world. Moreover, the object-level metaphysics aims to provide an adequate description of the world. Therefore, it must account for ourselves. Therefore, a fact about us entailed by meta-level constraint must be also included into the object-level theory in order to be adequate.
+
+Recall my defense for the Principle of Sanity. I argued that, all readers who have already made it here are automatically capable of philosophical reflection. And if we are capable of philosophical reflections, then we must have epistemic agency. Therefore, one ontological consequence entailed by the principle is that, we should read "epistemic agency" off our language and take it as real. 
+
+Is this too "subjective"? Admittedly, the precise nature of epistemic agency, e.g. whether it can ultimately be reduced to physics, is open to debate. But as long as we take ourselves to be objective parts of the world, then epistemic agency, as a genuine capacity we possess, must also be objectively real. The reason here is same as the case of pain. No one would deny that pain is an objectively real phenomenon, despite its private accessibility. The term "pain" must refer to something real, regardless of whether its ultimate nature is mental or physical.
 
 
-A theory of metaphysics is supp
 
 Direct consequence of the Sanity Principle: Cannot eliminate first person and causation
 
 Indirect consequence of the Sanity Principle: establishing fundamentality without magic
 
+{::a} aaa 
 ## Beyond metaphysics: trusting friends against evidence
 
 
