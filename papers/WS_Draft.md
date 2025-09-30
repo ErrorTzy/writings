@@ -307,9 +307,9 @@ In other words, the problem with any denial of *de se* essentialism is this: It 
 
 So far, I've illustrated two direct corollaries of the Principle of Sanity on causation and personal identity. These are *negative* conclusions, telling us which theories we _cannot_ adopt. However, the principle can also yield *positive* results.
 
-Here's the basic idea: If the Principle of Sanity entails a metaphysical conclusion that $P$, then $P$ becomes an invariable part for any metaphysical theory we can coherently adopt. Any attempt to vary $P$ semantically would violate the Principle of Sanity and thus be impossible for us to adopt.
+Here's the basic idea: If the Principle of Sanity entails a metaphysical conclusion that $P$, then $P$ becomes an invariable part for any metaphysical theory we can coherently adopt. Any attempt to vary $P$ semantically would violate the Principle of Sanity and thus be impossible for us to adopt. Hence, we get the "objectively objective" metaphysics that we want.
 
-To clarify, as I said, the Principle of Sanity itself can vary depending on the interpretation of "rational agency." This, however, doesn't weaken my argument. Once an interpretation of "rational agency" is fixed, so too is the set of $P$s that the principle requires us to accept.
+To clarify, as I said, the Principle of Sanity itself can vary depending on the interpretation of "rational agency." This, however, doesn't weaken my argument. Once an interpretation of "rational agency" is precisified, so too is the set of $P$s that the principle requires us to accept.
 
 Immediately a question arises here. The Principle of Sanity is a meta-theoretical constraint. Why should an object-level theory has to adopt the content of the meta-level theory?
 
@@ -319,9 +319,7 @@ Recall my defense for the Principle of Sanity. I argued that, all readers who ha
 
 Is this too "subjective"? Admittedly, what exactly the term "epistemic agency" picks out is open to debate. Maybe it's something physical, maybe it's not. But as long as we take ourselves to be objective parts of the world, then epistemic agency, as a feature we do possess, must also be objectively real. The reason here is same as the case of pain. No one would deny that pain is an objectively real phenomenon, despite its private accessibility. The term "pain" must refer to something real, regardless of whether its ultimate nature is mental or physical.
 
-
-
-Direct consequence of the Sanity Principle: Cannot eliminate first person and causation
+If agency is metaphysically real, then immediately 
 
 Indirect consequence of the Sanity Principle: establishing fundamentality without magic
 
