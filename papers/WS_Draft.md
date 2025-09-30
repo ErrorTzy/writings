@@ -11,13 +11,13 @@ fontsize: 12pt
 
 ## Intro 
 
-This paper is probably not a typical metaphysics paper. Although the main upshot is to establish fundamentality without magic, the kind of move I defend applies beyond metaphysics. 
+This paper is probably not a typical metaphysics paper. Although the main upshot is on metaphysics, the kind of move I make applies beyond metaphysics. 
 
 In the background, this paper deals with a central tension. On one hand, it seems that, ultimately all possible philosophical conclusions must be derived from intuitive presuppositions. If so, then we cannot establish anything if we throw away all of our intuitions (or dispositions, sentiments, etc.). On the other hand, many of our intuitions are unreliable, and even contradict one another. The problem, then, is to figure out which part of our intuition cannot (or at least, should not) be thrown away and can safely rely on.
 
 In the foreground, this paper focuses mainly on metaphysics, but the argument I made for metaphysics also extends to other areas, like ethics. To be specific, I first argue that the background tension is somehow ignored in discussions about fundamentality. As a result, the idea that facts about fundamentality are "objectively objective", though well-motivated, seems to rely on magic or wishful thinking. 
 
-Then I argue for a principle that basically says, we cannot throw away our rational agency. The rest of the paper explores the consequences of this principle. For example, it can be used to establish a direct, non-magical account of fundamentality. But given that the background tension is topic neutral, this principle can achieve more beyond metaphysics. For instance, it also solves a problem in ethics: why we should sometimes trust a friend's word, even when it goes against the evidence.
+Then I argue for a principle that basically says, we cannot throw away our rational agency. The rest of the paper explores the consequences of this principle. For example, it can be used to establish a direct, non-magical account of fundamentality. But given that the background tension is topic-neutral, this principle can achieve more. For instance, it also solves a problem in ethics: why we should sometimes trust a friend's word, even when it goes against the evidence.
 
 ## The Question of Reality
 
@@ -319,11 +319,10 @@ Recall my defense for the Principle of Sanity. I argued that, all readers who ha
 
 Is this too "subjective"? Admittedly, what exactly the term "epistemic agency" picks out is open to debate. Maybe it's something physical, maybe it's not. But as long as we take ourselves to be objective parts of the world, then epistemic agency, as a feature we do possess, must also be objectively real. The reason here is same as the case of pain. No one would deny that pain is an objectively real phenomenon, despite its private accessibility. The term "pain" must refer to something real, regardless of whether its ultimate nature is mental or physical.
 
-If agency is metaphysically real, then immediately 
+If agency must be metaphysically real and objective, then immediately it reminds us of the interventionist account of causation.
 
 Indirect consequence of the Sanity Principle: establishing fundamentality without magic
 
-{::a} aaa 
 ## Beyond metaphysics: trusting friends against evidence
 
 
