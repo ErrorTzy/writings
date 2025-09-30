@@ -319,7 +319,7 @@ Recall my defense for the Principle of Sanity. I argued that, all readers who ha
 
 Is this too "subjective"? Admittedly, what exactly the term "epistemic agency" picks out is open to debate. Maybe it's something physical, maybe it's not. But as long as we take ourselves to be objective parts of the world, then epistemic agency, as a feature we do possess, must also be objectively real. The reason here is same as the case of pain. No one would deny that pain is an objectively real phenomenon, despite its private accessibility. The term "pain" must refer to something real, regardless of whether its ultimate nature is mental or physical.
 
-If agency must be metaphysically real and objective, then immediately it reminds us of the interventionist account of causation.
+If agency must be metaphysically real and objective, then immediately it reminds us of the interventionist account of causation. 
 
 Indirect consequence of the Sanity Principle: establishing fundamentality without magic
 
