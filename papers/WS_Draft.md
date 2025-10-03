@@ -315,11 +315,13 @@ Immediately a question arises here. The Principle of Sanity is a meta-theoretica
 
 The answer is, we have to notice an important fact that is always ignored: Surprisingly, we are part of the world. We are not mysterious entities roaming outside the world. If the Principle of Sanity entails a fact about *us*, and we are objectively a part of the world, then the Principle of Sanity entails a fact about the world. Moreover, the object-level metaphysics aims to provide an adequate description of the world. Therefore, it must account for ourselves. Therefore, a fact about us entailed by meta-level constraint must be also included into the object-level theory in order to be adequate.
 
-Recall my defense for the Principle of Sanity. I argued that, all readers who have already made it here are automatically capable of philosophical reflection. And if we are capable of philosophical reflections, then we must have epistemic agency. Therefore, one ontological consequence entailed by the principle is that, we should read "epistemic agency" off our language and take it as real. 
+Recall my defense for the Principle of Sanity. I argued that, all readers who have already made it here are automatically capable of philosophical reflection. And if we are capable of philosophical reflections, then we must have epistemic agency. Therefore, one ontological consequence entailed by the principle is that, we should read "agency" off our language and take it as real. 
 
-Is this too "subjective"? Admittedly, what exactly the term "epistemic agency" picks out is open to debate. Maybe it's something physical, maybe it's not. But as long as we take ourselves to be objective parts of the world, then epistemic agency, as a feature we do possess, must also be objectively real. The reason here is same as the case of pain. No one would deny that pain is an objectively real phenomenon, despite its private accessibility. The term "pain" must refer to something real, regardless of whether its ultimate nature is mental or physical.
+Is this too "subjective"? No. As long as we take ourselves to be objective parts of the world, then epistemic agency, as a feature we do possess, must also be objectively real. The reason here is same as the case of pain. No one would deny that pain is an objectively real phenomenon, despite its private accessibility. The term "pain" must refer to something real, regardless of whether its ultimate nature is mental or physical.
 
-If agency must be metaphysically real and objective, then immediately it reminds us of the interventionist account of causation. 
+But one may say "agency" is real, yet mind-dependent. Therefore this is not something interesting to realists.
+
+If agency must be metaphysically real and objective, then immediately it reminds us of the manipulation approach to causation. Indeed, the most popular way to analyze causation nowadays among statisticians and scientists is through the Structural Equation Models. However, metaphysicians are more or less skepticial about this account. In short, the problem is that, the Structural Equation Model rely on c
 
 Indirect consequence of the Sanity Principle: establishing fundamentality without magic
 
