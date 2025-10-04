@@ -309,6 +309,8 @@ In other words, the problem with any denial of *de se* essentialism is this: It 
 
 So far, I've illustrated two direct corollaries of the Principle of Sanity on causation and personal identity. These are *negative* conclusions, telling us which theories we _cannot_ adopt. However, the principle can also yield *positive* results.
 
+#### Is positive corollary possible?
+
 Here's the basic idea: If the Principle of Sanity entails a metaphysical conclusion that $P$, then $P$ becomes an invariable part for any metaphysical theory we can coherently adopt. Any attempt to vary $P$ semantically would violate the Principle of Sanity and thus be impossible for us to adopt. Hence, we get the "objectively objective" metaphysics that we want.
 
 To clarify, as I said, *the Principle of Sanity* itself can vary depending on the interpretation of "rational agency." This, however, doesn't weaken my argument. Once an interpretation of "rational agency" is precisified, so too is the set of $P$s that the principle requires us to accept.
@@ -325,13 +327,28 @@ First, is this too "subjective"? No. As long as we take ourselves to be objectiv
 
 But a problem immediately follows. One can admit that "agency" is real while holding that it is mind-dependent. Causation, by contrast, is mostly conceived as a worldly, mind-independent relation. If the concept of epistemic agency entails any causal relations, it only entails causation among mental states. Therefore, if we want to derive a positive account of causation from *the Principle of Sanity*, we must say more about how the principle establish causation among physical objects .
 
+#### The Strong Principle of Sanity
+
 To meet this challenge, we have to adopt a stronger reading of "rational agency" in the _Principle of Sanity_. Now, "rational agency" not only include *epistemic agency*, but also *the capacity to control and feel our bodies*.
 
 Call the strengthened claim _the Strong Principle of Sanity_. Note that my earlier defense appealed to the analytic entailment of *epistemic agency* from the capacity for philosophical reflection; That defense does not extend to *the Strong Principle of Sanity*: a smart ghost has no control over any body, but it might be capable of philosophical reflection. However, there are ways to make *the Strong Principle of Sanity* a priori again. For example, one could add "the capacity to move one's eyes intentionally in order to read this paper" as a constraint. I will not further discuss this kind of manoeuvre. I am more inclined to hold that, even if it is not a priori, it is insane for any human being to reject it anyway.
 
-Now given *the Strong Principle of Sanity*, we get the indispensability of the type of causation between the mental and the physical. We are closer to, but still haven't get the causation between physical objects. But let's think about what we now have. Before we strengthen the principle, the worry is that, the kind of causal relation between mental states seems to be mind-dependent. But we want a worldly, mind-independent causal relation. In fact, this may be worrying too much. It is not the case that, a relation whose relata are all mind-dependent must also be mind-dependent. For example, laws of psychology may be taken as something worldly. 
+Now given *the Strong Principle of Sanity*, we get the indispensability of mental-physical causation. I will use it to establish physical causation. But again, the worry is that, our intended account for physical causation is worldly and mind-independent. Can mental-physical causation can be used for an account for physical causation?
 
-But anyway let us grant it that, the purely mental causal relation cannot be used to establish the causation between physical objects. But now we have a hybrid causation between the mental and the physical. This relation cannot be mind-dependent. If it were mind-dependent, 
+What is the worry when we say something is not "worldly and mind-independent", and therefore should be exclude from a metaphysical analysis? It relies on the fact that, what's *out there* does not depend on how we think about it. For example, aesthetic values are typically not something *out there*. It changes just because my change of mind. But surely, the mental-physical causation itself can't change just because I change my mind. In addition, if X is mental, then we cannot be mistaken about the referent of X. But it is possible to make mistake about whether I caused my body to move, e.g. when dreaming or hallucination. Therefore, mental-physical causation is a good enough worldly candidate for analyzing physical causation.
+
+#### Causation and Fundamentality through Structural Equation Models
+
+
+
+cannot be used to establish causation between physical objects. But now we have the causation between the mental and the physical. This relation itself has to be worldly. 
+
+
+
+
+In fact, this may be worrying too much. It is not the case that, a relation whose relata are all mind-dependent must also be "mind-dependent" in the problematic sense. For example, laws of psychology may be taken as something worldly. 
+
+But anyway let us grant it that, the purely mental causal relation cannot be used to establish the causation between physical objects. 
 
 If agency must be metaphysically real and objective, then immediately it reminds us of the manipulation approach to causation. Indeed, the most popular way to analyze causation nowadays among statisticians and scientists is through the Structural Equation Models. However, metaphysicians are more or less skepticial about this account. In short, the problem is that, the Structural Equation Model rely on c
 
