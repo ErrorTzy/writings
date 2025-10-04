@@ -325,11 +325,11 @@ I want to first use this to establish a positive account of causation, and then 
 
 First, is this too "subjective"? No. As long as we take ourselves to be objective parts of the world, then epistemic agency, as a feature we do possess, must also be objectively real. The reason here is same as the case of pain. No one would deny that pain is objectively real, despite its private accessibility, and regardless of whether its ultimate nature being mental or physical.
 
-But a problem immediately follows. One can admit that "agency" is real while holding that it is mind-dependent. Causation, by contrast, is mostly conceived as a worldly, mind-independent relation. If the concept of epistemic agency entails any causal relations, it only entails causation among mental states. Therefore, if we want to derive a positive account of causation from *the Principle of Sanity*, we must say more about how the principle establish causation among physical objects .
+But a problem immediately follows. One can admit that "agency" is real while holding that it is mind-dependent. Causation, by contrast, is mostly conceived as a worldly, mind-independent relation. If the concept of epistemic agency entails any causal relations, it only entails causation among mental states. Therefore, if we want to derive a positive account of causation from *the Principle of Sanity*, we must say more about how the principle establish causation among physical objects.
 
 #### The Strong Principle of Sanity
 
-To meet this challenge, we have to adopt a stronger reading of "rational agency" in the _Principle of Sanity_. Now, "rational agency" not only include *epistemic agency*, but also *the capacity to control and feel our bodies*.
+To meet this challenge, we have to adopt a stronger reading of "rational agency" in the _Principle of Sanity_. Now, "rational agency" not only include *epistemic agency*, but also *the capacity to control our bodies*.
 
 Call the strengthened claim _the Strong Principle of Sanity_. Note that my earlier defense appealed to the analytic entailment of *epistemic agency* from the capacity for philosophical reflection; That defense does not extend to *the Strong Principle of Sanity*: a smart ghost has no control over any body, but it might be capable of philosophical reflection. However, there are ways to make *the Strong Principle of Sanity* a priori again. For example, one could add "the capacity to move one's eyes intentionally in order to read this paper" as a constraint. I will not further discuss this kind of manoeuvre. I am more inclined to hold that, even if it is not a priori, it is insane for any human being to reject it anyway.
 
@@ -339,7 +339,16 @@ What is the worry when we say something is not "worldly and mind-independent", a
 
 #### Causation and Fundamentality through Structural Equation Models
 
+What is the nature of the kind of mental-physical causation? It is a change of state of physical objects due to our manipulation. Immediately, this reminds us of the manipulationist approach to causation. Indeed, the most popular way to analyze causation nowadays among statisticians and scientists is through the Structural Equation Models. According to this approach, an account for the but-for cause is that, $A$ causes $B$ iff intervention on $A$'s state will change $B$'s state. The latter part can be formalized and evaluated by causal models.
 
+Let's quickly go through the basic formalization to get the gist. A causal model is $M=\{U,V,F\}$ where $U$ is a set of exogenous variables, $V$ is a set of endogenous variables, and $F$ is a set of structural equations that determines the value of endogenous variables by exogenous variables. Given an assignment of exogenous variables $u$, we will have all the values in $M$ fixed. Assume $A=a$ and $B=b$ in the actual world. To analyze whether $A$ causes $B$, we surgically set the value of $A$ to $a' \neq a$  and therefore produce a new model $M_{A=a'}$. Given the same assignment $u$, if value of $B$ in $M_{A=a'}$ is not $b$, then we say $A$ causes $B$.
+
+Surely, this basic account does not work in the cases of preemption and overdetermination. ==Halpern & Pearl 2005== developed a more complicated account of actual cause that solves these problem. But here I don't want to go into these details. Metaphysicians are more or less skepticial about this account not because of its detailed formalization. The worry of this approach is that, the analysis irreducibly rely on "surgical intervention" to set the value of a variable. But this very concept of "intervention" is a causal concept. Therefore, this account is using causal notion to analyze causal notion, which is circular.
+
+
+
+
+. In short, the problem is that, the Structural Equation Model rely on c
 
 cannot be used to establish causation between physical objects. But now we have the causation between the mental and the physical. This relation itself has to be worldly. 
 
@@ -350,7 +359,7 @@ In fact, this may be worrying too much. It is not the case that, a relation whos
 
 But anyway let us grant it that, the purely mental causal relation cannot be used to establish the causation between physical objects. 
 
-If agency must be metaphysically real and objective, then immediately it reminds us of the manipulation approach to causation. Indeed, the most popular way to analyze causation nowadays among statisticians and scientists is through the Structural Equation Models. However, metaphysicians are more or less skepticial about this account. In short, the problem is that, the Structural Equation Model rely on c
+If agency must be metaphysically real and objective, then 
 
 Indirect consequence of the Sanity Principle: establishing fundamentality without magic
 
