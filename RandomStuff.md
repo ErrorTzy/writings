@@ -1,899 +1,1017 @@
-![](_page_0_Picture_0.jpeg)
+# Causal Models
 
-# The Logic of Essence
-## THE LOGIC OF ESSENCE
+*First published Tue Aug 7, 2018*
 
-Central to this paper is a certain distinction. This is the distinction between objects simply having a property and their having that property essentially or by their very nature. Also central to the paper is a certain claim. This is the claim that the notion of essence, of objects essentially having a property, is not to be understood in terms of the notion of necessity.
+Causal models are mathematical models representing causal relationships within an individual system or population. They facilitate inferences about causal relationships from statistical data. They can teach us a good deal about the epistemology of causation, and about the relationship between causation and probability. They have also been applied to topics of interest to philosophers, such as the logic of counterfactuals, decision theory, and the analysis of actual causation.
 
-The claim is defended in my paper *Essence and Modality*. But the basic idea behind the defence can be given here. Consider Socrates and the singleton set containing him. Now although it is plausible to suppose that the singleton essentially contains the man, it is not plausible to suppose that the man essentially belongs to the singleton. There is nothing in the nature of Socrates which demands that there be any sets, let alone one that contains him. However, the standard accounts of essence in terms of necessity are unable to account for this asymmetry. For under such an account, the singleton essentially containing Socrates will consist in something like its being necessarily the case that the set contains Socrates if the set exists. But if this is true, then it will also be necessarily the case that Socrates belongs to the set if the man exists.
+## 1. Introduction
 
-Once the claim is granted, the problem arises of developing a logic of essence, not now as a fragment of a modal system, but as a system in its own right; and it is the aim of the present paper to develop such a logic.
+Causal modeling is an interdisciplinary field that has its origin in the statistical revolution of the 1920s, especially in the work of the American biologist and statistician Sewall Wright (1921). Important contributions have come from computer science, econometrics, epidemiology, philosophy, statistics, and other disciplines. Given the importance of causation to many areas of philosophy, there has been growing philosophical interest in the use of mathematical causal models. Two major works—Spirtes, Glymour, and Scheines 2000 (abbreviated SGS), and Pearl 2009—have been particularly influential.
 
-To this end, a decision must be made as to how the basic essentialist statements of the system are to be formulated. Perhaps the most natural approach is to associate with each predicate G another predicate with the meaning "essentially G's". However, such an approach leads to inelegancies of presentation and to difficulties in making the comparison with modal logic. We shall therefore adopt an alternative approach, one which associates with each predicate F an *operator*  $\Box_F$ . The role of the predicate is now to pick out the subjects of the essentialist claim; and the intended meaning of the sentence  $\Box_F A$  is that A is true in virtue of the nature of the objects which F. Thus each class of objects is taken to give rise to its own modal operator, its own "sphere" of necessity; and it is the task of the logic of essence to lay down the laws which govern each of these spheres and the way they interact.
+A causal model makes predictions about the behavior of a system. In particular, a causal model entails the truth value, or the probability, of counterfactual claims about the system; it predicts the effects of interventions; and it entails the probabilistic dependence or independence of variables included in the model. Causal models also facilitate the inverse of these inferences: if we have observed probabilistic correlations among variables, or the outcomes of experimental interventions, we can determine which causal models are consistent with these observations. The discussion will focus on what it is possible to do in “in principle”. For example, we will consider the extent to which we can infer the correct causal structure of a system, given perfect information about the probability distribution over the variables in the system. This ignores the very real problem of inferring the true probabilities from finite sample data. In addition, the entry will discuss the application of causal models to the logic of counterfactuals, the analysis of causation, and decision theory.
 
-#### **1. INFORMAL INTERPRETATION**
+## 2. Basic Tools
 
-The principal primitive of our language is the relativized operator  $\Box_F$  introduced above. To illustrate the intended meaning of  $\Box_F A$ , let us suppose that A is the sentence 'Socrates belongs to Singleton Socrates'. Then if F is true of Socrates alone,  $\Box_F A$  will convey that Socrates essentially belongs to singleton Socrates; while if F is true of the singleton alone,  $\Box_F A$  will convey that the singleton essentially has Socrates as a member.
+This section introduces some of the basic formal tools used in causal modeling, as well as terminology and notational conventions.
 
-I offer no explanation of this primitive in more fundamental terms; but certain points still need to be clarified. First, the propositions true in virtue of the nature of given objects are taken to be closed under logical implication; any logical consequence of such propositions is also to be such a proposition. Thus given that singleton Socrates essentially contains Socrates, it will also be true that singleton Socrates essentially contains something.
+### 2.1 Variables, Logic, and Language
 
-However, this closure condition is subject to a certain constraint. For we do not allow the logical consequences in question to involve objects which do not pertain to the nature of the given objects. Let us suppose, for example, that the empty set does not pertain to the nature of Socrates, then we do not allow the proposition that the empty set is selfidentical to be true in virtue of the nature of Socrates even though this proposition is a consequence of any set of propositions whatever.
+*Variables* are the basic building blocks of causal models. They will be represented by italicized upper case letters. A variable is a function that can take a variety of values. The values of a variable can represent the occurrence or non-occurrence of an event, a range of incompatible events, a property of an individual or of a population of individuals, or a quantitative value. For instance, we might want to model a situation in which Suzy throws a stone and a window breaks, and have variables *S* and *W* such that:
 
-Somewhat similar constraints might be imposed in the case of the epistemic attitudes. For even though we require the propositions known by someone to be closed under consequence, we might still limit those consequences to propositions which only involve objects within the "ken" of that person. Thus someone who was unaware of Socrates would not be taken to know that Socrates was self-identical.
+- $S = 1$ represents Suzy throwing a rock; $S = 0$ represents her not throwing
+- $W = 1$ represents the window breaking; $W = 0$ represents the window remaining intact.
 
-In the second place, a decision needs to be made concerning objects whose nature is understood in terms of one another (this is the objectual counterpart of simultaneous definition). Perhaps it lies in the nature of all the points of Euclidean space to enter into certain geometric
+If we are modeling the influence of education on income in the United States, we might use variables *E* and *I* such that:
 
-#### THE LOGIC OF ESSENCE
+- $E(i) = 0$ if individual *i* has no high school education; 1 if an individual has completed high school; 2 if an individual has had some college education; 3 if an individual has a bachelor’s degree; 4 if an individual has a master’s degree; and 5 if an individual as a doctorate (including the highest degrees in law and medicine).
+- $I(i) = x$ if individual *i* has a pre-tax income of \$*x* per year.
 
-relationships with one another. What then do we say of the individual points? Does every other point pertain to its nature, or do none? We can go either way on this question, but my preference, at least for the purpose of the present paper, is to allow each point to pertain to the nature of every other point. Thus every collectively understood nature will resolve into a network of individually understood natures. (These, and other clarificatory, points are discussed further in my paper *Senses of Essence*).
+The set of possible values of a variable is the *range* of that variable. We will usually assume that variables have finitely many possible values, as this will keep the mathematics and the exposition simpler. However, causal models can also feature continuous variables, and in some cases this makes an important difference.
 
-The other important primitive is that of one object pertaining to the nature of another or, as we shall also put it, of the second *depending* upon the first. Given the objectually constrained interpretation of essential truth, it is possible to dispense with dependence as a notion in its own right; for x will depend upon y just in case it is true in virtue of the nature of x that y is self-identical. But rather than adopt this equivalence as a definition, I have preferred to make clear the assumptions upon which it rests.
+A *world* is a complete specification of a causal model; the details will depend upon the type of model. For now, we note that a world will include, *inter alia*, an assignment of values to all of the variables in the model. If the variables represent the properties of individuals in a population, a world will include an assignment of values to every variable, for every individual in the population. A variable can then be understood as a function whose domain is a set of worlds, or a set of worlds and individuals.
 
-It is, of course, no surprise that dependence can be defined in terms of the objectually constrained form of essential truth; for the notion of dependence is already built into the constraints by which the relevant notion of essential truth is understood. But even without the constraints, a definition could still be given. For we may say that x depends upon y just in case, for some property  $\phi$  not involving y, it is true in virtue of the nature of x that y  $\phi$ 's and yet not true in virtue of the nature of x that every object  $\phi$ 's; the dependees are the objects which cannot be "generalized out". Thus we do not have, in the notion of dependence, an idea that is genuinely new.
+If *X* is a variable in a causal model, and *x* is a particular value in the range of *X*, then $X = x$ is an *atomic proposition*. The logical operations of negation (“not”), conjunction (“and”), disjunction (“or”), the material conditional (“if…then…”), and the biconditional (“if and only if”) are represented by “${\sim}$”, “&”, “$\lor$”, “$\supset$”, and “$\equiv$” respectively. Any proposition built out of atomic propositions and these logical operators will be called a *Boolean* proposition. Note that when the variables are defined over individuals in a population, reference to an individual is *not* included in a proposition; rather, the proposition as a whole is true or false of the various individuals in the population.
 
-Our language has some other distinctive features. Although we allow ourselves the usual stock of predicate symbols, we take each of them to express a *pure* property, i.e., one which does not involve any objects. This understanding is not essential to our approach, but makes it simpler to keep track of "objectual content".
+We will use basic notation from set theory. Sets will appear in boldface.
 
-In order to have an adequate stock of predicates by which essential truths may be relativized, we adopt the resources of  $\lambda$ -abstraction. In order to say that a proposition is true in virtue of the nature of a single object y, for example, we could use the predicate  $\lambda x(x = y)$ ; and in order to say that a proposition was true in virtue of the nature of all objects whatever, we could use the predicate  $\lambda x(x = x)$ .
+- $\mathbf{\varnothing}$ is the empty set (the set that has no members or elements).
+- $x \in \bX$ means that *x* is a member or element of the set $\bX$.
+- $\bX \subseteq \bY$ means that $\bX$ is a subset of $\bY$; i.e., every member of $\bX$ is also a member of $\bY$. Note that both $\mathbf{\varnothing}$ and $\bY$ are subsets of $\bY$.
+- $\bX \setminus \bY$ is the set that results from removing the members of $\bY$ from $\bX$.
+- $\forall$ and $\exists$ are the universal and existential quantifiers, respectively.
 
-In addition to the pure predicate symbols, we allow ourselves a stock
+If $\bS = \{x_1 , \ldots ,x_n\}$ is a set of values in the range of *X*, then $X \in \bS$ is used as shorthand for the disjunction of propositions of the form $X = x_i$, for $i = 1,\ldots$, n. Boldface represents *ordered sets* or *vectors*. If $\bX = \{X_1 , \ldots ,X_n\}$ is a vector of variables, and $\bx =
+\{x_1 , \ldots ,x_n\}$ is a vector of values, with each value $x_i$ in the range of the corresponding variable $X_i$, then $\bX = \bx$ is the conjunction of propositions of the form $X_i = x_i$.
 
-of *rigid* predicate symbols. By a rigid property is meant a property of being identical to  $x_1$  or  $x_2$  or ..., for certain specific objects  $x_1, x_2, \ldots$ . For example, the property of being identical to Socrates or Plato  $(\lambda x(x = \text{Socrates } \lor x = \text{Plato}))$  and the property of being identical to a natural number  $(\lambda x(x = 0 \lor x = 1 \lor \ldots))$  are rigid. The rigid predicate symbols are then those which express rigid properties.
+### 2.2 Probability
 
-Rigid predicate symbols are helpful in developing a reasonable account of embedded essentialist operators. If the predicate F is rigid, then we can maintain such reductive theses as  $\Box_F A \rightarrow \Box_F \Box_F A$ . But not if F is nonrigid; for it may not then be true in virtue of the objects that Fthat each of them does F.
+In [section 4](https://plato.stanford.edu/entries/causal-models/#ProbCausMode), we will consider causal models that include probability. Probability is a function, P, that assigns values between zero and one, inclusive. The domain of a probability function is a set of propositions that will include all of the Boolean propositions described above, but perhaps others as well.
 
-Finally, we should note that for the sake of simplicity we have taken our quantifiers to range over all possible objects, and not just over the actual objects. In the context of the logic of essence, one might operate with a broader conception of possible object than is customary in modal logic. Under the customary conception, the existence of any possible object is compatible with the nature of all possible objects. But under a broader conception, one might allow there to be possible objects whose existence is incompatible with the nature of other possible objects. One might suppose that Satan and God, for example, are in some sense possible objects, even though the existence of the one is contrary to nature of the other. However, we shall not here consider the consequences of adopting this broader conception.
+Some standard properties of probability are the following:
 
-## 2. THE FORMAL LANGUAGE
+- If *A* is a contradiction, then $\Pr(A) = 0$.
+- If *A* is a tautology, then $\Pr(A) = 1$.
+- If $\Pr(A \amp B) = 0$, then $\Pr(A \lor B) = \Pr(A) +
+  \Pr(B)$.
+- $\Pr({\sim}A) = 1 - \Pr(A)$.
 
-The vocabulary of our system consists of the following symbols:
+Some further definitions:
 
-- (i) denumerably many individual variables;
-- (ii) denumerably many n-place pure predicate symbols, for n = 0, 1, 2, ...;
-- (iii) denumerable many 1-place rigid predicate symbols;
-- (iv) the 1-place existence predicate E, the 2-place identity predicate =, and the 2-place dependence predicate  $\geq$ ;
-- (v) the logical constants  $\sim$ ,  $\lor$ , and  $\Pi$ ;
-- (vi) the essentialist operator symbol  $\Box$ ;
-- (vii) the abstraction operator  $\lambda$ ;
-- (viii) the bracketing devices (, ), [, ], and :.
+- The *conditional probability of A given B,* written $\Pr(A
+  \mid B)$ is standardly defined as follows:
 
-The *formulas* and *predicates* of the system are defined by the following simultaneous induction:
+  $$
+  \Pr(A \mid B) = \frac{\Pr(A \amp B)}{\Pr(B)}.
+  $$
 
-- (i) if F is an n-place predicate and x<sub>1</sub>,..., x<sub>n</sub> are variables, then Fx<sub>1</sub>...x<sub>n</sub> is a formula;
-- (ii) standard rules for  $\sim$  and  $\lor$  and for the quantifier  $\Pi$ .
-- (iii) if A is a formula and F is a 1-place predicate, then  $\Box[F:A]$  is a formula;
-- (iv) Each *n*-place predicate symbol is an *n*-place predicate;
+  We will ignore problems that might arise when $\Pr(B) = 0$.
 
-(v) If A is a formula and x a variable, then  $\lambda xA$  is a 1-place predicate. We adopt standard meta-linguistic conventions. In particular, we use:
+- *A* and *B* are *probabilistically independent* (with respect to $\Pr$) just in case $\Pr(A \amp B) = \Pr(A) \times
+  \Pr(B). A$ and *B* are *probabilistically dependent* or *correlated* otherwise. If $\Pr(B) \gt 0$, then *A* and *B* will be independent just in case $\Pr(A \mid B) =
+  \Pr(A)$.
 
-- (i)  $\top$  for  $\prod x(x = x)$ , where x is the first free variable under some standard ordering of the variables;
-- (ii)  $\perp$  for  $\sim \top$ ;
-- (iii)  $\bigvee_{1 \le i \le n} A_i$  for  $\perp$  if n = 0, for  $A_1$  if n = 1, and for  $(\dots (A_1 \lor A_2) \lor \dots \lor A_n)$  if n > 1.
+- Variables *X* and *Y* are probabilistically independent just in case all propositions of the form $X = x$ and $Y = y$ are probabilistically independent.
 
-Similarly for the generalized conjunction  $\bigwedge_{1 \le i \le n} A_i$ .
+- *A* and *B* are *probabilistically independent conditional on* *C* just in case $\Pr(A \amp B \mid C) =
+  \Pr(A \mid C) \times \Pr(B \mid C)$. If $\Pr(B \amp C) \gt 0$, this is equivalent to $\Pr(A \mid B \amp C) = \Pr(A \mid C)$. Following the terminology of Reichenbach (1956), we will also say that **C* screens off *B* from *A** when these equalities hold. Conditional independence among variables is defined analogously.
 
-We use F, G and H etc., for arbitrary 1-place predicates, R, S and T etc. for arbitrary *n*-place predicates,  $n \ge 0$ , and P, Q, R etc, for arbitrary rigid predicate symbols. We use boldface to indicate a list of symbols. Thus x indicates a list of *n* variables  $x_1, \ldots, x_n, n \ge 0$ ; and similarly for **F**, **R** and **P**. In the formula  $\Box[F:B]$ , the predicate F is called the *delimiter*.
+As a convenient shorthand, a probabilistic statement that contains only a variable or set of variables, but no values, will be understood as having a universal quantification over all possible values of the variable(s). Thus if $\bX = \{X_1 ,\ldots ,X_m\}$ and $\bY = \{Y_1
+,\ldots ,Y_n\}$, we may write
 
-A predicate is said to be *rigid* if it is either a rigid predicate symbol or is of the form  $\lambda x \bigvee_{1 \le i \le n} A_i, n \ge 0$ , where each formula  $A_i, i = 1, ..., n$ , is either of the form Px or of the form x = y for some variable y distinct from x.
+$$
+\Pr(\bX \mid \bY) = \Pr(\bX)
+$$
 
-We adopt the following further abbreviations:
+as shorthand for
 
-- (I) Variants on  $\Box$ .
-  - (i)  $\Box_F A$  for  $\Box[F:A]$ ;
+$$
+\begin{aligned} 
+\forall x_1 \ldots \forall x_m\forall y_1 \ldots
+\forall y_n [\Pr(X_1\! =\! x_1 ,\ldots ,X_m\! =\! x_m \mid Y_1\! =\!
+y_1 ,\ldots ,Y_n\! =\! y_n ) \\ = \Pr(X_1\! =\! x_1 ,\ldots ,X_m\! =\! x_m ) ]
+\end{aligned}
+$$
 
-(ii)  $\Diamond [F:A]$  (and  $\Diamond_F A$ ) for  $\sim \Box [F:\sim A]$ ;
+where the domain of quantification for each variable will be the range of the relevant variable.
 
-(II) Dependency Notions.
+We will not presuppose any particular interpretation of probability (see the entry on [interpretations of probability](https://plato.stanford.edu/entries/probability-interpret/)), but we will assume that frequencies in appropriately chosen samples provide evidence about the underlying probabilities. For instance, suppose there is a causal model including the variables *E* and *I* described above, with $\Pr(E = 3) = .25$. Then we expect that if we survey a large, randomly chosen sample of American adults, we will find that approximately a quarter of them have a Bachelor’s degree, but no higher degree. If the survey produces a sample frequency that substantially differs from this, we have evidence that the model is inaccurate.
 
-(i)  $x \le y$  for  $y \ge x$ ;
+### 2.3 Graphs
 
-(ii)  $x \le F$  for  $\Sigma y(Fy \& x \le y)$ , y the first variable distinct from x and not free in F;
+If $\bV$ is the set of variables included in a causal model, one way to represent the causal relationships among the variables in $\bV$ is by a *graph*. Although we will introduce and use graphs in [section 3](https://plato.stanford.edu/entries/causal-models/#DeteStruEquaMode), they will play a more prominent role in [section 4](https://plato.stanford.edu/entries/causal-models/#ProbCausMode). We will discuss two types of graphs. The first is the *directed acyclic graph* (DAG). A *directed graph* $\bG$ on variable set $\bV$ is a set of ordered pairs of variables in $\bV$. We represent this visually by drawing an arrow from *X* to *Y* just in case $\langle X, Y\rangle$ is in $\bG$. [Figure 1](https://plato.stanford.edu/entries/causal-models/#fig1) shows a directed graph on variable set $\bV = \{S, T, W, X, Y,
+Z\}$.
 
-### (III) Constituency.
+![a diagram where S has an arrow pointing north to T; T has an arrow pointing northwest to X and northeast to Y; Y has an arrow pointing northeast to Z; W has an arrow pointing north to Z and northwest to Y](./CausalModels_files/fig1.svg)
 
-Let E be a formula or predicate. Suppose that  $x_1, \ldots, x_m$  are the free variables of E in order of appearance and that  $P_1, \ldots, P_n$  are the rigid
+Figure 1
 
-predicate symbols of E, likewise in order of appearance. We then use:
+A *path* in a directed graph is a non-repeating sequence of arrows that have endpoints in common. For example, in [Figure 1](https://plato.stanford.edu/entries/causal-models/#fig1) there is a path from *X* to *Z*, which we can write as $X
+\leftarrow T \rightarrow Y \rightarrow Z$. A *directed path* is a path in which all the arrows point in the same direction; for example, there is a directed path $S \rightarrow T \rightarrow Y
+\rightarrow Z$. A directed graph is *acyclic,* and hence a DAG, if there is no directed path from a variable to itself. Such a directed path is called a *cycle*. The graph in Figure 1 contains no cycles, and hence is a DAG.
 
-(i)  $x\eta E$  for  $\bigvee_{1 \le i \le m} x = x_i \lor \bigvee_{1 \le j \le n} P_j x$ .
+The relationships in the graph are often described using the language of genealogy. The variable *X* is a *parent* of *Y* just in case there is an arrow from *X* to *Y*. $\bPA(Y)$ will denote the set of all parents of *Y*. In [Figure 1](https://plato.stanford.edu/entries/causal-models/#fig1), $\bPA(Y) = \{T, W\}$. *X* is an *ancestor* of *Y* (and *Y* is a *descendant* of $X)$ just in case there is a directed path from *X* to *Y*. However, it will be convenient to deviate slightly from the genealogical analogy and define “descendant” so that every variable is a descendant of itself. $\bDE(X)$ denotes the set of all descendants of *X*. In Figure 1, $\bDE(T) = \{T,X, Y, Z\}$.
 
-The intuitive meaning of  $x\eta E$  is that x occurs (as an object) in the proposition (or relation) expressed by E.
+An arrow from *Y* to *Z* in a DAG represents that *Y* is a *direct cause* of $Z.$ Roughly, this means that the value of *Y* makes some causal difference for the value of *Z*, and that *Y* influences *Z* through some process that is not mediated by any other variable in $\bV$. Directness is relative to a variable set: *Y* may be a direct cause of *Z* relative to variable set $\bV$, but not relative to variable set $\bV'$ that includes some additional variable(s) that mediate the influence of *Y* on $Z.$ As we develop our account of graphical causal models in more detail, we will be able to say more precisely what it means for one variable to be a direct cause of another. While we will not define “cause”, causal models presuppose a broadly *difference-making* notion of causation, rather than a causal process notion (Salmon 1984, Dowe 2000) or a mechanistic notion (Machamer, Darden, & Craver 2000; Glennan 2017). We will call the system of direct causal relations represented in a DAG such as [Figure 1](https://plato.stanford.edu/entries/causal-models/#fig1) the *causal structure* on the variable set $\bV$.
 
-(IV) Predicational Notions.
+A second type of graph that we will consider is an *acyclic directed mixed graph* (ADMG). An ADMG will contain double-headed arrows, as well as single-headed arrows. A double-headed arrow represents a *latent* common cause. A latent common cause of variables *X* and *Y* is a common cause that is not included in the variable set $\bV$. For example, suppose that *X* and *Y* share a common cause *L* ([Figure 2(a)](https://plato.stanford.edu/entries/causal-models/#fig2a)). An ADMG on the variable set $\bV = \{X, Y\}$ will look like [Figure 2(b)](https://plato.stanford.edu/entries/causal-models/#fig2b).
 
-(i)  $\bigvee$  for  $\lambda x \top$ ;
+![diagram with L having an arrow pointing northwest to X and northeast to Y](./CausalModels_files/fig2a.svg)
 
-(ii)  $\bigwedge$  for  $\lambda x \perp$ ;
+\(a\)
 
-(iii) (y) for  $\lambda x(x = y)$ , x the first variable distinct from y;
+![X is to the right of Y and a double-headed curved arrow connects the two](./CausalModels_files/fig2b.svg)
 
-(iv) |E| for  $\lambda x(x\eta E)$ , x the first variable not free in E;
+\(b\)
 
-(v) cF for  $\lambda x (x \le F)$ , x the first variable not free in F;
+Figure 2
 
-(vi)  $(F_1, \ldots, F_n)$  for  $\lambda x \bigvee_{1 \le i \le n} F_i x$ , where  $n \ge 0$  and x is the first variable not to occur free in any of  $F_1, \ldots, F_n$ ;
+We can be a bit more precise. We only need to represent missing common causes in this way when they are *closest* common causes. That is, a graph on $\bV$ should contain a double-headed arrow between *X* and *Y* when there is a variable *L* that is omitted from $\bV$, such that if *L* were added to $\bV$ it would be a *direct cause* of *X* and *Y*.
 
-(viii) F - G for  $\lambda x (Fx \& \sim Gx)$ ;
+In an ADMG, we expand the definition of a *path* to include double-headed arrows. Thus, $X \leftrightarrow Y$ is a path in the ADMG shown in [Figure 2(b)](https://plato.stanford.edu/entries/causal-models/#fig2b). *Directed path* retains the same meaning, and a directed path cannot contain double-headed arrows.
 
-(ix)  $R \subseteq S$  for  $\Pi x(Rx \rightarrow Sx)$ , R and S n-place predicates and x the sequence of the first *n* variable  $x_1, \ldots, x_n$  not to occur free in *R* or *S*;
+We will adopt the convention that both DAGs and ADMGs represent the presence *and absence* of both direct causal relationships and latent common causes. For example the DAG in [Figure 1](https://plato.stanford.edu/entries/causal-models/#fig1) represents that *W* is a direct cause of *Y*, that *X* is not a direct cause of *Y*, and that *there are no latent common causes*. The absence of double-headed arrows from Figure 1 does not show merely that we have chosen not to include latent common causes in our representation; it shows that there are no latent common causes.
 
-(x)  $R \approx S$  for  $(R \subseteq S \& S \subseteq R)$ .
+## 3. Deterministic Structural Equation Models
 
-The above defined predicates will often be used as delimiters. In particular,  $\Box_{\Lambda}$  expresses the minimal necessity, truth regardless of the nature of any objects, while  $\Box_{i}$  expresses the maximal necessity, truth in virtue of the nature of all objects.
+In this section, we introduce deterministic *structural equation models* (SEMs), postponing discussion of probability until [Section 4](https://plato.stanford.edu/entries/causal-models/#ProbCausMode). We will consider two applications of deterministic SEMs: the logic of counterfactuals, and the analysis of actual causation.
 
-In using (x), x a variable, as part of a delimiter we will usually omit the brackets. Outermost brackets of the disjunctive predicate  $(F_1, \ldots, F_n)$ under (vi) may also be omitted. Thus, combining these two conventions, we may use  $\Box_{x, v} A$  to abbreviate  $\Box_{\lambda z((x)z \vee (v)z)} A$ .
+### 3.1 Introduction to SEMs
 
-|E| is the content predicate; it is true of the objects in the proposition (or relation) expressed by E. Note that the predicate |E| is always rigid. cF represents the closure of the objects which F; it is true of the objects upon which the F's depend.
+A SEM characterizes a causal system with a set of variables, and a set of equations describing how each variable depends upon its immediate causal predecessors. Consider a gas grill, used to cook meat. We can describe the operations of the grill using the following variables:
 
-We sometimes use:
+- *Gas connected* (1 if yes, 0 if no)
+- *Gas knob* (0 for off, 1 for low, 2 for medium, 3 for high)
+- *Gas level* (0 for off, 1 for low, 2 for medium, 3 for high)
+- *Igniter* (1 if pressed, 0 if not)
+- *Flame* (0 for off, 1 for low, 2 for medium, 3 for high)
+- *Meat on* (0 for no, 1 for yes)
+- *Meat cooked* (0 for raw, 1 for rare, 2 for medium, 3 for well done)
 
-(viii)  $\Box A$  for  $\Box_{|A|}A$ .
+Thus, for example, *Gas knob* = 1 means that the gas knob is set to low; *Igniter* = 1 means that the igniter is pressed, and so on. Then the equations might be:
 
-But note that the implicit delimiter attached to  $\Box$  in  $\Box A$  depends upon A; and so we cannot expect  $\Box$  to behave in the same way as  $\Box_F$  for fixed F.
+- *Gas level* = *Gas connected* $\times$ *Gas knob*
+- *Flame* = *Gas level* $\times$ *Igniter*
+- *Meat cooked* = *Flame* $\times$ *Meat on*
 
-As the language stands we have no means of referring to that rigid predicate  $\langle F \rangle$  which has the same extension as a given nonrigid predicate F. However, through abbreviation we can achieve a form of virtual reference. For we may use  $A(\langle F \rangle)$  in place of  $P \approx F \rightarrow A(P)$ , for F a
+The last equation, for example, tells us that if the meat is not put on the grill, it will remain raw (*Meat cooked* = 0). If the meat is put on the grill, then it will get cooked according to the level of the flame: if the flame is low (*Flame* = 1), the meat will be rare (*Meat cooked* = 1), and so on.
 
-1-place predicate and P the first rigid predicate symbol not to occur in  $A(\langle F \rangle)$ . This abbreviatory device may be applied when there are several occurrences of different quasi-predicates  $\langle F \rangle$  and even when some occur within the scope of others. We may agree, for the sake of definiteness in such cases, to eliminate the innermost occurrences first and to eliminate from left to right.
+By convention each equation has one effect variable on the left hand side, and one or more cause variables on the right hand side. We also exclude from each equation any variable that makes no difference to the value of the effect variable. For example, the equation for *Gas level* could be written as *Gas level* = (*Gas connected* $\times$ *Gas knob*) $+$ (0 $\times$ *Meat cooked*); but since the value of *Meat cooked* makes no difference to the value of *Gas level* in this equation, we omit the variable *Meat cooked*. A SEM is *acyclic* if the variables can be ordered so that variables never appear on the left hand side of an equation after they have appeared on the right. Our example is acyclic, as shown by the ordering of variables given above. In what follows, we will assume that SEMs are acyclic, unless stated otherwise.
 
-However, we shall not use the notation when the quasi-predicate  $\langle F \rangle$  contains variables which are bound from the outside, for then in the disabbreviation  $P \approx F \rightarrow A(P)$  the bound variables would become unbound in the antecedent. Any occurrence of a variable of a formula A which occurs within the scope of a rigidifier  $\langle \ldots \rangle$  will be said to be *unbindable* and any other free occurrence of a variable will be said to be *bindable*.
+We can represent this system of equations as a DAG ([Figure 3](https://plato.stanford.edu/entries/causal-models/#fig3)):
 
-Clearly, any formula A with rigidifiers abbreviates a formula of the form  $A_1 \rightarrow (A_2 \rightarrow ... \rightarrow (A_n \rightarrow A')...)$ , where each  $A_i$  is of the form  $P_i \approx F_i$  and A' is without rigidifiers. Note that when A contains rigidifiers embedded one within the other, some of the earlier  $A_i$  will contain later  $P_i$ .
+![diagram: 'Gas connected' has an arrow pointing northeast to 'Gas level'; 'Gas knob' has an arrow pointing northwest to the same 'Gas level'; 'Gas level' has an arrow pointing northeast to 'Flame'; 'Igniter' has an arrow pointing northwest to the same 'Flame'; 'Flame' has an arrow pointing northeast to 'Meat cooked'; 'Meat on' has an arrow pointing northwest to the same 'Meat cooked'](./CausalModels_files/fig3.svg)
 
-#### 3. THE SYSTEM
+Figure 3
 
-We divide the axioms and rules of the system into five groups:
+An arrow is drawn from variable *X* to variable *Y* just in case *X* figures as an argument in the equation for *Y*. The graph contains strictly less information than the set of equations; in particular, the DAG gives us qualitative information about which variables depend upon which others, but it does not tell us anything about the functional form of the dependence.
 
-(I) Standard Classical Axioms and Rules:
+The variables in a model will typically depend upon further variables that are not explicitly included in the model. For instance, the level of the flame will also depend upon the presence of oxygen. Variables that are not explicitly represented in the model are assumed to be fixed at values that make the equations appropriate. For example, in our model of the gas grill, oxygen is assumed to be present in sufficient quantity to sustain a flame ranging in intensity from low to high.
 
-We may use any of the standard axiomatizations of classical first-order logic. However, we shall suppose that the sole rules of inference are Modus Ponens (MP) and Universal Generalization (Gen).
+In our example, the variables *Gas level*, *Flame,* and *Meat cooked* are *endogenous*, meaning that their values are determined by other variables in the model. *Gas connected, Gas knob, Igniter,* and *Meat on* are *exogenous*, meaning that their values are determined outside of the system. In all of the models that we will consider in [section 3](https://plato.stanford.edu/entries/causal-models/#DeteStruEquaMode), the values of the exogenous variables are given or otherwise known.
 
-## (II) Modal Axioms and Rules:
+Following Halpern (2016), we will call an assignment of values to the exogenous variables a *context*. In an acyclic SEM, a context uniquely determines the values of all the variables in the model. An acyclic SEM together with a context is a *world* (what Halpern 2016 calls a “causal setting”). For instance, if we add the setting
 
-- (i)  $\Box_F A \to A$ ;
-- (ii)  $\Box_F(A \to B) \to (\Box_F A \to \Box_F B);$
-- (iii)  $\sim \Box_F A \rightarrow \Box_{F,|A|} \sim \Box_F A$ , F rigid;
-- (iv)  $A \setminus \Box_{|A|}A$ ;
-- (v)  $F \subseteq G \to (\Box_F A \to \Box_G A).$
+- *Gas connected* = 1
+- *Gas knob* = 3
+- *Igniter* = 1
+- *Meat on* = 1
 
-(III) Predicational Axioms and Rules:
+to our three equations above, we get a world in which *Gas level* = 3, *Flame* = 3, and *Meat cooked* = 3.
 
-(i)  $\lambda x A y \leftrightarrow A(y)$ , where A(y) is the result of substituting y freely for the free occurrences of x in A;
+The distinctively causal or “structural” content of a SEM derives from the way in which *interventions* are represented. To intervene on a variable is to set the value of that variable by a process that overrides the usual causal structure, without interfering with the causal processes governing the other variables. More precisely, an intervention on a variable *X* overrides the normal equation for *X*, while leaving the other equations unchanged. For example, to intervene on the variable *Flame* in our example would be to set the flame to a specified level regardless of whether the igniter is pressed or what the gas level is. (Perhaps, for example, one could pour kerosene into the grill and light it with a match.) Woodward (2003) proposes that we think of an intervention as a causal process that operates independently of the other variables in the model. Randomized controlled trials aim to intervene in this sense. For example, a randomized controlled trial to test the efficacy of a drug for hypertension aims to determine whether each subject takes the drug (rather than a placebo) by a random process such as a coin flip. Factors such as education and health insurance that normally influence whether someone takes the drug no longer play this role for subjects in the trial population. Alternately, we could follow the approach of Lewis (1979) and think of an intervention setting the value of a variable by a minor “miracle”.
 
-- (ii)  $Px \rightarrow \Box_{P,x}Px$ ;
-- (iii)  $P \approx F \rightarrow A \setminus A$ , as long as the predicate P does not occur in A.
+To represent an intervention on a variable, we *replace* the equation for that variable with a new equation stating the value to which the variable is set. For example, if we intervene to set the level of flame at *low*, we would represent this by replacing the equation *Flame* = *Gas level* $\times$ *Igniter* with *Flame* = 1. This creates a new causal structure in which *Flame* is an exogenous variable; graphically, we can think of the intervention as “breaking the arrows” pointing into *Flame*. The new system of equations can then be solved to discover what values the other variables would take as a result of the intervention. In the world described above, our intervention would produce the following set of equations:
 
-(IV) Dependency Axioms:
+- *Gas connected* = 1
+- *Gas knob* = 3
+- *Igniter* = 1
+- *Meat on* = 1
+- *Gas level* = *Gas connected* × *Gas knob*
+- *Flame* = *Gas level* × *Igniter*
+- *Flame* = 1
+- *Meat cooked* = *Flame* × *Meat on*
 
-- (i)  $\Box_{cF}A \rightarrow \Box_{F}A;$
-- (ii)  $\Box_F A \& x \eta A \rightarrow x \leq F$ ;
+We have struck through the original equation for *Flame* to show that it is no longer operative. The result is a new world with a modified causal structure, with *Gas level* = 3, *Flame* = 1, and *Meat cooked* = 1. Since the equation connecting *Flame* to its causes is removed, any changes introduced by setting *Flame* to 1 will only propagate forward through the model to the descendants of *Flame*. The intervention changes the values of *Flame* and *Meat cooked*, but it does not affect the values of the other variables. We can represent interventions on multiple variables in the same way, replacing the equations for all of the variables intervened on.
 
-Postulates II(i)-(iv) correspond to the standard axioms and rules for S5, and we shall usually refer to them by their modal designations: II(i), for example, will be called the *T*-axiom. Axiom II(iii) is, however, not simply the relativized version of its modal counterpart. It differs from the relativization  $\sim \Box_F A \rightarrow \Box_F \sim \Box_F A$  in two ways. First, the inner delimiter *F* is required to be rigid; and second, |A| is added to the outer delimiter.
+Interventions help to give content to the arrows in the corresponding DAG. If variable $X_i$ is a parent of $X_j$, this means that there exists some setting for all of the other variables in the model, such that when we set those variables to those values by means of an intervention, intervening on $X_i$ can still make a difference for the value of $X_j$. For example, in our original model, *Gas level* is a parent of *Flame*. If we set the value of *Igniter* to 1 by means of an intervention, and set *Gas knob, Gas connected, Meat on,* and *Meat cooked* to any values at all, then intervening on the value of *Gas level* makes a difference for the value of *Flame*. Setting the value of *Gas level* to 1 would yield a value of 1 for *Flame*; setting *Gas level* to 2 yields a *Flame* of 2; and so on.
 
-The second of these modifications is clearly required under the constrained interpretation of the essentialist operators; for there is no guarantee, merely given  $\sim \Box_F A$ , that the objects of A pertain to the objects which F. The first of the modifications is also required. For let us suppose that my favourite object x is a painting. Then that x is a statue is not true and, *a fortiori*, not true in virtue of the nature of my favourite work of art. But that this is so is not something which is true by virtue of the nature of the painting x. For there is nothing in the nature of x which would make it true that my favourite work of art is a painting rather than a statue, let us say.
+### 3.2 Structural Counterfactuals
 
-Given the two modifications, the axiom would appear to be correct. For let us suppose that A is not true by virtue of the nature of the F's; and let  $x_1, x_2, \ldots$  be the objects which F. Given that F is rigid, it is then true in virtue of the nature of the objects  $x_1, x_2, \ldots$  that they are the only objects which F. It therefore suffices to show that it is true in virtue of the nature of  $x_1, x_2, \ldots$  and of the objects in the proposition A that A is not true in virtue of the nature of  $x_1, x_2, \ldots$ . We distinguish two cases. The first is when some object y in A is not an object upon which any  $x_i$  depends. But it is then true in virtue of the nature of the  $x_i$  and of y that no  $x_i$  depends upon y and hence true in virtue of the nature of the  $x_i$ . The other case is when each object in A is an object upon which an  $x_i$  depends. But given  $p_1, p_2, \ldots$  are all of the propositions true in virtue of the  $x_i$  that these propositions are all of the
+A counterfactual is a proposition in the form of a subjunctive conditional. The antecedent posits some circumstance, typically one that is contrary to fact. For example, in our gas grill world, the flame was high, and the meat was well done. We might reason: “if the flame had been set to low, the meat would have been rare”. The antecedent posits a hypothetical state of affairs, and the consequent describes what would have happened in that hypothetical situation.
 
-propositions true in virtue of the nature of the  $x_i$ . Since the particular proposition A only contains objects dependent upon an  $x_i$ , it will be true in virtue of the nature of the  $x_i$  that this proposition is not one of the propositions  $p_1, p_2, \ldots$ , and hence it will be true in virtue of the nature of the  $x_i$  that this proposition is not true of the nature of the  $x_i$ .
+Deterministic SEMs naturally give rise to a logic of counterfactuals. These counterfactuals are called *structural* counterfactuals or *interventionist* counterfactuals. Structural counterfactuals are similar in some ways to what Lewis (1979) calls *non-backtracking* counterfactuals. In a non-backtracking counterfactual, one does not reason backwards from a counterfactual supposition to draw conclusions about the causes of the hypothetical situation. For instance, one would not reason “If the meat had been cooked rare, then the flame would have been set to low”. Lewis (1979) proposes that we think of the antecedent of a counterfactual as coming about through a minor “miracle”. The formalism for representing interventions described in the previous section prevents backtracking from effects to causes.
 
-Axiom (III)(i) is the familiar principle of  $\lambda$ -abstraction. Axiom (III)(ii), which we call *Rigidity*, is clearly correct. For if x is one of the objects  $x_1, x_2, \ldots$ , say  $x_i$ , then it is true in virtue of the nature of x that it is  $x_i$  and hence true in virtue of the nature of  $x_1, x_2, \ldots$  that x is one of  $x_1, x_2, \ldots$ 
+The logic of structural counterfactuals has been developed by Galles and Pearl (1998), Halpern (2000), Briggs (2012), and Zhang (2013a). This section will focus on Briggs’ formulation; it has the richest language, but unlike the other approaches it can not be applied to causal models with cycles. Despite a shared concern with non-backtracking counterfactuals, Briggs’ logic differs in a number of ways from the more familiar logic of counterfactuals developed by Stalnaker (1968) and Lewis (1973b).
 
-The rule (III)(iii) of *Predicate Elimination* is really a form of existential elimination. For if we had quantification over rigid predicates in our language, then from  $\vdash P \approx F \rightarrow A$  we could infer  $\vdash \Sigma P(P \approx F) \rightarrow A$ , given that P does not occur in A. But  $\Sigma P(P \approx F)$  should be a theorem; and so  $\vdash A$  would follow by Modus Ponens. Although we shall make use of the rule, I do not know whether it is required.
+We interpret the counterfactual conditional $A \boxright B$ as saying that *B* would be true, if *A* were made true by an intervention. The language of structural counterfactuals does not allow the connective ‘$A \boxright B$’ to appear in the antecedents of counterfactuals. More precisely, we define well-formed formulas (*wff*s) for the language inductively:
 
-Axiom (IV)(i) is the important principle of *Chaining*. It states that if the objects  $y_1, y_2, \ldots$  are "linked" by dependence to the objects  $x_1, x_2, \ldots$ , then any proposition true in virtue of the linking objects  $y_1, y_2, \ldots$  is also true in virtue of the linked objects  $x_1, x_2, \ldots$ .
+- Boolean propositions are *wff*s
+- If *A* is a Boolean proposition, and *B* is a *wff*, then $A \boxright B$ is a *wff*
 
-Axiom (IV)(ii), which we call *Localization*, can be regarded as the product of two rather different principles. One of these is a consequence of the constrained interpretation of the essentialist operators and states that when a proposition is true in virtue of the nature of various objects then any object in that proposition must be one upon which the plurality of objects depend. The other, which is Localization proper, states that if a plurality of objects depends upon a given object then one of the members of the plurality must depend upon the object.
+This means, for example, that $A \boxright (B\boxright (C\boxright D))$ is a *wff*, but $A\boxright ((B\boxright C)\boxright D)$ is not, since the embedded counterfactual in the consequent does not have a Boolean proposition as an antecedent.
 
-A potential counter-example to Localization arises from the case in which the nature of several objects is simultaneously understood in terms of one another. Perhaps it is of the nature of a mind and body to comprise a given person although this is not something which follows from the nature of the mind, considered apart from the body, and from the nature of the body, considered apart from the mind. However, we have agreed in such a case to allow each individual to share in the collective nature. Thus we will say that it is of the nature of the mind to comprise the person in conjunction with the body and of the nature of the body to comprise the person in conjunction with the mind.
+Consider the world of the gas grill, described in the previous section:
 
-In laying down the postulates, I have tried to maintain a neutral position on what kind of object belongs to the domain of quantification, although the axiom of specification in conjunction with the rules of the system require that the domain be non-empty and "increasing" across modalities. However, if the domain is taken to consist of all metaphysically possible objects, then two further axioms should be added:
+- *Gas connected* = 1
+- *Gas knob* = 3
+- *Igniter* = 1
+- *Meat on* = 1
+- *Gas level* = *Gas connected* $\times$ *Gas knob*
+- *Flame* = *Gas level* $\times$ *Igniter*
+- *Meat cooked* = *Flame* $\times$ *Meat on*
 
-## (V) Domain:
+To evaluate the counterfactual ${\textit{Flame} = 1} \boxright
+{\textit{Meat cooked} = 1}$ (if the flame had been set to *low*, the meat would have been cooked rare), we replace the equation for *Flame* with the assignment *Flame* = 1. We can then compute that *Meat cooked* = 1; the counterfactual is true. If the antecedent is a conjunction of atomic propositions, such as *Flame* = 1 and *Igniter* = 0, we replace all of the relevant equations. A special case occurs when the antecedent conjoins atomic propositions that assign different values to the same variable, such as *Flame* = 1 and *Flame* = 2. In this case, the antecedent is a contradiction, and the counterfactual is considered trivially true.
 
-- (i)  $\Diamond_{i} Ex.$
-- (ii)  $\Box \Pi x < \bigvee > x;$
+If the antecedent is a disjunction of atomic propositions, or a disjunction of conjunctions of atomic propositions, then the consequent must be true when *every* possible intervention or set of interventions described by the antecedent is performed. Consider, for instance,
 
-The first of these states, of each object in the domain, that its existence is compatible with the nature of all objects. The second states that it is true in virtue of the nature of all the objects that there are that they are all of the objects that there are; it lies in their nature to be exhaustive. The first of these axioms is uncontentious under our chosen conception of a possible object. The second is plausible if the domain is taken to include the concept of a metaphysically possible object. For if  $x_1, x_2, \ldots$  are all of the metaphysically possible objects, then it is presumably true in virtue of the nature of those objects and of the concept of being a metaphysically possible object that any metaphysically possible object is one of  $x_1, x_2, \ldots$ . Even if the domain consists only of the metaphysically possible *individuals* we can still guarantee the truth of the axiom by taking the minimal necessity  $\Box_{A}$  to be conceptual necessity, i.e., truth in virtue of the nature of all concepts.
+$$
+\begin{aligned}
+(({\textit{Flame}= 1} \amp {\textit{Gas level}= 0}) \lor ({\textit{Flame}= 2} \amp {\textit{Meat on}= 0}))\\
+{} \boxright
+ ({\textit{Meat cooked}= 1} \lor {\textit{Meat cooked}= 2}).
+\end{aligned}
+$$
 
-Under a broader conception of possible object, one might want to weaken axiom V(i). It could be replaced, for example, by  $\Diamond_x Ex$ : each object is self-possible; there is nothing in its nature to preclude its own existence. However, there are real difficulties in developing a reasonable account of such weakly possible objects. For it is plausible to maintain the principle  $\Diamond_F \exists x \phi \to \Sigma x \Diamond_{F,x} \phi$ : if it is compatible with the nature of the *F*'s that there exists an object which  $\phi$ 's then, for some possible object *x*, it is compatible with the nature of the *F*'s and of *x* that  $x \phi$ 's. Let us now take a logically contingent pure proposition *A*. Then it is plausible that
+If we perform the first intervention, we compute that *Meat cooked* = 1, so the consequent is true. However, if we perform the second intervention, we compute that *Meat cooked* = 0. Hence the counterfactual comes out false. Some negations are treated as disjunctions for this purpose. For example, ${\sim}(\textit{Flame} =
+1)$ would be treated in the same way as the disjunction
 
- $\Diamond \bigwedge \exists x \Box_x A$  and  $\Diamond \bigwedge \exists x \Box_x \sim A$ : it is logically possible that there exists an object whose nature requires the truth of A and logically possible that there exists an object whose nature requires the falsehood of A. Applying the principle to these claims, we infer  $\Sigma x \Diamond_x \Box_x A$  and  $\Sigma x \Diamond_x \Box_x \sim A$ . But then with the help of the S5 axiom, we obtain  $\Sigma x \Box_x A$  and  $\Sigma x \Box_x \sim A$ ; and with the help of the T-axiom, we obtain the contradiction A and  $\sim A$ . I shall not consider the question of how this some difficulty, and some related ones, might be resolved.
+$$
+{\textit{Flame} = 0} \lor {\textit{Flame} = 2} \lor {\textit{Flame} = 3}.
+$$
 
-There are some other axioms which might be added to the system, although their status as "logical" principles is somewhat unclear. Two of these concern the relationship between dependence and existence. The first states that an existent can only depend upon an existent:
+If the consequent contains a counterfactual, we iterate the procedure. Consider the counterfactual:
 
-$$x \ge y \to (Ex \to Ey).$$
+$$
+\begin{align}
+{\textit{Flame} = 1}&\ \boxright\ ({\textit{Gas level} = 0}\ \boxright \\
+&  ({\textit{Flame} = 2} \boxright {\textit{Meat cooked} = 1})).
+\end{align}
+$$
 
-The second is a kind of converse and states that no mere possible can be relevant to the truth of a proposition which only concerns existents:
+To evaluate this counterfactual, we first change the equation for *Flame* to *Flame* = 1. Then we change the equation for *Gas level* to *Gas level* = 0. Then we change the equation for *Flame* again, from *Flame* = 1, to *Flame* = 2. Finally, we compute that *Meat cooked* = 2, so the counterfactual comes out false. Unlike the case where *Flame* = 1 and *Flame* = 2 are conjoined in the antecedent, the two different assignments for *Flame* do not generate an impossible antecedent. In this case, the interventions are performed in a specified order: *Flame* is first set to 1, and *then* set to 2.
 
-$$\Box_F A \And \Pi x(x\eta A \to Ex) \to \Box_{\lambda x(Fx \And Ex)} A,$$
+The differences between structural counterfactuals and Stalnaker-Lewis counterfactuals stem from the following two features of structural counterfactuals:
 
-Another set of principles gives "meat" to the minimal modality by requiring that it tolerate the existence of any finite number of objects:
+1.  The antecedent of a counterfactual is always thought of as being realized by an intervention, even if the antecedent is already true in a given world. For instance, in our gas grill world, *Flame* = 3. Nonetheless, if we evaluate a counterfactual with antecedent *Flame* = 3 in this world, we replace the equation for *Flame* with *Flame* = 3.
 
-$$\Diamond_{\bigwedge} \Sigma x_1 \dots \Sigma x_n \left( \bigwedge_{1 \le i \le j \le n} x_i \ne x_j \& \Pi x \left( \bigvee_{1 \le i \le n} x = x_i \right) \right).$$
+2.  The truth values of counterfactuals are determined solely by the causal structures of worlds, together with the interventions specified in the their antecedents. No further considerations of *similarity* play a role. For example, the counterfactual
 
-This principle is, of course, much more plausible when the minimal modality is taken to be logical rather than conceptual necessity.
+    $$
+    {\textit{Flame}= 1} \lor {\textit{Flame} = 2} \boxright {\textit{Flame}= 2}
+    $$
 
-We call the system constituted by the original set of axioms and rules, (I)–(IV), E5 ('E' for essence, '5' for the underlying S5 structure); and we call the extended system with the domain axioms  $E5^+$ . For each of the systems, the definition of *theorem* is standard.
+    would be false in our gas grill world (and indeed in all possible worlds). We do not reason that a world in which *Flame* = 2 is *closer* to our world (in which *Flame* = 3) than a world in which *Flame* = 1.
 
-## 4. SOME THEOREMS
+These features of structural counterfactuals lead to some unusual properties in the full language developed by Briggs (2012):
 
-We establish some elementary theorems within the system E5. These theorems are of interest in themselves and will serve as a basis for subsequent meta-logical results. They are divided into eight groups – on chaining, objectual content, modal-type reasoning, reduction, identity, rigidity and dependence.
+1.  The analog of *modus ponens* fails for the structural conditional; i.e., from *A* and $A\boxright B$ we cannot infer *B*. For example, in our gas grill world, *Flame* = 3 and $$
+    {\textit{Flame} = 3} \boxright {({\textit{Gas level} = 2} \boxright {\textit{Meat cooked} = 3})}
+    $$ are both true, but $$
+    {\textit{Gas level} = 2} \boxright {\textit{Meat cooked} = 3}
+    $$ is false. To evaluate the last counterfactual, we replace the equation for *Gas level* with *Gas level* = 2. This results in *Flame* = 2 and *Meat cooked* = 2. To evaluate the prior counterfactual, we first substitute in the equation *Flame* = 3. Now, the value of *Flame* no longer depends upon the value of *Gas level*, so when we substitute in *Gas level* = 2, we get *Meat cooked* = 3. Even though the actual value of *Flame* is 3, we evaluate the counterfactual by intervening on *Flame* to set it to 3. With this intervention in place, a further intervention on *Gas level* makes no difference to *Flame* or *Meat cooked.*
+2.  The substitution of logically equivalent propositions into the antecedent of a counterfactual does not always preserve truth value. For example, $$
+    {\textit{Gas level} = 2} \boxright {\textit{Meat cooked} = 2}
+    $$ is true, but $$
+    \begin{align}
+    & ({\textit{Gas level} = 2} \amp ({\textit{Flame} = 2} \lor {{\sim}(\textit{Flame} =2))}\\
+    & \qquad \boxright\, {\textit{Meat cooked} = 2} 
+    \end{align}
+    $$ is false. The first counterfactual does not require us to intervene on the value of *Flame*, but the second counterfactual requires us to consider interventions that set *Flame* to all of its possible values.
 
-We first note the following preliminary results:
+To handle the second kind of case, Briggs (2012) defines a relation of *exact* *equivalence* among Boolean propositions using the state space semantics of Fine (2012). Within a world, the state that makes a proposition true is the collection of values of variables that contribute to the truth of the proposition. In our example world, the state that makes *Gas level* = 3 true is the valuation *Gas level* = 3. By contrast, the state that makes
 
-### LEMMA 1. The following are theorems:
+$$
+\textit{Gas level} = 3 \amp (\textit{Flame} = 2 \lor {\sim}(\textit{Flame} = 2))
+$$
 
-- (i)  $\Box_x x = x$ ;
-- (ii)  $x \leq x$ ;
-- (iii)  $F \subseteq cF$ .
+true includes both *Gas level* = 3 and *Flame* = 3. Propositions are exactly equivalent if they are made true by the same states in all possible worlds. The truth value of a counterfactual is preserved when exactly equivalent propositions are substituted into the antecedent.
 
-*Proof.* (i)  $\vdash x = x$  by the logic of identity and hence  $\vdash \Box_{|x=x|}x = x$ , i.e.,  $\vdash \Box_x x = x$ , by Nec.
+Briggs (2012) provides a sound and complete axiomatization for structural counterfactuals in acyclic SEMs. The axioms and inference rules of this system are presented in [Supplement on Briggs’ Axiomatization](https://plato.stanford.edu/entries/causal-models/axiomatization.html).
 
-(ii)  $\vdash \Box_x x = x \& x\eta | x = x | \to x \le (x)$  by Localization. But  $\vdash \Box_x x = x$  by (i), and  $\vdash x\eta | x = x |$  and  $\vdash x \le x(x) \to x \le x$  by Abstraction. Hence  $\vdash x \le x$ .
+### 3.3 Actual Causation
 
-(iii) From (ii) by Abstraction.
+Many philosophers and legal theorists have been interested in the relation of *actual causation*. This concerns the assignment of causal responsibility for some event that occurs, based on how events actually play out. For example, suppose that Billy and Suzy are both holding rocks. Suzy throws her rock at a window, but Billy does not. Suzy’s rock hits the window, which breaks. Then Suzy’s throw was the actual cause of the window breaking.
 
-We now have the following consequences of Chaining:
+We can represent this story easily enough with a structural equation model. For variables, we choose:
 
-LEMMA 2. (i)  $\vdash \Box_F A \And \Box_{|A|,G} B \to \Box_{F,G} B;$ (ii)  $\vdash cF \approx cG \to \Box_F A \leftrightarrow \Box_G A.$ 
+- $B = 1$ if Billy throws, 0 if he doesn’t
+- $S = 1$ if Suzy throws, 0 if she doesn’t
+- $W = 1$ if the window shatters, 0 if it doesn’t
 
-*Proof.* (i) We first prove for the case in which F and G are identified.  $\vdash \Box_F A \rightarrow |A| \subseteq cF$  by Localization ((IV)(ii)) and Abstraction;  $\vdash |A| \subseteq cF \rightarrow (\Box_{|A|,F}B \rightarrow \Box_{cF}B)$  by Subsumption, Lemma 1(iii) and Abstraction;  $\vdash \Box_{cF}B \rightarrow \Box_FB$  by Chaining; and so  $\vdash \Box_FA$  &  $\Box_{|A|,F}B \rightarrow \Box_FB$ .
+Our context and equation will then be:
 
-For the general case, we note that  $\vdash \Box_F A \to \Box_{F,G} A$  and that  $\vdash \Box_{|A|,G} B \to \Box_{|A|,(F,G)} B$  by Subsumption, Lemma 1(iii) and Chaining. By the special case,  $\vdash \Box_{F,G} A \And \Box_{|A|,(F,G)} B \to \Box_{F,G} B$ ; and so  $\vdash \Box_F A \And \Box_{|A|,G} B \to \Box_{F,G} B$ .
+- $B = 0$
+- $S = 1$
+- $W = \max(B, S)$
 
-(ii)  $\vdash \Box_F A \leftrightarrow \Box_{cF} A$  and  $\vdash \Box_G A \leftrightarrow \Box_{cG} A$  by Subsumption, Abstraction and Chaining;  $\vdash cF \approx cG \rightarrow (\Box_{cF} A \leftrightarrow \Box_{cG} A)$  by Subsumption; and so  $\vdash cF \approx cG \rightarrow (\Box_F A \leftrightarrow \Box_G A)$ .
+The equation for *W* tells us that the window would shatter if either Billy or Suzy throws their rock. The corresponding DAG is shown in [Figure 4](https://plato.stanford.edu/entries/causal-models/#fig4)
 
-We call the result under (i) *Cut* in view of its similarity to the Gentzenian principle of the same name. According to this result, if certain objects "yield" a given proposition and if the objects of that proposition help yield another proposition, then in place of the yielded objects we may use the objects that yielded them.
+![diagram: B has an arrow pointing northeast to W and S has an arrow pointing northwest to the same W](./CausalModels_files/fig4.svg)
 
-I have been careful to state all of the uses of Abstraction and Sub-sumption in the above proofs. In future, I will not usually be so careful.
+Figure 4
 
-#### THE LOGIC OF ESSENCE
+But we cannot simply read off the relation of actual causation from the graph or from the equations. For example, the arrow from *B* to *W* in [Figure 4](https://plato.stanford.edu/entries/causal-models/#fig4) cannot be interpreted as saying that Billy’s (in)action is an actual cause of the window breaking. Note that while it is common to distinguish between singular or token causation, and general or type-level causation (see, e.g., Eells 1991, Introduction), that is not what is at issue here. Our causal model does not represent any kind of causal generalization: it represents the actual and possible actions of Billy and Suzy at one particular place and time. Actual causation is not just causal structure of the single case. A further criterion for actual causation, defined in terms of the causal structure together with the actual values of the variables, is needed.
 
-The following results on objectual content are straightforward consequences of the definitions and will normally be used without explicit mention:
+Following Lewis (1973a), it is natural to try to analyze the relation of actual causation in terms of *counterfactual dependence.* In our model, the following propositions are all true:
 
-#### LEMMA 3. The formulas below are theorems:
+- $S = 1$
+- $W = 1$
+- ${S = 0}\boxright {W = 0}$
 
-- (i)  $|\sim A|\approx |A|;$
-- (ii)  $|A \vee B| \approx |A|, |B|;$
-- (iii)  $|\Box_F A| \approx |F|, |A|;$
-- (iv)  $|B| \approx |\Pi x B|, |x|, x$  free in B;
-- (v)  $F \approx |F|$ , for F rigid.
+In words: Suzy threw her rock, the window shattered, and if Suzy hadn’t thrown her rock, the window wouldn’t have shattered. In general, we might attempt to analyze actual causation as follows:
 
-Note that since the predicate |E| is itself rigid, it follows from theorem (v) that  $\vdash ||E|| \approx |E|$ .
+$X = x$ is an actual cause of $Y = y$ in world *w* just in case:
 
-We now prove some theorems which are analogues of standard results in modal propositional logic:
+- *X* and *Y* are different variables
+- $X = x$ and $Y = y$ in *w*
+- There exist $x' \ne x$ and $y' \ne y$ such that ${X = x'}
+  \boxright {Y = y'}$ is true in *w*
 
-#### **THEOREM 4**.
+Unfortunately, this simple analysis will not work, for familiar reasons involving *preemption* and *overdetermination*. Here is an illustration of each:
 
-- (i) If  $\vdash A$  then  $\vdash |A| \subseteq cF \to \Box_F A$ .
-- (ii) If  $\vdash A \rightarrow B$  then  $\vdash |B| |A| \subseteq cF \rightarrow (\Box_F A \rightarrow \Box_F B)$ .
-- (iii) If  $\vdash A \rightarrow B$  then  $\vdash |A| |B| \subseteq cF \rightarrow (\Diamond_F A \rightarrow \Diamond_F B)$ .
-- (iv)  $\vdash \Box_F A \And \Box_F B \rightarrow \Box_F (A \And B).$
-- (v)  $\vdash \Diamond_F(A \lor B) \to (\Diamond_F A \lor \Diamond_F B).$
+*Preemption:* Billy decides that he will give Suzy the opportunity to throw first. If Suzy throws her rock, he will not throw, but if she doesn’t throw, he will throw and his rock will shatter the window. In fact, Suzy throws her rock, which shatters the window. Billy does not throw.
 
-(vi) If  $A_1 \& \ldots \& A_n \to B$  then  $\vdash (|B| - (|A_1|, \ldots, |A_n|)) \subseteq cF \to \Box_F A_1 \& \ldots \& \Box_F A_n \to \Box_F B$ .
+*Overdetermination:* Billy and Suzy throw their rocks simultaneously. Their rocks hit the window at the same time, shattering it. Either rock by itself would have been sufficient to shatter the window.
 
-*Proof.* (i) Given  $\vdash A$ ,  $\vdash \Box_{|A|}A$  by Nec. So  $\vdash |A| \subseteq cF \rightarrow \Box_{cF}A$  by Subsumption; and so  $\vdash |A| \subseteq cF \rightarrow \Box_{F}A$  by Chaining.
+In both of these cases, Suzy’s throw is an actual cause of the window’s shattering, but the shattering does not counterfactually depend upon her throw: if Suzy hadn’t thrown her rock, Billy’s rock would have shattered the window. Much of the work on counterfactual theories of causation since 1973 has been devoted to addressing these problems.
 
-(ii) Suppose  $\vdash A \to B$ . By (i) above,  $\vdash |A \to B| \subseteq cF \to \Box_F(A \to B)$ ; by Distribution ((II)(ii)),  $\vdash \Box_F(A \to B) \to (\Box_F A \to \Box_F B)$ ; and so  $\vdash \Box_F A \And |A \to B| \subseteq cF \to \Box_F B$ . But  $\vdash (|A|, (|B| - |A|)) \approx |A \to B|$  and  $\vdash \Box_F A \to |A| \subseteq cF$  by Localization. So  $\vdash \Box_F A \And (|B| - |A|) \subseteq cF \to \Box_F B$ . (iii) From (ii).
+A number of authors have used SEMs to try to formulate adequate analyses of actual causation in terms of counterfactuals, including Beckers & Vennekens (2018), Glymour & Wimberly (2007), Halpern (2016), Halpern & Pearl (2001, 2005), Hitchcock (2001), Pearl (2009: Chapter 10), Weslake (forthcoming), and Woodward (2003: Chapter 2). As an illustration, consider one analysis based closely on a proposal presented in Halpern (2016):
 
-(iv)  $\vdash A \rightarrow (B \rightarrow A \& B)$  by truth-functional logic. By (ii) above (and Subsumption),  $\vdash |B| \subseteq cF \rightarrow (\Box_F A \rightarrow \Box_F (B \rightarrow A \& B))$ ; by Distribution,  $\vdash \Box_F (B \rightarrow A \& B) \rightarrow (\Box_F B \rightarrow \Box_F (A \& B))$ ; and by Localization,  $\vdash \Box_F B \rightarrow |B| \subseteq cF$ . The result then follows.
+(**AC**) $X = x$ is an actual cause of $Y = y$ in world *w* just in case:
 
-(v) From (iv).
+1.  *X* and *Y* are different variables
+2.  $X = x$ and $Y = y$ in *w*
+3.  There exist disjoint sets of variables $\bX$ and $\bZ$ with $X \in \bX$, with values $\bX = \bx$ and $\bZ = \bz$ in *w*, such that:
+    1.  There exists $\bx' \ne \bx$ such that $$
+        ({\bX = \bx'} \amp {\bZ = \bz}) \boxright  {Y \ne y}
+        $$ is true in *w*
+    2.  No subset of $\bX$ satisfies (3a)
 
-(vi) Apply (ii) to  $\vdash A_1 \& \ldots A_n \to B$  and then use (iv).
+That is, *X* belongs to a minimal set of variables $\bX$, such that when we intervene to hold the variables in $\bZ$ fixed at the values they actually take in *w*, *Y* counterfactually depends upon the values of the variables in $\bX.$ We will illustrate this account with our examples of preemption and overdetermination.
 
-The rule under (i) in the above theorem is a stronger form of our rule of necessitation. The rules under (ii) and (iii) correspond to the "monotonicity" rules, but with appropriate restrictions on objectual content. Note that for necessity to be preserved by a provable implication there must be no "new content" in the consequent whereas for possibility to be preserved there must be no new content in the antecedent. The results under (iv) and (v) can be stated without restriction. But this is not true for analogues of other standard modal theorems. For example,  $\Box_F A \rightarrow \Box_F (A \lor B)$  is not a theorem, the intuitive reason being that B may introduce objects upon which no F depends. (vi) is a compendious version of (ii) and (iv). It allows us, roughly speaking, to make the analogues of the inferences which we can make in non-iterative propositional modal logic as long as no illegitimate objectual content is thereby introduced. Use of this result, and of its companions, will often be implicit.
+In *Preemption*, let the variables *B*, *S*, and *W* be defined as above. Our context and equations are:
 
-We shall find it useful to extend the notion of rigid predicate. This extension, which we call quasi-rigidity, is defined by the following induction:
+- $S = 1$
+- $B = 1 - S$
+- $W = \max(B, S)$
 
-(i) Any rigid predicate is quasi-rigid;
+That is: Suzy throws her rock; Billy will throw his rock if Suzy doesn’t; and the window will shatter if either throws their rock. The DAG is shown in [Figure 5](https://plato.stanford.edu/entries/causal-models/#fig5).
 
-(ii) If  $F_1, \ldots, F_n$  are quasi-rigid,  $n \ge 1$ , then so is their disjunction  $(F_1, \ldots, F_n)$ .
+![diagram: B has an arrow pointing northeast to W and S has an arrow pointing northwest to the same W. S also has an arrow pointing west to the same B.](./CausalModels_files/fig5.svg)
 
-## LEMMA 5. Let F be a quasi-rigid predicate. Then:
+Figure 5
 
-(i) there is a rigid predicate G such that  $\vdash F \approx G$  and  $\vdash |F| \approx |G|$ ; (ii)  $\vdash |F| \approx F$ .
+We want to show that $S = 1$ is an actual cause of $W = 1$. Conditions AC(1) and AC(2) are clearly satisfied. For condition AC(3), we choose $\bX = \{S\}$ and $\bZ = \{B\}$. Since $B = 0$ in *Preemption*, we want to fix $B = 0$ while varying *S*. We can see easily that ${S = 0} \amp {B = 0} \boxright {W = 0}$: replacing the two equations for *B* and *S* with $B = 0$ and $S = 0$, the solution yields $W = 0$. In words, this counterfactual says that if neither Billy nor Suzy had thrown their rock, the window would not have shattered. Thus condition AC(3a) is satisfied. AC(3b) is satisfied trivially, since $\bX = \{S\}$ is a singleton set.
 
-*Proof.* (i) By induction on the construction of F. If F is itself rigid, then we may let G = F. So suppose that F is the disjunction  $F_1, \ldots, F_n$ , where each  $F_i$  is quasi-rigid. By IH, there are rigid predicates  $G_1, \ldots, G_n$  such that  $\vdash F_i \approx G_i$  and  $\vdash |F_i| \approx |G_i|$  for  $i = 1, \ldots, n$ . Now each  $G_i$  is of the form  $\lambda x_i D_i$  (where  $D_i$  is a disjunction of formulas of the form  $Px_i$  or  $x_i = y$ ). Choose a variable x which does not occur in any of  $G_1, \ldots, G_n$ ; and let G be  $\lambda x(D_1 x/x_i \lor \ldots \lor D_n x/x_n)$ . Then it is evident from the IH that  $\vdash |F| \approx |G|$ ; and it is readily shown, applying Abstraction to IH, that  $\vdash F \approx G$ .
+Here is how AC works in this example. *S* influences *W* along two different paths: the direct path $S \rightarrow W$ and the indirect path $S \rightarrow B \rightarrow W$. These two paths interact in such a way that they cancel each other out, and the value of *S* makes no net difference to the value of *W*. However, by holding *B* fixed at its actual value of 0, we eliminate the influence of *S* on *W* along that path. The result is that we isolate the contribution that *S* made to *W* along the direct path. AC defines actual causation as a particular kind of *path-specific* effect.
 
-(ii) By (i), it suffices to show that  $\vdash |G| \approx G$  for any rigid predicate G. But this is evident from the definition of |G|.
+To treat *Overdetermination*, let *B*, *S*, and *W* keep the same meanings. Our setting and equation will be:
 
-The S5 axiom can be extended to quasi-rigid predicates, and from the extension we can prove the S4 principle:
+- $B = 1$
+- $S = 1$
+- $W = \max(B, S)$
 
-THEOREM 6. (i)  $\vdash \sim \Box_F A \rightarrow \Box_{F,|A|} \sim \Box_F A$ , for F quasi-rigid:
+The graph is the same as that shown in [Figure 4](https://plato.stanford.edu/entries/causal-models/#fig4) above. Again, we want to show that $S = 1$ is an actual cause of $W = 1$. Conditions AC(1) and AC(2) are obviously satisfied. For AC(3), we choose $\bX = \{B, S\}$ and $\bZ = \varnothing$. For condition AC(3a), we choose for our alternate setting $\bX = \bx'$ $B =
+0$ and $S = 0$. Once again, the counterfactual ${S = 0} \amp {B =
+0} \boxright {W = 0}$ is true. Now, for AC(3b) we must show that $\bX
+= \{B, S\}$ is minimal. It is easy to check that $\{B\}$ alone won’t satisfy AC(3a). Whether we take $\bZ = \varnothing$ or $\bZ = \{S\}$, changing *B* to 0 (perhaps while also setting *S* to 1) will not change the value of *W*. A parallel argument shows that $\{S\}$ alone won’t satisfy AC(3a) either. The key idea here is that *S* is a member of a minimal set of variables that need to be changed in order to change the value of *W*.
 
-(ii)  $\vdash \Box_F A \rightarrow \Box_F \Box_F A$ , for F quasi-rigid.
+Despite these successes, none of the analyses of actual causation developed so far perfectly captures our pre-theoretic intuitions in every case. One strategy that has been pursued by a number of authors is to incorporate some distinction between *default* and *deviant* values of variables, or between *normal* and *abnormal* conditions. See, e.g., Hall (2007), Halpern (2008; 2016: Chapter 3), Halpern & Hitchcock (2015), Hitchcock (2007), and Menzies (2004). Blanchard & Schaffer (2017) present arguments against this approach. Glymour et al. (2010) raise a number of problems for the project of trying to analyze actual causation.
 
-*Proof.* (i) By Lemma 5,  $\vdash F \approx G$  and  $\vdash |F| \approx |G|$  for some rigid predicate G; and so by Subsumption,
+## 4. Probabilistic Causal Models
 
-(1) 
-$$\vdash \sim \Box_F A \leftrightarrow \sim \Box_G A.$$
+In this section, we will discuss causal models that incorporate probability in some way. Probability may be used to represent our uncertainty about the value of unobserved variables in a particular case, or the distribution of variable values in a population. Often we are interested in when some feature of the causal structure of a system can be *identified* from the probability distribution over values of variables, perhaps in conjunction with background assumptions and other observations. For example, we may know the probability distribution over a set of variables $\bV$, and want to know which causal structures over the variables in $\bV$ are compatible with the distribution. In realistic scientific cases, we never directly observe the true probability distribution P over a set of variables. Rather, we observe finite data that approximate the true probability when sample sizes are large enough and observation protocols are well-designed. We will not address these important practical concerns here. Rather, our focus will be on what it is possible to infer from probabilities, in principle if not in practice. We will also consider the application of probabilistic causal models to decision theory and counterfactuals.
 
-By the S5 axiom,  $\vdash \sim \Box_G A \rightarrow \Box_{G,|A|} \sim \Box_G A$ ; by the application of theorem 3(ii) to (1) (given that  $\vdash |F| \approx |G|$ ),  $\vdash \Box_{G,|A|} \sim \Box_G A \rightarrow \Box_{G,|A|} \sim \Box_F A$ ; and so
+### 4.1 Structural Equation Models with Random Errors
 
-(2) 
-$$\vdash \sim \Box_G A \to \Box_{G,|A|} \sim \Box_F A.$$
+We can introduce probability into a SEM by means of a probability distribution over the exogenous variables.
 
-But again by Abstraction,  $\vdash F$ ,  $|A| \approx G$ , |A|; and so by Subsumption,
+Let $\bV = \{X_1, X_2 ,\ldots ,X_n\}$ be a set of endogenous variables, and $\bU = \{U_1, U_2 ,\ldots ,U_n\}$ a corresponding set of exogenous variables. Suppose that each endogenous variable $X_i$ is a function of its parents in $\bV$ together with $U_i$, that is:
 
-$$(3) \qquad \vdash \Box_{G,|A|} \sim \Box_F A \to \Box_{F,|A|} \sim \Box_F A$$
+$$
+X_i = f_i (\bPA(X_i), U_i).
+$$
 
-The required result then follows from (1), (2) and (3).
+As a general rule, our graphical representation of this SEM will include only the endogenous variables $\bV$, and we use $\bPA(X_i)$ to denote the set of *endogenous* parents of $X_i . U_i$ is sometimes called an *error* variable for $X_i$: it is responsible for any difference between the actual value of $X_i$ and the value predicted on the basis of $\bPA(X_i)$ alone. We may think of $U_i$ as encapsulating all of the causes of $X_i$ that are not included in $\bV$. The assumption that each endogenous variable has exactly one error variable is innocuous. If necessary, $U_i$ can be a vector of variables. For example, if $Y_1$, $Y_2$, and $Y_3$ are all causes of $X_i$ that are not included in $\bV$, we can let $U_i = \langle Y_1, Y_2,
+Y_3\rangle$. Moreover, the error variables need not be distinct or independent from one another.
 
-(ii) The proof is analogous to the derivation of  $\Box A \rightarrow \Box \Box A$  in S5, but requires careful control over the choice of delimiters. By the T-axiom,
+Assuming that the system of equations is acyclic, an assignment of values to the exogenous variables $U_1$, $U_2$,… ,$U_n$ uniquely determines the values of all the variables in the model. Then, if we have a probability distribution $\Pr'$ over the values of variables in $\bU$, this will induce a unique probability distribution P on $\bV$.
 
-(1)  $\vdash \Box_F A \to \Diamond_{F,|A|} \Box_F A.$ 
+### 4.2 The Markov Condition
 
-By part (i) of the lemma,  $\vdash \Diamond_{F,|A|} \Box_F A \rightarrow \Box_{|F|,||A||,|A|} \Diamond_{F,|A|} \Box_F A$  and so:
+Suppose we have a SEM with endogenous variables $\bV$, exogenous variables $\bU$, probability distribution P on $\bU$ and $\bV$ as described in the previous section, and DAG $\bG$ representing the causal structure on $\bV$. Pearl and Verma (1991) prove that if the error variables $U_i$ are probabilistically independent in P, then the probability distribution on $\bV$ will satisfy the *Markov Condition* (MC) with respect to $\bG$. The Markov Condition has several formulations, which are equivalent when $\bG$ is a a DAG (Pearl 1988):
 
-(2) 
-$$\vdash \Diamond_{F,|A|} \Box_F A \to \Box_{F,|A|} \Diamond_{F,|A|} \Box_F A.$$
+|  |  |
+|----|----|
+| (MC<sub>Screening_off</sub>) | For every variable *X* in $\bV$, and every set of variables $\bY \subseteq \bV \setminus \bDE(X)$, $\Pr(X \mid \bPA(X) \amp \bY) = \Pr(X \mid \bPA(X))$. |
+| (MC<sub>Factorization</sub>) | Let $\bV = \{X_1, X_2 , \ldots ,X_n\}$. Then $\Pr(X_1, X_2 , \ldots ,X_n) = \prod_i \Pr(X_i \mid \bPA(X_i))$. |
+| (MC<sub>*d*-separation</sub>) | Let $X, Y \in \bV, \bZ \subseteq \bV \setminus \{X, Y\}$. Then $\Pr(X, Y \mid \bZ) = \Pr(X \mid \bZ) \times \Pr(Y \mid
+\bZ)$ if $\bZ$ *d*-separates *X* and *Y* in $\bG$ (explained below). |
 
-By the S5 axiom,  $\vdash \Diamond_{F,|A|} \Box_F A \rightarrow \Box_F A$ ; and so by modal reasoning,
+Let us take some time to explain each of these formulations.
 
-(3) 
-$$\vdash \Box_{F,|A|} \Diamond_{F,|A|} \Box_F A \to \Box_{F,|A|} \Box_F A.$$
+MC<sub>Screening_off</sub> says that the parents of variable *X* screen *X* off from all other variables, except for the descendants of *X*. Given the values of the variables that are parents of *X*, the values of the variables in $\bY$ (which includes no descendants of $X)$, make no further difference to the probability that *X* will take on any given value.
 
-By Cut,
+MC<sub>Factorization</sub> tells us that once we know the conditional probability distribution of each variable given its parents, $\Pr(X_i
+\mid \bPA(X_i))$, we can compute the complete joint distribution over all of the variables. It is relatively easy to see that MC<sub>Factorization</sub> follows from MC<sub>Screening_off</sub>. Since $\bG$ is acyclic, we may re-label the subscripts on the variables so that they are ordered from ‘earlier’ to ‘later’, with only earlier variables being ancestors of later ones. It follows from the probability calculus that $$
+\begin{align}
+\Pr(X_1, X_2 , &\ldots ,X_n)\  = \\
+&\Pr(X_1) \times \Pr(X_2 \mid X_1) \times \ldots \times \Pr(X_n \mid X_1, X_2 , \ldots ,X_{n-1})
+\end{align}
+$$ (this is a version of the theorem of total probability). For each term $\Pr(X_i \mid X_1,
+X_2 , \ldots ,X_{i-1})$, our ordering ensures that all of the parents of $X_i$ will be included on the right hand side, and none of its descendants will. MC<sub>Screening_off</sub> then tells us that we can eliminate all of the terms from the right hand side except for the parents of $X_i$.
 
-(4) 
-$$\vdash \Box_F A \And \Box_{F,|A|} \Box_F A \to \Box_F \Box_F A.$$
+MC<sub>*d*-separation</sub> introduces the graphical notion of *d*-separation. As noted above, a path from *X* to *Y* is a sequence of variables $\langle X = X_1 , \ldots ,X_k =
+Y\rangle$ such that for each $X_i$, $X_{i+1}$, there is either an arrow from $X_i$ to $X_{i+1}$or an arrow from $X_{i+1}$ to $X_i$ in $\bG$. A variable $X_i , 1 \lt i \lt k$ is a *collider* on the path just in case there is an arrow from $X_{i-1}$ to $X_i$ and from $X_{i+1}$ to $X_i$. In other words, $X_i$ is a collider just in case the arrows converge on $X_i$ in the path. Let $\bX, \bY$, and $\bZ$ be disjoint subsets of $\bV$. $\bZ$ *d*-separates $\bX$ and $\bY$ just in case every path $\langle X_1 , \ldots ,X_k\rangle$ from a variable in $\bX$ to a variable in $\bY$ contains at least one variable $X_i$ such that either: (i) $X_i$ is a collider, and no descendant of $X_i$ (including $X_i$ itself) is in $\bZ$; or (ii) $X_i$ is not a collider, and $X_i$ is in $\bZ$. Any path that meets this condition is said to be *blocked* by $\bZ$. If $\bZ$ does not *d*-separate $\bX$ and $\bY$, then $\bX$ and $\bY$ are *d-connected* by $\bZ$.
 
-But then from (1), (2), (3) and (4),  $\vdash \Box_F A \rightarrow \Box_F \Box_F A$ .
+Note that MC provides sufficient conditions for variables to be probabilistically independent, conditional on others, but no necessary condition.
 
-We turn to two noteworthy results on identity:
+Here are some illustrations:
 
-THEOREM 7. (i) 
-$$\vdash x = y \rightarrow \Box_x x = y;$$
-  
-(ii)  $\vdash x \neq y \rightarrow \Box_{x,y} x \neq y.$ 
+![diagram: T has an arrow pointing north to W; W has a long arrow pointing northeast to Z; W also has an arrow pointing northwest to X; X has an arrow pointing northwest to Y](./CausalModels_files/fig6.svg)
 
-*Proof.* (i) By Lemma 1(i),  $\vdash \Box_x x = x$ . By Leibniz's Law,  $\vdash x = y \rightarrow (\Box_x x = x \rightarrow \Box_x x = y)$ . So  $\vdash x = y \rightarrow \Box_x x = y$ . (ii) Applying Theorem 4(iii) to (i) above, we obtain
+Figure 6
 
- $\vdash \Diamond_{x,y} x = y \rightarrow \Diamond_{x,y} \Box_x x = y$ . But  $\vdash \Diamond_{x,y} \Box_x x = y \rightarrow x = y$  by the *T* and S5 axioms; and so  $\vdash \Diamond_{x,y} x = y \rightarrow x = y$ , which implies the result to be proved.
+In [Figure 6](https://plato.stanford.edu/entries/causal-models/#fig6), MC implies that *X* screens *Y* off from all of the other variables, and *W* screens *Z* off from all of the other variables. This is most easily seen from MC<sub>Screening_off</sub>. *W* also screens *T* off from all of the other variables, which is most easily seen from MC<sub>*d*-separation</sub>. *T* does not necessarily screen *Y* off from *Z* (or indeed anything from anything).
 
-It should be noted that whereas a true identity x = y depends upon the nature of the one object x, a true non-identity  $x \neq y$  depends upon the nature of both objects.
+![diagram: X has an arrow pointing northeast to Y and Z has an arrow pointing northwest to the same Y.](./CausalModels_files/fig7.svg)
 
-The Rigidity Axiom can be extended to quasi-rigid predicates; and related results can be established for negative and existential predications:
+Figure 7
 
-THEOREM 8 (Rigidity). For F quasi-rigid,
+In [Figure 7](https://plato.stanford.edu/entries/causal-models/#fig7), MC entails that *X* and *Z* will be unconditionally independent, but not that they will be independent conditional on *Y*. This is most easily seen from MC<sub>*d*-separation</sub>.
 
-(i)  $\vdash Fx \rightarrow \Box_F Fx$ ;
+Let $V_i$ and $V_j$ be two distinct variables in $\bV$, with corresponding exogenous error variables $U_i$ and $U_j$, representing causes of $V_i$ and $V_j$ that are excluded from the $\bV$. Suppose $V_i$ and $V_j$ share at least one common cause that is excluded from $\bV$. In this case, we would not expect $U_i$ and $U_j$ to be probabilistically independent, and the theorem of Pearl and Verma (1991) would not apply. In this case, the causal relationship among the variables in $\bV$ would not be appropriately represented by a DAG, but would require an acyclic directed mixed graph (ADMG) with a double-headed arrow connecting $V_i$ and $V_j$. We will discuss this kind of case in more detail in [Section 4.6](https://plato.stanford.edu/entries/causal-models/#LateCommCaus) below.
 
-(ii)  $\vdash \sim Fx \rightarrow \Box_{F,x} \sim Fx$ ;
+MC is not expected to hold for arbitrary sets of variables $\bV$, even when the DAG $\bG$ accurately represents the causal relations among those variables. For example, (MC) will typically fail in the following kinds of case:
 
-(iii)  $\vdash \Sigma xFx \rightarrow \Box_F \Sigma xFx$ .
+1.  In an EPR (Einstein-Podolski-Rosen) set-up, we have two particles prepared in the singlet state. If *X* represents a spin measurement on one particle, *Y* a spin measurement (in the same direction) on the other, then *X* and *Y* are perfectly anti-correlated. (One particle will be spin-up just in case the other is spin-down.) The measurements can be conducted sufficiently far away from each other that it is impossible for one outcome to causally influence the other. However, it can be shown that there is no (local) common cause *Z* that screens off the two measurement outcomes.
+2.  The variables in $\bV$ are not appropriately distinct. For example, suppose that *X*, *Y*, and *Z* are variables that are probabilistically independent and causally unrelated. Now define $U = X + Y$ and $W = Y + Z$, and let $\bV = \{U, W\}$. Then *U* and *W* will be probabilistically dependent, even though there is no causal relation between them.
+3.  MC may fail if the variables are too coarsely grained. Suppose *X*, *Y*, and *Z* are quantitative variables. *Z* is a common cause of *X* and *Y*, and neither *X* nor *Y* causes the other. Suppose we replace *Z* with a coarser variable, $Z'$ indicating only whether *Z* is high or low. Then we would not expect $Z'$ to screen *X* off from *Y*. The value of *X* may well contain information about the value of *Z* beyond what is given by $Z'$, and this may affect the probability of *Y*.
 
-*Proof.* (i) Let us first prove this result for the special case in which F is a rigid predicate symbol P. By the Rigidity Axiom (III)(ii),
+Both SGS (2000) and Pearl (2009) contain statements of a principle called the *Causal Markov Condition* (CMC). The statements are in fact quite different from one another. In Pearl’s formulation, (CMC) is just a statement of the mathematical theorem described above: If each variable in $\bV$ is a deterministic product of its parents in $\bV$, together with an error term; and the errors are probabilistically independent of each other; then the probability distribution on $\bV$ will satisfy (MC) with respect to the DAG $\bG$ representing the functional dependence relations among the variables in $\bV$. Pearl interprets this result in the following way: Macroscopic systems, he believes, are deterministic. In practice, however, we never have access to all of the causally relevant variables affecting a macroscopic system. But if we include enough variables in our model so that the excluded variables are probabilistically independent of one another, then our model will satisfy the MC, and we will have a powerful set of analytic tools for studying the system. Thus MC characterizes a point at which we have constructed a useful approximation of the complete system.
 
- $\vdash Px \rightarrow \Box_{P,x} Px$ . But by Abstraction,  $\vdash Px \rightarrow P, x \subseteq P$ ; and so by Subsumption,  $\vdash Px \rightarrow \Box_P Px$ .
+In SGS (2000), the (CMC) has more the status of an empirical posit. If $\bV$ is set of macroscopic variables that are well-chosen, meaning that they are free from the sorts of defects described above; $\bG$ is a DAG representing the causal structure on $\bV$; and P is the empirical probability distribution resulting from this causal structure; then P can be expected to satisfy MC relative to $\bG$. They defend this assumption in (at least) two ways:
 
-Let us now consider the case in which F is a rigid predicate. Let  $P_1, \ldots, P_m$  be the rigid predicates of F and  $x_1, \ldots, x_n$  its free variables. Then by Abstraction,  $\vdash Fx \leftrightarrow \bigvee_{1 \le i \le m} P_i x \lor \bigvee_{1 \le j \le n} x = x_j$ . Where B(x) is the disjunction on the right, we have  $\vdash |Fx| \approx |B(x)|$ ; and so it clearly suffices to show  $\vdash B(x) \to \Box_F B(x)$ . The result holds when m = n = 0, since then  $\vdash \sim B(x)$ . So we may suppose m + n > 0. Now  $\vdash P_i x \to \Box_{P_i} P_i x$  by the special case above; so  $\vdash P_i x \to \Box_F P_i x$  by Subsumption; and hence  $\vdash P_i x \to \Box_F B(x)$ . By using theorem 7(ii), we may similarly show that  $\vdash x = x_j \to \Box_F B(x)$ . But then  $\vdash B(x) \to \Box_F B(x)$ .
+1.  Empirically, it seems that a great many systems do in fact satisfy MC.
+2.  Many of the methods that are in fact used to detect causal relationships tacitly presuppose the MC. In particular, the use of randomized trials presupposes a special case of the MC. Suppose that an experimenter determines randomly which subjects will receive treatment with a drug $(D = 1)$ and which will receive a placebo $(D = 0)$, and that under this regimen, treatment is probabilistically correlated with recovery $(R)$. The effect of randomization is to eliminate all of the parents of *D*, so MC tells us that if *R* is not a descendant of *D*, then *R* and *D* should be probabilistically independent. If we do not make this assumption, how can we infer from the experiment that *D* is a cause of *R*?
 
-Finally, let us consider the case in which F is a quasi-rigid predicate. By Lemma 5(i), there is a rigid predicate G such that  $\vdash F \approx G$  and  $\vdash |F| \approx |G|$ . So  $\vdash Fx \rightarrow Gx$ ,  $\vdash Gx \rightarrow \Box_G Gx$  (by the case above),  $\vdash \Box_G Gx \rightarrow \Box_G Fx$  (using modal reasoning),  $\vdash \Box_G Fx \rightarrow \Box_F Fx$  (by Subsumption), and hence  $\vdash Fx \rightarrow \Box_F Fx$ .
+Cartwright (1993, 2007: chapter 8) has argued that MC need not hold for genuinely indeterministic systems. Hausman and Woodward (1999, 2004) attempt to defend MC for indeterministic systems.
 
-(ii) By (i),  $\vdash Fx \rightarrow \Box_F Fx$ . So by Nec,  $\vdash \Box_{F,x}(Fx \rightarrow \Box_F Fx)$ . By modal
+A causal model that comprises a DAG and a probability distribution that satisfies MC is called a *causal Bayes net.*
 
-reasoning,  $\vdash \Diamond_{F,x} Fx \to \Diamond_{F,x} \Box_F Fx$ . But  $\vdash \Diamond_{F,x} \Box_F Fx \to Fx$  by the *T*-axiom and S5 result (Theorem 6(i)); and so  $\vdash \Diamond_{F,x} Fx \to Fx$ , as required.
+### 4.3 The Minimality and Faithfulness Conditions
 
-(iii) By (i),  $\vdash Fx \to \Box_F Fx$ . Since  $\vdash Fx \to \Sigma xFx$ , it follows from Theorem 4(ii) that  $\vdash \Box_F Fx \to \Box_F \Sigma xFx$ ; and so  $\vdash Fx \to \Box_F \Sigma xFx$ . But then by quantificational reasoning,  $\vdash \Sigma xFx \to \Box_F \Sigma xFx$ .
+The MC states a sufficient condition but not a necessary condition for conditional probabilistic independence. As such, the MC by itself can never entail that two variables are conditionally or unconditionally dependent. The Minimality and Faithfulness Conditions are two conditions that give necessary conditions for probabilistic independence. (This is employing the terminology of Spirtes et al. (SGS 2000). Pearl (2009) contains a “Minimality Condition” that is slightly different from the one described here.)
 
-We have the following fundamental result connecting dependence and essential truth:
+\(i\) *The Minimality Condition*. Suppose that the DAG $\bG$ on variable set $\bV$ satisfies MC with respect to the probability distribution P. The Minimality Condition asserts that no sub-graph of $\bG$ over $\bV$ also satisfies the Markov Condition with respect to P. As an illustration, consider the variable set $\{X, Y\}$, let there be an arrow from *X* to *Y*, and suppose that *X* and *Y* are probabilistically independent of each other. This graph would satisfy the MC with respect to P: none of the independence relations mandated by the MC are absent (in fact, the MC mandates no independence relations). But this graph would violate the Minimality Condition with respect to P, since the subgraph that omits the arrow from *X* to *Y* would also satisfy the MC. The Minimality Condition implies that if there is an arrow from *X* to *Y*, then *X* makes a probabilistic difference for *Y*, conditional on the other parents of *Y*. In other words, if $\bZ
+= \bPA(Y) \setminus \{X\}$, there exist $\bz$, *y*, *x*, $x'$ such that $\Pr(Y = y \mid X = x \amp \bZ = \bz) \ne \Pr(Y = y
+\mid X = x' \amp \bZ = \bz)$.
 
-LEMMA 9.  $\vdash x \ge y \leftrightarrow \Box_x y = y$ .
+\(ii\) *The Faithfulness Condition*. The Faithfulness Condition (FC) is the converse of the Markov Condition: it says that all of the (conditional and unconditional) probabilistic independencies that exist among the variables in $\bV$ are *required* by the MC. For example, suppose that $\bV = \{X, Y, Z\}$. Suppose also that *X* and *Z* are unconditionally independent of one another, but dependent, conditional upon *Y*. (The other two variable pairs are dependent, both conditionally and unconditionally.) The graph shown in [Figure 8](https://plato.stanford.edu/entries/causal-models/#fig8) does not satisfy FC with respect to this distribution (colloquially, the graph is not faithful to the distribution). MC, when applied to the graph of Figure 8, does not imply the independence of *X* and *Z*. This can be seen by noting that *X* and *Z* are *d*-connected (by the empty set): neither the path $X
+\rightarrow Z$ nor $X \rightarrow Y\rightarrow Z$ is blocked (by the empty set). By contrast, the graph shown in [Figure 7](https://plato.stanford.edu/entries/causal-models/#fig7) above is faithful to the described distribution. Note that Figure 8 does satisfy the Minimality Condition with respect to the distribution; no subgraph satisfies MC with respect to the described distribution. In fact, FC is strictly stronger than the Minimality Condition.
 
-*Proof.* For the  $\leftarrow$  direction, note that  $\vdash \Box_x y = y \& y\eta(y = y) \to x \ge y$  by Localization. But trivially,  $\vdash y\eta(y = y)$ ; and so  $\vdash x \ge y \leftrightarrow \Box_x y = y$ .
+![diagram: X has an arrow pointing northeast to Y and another arrow pointing east to Z; Y has an arrow pointing southeast to Z.](./CausalModels_files/fig8.svg)
 
-For the  $\rightarrow$  direction, note that  $\vdash y = y$ . So by Nec,  $\vdash \Box_y y = y$  by lemma (i). Now  $\vdash x \ge y \rightarrow c(x)y$ ; and so by Subsumption,  $\vdash x \ge y \rightarrow \Box_{c(x)} y = y$ . But then by Chaining,  $\vdash x \ge y \rightarrow \Box_x y = y$ .
+Figure 8
 
-If we were to adopt  $x \ge y \to (Ex \to Ey)$  as an axiom, then we could also prove the equivalence of  $x \ge y$  to  $\Box_x(Ex \to Ey)$ . For, on the one hand,  $\vdash \Box_x x \ge y \to \Box_x(Ex \to Ey)$  would follow from the axiom by modal reasoning and  $\vdash x \ge y \to \Box_x x \ge y$  would follow from the lemma above with the help of the S4 result (as in Theorem 10(ii) below). On the other hand,  $\vdash \Box_x(Ex \to Ey) \to x \ge y$  holds by the Localization axiom.
+Here are some other examples: In [Figure 6](https://plato.stanford.edu/entries/causal-models/#fig6) above, there is a path $W\rightarrow X\rightarrow Y$; FC implies that *W* and *Y* should be probabilistically dependent. In [Figure 7](https://plato.stanford.edu/entries/causal-models/#fig7), FC implies that *X* and *Z* should be dependent, conditional on *Y*.
 
-We conclude with some elementary results on dependence:
+FC can fail if the probabilistic parameters in a causal model are just so. In [Figure 8](https://plato.stanford.edu/entries/causal-models/#fig8), for example, *X* influences *Z* along two different directed paths. If the effect of one path is to exactly undo the influence along the other path, then *X* and *Z* will be probabilistically independent. If the underlying SEM is linear, Spirtes et al. (SGS 2000: Theorem 3.2) prove that the set of parameters for which Faithfulness is violated has Lebesgue measure 0. Nonetheless, parameter values leading to violations of FC are *possible*, so FC does not seem plausible as a metaphysical or conceptual constraint upon the connection between causation and probabilities. It is, rather, a *methodological* principle: Given a distribution on $\{X, Y, Z\}$ in which *X* and *Z* are independent, we should prefer the causal structure depicted in [Figure 7](https://plato.stanford.edu/entries/causal-models/#fig7) to the one in Figure 8. This is not because Figure 8 is conclusively ruled out by the distribution, but rather because it is preferable to postulate a causal structure that *implies* the independence of *X* and *Z* rather than one that is merely *consistent* with independence. See Zhang and Spirtes 2016 for comprehensive discussion of the role of FC.
 
-## THEOREM 10 (Dependence). The formulas below are theorems:
+Violations of FC are often detectable in principle. For example, suppose that the true causal structure is that shown in [Figure 7](https://plato.stanford.edu/entries/causal-models/#fig7), and that the probability distribution over *X*, *Y*, and *Z* exhibits all of the conditional independence relations required by MC. Suppose, moreover, that *X* and *Z* are independent, conditional upon *Y*. This conditional independence relation is not entailed by MC, so it constitutes a violation of FC. It turns out that there is no DAG that is faithful to this probability distribution. This tips us off that there is a violation of FC. While we will not be able to infer the correct causal structure, we will at least avoid inferring an incorrect one in this case. For details, see Steel 2006, Zhang & Spirtes 2008, and Zhang 2013b.
 
-- (i)  $x \ge x$ ;
-- (ii)  $x \ge y \& y \ge z \to x \ge z;$
-- (iii)  $x \ge y \to \Box_x (x \ge y);$
-- (iv)  $\sim (x \geq y) \rightarrow \Box_{x,y} \sim (x \geq y);$
-- (v)  $x \leq F \rightarrow \Box_F x \leq F$ , F rigid.
-- Proof. (i) From Lemma 1(ii).
+Researchers have explored the consequences of adopting a variety of assumptions that are weaker than FC; see for example Ramsey et al. 2006, Spirtes & Zhang 2014, and Zhalama et al. 2016.
 
-(ii) By Lemma 9,  $\vdash x \ge y \to \Box_x y = y$  and  $\vdash y \ge z \to \Box_y z = z$ . By Cut,  $\vdash \Box_x y = y$  &  $\Box_y z = z \to \Box_x z = z$ ; and by Lemma 9 again,  $\vdash \Box_x z = z \to x \ge z$ . The result then follows.
+### 4.4 Identifiability of Causal Structure
 
-(iii) By the use of the lemma and modal reasoning, it suffices to show  $\Box_x y = y \rightarrow \Box_x \Box_x y = y$ . But this follows from the S4 result (Theorem 6(ii)).
+If we have a set of variables $\bV$ and know the probability distribution P on $\bV$, what can we infer about the causal structure on $\bV$? This epistemological question is closely related to the metaphysical question of whether it is possible to *reduce* causation to probability (as, e.g., Reichenbach 1956 and Suppes 1970 proposed).
 
-(iv) By the use of the lemma, it suffices to show  $\sim \Box_x y = y \rightarrow \Box_{x,y} \sim \Box_x y = y$ . But this follows from the S5 result.
+Pearl (1988: Chapter 3) proves the following theorem:
 
-- (v)  $x \leq F$  abbreviates  $\sum y(Fy \& x \leq y)$ . By Rigidity (Theorem 8(i)).
-- (1)  $\vdash Fy \rightarrow \Box_F Fy$ .
+(**Identifiability with time-order**)  
+If
 
- $\vdash x \leq y \rightarrow \Box_y x \leq y$  by (iii) above; and so from Subsumption,
+1.  the variables in $\bV$ are time-indexed, such that only earlier variables can cause later ones;
+2.  the probability P assigns positive probability to every possible assignment of values of the variables in $\bV$;
+3.  there are no latent variables, so that the correct causal graph $\bG$ is a DAG;
+4.  and the probability measure P satisfies the Markov and Minimality Conditions with respect to $\bG$;
 
-(2) 
-$$\vdash Fy \& x \leq y \to \Box_F x \leq y.$$
+then it will be possible to uniquely identify $\bG$ on the basis of P.
 
-From (1) and (2) by modal reasoning,  $\vdash Fy \& x \le y \to \Box_F(Fy \& x \le y)$ . But  $\vdash \Box_F(Fy \& x \le y) \to \Box_F \Sigma y(Fy \& x \le y)$ , also by modal reasoning. So  $\vdash Fy \& x \le y \to \Box_F \Sigma y(Fy \& x \le y)$ ; and hence  $\vdash \Sigma y(Fy \& x \le y) \to \Box_F \Sigma y(Fy \& x \le y)$  by quantificational reasoning.
+It is relatively easy to see why this holds. For each variable $X_i$, its parents must come from among the variables with lower time indices, call them $X_1 ,\ldots ,X_{i-1}$. Any variables in this group that are not parents of $X_i$ will be nondescendants of $X_i$; hence they will be screened off from $X_i$ by its parents (from MC<sub>Screening_off</sub>). Thus we can start with the distributions $\Pr(X_i\mid X_1 ,\ldots ,X_{i-1})$, and then weed out any variables from the right hand side that make no difference to the probability distribution over $X_i$. By the Minimality Condition, we know that the variables so weeded are not parents of $X_i$. Those variables that remain are the parents of $X_i$ in $\bG$.
 
-## 5. REVERSE BARCAN
+If we don’t have information about time ordering, or other substantive assumptions restricting the possible causal structures among the variables in $\bV$, then it will not always be possible to identify the causal structure from probability alone. In general, given a probability distribution P on $\bV$, it is only possible to identify a *Markov equivalence class* of causal structures. This will be the set of all DAGs on $\bV$ that (together with MC) imply all and only the conditional independence relations contained in P. In other words, it will be the set of all DAGs $\bG$ such that P satisfies MC and FC with respect to $\bG$. The PC algorithm described by SGS (2000: 84–85) is one algorithm that generates the Markov equivalence class for any probability distribution with a non-empty Markov equivalence class.
 
-We deal with the important question of the conditions under which we can infer  $\Box_F \prod x(A \to B)$  from  $\prod x(A \to \Box_F B)$ .
+Consider two simple examples involving three variables $\{X, Y,
+Z\}$. Suppose our probability distribution has the following properties:
 
-THEOREM 1.  $\vdash \Box_F \Pi x(A \to \Box_F A) \& |\Pi xB| \subseteq cF \to (\Pi x(A \to \Box_F B) \to \Box_F \Pi x(A \to B))$ , where x is free in A but not in F and F is quasi-rigid.
+- *X* and *Y* are dependent unconditionally, and conditional on *Z*
+- *Y* and *Z* are dependent unconditionally, and conditional on *X*
+- *X* and *Z* are dependent unconditionally, but independent conditional on *Y*
 
-*Proof.* The proof is a variant of the proof that  $\Pi x \Box B \rightarrow \Box \Pi x B$  is a theorem of quantified S5. For convenience, we label the following formulas:
+Then the Markov equivalence class is:
 
-- (a)  $\Box_F \Pi x(A \to \Box_F A);$
-- (b)  $|\Pi xB| \subseteq cF$ ;
-- (c)  $\prod x(A \rightarrow \Box_F B)$ ;
-- (d)  $\Diamond_F \Sigma x(A \& \sim B)$ .
+$$
+X \rightarrow Y \rightarrow Z\\
+X \leftarrow Y \leftarrow Z\\
+X \leftarrow Y \rightarrow Z
+$$
 
-Clearly, it suffices to show  $\vdash \sim ((a) \& (b) \& (c) \& (d))$ .
+We cannot determine from the probability distribution, together with MC and FC, which of these structures is correct.
 
-Let us use G for the predicate  $|\Pi x(A \rightarrow B)|$ . By the T-axiom,
+On the other hand, suppose the probability distribution is as follows:
 
- $\vdash$  (c)  $\rightarrow \Diamond_{F,G}$ (c). By the S5 result (Lemma 3.6(i)),
+- *X* and *Y* are dependent unconditionally, and conditional on *Z*
+- *Y* and *Z* are dependent unconditionally, and conditional on *X*
+- *X* and *Z* are independent unconditionally, but dependent conditional on *Y*
 
- $\vdash \Diamond_{F,G}(\mathbf{c}) \rightarrow \Box_{F,G} \Diamond_{F,G}(\mathbf{c});$  and so,
+Then the Markov equivalence class is:
 
-(1) 
-$$\vdash$$
- (c)  $\rightarrow \Box_{F,G} \Diamond_{F,G}$ (c).
+$$
+X \rightarrow  Y \leftarrow  Z
+$$
 
-By Localization,  $\vdash$  (a)  $\rightarrow$   $|\Pi xA| \subseteq cF$ ; and so
+This is the only DAG relative to which the given probability distribution satisfies MC and FC.
 
-(2) 
-$$\vdash$$
- (a) & (b)  $\rightarrow$   $G \subseteq cF$ .
+### 4.5 Identifiability with Assumptions about Functional Form
 
-## ر = y (م)
+Suppose we have a SEM with endogenous variables $\bV$ and exogenous variables $\bU$, where each variable in $\bV$ is determined by an equation of the form:
 
-258
+$$
+X_i = f_i (\bPA(X_i), U_i).
+$$
 
-This content downloaded from 73.100.68.211 on Sat, 20 Sep 2025 05:04:38 UTC All use subject to https://about.jstor.org/terms
+Suppose, moreover, that we have a probability distribution $\Pr'$ on $\bU$ in which all of the $U_i$s are independent. This will induce a probability distribution P on $\bV$ that satisfies MC relative to the correct causal DAG on $\bV$. In other words, our probabilistic SEM will generate a unique causal Bayes net. The methods described in the previous section attempt to infer the underlying graph $\bG$ from relations of probabilistic dependence and independence. These methods can do no better than identifying the Markov equivalence class. Can we do better by making use of additional information about the probability distribution P, beyond relations of dependence and independence?
 
-From (1) and (2), with the help of Subsumption and Chaining,
+There is good news and there is bad news. First the bad news. If the variables in $\bV$ are discrete, and we make no assumptions about the form of the functions $f_i$, then we can infer no more about the SEM than the Markov equivalence to which the graph belongs (Meek 1995).
 
-(3) 
-$$\vdash (a) \& (b) \& (c) \rightarrow \Box_F \Diamond_{F,G}(c).$$
+More bad news: If the variables in $\bV$ are continuous, the simplest assumption, and the one that has been studied in most detail, is that the equations are *linear* with *Gaussian* (normal, or bell-shaped) errors. That is:
 
-From (3) by modal reasoning,
+- $X_i = \sum_j c_j X_j + U_i$, where *j* ranges over the indices of $\bPA(X_i)$ and the $c_j$s are constants
+- $Pr'$ assigns a Gaussian distribution to each $U_i$
 
-(4) 
-$$\vdash (a) \& (b) \& (c) \& (d) \rightarrow \Diamond_F(\Sigma x(A \& \sim B) \& \Diamond_{F,G}(c)).$$
+It turns out that with these assumptions, we can do no better than inferring the Markov equivalence class of the causal graph on $\bV$ from probabilistic dependence and independence (Geiger & Pearl 1988).
 
-Now  $\vdash$  (c)  $\rightarrow$  ( $A \rightarrow \Box_F B$ ). So  $\vdash \Diamond_{F,G}(c) \rightarrow \Diamond_{F,G}(A \rightarrow \Box_F B)$ ; so  $\vdash \Diamond_{F,G}(c) \rightarrow (\Diamond_{F,G} \sim A \lor \Diamond_{F,G} \Box_F B)$ ; and so  $\vdash \Diamond_{F,G}(c) \rightarrow$   $\Pi x(\Diamond_{F,G} \sim A \lor \Diamond_{F,G} \Box_F B)$ , given that x is not free in F. So  $\vdash \Sigma x(A \& \sim B) \& \Diamond_{F,G}(c) \rightarrow \Sigma x(A \& \sim B \& (\Diamond_{F,G} \sim A \lor \Diamond_{F,G} \Box_F B))$ ; and therefore,
+Now for the good news. There are fairly general assumptions that allow us to infer a good deal more. Here are some fairly simple cases:
 
-(5) 
-$$\Diamond_F(\Sigma x(A \& \sim B) \& \Diamond_{F,G}(c)) \rightarrow \Diamond_F \Sigma x(A \& \sim B \& \& (\Diamond_{F,G} \sim A \lor \Diamond_{F,G} \Box_F B)).$$
+(**LiNGaM**) (Shimizu et al. 2006)  
+If:
 
-With the help of Subsumption,  $\vdash \prod x(A \to \Box_F A) \to \prod x(\Diamond_{F,G} \sim A \to \sim A)$ . So by modal reasoning,  $\vdash \Box_{F,G} \prod x(A \to \Box_F A) \to \Box_{F,G} \prod x(\Diamond_{F,G} \sim A \to \sim A)$ ; and so with the help of (2):
+1.  The variables in $\bV$ are continuous;
+2.  The functions $f_i$ are linear;
+3.  The probability distributions on the error variables $U_i$ are not Gaussian (or at most one is Gaussian);
+4.  The error variables $U_i$ are probabilistically independent in $\Pr'$;
 
-$$(6) \qquad \vdash (a) \& (b) \to \Box_F \Pi x(\Diamond_{F,G} \sim A \to \sim A).$$
+then the correct DAG on $\bV$ can be uniquely determined by the induced probability distribution P on $\bV$.
 
-From the S5 and T results,  $\vdash \Diamond_{F,G,x} \Box_F B \to B$ ; so using Cut and Subsumption,  $\vdash x \leq F \to (\Diamond_{F,G} \Box_F B \to B)$ ; so  $\vdash \Box_{F,G} \Pi x (x \leq F \to (\Diamond_{F,G} \Box_F B \to B))$ ; and so by (2) and Chaining,
+(**Non-linear additive**) (Hoyer et al. 2009)  
+Almost all functions of the following form allow the correct DAG on $\bV$ to be uniquely determined by the induced probability distribution P on $\bV$.:
 
-(7) 
-$$\vdash (a) \& (b) \to \Box_F \Pi x (x \le F \to (\Diamond_{F,G} \Box_F B \to B))$$
+1.  The functions $f_i$ are nonlinear and the errors are additive (so $X_i = f_i (\bPA(X_i)) + U_i$, with $f_i$ nonlinear);
+2.  The error variables $U_i$ are probabilistically independent in $\Pr'$;
 
-Since x occurs free in A,  $\vdash \Box_F \prod x (\Box_F A \rightarrow x \leq F)$  follows from Localization; and so,
+In fact, this case can be generalized considerably:
 
-(8) 
-$$\vdash$$
- (a)  $\rightarrow \Box_F \Pi x (A \rightarrow x \leq F).$ 
+(**Post non-linear**) (Zhang & Hyvärinen 2009)  
+With the exception of five specific cases that can be fully specified, all functions of the following form allow the correct DAG on $\bV$ to be uniquely determined by the induced probability distribution P on $\bV$.:
 
-From (7) and (8),
+1.  The functions have the form $X_i = g_i (f_i (\bPA(X_i)) + U_i)$ with $f_i$ and $g_i$ nonlinear, and $g_i$ invertible;
+2.  The error variables $U_i$ are probabilistically independent in $\Pr'$;
 
-(9) 
-$$\vdash (a) \& (b) \to \Box_F \Pi x (A \to (\Diamond_{F,G} \Box_F B \to B)).$$
+See also Peters et al. (2017) for discussion.
 
-From (6) and (9),  $\vdash$  (a) & (b) &  $\Diamond_F \Sigma x(A \& \sim B \& (\Diamond_{F,G} \sim A \lor \Diamond_{F,G} \Box_F B)) \rightarrow \Diamond_F \Sigma x(A \& \sim B \& (\sim A \lor B))$ . But by (2),  $\vdash$  (a) & (b)  $\rightarrow \sim \Diamond_F \Sigma x(A \& \sim B \& (\sim A \lor B))$ ; and so,
+While there are specific assumptions behind these results, they are nonetheless remarkable. They entail, for example, that (given the assumptions of the theorems) knowing only the probability distribution on two variables *X* and *Y*, we can infer whether *X* causes *Y* or *Y* causes *X*.
 
-(10) 
-$$\vdash (a) \& (b) \to \sim \Diamond_F \Sigma x (A \& \sim B \& \& (\Diamond_{F,G} \sim A \lor \Diamond_{F,G} \Box_F B)).$$
+### 4.6 Latent Common Causes
 
-But then (4), (5) and (10) yield the desired conclusion.
+The discussion so far has focused on the case where there are no latent common causes of the variables in $\bV$, and the error variables $U_i$ can be expected to be probabilistically independent. As we noted in [Section 2.3](https://plato.stanford.edu/entries/causal-models/#Grap) above, we represent a latent common cause with a double-headed arrow. For example, the acyclic directed mixed graph in [Figure 9](https://plato.stanford.edu/entries/causal-models/#fig9) represents a latent common cause of *X* and *Z*. More generally, we can use an ADMG like Figure 9 to represent that the error variables for *X* and *Z* are not probabilistically independent.
 
-In applying this theorem, we shall mean by condition (a) the condition that the formula (a) is a theorem; and similarly for condition (b). Note that the formula (b) can be replaced with  $\Sigma xA$ . For  $\Pi x(A \to \Box_F B)$  &  $\Sigma xA$  provably implies  $\Sigma x \Box_F B$ , which provably implies  $\Box_F \Sigma xB$ , which provably implies  $\Pi x(x\eta \Pi xB \to x \leq F)$ .
+![diagram: X has an arrow pointing east to Y which in turn has an arrow pointing east to Z; X and Z are connected by a curved double-headed arrow](./CausalModels_files/fig9.svg)
 
-We look now at the special case in which the formula A is a rigid predication. In this case, we can also prove a converse result:
+Figure 9
 
-COROLLARY 2. (i)  $\vdash |\Pi x B| \subseteq cF \rightarrow (\Pi x(Gx \rightarrow \Box_F B) \rightarrow \Box_F \Pi x(Gx \rightarrow B))$ , where x is free in B, but not in F and G, and G is quasi-rigid.
+If there are latent common causes, we expect MC<sub>Screening_off</sub> and MC<sub>Factorization</sub> to fail if we apply them in a naïve way. In [Figure 9](https://plato.stanford.edu/entries/causal-models/#fig9), *Y* is the only parent of *Z* shown in the graph, and if we try to apply MC<sub>Screening_off</sub>, it tells us that *Y* should screen *X* off from *Z*. However, we would expect *X* and *Z* to be correlated, even when we condition on *Y*, due to the latent common cause. The problem is that the graph is missing a relevant parent of *Z*, namely the omitted common cause. However, suppose that the probability distribution on $\{L, X, Y, Z\}$ satisfies MC with respect to the DAG that includes *L* as a common cause of *X* and *Z*. Then it turns out that the probability distribution will *still* satisfy MC<sub>*d*-separation</sub> with respect to the ADMG of Figure 9. A causal model incorporating an ADMG and probability distribution satisfying MC<sub>*d*-separation</sub> is called a *semi-Markov causal model* (SMCM).
 
-(ii)  $\vdash \Box_F \prod x(Gx \rightarrow B) \rightarrow \prod x(Gx \rightarrow \Box_F B))$ , for x not free in F or G and G quasi-rigid.
+If we allow that the correct causal graph may be an ADMG, we can still apply MC<sub>*d*-separation</sub>, and ask which graphs imply the same sets of conditional independence relations. The Markov equivalence class will be larger than it was when we did not allow for latent variables. For instance, suppose that the probability distribution on $\{X, Y, Z\}$ has the following features:
 
-*Proof.* (i) We first prove for the case in which F = G. Applying the theorem in the obvious way, condition (a) is then  $\vdash \Box_F \prod x(Fx \rightarrow \Box_F Fx)$ , which is satisfied by the Rigidity Theorem (4.8(i)), and formula (b) is as stated.
+- *X* and *Y* are dependent unconditionally, and conditional on *Z*
+- *Y* and *Z* are dependent unconditionally, and conditional on *X*
+- *X* and *Z* are independent unconditionally, but dependent conditional on *Y*
 
-We turn next to the case in which F and G are both quasi-rigid predicates. Let (b) be the formula  $|\Pi x B| \subseteq cF$  and (c) the formula  $\Pi x(Gx \to \Box_F B)$ , as before. Then by Subsumption:
+We saw in [Section 4.4](https://plato.stanford.edu/entries/causal-models/#IdenCausStru) that the only DAG that implies just these (in)dependencies is:
 
-(1) 
-$$\vdash$$
- (c)  $\rightarrow \prod x(Gx \rightarrow \Box_{F,G}B).$ 
+$$
+X \rightarrow Y \leftarrow Z
+$$
 
-Now  $\vdash B \to (Gx \to B)$ . So by modal reasoning (Theorem 4.4(ii)),  $\vdash x \leq G \& \Box_{F,G} B \to \Box_{F,G} (Gx \to B)$ . But by Theorem 4.10(i)),  $\vdash Gx \to x \leq G$ . So from the last two theorems,
+But if we allow for the possibility of latent common causes, there will be additional ADMGs that also imply just these (in)dependencies. For example, the structure
 
-(2) 
-$$\vdash \Pi x(Gx \to \Box_{F,G}B) \to \Pi x(Gx \to \Box_{F,G}(Gx \to B))$$
+$$
+X \leftrightarrow Y \leftrightarrow Z
+$$
 
-But then from (1) and (2):
+is also in the Markov equivalence class, as are several others.
 
-(3) 
-$$\vdash$$
- (c)  $\rightarrow \prod x(Gx \rightarrow \Box_{F,G}(Gx \rightarrow B)).$ 
+Latent variables present a further complication. Unlike the case where the error variables $U_i$ are probabilistically independent, a SEM with correlated error terms may imply probabilistic constraints in addition to conditional (in)dependence relations, even in the absence of further assumptions about functional form. This means that we may be able to rule out some of the ADMGs in the Markov equivalence class using different kinds of probabilistic constraints.
 
-We can also show:
+### 4.7 Interventions
 
-(4) 
-$$\vdash (b) \to \Pi x(Fx \And \sim Gx \to \Box_{F,G}(Gx \to B)).$$
+A conditional probability such as $\Pr(Y = y \mid X = x)$ gives us the probability that *Y* will take the value *y*, given that *X* has been *observed* to take the value *x*. Often, however, we are interested in predicting the value of *Y* that will result if we *intervene* to set the value of *X* equal to some particular value *x*. Pearl (2009) writes $\Pr(Y =
+y \mid \ido(X = x))$ to characterize this probability. The notation is misleading, since $do(X = x)$ is not an event in the original probability space. It might be more accurate to write $\Pr_{do(X =x)} (Y = y)$, but we will use Pearl’s notation here. What is the difference between observation and intervention? When we merely observe the value that a variable takes, we are learning about the value of the variable when it is caused in the normal way, as represented in our causal model. Information about the value of the variable will also provide us with information about its causes, and about other effects of those causes. However, when we intervene, we override the normal causal structure, forcing a variable to take a value it might not have taken if the system were left alone. Graphically, we can represent the effect of this intervention by eliminating the arrows directed into the variable intervened upon. Such an intervention is sometimes described as “breaking” those arrows. As we saw in Section [3.1](https://plato.stanford.edu/entries/causal-models/#IntrSEMs), in the context of a SEM, we represent an intervention that sets *X* to *x* by replacing the equation for *X* with a new one specifying that $X = x$.
 
-For by the rigidity results (Theorem 4.8(ii)),  $\vdash \sim Gx \rightarrow \Box_{G,x} \sim Gx$ . So by Subsumption,  $\vdash Fx \& \sim Gx \rightarrow \Box_{F,G} \sim Gx$ ; and (4) then follows by modal reasoning.
+As we saw in [Section 3.2](https://plato.stanford.edu/entries/causal-models/#StruCoun), there is a close connection between interventions and counterfactuals; in particular, the antecedents of structural counterfactuals are thought of as being realized by interventions. Nonetheless, Pearl (2009) distinguishes claims about interventions represented by the *do* operator from counterfactuals. The former are understood in the indicative mood; they concern interventions that are actually performed. Counterfactuals are in the subjunctive mood, and concern hypothetical interventions. This leads to an important epistemological difference between ordinary interventions and counterfactuals: they behave differently in the way that they interact with observations of the values of variables. In the case of interventions, we are concerned with evaluating probabilities such as
 
-Putting together (3) and (4), we obtain:
+$$
+\Pr(\bY = \by \mid \bX =\bx, \ido(\bZ = \bz)).
+$$
 
-(5)  $\vdash (b) \& (c) \to \Pi x((F,G)x \to \Box_{F,G}(Gx \to B)).$ 
+We assume that the intervention $\ido(\bZ = \bz)$ is being performed in the actual world, and hence that we are observing the values that other variables take $(\bX =\bx)$ in the same world where the intervention takes place. In the case of counterfactuals, we observe the value of various variables in the actual world, in which there is no intervention. We then ask what *would* have happened if an intervention *had been* performed. The variables whose values we observed may well take on *different* values in the hypothetical world where the intervention takes place. Here is a simple illustration of the difference. Suppose that we have a causal model in which treatment with a drug causes recovery from a disease. There may be other variables and causal relations among them as well.
 
-Since F and G are quasi-rigid and do not contain x free, we may apply the special case proved above to the single quasi-rigid predicate F, G and thereby obtain:
+Intervention:
 
-(6) 
-$$\vdash (b) \& (c) \to \Box_{F,G} \Pi x((F,G)x \to B)).$$
+- An intervention was performed to treat a particular patient with the drug, and it was observed that she did not recover.
+- Question: What is the probability that she recovered, given the intervention and the observed evidence?
+- Answer: Zero, trivially.
 
-Since x is free in B,  $\vdash \Box_F B \rightarrow x \leq F$  by Localization; and so,
+Counterfactual:
 
-(7) 
-$$\vdash$$
- (c)  $\rightarrow$   $G \subseteq cF$ .
+- It was observed that a patient did not recover from the disease.
+- Question: What is the probability that she would have recovered, had she been treated with the drug?
+- Answer: Nontrivial. The answer is not necessarily zero, nor is it necessarily P(*recovery* \| *treatment*). If we know that she was in fact treated, then we could infer that she would not have recovered if treated. But we do not know whether she was treated. The fact that she did not recover gives us partial information: it makes it less likely that she was in fact treated; it also makes it more likely that she has a weak immune system, and so on. We must make use of all of this information in trying to determine the probability that she would have recovered if treated.
 
-From (7) with the help of Subsumption and Chaining,
+We will discuss interventions in the present section, and counterfactuals in [Section 4.10](https://plato.stanford.edu/entries/causal-models/#Coun) below.
 
-(8) 
-$$\vdash (c) \to (\Box_{F,G} \Pi x((F,G)x \to B)) \to \Box_F \Pi x(Gx \to B)).$$
+Suppose that we have an acyclic structural equation model with exogenous variables $\bU$ and endogenous variables $\bV$. We have equations of the form
 
-But the desired result then follows from (6) and (8).
+$$
+X_i = f_i (\bPA(X_i), U_i),
+$$
 
-We turn finally to the case in which only G is required to be quasirigid. Applying the previous case to F a rigid predicate symbol P which does not occur in G or B, we obtain  $\vdash |\Pi xB| \subseteq cP \rightarrow$  $(\Pi x(Gx \rightarrow \Box_P B) \rightarrow \Box_P \Pi x(Gx \rightarrow B))$ . So by Subsumption,  $\vdash P \approx F \rightarrow$  $(|\Pi xB| \subseteq cF \rightarrow (\Pi x(Gx \rightarrow \Box_F B) \rightarrow \Box_F \Pi x(Gx \rightarrow B)))$ . But the consequent does not contain P; and so by Predicate Elimination,  $\vdash |\Pi xB| \subseteq cF \rightarrow \Pi x(Gx \rightarrow \Box_F B) \rightarrow \Box_F \Pi x(Gx \rightarrow B).$ 
+and a probability distribution $\Pr'$ on the exogenous variables $\bU$. $\Pr'$ then induces a probability distribution P on $\bV$. To represent an intervention that sets $X_k$ to $x_k$, we replace the equation for $X_k$ with $X_k = x_k$. Now $\Pr'$ induces a new probability distribution P\* on $\bV$ (since settings of the exogenous variables $\bU$ give rise to different values of the variables in $\bV$ after the intervention). P\* is the new probability distribution that Pearl writes as $\Pr(• \mid \ido(X_k
+= x_k))$.
 
-(ii) Let us prove first for the case in which F is a rigid predicate symbol. Clearly,  $\vdash (\Box_F \prod x(Gx \to B) \& Gx) \to B$ . By modal reasoning,  $\vdash \Box_F (\Box_F \prod x(Gx \to B) \& Gx) \to \Box_F B)$ ; and so,
+But even if we do not have a complete SEM, we can often compute the effect of interventions. Suppose we have a causal model in which the probability distribution P satisfies MC on the causal DAG $\bG$ over the variable set $\bV = \{X_1, X_2 ,\ldots ,X_n\}$. The most useful version of MC for thinking about interventions is MC<sub>Factorization</sub> (see [Section 4.2](https://plato.stanford.edu/entries/causal-models/#MarkCond)), which tells us:
 
-(1) 
-$$\vdash \Box_F \Box_F \Pi x (Gx \to B) \to (\Box_F Gx \to \Box_F B).$$
+$$
+\Pr(X_1, X_2 , \ldots ,X_n) = \prod_i \Pr(X_i \mid \bPA(X_i)).
+$$
 
-But  $\vdash Gx \rightarrow \Box_G Gx$  by the Rigidity Results;  $\vdash \Box_F \Pi x (Gx \rightarrow B) \rightarrow |G| \subseteq cF$  since x is not free in G; and so
+Now suppose that we intervene by setting the value of $X_k$ to $x_k$. The post-intervention probability P\* is the result of altering the factorization as follows:
 
-(2) 
-$$\vdash Gx \rightarrow \Box_F Gx.$$
+$$
+\Pr^*(X_1, X_2 , \ldots ,X_n) = \Pr'(X_k) \times \prod_{i \ne k} \Pr(X_i \mid \bPA(X_i)),
+$$
 
-Also by S4,
+where $\Pr'(X_k = x_k) = 1$. The conditional probabilities of the form $\Pr(X_i \mid \bPA(X_i))$ for $i \ne k$ remain unchanged by the intervention. This gives the same result as computing the result of an intervention using a SEM, when the latter is available. This result can be generalized to the case where the intervention imposes a probability distribution $\Pr^{\dagger}$ on some subset of the variables in $\bV$. For simplicity, let’s re-label the variables so that $\{X_1, X_2 ,\ldots ,X_k\}$ is the set of variables that we intervene on. Then, the post-intervention probability distribution is:
 
-(3) 
-$$\vdash \Box_F \Pi x(Gx \to B) \to \Box_F \Box_F \Pi x(Gx \to B).$$
+$$
+\Pr^*(X_1, X_2 , \ldots ,X_n) = \Pr^{\dagger}( X_1, X_2 ,\ldots ,X_k) \times \prod_{k \lt i \le n} \Pr(X_i \mid \bPA(X_i)).
+$$
 
-So from (1), (2) and (3),  $\vdash \Box_F \prod x(Gx \to B) \to (Gx \to \Box_F B)$ . But since x does not occur free in F, it follows by quantificational reasoning that  $\vdash \Box_F \prod x(Gx \to B) \to \prod x(Gx \to \Box_F B)$ .
+The *Manipulation Theorem* of SGS (2000: theorem 3.6) generalizes this formula to cover a much broader class of interventions, including ones that don’t break all the arrows into the variables that are intervened on.
 
-Consider now the case for arbitrary F. Applying the special case above to F a new predicate symbol P, we obtain  $\vdash \Box_P \prod x(Gx \to B) \to$  $\prod x(Gx \to \Box_P B)$ ; and so by Subsumption,  $\vdash P \approx F \to$  $(\Box_F \prod x(Gx \to B) \to \prod x(Gx \to \Box_F B))$ . But the consequent does not contain P and so, by Predicate Elimination,  $\vdash \Box_F \prod x(Gx \to B) \to$  $\prod x(Gx \to \Box_F B)$ .
+Pearl (2009: Chapter 3) develops an axiomatic system he calls the *do-calculus* for computing post-intervention probabilities that can be applied to systems with latent variables, where the causal structure on $\bV$ is represented by an ADMG (including double-headed arrows) instead of a DAG. The axioms of this system are presented in [Supplement on the *do*-calculus](https://plato.stanford.edu/entries/causal-models/do-calculus.html). One useful special case is given by the
 
-The previous result provides useful information on unrestricted quantification in the stronger system:
+*Back-Door Criterion*. Let *X* and *Y* be variables in $\bV$, and $\bZ \subseteq \bV \setminus \{X, Y\}$ such that:
 
-COROLLARY 3.  $\Pi x \Box_F B \rightarrow \Box_F \Pi x B$ , for x not free in F, is a theorem of E5<sup>+</sup>.
+1.  no member of $\bZ$ is a descendant of *X*; and
+2.  every path between *X* and *Y* that terminates with an arrow into *X* either (a) includes a non-collider in $\bZ$, or (b) includes a collider that has no descendants in $\bZ$;
 
-*Proof.* Suppose first that *B* does not contain free *x*. But  $\vdash \Pi x \Box_F B \rightarrow \Box_F B$ ;  $\vdash B \rightarrow \Pi x B$ ; and so  $\vdash \Box_F B \rightarrow \Box_F \Pi x B$ ; and so  $\vdash \Pi x \Box_F B \rightarrow \Box_F \Pi x B$ .
+then $\Pr(Y \mid \ido(X), \bZ) = \Pr(Y \mid X, \bZ)$.
 
-Now suppose that *B* does contain free *x*. From the previous corollary,  $\vdash |\Pi xB| \subseteq cF \rightarrow (\Pi x(Px \rightarrow \Box_F B) \rightarrow \Box_F \Pi x(Px \rightarrow B))$ , for *P* a rigid predicate symbol not in *F* or *B*. Now  $\vdash P \approx \bigvee \rightarrow \Sigma xPx$  and  $\vdash \Sigma xPx \& \Pi x(Px \rightarrow \Box_F B) \rightarrow |\Pi xB| \subseteq cF$ . So,
+That is, if we can find an appropriate conditioning set $\bZ$, the probability resulting from an intervention on *X* will be the same as the conditional probability corresponding to an observation of *X*.
 
-(1) 
-$$\vdash P \approx \bigvee \rightarrow (\prod x (Px \rightarrow \Box_F B) \rightarrow \Box_F \prod x (Px \rightarrow B)).$$
+### 4.8. Interventionist Decision Theory
 
-Clearly,
+Evidential Decision Theory of the sort developed by Jeffrey (1983), runs into well-known problems in variants of *Newcomb’s problem* (Nozick 1969). For example, suppose Cheryl believes the following: She periodically suffers from a potassium deficiency. This state produces two effects with high probability: It causes her to eat bananas, which she enjoys; and it causes her to suffer debilitating migraines. On days when she suffers from the potassium deficiency, she has no introspective access to this state. In particular, she is not aware of any banana cravings. Perhaps she rushes to work every morning, grabbing whatever is at hand to eat on her commute. Cheryl’s causal model is represented by the DAG in [Figure 10](https://plato.stanford.edu/entries/causal-models/#fig10).
 
-(2) 
-$$\vdash \Pi x \Box_F B \to \Pi x (Px \to \Box_F B).$$
+![diagram with K having an arrow pointing northwest to B and northeast to M](./CausalModels_files/fig10.svg)
 
-Also  $\vdash \prod x \Box_F B \And \Box_V \prod x P x \rightarrow \Box_F \prod x P x$ , since  $\vdash \prod x \Box_F B \rightarrow \bigvee \subseteq cF$ ; and so
+Figure 10
 
-$$(3) \qquad \vdash \Pi x \Box_F B \& \Box_{\bigwedge} \Pi x P x \to ((\Box_F \Pi x (P x \to B) \to \Box_F \Pi x B))$$
+$K = 1$ represents potassium deficiency, $B = 1$ eating a banana, and $M = 1$ migraine. Her probabilities are as follows:
 
-Therefore from (1), (2) and (3),  $\vdash P \approx \bigvee \& \Box_{\bigvee} \Pi x P x \rightarrow ((\Pi x \Box_F B \rightarrow \Box_F \Pi x B))$ . Using the special domain axiom V(ii),  $\vdash P \approx \bigvee \rightarrow \Box_{\bigvee} \Pi x P x$ ; so  $\vdash P \approx \bigvee \rightarrow (\Pi x \Box_F B \rightarrow \Box_F \Pi x B)$ ; and so by Predicate Elimination,  $\vdash \Pi x \Box_F B \rightarrow \Box_F \Pi x B$ .
+$$
+\begin{aligned}
+\Pr(K = 1) & = .2\\
+\Pr(B = 1 \mid K = 1) & = .9, &\Pr(B  = 1 \mid K = 0) & = .1\\
+\Pr(M = 1 \mid K = 1) & = .9, & \Pr(M = 1 \mid K = 0) & = .1
+\end{aligned}
+$$
 
-We do not have a full converse to the above result, even in the stronger system, because as x varies B may introduce objects which do not pertain to F. However, we do have the following qualified converse:
+Her utility for the state of the world $w \equiv \{K = k, B = b, M =
+m\}$ is $\Ur(w) = b - 20m$. That is, she gains one unit of utility for eating a banana, but loses 20 units for suffering a migraine. She assigns no intrinsic value to the potassium deficiency.
 
-THEOREM 4.  $\vdash \Box_F \Pi x A \rightarrow \Pi x \Box_{F,x} A$ .
+Cheryl is about to leave for work. Should she eat a banana? According to *Evidential Decision Theory* (EDT), Cheryl should maximize *Evidential Expected Utility*, where
 
-*Proof.*  $\vdash \Pi xA \to A$  is a classical theorem. Hence  $\vdash \Box_{F,x}\Pi xA \to \Box_{F,x}A$  by modal reasoning. But  $\vdash \Box_F \Pi xA \to \Box_{F,x}\Pi xA$  by Subsumption; so  $\vdash \Box_F \Pi xA \to \Box_{F,x}A$ ; and so  $\vdash \Box_F \Pi xA \to \Pi x \Box_{F,x}A$  by classical reasoning.
+$$
+\EEU(B = b) = \sum_w \Pr(w \mid B = b)\Ur(w)
+$$
 
-#### 6. META-THEOREMS
+From the probabilities given, we can compute that:
 
-We establish some meta-logical results and some of their consequences.
+$$
+\begin{aligned}
+\Pr(M = 1 \mid B = 1) & \approx .65\\
+\Pr(M = 1 \mid B = 0) & \approx .12
+\end{aligned}
+$$
 
-#### A. Reasoning with Rigidifiers
+Eating a banana is strongly correlated with migraine, due to the common cause. Thus
 
-We first show how, to some extent, one can reason with formulas containing the rigidifiers  $\langle$  and  $\rangle$  as if they were a primitive piece of notation:
+$$
+\begin{aligned}
+\EEU(B = 1) &\approx {-12}\\
+\EEU(B = 0) & \approx {-2.4}
+\end{aligned}
+$$
 
-**THEOREM** 1. (i) If A(P) is a theorem in the language with rigidifiers, then so is the result  $A(\langle F \rangle)$  of freely substituting  $\langle F \rangle$  for all occurrences of P in A(P).
+So EDT, at least in its simplest form, recommends abstaining from bananas. Although Cheryl enjoys them, they provide strong evidence that she will suffer from a migraine.
 
-(ii) The class of theorems in the language with rigidifiers is closed under Modus Ponens and Generalization on bindable variables.
+Many think that this is bad advice. Eating a banana does not *cause* Cheryl to get a migraine; it is a harmless pleasure. A number of authors have formulated versions of *Causal Decision Theory* (CDT) that aim to incorporate explicitly causal considerations (e.g., Gibbard & Harper 1978; Joyce 1999; Lewis 1981; Skyrms 1980). Causal models provide a natural setting for CDT, an idea proposed by Meek and Glymour (1994) and developed by Hitchcock (2016), Pearl (2009: Chapter 4) and Stern (2017). The central idea is that the agent should treat her action as an *intervention.* This means that Cheryl should maximize her *Causal Expected Utility*:
 
-*Proof.* For the purpose of proving these results, say that A' is a variant of the formula  $A = A(P_1, \ldots, P_n)$ , where  $P_1, \ldots, P_n$  are the distinct rigid predicate symbols of A, if it is of the form  $A(Q_1, \ldots, Q_n)$  for distinct rigid predicate symbols  $Q_1, \ldots, Q_n$ . Clearly, if A is a theorem then so is any variant of A.
+$$
+\CEU(B = b) = \sum_w \Pr(w \mid \ido(B = b))\Ur(w)
+$$
 
-(i) Write the formula which abbreviates A(P) in the form  $A_1 \to (\dots (A_n \to A') \dots)$ , for A' free of rigidifiers. Now  $A(\langle F \rangle)$  abbreviates a formula of the form  $B_1 \to (\dots (B_m \to C))$ , for B' rigidifier free. But it is clear that for some variant  $B'_1 \to (\dots (B'_m \to C'))$  of this formula, each antecedent  $A_i$  is one of the antecedents  $B'_j$  and A' = C'. But then by truth-functional reasoning,  $A(\langle F \rangle)$  is also a theorem.
+Now we can compute
 
-(ii) Suppose that A and  $A \to B$  are theorems. Let  $\langle G_1 \rangle, \ldots, \langle G_n \rangle$ be the distinct rigidified predicates of B; and let  $\langle F_1 \rangle, \ldots, \langle F_m \rangle$ ,  $\langle G_1 \rangle, \ldots, \langle G_1 \rangle$  be the distinct rigidified predicates of A. Then A abbreviates a formula provably equivalent to a variant of the form  $P_1 \approx F_1 \& \ldots \& P_m \approx F_m \& Q_1 \approx G_1 \& \ldots \& Q_1 \approx G_1 \to A'$ , where
+$$
+\begin{aligned}
+\Pr(M = 1 \mid \ido(B = 1)) & = .26\\
+\Pr(M = 1 \mid \ido(B = 0)) & = .26
+\end{aligned}
+$$
 
-A' is without rigidifiers; and  $A \rightarrow B$  abbreviates a formula which has a variant which is provably equivalent to a formula of the form  $P_1 \approx F_1 \& \ldots \& P_m \approx F_m \& Q_1 \approx G_1 \& \ldots \& Q_n \approx G_n \rightarrow Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_n \otimes Q_$  $(A' \rightarrow B')$ , for B' without rigidifiers. Since both A and  $A \rightarrow B$  are theorems, it follows by truth-functional reasoning that  $P_1 \approx F_1 \rightarrow$  $(\ldots (P_m \approx F_m \to (Q_1 \approx G_1 \to (\ldots (Q_n \approx G_n \to B') \ldots))) \ldots)$ is a theorem. But none of  $P_1, \ldots, P_m$  occur in B'; and so by m applications of Predicate Elimination of the formula  $(Q_1 \approx G_1 \rightarrow G_1)$  $(\ldots (Q_n \approx G_n \rightarrow B') \ldots))$ , which is equivalent to a variant of the abbreviation for B, is a theorem.
+So that now
 
-Suppose finally that A(x) is a theorem, with x bindable. Then A(x)abbreviates a formula of the form  $P_1 \approx F_1 \rightarrow (\dots (P_n \approx F_n \rightarrow A'(x)))$ , where A'(x) is without rigidifiers and x does not occur free in any of the antecedents. Since A(x) is a theorem, it follows by quantificational reasoning that the formula  $P_1 \approx F_1 \rightarrow (\dots (P_n \approx F_n \rightarrow \prod x A'(x)))$ , which is the abbreviation for  $\Pi x A(x)$ , is a theorem.
+$$
+\begin{aligned}
+\CEU(B = 1) &= {-4.2}\\
+\CEU(B = 0) & = {-5.2}
+\end{aligned}
+$$
 
-Use of this theorem will often be tacit. It should be noted that the class of formulas in the language with rigidifiers is not closed under the rule of necessitation. For  $\langle F \rangle \approx F$ , F a pure predicate symbol, is a theorem; but  $\Box_{|(F)|\approx F|}(\langle F\rangle \approx F)$ , which abbreviates  $P\approx F\rightarrow \Box_P(P\approx F)$ , is not.
+This yields the plausible result that eating a banana gives Cheryl a free unit of utility. By intervening, Cheryl breaks the arrow from *K* to *B* and destroys the correlation between eating a banana and suffering a migraine.
 
-It is now possible to extend the results on rigidity:
+More generally, one can use the methods for calculating the effects of interventions described in the previous section to compute the probabilities needed to calculate Causal Expected Utility. Stern (2017) expands this approach to allow for agents who distribute their credence over multiple causal models. Hitchcock (2016) shows how the distinction between interventions and counterfactuals, discussed in more detail in [Section 4.10](https://plato.stanford.edu/entries/causal-models/#Coun) below, can be used to deflect a number of alleged counterexamples to CDT.
 
-## **THEOREM 2.** The following are provable (with F and G quasi-rigid):
+There is much more that can be said about the debate between EDT and CDT. For instance, if Cheryl knows that she is intervening, then she will not believe herself to be accurately described by the causal structure in [Figure 10](https://plato.stanford.edu/entries/causal-models/#fig10). Instead, she will believe herself to instantiate a causal structure in which the arrow from *K* to *B* is removed. In this causal structure, if P satisfies MC, we will have $\Pr(w \mid B = b)
+= \Pr(w \mid \ido(B = b))$, and the difference between EDT and CDT collapses. If there is a principled reason why a deliberating agent will always believe herself to be intervening, then EDT will yield the same normative recommendations as CDT, and will avoid counterexamples like the one described above. Price’s defense of EDT (Price 1986) might be plausibly reconstructed along these lines. So the moral is not necessarily that CDT is normatively correct, but rather that causal models may be fruitfully employed to clarify issues in decision theory connected with causation.
 
-- (i)  $F \subseteq G \rightarrow \Box (F \subseteq G);$
-- (ii)  $F \approx G \rightarrow \Box (F \approx G);$
-- (iii)  $\Box(F \approx \langle F \rangle);$
-- (iv)  $\Pi x \sim Fx \rightarrow \Box_{\wedge} \Pi x \sim Fx$ ;
-- (v)  $\Box_{\Lambda} \Pi x \sim \langle \Lambda \rangle x$ ;
-- (vi)  $\Box(\langle H_1,\ldots,H_n\rangle\approx\langle H_1\rangle,\ldots,\langle H_n\rangle);$
-- (vii)  $\Box(\langle x \rangle \approx x);$
-- (viii)  $\Box(\langle cH \rangle \approx c \langle H \rangle).$
+### 4.9 Causal Discovery with Interventions
 
-*Proof.* (i)  $\vdash \prod x(Gx \rightarrow \Box_G Gx)$  by Rigidity (Theorem 4.8(i)); and so  $\vdash F \subseteq G \rightarrow \prod x(Fx \rightarrow \Box_G Gx)$ . But then by Corollary 5.2,
+In the previous section, we discussed how to use knowledge (or assumptions) about the structure of a causal graph $\bG$ to make inferences about the results of interventions. In this section, we explore the converse problem. If we can intervene on variables and observe the post-intervention probability distribution, what can we infer about the underlying causal structure? This topic has been explored extensively in the work of Eberhardt and his collaborators. (See, for example, Eberhardt & Scheines 2007 and Hyttinen et al. 2013a.) Unsurprisingly, we can learn more about causal structure if we can perform interventions than if we can only make passive observations. However, just how much we can infer depends upon what kinds of interventions we can perform, and on what background assumptions we make.
 
- $\vdash F \subseteq G \to \Box \Pi x (Fx \to Gx).$ 
+If there are no latent common causes, so that the true causal structure on $\bV$ is represented by a DAG $\bG$, then it will always be possible to discover the complete causal structure using interventions. If we can only intervene on one variable at a time, we may need to separately intervene on all but one of the variables before the causal structure is uniquely identified. If we can intervene on multiple variables at the same time, we can discover the true causal structure more quickly.
 
-(ii)  $\vdash F \approx G \rightarrow F \subseteq G$ ; and so by (i),  $\vdash F \approx G \rightarrow \Box_{F,G}(F \subseteq G)$ .
+If there are latent common causes, so that the true causal structure on $\bV$ is represented by an ADMG, then it may not be possible to discover the true causal structure using only single-variable interventions. (Although we can do this in the special case where the functions in the underlying structural equation model are all linear.) However, if we can intervene on multiple variables at the same time, then it is possible to discover the true causal graph.
 
-Similarly,  $\vdash F \approx G \rightarrow \Box_{F,G}(G \subseteq F)$ . But then  $\vdash F \approx G \rightarrow \Box_{F,G}(F \approx G)$  by modal reasoning.
+Eberhardt and collaborators have also explored causal discovery using *soft* interventions. A soft intervention influences the value of a variable without breaking the arrows into that variable. For instance, suppose we want to know whether increasing the income of parolees will lead to decreased recidivism. We randomly divide subjects into treatment and control conditions, and give regular cash payments to those in the treatment condition. This is not an intervention on income *per se*, since income will still be influenced by usual factors: savings and investments, job training, help from family members, and so on. Soft interventions facilitate causal inference because they create colliders, and as we have seen, colliders have a distinct probabilistic signature. Counterintuitively, this means that if we want to determine whether *X* causes *Y* it is desirable to perform a soft intervention on *Y* (rather than *X*), to see if we can create a collider $I\rightarrow Y\leftarrow X$ (where *I* is the intervention). Soft interventions are closely related to *instrumental variables.* If there are no latent common causes, we can infer the true causal structure using soft interventions. Indeed, if we can intervene on every variable at once, we can determine the correct causal structure from this one intervention. However, if there are latent common causes, it is not in general possible to discover the complete causal structure using soft interventions. (Although this can be done if we assume linearity.)
 
-(iii) Clearly,  $\vdash Fx \rightarrow \langle F \rangle x$ ;  $\vdash \langle F \rangle x \rightarrow \Box_F \langle F \rangle x$  by Rigidity and Subsumption; and so  $\vdash \Pi x(Fx \rightarrow \Box_F \langle F \rangle x)$ . But then by Corollary 5.2,  $\vdash \Box_F \Pi x(Fx \rightarrow \langle F \rangle x)$ . We show in a similar manner that  $\vdash \Box_F \Pi x(\langle F \rangle x \rightarrow Fx)$ ; and the result follows. (Note the implicit applications of theorem 1 in this and subsequent proofs).
+### 4.10 Counterfactuals
 
-(iv)  $\vdash \Pi x \sim Fx \rightarrow |\Pi x \sim Fx| \subseteq c \land$ . So by Corollary 5.2,  $\vdash \Pi x \sim Fx$ &  $\Pi x(Fx \rightarrow \Box_{\bigwedge} \sim Fx) \rightarrow \Box_{\bigwedge} \Pi x(Fx \rightarrow \sim Fx)$ . But  $\vdash \Pi x \sim Fx \rightarrow \Pi x(Fx \rightarrow \Box_{\bigwedge} \sim Fx)$  and  $\vdash \Box_{\bigwedge} \Pi x(Fx \rightarrow \sim Fx) \rightarrow \Box_{\bigwedge} \Pi x \sim Fx$ ; and so  $\vdash \Pi x \sim Fx \rightarrow \Box_{\bigwedge} \Pi x \sim Fx$ .
+[Section 3.3](https://plato.stanford.edu/entries/causal-models/#ActuCaus) above discussed counterfactuals in the context of deterministic causal models. The introduction of probability adds a number of complications. In particular, we can now talk meaningfully about the probability of a counterfactual being true. Counterfactuals play a central role in the *potential outcome* framework for causal models pioneered by Neyman (1923), and developed by Rubin (1974) and Robins (1986), among others.
 
-(v)  $\Box \bigwedge \Pi x \sim \langle \land \rangle x$  abbreviates  $P \approx \bigwedge \rightarrow \Box \Pi x \sim Px$ . But  $P \approx \bigwedge \rightarrow \Pi x \sim Px$ ; and so the result follows from (iv).
+Counterfactuals in the potential outcome framework interact with probability differently than counterfactuals in Lewis’s (1973b) framework. Suppose that Ted was exposed to asbestos and developed lung cancer. We are interested in the counterfactual: “If Ted had not been exposed to asbestos, he would not have developed lung cancer”. Suppose that the processes by which cancer develops are genuinely indeterministic. Then, it seems wrong to say that if Ted had not been exposed to asbestos, he definitely would have developed lung cancer; and it seems equally wrong to say that he definitely would not have developed lung cancer. In this case, Lewis would say that the counterfactual “If Ted had not been exposed to asbestos, he would not have developed lung cancer” is determinately *false*. As a result, the objective probability of this counterfactual being true is zero. On the other hand, a counterfactual with objective probability *in the consequent* may be true: “If Ted had not been exposed to asbestos, his objective chance of developing lung cancer would have been .06”. By contrast, in the potential outcome framework, probability may be pulled out of the consequent and applied to the counterfactual as a whole: The probability of the counterfactual “If Ted had not been exposed to asbestos, he would have developed lung cancer” can be .06.
 
-(vi) We prove for the case of two predicates  $H_1$  and  $H_2$ ; the proof for the general case is similar. The result to be proved abbreviates something equivalent to  $P_1 \approx H_1$  &  $P_2 \approx H_2$  &  $P \approx H_1$ ,  $H_2 \rightarrow$  $\Box \Pi x (Px \leftrightarrow (P_1, P_2)x)$ . Let A be the antecedent of this conditional. Then
+If we have a complete structural equation model, we can assign probabilities to counterfactuals, in light of observations. Let $\bV
+= \{X_1, X_2 ,\ldots ,X_n\}$ be a set of endogenous variables, and $\bU = \{U_1, U_2 ,\ldots ,U_n\}$ a set of exogenous variables. Our structural equations have the form:
 
- $\vdash A \to P_1 \subseteq P$ ; and so by (i) above,  $\vdash A \to \Box(P_1 \subseteq P)$ . Similarly,  $\vdash A \to \Box(P_2 \subseteq P)$ . So  $\vdash A \to \Box\Pi x((P_1 \times V_2)x \to Px)$ . But by
+$$
+X_i = f_i (\bPA(X_i), U_i)
+$$
 
-Abstraction,  $\vdash \Box \Pi x((P_1, P_2)x \rightarrow Px)$ ; and hence  $\vdash A \rightarrow \Box ((P_1, P_2) \subseteq P)$ . For the other direction, note that:
+We have a probability distribution $\Pr'$ on $\bU$, which induces a probability distribution P on $\bU \cup \bV$. Suppose that we observe the value of some of the variables: $X_j = x_j$ for all $j
+\in \bS \subseteq \{1,\ldots ,n\}$. We now want to assess the counterfactual “if $X_k$ had been $x_k$, then $X_l$ would have been $x_l$”, where *k* and *l* may be in $\bS$ but need not be. We can evaluate the probability of this counterfactual using this three-step process:
 
-(1)  $\vdash A \rightarrow P \subseteq P_1, P_2.$ 
+1.  Update the probability P by conditioning on the observations, to get a new probability distribution $\Pr(• \mid \cap_{j \in \bS}
+    X_j = x_j)$. Call the restriction of this probability function to $\bU$ $\Pr''$.
+2.  Replace the equation for $X_k$ with $X_k = x_k$.
+3.  Use the distribution $\Pr''$ on $\bU$ together with the modified set of equations to induce a new probability distribution P\* on $\bV$. $\Pr^*( X_l = x_l)$ is then the probability of the counterfactual.
 
-By Rigidity,  $\vdash \prod x(P_1x \to \Box_{P_1}P_1x)$ ; and so by Subsumption and modal reasoning,  $\vdash \prod x(P_1x \to \Box_{P_1,P_2}(P_1x \lor P_2x))$ . Similarly,  $\vdash \prod x(P_2x \to \Box_{P_1,P_2}(P_1x \lor P_2x))$ . Therefore:
+This procedure differs from the procedure for interventions (discussed in [Section 4.7](https://plato.stanford.edu/entries/causal-models/#Inte)) in that steps 1 and 2 have been reversed. We first update the probability distribution, then perform the intervention. This reflects the fact that the observations tell us about the actual world, in which the intervention did not (necessarily) occur.
 
-(2) 
-$$\vdash \prod x (P_1 x \lor P_2 x \to \Box_{P_1, P_2} (P_1 x \lor P_2 x)).$$
+If we do not have a complete SEM, it is not generally possible to identify the probability of a counterfactual, but only to set upper and lower bounds. For example, suppose that we believe that asbestos exposure causes lung cancer, so that we posit a simple DAG:
 
-From (1) and (2),  $\vdash A \rightarrow \prod x (Px \rightarrow \Box_{P_1,P_2}(P_1x \lor P_2x))$ . So by Corollary 5.2,  $\vdash A \rightarrow \Box_{P_1,P_2} \prod x (Px \rightarrow (P_1x \lor P_2x))$ ; and hence  $\vdash A \rightarrow \Box (P \subseteq P_1, P_2)$ .
+$$
+A \rightarrow L.
+$$
 
-(vii) The result to be proved abbreviates  $P \approx (x) \rightarrow \Box(P \approx (x))$ . Let the antecedent be  $A \vdash A \rightarrow \Pi y((x)y \rightarrow Py)$ . But  $\vdash A \rightarrow \Pi y(Py \rightarrow \Box_P Py)$ by Rigidity; and so  $\vdash A \rightarrow \Pi y((x)y \rightarrow \Box_{P,x}Py)$ . But then  $\vdash A \rightarrow$  $\Box_{P,x}\Pi y((x)y \rightarrow Py)$  by Corollary 5.2. The other direction is proved similarly.
+Suppose also that we have data for people similar to Ted which yields the following probabilities:
 
-(viii)  $\vdash \langle cH \rangle x \to x \leq \langle H \rangle$  by Abstraction;  $\vdash x \leq \langle H \rangle \to \Box_{\langle cH \rangle}(x \leq \langle H \rangle)$  by the Dependency Results (4.10(v)) and Subsumption; and so  $\vdash \Pi x(\langle cH \rangle x \to \Box_{\langle cH \rangle}(x \leq \langle H \rangle))$ . Applying Corollary 5.2 in the obvious manner, we see that the side condition is satisfied; and so  $\vdash \Box_{\langle cH \rangle}\Pi x(\langle cH \rangle x \to x \leq \langle H \rangle)$ . But then  $\vdash \Box(\langle cH \rangle \subseteq c \langle H \rangle)$ .
+$$
+\begin{aligned}
+\Pr(L = 1 \mid A = 1) & = .11,\\
+\Pr(L = 1 \mid A = 0) & = .06.
+\end{aligned}
+$$
 
-For the other direction, note that  $\vdash x \leq \langle H \rangle \rightarrow \langle cH \rangle x$  by Abstraction,  $\vdash \langle cH \rangle x \rightarrow \Box_{\langle cH \rangle} \langle cH \rangle x$  by Rigidity, and so  $\vdash \Pi x (x \leq \langle H \rangle \rightarrow \Box_{\langle cH \rangle} \langle cH \rangle x)$ . The side condition of Corollary 5.2 is obviously satisfied: and so  $\vdash \Box_{\langle cH \rangle} \Pi x (x \leq \langle H \rangle \rightarrow \langle cH \rangle x)$ . But then
+(We are oversimplifying, and treating asbestos and lung cancer as binary variables.) We observe that Ted was in fact exposed to asbestos and did in fact develop lung cancer. What is the probability of the counterfactual: “If Ted had not been exposed to asbestos, he would not have developed lung cancer”? Pearl (2009) calls a probability of this form a *probability of necessity.* It is often called the *probability of causation*, although this terminology is misleading for reasons discussed by Greenland and Robins (1988). This quantity is often of interest in tort law. Suppose that Ted sues his employer for damages related to his lung cancer. He would have to persuade a jury that his exposure to asbestos caused his lung cancer. American civil law requires a “more probable than not” standard of proof, and it employs a “but for” or counterfactual definition of causation. Hence Ted must convince the jury that it is more probable than not that he would not have developed lung cancer if he had not been exposed.
 
-$$\vdash \Box(c\langle H\rangle \subseteq \langle cH\rangle).$$
+We may divide the members of the population into four categories, depending upon which counterfactuals are true of them:
 
-We can also extend the earlier reductive theses to arbitrary predicates:
+- *doomed* individuals will develop lung cancer no matter what
+- *immune* individuals will avoid lung cancer no matter what
+- *sensitive* individuals will develop lung cancer just in case they are exposed to asbestos
+- *reverse sensitive* individuals will develop lung cancer just in case they are not exposed to asbestos
 
-THEOREM 3. (i)  $\vdash \Box_F A \And \Pi x(Fx \to \Box_F Fx) \And |F| \subseteq cF \to \Box_F \Box_F A$ , x not free in F:
+It is easiest to think of the population as being divided into four categories, with each person being one of these four types. However, we do not need to assume that the process is deterministic; it may be the case that each person only has a certain probability of falling into one of these categories.
 
-(ii)  $\vdash \sim \Box_F A \And \Box_F \Pi x (Fx \to \langle F \rangle x) \to \Box_{F,|A|} \sim \Box_F A.$ 
+Mathematically, this is equivalent to the following. Let $U_L$ be the error variable for $L. U_L$ takes values of the form $(u_1,
+u_2)$ with each $u_i$ being 0 or 1. $(1, 1)$ corresponds to *doomed*, $(0, 0)$ to *immune*, $(1, 0)$ to *sensitive*, and $(0, 1)$ to *reverse*. That is, the first element tells us what value *L* will take if an individual is exposed to asbestos, and the second element what value *L* will take if an individual is not exposed. The equation for *L* will be $L = (A \times u_1) + ((1 - A) \times u_2)$.
 
-*Proof.* Let us label the three respective conjuncts of the antecedent by (a), (b) and (c).  $\vdash$  ((a)  $\rightarrow \Box_{\langle F \rangle} A$ ) by Subsumption; and so by S4 and Subsumption:
+Let us assume that the distribution of the error variable $U_L$ is independent of asbestos exposure *A*. The observed probability of lung cancer is compatible with both of the following probability distributions over our four counterfactual categories:
 
-(1)  $\vdash$  (a)  $\rightarrow \Box_F \Box_{\langle F \rangle} A$ .
+$$
+\begin{aligned}
+\Pr_1(\textit{doomed}) & = .06,  &\Pr_2(\textit{doomed}) &= 0,\\
+\Pr_1(\textit{immune}) & = .89,  &  \Pr_2(\textit{immune}) & = .83,\\
+\Pr_1(\textit{sensitive}) & = .05, & \Pr_2(\textit{sensitive}) & = .11, \\
+\Pr_1(\textit{reverse}) & = 0 & \Pr_2(\textit{reverse}) & = .06
+\end{aligned}
+$$
 
-Now  $\vdash$  (b)  $\rightarrow \prod x(\langle F \rangle x \rightarrow \Box_F F x)); \vdash$  (c) &  $\prod x(\langle F \rangle x \rightarrow \Box_F F x) \rightarrow \Box_F \prod x(\langle F \rangle x \rightarrow F x)$  by Corollary 5.2; and so
+More generally, the observed probability is compatible with any probability $\Pr'$ satisfying:
 
-(2) 
-$$\vdash$$
- (b) & (c)  $\rightarrow \Box_F \Pi x(\langle F \rangle x \rightarrow Fx)).$ 
+$$
+\begin{aligned}
+\Pr'(\textit{doomed}) + \Pr'(\textit{senstive}) & = \Pr(L \mid A) & = .11;\\
+\Pr'(\textit{immune}) + \Pr'(\textit{reverse}) & = \Pr({\sim}L \mid A) &  = .89;\\
+\Pr'(\textit{doomed}) + \Pr'(\textit{reverse}) & = \Pr(L \mid {\sim}A) & = .06;\\
+\Pr'(\textit{immune}) + \Pr'(\textit{senstive}) & = \Pr({\sim}L \mid {\sim}A) & = .94.\\
+ \end{aligned}
+$$
 
-But  $\vdash \Box_P A \& \Pi x(Px \to Fx) \to \Box_F A$  by Subsumption. So by modal reasoning,  $\vdash \Box_F \Box_P A \& \Box_F \Pi x(Px \to Fx) \to \Box_F \Box_F A$ ; and so by Theorem 1,
+$\Pr_1$ and $\Pr_2$ are just the most extreme cases. From the fact that Ted was exposed to asbestos and developed lung cancer, we know that he is either *sensitive* or *doomed*. The counterfactual of interest will be true just in case he is *sensitive*. Hence the probability of the counterfactual, given the available evidence, is P(*sensitive* \| *sensitive* or *doomed*). However, using $\Pr_1$ yields a conditional probability of .45 (5/11), while $\Pr_2$ yields a conditional probability of 1. Given the information available to us, all we can conclude is that the probability of necessity is between .45 and 1. To determine the probability more precisely, we would need to know the probability distribution of the error variable.
 
-$$(3) \qquad \vdash \Box_F \Box_{\langle F \rangle} A \And \Box_F \Pi x(\langle F \rangle x \to F x) \to \Box_F \Box_F A.$$
+A closely related counterfactual quantity is what Pearl (2009) calls the *probability of sufficiency.* Suppose that Teresa, unlike Ted, was not exposed to asbestos, and did not develop lung cancer. The probability of sufficiency is the probability that she *would* have suffered lung cancer if she *had been* exposed. That is, the probability of sufficiency is the probability that if the cause were added to a situation in which it and the effect was absent, it would have resulted in the effect occurring. The probability of sufficiency is closely related to the quantity that Sheps (1958) called the *relative difference*, and that Cheng (1997) calls the *causal power.* Cheng’s terminology reflects the idea that the probability of sufficiency of *C* for *E* is the power of *C* to bring about *E* in cases where *E* is absent. As in the case of the probability of necessity, if one does not have a complete structural equation model, but only a Causal Bayes Net or Semi-Markov Causal Model, it is usually only possible to put upper and lower bounds on the probability of sufficiency. Using the probabilities from the previous example, the probability of sufficiency of asbestos for lung cancer would be between .05 (5/94) and .12 (11/94).
 
-But then from (1), (2) and (3),  $\vdash$  (a) & (b) & (c)  $\rightarrow \Box_F \Box_F A$ .
+Determining the probabilities of counterfactuals, even just upper and lower bounds, is computationally demanding. Balke and Pearl’s twin network method (Balke and Pearl (1994a), (1994b); Pearl (2009, pp. 213 - 215)) and Richardson and Robins’ split-node method (Richardson and Robins (2016)) are two methods that have been proposed for solving this kind of problem.
 
-(ii) Label the two antecedents (a) and (b). By Subsumption,  $\vdash$  (a)  $\rightarrow \sim \Box_{\langle F \rangle} A$ ; by S5 and Subsumption,  $\vdash \sim \Box_{\langle F \rangle} A \rightarrow$   $\Box_{F,|A|} \sim \Box_{\langle F \rangle} A$ ; and so,
+## 5. Further Reading
 
-(1) 
-$$\vdash$$
- (a)  $\rightarrow \Box_{F,|A|} \sim \Box_{\langle F \rangle} A$ 
+The most important works surveyed in this entry are Pearl 2009 and Spirtes, Glymour, & Scheines 2000. Pearl 2010, Pearl et al. 2016, and Pearl & Mackenzie 2018 are three overviews of Pearl’s program. Pearl 2010 is the shortest, but the most technical. Pearl & Mackenzie 2018 is the least technical. Scheines 1997 and the “Introduction” of Glymour & Cooper 1999 are accessible introductions to the SGS program. Eberhardt 2009, Hausman 1999, Glymour 2009, and Hitchcock 2009 are short overviews that cover some of the topics raised in this entry.
 
-But  $\vdash \sim \Box_P A \& \Pi x(Fx \to Px) \to \sim \Box_F A$ . So by modal reasoning,  $\vdash \Box_{F,|A|} \sim \Box_P A \& \Box_{F,|A|} \Pi x(Fx \to Px) \to \Box_{F,|A|} \sim \Box_F A$ ; and so by
+The entry on [causation and manipulability](https://plato.stanford.edu/entries/causation-mani/) contains extensive discussion of interventions, and some discussion of causal models.
 
-Subsumption and Theorem 1,
+Halpern (2016) engages with many of the topics in [Section 3](https://plato.stanford.edu/entries/causal-models/#DeteStruEquaMode). See also the entry for [counterfactual theories of causation](https://plato.stanford.edu/entries/causation-counterfactual/).
 
-(2) 
-$$\vdash \Box_{F,|A|} \sim \Box_{\langle F \rangle} A \& \Box_{F,|A|} \Pi x (Fx \to \langle F \rangle x) \to \Box_{F,|A|} \sim \Box_F A.$$
+The entry on [probabilistic causation](https://plato.stanford.edu/entries/causation-probabilistic/) contains some overlap with the present entry. Some of the material from [Section 4](https://plato.stanford.edu/entries/causal-models/#ProbCausMode) of this entry is also presented in Section 3 of that entry. That entry contains in addition some discussion of the connection between probabilistic causal models and earlier probabilistic theories of causation.
 
-By Subsumption,
+Eberhardt 2017 is a short survey that provides a clear introduction to many of the topics covered in [Sections 4.2](https://plato.stanford.edu/entries/causal-models/#MarkCond) through 4.6, as well as Section [4.9](https://plato.stanford.edu/entries/causal-models/#CausDiscInte). Spirtes and Zhang 2016 is a longer and more technical overview that covers much of the same ground. It has particularly good coverage on the issues raised in [Section 4.5](https://plato.stanford.edu/entries/causal-models/#IdenAssuAbouFuncForm).
 
-(3) 
-$$\vdash (b) \to \Box_{F,|\mathcal{A}|} \Pi x(Fx \to \langle F \rangle x).$$
+The entries on [decision theory](https://plato.stanford.edu/entries/decision-theory/) and [causal decision theory](https://plato.stanford.edu/entries/decision-causal/) present more detailed background information about some of the issues raised in [Section 4.8](https://plato.stanford.edu/entries/causal-models/#InteDeciTheo).
 
-But then from (1), (2) and (3),  $\vdash$  (a) & (b)  $\rightarrow \Box_{F,|A|} \sim \Box_F A$ .
+This entry has focused on topics that are likely to be of most interest to philosophers. There are a number of important technical issues that have been largely ignored. Many of these address problems that arise when various simplifying assumptions made here (such as acyclicity, and knowledge of the true probabilities) are rejected. Some of these issues are briefly surveyed along with references in [Supplement on Further Topics in Causal Inference](https://plato.stanford.edu/entries/causal-models/topics.html).
 
-Note the implicit application of Predicate Elimination in the last step of the above proof of (i). Note also that the proof requires a detour through rigid predicate symbols even though the theorem itself does not involve such symbols.
+## Bibliography
 
-Using part (ii) of the above result, it is an easy matter to show that the strengthened system  $E5^+$  yields the correct logic for metaphysical necessity. Let  $S5\pi$  be the system of quantified modal logic for S5 with constant (non-empty) domain. Any formula A of  $S5\pi$  may be translated into a formula A' of E5 by replacing each occurrence of  $\Box$  with  $\Box_v$ . Then:
+- Balke, Alexander and Judea Pearl, 1994a, “Probabilistic Evaluation of Counterfactual Queries”, in Barbara Hayes-Roth and Richard E Korf (eds.), *Proceedings of the Twelfth National Conference on Artificial Intelligence*, Volume I, Menlo Park CA: AAAI Press, pp. 230–237. \[<a href="https://www.aaai.org/Papers/AAAI/1994/AAAI94-035.pdf" target="other">Balke &amp; Pearl 1994a available online</a>\]
+- –––, 1994b, “Counterfactual Probabilities: Computational Methods, Bounds, and Applications”, in Ramon Lopez de Mantaras and David Poole (eds.), *Proceedings of the Tenth Conference on Uncertainty in Artificial Intelligence*, San Francisco: Morgan Kaufmann, pp. 46–54. \[<a href="https://arxiv.org/abs/1302.6784" target="other">Balke &amp; Pearl 1994b available online</a>\]
+- Bareinboim, Elias, and Judea Pearl, 2013, “A General Algorithm for Deciding Transportability of Experimental Results”, *Journal of Causal Inference*, 1(1): 107–134. doi:10.1515/jci-2012-0004
+- –––, 2014, “Transportability from Multiple Environments with Limited Experiments: Completeness Results”, in Zoubin Ghahramani, Max Welling, Corinna Cortes, and Neil Lawrence and Kilian Weinberger (eds.), *Advances of Neural Information Processing 27 (NIPS Proceedings)*, 280–288. \[<a href="http://papers.nips.cc/paper/5536-transportability-from-multiple-environments-with-limited-experiments-completeness-results.pdf" target="other">Bareinboim &amp; Pearl 2014 available online</a>\]
+- –––, 2015, “Causal Inference and the Data-Fusion Problem”, *Proceedings of the National Academy of Sciences*, 113(27): 7345–7352. doi:10.1073/pnas.1510507113
+- Beckers, Sander and Joost Vennekens, 2018, “A Principled Approach to Defining Actual Causation”, *Synthese*, 195(2): 835–862. doi:10.1007/s11229-016-1247-1
+- Beebee, Helen, Christopher Hitchcock, and Peter Menzies (eds.), 2009, *The Oxford Handbook of Causation*, Oxford: Oxford University Press.
+- Blanchard, Thomas, and Jonathan Schaffer, 2017,“Cause without Default”, in Helen Beebee, Christopher Hitchcock, and Huw Price (eds.). *Making a Difference*, Oxford: Oxford University Press, pp. 175–214.
+- Briggs, Rachael, 2012, “Interventionist Counterfactuals”, *Philosophical Studies*160(1): 139–166. doi:10.1007/s11098-012-9908-5
+- Cartwright, Nancy, 1993, “Marks and Probabilities: Two Ways to Find Causal Structure”, in Fritz Stadler (ed.), *Scientific Philosophy: Origins and Development*, Dordrecht: Kluwer, 113–119. doi:10.1007/978-94-017-2964-2_7
+- –––, 2007, *Hunting Causes and Using Them*, Cambridge: Cambridge University Press. doi:10.1017/CBO9780511618758
+- Chalupka, Krzysztof, Frederick Eberhardt, and Pietro Perona, 2017, “Causal Feature Learning: an Overview”, *Behaviormetrika*, 44(1): 137–167. doi:10.1007/s41237-016-0008-2
+- Cheng, Patricia, 1997, “From Covariation to Causation: A Causal Power Theory”, *Psychological Review*, 104(2): 367– 405. doi:10.1037/0033-295X.104.2.367
+- Claassen, Tom and Tom Heskes, 2012, “A Bayesian Approach to Constraint Based Causal Inference”, in Nando de Freitas and Kevin Murphy (eds.) *Proceedings of the Twenty-Eighth Conference on Uncertainty in Artificial Intelligence*, Corvallis, OR: AUAI Press, pp. 207–216. \[<a href="http://arxiv.org/abs/1210.4866" target="other">Claassen &amp; Heskes 2012 available online</a>\]
+- Cooper, G. F. and Herskovits, E. 1992, “A Bayesian Method for the Induction of Probabilistic Networks from Data”, *Machine Learning*, 9(4): 309–347. doi:10.1007/BF00994110
+- Danks, David, and Sergey Plis, 2014, “Learning Causal Structure from Undersampled Time Series”, *JMLR Workshop and Conference Proceedings (NIPS Workshop on Causality)*. \[<a href="https://doi.org/10.1184/R1/6492101.v1" target="other">Danks &amp; Plis 2014 available online</a>\]
+- Dash, Denver and Marek Druzdzel, 2001, “Caveats For Causal Reasoning With Equilibrium Models”, in Salem Benferhat and Philippe Besnard (eds.) *Symbolic and Quantitative Approaches to Reasoning with Uncertainty, 6th European Conference, Proceedings. Lecture Notes in Computer Science 2143*, Berlin and Heidelberg: Springer, pp. 92–103. doi:10.1007/3-540-44652-4\\18
+- Dechter, Rina and Thomas Richardson (eds.), 2006, *Proceedings of the Twenty-Second Conference on Uncertainty in Artificial Intelligence*, Corvallis, OR: AUAI Press.
+- Dowe, Phil, 2000, *Physical Causation*, Cambridge: University of Cambridge Press. doi:10.1017/CBO9780511570650
+- Eberhardt, Frederick, 2009, “Introduction to the Epistemology of Causation”, *Philosophy Compass*, 4(6): 913–925. doi:10.1111/j.1747-9991.2009.00243.x
+- –––, 2017, “Introduction to the Foundations of Causal Discovery”, *International Journal of Data Science and Analytics*, 3(2): 81–91. doi:10.1007/s41060-016-0038-6
+- Eberhardt, Frederick and Richard Scheines, 2007, “Interventions and Causal Inference”, *Philosophy of Science*, 74(5): 981–995. doi:10.1086/525638
+- Eells, Ellery, 1991, *Probabilistic Causality*, Cambridge: Cambridge University Press. doi:10.1017/CBO9780511570667
+- Eichler, Michael, 2012, “Causal Inference in Time Series Analysis”, in Carlo Berzuini, Philip Dawid, and Luisa Bernardinelli (eds.), *Causality: Statistical Perspectives and Applications*, Chichester, UK: Wiley, pp. 327–354. doi:10.1002/9781119945710.ch22
+- Fine, Kit, 2012, “Counterfactuals without Possible Worlds”, *Journal of Philosophy*, 109(3): 221–246. doi:10.5840/jphil201210938
+- Galles, David, and Judea Pearl, 1998, “An Axiomatic Characterization of Causal Counterfactuals”, *Foundations of Science*, 3(1): 151–182. doi:10.1023/A:1009602825894
+- Geiger, Dan and David Heckerman, 1994, “Learning Gaussian Networks”, Technical Report MSR-TR-94-10, Microsoft Research.
+- Geiger, Dan and Judea Pearl, 1988, “On the Logic of Causal Models”, in Ross Shachter, Tod Levitt, Laveen Kanal, and John Lemmer (eds.), *Proceedings of the Fourth Conference on Uncertainty in Artificial Intelligence*, Corvallis, OR: AUAI Press, pp. 136–147.
+- Gibbard, Alan, and William Harper, 1978, “Counterfactuals and Two Kinds of Expected Utility”, in Clifford Hooker, James Leach, and Edward McClennen (eds.), *Foundations and Applications of Decision Theory*, Dordrecht: Reidel, pp. 125–62.
+- Glennan, Stuart, 2017, *The New Mechanical Philosophy*, Oxford: Oxford University Press.
+- Glymour, Clark, 2009, “Causality and Statistics”, in Beebee, Hitchcock, and Menzies 2009: 498–522.
+- Glymour, Clark and Gregory Cooper, 1999, *Computation, Causation, and Discovery*, Cambridge, MA: MIT Press.
+- Glymour, Clark, David Danks, Bruce Glymour, Frederick Eberhardt, Joseph Ramsey, Richard Scheines, Peter Spirtes, Choh Man Teng, and Jiji Zhang, 2010, “Actual Causation: a Stone Soup Essay”, *Synthese*, 175(2): 169–192. doi:10.1007/s11229-009-9497-9
+- Glymour, Clark and Frank Wimberly, 2007, “Actual Causes and Thought Experiments”, in Joseph Campbell, Michael O’Rourke, and Harry Silverstein (eds.), *Causation and Explanation*, Cambridge, MA: MIT Press, pp. 43–68.
+- Gong, Mingming, Kun Zhang, Bernhard Schölkopf, Dacheng Tao, and Philipp Geiger, 2015, “Discovering Temporal Causal Relations from Subsampled Data”, in Francis Bach and David Blei (eds.), *Proceeding of the 32<sup>nd</sup> International Conference on Machine Learning*, 37: 1898–1906. \[<a href="http://proceedings.mlr.press/v37/gongb15.html" target="other">Gong et al. 2015 available online</a>\]
+- Gong, Mingming, Kun Zhang, Bernhard Schölkopf, Clark Glymour, and Dacheng Tao, 2017, “Causal Discovery from Temporally Aggregated Time Series”, in Gal Elidan and Kristian Kersting (eds.), *Proceedings of the Thirty-Third Conference on Uncertainty in Artificial Intelligence*, Corvallis, OR: AUAI Press. \[<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5995575/" target="other">Gong et al. 2017 available online</a>\]
+- Greenland, Sander, and James Robins, 1988, “Conceptual Problems in the Definition and Interpretation of Attributable Fractions”, *American Journal of Epidemiology*, 128(6): 1185–1197. doi:10.1093/oxfordjournals.aje.a115073
+- Hall, Ned, 2007, “Structural Equations and Causation”, *Philosophical Studies*, 132(1): 109–136. doi:10.1007/s11098-006-9057-9
+- Halpern, Joseph Y., 2000, “Axiomatizing Causal Reasoning”, *Journal of Artificial Intelligence Research*, 12: 317–337. \[<a href="https://www.jair.org/index.php/jair/article/view/10257" target="other">Halpern 2000 available online</a>\]
+- –––, 2008, “Defaults and Normality in Causal Structures”, in Gerhard Brewka and Jérôme Lang (eds.), *Principles of Knowledge Representation and Reasoning: Proceedings of the Eleventh International Conference*, Menlo Park, CA: AAAI Press, pp. 198–208.
+- –––, 2016, *Actual Causality*, Cambridge, MA: MIT Press.
+- Halpern, Joseph Y. and Christopher Hitchcock, 2015, “Graded Causation and Defaults”, *British Journal for Philosophy of Science*, 66(2): 413–57. doi:10.1093/bjps/axt050
+- Halpern, Joseph and Judea Pearl, 2001, “Causes and Explanations: A Structural-Model Approach. Part I: Causes”, in John Breese and Daphne Koller (eds.), *Proceedings of the Seventeenth Conference on Uncertainty in Artificial Intelligence*, San Francisco: Morgan Kaufmann, pp. 194–202
+- –––, 2005, “Causes and Explanations: A Structural-Model Approach. Part I: Causes”, *British Journal for the Philosophy of Science*, 56(4): 843–887. doi:10.1093/bjps/axi147
+- Hausman, Daniel M., 1999, “The Mathematical Theory of Causation”, *British Journal for the Philosophy of Science*, 50(1): 151–162. doi:10.1093/bjps/50.1.151
+- Hausman, Daniel M. and James Woodward, 1999, “Independence, Invariance, and the Causal Markov Condition”, *British Journal for the Philosophy of Science*, 50(4): 521–583. doi:10.1093/bjps/50.4.521
+- –––, 2004, “Modularity and the Causal Markov Condition: a Restatement”, *British Journal for the Philosophy of Science*, 55(1): 147–161. doi:10.1093/bjps/55.1.147
+- Hitchcock, Christopher, 2001, “The Intransitivity of Causation Revealed in Equations and Graphs”, *Journal of Philosophy*, 98(6): 273–299. doi:10.2307/2678432
+- –––, 2007, “Prevention, Preemption, and the Principle of Sufficient Reason”, *Philosophical Review*, 116(4): 495–532. doi:10.1215/00318108-2007-012
+- –––, 2009, “Causal Models”, in Beebee, Hitchcock, and Menzies 2009: 299–314.
+- –––, 2016, “Conditioning, Intervening, and Decision”, *Synthese*, 193(4): 1157–1176. doi:10.1007/s11229-015-0710-8
+- Hoyer, Patrik O., Dominik Janzing, Joris Mooij, Jonas Peters, and Bernhard Schölkopf, 2009, “Nonlinear Causal Discovery with Additive Noise Models”, *Advances in Neural Information Processing Systems*, 21: 689–696. \[<a href="https://papers.nips.cc/paper/3548-nonlinear-causal-discovery-with-additive-noise-models" target="other">Hoyer et al. 2009 available online</a>\]
+- Huang, Yimin and Marco Valtorta, 2006, “Pearl’s Calculus of Intervention Is Complete”, in Dechter and Richardson 2006: 217–224. \[<a href="http://arxiv.org/abs/1206.6831" target="other">Huang &amp; Valtorta 2006 available online</a>\]
+- Hyttinen, Antti, Frederick Eberhardt, and Patrik O. Hoyer, 2013a, “Experiment Selection for Causal Discovery”, *Journal of Machine Learning Research*, 14: 3041–3071. \[<a href="http://www.jmlr.org/papers/v14/hyttinen13a.html" target="other">Hyttinen, Eberhardt, &amp; Hoyer 2013a available online</a>\]
+- Hyttinen, Antti, Frederick Eberhardt, and Matti Järvisalo, 2014, “Constraint-based Causal Discovery: Conflict Resolution with Answer Set Programming”, in Nevin Zhang and Jin Tian (eds.), *Proceedings of the Thirtieth Conference on Uncertainty in Artificial Intelligence*, Corvallis, OR: AUAI Press, pp. 340–349.
+- –––, 2015, “Do-calculus When the True Graph is Unknown”, in Marina Meila and Tom Heskes (eds.), *Uncertainty in Artificial Intelligence: Proceedings of the Thirty-First Conference*, Corvallis, OR: AUAI Press, pp. 395–404.
+- Hyttinen, Antti, Patrik O. Hoyer, Frederick Eberhardt, and Matti Järvisalo, 2013b, “Discovering Cyclic Causal Models with Latent Variables: A General SAT-Based Procedure”, in Nichols and Smyth 2013: 301–310.
+- Hyttinen, Antti, Sergey Plis, Matti Järvisalo, Frederick Eberhardt, and David Danks, 2016, “Causal Discovery from Subsampled Time Series Data by Constraint Optimization”, in Alessandro Antonucci, Giorgio Corani, Cassio Polpo Campos (eds.) *Proceedings of the Eighth International Conference on Probabilistic Graphical Models*, pp. 216–227.
+- Jeffrey, Richard, 1983, *The Logic of Decision*, Second Edition, Chicago: University of Chicago Press.
+- Joyce, James M., 1999, *The Foundations of Causal Decision Theory*, Cambridge: Cambridge University Press. doi:10.1017/CBO9780511498497
+- Lewis, David, 1973a, “Causation”, *Journal of Philosophy*, 70(17): 556–567. doi:10.2307/2025310
+- –––, 1973b, *Counterfactuals*, Oxford: Blackwell.
+- –––, 1979, “Counterfactual Dependence and Time’s Arrow”, *Noûs*, 13(4): 455–476. doi:10.2307/2215339
+- –––, 1981, “Causal Decision Theory”, *Australasian Journal of Philosophy*, 59(1): 5–30. doi:10.1080/00048408112340011
+- Machamer, Peter, Lindley Darden, and Carl Craver, 2000, “Thinking about Mechanisms”, *Philosophy of Science*, 67(1): 1–25. doi:10.1086/392759
+- Maier, Marc, Katerina Marazopoulou, David Arbour, and David Jensen, 2013, “A Sound and Complete Algorithm for Learning Causal Models from Relational Data”, in Nichols and Smyth 2013: 371–380. \[<a href="http://arxiv.org/abs/1309.6843" target="other">Maier et al. 2013 available online</a>\]
+- Maier, Marc, Brian Taylor, Hüseyin Oktay, and David Jensen, 2010, “Learning Causal Models of Relational Domains”, in Maria Fox and David Poole (eds.), *Proceedings of the Twenty-Fourth AAAI Conference on Artificial Intelligence*, (Menlo Park CA: AAAI Press), pp. 531–538. \[<a href="https://www.aaai.org/ocs/index.php/AAAI/AAAI10/paper/view/1919" target="other">Maier et al. 2010 available online</a>\]
+- Meek, Christopher, 1995, “Strong Completeness and Faithfulness in Bayesian Networks”, in Philippe Besnard and Steve Hanks (eds.) *Proceedings of the Eleventh Conference Conference on Uncertainty in Artificial Intelligence*, San Francisco: Morgan Kaufmann, pp. 411–418.
+- Meek, Christopher and Clark Glymour, 1994, “Conditioning and Intervening”, *British Journal for Philosophy of Science,*, 45(4): 1001–1024. doi:10.1093/bjps/45.4.1001
+- Menzies, Peter, 2004, “Causal Models, Token Causation, and Processes”, *Philosophy of Science*, 71(5): 820–832. doi:10.1086/425057
+- Mooij, Joris, Dominik Janzing, and Bernhard Schölkopf, 2013, “From Ordinary Differential Equations to Structural Causal Models: the Deterministic Case”, in Nichols and Smyth 2013: 440–448.
+- Neal, Radford M., 2000, “On Deducing Conditional Independence from d-separation in Causal Graphs with Feedback”, *Journal of Artificial Intelligence Research*, 12: 87–91. \[<a href="https://www.jair.org/index.php/jair/article/view/10250" target="other">Neal 2000 available online</a>\]
+- Neapolitan, Richard, 2004, *Learning Bayesian Networks*, Upper Saddle River, NJ: Prentice Hall.
+- Neapolitan, Richard and Xia Jiang, 2016, “The Bayesian Network Story”, in Alan Hájek and Christopher Hitchcock (eds.), *The Oxford Handbook of Probability and Philosophy*, Oxford: Oxford University Press, pp. 183–99.
+- Neyman, Jerzy, 1923 \[1990\], “Sur les Applications de la Théorie des Probabilités aux Experiences Agricoles: Essai des Principes”) *Roczniki Nauk Rolniczych, Tom*, X: 1–51. Excerpts translated into English by D. M. Dabrowska and Terrence Speed, 1990, “On the Application of Probability Theory to Agricultural Experiments. Essay on Principles”, *Statistical Science*, 5(4): 465–80. doi:10.1214/ss/1177012031
+- Ann Nichols and Padhraic Smyth (eds), 2013, *Proceedings of the Twenty-Ninth Conference on Uncertainty in Artificial Intelligence*, Corvallis, OR: AUAI Press.
+- Nozick, Robert, 1969, “Newcomb’s Problem and Two Principles of Choice”, in Nicholas Rescher (ed.), *Essays in Honor of Carl G. Hempel*, Dordrecht: Reidel, pp. 114–146. doi:10.1007/978-94-017-1466-2_7
+- Pearl, Judea, 1988, *Probabilistic Reasoning in Intelligent Systems*, San Francisco: Morgan Kaufmann.
+- –––, 1995, “Causal Diagrams for Empirical Research”, *Biometrika*, 82(4): 669–688. doi:10.1093/biomet/82.4.669
+- –––, 2009, *Causality: Models, Reasoning, and Inference*, Second Edition, Cambridge: Cambridge University Press.
+- –––, 2010, “An Introduction to Causal Inference”, *The International Journal of Biostatistics*, 6(2): article 7, pp. 1–59. doi:10.2202/1557-4679.1203
+- Pearl, Judea and Rina Dechter, 1996, “Identifying Independencies in Causal Graphs with Feedback”, in Eric Horvitz and Finn Jensen (eds.) *Proceedings of the Twelfth Conference on Uncertainty in Artificial Intelligence*, San Francisco: Morgan Kaufmann, pages 420–426.
+- Pearl, Judea, Madelyn Glymour, and Nicholas P. Jewell, 2016, *Causal Inference in Statistics: A Primer*, Chichester, UK: Wiley.
+- Pearl, Judea and Mackenzie, Dana, 2018, *The Book of Why: The New Science of Cause and Effect.*, New York: Basic Books.
+- Pearl, Judea and Verma, Thomas, 1991, “A Theory of Inferred Causation”, in James Allen, Richard Fiskes, and Erik Sandewall (eds.), *Principles of Knowledge Representation and Reasoning: Proceedings of the Second International Conference*, San Mateo, CA: Morgan Kaufmann, pp. 441–52.
+- Peters, Jonas, Dominik Janzing, and Bernhard Schölkopf, 2017, *Elements of Causal Inference: Foundations and Learning Algorithms.*, Cambridge, MA: MIT Press.
+- Price, Huw, 1986, “Against Causal Decision Theory”, *Synthese*, 67(2): 195–212. doi:10.1007/BF00540068
+- Ramsey, Joseph, Peter Spirtes, and Jiji Zhang, 2006, “Adjacency Faithfulness and Conservative Causal Inference”, in Dechter and Richardson 2006: 401–408. \[<a href="http://arxiv.org/abs/1206.6843" target="other">Ramsey, Spirtes, &amp; Zhang 2006 available online</a>\]
+- Reichenbach, Hans, 1956, *The Direction of Time*, Berkeley and Los Angeles: University of California Press.
+- Richardson, Thomas, and James Robins, 2016, *Single World Intervention Graphs (SWIGs): A Unification of the Counterfactual and Graphical Approaches to Causality*, Hanover, MA: Now Publishers.
+- Robins, James, 1986, “A New Approach to Causal Inference in Mortality Studies with a Sustained Exposure Period: Applications to Control of the Healthy Workers Survivor Effect”, *Mathematical Modeling*, 7(9–12): 1393–1512. doi:10.1016/0270-0255(86)90088-6
+- Rubin, Donald, 1974, “Estimating Causal Effects of Treatments in Randomized and Nonrandomized Studies”, *Journal of Educational Psychology*, 66(5): 688–701. doi:10.1037/h0037350
+- Salmon, Wesley, 1984, *Scientific Explanation and the Causal Structure of the World*, Princeton: Princeton University Press.
+- Scheines, Richard, 1997, “An Introduction to Causal Inference” in V. McKim and S. Turner (eds.), *Causality in Crisis?*, Notre Dame: University of Notre Dame Press, pp. 185–199.
+- Schulte, Oliver and Hassan Khosravi, 2012, “Learning Graphical Models for Relational Data via Lattice Search”, *Machine Learning*, 88(3): 331–368. doi:10.1007/s10994-012-5289-4
+- Schulte, Oliver, Wei Luo, and Russell Greiner, 2010, “Mind Change Optimal Learning of Bayes Net Structure from Dependency and Independency Data”, *Information and Computation*, 208(1): 63–82. doi:10.1016/j.ic.2009.03.009
+- Shalizi, Cosma Rohilla, and Andrew C. Thomas, 2011, “Homophily and Contagion are Generically Confounded in Observational Social Studies”, *Sociological Methods and Research*, 40(2): 211–239. doi:10.1177/0049124111404820
+- Sheps, Mindel C., 1958, “Shall We Count the Living or the Dead?” *New England Journal of Medicine*, 259(12): 210–4. doi:10.1056/NEJM195812182592505
+- Shimizu, Shohei, Patrik O. Hoyer, Aapo Hyvärinen, and Antti Kermine, 2006, “A Linear Non-Gaussian Acyclic Model for Causal Discovery”, *Journal of Machine Learning Research*, 7: 2003–2030. \[<a href="http://www.jmlr.org/papers/v7/shimizu06a.html" target="other">Shimizu et al. 2006 available online</a>\]
+- Shpitser, Ilya and Judea Pearl, 2006, “Identification of Conditional Interventional Distributions”, in Dechter and Richardson 2006: 437–444. \[<a href="http://arxiv.org/abs/1206.6876" target="other">Shpister &amp; Pearl 2006 available online</a>\]
+- Skyrms, Brian, 1980, *Causal Necessity*, New Haven and London: Yale University Press.
+- Spirtes, Peter, 1995, “Directed Cyclic Graphical Representation of Feedback Models”, in Philippe Besnard and Steve Hanks (eds.), *Proceedings of the Eleventh Conference on Uncertainty in Artificial Intelligence*, San Francisco: Morgan Kaufmann, pp. 491–498.
+- Spirtes, Peter, Clark Glymour, and Richard Scheines, \[SGS\] 2000, *Causation, Prediction and Search*, Second Edition, Cambridge, MA: MIT Press.
+- Spirtes, Peter and Jiji Zhang, 2014, “A Uniformly Consistent Estimator of Causal Effects under the *k*-Triangle-Faithfulness Assumption”, *Statistical Science*, 29(4): 662–678. doi:10.1214/13-STS429
+- Spirtes, Peter and Kun Zhang, 2016, “Causal Discovery and Inference: Concepts and Recent Methodological Advances”, *Applied Informatics*, 3: 3. doi:10.1186/s40535-016-0018-x
+- Stalnaker, Robert, 1968, “A Theory of Conditionals”, in Nicholas Rescher (ed.) *Studies in Logical Theory*, Blackwell: Oxford, pp. 98–112.
+- Steel, Daniel, 2006, “Homogeneity, Selection, and the Faithfulness Condition”. *Minds and Machines*, 16(3): 303–317. doi:10.1007/s11023-006-9032-4
+- Stern, Reuben, 2017, “Interventionist Decision Theory”, *Synthese*, 194(10): 4133–4153. doi:10.1007/s11229-016-1133-x
+- Suppes, Patrick, 1970, *A Probabilistic Theory of Causality*, Amsterdam: North-Holland Publishing Company.
+- Tillman, Robert E., and Frederick Eberhardt, 2014, “Learning Causal Structure from Multiple Datasets with Similar Variable Sets”, *Behaviormetrika*, 41(1): 41–64. doi:10.2333/bhmk.41.41
+- Triantafillou, Sofia, and Ioannis Tsamardinos, 2015, “Constraint-based Causal Discovery from Multiple Interventions over Overlapping Variable Sets”, *Journal of Machine Learning Research*, 16: 2147–2205. \[<a href="http://www.jmlr.org/papers/v16/triantafillou15a.html" target="other">Triantafillou &amp; Tsamardinos 2015 available online</a>\]
+- Weslake, Brad, forthcoming, “A Partial Theory of Actual Causation”, *British Journal for the Philosophy of Science.*
+- Woodward, James, 2003, *Making Things Happen: A Theory of Causal Explanation*, Oxford: Oxford University Press. doi:10.1093/0195155270.001.0001
+- Wright, Sewall, 1921, “Correlation and Causation”, *Journal of Agricultural Research*, 20: 557–85.
+- Zhalama, Jiji Zhang, and Wolfgang Mayer, 2016, “Weakening Faithfulness: Some Heuristic Causal Discovery Algorithms”, *International Journal of Data Science and Analytics*, 3(2): 93–104. doi:10.1007/s41060-016-0033-y
+- Zhang, Jiji, 2008, “Causal Reasoning with Ancestral Graphs”, *Journal of Machine Learning Research*, 9: 1437–1474. \[<a href="http://www.jmlr.org/papers/v9/zhang08a.html" target="other">Zhang 2008 available online</a>\]
+- –––, 2013a, “A Lewisian Logic of Counterfactuals”, *Minds and Machines*, 23(1): 77–93. doi:10.1007/s11023-011-9261-z
+- –––, 2013b, “A Comparison of Three Occam’s Razors for Markovian Causal Models”, *British Journal for Philosophy of Science*, 64(2): 423–448. doi:10.1093/bjps/axs005
+- Zhang, Jiji and Peter Spirtes 2008, “Detection of Unfaithfulness and Robust Causal Inference”, *Minds and Machines*, 18(2): 239–271. doi:10.1007/s11023-008-9096-4
+- –––, 2016, “The Three Faces of Faithfulness”, *Synthese*, 193(4): 1011–1027. doi:10.1007/s11229-015-0673-9
+- Zhang, Kun, and Aapo Hyvärinen, 2009, “On the Identifiability of the Post-nonlinear Causal Model”, in Jeff Bilmes and Andrew Ng (eds.), *Proceeding of the Twenty-Fifth Conference on Uncertainty in Artificial Intelligence*, (Corvallis, OR: AUAI Press), pp. 647–655.
 
-#### THEOREM 4. For any theorem A of $S5\pi$ , A' is a theorem of $E5^+$ .
+## Academic Tools
 
-*Proof.* Take a standard axiomatization of  $S5\pi$ . We may establish the result by an induction on the proof of A within that axiomatization. The only difficulty is with the S5 axiom. This translates into  $\sim \Box_{\bigvee} A \rightarrow \Box_{\bigvee} \sim \Box_{\bigvee} A$ . By Theorem 3(ii) and Subsumption,  $\vdash \sim \Box_{\bigvee} A \& \Box_{\bigvee} \Pi x(\forall x \rightarrow \langle \vee \rangle x) \rightarrow \Box_{\bigvee} \sim \Box_{\bigvee} A$ . But the second conjunct of the antecedent follows from the domain axiom V(ii); and so  $\vdash \sim \Box_{\bigvee} A \rightarrow \Box_{\bigvee} \sim \Box_{\bigvee} A$ .
+> |  |  |
+> |----|----|
+> | ![sep man icon](./CausalModels_files/sepman-icon.jpg) | <a href="https://plato.stanford.edu/cgi-bin/encyclopedia/archinfo.cgi?entry=causal-models" target="other">How to cite this entry</a>. |
+> | ![sep man icon](./CausalModels_files/sepman-icon.jpg) | <a href="https://leibniz.stanford.edu/friends/preview/causal-models/" target="other">Preview the PDF version of this entry</a> at the <a href="https://leibniz.stanford.edu/friends/" target="other">Friends of the SEP Society</a>. |
+> | ![inpho icon](./CausalModels_files/inpho.png) | <a href="https://www.inphoproject.org/entity?sep=causal-models&amp;redirect=True" target="other">Look up topics and thinkers related to this entry</a> at the Internet Philosophy Ontology Project (InPhO). |
+> | ![phil papers icon](./CausalModels_files/pp.gif) | <a href="http://philpapers.org/sep/causal-models/" target="other">Enhanced bibliography for this entry</a> at <a href="http://philpapers.org/" target="other">PhilPapers</a>, with links to its database. |
 
-By semantical methods it is possible to establish that the translation is exact. It would be of interest to determine the logic of quantified  $S5\pi$  with rigid predicates.
+## Other Internet Resources
 
-### B. Modalization
+- <a href="http://causality.cs.ucla.edu/blog/" target="other">Causal Analysis and Theory in Practice</a>
+- <a href="http://bayes.cs.ucla.edu/BOOK-2K/" target="other"><em>Causality</em>, 2nd Edition, 2009</a>, Judea Pearl's web page on his book.
+- <a href="http://www.phil.cmu.edu/tetrad/" target="other">The Tetrad Project</a>.
+- <a href="http://www.phil.cmu.edu/projects/csr/" target="other">Causal and Statistical Reasoning</a>, The Carnegie Mellon Curriculum, Core Site Materials.
 
-An occurrence of a predicate or a quantifier within a formula is said to be *modal* if it is within the scope of an essentialist operator and otherwise is said to be *nonmodal*. (For the purposes of this definition, the predicate F in  $\Box_F A$  is regarded as *part* of the operator and not as within its scope). A formula A is said to be *modalized* if any predicate which occurs nonmodally is either quasi-rigid or is the identity or dependence predicate and if each nonmodal occurrence of a quantifier is relativized to a quasi-rigid predicate, i.e., occurs in the context  $\Pi x(Fx \rightarrow B)$  with F a quasi-rigid predicate not containing x free.
+## Related Entries
 
-## THEOREM 5 (Modalization). $\vdash A \rightarrow \Box A$ , for A modalized.
+[causation: and manipulability](https://plato.stanford.edu/entries/causation-mani/) \| [causation: counterfactual theories of](https://plato.stanford.edu/entries/causation-counterfactual/) \| [causation: probabilistic](https://plato.stanford.edu/entries/causation-probabilistic/) \| [causation: the metaphysics of](https://plato.stanford.edu/entries/causation-metaphysics/) \| [conditionals: counterfactual](https://plato.stanford.edu/entries/counterfactuals/) \| [decision theory](https://plato.stanford.edu/entries/decision-theory/) \| [decision theory: causal](https://plato.stanford.edu/entries/decision-causal/) \| [logic: conditionals](https://plato.stanford.edu/entries/logic-conditionals/) \| [probability, interpretations of](https://plato.stanford.edu/entries/probability-interpret/) \| [quantum theory: the Einstein-Podolsky-Rosen argument in](https://plato.stanford.edu/entries/qt-epr/) \| [rational choice, normative: expected utility](https://plato.stanford.edu/entries/rationality-normative-utility/) \| [Reichenbach, Hans: common cause principle](https://plato.stanford.edu/entries/physics-Rpcc/)
 
-*Proof.* We prove (a)  $\vdash A \rightarrow \Box_{|A|}A$  and (b)  $\vdash \sim A \rightarrow \Box_{|A|} \sim A$  by a simultaneous induction on the construction of A.
+### Acknowledgments
 
-(i) A = Fx, F quasi-rigid. By Rigidity results: (a) from Theorem 4.8(i); and (b) from Theorem 4.8(ii).
+Thanks to Frederick Eberhardt, Clark Glymour, Joseph Halpern, Judea Pearl, Peter Spirtes, Reuben Stern, Jiji Zhang, and Kun Zhang for detailed comments, corrections, and discussion.
 
-(ii) A is of the form x = y or x = x. By Identity results: (a) from Theorem 4.7(i); and (b) from Theorem 4.7(ii).
-
-(iii) A is of the form  $x \ge y$  or  $x \ge x$ . By Dependency results: (a) from Theorem 4.10(iii); (b) from Theorem 4.10(iv).
-
-(iv)  $A = \sim B$ . A straightforward application of IH.
-
-(v)  $A = (B \lor C)$ . (a) By IH,  $\vdash B \to \Box_{|B|} B$ . So by Subsumption,  $\vdash B \to \Box_{|B|,|C|} B$ ; and so by modal reasoning,  $\vdash B \to \Box_{|B|,|C|} (B \lor C)$ . Similarly,  $\vdash C \to \Box_{|B|,|C|} (B \lor C)$ . Hence  $\vdash (B \lor C) \to \Box_{|B \lor C|} (B \lor C)$ . (b) By IH,  $\vdash \sim B \to \Box_{|B|} \sim B$ ; and so by Subsumption,  $\vdash \sim B \to \Box_{|B|,|C|} \sim B$ . Similarly,  $\vdash \sim C \to \Box_{|B|,|C|} \sim C$ . But then by modal reasoning,  $\vdash \sim (B \lor C) \to \Box_{|\sim (B \lor C)|} \sim (B \lor C)$ .
-
-(vi)  $A = \Box_F B$ , F quasi-rigid. By the Reductive results: (a) from Theorem 4.6(ii); and (b) from Theorem 4.6(i).
-
-(vii)  $A = \prod x(Fx \to B)$ , F quasi-rigid. (a) Suppose first that x is not free in B. Then  $\vdash \prod x(Fx \to B) \leftrightarrow (\prod x \sim Fx \lor B)$ . But  $\vdash \prod x \sim Fx \to$  $\Box \bigwedge \Pi x \sim Fx$  by Theorem 2(iv) and  $\vdash B \to \Box_{|B|}B$  by IH. So by the reasoning under case (v) above,  $\vdash A \to \Box(\Pi x \sim Fx \lor B)$ ; and consequently,  $\vdash A \to \Box A$ .
-
-Suppose now that x occurs free in B. By IH,  $\vdash B \rightarrow \Box_{|B|}B$ , and so,
-
-(1) 
-$$\vdash \Pi x(Fx \to (B \to \Box_{|B|}B)).$$
-
-(Note that the predicate |B| will contain free x). Clearly,
-
-(2) 
-$$\vdash \Pi x(Fx \to |B| \subseteq |A|).$$
-
-From (1) and (2) by Subsumption,  $\vdash \prod x(Fx \to (B \to \Box_{|A|}B))$ ; and so:
-
-(3) 
-$$\vdash \Pi x(Fx \to B) \to \Pi x(Fx \to \Box_{|A|}B).$$
-
-Now the side condition for the application of Corollary 5.2(i) is obviously satisfied; and so
-
-(4) 
-$$\Pi x(Fx \to \Box_{|A|}B) \to \Box_{|A|}\Pi x(Fx \to B).$$
-
-But then from (3) and (4),  $\vdash \prod x(Fx \to B) \to \Box_{|A|} \prod x(Fx \to B)$ , as required.
-
-(b) Clearly it suffices to show  $\vdash \Sigma x(Fx \And \sim B) \rightarrow \Box_{|A|} \Sigma x(Fx \And \sim B)$ . By Rigidity and Subsumption,
-
-(1) 
-$$\vdash Fx \rightarrow \Box_{|\mathcal{A}|}Fx.$$
-
-By IH,  $\vdash \sim B \rightarrow \Box_{|B|} \sim B$ ; and so with the help of Subsumption,
-
-(2) 
-$$\vdash Fx \& \sim B \to \Box_{|A|} \sim B.$$
-
-From (1) and (2) by modal reasoning,
-
-$$(3) \qquad \vdash Fx \& \sim B \to \Box_{|\mathcal{A}|}(Fx \& \sim B).$$
-
-Now  $\vdash$  (*Fx* & ~ *B*)  $\rightarrow \Sigma x(Fx \& \sim B)$  by classical reasoning; and so
-
-(4) 
-$$\vdash \Box_{|\mathcal{A}|}(Fx \And \sim B) \to \Box_{|\mathcal{A}|} \Sigma x(Fx \And \sim B).$$
-
-From (3) and (4),  $\vdash Fx \& \sim B \rightarrow \Box_{|A|} \Sigma x (Fx \& \sim B)$ . But then again by classical reasoning,  $\vdash \Sigma x (Fx \& \sim B) \rightarrow \Box_{|A|} \Sigma x (Fx \& \sim B)$ .
-
-It should be noted that  $A \to \Box A$  may be provable in the original system even though  $\Pi xA \to \Box \Pi xA$  is not provable in the extended system E5<sup>+</sup>. For let A be the formula  $x \ge y$ . Then  $x \ge y \to \Box_{x,y} x \ge y$ is provable but, as may be shown by semantical methods,  $\Pi x(x \ge y) \to \Box_y \Pi x(x \ge y)$  is not.
-
-Several of our previous results can be viewed as consequences of Modalization. For example, the S4 result  $\vdash \Box_F A \to \Box_F \Box_F A$ , A quasirigid, holds since  $\Box_F A$  is modalized, as does Theorem 2(i),  $\vdash P \subseteq Q \to$  $\Box(P \subseteq Q)$ , since the antecedent  $P \subseteq Q$  is modalized. Further consequences of the theorem will be given later.
-
-#### C. Replacement
-
-In the statement of the following result, we suppose B = B(F) contains a single occurrence of the predicate F and that no free variable of F is
-
-bound at that occurrence within B, and we use B(G) to represent the result of *freely* replacing that occurrence of F with G, i.e., of replacing it in such a way that none of the free variables of G thereby become bound.
-
-THEOREM 6 (Replacement).  $\vdash \Box(F \approx G) \& (|F| \approx |G|) \rightarrow$  $(B(F) \leftrightarrow B(G)).$ 
-
-*Proof.* The proof is by induction on the construction of A(F) from the designated occurrence of F. Let us use A for the antecedent  $\Box(F \approx G)$  &  $(|F| \approx |G|)$  of the conditional and C for its consequent  $B(F) \leftrightarrow B(G)$ . Let us note that since |F| and |G| are quasi-rigid, it follows from Theorem 2(ii) that  $\vdash |F| \approx |G| \rightarrow \Box(|F| \approx |G|)$ .
-
-(i) B = Fx, F a predicate symbol.  $\vdash A \rightarrow F \approx G$  by the T-axiom and  $\vdash F \approx G \rightarrow C$  by classical reasoning.
-
-(ii)  $B = \lambda x D(F, x) y$ . Suppose y first to be a variable which does not occur in A or C. By IH,  $\vdash A \rightarrow (D(F, y) \leftrightarrow D(G, y))$ . By Abstraction,  $\vdash (D(F, y) \leftrightarrow D(G, y)) \rightarrow \lambda x D(F, x) y \leftrightarrow \lambda x D(G, x) y$ ; and so,  $\vdash A \rightarrow \lambda x D(G, x) y$ ;  $\lambda x D(F, x) y \leftrightarrow \lambda x D(G, x) y$ , as required.
-
-Now suppose y occurs in either A or C. Choose a z which does not. Then by the previous reasoning,  $\vdash A \rightarrow \lambda x D(F, x) z \leftrightarrow \lambda x D(G, x) z$ . By quantificational reasoning,  $\vdash A \rightarrow \prod z(\lambda x D(F, x)z \leftrightarrow \lambda x)$ 
-
-D(G, x)z; and so by Specification,  $\vdash A \rightarrow \lambda x D(F, x)y \leftrightarrow \lambda x D(G, x)y$ .
-
-(iii)  $B = \sim D(F)$ . By IH,  $\vdash A \to (D(F) \leftrightarrow D(G))$ . But then by classical states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second states of the second sical reasoning,  $\vdash A \rightarrow (\sim D(F) \leftrightarrow \sim D(G))$ .
-
-(iv)  $B = (D(F) \lor E)$  (or  $B = (D \lor E(F))$ ). Similarly.
-
-(v)  $B = \Box_H D(F)$ . Let A' be the formula  $|D(F)| \subset cH$ . It then suffices to show (a)  $\vdash A \And \sim A' \rightarrow C$  and (b)  $\vdash A \And A' \rightarrow C$ .
-
-(a)  $\vdash \sim A' \rightarrow \sim \Box_H D(F)$  by Localization.  $\vdash A \rightarrow |D(F)| \approx |D(G)|$ . So  $\vdash A \And \sim A' \rightarrow \sim (|D(G)| \subseteq cH)$ ; and so  $\vdash A \And \sim A' \rightarrow \sim \Box_H D(G)$ . But then  $\vdash A \And \sim A' \rightarrow \Box_H D(F) \leftrightarrow \Box_H D(G)$ .
-
-(b) By IH,  $\vdash A \rightarrow (D(F) \leftrightarrow D(G))$ . Applying Nec and Subsumption,  $\vdash \Box_{|A|,|C|}(A \to (D(F) \leftrightarrow D(G))) \text{ (where } C \text{ is the formula } D(F) \leftrightarrow D(G));$ and so by modal reasoning,
-
-(1) 
-$$\vdash \Box_{|A|,|C|,H}A \to (\Box_{|A|,|C|,H}D(F) \leftrightarrow \Box_{|A|,|C|,H}D(G)).$$
-
-Since A is modalized, it follows by the Modalization Theorem and Subsumption that:
-
-(2) 
-$$\vdash A \rightarrow \Box_{|A|,|C|,H}A.$$
-
-It is evident that  $\vdash |A| \subseteq |C|$  and that  $\vdash A \& A' \rightarrow |C| \subseteq cH$ . So  $\vdash A \& A' \rightarrow c(|A|, |C|, H) \approx cH$ . But then by Lemma 4.2(ii),
-
-(3) 
-$$\vdash A \& A' \to (\Box_{|A|,|C|,H}D(F) \leftrightarrow \Box_HD(F)); \text{ and}$$
-
-(4)  $\vdash A \& A' \to (\Box_{|A|,|C|,H}D(G) \leftrightarrow \Box_HD(G).$ 
-
-From (1), (2), (3) and (4), we then obtain  $\vdash A \& A' \to \Box_H D(F) \leftrightarrow \Box_H D(G)$ .
-
-(vi)  $B = \Box_{H(F)}D$ . By IH,  $\vdash A \to (H(F)x \leftrightarrow H(G)x)$ , x a variable not free in A; and so,
-
-(1) 
-$$\vdash A \to H(F) \approx H(G).$$
-
-By Subsumption,
-
-(2) 
-$$\vdash H(F) \approx H(G) \rightarrow (\Box_{H(F)}B \leftrightarrow \Box_{H(G)}B)$$
-
-But then from (1) and (2),  $\vdash A \rightarrow (\Box_{H(F)}B \leftrightarrow \Box_{H(G)}B)$ .
-
-(vii)  $B = \prod x D(F)$ . By IH,  $\vdash A \to (D(F) \leftrightarrow D(G))$ . But x does not occur free in A. So  $\vdash A \to \prod x (D(F) \leftrightarrow D(G))$ ; and hence  $\vdash A \to (\prod x D(F) \leftrightarrow \prod x D(G))$ .
-
-We note three almost immediate consequences of the result:
-
-COROLLARY 7.  $\vdash F \approx G \rightarrow (A(F) \leftrightarrow A(G))$ , for F and G quasi-rigid. *Proof.* Since  $\vdash F \approx G \rightarrow \Box(F \approx G)$  by Rigidity (Theorem 2(ii)) and  $\vdash F \approx G \rightarrow |F| \approx |G|$ .
-
-COROLLARY 8.  $\vdash \Box(B \leftrightarrow C) \& |B| \approx |C| \rightarrow A(B) \leftrightarrow A(C)$ . *Proof.* From the theorem by taking F and G to be 0-place predicates.
-
-COROLLARY 9. If  $\vdash A(P)$  then  $\vdash A(F)$ , for F quasi-rigid and A(F) the result of replacing every occurrence of P in A(P) with F.
-
-*Proof.* By Corollary 7,  $\vdash P \approx F \rightarrow (A(P) \leftrightarrow A(F))$ . Given  $\vdash A(P)$ , it follows that  $\vdash P \approx F \rightarrow A(F)$ . But P does not occur in A(F); and so  $\vdash A(F)$  by Predicate Elimination.
-
-#### D. Reduction
-
-We use  $\top_F$  for a theorem whose content is |F|. We are not bothered which theorem is used, but given that the rigid predicates of F are
-
- $P_1, \ldots, P_m$  and that its variables are  $x_1, \ldots, x_n$ , we might for the sake of definiteness let  $\top_F$  be the formula  $\bigwedge_{1 \le i \le m} \prod x(P_i x \to P_i x) \& \bigwedge_{1 \le i \le n} x_j = x_j.$ 
-
-LEMMA 10. (i)  $\vdash \Box_P(\Box_Q A \lor B) \leftrightarrow \Box_P \top_{Q,|A|,|B|} \& (\Box_Q A \lor \Box_P B).$ (ii)  $\vdash \Box_P(\sim \Box_Q A \lor B) \leftrightarrow \Box_P \top_{Q,|A|,|B|} \& (\sim \Box_Q A \lor \Box_P B).$ 
-
-*Proof.* (i) Let us use (a) for the antecedent of the above conditional and (c) for its consequent. Then  $\vdash (a) \rightarrow \Box_P \top_{Q,|A|,|B|}$  by straightforward modal reasoning. Also,  $\vdash (a) \rightarrow \Box_P (\sim \Box_Q A \rightarrow B)$  by Corollary 8 above;  $\vdash \Box_P (\sim \Box_Q A \rightarrow B) \rightarrow \Box_P \sim \Box_Q A \rightarrow \Box_P B$  by Distribution; and so  $\vdash (a) \rightarrow (\Box_P \sim \Box_Q A \rightarrow \Box_P B)$ . But  $\vdash \Box_P \top_{Q,|A|,|B|} \& \sim \Box_Q A \rightarrow$  $\Box_P \sim \Box_Q A$  by S5, Cut and Subsumption; so  $\vdash (a) \rightarrow (\sim \Box_Q A \rightarrow \Box_P B)$ ; and so  $\vdash (a) \rightarrow (c)$ .
-
-As for the other direction,
-
- $\vdash (\Box_{Q}A \vee \Box_{P}B) \to \Box_{P,Q,|A|,|B|}(\Box_{Q}A \vee \Box_{P}B); \text{ and so, with the help of} Cut, \vdash (c) \to \Box_{P}(\Box_{Q}A \vee \Box_{P}B). But \vdash (\Box_{Q}A \vee \Box_{P}B) \to \Box_{Q}A \vee B); \text{ and so by modal reasoning, } \vdash (c) \to (a).$ 
-
-(ii) The proof is similar to that for (i) but uses the S4 in place of the S5 result.
-
-A formula A is said to be *propositional* if no bound occurrence of a variable occurs free within the scope of an essentialist operator, to be *rigid* if each of its delimiters is a rigid predicate symbol, to be *iterative* if some essentialist operator occurs within the scope of another, and to be *modal* if it contains an essentialist operator.
-
-# **THEOREM 11 (Reduction).** Any rigid propositional formula A is provably equivalent to a non-iterative propositional formula.
-
-*Proof.* By induction on the number *n* of embedded occurrence of essentialist operators in *A*, i.e. those within the scope of others. If n = 1, there is nothing to prove. So suppose n > 1. Pick a subformula  $\Box_P B$  of  $A = A(\Box_P B)$ , where *B* is non-iterative but modal. *B* may be put into a conjunctive normal from  $C = \bigwedge_{1 \le i \le n} D_i$ ,  $n \ge 1$ ; and, given that *B* is propositional, the "atoms" of *C* may be taken either to be essentialist formulas (beginning with an operator  $\Box_Q$ ) or to be nonmodal. By classical reasoning,  $\vdash B \leftrightarrow C$ ; and clearly we may so choose *C* that  $\vdash |B| \approx |C|$ . By modal reasoning,  $\vdash \Box_P \bigwedge_{1 \le i \le n} D_i \leftrightarrow \bigwedge_{1 \le i \le n} \Box_P D_i$ .
-
-Take a particular modal  $D_i$ . Its disjuncts are either essentialist formulas or non-modal. So by repeated applications of the above lemma, we may find a non-iterative formula  $E_i$  such that  $\vdash \Box_P D_i \leftrightarrow E_i$  and  $\vdash |\Box_P D_i| \approx |E_i|$ . But then by Corollary  $8, \vdash A \leftrightarrow A(\bigwedge_{1 \le i \le n} E_i)$ ; and the IH applies.
-
-Many tasks remain. The most important is to find a semantics for the system and establish completeness. This is something I hope to do in another paper. Various fragments and extensions of the system need to be considered. It would be interesting, for example, to determine the system in which the quantifiers are required to be actualist (ranging only over the existents) or in which the apparatus of abstraction and rigid predication is dropped. On the other hand, it is natural to introduce second-order methods. One might, at one extreme, allow quantification over all rigid properties, or even over all properties whatever. But various intermediate possibilities might be considered, such as allowing explicit reference to the rigid property corresponding to a given condition. Systems for cognate notions of essence should also be developed. It is especially important in this regard to investigate the logic for an objectually unconstrained conception of essence.
-
-### ACKNOWLEDGEMENT
-
-I am grateful to David Kaplan; for, through his work on direct reference, he has done more than anyone to help create an environment in which an object-oriented approach to intensional logic could flourish.
-
-## REFERENCES
-
-Fine, K. (1994) Concept and Modality, to appear in Philosophical Perspectives (ed. J. Tomberlin).
-
-Fine, K. (1994) Senses of Essence, to appear in a volume for Ruth Barcan Marcus.
+Portions of this entry are taken, with minimal adaptation, from the author’s separate entry on [probabilistic causation](https://plato.stanford.edu/entries/causation-probabilistic/) so that readers do not need to consult that entry for background material before reading this entry.
