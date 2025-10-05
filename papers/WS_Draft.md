@@ -337,31 +337,18 @@ Now given *the Strong Principle of Sanity*, we get the indispensability of menta
 
 What is the worry when we say something is not "worldly and mind-independent", and therefore should be exclude from a metaphysical analysis? It relies on the fact that, what's *out there* does not depend on how we think about it. For example, aesthetic values are typically not something *out there*. It changes just because my change of mind. But surely, the mental-physical causation itself can't change just because I change my mind. In addition, if X is mental, then we cannot be mistaken about the referent of X. But it is possible to make mistake about whether I caused my body to move, e.g. when dreaming or hallucination. Therefore, mental-physical causation is a good enough worldly candidate for analyzing physical causation.
 
-#### Causation and Fundamentality through Structural Equation Models
+#### Causation and Fundamentality
 
-What is the nature of the kind of mental-physical causation? It is a change of state of physical objects due to our manipulation. Immediately, this reminds us of the manipulationist approach to causation. Indeed, the most popular way to analyze causation nowadays among statisticians and scientists is through the Structural Equation Models. According to this approach, an account for the but-for cause is that, $A$ causes $B$ iff intervention on $A$'s state will change $B$'s state. The latter part can be formalized and evaluated by causal models.
+What is the nature of the kind of mental-physical causation? It is a change of state of physical objects due to our manipulation. Immediately, this reminds us of the interventionist approach to causation. Indeed, the most popular way to analyze causation nowadays among statisticians and scientists is through the Structural Equation Models (SEM). According to this approach, an account for the but-for cause is that, $A$ causes $B$ iff intervention on $A$'s state will change $B$'s state. The latter part can be formalized and evaluated by causal models.
 
 Let's quickly go through the basic formalization to get the gist. A causal model is $M=\{U,V,F\}$ where $U$ is a set of exogenous variables, $V$ is a set of endogenous variables, and $F$ is a set of structural equations that determines the value of endogenous variables by exogenous variables. Given an assignment of exogenous variables $u$, we will have all the values in $M$ fixed. Assume $A=a$ and $B=b$ in the actual world. To analyze whether $A$ causes $B$, we surgically set the value of $A$ to $a' \neq a$  and therefore produce a new model $M_{A=a'}$. Given the same assignment $u$, if value of $B$ in $M_{A=a'}$ is not $b$, then we say $A$ causes $B$.
 
-Surely, this basic account does not work in the cases of preemption and overdetermination. ==Halpern & Pearl 2005== developed a more complicated account of actual cause that solves these problem. But here I don't want to go into these details. Metaphysicians are more or less skepticial about this account not because of its detailed formalization. The worry of this approach is that, the analysis irreducibly rely on "surgical intervention" to set the value of a variable. But this very concept of "intervention" is a causal concept. Therefore, this account is using causal notion to analyze causal notion, which is circular.
+Surely, this basic account does not work in the cases of preemption and overdetermination. ==Halpern & Pearl 2005== developed a more complicated account of actual cause that solves these problem. But here I don't want to go into these details. Metaphysicians are more or less skepticial about this account not because of its detailed formalization. The worry of this approach is that, the analysis irreducibly rely on a "surgical intervention" to set the value of a variable. But this very concept of "intervention" is a causal concept. Therefore, this account is using causal notion to analyze causal notion, which is circular. In other words, ***all languages needs interpretation***. The formal language of SEM aslo needs a interpretation. But if the semantic interpretation in turn requires SEM, then it will lead to infinite regression.
 
+The standard reply is to admit that the interventionist account takes causation as primitive. But I believe more can be said. In my discussion on *the Strong Principle of Sanity*, I went into the problem of how to establish physical causation with mental-physical causation. But the interventionist causal model is exactly the solution I need. The interpretive problem of "surgical intervention" can be easily solved by *the Strong Principle of Sanity*: Intervention is just mental-physical causation. Given that we must *adopt* rational agency, we must have an interpretation of the surgical intervention of a physical event. And given that interventionist model can analyze physical causation, we can establish a full account of causation with the *the Strong Principle of Sanity* through Structural Equation Model. 
 
+In other words, according to my interpretation, there is no problematic circularity for the interventionist account of causation. It analyzes non-agential causation through a primitive notion of agential causation. And by *the Strong Principle of Sanity* , we must be able to interpret agential causation. Therefore, SEM does not have interpretation problem.
 
-
-. In short, the problem is that, the Structural Equation Model rely on c
-
-cannot be used to establish causation between physical objects. But now we have the causation between the mental and the physical. This relation itself has to be worldly. 
-
-
-
-
-In fact, this may be worrying too much. It is not the case that, a relation whose relata are all mind-dependent must also be "mind-dependent" in the problematic sense. For example, laws of psychology may be taken as something worldly. 
-
-But anyway let us grant it that, the purely mental causal relation cannot be used to establish the causation between physical objects. 
-
-If agency must be metaphysically real and objective, then 
-
-Indirect consequence of the Sanity Principle: establishing fundamentality without magic
 
 ## Beyond metaphysics: trusting friends against evidence
 
