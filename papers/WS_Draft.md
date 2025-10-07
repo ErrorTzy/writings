@@ -300,7 +300,7 @@ So far, I've illustrated two direct corollaries of the Principle of Sanity on ca
 
 Immediately a question arises here. *The Principle of Sanity* is a meta-theoretical constraint. Why should an object-level theory has to adopt the content of the meta-level theory?
 
-Here's the basic idea: If *the Principle of Sanity* entails that, it is impossible for us to adopt that $\neg P$, then $P$ has to be an invariable part for any metaphysical framework we can coherently adopt. Any attempt to vary $P$ semantically would violate *the Principle of Sanity* and thus be impossible for us to adopt. Hence, we get the "objectively objective" metaphysics that we want.
+Here's the basic idea: If *the Principle of Sanity* entails that, it is impossible for us to adopt that $\neg P$, then $P$ has to be an invariable part for any metaphysical framework we can coherently adopt. Therefore, we can claim that $P$. Moreover, any attempt to vary semantically would violate *the Principle of Sanity* and thus be impossible for us to adopt. Hence, we can claim that get the "objectively objective" metaphysics that we want.
 
 Hard-core metaphysicians will probably vehemently resist this and argue the this: The following is a meta-metaphysical claim: $P$ is invariable in any metaphysical theory we can coherently adopt. But it does not entail the metaphysical claim: $P$ is metaphysically true. The former is a claim about theories, the latter is about the world. We cannot know anything about the world just by think about theories. Therefore, it is impossible for us to make any move from the meta-level to the object-level. 
 
@@ -308,9 +308,9 @@ There are two ways to answer this. The first way is to acknowledge this problem.
 
 The second way is to maintain that the entailment holds, and the hard-core metaphysicians have a wrong conception of metaphysics. According to the hard-core metaphysicians, it is metaphysically possible that $P$, while it is impossible for us to coherently adopt that $P$. Then it is possible that, the we cannot coherently adopt the "true metaphysics". But in practice, we reject this possiblity all the time. Assume $A$ and $B$ are two *inconsistent* sentences about the world. What is the reason to say that we must at least deny one? The only reason that I can conveive is that, we cannot coherently adopt such an inconsistent theory. According to the hard-core metaphysicians, "inconsistent theories are not adoptable" doesn't entail that the world is consistent. Therefore, when doing metaphysics, we do not have to deny $A$ or $B$. Maybe the "true metaphysics" really has both $A$ and $B$. But this sounds insane. Given what "world" means in metaphysics, it never entertain the possiblity that, the world might be inconsistent. Indeed, if we allow this possibility, then I don't know if we can say anything meaningful at all about the world.
 
-I admit this is a radical move. So let me defend this further with some Socratic terms. What is the problem for the hard-core conception of metaphysics? I believe this kind of metaphysics can only belong to God, not to human beings. For human beings, then, we should pursue human knowledge and understand reality in a human way, not in God's way. Therefore, if metaphysics is to be a subject of human inquiry at all, it must accept our human limitations.
+I admit this is a non-trivial move. So let me defend this further with some Socratic terms. What is the problem for the hard-core conception of metaphysics? I believe this kind of metaphysics can only belong to God, not to human beings. For human beings, then, we should pursue human knowledge and understand reality in a human way, not in God's way. Therefore, if metaphysics is to be a subject of human inquiry at all, it must accept our human limitations.
 
-I personally stand with the second reply and allow the move from the meta-level to the object-level. However, for people who are not persuaded by me, they can adopt the first reply and translate my subsequent claims into meta-level claims.
+I personally stand with the second reply and allow the move from the meta-level to the object-level. However, for people who are not persuaded by this, they can adopt the first reply and translate my subsequent claims into meta-level claims.
 
 #### Causation
 
@@ -362,7 +362,9 @@ By contrast, in interventionist semantics (setting aside cyclic models), the asy
 
 Is this circular? It seems that the structural equation $B = A$ in $M$ already presupposes this asymmetry. If we treat $M$ as an appropriate causal model because we presuppose that $A$ causes $B$, then the reasoning is circular. However, structural equations can be discovered empirically via intervention tests. For example, to test whether $B = A$, we can intervene on $A$ and observe how the value of $B$ changes. Therefore, the world can teach us whether is an appropriate model, without circularity.
 
-Now, recall my problem for Bennett's account of fundamentality: for any abstract objects 
+Now, recall my problem for Bennett's account of fundamentality: for any mutually necessitating relations, we were unable to privilege a direction. Bennett used the generative constraint to ensure the direction, but this constraint is framework dependent. 
+
+Indeed, using SEM for ground is no new idea. ==Schaffer grounding in the image of causation== and ==Wilson metaphysical causation== 
 
 ## Beyond metaphysics: trusting friends against evidence
 
