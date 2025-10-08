@@ -387,15 +387,19 @@ Let's now check again where does my argument lead us to. First, What I argued so
 
 ## Beyond metaphysics
 
-The next thing I want to show is that, *the Principle of Sanity* should be taken seriously because it is not just a metaphysical principle. In some sense, it can be labeled as a metaphilosophy principle, whatever that may mean. In order to show this, I want to talk about a consequence it implies in ethics.
+The next thing I want to show is that, *the Principle of Sanity* should be taken seriously because it is not just a metaphysical principle. In some sense, it can be labeled as a metaphilosophy principle, whatever this means. In order to show this, I want to talk about a consequence it implies in ethics.
 
-Consider the follow dilemma from ==Baker 1987==: Imagine your closest friend is Smith. One day, the police show up at your door with compelling evidence against him: surveillance footage shows someone who looks just like Smith robbing a bank at gunpoint, and they've found his fingerprints at the scene. The police don't know where Smith is and ask you to contact them if you see him. A few days later, Smith appears at your door. He desperately claims he's been framed and had nothing to do with the robbery. The question is: should you trust his word?
+Consider the follow dilemma from ==Baker 1987 trust and rationality==: Imagine your closest friend is Smith. One day, the police show up at your door with compelling evidence against him: surveillance footage shows someone who looks just like Smith robbing a bank at gunpoint, and they've found his fingerprints at the scene. The police don't know where Smith is and ask you to contact them if you see him. A few days later, Smith appears at your door. He desperately claims he's been framed and had nothing to do with the robbery. The question is: should you trust his word?
 
-==Hieronymi 2005== argues that in this case we cannot rationally trust our friend. She argues that once we think about this belief, we'll find it lacks proper foundation. This is because only beliefs formed through a truth-directed process can withstand rational reflection. If one is rational, then one will lose the belief formed by practical considerations alone.
+==Hieronymi 2005 The reasons of trust== argues that in this case we cannot rationally trust our friend. She argues that once we think about this belief, we'll find it lacks proper foundation. This is because only beliefs formed through a truth-directed process can withstand rational reflection. If one is rational, then one will lose the belief formed by practical considerations alone.
 
-In my defense for *the Principle of Sanity*, I have argued against Hieronymi's truth-directed view of rationality. But to make this clearer, let me now defend the connection between our sanity and trust.
+In my defense for *the Principle of Sanity*, I have already argued against Hieronymi's truth-directed view of rationality. But to make this clearer, let me now defend the connection between sanity and trust.
 
-Before we proceed, I need to once again re-interpret rational agency. This time, what I mean by agency not only include the ability to control, but also has a sense of right and wrong. In fact, I believe this is entailed by the requirement that one has the ability to make philosophical reflection.  
+Before we proceed, I need to once again reinterpret rational agency. This time, what I mean by agency not only include the ability to control, but also has a sense of good and bad, right and wrong. Again, this is more or less a stipulative interpretation, and one can accept the previous interpretation without accepting this one. But let me give some argument I believe this is entailed by the requirement that one has the ability to make philosophical reflection. The reason why we have reflection at all is that, we think we bear epistemic *responsibility*. Our current system of beliefs may not be *good* enough, and we want it to be *better*.  
+
+But a s
+
+Impossible to have social interaction without assuming truthfulness.
 
 ## Conclusion
 

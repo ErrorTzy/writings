@@ -60,7 +60,7 @@ There are some intuitions that we cannot throw away (or at least should not thro
 I will defend different versions of this principle.
 
 - The **weak version** is less controversial: the "rational agent" in the principle is understood as someone who has *epistemic agency* (which is compatible with solipsism)
-- The **strong version**, I think, is still not controversial (except for Aengus): the "rational agent" in the principle is understood as someone who are *moral agents* (the arguement, however, is still linguistic: we need language for philosophical reflection, but for human beings, we can only learn languages through social interaction)
+- The **strong version**, I think, is still not controversial (except for Aengus): the "rational agent" in the principle is understood as someone who are *moral agents* (the argument, however, is still linguistic: we need language for philosophical reflection, but for human beings, we can only learn languages through social interaction)
 
 Consequences of the weak principle:
 
