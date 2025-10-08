@@ -144,7 +144,7 @@ The concept of grounding, however, notoriously lacks consensus. Before getting f
 
 The approach to establishing fundamentality through essence is largely due to Kit Fine's series of works (=="Essence and Modality," "Senses of Essence," "Ontological Dependence," and "The Logic of Essence"==). Of course, Fine prefers to treat ontological dependence as primitive. But Fine acknowledges that this is merely a technical choice, and we can instead define ontological dependence in terms of essence: $x$ depends on $y$ when there is some property $\phi$ (that does not mention $y$) such that in virtue of $x$'s nature it's true that $y$ has $\phi$, but in virtue of $x$'s nature it's not true that everything has $\phi$. Formally, according to Fine we can choose to define $x \ge y =_{df} \Box_x(y=y)$ along with other axioms in order to capture the informal definition. 
 
-Here, I do not want to focus on the details of Fine's axiomatic system. And I acknowledge that, essence is indeed an intuitive concept upon which *de re* modality should be built, not the other way around. Instead, my question is, why should we take essence to be a feature of reality, not a feature of language? To show this, we need to show that, if there is an alternative language that attribute essence differently, then that attribution is *objectively* wrong.
+Here, I will not go into the details of Fine's axiomatic system. And I acknowledge that, essence is indeed a concept upon which *de re* modality should be built, not the other way around. Instead, my question is, why should we take essence to be a feature of reality, not a feature of language? To show this, we need to show that, if there is an alternative language that attribute essence differently, then that attribution is *objectively* wrong.
 
 Imagine a set-theoretic creature, maybe a robot called Robo, who perceives every object as a singleton set. For example, Robo directly perceives a table as $\{table\}$ and Socrates as $\{Socrates\}$. Only by theoretical reconstruction can Robo realize that what she perceives is necessarily related to the individual Socrates. For Robo, then, the individual we call Socrates is a theoretical construction from the entity she directly perceives. Therefore, from her perspective, Socrates depends on $\{Socrates\}$.[^10]
 
@@ -178,9 +178,11 @@ Indeed, I believe this is the most problematic part of Bennett's account of buil
 
 The first way is to simply not rule out the alternative relations $R^{*}$. This suggestion, however, makes the generative constraint redundant. It would mean that for any group of mutually necessitating entities, we could order them however we want and claim that our arbitrary ordering reveals a sense of fundamentality. But if a collection of things can be ordered in any arbitrary way, it seems the best way to describe the situation is to say that the things themselves have no intrinsic order. They just merely necessitate each other. Therefore, even if this solution formally works, this move will depart from the intended meaning of fundamentality.
 
-A second way out is to deny that there can be mutually necessitating building relations altogether. If so, then relations like set-formation, the successor relation, and logical connectives would be removed from the list of building relations. This would essentially mean that applying "fundamentality" to abstract objects is a category mistake. However, some other relations, like composition, would be preserved. For example, if we do not adopt mereological essentialism, then material composition is not mutually necessitating, because the parts necessitate the whole, but the whole does not necessitate those specific parts.
+A second way out is to deny that there can be mutually necessitating building relations altogether. If so, then relations like set-formation, successor operator, and logical connectives would be removed from the list of building relations. And it seems that, some other relations, like composition, would be preserved. For example, if we do not adopt mereological essentialism, then material composition is not mutually necessitating, because the parts necessitate the whole, but the whole does not necessitate those specific parts.
 
-But this move still does not make the set of building relations invariant. For example, the meaning of "composition" can vary. Mereological nihilists, organicists, common sense metaphysicians, and four-dimensionalists all have different interpretations of "composition". If we allow any of these interpretations to count as a building relation, then what is considered fundamental becomes arbitrary. This, again, seems to depart from the intended meaning of fundamentality.
+But this move undermines the fundamentality project. The fundamentality project is advertised as "post-modal metaphysics". This is because building relations are advertised to be hyperintensional, and "tighter than necessity". But if we rule out mutually necessitating relations, then the remaining relations can be simply characterized by modality.
+
+In addition, this move still does not make the set of building relations invariant. For example, the meaning of "composition" can vary. Mereological nihilists, organicists, common sense metaphysicians, and four-dimensionalists all have different interpretations of "composition". If we allow any of these interpretations to count as a building relation, then what is considered fundamental becomes arbitrary. This, again, seems to depart from the intended meaning of fundamentality.
 
 In addition, it is not only the generative constraint that may lead to semantic variance. The necessitating constraint may also lead to variance, given that there are different senses of necessitation. This has been discussed by Sidelle (==The Grounding Mystique==): Given that modality is at least partly conventional, the deflationary challenge for metaphysical necessity extends equally to grounding.
 
@@ -210,7 +212,6 @@ The constraint I suggest is the following:
 
 - **The principle of sanity**: For someone who is capable of philosophical reflection, it is impossible to genuinely believe oneself to not be a rational agent.
 
-​￼￼￼Clarification
 This principle also applies to acceptance (i.e. It is impossible for someone to accept oneself to not be a rational agent), but I will focus on belief in the rest of the paper unless specified otherwise. Anyway, the upshot is, it is impossible for us to really adopt a theory that eliminates rational agency.
 
 Here, "philosophical reflection" roughly refers to activities such as examining and revising one's beliefs, analyzing arguments, and choosing between competing theories. The condition "for a person capable of philosophical reflection" is to rule out certain exotic counterexamples. For instance, someone who has been so thoroughly brainwashed that their only possible belief is "I am not a rational agent" would not qualify as a counterexample. I assume all readers who have already made it here are automatically capable of philosophical reflection.
@@ -237,17 +238,17 @@ There are obvious consequence for adopting this principle. Together with the fol
 
 - **Ought Implies Can**: If it is impossible for us to believe that P, then it is not the case that we ought to believe that P.
 
-It follows that *the Principle of Sanity* is incompatible with the traditional account of rationality: A belief is rational iff the reason to believe is truth-tracking. This is because the principle of sanity commits us to a belief we must hold (that we are rational agents), regardless of the evidence. Assume our epistemic norm is to hold only true beliefs, and scientists tell us that rational agency is just an illusion, then we would be obligated to believe that we are not rational agents. But according to the principle that *Ought Implies Can*, there is no such obligation.
+It follows that *the Principle of Sanity* is incompatible with the traditional account of rationality: A belief is rational iff the reason to believe is truth-tracking. This is because *the principle of sanity* does not allow us to believe that we are not rational agents, regardless of the evidence. Assume our epistemic norm is to hold only true beliefs, and scientists tell us that rational agency is just an illusion, then we would be obligated to believe that we are not rational agents. But according to *Ought Implies Can*, there is no such obligation.
 
 Then immediately, one might object that if epistemic norms must be truth-tracking, then we should rationally reject *the Principle of Sanity* itself. However, what does it mean to "rationally reject" a principle? If doing so is an act of philosophical reflection, then, as argued earlier, the very act requires us to presuppose our own epistemic agency. Therefore, any attempt to "rationally reject" *the Principle of Sanity* is self-defeating, as the act of rejection presupposes the very rational agency the principle commands us to accept.
 
-There is also an auxiliary argument. In the first part of this paper, I put aside the neo-Quinean epistemology for establishing fundamentality. According to this view, the best theory of fundamentality that has the most pragmatic virtues like simplicity, elegance and explanatory power. But what how could these pragmatic virtues more valuable than our own rational agency?
+There is also an auxiliary argument that targets at the Quinean methodology. In the first part of this paper, I put aside the Quinean epistemology for establishing fundamentality. According to this view, the best theory of fundamentality that has the most pragmatic virtues like simplicity, elegance and explanatory power. But what how could these pragmatic virtues more valuable than our own rational agency?
 
 ## Metaphysical Consequences
 
 Given the Principle of Sanity, some direct corollaries follow. The basic idea is, given that we must think we are epistemic agents, we cannot coherently adopt a theory that says we aren't.
 
-### Negative Corollaries on causation and personal identity
+### Negative Corollaries
 
 **One straightforward corollary is on causation.** To be an agent means to bring something about. 'Bringing about' is a causal notion. Therefore it is analytically true that, there is agency only if there is causation. It directly follows that, we cannot the following kind of theory: There is no such thing as causation. All there is is just a description of Humean regularity, possible worlds, etc.
 
@@ -292,15 +293,15 @@ But let's even grant it that, in this case, Perry produces a rational action. He
 
 In other words, the problem with any denial of *de se* essentialism is this: It not only yields strange results, but it leads to different results in qualitatively identical scenarios. In any situation where Perry produces a rational action, we can always construct a case where everything is qualitatively identical for Perry. But in this case, the content of the *de re* belief is, accidentally, about someone else. If action depends on *de re* content, then the same intention would accidentally produce different unexpected results. But I have clarified earlier that this is not rational agency because it lacks minimal means-end coherence.
 
-### Positive Corollaries on causation and fundamentality
+### Positive Corollaries
 
-So far, I've illustrated two direct corollaries of the Principle of Sanity on causation and personal identity. These are *negative* conclusions, telling us which theories we _cannot_ adopt. However, the principle can also yield *positive* results.
+So far, I've illustrated two direct corollaries of the Principle of Sanity on causation and personal identity. These are *negative* conclusions, telling us which theories we *cannot* adopt. However, the principle can also yield *positive* results.
 
 #### Are Positive Corollaries Possible?
 
 Immediately a question arises here. *The Principle of Sanity* is a meta-theoretical constraint. Why should an object-level theory has to adopt the content of the meta-level theory?
 
-Here's the basic idea: If *the Principle of Sanity* entails that, it is impossible for us to adopt that $\neg P$, then $P$ has to be an invariable part for any metaphysical framework we can coherently adopt. Therefore, we can claim that $P$. Moreover, any attempt to vary semantically would violate *the Principle of Sanity* and thus be impossible for us to adopt. Hence, we can claim that get the "objectively objective" metaphysics that we want.
+Here's the basic idea: If *the Principle of Sanity* entails that, it is impossible for us to adopt that $\neg P$, then $P$ has to be an invariable part for any complete metaphysical framework we can coherently adopt. Therefore, we can claim that $P$. Moreover, any attempt to vary semantically would violate *the Principle of Sanity* and thus be impossible for us to adopt. Hence, we can claim that get the "objectively objective" metaphysics that we want.
 
 Hard-core metaphysicians will probably vehemently resist this and argue the this: The following is a meta-metaphysical claim: $P$ is invariable in any metaphysical theory we can coherently adopt. But it does not entail the metaphysical claim: $P$ is metaphysically true. The former is a claim about theories, the latter is about the world. We cannot know anything about the world just by think about theories. Therefore, it is impossible for us to make any move from the meta-level to the object-level. 
 
@@ -308,13 +309,13 @@ There are two ways to answer this. The first way is to acknowledge this problem.
 
 The second way is to maintain that the entailment holds, and the hard-core metaphysicians have a wrong conception of metaphysics. According to the hard-core metaphysicians, it is metaphysically possible that $P$, while it is impossible for us to coherently adopt that $P$. Then it is possible that, the we cannot coherently adopt the "true metaphysics". But in practice, we reject this possiblity all the time. Assume $A$ and $B$ are two *inconsistent* sentences about the world. What is the reason to say that we must at least deny one? The only reason that I can conveive is that, we cannot coherently adopt such an inconsistent theory. According to the hard-core metaphysicians, "inconsistent theories are not adoptable" doesn't entail that the world is consistent. Therefore, when doing metaphysics, we do not have to deny $A$ or $B$. Maybe the "true metaphysics" really has both $A$ and $B$. But this sounds insane. Given what "world" means in metaphysics, it never entertain the possiblity that, the world might be inconsistent. Indeed, if we allow this possibility, then I don't know if we can say anything meaningful at all about the world.
 
-I admit this is a non-trivial move. So let me defend this further with some Socratic terms. What is the problem for the hard-core conception of metaphysics? I believe this kind of metaphysics can only belong to God, not to human beings. For human beings, then, we should pursue human knowledge and understand reality in a human way, not in God's way. Therefore, if metaphysics is to be a subject of human inquiry at all, it must accept our human limitations.
+I admit this is a non-trivial move. So let me defend this further with some Socratic terms. What is the problem for the hard-core conception of metaphysics? Winding back to the beginning of this paper: If we throw away all of our intuitions, then we cannot establish anything. If how that world is have nothing to do with how we would think about it, then this kind of metaphysics can only belong to God, not to human beings. For human beings, then, we should pursue human knowledge and understand reality in a human way, not in God's way. Therefore, if metaphysics is to be a subject of human inquiry at all, it must accept our human limitations.
 
 I personally stand with the second reply and allow the move from the meta-level to the object-level. However, for people who are not persuaded by this, they can adopt the first reply and translate my subsequent claims into meta-level claims.
 
 #### Causation
 
-I want to argue that *the Principle of Sanity* gives an agency-based interpretation to the interventionist approach to causation. 
+I want to argue that *the Principle of Sanity* gives an agency-based interpretation to the interventionist approach to causation. Given my defense of the interventionist account, I will then extend it to the analysis of fundamentality.
 
 Let me give a quick introduction to this interventionist approach. This approach uses Structural Equation Models (SEM) to analyze causation. Nowadays among statisticians and scientists, this is the probably most popular way to make causal inference. The most basic interventionist causal analysis is this: $A$ causes $B$ if intervention on $A$'s state will change $B$'s state. The latter part can be formalized and evaluated by causal models. Let's quickly go through the basic formalization to get the gist. A causal model is $M=\{U,V,F\}$ where $U$ is a set of exogenous variables, $V$ is a set of endogenous variables, and $F$ is a set of structural equations that determines the value of endogenous variables by exogenous variables. Given an assignment of exogenous variables $u$, we will have all the values in $M$ fixed. Assume $A=a$ and $B=b$ in the actual world. To analyze whether $A$ causes $B$, we surgically set the value of $A$ to $a' \neq a$  and therefore produce a new model $M_{A=a'}$. Given the same assignment $u$, if value of $B$ in $M_{A=a'}$ is not $b$, then we say $A$ causes $B$.
 
@@ -354,17 +355,28 @@ Let me explain where my argument lead us. The direct positive conclusion from th
 
 #### Fundamentality
 
-Finally, it's time to go back to where I started: fundamentality. The reason why I spent so much time on the interventionist account is that, it has a very important feature that I need to establish fundamentality: It ensures the asymmetry!
+Finally, it's time to go back to where I started: fundamentality. The reason why I spent so much time on the interventionist account is that, it has a very important feature that I need to establish fundamentality: It ensures the *asymmetry*. 
 
 In the most basic counterfactual analysis of causation, A actually causes B if (1) A and B both occur in the actual world; and (2) if A had not occurred, then B would not have occurred. On Lewis-style possible-world semantics, (2) is true if, in the closest worlds to the actual world where A does not occur, B also does not occur. However, this semantics does not rule out symmetry. If, in the closest worlds where B does not occur, A also does not occur, we would conclude that B actually causes A. Setting aside the possibility of cyclic causation, causation should be asymmetric. Yet there is no straightforward way to modify Lewis-style possible-world semantics to guarantee this asymmetry.
 
 By contrast, in interventionist semantics (setting aside cyclic models), the asymmetry is ensured. Let us illustrate with the toy model $M = \{\{A\}, \{B\}, \{B = A\}\}$ and the actual assignment $u(A) = 1$. The counterfactual "if A had not occurred, then B would not have occurred" is true because, given $u$, the value of $B$ in $M_{A=0}$ is 0. But the counterfactual "if $B$ had not occurred, then $A$ would not have occurred" is false because, given $u$, the value of $A$ in $M_{B=0}$ is 1. In other words, so long as the model is acyclic, the asymmetry is ensured by design.
 
-Is this circular? It seems that the structural equation $B = A$ in $M$ already presupposes this asymmetry. If we treat $M$ as an appropriate causal model because we presuppose that $A$ causes $B$, then the reasoning is circular. However, structural equations can be discovered empirically via intervention tests. For example, to test whether $B = A$, we can intervene on $A$ and observe how the value of $B$ changes. Therefore, the world can teach us whether is an appropriate model, without circularity.
+Is this circular? It seems that the structural equation $B = A$ in $M$ already presupposes this asymmetry. If we treat $M$ as an appropriate causal model because we presuppose that $A$ causes $B$, then the reasoning is circular. However, structural equations can be discovered empirically via intervention tests. For example, to test whether $B = A$, we can intervene on $A$ and observe how the value of $B$ changes. Therefore, the world can teach us whether is an appropriate model, without circularity. And given that *the Strong Principle of Sanity* ensures the semantic invariance of intervention, we do not need to worry about a strange creature who interpret it differently.
 
-Now, recall my problem for Bennett's account of fundamentality: for any mutually necessitating relations, we were unable to privilege a direction. Bennett used the generative constraint to ensure the direction, but this constraint is framework dependent. 
+Now, recall my problem for Bennett's account of fundamentality: for any mutually necessitating relations, we were unable to privilege a direction for asymmetry. Bennett used the generative constraint to ensure the direction, but this constraint is framework dependent. Therefore, it does not ensure the invariance of the privilege.
 
-Indeed, using SEM for ground is no new idea. ==Schaffer grounding in the image of causation== and ==Wilson metaphysical causation== 
+However, given the invariance of SEM, the direction provided by SEM is privileged. But let me slow down: SEM is used for causation. How can it be used for fundamentality?
+
+In fact, using SEM to analyze fundamentality is no new idea. ==Schaffer grounding in the image of causation== and ==Wilson metaphysical causation== has all written in detail on how to use structural equations to analyze fundamentality, and even see horizontal building as metaphysical causation. The problem, again, is how to choose the appropriate model to make this analysis non-circular. Let me use a toy example to illustrate this problem. Assume we choose a model where the structural equation is $\{Socreates\}=Socrates$, then we can easily get the result that singleton Socrates depends on Socrates. But the problem is why do we choose $\{Socreates\}=Socrates$ as the appropriate equation. Recall the previous challenge. Robo might choose $Socrates=\{Socreates\}$. Why is Robo's choice problematic?
+
+I have not seen a satisfying reply in the current literature. For example, Schaffer seems to adopt a neutral position about model choice, and thus have no reason against Robo's choice.
+
+
+To be specific, in the case of causation, the structural equations can be empirically established. Therefore, there is no vicious circularity.
+
+
+I have no space to go into detail here, so I will just use a toy example to illustrate this analysis. For example, if we intervene 
+
 
 ## Beyond metaphysics: trusting friends against evidence
 
