@@ -113,7 +113,7 @@ Distribution of NOT ONLY goods, but also status and rank/power
 
 Criticism: this narrows the scope of "(in)justice". For example, *lack of respect* problem, not distribution problem `bias?`
 
-Yet another problem: epistemic (in)justice, someone is wronged specifically in her capacity as a knower `reasonale knower?`
+Yet another problem: epistemic (in)justice, someone is wronged specifically in her capacity as a knower `reasonable knower?`
 
 ## What is epistemic wrong?
 
