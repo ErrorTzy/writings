@@ -6,6 +6,7 @@ mainfont: FreeSerif
 CJKmainfont: Noto Serif CJK SC
 mathfont: XITS Math
 fontsize: 12pt
+numbersections: true
 ---
 # I
 
