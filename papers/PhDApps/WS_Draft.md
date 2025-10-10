@@ -49,6 +49,9 @@ If we frame the question of realism in my fashion, however, then the deflationis
 
 Another important distinction needs to be clarified. There is a difference between merely *utilizing* a language and *adopting* a language. To start with, what I mean by language is broad, and includes inferential rules and laws. In other words, that "theory" and "language" are interchangeable in this paper. 
 
+> Emphasize this distinction later when talking about quantum physics; Say something about understanding. Plus, the connnection between the first part and the second part can be strengthened.
+> People gets lost in the dialectics. 
+
 In fact, a full account of this distinction has to be discussed at length elsewhere. But the basic idea is simple. To *utilize* a language is to merely follow syntactic rules and form well-formed sentences. One does not need to take a stance on how to interpret the language. For example, mathematical formalists, like Hilbert, are merely utilizing mathematical languages without reading anything off it. To *adopt* a language, however, one has to also *think* in its semantics and *accept* the picture of reality it implies. A calculator surely doesn't *adopt* arithmetic. In addition, we do not always adopt *literal* English because we don't really think "bank" is a unified category.
 
 The way I've framed the question, i.e. how much reality we should read off our linguistic features, is different from the standard story told in metametaphysics. I think the standard narrative, which I'll lay out in a moment, tends to miss something important. I take the familiar story told by ==Schaffer (2009 on what grounds what)==, which is the most-cited paper in this field, as the orthodox version (though I'll be telling a bit differently).
@@ -66,6 +69,8 @@ The implication here is serious. If metaphysics is founded on questions of exist
 Meanwhile the Neo-Aristotelians also come into play.[^3] They also attack on the neo-Quineans. They argued that even if we had a complete list of what exists, we'd still be missing something important: what is most fundamental, and what grounds what. Schaffer, for instance, argues that questions about existence are trivial. He says that of fictional characters and abstract objects trivially exist. The real, interesting question is about what grounds their existence. This shift in focus from existence to fundamentality has been the dominant trend in metaphysics for the past twenty years or so.
 
 ### The problem with the standard story
+
+> Why it is necessary for me to explain the history? Explain why do I have to introduce this. What do I want to argue? Say it before I actually start to talk about it.
 
 Here's the problem. From the neo-Aristotelian perspective, this makes them look like the next logical step. In this view, the neo-Carnapians performed a useful, but purely *negative*, task by showing the flaws in the neo-Quinean focus on existence: the meaning of "exist" could vary. With that groundwork laid, the neo-Aristotelians can then step in to offer a *positive* new project, and say the various meaning of "exist" are "exist-more-fundamentally" and "exist-less-fundamentally". Thus, they turning the page on the neo-Quine-Carnap debate and building something new around fundamentality. (==citation==)
 
@@ -205,7 +210,7 @@ To put it simply, *certain constraints prevents us from coherently adopting and 
 
 Let me clarify further. One might object that, physics already presents a picture of reality that is far beyond our understanding. For example, it's very difficult to truly make sense of concepts like fields, curved spacetime, or probabilistic states. Yet, these are highly successful theories, and we don't reject them. In fact, we make use of them all the time.
 
-To reply, I want to emphasize again the difference between *adopting* a theory and merely *utilizing* it. This distinction is clear in quantum mechanics. Physicists apply the Schrödinger equation to compute predictions and do experiments. Yet they may remain silent about how to interpret the equation. They just shut up and calculate. If so, then they are merely utilizing these equations without adopting them into their worldview. What I am arguing for is the constraint on adopting a theory. There is no problem with using a theory that violates these constraints to do experiments or make predictions. However, as long as we want to truly understand the reality a theory claims to reveal, these constraints apply.
+To reply, I want to emphasize again a distinction I made in the first part of my paper. There is a distinction between *adopting* a theory and merely *utilizing* it. This distinction is clear in quantum mechanics. Physicists apply the Schrödinger equation to compute predictions and do experiments. Yet they may remain silent about how to interpret the equation. They just shut up and calculate. If so, then they are merely utilizing these equations without adopting them into their worldview. What I am arguing for is the constraint on adopting a theory. There is no problem with using a theory that violates these constraints to do experiments or make predictions. However, as long as we want to truly understand the reality a theory claims to reveal, these constraints apply.
 
 ## The principle of Sanity
 
