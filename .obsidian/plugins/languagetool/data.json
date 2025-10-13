@@ -1,7 +1,7 @@
 {
   "serverUrl": "http://localhost:8081",
   "autoCheckDelay": 3000,
-  "shouldAutoCheck": false,
+  "shouldAutoCheck": true,
   "languageVariety": {
     "en": "en-US",
     "de": "de-DE",
@@ -68,10 +68,12 @@
     "truth-trackingness",
     "tsukue",
     "Yablo",
-    "ZYX"
+    "ZYX",
+    "unbuilt"
   ],
   "syncDictionary": false,
   "remoteDictionary": [],
-  "pickyMode": false,
-  "disabledRules": "SENT_START_CONJUNCTIVE_LINKING_ADVERB_COMMA"
+  "pickyMode": true,
+  "disabledRules": "SENT_START_CONJUNCTIVE_LINKING_ADVERB_COMMA,EN_QUOTES",
+  "staticLanguage": "en-US"
 }
