@@ -5,8 +5,7 @@
   "panelOrder": [
     "custom-labels",
     "example-lists",
-    "definition-lists"
-  ],
-  "useNewPipeline": true,
-  "strictCustomLabelMode": true
+    "definition-lists",
+    "footnotes"
+  ]
 }
