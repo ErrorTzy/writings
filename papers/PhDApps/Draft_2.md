@@ -1,3 +1,14 @@
+---
+documentclass: exam
+title: Draft
+author: Scott Tang
+mainfont: FreeSerif
+CJKmainfont: Noto Serif CJK SC
+mathfont: XITS Math
+fontsize: 12pt
+numbersections: true
+---
+
 # I
 
 ## Intro 
@@ -31,7 +42,7 @@ If we frame the question of realism in my fashion, however, then the deflationis
 
 Another important distinction needs to be clarified. There is a difference between merely *utilizing* a language and *adopting* a language. To start with, what I mean by language is broad, and includes inferential rules and laws. In other words, that "theory" and "language" are interchangeable in this paper. 
 
-In fact, a full account of this distinction has to be discussed at length elsewhere. But the basic idea is simple. To *utilize* a language is to merely follow syntactic rules and form well-formed sentences. One does not need to take a stance on how to interpret the language. For example, mathematical formalists, like Hilbert, are merely utilizing mathematical languages without reading anything off it. To *adopt* a language, however, one has to also *think* in its semantics and *accept* the picture of reality it implies. A calculator surely doesn't *adopt* arithmetic. In addition, we do not always adopt *literal* English because we don't really think "bank" is a unified category.
+This distinction would be pivotal throughout the paper. To *utilize* a language is to merely follow syntactic rules and form well-formed sentences. One does not need to take a stance on how to interpret the language. For example, mathematical formalists, like Hilbert, are merely utilizing mathematical languages without reading anything off it. To *adopt* a language, however, one has to also *think* in its semantics and *accept* the picture of reality it implies. In other words, to *adopt* a language is to read reality off this language. A calculator surely doesn't *adopt* arithmetic. In addition, we do not always adopt *literal* English because we don't really think "bank" is a unified category.
 
 ### Possible Positions
 
@@ -43,39 +54,24 @@ There are in general three positions for answering this question.
 
 *Sometimes-ism* is what mainstream metaphysicians tend to adopt. For example, Armstrong believes only some predicates are real universals. In other words, some linguistic features are privileged, and we should only read the privileged linguistic features off the reality.
 
-Although the debate between the *neo-Quineans* and the *neo-Carnapians* has been mainly focusing on existence, but really it should be seen as a debate between *sometimes-ism* and *always-ism*. 
+In the contemporary metaphysics, there has been a debate on existence, between the *neo-Quineans* and the *neo-Carnapians*. According to the Quinean methodology, the sole task of metaphysics is to figure out what indispensably *exists*. Whether numbers or electrons exist depends on whether we must quantify over them in our best theories. However, the *neo-Carnapians* argued that, the mean of the quantifier can vary.[^2] When different people debate about what exists, they are speaking different languages. If their languages are truth-functionally equivalent, then this is a mere verbal dispute.
+
+The debate was mainly focusing on existence, but really it should be seen as a debate between *sometimes-ism* and *always-ism*. The kind of pressure neo-Carnapians raises is the following: According to *sometimes-ism*, our best metaphysics tells us to privilege some linguistic features to *adopt*.[^13] But assume there are some aliens who *adopt* a different language. If we want to show that our best metaphysics is objective, then we must be able to show why the alien language is flawed.
+
 ## The Raise of Fundamentality
 
-I take the familiar story told by ==Schaffer (2009 on what grounds what)==, which is the most-cited paper in this field, as the orthodox version (though I'll be telling a bit differently). 
+For the past two decades, people started to be tried of the debate on existence. A new trend, under the name of *neo-Aristotelian* metaphysics, became dominant.[^3]  They argued that even if we had a complete list of what exists, we'd still be missing something important: what is *most fundamental*, and what is *more fundamental than* what. ==Schaffer citation==, for instance, argues that questions about existence are trivial. The real, interesting question is about what grounds their existence. This shift in focus from existence to fundamentality has been the dominant trend in metaphysics for the past twenty years or so.
 
-It goes something like this: contemporary metaphysics began with the Quinean approach to metaphysics. For Quine, the main task of metaphysics is to figure out what indispensably *exists*. Whether numbers or electrons exist depends on whether we must quantify over them in our best theories.
+Here's the problem. From the neo-Aristotelian perspective, this makes them look like the next logical step. In this view, the neo-Carnapians performed a useful, but purely *negative*, task by showing the flaws in the neo-Quinean focus on existence: the meaning of "exist" could vary. With that groundwork laid, the neo-Aristotelians can then step in to offer a *positive* new project, and say the various meaning of "exist" are "exist-more-fundamentally" and "exist-less-fundamentally". Thus, they turn the page on the neo-Quine-Carnap debate and building something new around fundamentality. (==citation==)
 
-But then, the neo-Carnapians entered the scene. I believe the most important the idea from the neo-Carnapians is that, the meaning of "exists" can vary.[^2] According to this view, when different people debate about what exists, they are speaking different languages. If their languages are truth-functionally equivalent, then this is a mere verbal dispute.
+But this is surely *not* the case. For the neo-Aristotelians, it seems they are holding *sometimes-ism about explanation or definition*, and *always-ism about existence*.[^5] Everything we can talk about trivially exists, but it might be derivative or idea-dependent. And the way we trace this kind of dependency is through the structure of definition or explanation (==citation to Fine's essence and modality, guide to ground, and Schaffer's work==).
 
-The implication here is serious. If metaphysics is founded on questions of existence, but quantifier variance shows that there are many equally good meanings of "existence" and the debates are merely verbal, then metaphysics risks becoming a largely trivial field of study.
-
-Meanwhile the Neo-Aristotelians also come into play.[^3] They also attack on the neo-Quineans. They argued that even if we had a complete list of what exists, we'd still be missing something important: what is most fundamental, and what grounds what. Schaffer, for instance, argues that questions about existence are trivial. He says that of fictional characters and abstract objects trivially exist. The real, interesting question is about what grounds their existence. This shift in focus from existence to fundamentality has been the dominant trend in metaphysics for the past twenty years or so.
-
-### The problem with the standard story
-
-Here's the problem. From the neo-Aristotelian perspective, this makes them look like the next logical step. In this view, the neo-Carnapians performed a useful, but purely *negative*, task by showing the flaws in the neo-Quinean focus on existence: the meaning of "exist" could vary. With that groundwork laid, the neo-Aristotelians can then step in to offer a *positive* new project, and say the various meaning of "exist" are "exist-more-fundamentally" and "exist-less-fundamentally". Thus, they turning the page on the neo-Quine-Carnap debate and building something new around fundamentality. (==citation==)
-
-But this is surely *not* the case. The neo-Carnapian argument is not just about existence. It is about *semantic variance*. Basically, the pressure coming from the neo-Carnapians is the following: For any objective privilege 
-
-In order to see this more clearly, let's return to the question I framed at the start: *How much reality should we read off our linguistic features?*
-
-**For the neo-Quineans**, the answer is *sometimes-ism about existence*. We can only sometimes read entities off our ordinary language.
-
-**For the neo-Carnapians**, the most plausible answer is *a general form of always-ism*: 
-
-**For the neo-Aristotelians**, it seems they are holding *sometimes-ism about explanation or definition*, and *always-ism about existence*.[^5] Everything we can talk about trivially exists, but it might be derivative or idea-dependent. And the way we trace this kind of dependency is through the structure of definition or explanation (==citation to Fine's essence and modality, guide to ground, and Schaffer's work==).
-## Objective Metaphysical Privilege
-
-Now we can clearly see the issue. Neo-Carnapians are arguing for a general form of *always-ism*, which would naturally includes the *always-ism about explanation or definition*. The pressure that the neo-Carnapian argument would put on the neo-Aristotelians' *sometimes-ism* is that, what makes some definition or explanation privileged so that they get to trace fundamentality, but the other doesn't? 
-
-I will later defend sometimes-ism against always-ism. In fact, the *general form of always-ism* is already under pressure. In the previous paragraph, I constructed an exotic toy model that satisfies "Superman is Clark Kent". According to always-ism, there is no problem with this model. Something already seems wrong. But for now I will ignore these problems, put on the hat of neo-Carnapians and explain why the neo-Aristotelians did not give any satisfying answer. 
+Now we can clearly see the issue. Neo-Carnapians are arguing for a general form of *always-ism*, which would naturally applies to explanation or definition. What makes some definition or explanation privileged so that they get to trace fundamentality, but the other doesn't?
 
 In the following three sections, I will leave aside the Quinean-flavored view. This view establish fundamentality by pragmatic epistemology, i.e. the fact is determined by the best system that has the most pragmatic virtues like simplicity, elegance and explanatory power. I argue against this view in the second part of this paper. But standard neo-Aristotelians vehemently reject that metaphysics is just Quinean pragmatics. Therefore, in the next three sections, I attack the non-pragmatic neo-Aristotlian view that, we can objectively establish an absolute account of fundamentality that does not lead to semantic variance.
+
+
+## Objective Metaphysical Privilege
 
 ### Naturalness
 
@@ -185,11 +181,7 @@ The arguments discussed in the previous section share a common pattern: we imagi
 
 A natural, initial response is to dismiss these creatures as simply _insane_. This is, in fact, the kind of response I want to defend. My strategy, however, isn't to argue that there is something wrong with these alien languages _per se_. Instead, I want to focus on what's wrong with the relationship between _us_ and these languages.
 
-To put it simply, *certain constraints prevents us from coherently adopting and committing to just any theory*. If these constraints have substantial metaphysical consequences, then any theory we can coherently adopt must be consistent with them. Moreover, these metaphysical consequences will be *invariant* across all theories available to us.
-
-Let me clarify further. One might object that, physics already presents a picture of reality that is far beyond our understanding. For example, it's very difficult to truly make sense of concepts like fields, curved spacetime, or probabilistic states. Yet, these are highly successful theories, and we don't reject them. In fact, we make use of them all the time.
-
-To reply, I want to emphasize again a distinction I made in the first part of my paper. There is a distinction between *adopting* a theory and merely *utilizing* it. This distinction is clear in quantum mechanics. Physicists apply the Schrödinger equation to compute predictions and do experiments. Yet they may remain silent about how to interpret the equation. They just shut up and calculate. If so, then they are merely utilizing these equations without adopting them into their worldview. What I am arguing for is the constraint on adopting a theory. There is no problem with using a theory that violates these constraints to do experiments or make predictions. However, as long as we want to truly understand the reality a theory claims to reveal, these constraints apply.
+To put it simply, *certain constraints prevents us from coherently adopting and committing to just any theory*. If these constraints have substantial metaphysical consequences, then any theory we can coherently adopt must be consistent with them. Moreover, these metaphysical consequences will be *semantically invariant* across all theories available to us.[^14]
 
 ## The principle of Sanity
 
@@ -226,10 +218,9 @@ I don't expect this argument to be invincible, given the complex nature of agenc
 
 ## Consequences
 
+There are some direct corollaries. For example, we cannot coherently adopt a theory that eliminates causation and first-person pronoun.[^15] But these are negative meta-level conclusions, telling us which theories we cannot adopt. However, the more interesting ones are the objective-level results.
 
-So far, I've illustrated two direct corollaries of the Principle of Sanity on causation and personal identity. These are negative meta-level conclusions, telling us which theories we *cannot* adopt. However, the principle can also yield positive, objective-level results.
-
-#### Are Positive Corollaries Possible?
+### Are Positive Corollaries Possible?
 
 Immediately a question arises here. *The Principle of Sanity* is a meta-theoretical constraint. Why should an object-level theory has to adopt the content of the meta-level theory?
 
@@ -249,7 +240,7 @@ I admit this is a non-trivial move. So let me defend this further. What is the p
 
 I personally stand with the second reply and allow the move from the meta-level to the object-level. However, for people who are not persuaded by this, they can adopt the first reply and translate my subsequent claims into meta-level claims.
 
-#### Horizontal Building: Causation
+### Horizontal Building: Causation
 
 I want to argue that *the Principle of Sanity* gives an agency-based interpretation to the interventionist approach to causation. After my defense of the interventionist account, I will then extend it to the analysis of fundamentality.
 
@@ -259,7 +250,7 @@ Surely, this basic counterfactual account does not work in the cases of preempti
 
 And this circularity leads to *a problem of interpretation*. All languages need interpretation. The formal language of SEM also needs an interpretation. But if the semantic interpretation of SEM in turn requires another SEM, then it will lead to infinite regression. The standard reply is to admit that causation as primitive, and the notion of intervention depends on causation. But how come that we automatically have a primitive interpretation of causation? I believe more can be said.
 
-##### The Strong Principle of Sanity
+#### The Strong Principle of Sanity
 
 Now, I want to derive a positive account of causation from *the Principle of Sanity*. But the current interpretation of "rational agency" is *epistemic agency*. To the extent that it necessitates causation, it only necessitates the causation between *mental states*. Therefore, if we want to establish causation among physical objects, we have to adopt a stronger reading of "rational agency" in the _Principle of Sanity_. 
 
@@ -271,7 +262,7 @@ I will not further discuss the details of this maneuver. The gist is to make the
 
 Now given *the Strong Principle of Sanity*, we get the indispensability of the agency of bodily control. But this kind of agency just is mental-physical causation. I will use it to establish physical causation.
 
-##### Solving the Interpretation Problem
+#### Solving the Interpretation Problem
 
 Previously I discussed how to interpret "surgical intervention." Why must the intervention be "surgical"? Because we must ensure that the intervention affects only the target variable. Other variables may change as a result of intervention. But their changes should only be determined by the structural equations. The standard worry is that empirical interventions are never truly surgical. Assume we want to intervene on the current in a coil. We cannot directly create current to flow in a coil; we have to create a moving magnetic field. This in turn requires moving a magnet, and so on. And presumably this would lead to tons of variable to change. Therefore, no worldly intervention has the purity the SEM formalism presupposes, and the operation lacks an interpretation.
 
@@ -287,15 +278,11 @@ My reply is that actual causation is analyzed by *possible* intervention. Such i
 
 Let me explain where my argument lead us. The direct positive conclusion from the *Strong Principle of Sanity* require us to take mental and mental-physical causation to be *really out there*. And through *utilizing* interventionist's formal language, we can talk about physical causation. But it is not required for us to *adopt* this language and say physical causation is really out there. Indeed, what I am claiming is compatible with a deflationary view about physical causation, but not mental-physical or mental causation.
 
-#### Fundamentality
+### Vertical Building
 
-Finally, it's time to go back to where I started: fundamentality. The reason why I spent so much time on the interventionist account is that, it has a very important feature that I need to establish fundamentality: It ensures the *asymmetry*. 
+Finally, it's time to go back to where I started: fundamentality. The reason I spent so much time on the interventionist account is that, it has a very important feature that I need to establish fundamentality: unlike Lewis-style possible world semantics, SEM ensures the *asymmetry*. 
 
-In the most basic counterfactual analysis of causation, A actually causes B if (1) A and B both occur in the actual world; and (2) if A had not occurred, then B would not have occurred. On Lewis-style possible-world semantics, (2) is true if, in the closest worlds to the actual world where A does not occur, B also does not occur. However, this semantics does not rule out symmetry. If, in the closest worlds where B does not occur, A also does not occur, we would conclude that B actually causes A. Setting aside the possibility of cyclic causation, causation should be asymmetric. Yet there is no straightforward way to modify Lewis-style possible-world semantics to guarantee this asymmetry.
-
-By contrast, in interventionist semantics (setting aside cyclic models), the asymmetry is ensured. Let us illustrate with the toy model $M = \{\{A\}, \{B\}, \{B = A\}\}$ and the actual assignment $u(A) = 1$. The counterfactual "if A had not occurred, then B would not have occurred" is true because, given $u$, the value of $B$ in $M_{A=0}$ is 0. But the counterfactual "if $B$ had not occurred, then $A$ would not have occurred" is false because, given $u$, the value of $A$ in $M_{B=0}$ is 1. In other words, so long as the model is acyclic, the asymmetry is ensured by design.
-
-Is this circular? It seems that the structural equation $B = A$ in $M$ already presupposes this asymmetry. If the reason we treat $M$ as an appropriate causal model is that, we presuppose that $A$ causes $B$, then it is circular. However, structural equations can be discovered empirically via intervention tests. For example, to test whether $B = A$, we can intervene on $A$ and observe how the value of $B$ changes. Therefore, the world can teach us whether is an appropriate model, without circularity. And given that *the Strong Principle of Sanity* ensures the semantic invariance of intervention, we do not need to worry about a strange creature who interpret it differently.
+Is this asymmetry circular? It seems that structural equations already presupposes asymmetry. If the reason we treat $M$ as an appropriate causal model is that, we presuppose that $A$ causes $B$, then it is circular. However, structural equations can be discovered empirically via intervention tests. For example, to test whether $B = A$, we can intervene on $A$ and observe how the value of $B$ changes. Therefore, the world can teach us whether is an appropriate model, without circularity. And given that *the Strong Principle of Sanity* ensures the semantic invariance of intervention, we do not need to worry about a strange creature who interpret it differently.
 
 Now, recall my problem for Bennett's account of fundamentality: for any mutually necessitating relations, we were unable to privilege a direction for asymmetry. Bennett used the generative constraint to ensure the direction, but this constraint is framework dependent. Therefore, it does not ensure the invariance of the privilege.
 
@@ -319,16 +306,17 @@ Is this a good reason to show that, Robo's metaphysics is flawed? It doesn't see
 
 Let's now check again where my argument leads us to. First, What I argued so far easily extends to building relations other than set-formation, but to save space, I leave this to the readers. Second, my argument established an account of how to establish a privileged direction for building relations. Like the previous discussion of physical causation, this is compatible with a deflationary view about the building relations established by SEM. However, there is one thing that cannot be deflated: the mental-physical causation required by rational agency. In fact, maybe it's better not to call this causation, because I am inclined to say this is atemporal. Anyway, the fact that, our intention *builds* our action must not be deflated. In this sense, fundamentality cannot be not altogether deflated into interventionist formalism, because this mental-physical building relation is required by our sanity.
 
-### Beyond metaphysics
+## Beyond metaphysics
 
-The next thing I want to show is that, *the Principle of Sanity* should be taken seriously because it is not just a metaphysical principle. It is supposed to be a constraint on any philosophical investigation. In order to show this, I want to talk about a consequence it implies in ethics.
+*The Principle of Sanity* should be taken seriously because it is not just a metaphysical principle. It is supposed to be a constraint on any philosophical investigation. Due to the word limit, I will only sketch a consequence it implies in ethics.
 
 Consider the follow dilemma from ==Baker 1987 trust and rationality==: Imagine your closest friend is Smith. One day, the police show up at your door with compelling evidence against him: surveillance footage shows someone who looks just like Smith robbing a bank at gunpoint, and they've found his fingerprints at the scene. The police don't know where Smith is and ask you to contact them if you see him. A few days later, Smith appears at your door. He desperately claims he's been framed and had nothing to do with the robbery. The question is: should you trust his word?
 
 ==Hieronymi 2005 The reasons of trust== argues that in this case we cannot rationally trust our friend. She argues that once we think about this belief, we'll find it lacks proper foundation. This is because only beliefs formed through a truth-directed process can withstand rational reflection. If one is rational, then one will lose the belief formed by practical considerations alone.
 
-Let me lay out my argument first and then defend them step by step. First, I'll argue that for human beings, being a moral agent is impossible without social interaction. Second, social interaction is impossible without assuming that others are being truthful. Given our friends are central to our social interaction, trusting friends is necessary for sustaining moral agency. If unfortunately, your evidence constantly conflicts with a friend's testimony, your sanity requires you to trust your friend against the evidence.
+Here, I interpret "rational agency" as "moral agency". And by moral agency, I mean the ability to have what ==Williams 1985 ethics and the limits of philosophy== called "thick ethical concepts", such as courage, treachery, brutality, and gratitude. Being a moral agent is impossible without social interaction. Social interaction requires reaction to other's attitude. And reaction to other's attitude requires understanding other people's thought. Given that we are not mind-readers, understanding other people's thought requires the assumption that others are being truthful. Therefore, moral sanity requires the assumption that others are being truthful. 
 
+If unfortunately, your evidence constantly conflicts with a friend's testimony, your sanity requires you to trust your friend against the evidence. Unless one insist that it is rational to be insane, one should give up Hieronymi's view on rationality.
 
 ## Conclusion
 
@@ -351,3 +339,6 @@ What would be the takeaway point of this whole paper, then? I think the point I 
 [^10]: Bennett's formulation of the necessitating requirement is a bit more complicated than this. She also consider the circumstance of necessitation (==p.52-54==). But here I will just use the cleaner way to formulating it for the toy example.
 [^11]: In other words, I am in fact suggesting two different principles. The stronger version is what I explicitly laid down and inclined to stand with. But even if one somehow resisted it, my conclusion can still be established by the weaker version, i.e. if we are capable of philosophical reflection, then we should not believe we are not rational agents.
 [^12]: The world is "inconsistent" is not a good formulation. In theory, consistency is a syntactic notion. It is a categorical mistake to apply it to the world. Maybe the better way to formulate the sentence is as follows: the world is such that, the "true" theory about the world will come out inconsistent. But for brevity, I will use the term "inconsistent world" to mean this.
+[^13]: For example, according to the Quinean methodology, some linguistic subject does not need to be quantified over. This is because they can be paraphrased away in our best theory. And we should not *adopt* the linguistic entities that can be paraphrased away.
+[^14]: Let me clarify further. One might object that, physics already presents a picture of reality that is far beyond our understanding. For example, it's very difficult to truly make sense of concepts like fields, curved spacetime, or probabilistic states. Yet, these are highly successful theories, and we don't reject them. In fact, we make use of them all the time. <br>To reply, I want to emphasize again a distinction I made in the first part of my paper. There is a distinction between *adopting* a theory and merely *utilizing* it. This distinction is clear in quantum mechanics. Physicists apply the Schrödinger equation to compute predictions and do experiments. Yet they may remain silent about how to interpret the equation. They just shut up and calculate. If so, then they are merely utilizing these equations without adopting them into their worldview. What I am arguing for is the constraint on adopting a theory. There is no problem with using a theory that violates these constraints to do experiments or make predictions. However, as long as we want to truly understand the reality a theory claims to reveal, these constraints apply.
+[^15]: To be an agent means to bring something about. 'Bringing about' is a causal notion. Therefore it is analytically true that, there is agency only if there is causation. It directly follows that, we cannot the following kind of theory: There is no such thing as causation. All there is is just a description of Humean regularity, possible worlds, etc. For the discussion of first-person pronoun, see ==Hirsch forthcoming==.
