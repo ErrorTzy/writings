@@ -1,4 +1,16 @@
 How to face semantic variance?
+
+semantic variance of the "world"?
+
+What is semantics? Mapping words to something.
+
+
+
+Some are just syntactic information (like "it" in it is raining), and some carving the world.
+
+The tension between semantic variance and objectively: what is the tension here?
+
+
 The fundamentality ignores this
 traking groud, or meta-ground
 Negative argument: invoking real definition or explanation
