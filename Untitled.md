@@ -1,5 +1,6 @@
 How to face semantic variance?
 The fundamentality ignores this
+traking groud, or meta-ground
 Negative argument: invoking real definition or explanation
 Positive argument: 
 1. meta-level constraint; 
