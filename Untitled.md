@@ -4,6 +4,8 @@ semantic variance of the "world"?
 
 What is semantics? Mapping words to something.
 
+structural variance
+
 
 
 Some are just syntactic information (like "it" in it is raining), and some carving the world.
