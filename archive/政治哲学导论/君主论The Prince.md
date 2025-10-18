@@ -1,4 +1,13 @@
+---
+documentclass: exam
+title: 君主论The Prince
+author: Scott Tang
+mainfont: FreeSerif
+CJKmainfont: Noto Serif CJK SC
+mathfont: XITS Math
+---
 # 第一章 君主国有多少种类？是用什么方法获得的？
+
 
 - 共和国
 - 君主国 **（第10（力量）章）**
