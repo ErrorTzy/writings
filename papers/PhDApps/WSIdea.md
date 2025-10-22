@@ -301,3 +301,10 @@ The difference between causal and non-causal building is about manipulating vari
 irreducible intentionality
 
 normativity and mistakes: the normality, wrongness; the concept of "mistake" itself is learned through social interaction.
+
+## On Grounding
+
+conventional yet objective grounding
+
+Wilsch (2015a, 2015b) tries to account for grounding in terms of a deductive nomo­
+logical model of explanation, and Kovacs (Forthcoming(a)) develops a “unificationist” account of metaphysical explanation.)
