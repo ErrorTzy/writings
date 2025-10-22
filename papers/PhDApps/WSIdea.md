@@ -308,3 +308,13 @@ conventional yet objective grounding
 
 Wilsch (2015a, 2015b) tries to account for grounding in terms of a deductive nomo­
 logical model of explanation, and Kovacs (Forthcoming(a)) develops a “unificationist” account of metaphysical explanation.)
+
+
+## On Moving from Meta to Object Level
+
+The hard-core view of metaphysics: the reason to believe the metaphysical proposition P is the metaphysical fact that [P]. And the reason to believe the metaphysical fact that [P] are the evidence that tracks the metaphysical fact that [P]. What we can believe or not is not an evidence that tracks the metaphysical fact that [P]. Therefore, we cannot believe that P simply because it is undoubtable that P.
+
+
+Litland and deRosset: DN model; too deflationary, grounding should be worldly and objective. ==why deflationary is incompatible with objectivity?==
+
+uneliminatable intentionality and agency
