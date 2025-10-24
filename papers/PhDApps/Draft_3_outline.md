@@ -1,8 +1,8 @@
-objective deflationism
 
-deflationary metaphysics says that our metaphysical view are framework dependent, and thus is subjective and anti-realism. 
 
-Recent discussion on fundamentality unwelcome deflationary view because grounding relation is intended to be worldy and objective. Deflationary view about fundamentality is automatically unwelcomed (some DN-model for grounding)
+Fundamentality, esp. grounding, is intended to be objective and worldly feature; Deflationism says that our metaphysical view are framework dependent. Therefore deflationism is naturally considered as subjective and anti-realist position. This automatically disqualifies as a proper position for explicating fundamentality (though there are some DN-model for grounding).
+
+I defend a restrcited account of deflationism by appealing to the undoubtablility of our rational agency. I defend that this flavor of deflationism is both objective and worldly.
 
 Worldly and objective deflationary account of fundamentality
 
