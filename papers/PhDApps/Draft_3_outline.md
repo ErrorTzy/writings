@@ -1,7 +1,5 @@
 ## Intro
 
-
-
 Worldliness: our metaphysics is completely devoid the side from us. Quinean
 
 
