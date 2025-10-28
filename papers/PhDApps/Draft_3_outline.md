@@ -1,9 +1,14 @@
 ## Intro
 
-Worldliness: our metaphysics is completely devoid the side from us. Quinean
+We do have a strong intuition about fundamentality. For example, objectively, atoms are more fundamental than tables. And saying what grounds what is indeed a part of our ordinary speech. Therefore, it should not be dismissed as altogether unintelligible. Therefore, the fundamentality project, esp. grounding, is supposed to be a promising project, like modality.
+
+However, it has been 20 years but almost no further consensus has been achieved, apart from the original, well-motivated intuition that something is less fundamental than, and not over and above the another. What is the source of this impass?
+
+The requirement for worldliness and objectivity. 
 
 
-Fundamentality, esp. grounding, is intended to be objective and worldly feature; Deflationism says that our metaphysical view are framework dependent. Therefore deflationism is naturally considered as a subjective and anti-realist position. This automatically disqualifies as a proper position for explicating fundamentality because it is not worldly.  (though there are some DN-model for grounding).
+
+Deflationism says that our metaphysical view are framework dependent. Therefore deflationism is naturally considered as a subjective and anti-realist position. This automatically disqualifies as a proper position for explicating fundamentality because it is not worldly.  (though there are some DN-model for grounding).
 
 I argue for a semi-deflationism for fundamentality by appealing to the undeflatable rational agency. I defend that this flavor of deflationism is the only way to make the project of fundamentality objective and worldly.
 
