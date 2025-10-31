@@ -2,6 +2,8 @@
 
 We do have a strong intuition about fundamentality. For example, objectively, atoms are more fundamental than tables. And saying what grounds what is indeed a part of our ordinary speech. Therefore, it should not be dismissed as altogether unintelligible. Therefore, the fundamentality project, esp. grounding, is supposed to be a promising project, like modality.
 
+(robust realist about fundamentality--not necessarily grounding. Small-g grounding, plexiology are roughly synonym for "fundamentality"...I take the word fundamentality because usually people think fundamentality itself can be further analyzed by concepts like grounding, building, naturalness or ontological priority. )
+
 However, it has been 20 years but almost no further consensus has been achieved, apart from the original, well-motivated intuition that something is less fundamental than, and not over and above the another. What is the source of this impass?
 
 The requirement for worldliness and objectivity. 
