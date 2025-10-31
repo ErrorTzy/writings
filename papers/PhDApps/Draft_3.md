@@ -1,22 +1,37 @@
 ## Intro
 
-We do have a strong intuition about fundamentality. For example, objectively, atoms are more fundamental than tables. And saying what grounds what is indeed a part of our ordinary speech. Therefore, it should not be dismissed as altogether unintelligible. Therefore, the fundamentality project, esp. grounding, is supposed to be a promising project, like modality.
+Over the past twenty years or so, many have grown tired of Quinean ontology and Carnapian metaontology (==citation==). People have found that even if we figure out what indispensably exists, we still seem to miss something important: what is more fundamental than what, and what is most fundamental. As a result, many have rallied under the banner of fundamentality. There has been a revolution in metaphysics since then.
 
-(robust realist about fundamentality--not necessarily grounding. Small-g grounding, plexiology are roughly synonym for "fundamentality"...I take the word fundamentality because usually people think fundamentality itself can be further analyzed by concepts like grounding, building, naturalness or ontological priority. )
+This revolution clearly differs from Quinean ontology, but it is not immediately clear how it avoids neo-Carnapian metaontology. Neo-Carnapian deflationism basically tells us that metaphysics varies across languages. But language use is subjective and conventional. Therefore, deflationism renders metaphysical claims not *worldly and objective*. Therefore, to avoid neo-Carnapian deflationism, proponents intend fundamentality to be "*worldly and objective*" (==citations==). This is intuitive: fundamentality is a legitimate part of ordinary discourse, and we have strong intuitions that such discourse is true in virtue of what is really out there. Taking it to be worldly and objective is, therefore, prima facie plausible.
 
-However, it has been 20 years but almost no further consensus has been achieved, apart from the original, well-motivated intuition that something is less fundamental than, and not over and above the another. What is the source of this impass?
+But you can't make a cake just by intending there to be one. Similarly, you cannot make fundamentality *worldly and objective* by mere intention. An argument must be made to meet the challenge. The hard part, however, is articulating the challenge: what exactly does it mean to say that something may not be *worldly and objective* at all?
 
-The requirement for worldliness and objectivity. 
+This paper aims to do exactly that. I argue that current accounts of fundamentality fail to justify themselves as *objective*, and that the root of the problem is a mistaken conception of being *worldly*. I then argue that, under the right conception, we can adopt a semi-deflationary account that secures a worldly and objective notion of fundamentality.
 
+## Struggling with Objectivity
 
+What is objectivity, really? It turns out to be pretty hard to articulate. Rosen (==citation==) even believes there is no way to articulate a sense of objectivity that is interesting to metaphysics. According to Rosen, there are two senses of objectivity: *methodological objectivity* and *metaphysical objectivity*. 
 
-Deflationism says that our metaphysical view are framework dependent. Therefore deflationism is naturally considered as a subjective and anti-realist position. This automatically disqualifies as a proper position for explicating fundamentality because it is not worldly.  (though there are some DN-model for grounding).
+*Methodological objectivity* means that the inquiry itself is not vulnerable to personal bias, prejudice, etc. Rosen immediately dismisses this sense of objectivity for two reasons. *First*, it is impossible (p. 284). Any inquiry must have a substantial starting point, and there is no way to guarantee that the starting point is not biased. *Second*, it is not "the sense of objectivity that interests us" (p. 286). The interesting sense of objectivity is related to facts, not inquiries. For example, we might say it is subjective that Mona Lisa is a beautiful painting.
 
-I argue for a semi-deflationism for fundamentality by appealing to the undeflatable rational agency. I defend that this flavor of deflationism is the only way to make the project of fundamentality objective and worldly.
+*Metaphysical objectivity* means that there might be a subjective realm of the world and an objective realm of the world. For example, phenomenal states might be said to belong to a private and subjective realm. Rosen also dismisses this sense of objectivity for being irrelevant. Even if the realm is in a sense subjective, the fact that *I'm in pain* seems perfectly objective. 
 
-## The raise of fundamentality (~700 words)
+Then Rosen surveys several influential attempts to explicate the interesting sense of objectivity, including mind-independence, response-independence, and judgment-independence. But none seems to capture a metaphysically important sense of objectivity. In a nutshell, Rosen keeps returning to the same complaint: *once we have specified the fact, there seems to be no room for it to be less than objective*. A fact that involves our mental states, our responses, or our beliefs is nevertheless perfectly objective.
 
-Quantifier variance tells us there is no objective basis for privileging the meaning of "existence". Then people give up the question of what there is and move on to fundamentality to seek objective structure of the reality, like what grounds what, or what is the most fundamental layer of reality. To avoid the risk of deflationism, this project is from the beginning intended to be objective and worldly. But how this could be established?
+In other words, according to Rosen, *methodological objectivity* is impossible and irrelevant, and *objectivity relating to facts* is trivially obtained. Surely, what could it even mean to say there are "subjective facts"? Isn’t that plainly self-contradictory? Rosen then concludes his paper with a puzzle: as long as we take the mind to be part of the world, we cannot accuse any fact of being subjective.
+
+But surely we can say that whether *Mona Lisa is a beautiful painting* is subjective. What did Rosen miss? 
+
+Returning to Mona Lisa's beauty, where does its subjectivity comes from? Assume we stipulate that "*beautiful*" precisely means*painted by Davinci*. Then immediately Mona Lisa is objectivity beautiful, because it is objectively being painted by Davinci. Subjectivity disappears after I stipulate the meaning of "beautiful". Where did subjectivity go? I believe it is quite clear that people will contend the following: My stipulation is totally subjective. I believe this is the right. Mona Lisa's beauty is subjective because there are other equally good candidate meanings for "beautiful". 
+
+In other words, "Mona Lisa is a beautiful painting" is subjective because it does not determinately single out a fact. And the indeterminacy comes from vagueness of the meaning of "beautiful". To generalize the line of thought, I believe the best way to model "objectivity" is through the following:
+
+Semantic Objectivity
+: X is objective iff for any reasonable meaning of 'X', the extension of 'X' does not change
+
+Let me explain what I mean by "reasonable meaning". In ordinary English, "there are tables" is an objective fact, because there is no reasonable meaning in ordinary English that will make this sentence come out false. However, an important milestone in metaontology is Hircsh's thesis of quantifier variance: the meaning of the quantifier could vary, and there are equally good candidate meanings for the quantifier. For example, the 
+
+"there are tables" is a subjective fact, because there are different senses of "there are". This surely sound odd. 
 
 ## Objectivity (~4500 words)
 
