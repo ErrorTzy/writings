@@ -10,7 +10,9 @@ This paper aims to do exactly that. I argue that current accounts of fundamental
 
 ## Struggling with Objectivity
 
-What is objectivity, really? It turns out to be pretty hard to articulate. Rosen (==citation==) even believes there is no way to articulate a sense of objectivity that is interesting to metaphysics. According to Rosen, there are two senses of objectivity: *methodological objectivity* and *metaphysical objectivity*. 
+What is the demand of being "worldly and objective", really? It turns out to be pretty hard to articulate. A first approximation could be roughly the following: Something is in the world iff it is objective.
+
+Rosen (==citation==) even believes there is no way to articulate a sense of objectivity that is interesting to metaphysics. According to Rosen, there are two senses of objectivity: *methodological objectivity* and *metaphysical objectivity*. 
 
 *Methodological objectivity* means that the inquiry itself is not vulnerable to personal bias, prejudice, etc. Rosen immediately dismisses this sense of objectivity for two reasons. *First*, it is impossible (p. 284). Any inquiry must have a substantial starting point, and there is no way to guarantee that the starting point is not biased. *Second*, it is not "the sense of objectivity that interests us" (p. 286). The interesting sense of objectivity is related to facts, not inquiries. For example, we might say it is subjective that Mona Lisa is a beautiful painting.
 
@@ -27,11 +29,11 @@ Returning to Mona Lisa's beauty, where does its subjectivity comes from? Assume 
 In other words, "Mona Lisa is a beautiful painting" is subjective because it does not determinately single out a fact. And the indeterminacy comes from vagueness of the meaning of "beautiful". To generalize the line of thought, I believe the best way to model "objectivity" is through the following:
 
 Semantic Objectivity
-: X is objective iff for any reasonable meaning of 'X', the extension of 'X' does not change
+: X is objective iff for there is only one reasonable meaning of 'X'
 
-Let me explain what I mean by "reasonable meaning". In ordinary English, "there are tables" is an objective fact, because there is no reasonable meaning in ordinary English that will make this sentence come out false. However, an important milestone in metaontology is Hircsh's thesis of quantifier variance: the meaning of the quantifier could vary, and there are equally good candidate meanings for the quantifier. For example, the 
+This is absolutely not a new idea. An important milestone in metaontology is Hircsh's thesis of quantifier variance: the meaning of the quantifier could vary, and there are equally good candidate meanings for the quantifier. Therefore, the quantificational structure is not objective.
 
-"there are tables" is a subjective fact, because there are different senses of "there are". This surely sound odd. 
+
 
 ## Objectivity (~4500 words)
 
