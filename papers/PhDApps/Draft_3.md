@@ -48,7 +48,7 @@ What can prevent a relation that has certain formal features from varying? Again
 
 For example, we naturally think that changing inertial reference frames is just a sheer transformation, and the speed of light would depend on the observer's motion. But empirical facts tell us that, surprisingly, our intuition is wrong. No matter how we change our reference frames, the speed of light remains invariant. Therefore, whenever we try to vary the speed of light, the world can in principle teaches us that, the alternative meaning is incorrect.
 
-
+Can the world teach us the right concept of fundamentality?
 
 
 ### Positive argument (~1500 words)
