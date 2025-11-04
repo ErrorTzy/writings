@@ -32,7 +32,7 @@ Then Rosen surveys several influential attempts to explicate the interesting sen
 
 In other words, according to Rosen, *methodological objectivity* is impossible and irrelevant, and *objectivity relating to facts* is trivially obtained. Rosen then concludes his paper with a challenge: as long as we take the mind to be part of the world, it seems we cannot accuse any assertion for being subjective. But surely we can say that *the Mona Lisa is a beautiful painting* is subjective. Did Rosen miss something?
 
-### Semantic Invariance
+### Objectivity is Semantic Invariance
 
 Where does the subjectivity of the Mona Lisa's beauty come from? Assume we stipulate that *"beautiful"* precisely means *painted by Davinci*. Then the Mona Lisa is objectively beautiful, because it was objectively painted by Da Vinci. Subjectivity seems to disappear once I stipulate the meaning of "beautiful."
 
@@ -46,18 +46,20 @@ To generalize this line of thought, I believe the best way to capture the intere
 
 - X is worldly and objective only if there is only one reasonable meaning of 'X'.
 
-Returning to Rosen's puzzle, he missed the following point: whatever is in the world is trivially objective, but our ways of referring to those things can be subjective. Using Ted Sider's way of speaking, a word's meaning carves out something in the world. We may say, figuratively, that what is carved has a certain "logical shape." The question is whether what we intend to carve out could have an alternative shape. The word reveals the shape of something the world only when there are no reasonable alternative shape.
+Returning to Rosen's puzzle, he missed the following point: whatever is in the world is trivially objective, but our ways of referring to those things can be subjective. Using Ted Sider's way of speaking, a word's meaning carves out something in the world. We may say, figuratively, that what is carved has a certain "logical shape." The question is not whether the thing is in the world. It obvious is. But what we intend to carve out could have an alternative shape.
+
+This reveals the conflict between our realist intuition and deflationism. What is at issue seems that, maybe deflationism can claim themselves to be *worldly*, but they are *subjective* in the relevant sense. The question, then, is what could prevent something we intend from taking an alternative shape.
 ## How to Ensure Worldly Objectivity?
 
-What would prevent something we intend from taking an alternative shape? Traditionally, this is guaranteed by *reference magnetism*. But this cannot work. This has been repeatedly pointed out by Hirsch (==many citations==) and Warren (==2023==). In the case where language use can determine the reference, magnetism cannot override it. Assume there are Martians seems as intelligent as we are, but they use '+' in a way that we need to interpret it as quus to make their utterance come out true. In this case, we should say the Martians are using '+' to mean quus. And in the cases of vagueness, like bald, where use cannot determine reference, we think it is just indeterminate. In other words, when language use determines the reference, magnetism does not exist. When the use does not determine the reference, magnetism does not exist. Therefore, magnetism does not exist.[^4]
+Traditionally, this is guaranteed by *reference magnetism*. But this cannot work. This has been repeatedly pointed out by Hirsch (==many citations==) and Warren (==2023==). In the case where language use can determine the reference, magnetism cannot override it. Assume there are Martians seems as intelligent as we are, but they use '+' in a way that we need to interpret it as quus to make their utterance come out true. In this case, we should say the Martians are using '+' to mean quus. And in the cases of vagueness, like bald, where use cannot determine reference, we think it is just indeterminate. In other words, when language use determines the reference, magnetism does not exist. When the use does not determine the reference, magnetism does not exist. Therefore, magnetism does not exist.[^4]
 
 The initial motivation to posit reference magnetism is to explain why our '+' means plus, not quus. It seems our linguistic behavior does not determine plus, while there is a strong impulse to say the meaning of '+' is plus, not quus. But "linguistic behavior" might be a too narrow scope about language use. Language use should include our intention, and our intention is enough to say '+' means plus. A lot more can be said, but for now I believe this should suffice to dismiss reference magnetism.
 
 Let's rewind: what would prevent semantic variance? In a trivial sense, of course, any symbol can vary in meaning; "fundamentality" could just mean "hello", for instance. But that isn't the kind of reasonable variation at issue here. What counts as a "reasonable variation" may be hard to precisify, but I assume here what is essential for (relative) fundamentality is that it has formal features sufficiently similar to transitivity, asymmetry, necessitation, and so on.[^5] Nothing important hangs on this assumption, since the variation I discuss in this paper has these formal features.
 
-What can prevent a relation that has certain formal features from varying semantically? Again, the intuitive idea is, if it is *objective*, then there is really something *out there in the world* that restricts us from saying otherwise. In other words, the world can somehow teach us whether we are getting the right concept. If we are using a wrong concept, the world will correct us.
+That said, it still seems somewhat hopeless to say "fundamentality" does not vary in meaning. But let's gain some hope from an example. We naturally think that changing inertial reference frames is just a sheer transformation, and the speed of light would depend on the observer's motion. But empirical facts tell us that, surprisingly, our intuition is wrong. No matter how we change our reference frames, the speed of light remains invariant. Therefore, whenever we try to vary the meaning of the speed of light, the world can in principle teaches us that, the alternative meaning is incorrect.[^6]
 
-For example, we naturally think that changing inertial reference frames is just a sheer transformation, and the speed of light would depend on the observer's motion. But empirical facts tell us that, surprisingly, our intuition is wrong. No matter how we change our reference frames, the speed of light remains invariant. Therefore, whenever we try to vary the meaning of the speed of light, the world can in principle teaches us that, the alternative meaning is incorrect.[^6]
+In other words, the intuitive idea is, if it is *objective*, then there is really something *out there in the world* that restricts us from saying otherwise. In other words, the world can somehow teach us whether we are getting the right concept. If we are using a wrong concept, the world will correct us.
 
 ### Can the world teach us fundamentality?
 
@@ -65,13 +67,9 @@ Can the world teach us the right concept for fundamentality? Now it's time to se
 
 ### Naturalness
 
-According to Sider, the fundamentality project aims at figuring out what is the most fundamental. And the most fundamental layer of the reality is the most natural
+According to Sider, the fundamentality project aims at figuring out what is the most fundamental. And the most fundamental layer of the reality is the most natural. [^7] The reason I want to start with Sider's account is because it has a compelling reason to support objectivity: Goodman's riddle of induction. 
 
-Basically, Sider extends the notion of naturalness such that linguistic features beyond predicates (e.g., quantifiers, sentential connectives, sentential operators, predicate operators) can be evaluated by whether they carve the world at its joints or not.[^7] The linguistic features of the best language would then perfectly match the joints of reality. Given this extended understanding of naturalness, Sider contends that the most fundamental layer of the world is revealed by the structure of this best language.
-
-The question now is whether the world can teach us the right concept of naturalness. The only thing that I can think of is Goodman's riddle of induction. The basic idea is that, a concept like "grue" must be flawed because it leads to a wrong induction. Therefore the world teaches us that some concepts are objectively better than others.
-
-This is perhaps the strongest case for the objectivity of naturalness, but I believe it ultimately fails. To recap the riddle: Since all emeralds observed before 2050 are green, these emeralds are also by definition "grue" (where grue means green and observed before 2050, or blue otherwise). If we use grue for induction, the grue-induction would tell us that the next emerald we see after 2050 will be grue. However, we intuitively know the next emerald will be green, meaning it will not be grue. Since the green-induction and the grue-induction are formally the same, the problem does not lie in the structure of induction. Then the concept "grue" itself must be the problem.
+The basic idea is that, a concept like "grue" must be flawed because it leads to a wrong induction. Therefore the world teaches us that some concepts are objectively better than others. To recap the riddle: Since all emeralds observed before 2050 are green, these emeralds are also by definition "grue" (where grue means green and observed before 2050, or blue otherwise). If we use grue for induction, the grue-induction would tell us that the next emerald we see after 2050 will be grue. However, we intuitively know the next emerald will be green, meaning it will not be grue. Since the green-induction and the grue-induction are formally the same, the problem does not lie in the structure of induction. Then the concept "grue" itself must be the problem.
 
 But I think the world cannot teach grue-speakers that grue-induction is problematic. And therefore, for grue-speakers, there is nothing wrong with grue. Let's consider two cases.
 
@@ -93,7 +91,25 @@ In other words, if the meaning of "the best system" could vary, then the best sy
 
 ### Grounding
 
-Maybe "naturalness" is already too niche. Indeed, the most orthodoxical way to establish fundamentality is through grounding: If $x$ grounds $y$, then $x$ is more fundamental than $y$; And if $x$ is ungrounded, then $x$ is fundamental. Therefore, if facts about fundamentality were to be fixed, then grounding facts must be somehow fixed. 
+Maybe "naturalness" is already too niche. Indeed, the most orthodoxical way to establish fundamentality is through grounding: If $x$ grounds $y$, then $x$ is more fundamental than $y$; And if $x$ is ungrounded, then $x$ is fundamental. Therefore, if the meaning about fundamentality were to be fixed, then grounding facts must be somehow fixed. But what fixes the grounding facts?
+
+Before going into any specific account, I will lay out the challenge first. Whenever people talk about grounding in the literature, there is one paradigm case: Socrates and singleton Socrates are mutually necessitating. But Socrates grounds $\{Socrates\}$, not the other way around. Bennett said this is an highly intuitive powerful example. I want to challenge exactly this.
+
+Imagine a creature, maybe a robot called Robo, who perceives every object as a singleton set. For example, Robo directly perceives a table as $\{table\}$ and Socrates as $\{Socrates\}$. Only by theoretical reconstruction can Robo realize that what she perceives is necessarily related to the individual Socrates. For Robo, then, the individual we call Socrates is a theoretical construction from the entity she directly perceives. Therefore, from Robo's perspective, Socrates depends on $\{Socrates\}$.[^9] Can the world teach us that, there is something wrong with Robo's metaphysics?
+
+Returning to the question: what fixes the grounding facts? Either we fix them by appeal to what grounding facts back, or by appeal to the grounds of the grounding facts themselves.
+
+I do not think the former can work. Typically, we say that grounding facts back explanations or definitions, but neither can fix grounding facts. For definitions, we might say that grounding facts back real definitions. But there are also nominal definitions. For example, we might nominally define "A is on the left side of B" as "B is on the right side of A," and define "B is on the right side of A" as "A is on the left side of B." This kind of circularity probably appears occasionally in dictionaries. But as long as grounding is asymmetric, at most one can be the "real definition". Similarly, explanation is (in)famously context-sensitive (==citation to van Fraassen, Kitcher==): it depends on what we are emphasizing, our audience's interests and so on. Unless we have some objective way to pick out a "real definition" or a "real explanation" without appealing to fundamentality, we cannot guarantee the objectivity of fundamentality.
+
+Now the pressure is on the ground of the grounding fact, which is known in the literature as "meta-ground".
+
+
+
+Going back to the question: what fixes the grounding facts? Either we fix it through what grounding facts backs, or through the ground of grounding facts. 
+
+I do not think the former could work. Typically, we say grounding facts back explanation or definition. But neither can fix grounding facts. For definitions, we may say grounding facts backs real definition. But there are also "nominal definitions." For example, we may nominally define "A is on the left side of B" by "B is on the right side of A," and define "B is on the right side of A" by "A is on the left side of B." In fact, this kind of circularity probably appears occasionally when terms are defined in the dictionary. Similarly, explanation is (in)famously context-sensitive (==citation to van Fraassen, Kitcher==). It depends on things such as what we're emphasizing, and what interests our audience. Unless we have some objective way to pick out "real definition" or "real explanation" without appealing to fundamentality, we cannot guarantee the objectivity of fundamentality.
+
+
 
 
 
@@ -138,3 +154,4 @@ I argue that the rational constraint can ensure objectivity and worldliness of o
 [^6]: What I mean by "meaning", of course, includes extension. Therefore, the change of extension leads to the change of meaning.
 [^7]: In fact Sider tend to drop the term "naturalness" to favor the term "joint-carving" or "structural" for the extended meaning of "naturalness". But let me stick to "naturalness" here.
 [^8]: Surely for us, there is no problem, in accordance with Bayesian principles, to adopt a higher credence for green-laws based on prior distribution. This may be enough to say we are justified to believe green-law, and this is enough for our confirmation. But there is no theoretical reason to take greenness as the metaphysically privileged concept across different frameworks.
+[^9]: If this example is puzzling to you, you can try the following notation: Robo uses "Socrates" to refer to $\{Socrates\}$, and "-Socrates-" to refer to Socrates. Mathematically speaking, set formation has nothing to do with intrinsicality. Our intuition that *a member of a set* is somehow intrinsic and thus more fundamental than *the set itself* is just our *interpretation* of set formation, influenced by ordinary language words like "membership" and how we use brackets to warp the members. But we could have used alternative notations, like using "M-relation" instead of membership, and use $\{\}-Socrates$ intead of $\{Socrates\}$.
