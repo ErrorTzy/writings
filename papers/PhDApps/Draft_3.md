@@ -5,15 +5,16 @@ Over the past twenty years or so, many have grown tired of Quinean ontology and 
 
 This revolution clearly is one step forward from Quinean ontology, with a well-motivated reason. Yet it is not immediately clear how it avoids Carnapian deflationism. But... Wait a second. Why do we need to avoid deflationism? 
 
-What I mean by Carnapian deflationism, really? I mean the roughly the following: there is no deep truth about fundamentality. Whether $x$ is more fundamental than $y$ is just a matter of our linguistic conventions. If we start to speak differently, then $y$ could also be more "fundamental" than $x$.
+What I mean by Carnapian deflationism, really? I mean the roughly the following: there is no deep truth about fundamentality. $x$ is more fundamental than $y$ is merely conceptual. If we have different concepts, then $y$ could also be more "fundamental" than $x$.
 
 Now it seems clear why we want to avoid it. Fundamentality is a legitimate part of ordinary discourse, and we have strong intuitions that this is some deep, worldly feature. Isn't it obvious that, atoms are more basic than chairs? In other words, deflationism runs against our realist intuition about fundamentality.
 
-But aren't modern deflationists also realists? A modern deflationist would surely grant us that, given a language, it is true to say $x$ is more fundamental than $y$. What intuition is at stake here, exactly?
+But aren't modern deflationists also realists? A modern deflationist would surely grant us that, given a language, it is true to say $x$ is more fundamental than $y$. And given this statement is true, fundamentality is real. So what intuition is in conflict here, exactly?
 
-If we look at the literature on fundamentality, we will frequently find the phrase "*worldly and objective*" (==citations==). And deflationary account of fundamentality is denied because fundamentality is supposed to be *worldly and objective*. Why an deflationary account fails to be *worldly and objective*? What do we even mean when we use this phrase, exactly? And can this *worldliness and objectivity* be defended at all?
+If we look at the literature on fundamentality, we will frequently find the phrase "*worldly*" and "*objective*" (==There should be a lot more, but here are a few examples: "objective": Thompson Grounding and Explanation, Sidelle The Grounding Mystique, Fabrice Correia and Benjamin Schnieder Grounding: an opinionated introduction Jon Erling Litland Meta-ground; "worldly" or "in the world": Paul Audi A clarification and defense of the notion
+of grounding Kit Fine Guide to Ground==). And deflationary account of fundamentality is denied because fundamentality is supposed to be *worldly and objective*. Why an deflationary account fails to be *worldly and objective*? What do we even mean when we use this phrase, exactly? And can this *worldliness and objectivity* be defended at all?
 
-This paper aims to explicate this issue. I argue that current accounts of fundamentality fail to justify themselves as *objective*, and that the root of the problem is a mistaken conception of being *worldly*. I then argue that, under the right conception, we can adopt a semi-deflationary account that secures a worldly and objective notion of fundamentality.
+This paper aims to explicate this issue. I argue that current accounts of fundamentality fail to justify themselves as *objective*, and that the root of the problem is a mistaken conception of being *worldly*. I then argue that, under the right conception, we can adopt a semi-deflationary account that secures a *worldly and objective* notion of fundamentality.
 
 ## Articulating Objectivity
 
@@ -25,13 +26,13 @@ This first approximation seems intuitively right, but it cannot bear scrutiny. A
 
 According to Rosen, objectivity could be used to predicate over an methodology:*Methodological objectivity* means that an inquiry resists personal bias, prejudice, etc. But Rosen immediately dismisses this sense of objectivity for two reasons. *First*, it is impossible (p. 284). Any inquiry must have a substantial starting point, and there is no way to guarantee that the starting point is not biased. *Second*, it is not "the sense of objectivity that interests us" (p. 286). The interesting sense of objectivity is related to assertions, not inquiries. For example, we might say it is subjective that the Mona Lisa is a beautiful painting.
 
-*Metaphysical objectivity* is about the objectivity of things in the world. There might be a subjective realm and an objective realm of the world. For example, phenomenal states might be said to belong to a private and subjective realm. Therefore, facts about phenomenal states might be subjective in a sense.[^1] But Rosen also dismisses this sense of objectivity for being irrelevant. Even if that realm is, in a sense, subjective, the fact that *I'm in pain* seems perfectly objective in the interesting sense.
+*Metaphysical objectivity* is closer to the sense that interests us. There might be a subjective realm and an objective realm of the world. For example, phenomenal states might be said to belong to a private and subjective realm. Therefore, facts about phenomenal states might be subjective in a sense.[^1] But Rosen also dismisses this sense of objectivity for being irrelevant. Even if that realm is, in a sense, subjective, the fact that *I'm in pain* seems perfectly objective in the interesting sense.
 
 Then Rosen surveys several influential attempts to explicate the interesting sense of objectivity, including mind-independence, response-independence, and judgment-independence. But none seems to quite capture it. In a nutshell, Rosen keeps returning to the same complaint: *once we have specified the asserted fact, there seems to be no room for it to be less than objective*. An assertion that involves indexicals that make reference to our mental states, our responses, or our beliefs is nevertheless perfectly objective. Afterall, an assertion picks out a fact. What could it even mean to say there are "subjective facts"? Isn't that plainly self-contradictory?
 
 In other words, according to Rosen, *methodological objectivity* is impossible and irrelevant, and *objectivity relating to facts* is trivially obtained. Rosen then concludes his paper with a challenge: as long as we take the mind to be part of the world, it seems we cannot accuse any assertion for being subjective. But surely we can say that *the Mona Lisa is a beautiful painting* is subjective. Did Rosen miss something?
 
-### Objectivity as Semantic Invariance
+### Semantic Invariance
 
 Where does the subjectivity of the Mona Lisa's beauty come from? Assume we stipulate that *"beautiful"* precisely means *painted by Davinci*. Then the Mona Lisa is objectively beautiful, because it was objectively painted by Da Vinci. Subjectivity seems to disappear once I stipulate the meaning of "beautiful."
 
