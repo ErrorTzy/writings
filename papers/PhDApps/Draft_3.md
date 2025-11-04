@@ -1,13 +1,19 @@
 How to be a robust realist about fundamentality through deflationism (of some sort)?
 ## Intro
 
-Over the past twenty years or so, many have grown tired of Quinean ontology and Carnapian metaontology (==citation==). People have found that even if we figure out what indispensably exists, we still seem to miss something important: what is more fundamental than what, and what is most fundamental. As a result, many have rallied under the banner of fundamentality. There has been a revolution in metaphysics since then.
+Over the past twenty years or so, many have grown tired of Quinean ontology and Carnapian deflationism (==citation==). People have found that even if we figure out what indispensably exists, we still seem to miss something important: what is more fundamental than what, and what is most fundamental. As a result, many have rallied under the banner of fundamentality. There has been a revolution in metaphysics since then.
 
-This revolution clearly differs from Quinean ontology, but it is not immediately clear how it avoids neo-Carnapian metaontology. Neo-Carnapian deflationism basically tells us that metaphysics at least partly varies across languages. But language use is subjective and conventional. Therefore, deflationism renders metaphysical claims not *worldly and objective*. Therefore, to avoid neo-Carnapian deflationism, proponents intend fundamentality to be "*worldly and objective*" (==citations==). This is intuitive: fundamentality is a legitimate part of ordinary discourse, and we have strong intuitions that such discourse is true in virtue of what is really out there. Taking it to be worldly and objective is, therefore, prima facie plausible.
+This revolution clearly is one step forward from Quinean ontology, with a well-motivated reason. Yet it is not immediately clear how it avoids Carnapian deflationism. But... Wait a second. Why do we need to avoid deflationism? 
 
-But you can't make a cake just by intending there to be one. Similarly, you cannot make fundamentality *worldly and objective* by mere intention. Some argument must be made to meet the challenge. Yet the challenge itself seems hard to articulate: what does it take for something to be *worldly and objective* at all?
+What I mean by Carnapian deflationism, really? I mean the roughly the following: there is no deep truth about fundamentality. Whether $x$ is more fundamental than $y$ is just a matter of our linguistic conventions. If we start to speak differently, then $y$ could also be more "fundamental" than $x$.
 
-This paper aims to do exactly that. I argue that current accounts of fundamentality fail to justify themselves as *objective*, and that the root of the problem is a mistaken conception of being *worldly*. I then argue that, under the right conception, we can adopt a semi-deflationary account that secures a worldly and objective notion of fundamentality.
+Now it seems clear why we want to avoid it. Fundamentality is a legitimate part of ordinary discourse, and we have strong intuitions that this is some deep, worldly feature. Isn't it obvious that, atoms are more basic than chairs? In other words, deflationism runs against our realist intuition about fundamentality.
+
+But aren't modern deflationists also realists? A modern deflationist would surely grant us that, given a language, it is true to say $x$ is more fundamental than $y$. What intuition is at stake here, exactly?
+
+If we look at the literature on fundamentality, we will frequently find the phrase "*worldly and objective*" (==citations==). And deflationary account of fundamentality is denied because fundamentality is supposed to be *worldly and objective*. Why an deflationary account fails to be *worldly and objective*? What do we even mean when we use this phrase, exactly?
+
+This paper aims to explicate this issue. I argue that current accounts of fundamentality fail to justify themselves as *objective*, and that the root of the problem is a mistaken conception of being *worldly*. I then argue that, under the right conception, we can adopt a semi-deflationary account that secures a worldly and objective notion of fundamentality.
 
 ## Articulating Objectivity
 
@@ -17,9 +23,7 @@ What is "worldly and objective," really? Turns out it's pretty hard to articulat
 
 This first approximation seems intuitively right, but it cannot bear scrutiny. Aren't we also part of the world? If so, then the facts about how we feel and what we believe are, nevertheless, also out there in the world. Indeed, Rosen (==citation==) argued that if we adopt a naturalistic conception of our mind, there seems no way to articulate a sense of objectivity that is metaphysically interesting.
 
-According to Rosen, there are two senses of objectivity: *methodological objectivity* and *metaphysical objectivity*. 
-
-*Methodological objectivity* means that an inquiry resists personal bias, prejudice, etc. Rosen immediately dismisses this sense of objectivity for two reasons. *First*, it is impossible (p. 284). Any inquiry must have a substantial starting point, and there is no way to guarantee that the starting point is not biased. *Second*, it is not "the sense of objectivity that interests us" (p. 286). The interesting sense of objectivity is related to assertions, not inquiries. For example, we might say it is subjective that the Mona Lisa is a beautiful painting.
+According to Rosen, objectivity could be used to predicate over an methodology:*Methodological objectivity* means that an inquiry resists personal bias, prejudice, etc. But Rosen immediately dismisses this sense of objectivity for two reasons. *First*, it is impossible (p. 284). Any inquiry must have a substantial starting point, and there is no way to guarantee that the starting point is not biased. *Second*, it is not "the sense of objectivity that interests us" (p. 286). The interesting sense of objectivity is related to assertions, not inquiries. For example, we might say it is subjective that the Mona Lisa is a beautiful painting.
 
 *Metaphysical objectivity* is about the objectivity of things in the world. There might be a subjective realm and an objective realm of the world. For example, phenomenal states might be said to belong to a private and subjective realm. Therefore, facts about phenomenal states might be subjective in a sense.[^1] But Rosen also dismisses this sense of objectivity for being irrelevant. Even if that realm is, in a sense, subjective, the fact that *I'm in pain* seems perfectly objective in the interesting sense.
 
@@ -60,7 +64,9 @@ Can the world teach us the right concept for fundamentality? Now it's time to se
 
 ### Naturalness
 
-According to Sider, the fundamentality project aims at figuring out what is the most fundamental. Basically, Sider extends the notion of naturalness such that linguistic features beyond predicates (e.g., quantifiers, sentential connectives, sentential operators, predicate operators) can be evaluated by whether they carve the world at its joints or not.[^7] The linguistic features of the best language would then perfectly match the joints of reality. Given this extended understanding of naturalness, Sider contends that the most fundamental layer of the world is revealed by the structure of this best language.
+According to Sider, the fundamentality project aims at figuring out what is the most fundamental. And the most fundamental layer of the reality is the most natural
+
+Basically, Sider extends the notion of naturalness such that linguistic features beyond predicates (e.g., quantifiers, sentential connectives, sentential operators, predicate operators) can be evaluated by whether they carve the world at its joints or not.[^7] The linguistic features of the best language would then perfectly match the joints of reality. Given this extended understanding of naturalness, Sider contends that the most fundamental layer of the world is revealed by the structure of this best language.
 
 The question now is whether the world can teach us the right concept of naturalness. The only thing that I can think of is Goodman's riddle of induction. The basic idea is that, a concept like "grue" must be flawed because it leads to a wrong induction. Therefore the world teaches us that some concepts are objectively better than others.
 
@@ -80,13 +86,14 @@ To prevent further complications, assume that ZYX is invariant in both our law a
 
 Now, the previous argument runs, our law "*ZYX necessitates green*" is objectively simpler than this corrected grue-law. Therefore, green exhibits objective similarity, not grue. Why? Because the properties in the simplest laws of nature 'carve nature at its joints'.
 
-But why would the grue-speakers accept this argument? My stipulation is that grue-speakers have different intuitions about simplicity and similarity from ours. They take properties, that are disjunctive in our terms, to be genuinely simple similar; likewise they treat disjunctive propositions as simpler. Given this stipulation, they would say their corrected law is actually simpler than ours. Therefore, grue and bleen are more privileged than green.
+But why would the grue-speakers accept this argument? My stipulation is that grue-speakers have different intuitions about simplicity and similarity from ours. They take properties, that are disjunctive in our terms, to be genuinely simple and similar; likewise they treat disjunctive propositions as simpler. Given this stipulation, they would say their corrected law is actually simpler than ours. Therefore, grue and bleen are more privileged than green.
 
 In other words, if the meaning of "the best system" could vary, then the best system of laws of nature cannot be objectively established. If natural properties are specified by the laws of nature, while the laws of nature can vary in different frameworks, then "naturalness" can vary in different frameworks. Therefore, even if the grue-speakers agree with us that, natural properties are metaphysically privileged, the world cannot force the grue-speakers to give up a different extension of "naturalness".[^8]
 
 ### Grounding
 
-Maybe "naturalness" is already too niche. Indeed, the most orthodoxical way to establish fundamentality is through concepts like grounding. 
+Maybe "naturalness" is already too niche. Indeed, the most orthodoxical way to establish fundamentality is through grounding: If $x$ grounds $y$, then $x$ is more fundamental than $y$; And if $x$ is ungrounded, then $x$ is fundamental. Therefore, if facts about fundamentality were to be fixed, then grounding facts must be somehow fixed. 
+
 
 
 ### Positive argument (~1500 words)
