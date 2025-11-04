@@ -11,7 +11,7 @@ Now it seems clear why we want to avoid it. Fundamentality is a legitimate part 
 
 But aren't modern deflationists also realists? A modern deflationist would surely grant us that, given a language, it is true to say $x$ is more fundamental than $y$. What intuition is at stake here, exactly?
 
-If we look at the literature on fundamentality, we will frequently find the phrase "*worldly and objective*" (==citations==). And deflationary account of fundamentality is denied because fundamentality is supposed to be *worldly and objective*. Why an deflationary account fails to be *worldly and objective*? What do we even mean when we use this phrase, exactly?
+If we look at the literature on fundamentality, we will frequently find the phrase "*worldly and objective*" (==citations==). And deflationary account of fundamentality is denied because fundamentality is supposed to be *worldly and objective*. Why an deflationary account fails to be *worldly and objective*? What do we even mean when we use this phrase, exactly? And can this *worldliness and objectivity* be defended at all?
 
 This paper aims to explicate this issue. I argue that current accounts of fundamentality fail to justify themselves as *objective*, and that the root of the problem is a mistaken conception of being *worldly*. I then argue that, under the right conception, we can adopt a semi-deflationary account that secures a worldly and objective notion of fundamentality.
 
