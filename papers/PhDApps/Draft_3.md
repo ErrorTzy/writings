@@ -121,7 +121,7 @@ Recall Bennett's account about building: a building relation has to be *directed
 
 But Bennett concede that what counts generative may be arbitrary, conventional, framework-dependent and "nothing further to be said" (==p. 59==). In other words, Robo agree with us that $\text{Socrates} \in \{Socrates\}$. But what they disagree with us that set-formation is not generative. They think set-membership is generative instead. Bennett's account seems perfectly compatible with Robo's metaphysics.
 
-## The root of the issue: What do we mean by "the world"?
+## What do we mean by "the world"?
 
 The gist of the tedious discussion above is simple. Imagine a creature whose language contains "fundamentality" that plays the same role in their metaphysics as our "fundamentality" does in our metaphysics. However, their "fundamentality" has a different extension. If we do not rely on the Quinean epistemology, and claim that fundamentality is a *worldly, objective feature*, then we must be able to show why the creature's concept is *objectively* wrong. Crucially, the reason we provide must not be symmetric: it can't be a reason the creature could also use against us (e.g., "it violates *our* intuitions"). As the previous sections have shown, it seems we cannot find such a non-question-begging reason in the current way of establishing fundamentality.
 
@@ -139,7 +139,9 @@ This is a non-trivial move. So let me defend this further. If we are not allowed
 
 ### The constraint of rational agency
 
-Now you may ask, so what information does "the world" carries, then? The previous argument from inconsistency shows that, we mean by "the world" must be constrained by our rationality. But consistency is not the only constraint. I believe the following is also an indispensable constraint: the world is such that, we are rational agents.
+Now you may ask, so what information does "the world" carries, then? The previous argument from inconsistency shows that, we mean by "the world" must be constrained by our rationality. But consistency is not the only constraint. I believe the following is also an indispensable constraint: the world is such that, we are rational agents. And given this constraint, we are objectly rational agents.
+
+Arguably, there are different senses of "rational agency". For the word limit, I have to truncate the discussion about it. But as long as we can distinguish clear cases of rational agency, then for the purpose of objectively ruling out Robo's metaphysics, it will suffice.
 
 Aristotle appears to follow the constraint I suggest in Chapter 9 of _De Interpretatione_. There, he rejects the principle of bivalence due to our deliberation and action. He argues that, deliberation and action requires that, propositions about the future must be open (19a10). Then they cannot have a truth value now (19a26). Therefore the principle of bivalence is false. However, Aristotle's argument seems to epistemic instead of metaphysical. When he writes that "what will be has an origin both in deliberation and in action" (19a6-9), the plausible interpretation is that our *beliefs* about the future originate from these rational activities, not the future state of affairs itself. If so, his argument is best understood as follows: it is impossible for us to rationally *believe* that the future is predetermined while simultaneously viewing ourselves as rational agents who deliberate. Therefore, by our rational agency, the world cannot be such that bivalence is true.
 
@@ -159,7 +161,7 @@ But the problem is, why do we choose $\{Socreates\}=Socrates$ as the *appropriat
 
 Recall Bennett's formulation: "building", "making" and "generative". All of these are agential concepts. I believe that, Bennett's intuition aligns with my analysis. There must be something related to agency that leads to the directness that we want. Informally speaking, we can in some sense build singleton Socrates out of Socrates, but we cannot build Socrates out of singleton Socrates.
 
-Let me explicate this intuition into an argument. According to my previous discuss, intervention depends on agency. But agency depends on intention formation. If an intervention is inconceivable, then there is no way to form an intention. If there cannot be such an intention, then the agential intervention is impossible. 
+Let me explicate this intuition into an argument. Surgical intervention depends on agency. But agency depends on intention formation. If an intervention is inconceivable, then there is no way to form an intention. If there cannot be such an intention, then the agential intervention is impossible. 
 
 Now I want to argue that, there is no way to conceive of a surgical intervention on singleton Socrates. In other words, we cannot conceive of a way to directly modify singleton Socrates. We can intervene on Socrates, or maybe on set theory. But these are all indirect intervention, and thus not surgical. Therefore, a surgical intervention on singleton Socrates is impossible.
 
@@ -169,7 +171,7 @@ Is this a good reason to show that, Robo's metaphysics is flawed? It seems Robo 
 
 ## Conclusion
 
-Does it sound like cheating? 
+Does it sound like cheating? If you feel like so, then metaphysics seems impossible altogether. Throughout the history of philosophy, there has always been a strong impulse to secure an absolute truth that is objective and eternal. But to repeat, ultimately all possible philosophical conclusions must be derived from intuitive presuppositions. If so, then we cannot establish anything if we throw away all of our intuitions (or dispositions, sentiments, etc.). If so, then we should not abandon the kind of intuition that we cherish in our ordinary life: our own rational agency. To adopt a worldview that eliminates this that is, for us, simply insane.
 
 [^1]: Similarly, we may say moral facts belongs to a subjective realm, and different communities has different realms of morality. If this kind of moral relativism is right, then morality is subjective in this sense.
 [^2]: This claim depends on an unstructured view of facts: if two sentences are equivalent, then they pick out the same fact. This view usually takes facts as sets of possible worlds. Could facts be finer-grained than that? I see no compelling reason for it. I especially want to note that the granularity of *propositions* is not the granularity of *facts*. Some, like Fritz (==citation how fine-grained is reality==), seem to conflate the two. By a *proposition* I mean the object of belief; by a *fact* I mean the thing out there that makes a sentence true. Kripke's Puzzle about Belief shows that propositions partly depend on language. But (non-linguistic) facts surely do not depend on language. Therefore, whether propositions are fine-grained does not reveal whether facts are fine-grained. For example, Dorr (==citation to be F is to be G==) defends that propositions are fine-grained by appealing to the principle "Only Logical Circles" (i.e. $x \not\equiv_{\tau} \lambda v_{1}\dots v_{n} . y(z^{\tau},x,v_{1},\dots,v_{n})$). He then develops an account of priority based on this (i.e. $x \preceq_{\sigma,\tau}\; y =_{\mathrm{df}} \exists z\;\big( y \equiv_{\tau}\; \lambda v_1 \ldots v_n \big( z(x, v_1, \ldots, v_n) \big) \big)$). But Dorr's account of *propositional* priority should not be taken as an account of *ontological* priority. Thus it is irrelevant to the metaphysical project of worldly and objective fundamentality. At best, it should be taken as a deflationary account of fundamentality.
