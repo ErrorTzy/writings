@@ -54,9 +54,11 @@ program. Some people say something generic like “Rutgers would be an excellent
 pursue these interests, given the Philosophy Department’s strengths and coverage of these areas.”
 But you don’t need to do that.
 
-**Area of interest**: Unfortunately broad. My primary interests are **philosophy of language, metaphysics and epistemology**. But I am secretly interested in moral philosophy.
+**Area of interest**: Unfortunately broad. My primary interests are **philosophy of language, metaphysics and logic**. But I am also interested in **moral philosophy**.
 
-**Course work**: During undergrad, my coursework was limited to political philosophy because my undergrad school have no philosophy department, and the courses related to political philosophy were taught by professors at political department. During that time, I was primarily reading historical texts like Plato, Aristotle, Hobbes, Rousseau, Nietzsche, etc. 
+**Course work**: 
+
+During undergrad, my coursework was limited to political philosophy because there was no philosophy department, and the only courses related to philosophy were political philosophy taught by professors at political department. During that time, I was primarily reading historical texts like Plato, Aristotle, Hobbes, Rousseau, Nietzsche, etc. 
 
 **A note on my undergrad**: In general my undergrad transcript should be completely irrelevant for my application. Let me explain. First, there are no philosophy-related coursework listed on it. (All the philosophy courses during undergrad were from auditing.) Second, I majored in Japanese during undergrad. And the GPA, esp. the first two years, isn't high. Long story short, I was painfully forced to study Japanese, which I had zero interest in. But I still get 3.87/4.0 for the last two years. That said, whether I am good at Japanese indicates anything about whether I can do well in philosophy.
 
