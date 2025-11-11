@@ -18,10 +18,9 @@ But the metaphysical structure is surely not something context-sensitive. This i
 
 {::E} Grounding explanation is explaining because of some of our epistemic or psychological feature.
 
-What is Hall's attack against {::M}?
+What is Hall's attack against {::M}? Frist, Hall introduced the motivation for {::M} by drawing Lewis' distinction between*explanatory act* and *explanatory information*. An explanation could be inappropriate, but still conveys explanatory information. In the previous question "Why was there a forest fire?", it is pretty plausible to say that, oxygen being present in the atmosphere is a piece of relevant explanatory *information*. The *action* of providing this piece of information, however, may not be appropriate in some context. On Lewis view, 
 
-
-An explanatory act is appropriate if (1) it conveys explanatory information, and (2) the information is properly delivered. Lewis then made the distinction between *explanatory act* and *explanatory information*.
+*explanatory act* and *explanatory information*.
 
 argues that all the context-sensitivity comes from (2). 
 
