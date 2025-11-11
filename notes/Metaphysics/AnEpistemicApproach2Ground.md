@@ -6,7 +6,26 @@ We identity a particular kind of explanation: the common kind of explanatory the
 
 ### 1.2 A background view about "explanation" and explanation
 
-Lewis: The distinction between *explanatory act* and *explanatory information*. One can perform explanatory act poorly, the the body of information is still explanatory. The task on a theory of explanation should focus on what qualifies as *explanatory information*, not what makes *explanatory act* good or not. By making the distinction, it avoids the risk that, what is explanatory is just a matter of human psychology. 
+Lewis metaphysical assent of explanation: 
+
+Explanations are (in)famously context-sensitive. Elements in the context, such as background knowledge and audience interests, partially determine whether an explanation is appropriate. Suppose someone is investigating why forest fire took place. In that context, answering "Because oxygen is present in the atmosphere" would be inappropriate. In a chemistry class, however, the same question, "Why was there a forest fire?", can be aptly answered by "Because oxygen is present in the atmosphere." In other words, what makes an explanation explaining could be some epistemic element in the context.
+
+But the robust realist approach to grounding explanation makes the following move:
+
+{::M} Grounding explanation is explaining because of some deep structure of the reality. 
+
+But the metaphysical structure is surely not something context-sensitive. This is the move that Ned Hall wants to attack. Why grounding explanation is explaining because of some deep structure of the reality? Maybe it's explaining because of something else, like some of our epistemic features. In other words, Hall is suggesting the following move:
+
+{::E} Grounding explanation is explaining because of some of our epistemic or psychological feature.
+
+What is Hall's attack against {::M}?
+
+
+An explanatory act is appropriate if (1) it conveys explanatory information, and (2) the information is properly delivered. Lewis then made the distinction between *explanatory act* and *explanatory information*.
+
+argues that all the context-sensitivity comes from (2). 
+
+The distinction between *explanatory act* and *explanatory information*. One can perform explanatory act poorly, the the body of information is still explanatory. The task on a theory of explanation should focus on what qualifies as *explanatory information*, not what makes *explanatory act* good or not. By making the distinction, it avoids the risk that, what is explanatory is just a matter of human psychology. 
 
 A requirement for good explanatory act seems to be to produce understanding. However, to understand is just to possess explanatory information. Therefore, this requirement simply says an act fails to convey information.
 

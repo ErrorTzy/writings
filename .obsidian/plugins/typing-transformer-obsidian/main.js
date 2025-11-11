@@ -455,8 +455,9 @@ var SideRule = class {
   }
 };
 var ConvRule = class {
-  constructor(left, right, isForDelete = false) {
+  constructor(left, right, isForDelete = false, isInitClipboard = false) {
     this.isForDelete = isForDelete;
+    this.isInitClipboard = isInitClipboard;
     this.left = Array.from(left);
     this.right = Array.from(right);
     this.lanchor = findOnlyAnchor(this.left);
@@ -681,6 +682,7 @@ var RuleParser = class {
         const leftPart = r1.value;
         let rightPart = r3.value;
         let arrowType = r2.value;
+        let initClipboard = false;
         if (r2.value === 2 /* Import */) {
           if (r3.value === "") {
             return Err(`Expect a text source, file or clipboard`);
@@ -689,8 +691,7 @@ var RuleParser = class {
             if (this.justCheck) {
               rightPart = ANCHOR;
             } else {
-              const clipboard = yield navigator.clipboard.readText();
-              rightPart = rightPart.replace(CLIPBOARD, clipboard);
+              initClipboard = true;
               if (!rightPart.includes(ANCHOR)) {
                 rightPart += ANCHOR;
               }
@@ -709,7 +710,12 @@ var RuleParser = class {
           }
           arrowType = 0 /* Insert */;
         }
-        const convRule = new ConvRule(leftPart, rightPart, arrowType === 1 /* Delete */);
+        const convRule = new ConvRule(
+          leftPart,
+          rightPart,
+          arrowType === 1 /* Delete */,
+          initClipboard
+        );
         if (!convRule.isValid) {
           return Err(convRule.invalidReasons());
         }
@@ -784,17 +790,32 @@ var Rules = class {
     });
   }
   match(input, insChar, insPosBaseLineHead) {
-    const leftMatch = Array.from(input.slice(0, insPosBaseLineHead));
-    leftMatch.push(insChar);
-    const candidates = this.index.collectIdxsAlong(leftMatch);
-    for (const idx of candidates.sort((a, b) => a - b)) {
-      if (this.rules[idx].canConvert(input, insChar, insPosBaseLineHead)) {
-        return this.rules[idx];
+    return __async(this, null, function* () {
+      const leftMatch = Array.from(input.slice(0, insPosBaseLineHead));
+      leftMatch.push(insChar);
+      const candidates = this.index.collectIdxsAlong(leftMatch);
+      for (const idx of candidates.sort((a, b) => a - b)) {
+        const rule = this.rules[idx];
+        if (rule.canConvert(input, insChar, insPosBaseLineHead)) {
+          if (rule.isInitClipboard) {
+            return yield newCompleteClipboardRule(rule);
+          }
+          return rule;
+        }
       }
-    }
-    return null;
+      return null;
+    });
   }
 };
+function newCompleteClipboardRule(rule) {
+  return __async(this, null, function* () {
+    const clipboard = yield navigator.clipboard.readText();
+    const left = rule.left.join("");
+    let right = rule.right.join("");
+    right = right.replace(CLIPBOARD, clipboard);
+    return new ConvRule(left, right, rule.isForDelete);
+  });
+}
 function newConvRulesIndex(rules) {
   const root = new TrieNode();
   for (let i = 0; i < rules.length; i++) {
@@ -5159,12 +5180,12 @@ var TypingTransformer = class extends import_obsidian3.Plugin {
         update.view.dispatch({ changes: { from: from + lspace, to: to - rspace, insert: formatLine(trimmed) }, annotations: ProgramTxn.of(true) });
       }
     };
-    this.convertFilter = (update) => {
+    this.convertFilter = (update) => __async(this, null, function* () {
       if (!update.docChanged || update.transactions.some((tr) => ignoreThisTr(tr))) {
         return;
       }
       let shouldHijack = true;
-      const changes = [];
+      const changePromises = [];
       const { insertTrigSet, deleteTrigSet, lmax, rmax } = this.rules;
       update.changes.iterChanges((fromA, toA, fromB, toB, inserted) => {
         if (!shouldHijack) {
@@ -5198,21 +5219,26 @@ var TypingTransformer = class extends import_obsidian3.Plugin {
           insertPosFromInputTextHead = fromB;
         }
         const input = update.startState.sliceDoc(leftIdx, fromB + rmax);
-        const rule = this.rules.match(input, trigger, insertPosFromInputTextHead);
-        if (rule != null) {
-          log("hit covert rule: %s", rule.left.join(""));
-          const change = rule.mapToChanges(fromB, trigger === DEL_TRIG);
-          change.annotations = ProgramTxn.of(true);
-          changes.push(change);
-        } else {
-          shouldHijack = false;
-        }
+        const promsise = this.rules.match(input, trigger, insertPosFromInputTextHead).then((rule) => {
+          if (rule != null) {
+            log("hit covert rule: %s", rule.left.join(""));
+            const change = rule.mapToChanges(fromB, trigger === DEL_TRIG);
+            change.annotations = ProgramTxn.of(true);
+            log("change: ", change);
+            return change;
+          } else {
+            return null;
+          }
+        });
+        changePromises.push(promsise);
       });
-      if (shouldHijack) {
+      const results = yield Promise.all(changePromises);
+      const changes = results.filter((result) => result != null);
+      if (results.length === changes.length && changes.length > 0) {
         update.view.dispatch(...changes);
       }
       return;
-    };
+    });
     this.sidesInsertFilter = (update) => {
       if (!update.docChanged || update.transactions.some((tr) => ignoreThisTr(tr))) {
         return;

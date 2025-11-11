@@ -40,7 +40,7 @@ This idea has some virtues. In practice, even if an answer is appropriate in a g
 
 - **Q1**: Why did Adam _**eat**_ the apple?
 - **A1**: Because the snake asked Adam to eat it.
-- **Q2**: But even if you ask me to eat dogs, I won’t do that. Why would Adam _**eat**_ the apple then?
+- **Q2**: But even if you ask me to eat dogs, I won't do that. Why would Adam _**eat**_ the apple then?
 - **A2**: …
 
 This conversation demonstrates that A1 is appropriate but may not *fully* explain Q1. In Q2, the question is repeated, but the context has shifted. Consequently, A1 is no longer an appropriate answer for Q2. However, if someone provided the conjunction of A1 and A2 as an answer, this conjunction would explain *more* than A1 alone. 

@@ -15,10 +15,10 @@
   "obsidian-pandoc-reference-list",
   "obsidian-minimal-settings",
   "obsidian-citation-plugin",
-  "various-complements",
-  "typing-transformer-obsidian",
-  "better-word-count",
   "edit-history",
   "obsidian42-brat",
-  "pandoc-extended-markdown"
+  "pandoc-extended-markdown",
+  "better-word-count",
+  "various-complements",
+  "typing-transformer-obsidian"
 ]
