@@ -8,29 +8,38 @@ We identity a particular kind of explanation: the common kind of explanatory the
 
 Lewis metaphysical assent of explanation: 
 
-Explanations are (in)famously affected by contingent factors relating to  our interest, background knowledge, and so on. Suppose someone is investigating why forest fire took place. In such situation, answering "Because oxygen is present in the atmosphere" would be inappropriate. In a chemistry class, however, the same question, "Why was there a forest fire?", can be aptly answered by "Because oxygen is present in the atmosphere." In other words, *what makes an explanation explaining or not* could be determined by contingent factors relating to our epistemic situation and human psychology.
+Explanations are (in)famously sensitive to context, like our interests, background knowledge, and so on. Suppose someone is investigating why a forest fire occurred. In that context, answering "Because oxygen is present in the atmosphere" would be inappropriate. In a chemistry class, however, the same question, "Why was there a forest fire?", might be aptly answered by "Because oxygen is present in the atmosphere." In short, whether something counts as an explanation can depend on contingent features of our epistemic situation and human psychology.
 
-But the metaphysical approach to grounding explanation makes the following critical move:
+The metaphysical approach to grounding explanations makes a critical claim:
 
-{::M} Grounding explanation is explaining because of some deep structure of the reality. 
+{::M} Grounding explanations are explanatory in virtue of the deep structure of reality.
 
-This is the move that Ned Hall wants to attack. Why grounding explanation is explaining is because of some deep structure of the reality? Maybe it's explaining because of something else, like some of our epistemic or psychological features. In other words, Hall is suggesting the following move:
+This is the move Ned Hall targets. Why think grounding explanations are explanatory because of some deep structure of reality? Perhaps they are explanatory because of something else, like our epistemic or psychological features. Hall's alternative proposal is:
 
-{::E} Grounding explanation is explaining because of some of our epistemic and psychological feature.
+{::E} Grounding explanations are explanatory in virtue of our epistemic and psychological features.
 
-What is the reason for Hall to argue against {::M}? 
+Why does Hall argue against {::M}?
 
-Frist, Hall explained the motivation that supports {::M}. Then, Hall undermines the motivation by appealing two examples.
+First, he reconstructs the motivation for {::M}. Then he undermines that motivation by appealing to two examples.
 
-The motivation that supports {::M} comes from Lewis' distinction between*explanatory act* and *explanatory information*. An explanation could be inappropriate, but still conveys explanatory information. In the previous question "Why was there a forest fire?", it is pretty plausible to say that, oxygen being present in the atmosphere is at least a piece of relevant explanatory *information*. The *action* of providing this piece of information, however, may not be appropriate in some context. 
+The motivation for {::M} draws on Lewis's distinction between an *explanatory act* and *explanatory information*. An explanation can be inappropriate in a given context while still conveying explanatory information. In the forest-fire case, it is at least plausible that the presence of atmospheric oxygen is a piece of relevant explanatory *information*. The *act* of offering that information, however, may be inappropriate in some contexts.
 
-On Lewis view, the only source of context-sensitivity is whether an act of explanation is well-performed or not. Whether something count as explanatory information is not context-sensitive.
+On the basis of this distinction, Lewis proposes a "metaphysical ascent." On his view, whether an *act of explaining* is well performed depends on epistemic and psychological factors. By contrast, whether something counts as *explanatory information* is independent of those factors and is a matter of metaphysics. More specifically, Lewis holds that explanatory information about an event concerns the causal structure that produces it: the causes, the causes of those causes, and so on.
 
-*explanatory act* and *explanatory information*.
+This ascent can be extended to the metaphysical approach to grounding. Essentially, Lewis suggests that a genuine explanation of x is backed by a structure underlying x; and that structure need not be limited to causal structure. It is natural, then, to bring grounding structure into the picture. The resulting line of thought is:
 
-argues that all the context-sensitivity comes from (2). 
+{::1} A grounding explanation is explanatory because it conveys information about grounding structure.
+{::2} The information about grounding structure are about some deep metaphysical structure of reality.
 
-The distinction between *explanatory act* and *explanatory information*. One can perform explanatory act poorly, the the body of information is still explanatory. The task on a theory of explanation should focus on what qualifies as *explanatory information*, not what makes *explanatory act* good or not. By making the distinction, it avoids the risk that, what is explanatory is just a matter of human psychology. 
+From {::1} and {::2}, {::M} follows. 
+
+Hall wants to undermine {::2}. In other words, he rejects Lewis's "metaphysical ascent." Hall acknowledges the distinction between explanatory acts and explanatory information. But the distinction does not entail that explanatory information is independent of epistemic and psychological factors. On Hall's view, what makes some chunk of information *explanatory information* could still be epistemic and psychological, without appeal to metaphysics.
+
+Why say this? Because it is obvious that, there's a tight connection between explanation and understanding. But whether we understand something surely depend on our epistemology and psychology. The pressure on Lewis is to defend that, some information can be explanatory purely out of metaphysical reasons, while maintaining this tight connection.
+
+Lewis' reply is that, to understand something is just to possess enough explanatory information. ==Lewis 1986, 28== However, this seems wrong. On Lewis's picture, the first billion years of the causal history leading to the window's breaking would count as a huge body of explanatory information. If understanding were simply possessing enough explanatory information, and if explanatory information just about metaphysical structure, then learning about that first billion-year history should greatly improve our understanding of why the window broke. It plainly does not. Therefore, as Hall argues, the more plausible approach is to say that what makes some information explanatory is whether it improves our understanding, not that we understand by merely possessing explanatory information. Given Hall's view that what counts as explanatory depends on whether it produces understanding, then it opens up the possiblity to reject {::2}: information about grounding structure may track the order of our *understanding*, not the order of reality.
+
+But surely this argument only opens up an alternative to {::2}. {::2} is not shown to be false. No one would deny that, metaphysical facts could also produce understanding.
 
 A requirement for good explanatory act seems to be to produce understanding. However, to understand is just to possess explanatory information. Therefore, this requirement simply says an act fails to convey information.
 
