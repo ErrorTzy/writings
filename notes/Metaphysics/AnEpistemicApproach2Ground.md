@@ -8,17 +8,23 @@ We identity a particular kind of explanation: the common kind of explanatory the
 
 Lewis metaphysical assent of explanation: 
 
-Explanations are (in)famously context-sensitive. Elements in the context, such as background knowledge and audience interests, partially determine whether an explanation is appropriate. Suppose someone is investigating why forest fire took place. In that context, answering "Because oxygen is present in the atmosphere" would be inappropriate. In a chemistry class, however, the same question, "Why was there a forest fire?", can be aptly answered by "Because oxygen is present in the atmosphere." In other words, what makes an explanation explaining could be some epistemic element in the context.
+Explanations are (in)famously affected by contingent factors relating to  our interest, background knowledge, and so on. Suppose someone is investigating why forest fire took place. In such situation, answering "Because oxygen is present in the atmosphere" would be inappropriate. In a chemistry class, however, the same question, "Why was there a forest fire?", can be aptly answered by "Because oxygen is present in the atmosphere." In other words, *what makes an explanation explaining or not* could be determined by contingent factors relating to our epistemic situation and human psychology.
 
-But the robust realist approach to grounding explanation makes the following move:
+But the metaphysical approach to grounding explanation makes the following critical move:
 
 {::M} Grounding explanation is explaining because of some deep structure of the reality. 
 
-But the metaphysical structure is surely not something context-sensitive. This is the move that Ned Hall wants to attack. Why grounding explanation is explaining because of some deep structure of the reality? Maybe it's explaining because of something else, like some of our epistemic features. In other words, Hall is suggesting the following move:
+This is the move that Ned Hall wants to attack. Why grounding explanation is explaining is because of some deep structure of the reality? Maybe it's explaining because of something else, like some of our epistemic or psychological features. In other words, Hall is suggesting the following move:
 
-{::E} Grounding explanation is explaining because of some of our epistemic or psychological feature.
+{::E} Grounding explanation is explaining because of some of our epistemic and psychological feature.
 
-What is Hall's attack against {::M}? Frist, Hall introduced the motivation for {::M} by drawing Lewis' distinction between*explanatory act* and *explanatory information*. An explanation could be inappropriate, but still conveys explanatory information. In the previous question "Why was there a forest fire?", it is pretty plausible to say that, oxygen being present in the atmosphere is a piece of relevant explanatory *information*. The *action* of providing this piece of information, however, may not be appropriate in some context. On Lewis view, 
+What is the reason for Hall to argue against {::M}? 
+
+Frist, Hall explained the motivation that supports {::M}. Then, Hall undermines the motivation by appealing two examples.
+
+The motivation that supports {::M} comes from Lewis' distinction between*explanatory act* and *explanatory information*. An explanation could be inappropriate, but still conveys explanatory information. In the previous question "Why was there a forest fire?", it is pretty plausible to say that, oxygen being present in the atmosphere is at least a piece of relevant explanatory *information*. The *action* of providing this piece of information, however, may not be appropriate in some context. 
+
+On Lewis view, the only source of context-sensitivity is whether an act of explanation is well-performed or not. Whether something count as explanatory information is not context-sensitive.
 
 *explanatory act* and *explanatory information*.
 
