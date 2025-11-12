@@ -64,6 +64,14 @@ What Aristotle means by "clear by nature" is far from clear. Still, on his view,
 
 Second, I believe Hall's argument from AA's alternative mathematical structure is on the right track. But the move from AA to a generalized claim about grounding is too quick. If the argument from AA holds, then it shows that information about *mathematical* structure may not reveal some deep metaphysical structure of reality. It does not follow that, reality has no metaphysical structure at all. 
 
+### Rethinking Hall's position
+
+Hall's position: everything is captured by modality. There is no grounding structure beyond necessary connection.
+It is true that an iconic feature for grounding to be hyperintensional and "post-modal". But there are still some grounding relation that can be captured by modality.
+Here I need to clarify what I mean by grounding. In Hall's discussion, grounding simply is just the relation to analyze fundamentality. But this is not incontrosversial. 
+
+But some grounding relation can 
+
 
 
 's position: What can mark out anything distinctively metaphysical at all? Notice that, the official ontology that the grounding theorist adopt is easy ontology: everything that we can talk about, including abstract entities or fictional objects, trivially exists==Schaffer citation; and footnote on easy ontology==. Therefore, even if grounding is epistemic, it would be true to say that grounding relation exists. To say grounding isn't "distinctively metaphysical" seems to 
