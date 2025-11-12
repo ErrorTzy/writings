@@ -23,7 +23,8 @@
     },
     {
       "name": "Word (.docx)",
-      "arguments": "-f ${fromFormat} --lua-filter=\"${luaDir}/more_extended_syntax.lua\" --lua-filter=\"${luaDir}/diagram-generator.lua\"  --lua-filter=\"${luaDir}/highlight.lua\" --resource-path=\"${currentDir}\" --resource-path=\"${attachmentFolderPath}\" -o \"${outputPath}\" -t docx"
+      "arguments": "-f ${fromFormat} --lua-filter=\"${luaDir}/more_extended_syntax.lua\" --lua-filter=\"${luaDir}/diagram-generator.lua\"  --lua-filter=\"${luaDir}/highlight.lua\" --resource-path=\"${currentDir}\" --resource-path=\"${attachmentFolderPath}\" -o \"${outputPath}\" -t docx",
+      "customArguments": "--reference-doc=${vaultDir}/.resources/reference-times-new-roman.docx"
     },
     {
       "name": "OpenOffice"
