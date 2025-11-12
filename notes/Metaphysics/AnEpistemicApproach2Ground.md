@@ -39,7 +39,7 @@ Why say this? Because it is obvious that, there's a tight connection between exp
 
 Lewis' reply is that, to understand something is just to possess enough explanatory information. ==Lewis 1986, 28== However, this seems wrong. On Lewis's picture, the first billion years of the causal history leading to the window's breaking would count as a huge body of explanatory information. If understanding were simply possessing enough explanatory information, and if explanatory information just about metaphysical structure, then learning about that first billion-year history should greatly improve our understanding of why the window broke. It plainly does not. Therefore, as Hall argues, the more plausible approach is to say that what makes some information explanatory is whether it improves our understanding, not that we understand by merely possessing explanatory information. Given Hall's view that what counts as explanatory depends on whether it produces understanding, then it opens up the possiblity to reject {::2}: information about grounding structure may track the order of our *understanding*, not the order of reality.
 
-But surely this argument only opens up an alternative to {::2}. {::2} is not shown to be false. No one would deny that, metaphysical facts could also produce understanding.
+But surely this argument merely opens up an alternative to {::2}. {::2} is not shown to be false. Epistemology and psychology could play a role in determining whether a chunck of information is explanatory. But it does not follow that, the sole source of explanatory information is our epistemology and psychology. Maybe metaphysical facts still play a role in producing understanding.
 
 A requirement for good explanatory act seems to be to produce understanding. However, to understand is just to possess explanatory information. Therefore, this requirement simply says an act fails to convey information.
 
@@ -67,7 +67,9 @@ An appropriate answer to the question "What is 55 times 27" is the decimal repre
 The temptation to go metaphysical: it reveals the metaphyscal essence of the number in question. Hall: this is crazy. The obvious answer is that, we were trained from early childhood to use algorithms under decimal representation. Therefore, the decimal representation is distinctly *useful* for us
 
 Lewis can say: $55 \times 27$, $15 \times 99$ or the decimal/heximal/binary representation has the same information; But only decimal conveys the information more effectively.
-Hall: Assume this is so, what singles out the decimal representation? There's still need a pragmatic story to tell.So psychology plays a role, one way or another. (Proof by intimidation)
+Hall: Assume this is so, what singles out the decimal representation? There's still need a pragmatic story to tell.So psychology plays a role, one way or another. (Proof by intimidation?)
+
+Explanatory information is the right kind of information an answer should convey when we ask "Why X?". But in general, given a question, what makes some information the right kind? Hall argues that answer-appropriateness can depend on epistemic considerations. Consider: "What is 55 times 27?" An apt answer is "1485," not "the product of 55 and 27" and not "the product of 15 and 99." But note that "1485" is just an abbreviation for the decimal expansion $1\times10^{3} + 4\times10^{2} + 8\times10^{1} + 5\times10^{0}$. All three responses pick out the same number; they differ only in how we pick it out. There is no plausible metaphysical reason to privilege "1485." It would be odd to say that the decimal expansion discloses the number's true nature. The more plausible explanation is epistemological: since childhood, we are trained to manipulate decimal notation. "1485" is the most *useful* representation for our arithmetic reasoning.
 
 ### 2.2 Axioms, theorems, and mathematical concepts
 

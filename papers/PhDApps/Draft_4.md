@@ -11,15 +11,15 @@ Is the epistemic approach the *right* approach? Hall says, "I don't know." This 
 
 ## The epistemic approach to ground
 
-==paradigm cases of grounding explanation==
+What is the epistemic approach to ground? As I said in the intro, there is a special kind of non-causal explanation: there is a table *because* there are particles arranged tablewise; Singleton Socrates exists *in virtue of* Socrates' existence. It is out of this kind of locution that motivates people to posit metaphysical grounding relation.
 
-Explanations are (in)famously sensitive to context, like our interests, background knowledge, and so on. Suppose someone is investigating why a forest fire occurred. In that context, answering "Because oxygen is present in the atmosphere" would be inappropriate. In a chemistry class, however, the same question, "Why was there a forest fire?", might be aptly answered by "Because oxygen is present in the atmosphere." In short, whether something counts as an explanation can depend on contingent features of our epistemic situation and human psychology.
+But explanations are (in)famously sensitive to context, like our interests, background knowledge, and so on. Suppose someone is investigating why a forest fire occurred. In that context, answering "Because oxygen is present in the atmosphere" would be inappropriate. In a chemistry class, however, the same question, "Why was there a forest fire?", might be aptly answered by "Because oxygen is present in the atmosphere." In short, whether something counts as an explanation can depend on contingent features of our epistemic situation and human psychology.
 
 The metaphysical approach to grounding explanations makes a critical claim:
 
 {::M} Grounding explanations are explanatory in virtue of the deep structure of reality.
 
-This is the move Ned Hall targets. Why think grounding explanations are explanatory because of some deep structure of reality? Perhaps they are explanatory because of something else, like our epistemic or psychological features. Hall's alternative proposal is:
+This is the move Hall targets. Why think grounding explanations are explanatory because of some deep structure of reality? Perhaps they are explanatory because of something else, like our epistemic or psychological features. Hall's alternative proposal is:
 
 {::E} Grounding explanations are explanatory in virtue of our epistemic and psychological features.
 
@@ -36,11 +36,21 @@ This ascent can be extended to the metaphysical approach to grounding. Essential
 
 From {::1} and {::2}, {::M} follows. 
 
-Hall wants to undermine {::2}. In other words, he rejects Lewis's "metaphysical ascent." Hall acknowledges the distinction between explanatory acts and explanatory information. But the distinction does not entail that explanatory information is independent of epistemic and psychological factors. On Hall's view, what makes some chunk of information *explanatory information* could still be epistemic and psychological, without appeal to metaphysics.
+Hall wants to undermine {::2}. In other words, he rejects Lewis's "metaphysical ascent." Hall acknowledges the distinction between explanatory acts and explanatory information. But the distinction does not entail that explanatory information is independent of epistemic and psychological factors. On Hall's view, what makes some chunk of information *explanatory information* could still be epistemic and psychological, without appealing to metaphysics.
 
 Why say this? Because it is obvious that, there's a tight connection between explanation and understanding. But whether we understand something surely depend on our epistemology and psychology. The pressure on Lewis is to defend that, some information can be explanatory purely out of metaphysical reasons, while maintaining this tight connection.
 
-Lewis' reply is that, to understand something is just to possess enough explanatory information. ==Lewis 1986, 28== However, this seems wrong. On Lewis's picture, the first billion years of the causal history leading to the window's breaking would count as a huge body of explanatory information. If understanding were simply possessing enough explanatory information, and if explanatory information just mirrored metaphysical structure, then learning about that first billion-year history should greatly improve our understanding of why the window broke. It plainly does not. Therefore, as Hall argues, the more plausible approach is to say that what makes some information explanatory is whether it improves our understanding, not that we understand by merely possessing explanatory information. Given Hall's view that what counts as explanatory depends on whether it produces understanding, then it opens up the possiblity to reject {::2}: information about grounding structure may track the order of our *understanding*, not the order of reality.
+Lewis' reply is that, to understand something is just to possess enough explanatory information. ==Lewis 1986, 28== However, this seems wrong. On Lewis's picture, the first billion years of the causal history leading to the window's breaking would count as a huge body of explanatory information. If understanding were simply possessing enough explanatory information, and if explanatory information is just about metaphysical structure, then learning about that first billion-year history should greatly improve our understanding of why the window broke. It plainly does not. Therefore, as Hall argues, the more plausible approach is to say that what makes some information explanatory is whether it improves our understanding, not that we understand by merely possessing explanatory information. Given that what counts as explanatory depends on whether it produces understanding, then Hall's view opens up the possiblity to reject {::2}: information about grounding structure may track the order of our *understanding*, not the order of reality.
+
+But this line of reasoning merely opens an alternative to {::2}; it does not show {::2} to be false. Epistemic and psychological features can influence whether a chunk of information is explanatory. It does not follow that they are the only source of explanatory status; metaphysical facts might still matter. Hall offers an arguments against this possibility.
+
+The argument runs as follows. In our mathematics, we distinguish axioms from theorems, lemmas and corollaries. Theorems are proven from axioms, and lemmas and corollaries are proven from theorems. For example, strong induction is a theorem that can be proven from the Peano axioms (PA). We may say the PA explain why strong induction is true, and that the PA are more basic than strong induction. However, Hall invites us to imagine two different kinds of Alien Arithmeticians (AAs).
+
+The first kind of AAs has mathematics very similar to ours at the level of truths, but adopts a completely different set of axioms. Thus, they have a very different conception of which propositions are fundamental and which are derived. The second kind of AAs, by contrast, takes the Peano axioms as its preferred axioms, but cannot understand why we distinguish theorems, lemmas, and corollaries. For them, every result is treated as a direct consequence of the axioms, and they cannot make sense of our talk about some proofs being more elegant than others. Consequently, their conception of mathematical structure has only two layers: a fundamental layer of axioms and a second layer containing everything else.
+
+What these two kinds of strange creatures are supposed to show is best understood as follows. There seems to be no flaw in these AAs' mathematics. We agree with them on the truth-value of every mathematical proposition, yet they impose an alternative structure on mathematics. Are they making some metaphysical mistake? There seems no reason to say this. According to Hall, our conception of the rich structure of axioms, theorems, lemmas, and corollaries should not be taken as a matter of metaphysics. Instead, it should be taken as the structure of our understanding, not the structure of reality.
+
+
 
 
 
