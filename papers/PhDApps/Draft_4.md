@@ -64,11 +64,24 @@ What Aristotle means by "clear by nature" is far from clear. Still, on his view,
 
 Second, I believe Hall's argument from AA's alternative mathematical structure is on the right track. But the move from AA to a generalized claim about grounding is too quick. If the argument from AA holds, then it shows that information about *mathematical* structure may not reveal some deep metaphysical structure of reality. It does not follow that, reality has no metaphysical structure at all. 
 
-### Rethinking Hall's position
+### Rethinking Hall's argument
 
-Hall's position: everything is captured by modality. There is no grounding structure beyond necessary connection.
+Hall's position: there is nothing beyond necessary relation. There is no grounding structure beyond necessary connection.
 It is true that an iconic feature for grounding to be hyperintensional and "post-modal". But there are still some grounding relation that can be captured by modality.
-Here I need to clarify what I mean by grounding. In Hall's discussion, grounding simply is just the relation to analyze fundamentality. But this is not incontrosversial. 
+
+Here I need to clarify what I mean by grounding. In Hall's discussion, grounding simply is just *the* relation to analyze fundamentality. But this is not incontrosversial. Sometimes, what is called "grounding relation" is just a narrow, specific relation whose relata are *facts*. To avoid confusion, let's call this narrow conception*factive grounding*. But we may say some *object*, like Socrates is more fundamental than singleton Socrates. Therefore, fundamentality relation may as well be other relations than factive grounding. Maybe these relations can be analyzed by factive grounding, and thus factive grounding is the most fundamental fundamentality relation. But the point is, there are relations other than factive grounding that is relevant to fundamentality. Therefore, it is better to treat what Hall means (and what I mean here) by "grounding" is a more general term for fundamentality. 
+
+This broader concept of "grounding" here is Wilson's talk of "small-'g' grounding relations" (==Wilson 2014==), or what Bennett calls "building" (==making things up==). Following Bennett, under this conception, to say a relation is a grounding relation is to say it is a member in a set of relations that are *asymmetric*, *necessitating* and *generative*. ==(maybe some footnote here)== Some examples are composition, constitution, set-formation, (property) realization, causation, and maybe factive grounding. The point is, not all grounding relation are hyperintensional and "post-modal". Roughly, if $Rxy$ makes $\square (x \leftrightarrow y)$ true, then let's call the relation $R$ *mutually necessitating*.[^1] And it seems Hall is only skeptical about the grounding relations that are mutually necessitating. This is natural, because Hall draw his argument from mathematical explanation, and all mathematical truth are mutually necessitating.
+
+Hall's argument can be generalized. In essence (!), Hall is saying 
+
+ Given any directed and mutually necessitating relation, we can always find a reverse relation that is also directed and necessitating. And reversal is not the only formal maneuver we can do. Say a binary asymmetric relation $R\subseteq D\times D$ is mutually necessitating. Then we can define inverse $R^{-1}=\{(x,y)\in D\times D \mid R(y,x)\}$. Given that $R^{-1}(x,y) \leftrightarrow R(y,x)$, it is easy to see $R^{-1}$ is also asymmetric and necessitating. Moreover, let $x\equiv_{\Box}y$ abbreviate $\Box(x\leftrightarrow y)$. $R$ lies inside the union of $\equiv_{\Box}$-classes, i.e. $R\subseteq\bigcup_{C\in D/\!\equiv_{\Box}}(C\times C)$. Hence within each $\equiv_{\Box}$-class $C$ of size $n$ one may independently pick for every unordered pair $\{u,v\}\subset C$ either $u\to v$, $v\to u$, or neither, producing $3^{\binom{n}{2}}$ asymmetric, necessitating relations on $C$. Whenever some $\equiv_{\Box}$-class has $n\ge 2$ there are therefore combinatorially many relations $R^{*}$ that (i) predicate over the same domain, (ii) are necessitating and directed, yet (iii) are extensionally different from a given directed, necessitating $R$.
+
+But can Hall's argument extend to those grounding relations that are not mutually necessitating? I think no. Consider the previous example: particles arranged table-wise composes, and thus ground, the table[^2]. As long as we do not adopt mereological essentialism (which is implausible), then material composition is not mutually necessitating, because the parts necessitate the whole, but the whole does not necessitate those specific parts. Then there is no alternative structure possible. Maybe could the aliens agree with us about 
+
+Let me explain the 
+
+. I believe in Hall's 
 
 But some grounding relation can 
 
@@ -78,3 +91,6 @@ But some grounding relation can
 
 
 What does it really mean to say, something does not "mark out any distinctive kind of metaphysical structure" at all? 
+
+[^1]: This formulation is formally problematic when $x$ and $y$ are not sentences. But there are multiple obvious ways to patch this. For example, if $x$ and $y$ are entities, then we can say $\square (E(x) \leftrightarrow E(y))$. If $x$ and $y$ are predicates, then we can say $\forall \alpha (x(\alpha) \leftrightarrow y(\alpha))$.
+[^2]: According to Schaffer's priority monism (==citation==), $x$ composes $y$ does not follow that $x$ grounds $y$. But let's leave this view aside for now. We can adopt Bennett's strategy to say, there are difference sense of grounding (or in Bennett's terminology, "building"). What I am talking about here, is $x\text{ grounds}_{compose} \text{ }y$, not $x\text{ grounds}_{\text{factively ground}} \text{ }y$. Therefore, Schaffer's argument is not relevant here.
