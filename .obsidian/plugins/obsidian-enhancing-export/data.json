@@ -23,7 +23,7 @@
     },
     {
       "name": "Word (.docx)",
-      "arguments": "-f ${fromFormat} --lua-filter=\"${luaDir}/diagram-generator.lua\"  --lua-filter=\"${luaDir}/highlight.lua\" --resource-path=\"${currentDir}\" --resource-path=\"${attachmentFolderPath}\" -o \"${outputPath}\" -t docx"
+      "arguments": "-f ${fromFormat} --lua-filter=\"${luaDir}/more_extended_syntax.lua\" --lua-filter=\"${luaDir}/diagram-generator.lua\"  --lua-filter=\"${luaDir}/highlight.lua\" --resource-path=\"${currentDir}\" --resource-path=\"${attachmentFolderPath}\" -o \"${outputPath}\" -t docx"
     },
     {
       "name": "OpenOffice"
@@ -72,5 +72,5 @@
     "linux": "/home/scott/Desktop"
   },
   "lastExportType": "Word (.docx)",
-  "lastEditName": "PDF"
+  "lastEditName": "Word (.docx)"
 }
