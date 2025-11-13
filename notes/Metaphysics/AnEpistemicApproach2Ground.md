@@ -73,3 +73,8 @@ Explanatory information is the right kind of information an answer should convey
 
 ### 2.2 Axioms, theorems, and mathematical concepts
 
+Alien Arithmeticians:
+
+Version 1: alien in choice of axioms
+Version 2: alien in not distinguishing theorems, lemmas and corollary.
+
