@@ -56,7 +56,7 @@ In other words, on Hall's view, to say that $x$ grounds $y$ is (roughly) to say 
 
 ### The Problem with Hall's argument
 
-However, there are some critical issues with Hall's argument. First, what does "enhances our ability to conduct inquiry" mean, exactly? In Sections 5, Hall seems to treat this to mean "exceedingly obvious". But that is precisely what grounding claims are not about. The project of grounding is often seen as a revival of Aristotle's metaphysics. So let's go back to Aristotle:
+However, there are some critical issues with Hall's argument. First, what does "epistemic benefit" or "enhances our ability to conduct inquiry" mean, exactly? In Sections 5, Hall seems to treat this to mean "exceedingly obvious". But that is precisely what grounding claims are not about. The project of grounding is often seen as a revival of Aristotle's metaphysics. So let's go back to Aristotle:
 
 > The natural way of doing this is to start from the things which are more knowable and obvious to us and proceed towards those which are clearer and more knowable by nature; for the same things are not 'knowable relatively to us' and 'knowable' without qualification. So in the present inquiry we must follow this method and advance from what is more obscure by nature, but clearer to us, towards what is more clear and more knowable by nature. (Physics I, 184a17–23)
 
@@ -64,7 +64,7 @@ What Aristotle means by "clear by nature" is far from clear. Still, on his view,
 
 Second, I believe Hall's argument from AA's alternative mathematical structure is on the right track. But the move from AA to a generalized claim about grounding is too quick. If the argument from AA holds, then it shows that information about *mathematical* structure may not reveal some deep metaphysical structure of reality. It does not follow that, reality has no metaphysical structure at all. 
 
-Eventually, I will show that {::E} is right, but {::M} is compatible with it.  
+Eventually, I will explicate what "epistemic benefit" should mean. By doing so, I show that {::E} is right, but {::M} is compatible with it. But for now, let's turn to the second problem. Hall's argument surely carries weight, but it seems that Hall over-generalized his conclusion. The first thing we need to sort out is to what extent does Hall's argument apply.
 ### Rethinking Hall's argument
 
 Hall's position: there is nothing beyond necessary relation. There is no grounding structure beyond necessary connection. ==why?==
