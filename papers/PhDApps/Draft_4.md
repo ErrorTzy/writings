@@ -1,4 +1,20 @@
-A metaphysical approach to the epistemic approach to ground
+---
+title: A metaphysical approach to the epistemic approach to ground
+subtitle:
+author:
+abstract:
+date:
+institute:
+numbersections: true
+toc: false
+toc-title: catalog
+reference-section-title: Biblio
+mainfont: FreeSerif
+CJKmainfont: Noto Serif CJK SC
+include-before:
+header-includes:
+  - \EnableBpAbbreviations
+---
 ## Intro
 
 Over the past twenty years or so, many have grown tired of Quinean ontology and Carnapian metaontology (==citation==). People have found that even if we figure out what indispensably exists, we still seem to miss something important: what is more fundamental than what, and what is most fundamental. As a result, many have rallied under the banner of fundamentality. Since then, metaphysics has undergone a revolution.
@@ -7,9 +23,9 @@ The orthodox way to analyze fundamentality is through the so-called "grounding r
 
 This intuition is compelling, but can it bear scrutiny? Hall (==An Epistemic Approach to Ground==) argues for an epistemic approach to ground. According to Hall, the motivating locutions, like "in virtue of," are grounding explanations. They are perfectly fine. But it does not follow that grounding itself is metaphysical. The alternative is to take the nature of grounding as "purely a topic in epistemology," because the grounding relation does not "mark out any distinctive kind of metaphysical structure."
 
-It's better that Hall's approach is mistaken. Afterall, an important reason people start to move on to the grounding project is the following. The previous paradigm in metaphysics, the Quinean question on what there is, has been shown to be largely verbal by the thesis of Quantifier Variance.[^1] In other words, the grounding project is supposed to be the hope to make metaphysics substantial again. If it turns out that grounding structure is still just a matter of our epistemology, then that would be a catastrophe for metaphysicians.
+Hall's argument is compelling, but it's better that Hall's approach is mistaken. Afterall, an important reason people start to move on to the grounding project is the following. The previous paradigm in metaphysics, the Quinean question on what there is, has been shown to be largely verbal by the thesis of Quantifier Variance.[^1] In other words, the grounding project is supposed to be the hope to make metaphysics substantial again. If it turns out that grounding structure is still just a matter of our epistemology, then that would be a catastrophe for metaphysicians.
 
-
+In this paper, I defend a metaphysical approach to ground while acknowledging the force of Hall's argument. I begin by introducing Hall's epistemic approach and argue that, although powerful, it does not amount to a knockdown case against metaphysics. However, I generalize Hall's argument as threat to the kind of grounding relation in which the relata mutually necessitate one another. Then I contend that the current literature fails to meet this challenge, and that the failure runs deep. At bottom, the issue is we tend to draw a sharp boundary between epistemology and metaphysics. I argue that this is wrong, because metaphysical inquiry should be constrained by our rationality. With this move, a fully metaphysical approach to ground could be compatible with epistemic approach to ground. In the end, I offer a response to Hall's challenge and preserves a fully metaphysical approach to grounding by appealing to our rational agency.
 
 ## The epistemic approach to ground
 
@@ -149,7 +165,7 @@ But this sounds insane. At least for metaphysics in the analytic tradition, the 
 
 ## The rational constraint on the world
 
-Now you may ask, so what a priori information does "the world" carries, then? The previous argument from inconsistency shows that, we mean by "the world" must be constrained by our rationality. But consistency is not the only constraint. I believe the following is also an indispensable constraint: the world is such that, we are rational agents. Given this constraint, we are objectively rational agents.
+Now you may ask, so what *a priori* information does "the world" carries, then? The previous argument from inconsistency shows that, we mean by "the world" must be constrained by our rationality. But consistency is not the only constraint. I believe the following is also an indispensable constraint: the world is such that, we are rational agents. Given this constraint, we are objectively rational agents.
 
 Arguably, there are different senses of "rational agency". For the word limit, I have to truncate the discussion about it. But as long as we can distinguish clear cases of rational agency, it will suffice for the purpose here.
 
@@ -179,13 +195,13 @@ Now I take it to be obvious that we cannot conceive of a surgical intervention o
 
 If an intervention is impossible for a variable, then the interventionist counterfactual "If we intervene on singleton Socrates, then the value of Socrates would change" is ill-posed. Therefore, it is impossible to establish $Socreates=\{Socrates\}$, because there is no way to intervene on $\{Socreates\}$.
 
-In other words, the reply I suggest to {::The Challenge} is as follows: we cannot accept the alternative structure where $\{Socrates\}$ grounds Socrates. Why? Because if a creature could accept this structure, then what they mean by "agency" must be fundamentally different from ours. **In our term, they are not rational agents. Maybe they are rational schmagents.**  But the rational constraint on the world oblige us to have rational agency. In other words, the world we live in must have a structure that we can possible act upon. But the world with an alternative structure is not a world that we can act upon. Therefore we should reject this as a plausible view for our metaphysics.
+In other words, the reply I suggest to {::The Challenge} is as follows: we cannot accept the alternative structure where $\{Socrates\}$ grounds Socrates. Why? Because if a creature could accept this structure, then what they mean by "agency" must be fundamentally different from ours. **In our term, they are not rational agents. Maybe they are rational schmagents.**  But the rational constraint on the world oblige us to have rational agency. In other words, the world we live in must have a structure that we can fully act upon. But the world with that alternative structure is not a world that we can fully act upon. Therefore we should reject this as a plausible view for our metaphysics.
 
 ## Conclusion
 
-Let me recap. Hall proposed the epistemic approach to ground, and he take this as a rival approach against the metaphysical approach to ground. However, I show that, first, his argument only challenges to a limited type of grounding, i.e. the grounding relations that are mutually necessitating. Second, by appealing to the rational constraint on the world, I argue that Hall's challenge can be met. By doing so, the metaphysical approach to ground is sustained. And it perfectly respects the force of Hall's position, because it is compatible with Hall's epistemic approach to ground. When Hall says "A grounding claim counts as explanatory ... in virtue of the kind of epistemic benefit it confers on its recipients", the proper understanding for "epistemic benefit" is the following: it enhance our ability to know how to manipulate the world.
+Let me recap. Hall proposes an epistemic account of ground, presented as a rival to the metaphysical account. I contend that, first, his argument targets only those grounding relations that are mutually necessitating. Second, by appealing to the rational constraint on the world, I argue that Hall's challenge can be met, and his approach is not a rival account afterall. This preserves the metaphysical approach to grounding while acknowledging the force of Hall's position. On my understanding, when Hall writes, "A grounding claim counts as explanatory … in virtue of the kind of epistemic benefit it confers on its recipients", the relevant "epistemic benefit" should be understood as: it enhances our capacity to know how to manipulate the world.
 
-Does it sound like cheating? If you feel like so, then the alternative seems more devastating: metaphysics seems impossible altogether. Throughout the history of philosophy, there has always been a strong impulse to secure an absolute truth that is objective and eternal. But to repeat, ultimately all possible philosophical conclusions must be derived from intuitive presuppositions. We cannot establish anything if we throw away all of our intuitions (or dispositions, sentiments, etc.). If so, then we at least should not abandon the kind of intuition that we cherish most in our ordinary life: our own rational agency. To adopt a worldview that eliminates this that is, for us, simply insane.
+Does it sound like cheating? If you feel like so, then the alternative seems more devastating: metaphysics seems impossible altogether. Throughout the history of philosophy, there has always been a strong impulse to secure an absolute truth that is objective and eternal. But to repeat, ultimately all reliable philosophical conclusions must be derived from intuitive presuppositions. We cannot establish anything if we throw away all of our intuitions (or dispositions, sentiments, etc.). If so, then we at least should not abandon the kind of intuition that we cherish most in our ordinary life: our own rational agency. To adopt a worldview that eliminates this that is, for us, simply insane.
 
 
 
