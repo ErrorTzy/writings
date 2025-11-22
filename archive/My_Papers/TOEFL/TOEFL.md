@@ -19,3 +19,6 @@ Third, *(some evidence)*. Therefore, the reading suggests that *(the passage's c
 ## Academic writing
 
 
+(Hook) Given this, I am inclined to believe that (...). Fundamentally, (...). (...). Therefore, unless (...), it is unlikely that (...).
+
+X says that (...). Then she concludes that (...). I believe this move in her argument is mistaken. It assumes that (...). But as I argued above, (...). For this reason, I think X's position does not stand.
