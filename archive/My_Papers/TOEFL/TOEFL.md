@@ -1,4 +1,4 @@
-Comprehensive Writing
+## Comprehensive Writing
 
 Structure of note:
 
@@ -14,4 +14,8 @@ Structure of response:
 *(Hook sentence)*. The reading *(three things that the passage talks about)*. Yet, the professor casts doubt on each of these reasons/advantages/...
 First, *(some evidence)*. According to the reading, it follows that *(the reading's conclusion)*. But the professor rejects this reasoning as invalid. This is because *(the professor's argument)*
 Second, *(some evidence)*. Given this, the passage concludes that *(the passage's conclusion)*. The professor, however, thinks this conclusion does not hold for the following reason. *(professor's reason)*
-Third, *(some evidence)*. Therefore, the reading suggests that *(the passage's conclusion)*. Nevertheless, the professor finds this implausible. He/she explains that *(professor's reason)*
+Third, *(some evidence)*. Therefore, the reading suggests that *(the passage's conclusion)*. Nevertheless, the professor finds this also implausible. He/she explains that *(professor's reason)*
+
+## Academic writing
+
+
