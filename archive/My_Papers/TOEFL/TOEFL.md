@@ -40,17 +40,21 @@ E3:...
 
 **Structure of response**:
 
-*(Hook sentence)*. The reading *(three things that the passage talks about)*. Yet, the professor casts doubt on each of these reasons/advantages/...
-First, *(some evidence)*. According to the reading, this shows that *(the reading's conclusion)*. But the professor believes this does not follow. This is because *(the professor's argument)*
+*(Hook sentence)*. The reading presents three *(three things that the passage talks about)* to suggest that . Yet, the professor casts doubt on each of these reasons/advantages/...
+First, *(some evidence)*. According to the reading, it shows that *(the reading's conclusion)*. But the professor believes this does not follow. This is because *(the professor's argument)*
 Second, *(some evidence)*. Given this, the passage concludes that *(the passage's conclusion)*. The professor, however, thinks this conclusion does not hold for the following reason. *(professor's reason)*
 Third, *(some evidence)*. Therefore, the article suggests that *(the core evidence)* indicate(s)*(the passage's conclusion)*. Nevertheless, the professor finds this also implausible. He/she explains that *(professor's reason)*
 
 
+.... The reading presents three ... to suggest that ... Yet the professor casts doubt on each of these points.
+First, ... According to the reading, it shows that .... But the professor believes this does not follow. This is because ...
+Second, ... Given this, the passage concludes that .... The professor, however, thinks this conclusion does not hold for the following reason. ....
+Third, ... Therefore, the article suggests x indicates y. Nevertheless, the professor finds this also implausible. He explains that ...
 
-A box of photographic negatives was purchased at a sale years ago. The reading  presents three pieces of evidence to suggest that these negatives were created by Ansel Adams. Yet the professor casts doubt on each of these points.
-First, it is known that Ansel Adams has taken the photo of a pine tree downward a cliff. One of the negatives shows that tree. According to the reading, this shows that the negatives are taken by Ansel Adams. But the professor believes this does not follow. This is because the pine tree is not just any random tree. It is a famous landmark at a national park. A lot of photographers have taken the photo of that tree.
-Second, there are handwritten place names on the negatives, and the handwriting resembles that of Ansel Adams' wife. Given this, the passage concludes that, these negatives must have been created by Ansel Adams, and his wife assisted him in his work. The professor, however, thinks this does not hold for the following reason. There are misspelt place names on the negatives. Yet Ansel Adam's wife grew up in that place. it seems unlikely that, she would misspell these names.
-Third, Ansel Adams' photography studio is documented to have caught a fire once. Therefore, the reading suggests that the fire damage on the negatives indicates they are from Ansel Adams' studio. Nevertheless, the professor finds this also implausible. He explains that at that time, negatives were made from dangerous flamables. Thus it is common for negatives to be damaged by fire.
+The reading presents three ... to suggest that ... Yet, the professor casts doubt on each of these points.
+First, .... According to the reading, it shows that ... But the professor believes this does not follow. This is because ...
+Second, ... Given this, the passage concludes that .... The professor, however, thinks the conclusion does not hold for the following reason.
+Third, .... Therefore, the article suggest x indicates y. 
 
 ## Academic writing
 
