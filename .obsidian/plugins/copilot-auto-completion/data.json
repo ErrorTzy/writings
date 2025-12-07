@@ -20,71 +20,19 @@
     "triggers": [
       {
         "type": "string",
-        "value": "# "
+        "value": "$"
       },
       {
         "type": "string",
-        "value": ". "
+        "value": ";"
       },
       {
         "type": "string",
-        "value": ": "
+        "value": ","
       },
       {
         "type": "string",
-        "value": ", "
-      },
-      {
-        "type": "string",
-        "value": "! "
-      },
-      {
-        "type": "string",
-        "value": "?"
-      },
-      {
-        "type": "string",
-        "value": "`"
-      },
-      {
-        "type": "string",
-        "value": "' "
-      },
-      {
-        "type": "string",
-        "value": "= "
-      },
-      {
-        "type": "string",
-        "value": "$ "
-      },
-      {
-        "type": "string",
-        "value": "> "
-      },
-      {
-        "type": "string",
-        "value": "\n"
-      },
-      {
-        "type": "regex",
-        "value": "[\\t ]*(\\-|\\*)[\\t ]+$"
-      },
-      {
-        "type": "regex",
-        "value": "[\\t ]*[0-9A-Za-z]+\\.[\\t ]+$"
-      },
-      {
-        "type": "regex",
-        "value": "\\$\\$\\n[\\t ]*$"
-      },
-      {
-        "type": "regex",
-        "value": "```[a-zA-Z0-9]*(\\n\\s*)?$"
-      },
-      {
-        "type": "regex",
-        "value": "\\s*(-|[0-9]+\\.) \\[.\\]\\s+$"
+        "value": "."
       }
     ],
     "delay": 500,
@@ -95,7 +43,7 @@
       "presence_penalty": 0,
       "max_tokens": 1028
     },
-    "systemMessage": "Your job is to predict the most logical text that should be written at the location of the <mask/>.\nYour answer can be either code, a single word, or multiple sentences.\nIf the <mask/> is in the middle of a partial sentence, your answer should only be the 1 or 2 words fixes the sentence and not the entire sentence.\nYou are not allowed to have any overlapping text directly surrounding the <mask/>.  \nYour answer must be in the same language as the text directly surrounding the <mask/>.\nYour response must have the following format:\nTHOUGHT: here, you reason about the answer; use the 80/20 principle to be brief.\nLANGUAGE: here, you write the language of your answer, e.g. English, Python, Dutch, etc.\nANSWER: here, you write the text that should be at the location of <mask/>\n",
+    "systemMessage": "Your job is to predict the most logical text that should be written at the location of the <mask/>.\nYour answer can be either code, a few phrases, math equations, or a complete sentences.\nIMPORTANT: There must not be space after the starting `$` and before the closing `$` for inline math. For example, you should write `$f(x)=y$` instead of `$ f(x)=y $`.\nIf the <mask/> is in the middle of a partial sentence, your answer should only be the 1 or 2 words fixes the sentence and not the entire sentence.\nYou are not allowed to have any overlapping text directly surrounding the <mask/>.  \nYour answer must be in the same language as the text directly surrounding the <mask/>.\nYour response must have the following format:\nTHOUGHT: here, you reason about the answer; use the 80/20 principle to be brief.\nLANGUAGE: here, you write the language of your answer, e.g. English, Python, Dutch, hybrid (English+latex), etc.\nANSWER: here, you write the text that should be at the location of <mask/>\n",
     "fewShotExamples": [
       {
         "context": "BlockQuotes",
@@ -154,8 +102,8 @@
       },
       {
         "context": "MathBlock",
-        "input": "# Logarithm definition\nA logarithm is the power to which a base must be raised to yield a given number. For example, $2^3 =8$; therefore, $3$ is the logarithm of $8$ to base $2$, or in other words $ <mask/>$",
-        "answer": "The text close to the <mask/> is about the definition of the log and logarithm of 8 to base 2. The answer is an inline formula for base 2 of 8 equals 3.\nLANGUAGE: LaTeX, English\nANSWER: 3 = \\log_2(8)"
+        "input": "# Logarithm definition\nA logarithm is the power to which a base must be raised to yield a given number. For example, $2^3 =8$; therefore, $3$ is the logarithm of $8$ to base $2$, or in other words $<mask/>",
+        "answer": "The text close to the <mask/> is about the definition of the log and logarithm of 8 to base 2. The answer is an inline formula for base 2 of 8 equals 3.\nLANGUAGE: LaTeX, English\nANSWER: 3 = \\log_2(8)$"
       },
       {
         "context": "MathBlock",

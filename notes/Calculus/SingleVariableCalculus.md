@@ -38,6 +38,7 @@ Multiplication law
 
 Division Law
 : when $n \neq 0$, $\lim_{x \to a} \frac{f(x)}{g(x)} = \frac{m}{n}$
+: when $n=0$, to be continued...
 
 ### Continuity
 
@@ -60,3 +61,32 @@ Some examples:
 
 - $sin(x), cos(x)$, constant functions, etc. are continuous everywhere.
 - $tan(x)$ is not continuous everywhere.
+
+### Limit laws and continuity
+
+Let $f$, $g$ be continuous everywhere.
+
+For $h(x) = f(x) \cdot g(x)$, $h$ is continuous because $\lim_{x \to a} h(x) = \lim_{x \to a} [f(x) \cdot g(x)] = \lim_{x \to a} f(x) \cdot \lim_{x \to a} g(x) = f(a) \cdot g(a) = h(a)$ for any $a$. Similarly, this also applies to addition and subtraction.
+
+In case of division, $h(x) = \frac{f(x)}{g(x)}$ is continuous at $x = a$ where $g(a) \neq 0$. For example, if $g(x)=x^2+1$, then $h(x)$ is continuous everywhere because $x^2 + 1 \neq 0$ for all real $x$. 
+
+For $h(x)=f(g(x))$, $h(x)$ is also continuous. Proof: To show that $h(x)$ is continuous at $a$, we need to show that $\lim_{x \to a} h(x) = h(a)$. Since $g$ is continuous, $\lim_{x \to a} g(x) = g(a)$, and since $f$ is continuous, $\lim_{y \to g(a)} f(y) = f(g(a))$. Therefore, $\lim_{x \to a} f(g(x)) = f(g(a)) = h(a)$, so $h$ is continuous at $a$.
+
+| composition function | Continuity               |
+| -------------------- | ------------------------ |
+| $f+g$                | continuous everywhere    |
+| $f-g$                | continuous everywhere    |
+| $f \cdot g$          | continuous everywhere    |
+| $f/g$                | continuous where defined |
+| $f(g(x))$            | continuous everywhere    |
+
+### Intermediate Value Theorem
+
+Continuous on a closed interbal
+: f is continuous on the closed interval $[a, b]$ if it is right-continuous at $a$, leftcontinuous at $b$, and continuous on $(a, b)$. 
+
+Intermediate Value Theorem
+: If $f$ is continuous on $[a,b]$, then for $f(a)<M<f(b)$, there exists a $c$ between $a$ and $b$ such that $f(c) =M$
+
+The continuity of IVT hangs on the completeness of real numbers. IVT does not hold in rational numbers.
+
