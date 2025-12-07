@@ -18,8 +18,21 @@ Left limit
 
 Right limit
 : $\lim_{x \to n^+} f(x) = k$, meaning $f(x)$ approaches $k$ when $x$ approaches $n$ from the right;
-: 
 
 Overall Limit
 : $\lim_{x \to n} f(x) = k$ iff $\lim_{x \to 1^-} f(x) = \lim_{x \to 1^{+} f(x)} = k$
 : Formal definition that does not appeal to the concept of "limit": For every $\epsilon > 0$, there exists a $\delta > 0$ such that if $0 < |x - n| < \delta$, then $|f(x) - k| < \epsilon$.
+
+### Limit Laws
+
+Let $\lim_{x \to a}f(x)=m$ and $\lim_{x \to a} g(x) = n$.
+
+Addition law
+: $\lim_{x \to a} [f(x) + g(x)] = m + n$
+
+Subtraction law
+: $\lim_{x \to a} [f(x) - g(x)] = m - n$
+
+Multiplication law
+: $\lim_{x \to a} [f(x) \cdot g(x)] = m \cdot n$
+

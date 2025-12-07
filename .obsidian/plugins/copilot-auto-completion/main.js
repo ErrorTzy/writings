@@ -43410,7 +43410,9 @@ var OllamaApiClient = class {
       model: this.model,
       options: {
         temperature: this.modelOptions.temperature,
-        top_p: this.modelOptions.top_p
+        top_p: this.modelOptions.top_p,
+        // Align Ollama's output limit with the plugin's max_tokens setting
+        num_predict: this.modelOptions.max_tokens
       }
     };
     const data = await makeAPIRequest(this.url, "POST", body, headers);
@@ -43833,11 +43835,11 @@ function SettingsView(props) {
       max: MAX_PRESENCE_PENALTY,
       step: 0.05
     }
-  ), /* @__PURE__ */ React9.createElement(
+  )), /* @__PURE__ */ React9.createElement(
     SliderSettingsItem,
     {
       name: "Max Tokens",
-      description: "This parameter changes the maximum number of tokens the model is allowed to generate. This includes the chain of thought tokens before the answer.",
+      description: settings.apiProvider === "ollama" ? "Caps the number of tokens returned by Ollama (sent as num_predict). Includes any reasoning tokens before the answer." : "This parameter changes the maximum number of tokens the model is allowed to generate. This includes the chain of thought tokens before the answer.",
       value: settings.modelOptions.max_tokens,
       errorMessage: errors.get("modelOptions.max_tokens"),
       setValue: (value) => updateSettings({
@@ -43850,7 +43852,7 @@ function SettingsView(props) {
       max: MAX_MAX_TOKENS,
       step: 10
     }
-  )), /* @__PURE__ */ React9.createElement("h2", null, "Preprocessing"), /* @__PURE__ */ React9.createElement(
+  ), /* @__PURE__ */ React9.createElement("h2", null, "Preprocessing"), /* @__PURE__ */ React9.createElement(
     CheckBoxSettingItem,
     {
       name: "Don't include dataviews",
@@ -47009,5 +47011,3 @@ lodash/lodash.js:
    * Copyright Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
    *)
 */
-
-/* nosourcemap */
