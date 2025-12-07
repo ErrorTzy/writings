@@ -191,7 +191,7 @@ But the problem is, why do we choose $\{Socreates\}=Socrates$ as the *appropriat
 
 Recall Bennett's formulation: "building", "making" and "generative". All of these are agential concepts. I believe that, Bennett's intuition aligns with my analysis. There must be something related to agency that leads to the direction that we want. Informally speaking, we can in some sense build singleton Socrates out of Socrates, but we cannot build Socrates out of singleton Socrates.
 
-Let me explicate this intuition into a sketchy argument. Surgical intervention depends on agency.[^11] But agency depends on intention formation. If an intervention is inconceivable, then there is no way to form an intention. If there cannot be such an intention, then the intervention is impossible. 
+Let me explicate this intuition into a sketchy argument. Surgical intervention depends on agency.[^11] But agency depends on intention formation. If an intervention is inconceivable, then there is no way to form an intention. If there cannot be such an intention, then the intervention is impossible.
 
 Now I take it to be obvious that we cannot conceive of a surgical intervention on singleton Socrates. Maybe we can intervene on Socrates, or maybe on the axioms of set theory. But these are all indirect intervention, and thus not surgical. Therefore, a surgical intervention on singleton Socrates is impossible.
 

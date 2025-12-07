@@ -178,5 +178,13 @@
       ],
       "key": "H"
     }
+  ],
+  "copilot-auto-completion:predict": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "N"
+    }
   ]
 }

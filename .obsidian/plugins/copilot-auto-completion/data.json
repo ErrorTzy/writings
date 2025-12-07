@@ -15,7 +15,7 @@
     },
     "ollamaApiSettings": {
       "url": "http://localhost:11434/api/chat",
-      "model": "qwen3:14b"
+      "model": "alibayram/Qwen3-30B-A3B-Instruct-2507"
     },
     "triggers": [
       {
@@ -40,7 +40,7 @@
       },
       {
         "type": "string",
-        "value": "? "
+        "value": "?"
       },
       {
         "type": "string",
@@ -178,6 +178,6 @@
     "ignoredFilePatterns": "**/secret/**\n",
     "ignoredTags": "",
     "cacheSuggestions": true,
-    "debugMode": false
+    "debugMode": true
   }
 }
