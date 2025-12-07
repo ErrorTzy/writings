@@ -41,3 +41,22 @@ Division Law
 
 ### Continuity
 
+Given the definition of limits, we are now able to define continuity: 
+
+Continuous at a point
+: $f$ is *continuous at a point* $x=a$ if $\lim_{x \to a} f(x) = f(a)$. 
+
+Similarly, we can also define *left-continuous at a point* and*right-continuous at a point* in the same spirit.
+
+We can also classify *discontinuity*: 
+
+- When left limit and right limit of $f(x)$ at $a$ both exists but they are not equal, then it is a *jump discontinuity*; 
+- When they are equal, i.e. there exists $\lim_{x \to a} f(x)$, but $f(a) ≠ lim_{x→a} f(x)$, then it is a *removable discontinuity*.
+
+Continuous everywhere
+: A function $f$ is continuous if it is continuous at every point in the domain of f.
+
+Some examples:
+
+- $sin(x), cos(x)$, constant functions, etc. are continuous everywhere.
+- $tan(x)$ is not continuous everywhere.
