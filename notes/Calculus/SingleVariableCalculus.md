@@ -36,3 +36,8 @@ Subtraction law
 Multiplication law
 : $\lim_{x \to a} [f(x) \cdot g(x)] = m \cdot n$
 
+Division Law
+: when $n \neq 0$, $\lim_{x \to a} \frac{f(x)}{g(x)} = \frac{m}{n}$
+
+### Continuity
+
