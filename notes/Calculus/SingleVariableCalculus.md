@@ -21,7 +21,7 @@ Right limit
 
 Overall Limit
 : $\lim_{x \to n} f(x) = k$ iff $\lim_{x \to 1^-} f(x) = \lim_{x \to 1^{+} f(x)} = k$
-: Formal definition that does not appeal to the concept of "limit": For every $\epsilon > 0$, there exists a $\delta > 0$ such that if $0 < |x - n| < \delta$, then $|f(x) - k| < \epsilon$.
+: Formal definition that does not appeal to the concept of "limit": For every $\epsilon > 0$, there exists a $\delta > 0$ such that if $0 < |x - n| < \delta$, then $|f(x) - k| < \epsilon$. In game theoretic semantics: Player A shows an arbitrary number $\epsilon$. Player A challenges Player B, "Can you make sure $f(x)$ falls in the range of $[k-\epsilon,k+\epsilon]$ when $x$ is around $n$?"; If Play B always has a winning strategy to show a $\delta$ such that for any $x$ in the range of $[n-\delta,n+\delta]$, $f(x)$ always falls in the range of $[k-\epsilon, k+\epsilon]$, then the limit of $f(x)$ at $n$ is $k$.
 
 ### Limit Laws
 
@@ -36,7 +36,7 @@ Subtraction law
 Multiplication law
 : $\lim_{x \to a} [f(x) \cdot g(x)] = m \cdot n$
 
-Division Law
+Division Law (incomplete)
 : when $n \neq 0$, $\lim_{x \to a} \frac{f(x)}{g(x)} = \frac{m}{n}$
 : when $n=0$, to be continued...
 
@@ -90,3 +90,22 @@ Intermediate Value Theorem
 
 The continuity of IVT hangs on the completeness of real numbers. IVT does not hold in rational numbers.
 
+### Limits of quotients
+
+We know that 
+
+- if $\lim_{x \to a} g(x) \neq 0$, $\lim_{x \to a} \frac{f(x)}{g(x)} = \frac{\lim_{x \to a} f(x)}{\lim_{x \to a} g(x)}$. 
+
+But what if $\lim_{x \to a} g(x) = 0$? 
+
+- If $\lim_{x \to a} f(x) \neq 0$, then the limit does not exist.
+- If $\lim_{x \to a} f(x) = 0$, then the limit may exist, or may not.
+
+
+**Example 1**: from the graphics of $f(x)=\frac{2x}{x}$, it seems $\lim_{x \to 0} \frac{2x}{x} = 2$
+
+**Example 2:** Let $f(x) = \frac{x^2 + 2x - 3}{x^2 - 3x + 2}$, when $x$ approaches 1, both the numerator and denominator approach 0, so we factor and simplify: $\frac{(x+3)(x-1)}{(x-1)(x-2)} = \frac{x+3}{x-2}$ for $x \neq 1$, and thus the limit is $\frac{4}{-1} = -4$.
+
+#### Limits that don't exist
+
+There are many ways a limit does not exist
