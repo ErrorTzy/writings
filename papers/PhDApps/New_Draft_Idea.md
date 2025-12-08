@@ -1,0 +1,1 @@
+What is semantics? We have linguistic behaviors. These behaviors encode our thoughts; And we decode other people's thought by interpreting other people's behabvior of uttering words in a context. 

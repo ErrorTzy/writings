@@ -19,20 +19,8 @@
     },
     "triggers": [
       {
-        "type": "string",
-        "value": "$"
-      },
-      {
-        "type": "string",
-        "value": "; "
-      },
-      {
-        "type": "string",
-        "value": ", "
-      },
-      {
-        "type": "string",
-        "value": ". "
+        "type": "regex",
+        "value": ".$"
       }
     ],
     "delay": 500,
