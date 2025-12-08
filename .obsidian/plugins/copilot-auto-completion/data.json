@@ -105,7 +105,7 @@
       }
     ],
     "userMessageTemplate": "{{prefix}}<mask/>{{suffix}}",
-    "chainOfThoughRemovalRegex": "(.|\\n)*ANSWER: ",
+    "chainOfThoughRemovalRegex": "(.|\\n)*ANSWER:",
     "dontIncludeDataviews": true,
     "maxPrefixCharLimit": 4000,
     "maxSuffixCharLimit": 4000,
