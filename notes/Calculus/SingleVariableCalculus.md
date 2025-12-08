@@ -122,6 +122,7 @@ Derivitative at a point
 : The derivitative of $f(x)$ at $x=a$ is the instantaneous rate of change of $f(x)$ at $x=a$, i.e. $f'(a)=\lim_{b \to a} \frac{f(b) - f(a)}{b-a}$
 : Alternatively, we can define it in terms of change: $f'(a)=\lim_{h \to 0} \frac{f(a+h) - f(a)}{h}$
 : Derivatives measure how one value changes together with another.
+: Given that derivative is defined in terms of a fraction, the derivative exists only if the limit of the fraction exists.
 
 **Example**: Let $f(t)=100+20t+t^2$ meters; The instantaneous velocity at t=3 is
 $$\begin{aligned}
@@ -133,3 +134,17 @@ f'(3) &= \lim_{h \to 0} \frac{f(3+h) - f(3)}{h} \\
 &= 26
 \end{aligned}$$
 
+**Three main interpretations of the deritives**:
+
+1. Physical interpretation: instantaneous rate of change
+2. Geometrical interpretation: slope of the tangent line
+3. Sentivity to small changes
+
+In order to define the notion of a *tagent line*, we need to first introduce the notion of a *secant line*:
+
+Secant Line
+: A line passing through two points on a curve
+
+A tangent line is a secant line where two points on the curve are approaching to each other.
+
+A tangent line exists *does not* entail the derivative exist. For example, for $f(x)=x^{1/3}$, when $x$ is approaching 0, the derivative tends to infinity, so it does not exist. But there is a tagent line $x=0$.
