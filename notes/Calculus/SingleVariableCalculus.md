@@ -124,6 +124,8 @@ Derivitative at a point
 : Derivatives measure how one value changes together with another.
 : Given that derivative is defined in terms of a fraction, the derivative exists only if the limit of the fraction exists.
 
+> Remark: Be careful about the $f(a+h)$ part. It's not $f(a-h)$. This is because we want to measure how much positive change in $x$ leads to the positive change in f(x). Therefore, it's $a+h$, not $a-h$. If we want to write $a-h$, we need to say $\lim_{h \to 0} \frac{f(a-h) - f(a)}{-h}$
+
 **Example**: Let $f(t)=100+20t+t^2$ meters; The instantaneous velocity at t=3 is
 $$\begin{aligned}
 f'(3) &= \lim_{h \to 0} \frac{f(3+h) - f(3)}{h} \\
@@ -164,3 +166,24 @@ f'(k) &= \lim_{h \to 0} \frac{(k+h)^2 - k^2}{h} \\
 $$
 Similarly, we can show that for $f(x)=mx+b$, $f'(x)=m$
  
+**Derivatives of constant multiples**
+: let $g(x)=k \cdot f(x)$, then $g'(x) = k \cdot f'(x)$
+
+**Example**: Given this, we can now know when $g(x)=-5x^{2}$, $g'(x)= -10x$ because $g(x)= -5 \cdot f(x)$ and $f(x)=x^2$. Given that $f'(x)=2x$, then $g'(x) = -5 \cdot 2x=10x$.
+
+**Derivatives of a sum**
+: if $h(x)= f(x) + g(x)$, then $h'(x) = f'(x) + g'(x)$
+: Similarly, if $h(x) = f(x) - g(x)$, then $h'(x) = f'(x) - g'(x)$
+
+*Proof*
+$$
+\begin{align*}\\
+h'(x) =& \lim_{\Delta x \to 0} \frac{h(x+\Delta x) - h(x)}{\Delta x} \\
+=&\lim_{\Delta x \to 0} \frac{f(x+\Delta x) + g(x+\Delta x) - (f(x) + g(x))}{\Delta x} \\
+=& \lim_{\Delta x \to 0} \frac{f(x+\Delta x) - f(x) + g(x+\Delta x) - g(x)}{\Delta x} \\
+=& \lim_{\Delta x \to 0} \left( \frac{f(x+\Delta x) - f(x)}{\Delta x} + \frac{g(x+\Delta x) - g(x)}{\Delta x} \right) \\
+=& \lim_{\Delta x \to 0} \frac{f(x+\Delta x) - f(x)}{\Delta x} + \lim_{\Delta x \to 0} \frac{g(x+\Delta x) - g(x)}{\Delta x}\\
+=& f'(x) + g'(x) 
+\end{align*}
+$$
+
