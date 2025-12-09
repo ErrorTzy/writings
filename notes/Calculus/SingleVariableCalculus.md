@@ -145,6 +145,22 @@ In order to define the notion of a *tagent line*, we need to first introduce the
 Secant Line
 : A line passing through two points on a curve
 
-A tangent line is a secant line where two points on the curve are approaching to each other.
+A tangent line
+: A secant line where two points on the curve are approaching to each other.
 
 A tangent line exists *does not* entail the derivative exist. For example, for $f(x)=x^{1/3}$, when $x$ is approaching 0, the derivative tends to infinity, so it does not exist. But there is a tagent line $x=0$.
+
+### Calculating derivatives
+
+The derivative of $f(x)=x^2$:
+
+Let $k$ be any arbitrary number, then: $$
+\begin{aligned}
+f'(k) &= \lim_{h \to 0} \frac{(k+h)^2 - k^2}{h} \\
+&= \lim_{h \to 0} \frac{2kh + h^2}{h} \\
+&= \lim_{h \to 0} (2k + h) \\
+&= 2k
+\end{aligned}
+$$
+Similarly, we can show that for $f(x)=mx+b$, $f'(x)=m$
+ 
