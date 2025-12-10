@@ -131,4 +131,4 @@ What count as a proper answer to this question?
 
 ### Jorah's Alternative
 
-Marriage is an obligation because we have the motivation to follow it
+Marriage is an obligation because we have the motivation to follow it; But what it can mean to be morally bound, in Jorah's sense?
