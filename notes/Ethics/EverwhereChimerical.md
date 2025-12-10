@@ -1,3 +1,16 @@
+conventionalism ve anti-conventionalism in the debate of how promises generates obligations.
+
+**Scanlon**: anti-conventionalism
+
+**standard view**: distinctive way for binding us; THE answer to why should I do it; Obligation must be something internal, and related to our actions
+
+Kantian challenge: if you lost the motive, then you are not obliged to do it
+
+Kant starts from presupposing the sense of morality.
+
+**Challenge 2**: why the cultivated moral venerance is different from the cultivated commitment to a sport team? And what about random conventions? Is it also the same as moral obligation? It seems our intuitions are different. What explains the difference.
+
+
 ## I. 
 
 ### Explication of Jorah's view
@@ -30,7 +43,7 @@ But immediately, Jorah lists a moral bondage *for us all*, regardless of *my* fe
 Does this come out of *Jorah*'s personal feelings? But if so, then why *Jorah*'s specific personal feeling binds *us* all? It can't be. The policy that "we should cultivate the sense of the importance of human social flourishing" needs further justification. What justification could it be?
 
 Given what is said later, Jorah seems to be giving a claim about out *actual* society. According to the current paradigm case of our society, we should cultivate the sense of the importance of human social flourishing.
-more robust
+
 **Jorah-Hume disagreement**
 
 - **Hume**: Some unity for the feeling that gives us moral bondage: approbatory sentiment
@@ -132,3 +145,15 @@ What count as a proper answer to this question?
 ### Jorah's Alternative
 
 Marriage is an obligation because we have the motivation to follow it; But what it can mean to be morally bound, in Jorah's sense?
+
+**Against the first argument**
+
+Brake must reject the following thought:
+
+- If one's spouse breaks their vow, then one should not (rationally) feel being morally wronged. (i.e. one should not blame their spouse morally)
+
+But this thought should not be rejected. We can say the lesson is that, not blaming someone morally is not everyone's buisiness.
+
+**Against the second argument**
+
+The upshot would be, a lot of promises will come out not having obligation
