@@ -11,6 +11,13 @@ Kant starts from presupposing the sense of morality.
 **Challenge 2**: why the cultivated moral venerance is different from the cultivated commitment to a sport team? And what about random conventions? Is it also the same as moral obligation? It seems our intuitions are different. What explains the difference.
 
 
+My problem:
+
+1. Conventionalism in general is try to fit our actual intuition; Then why do philosophy at all? Or maybe someone just really have a Kantian inclination? 
+2. How can the disagreement converge at all? Different people have different interpretation of social practices and rules. (deep) moral disagreements within a society are disagreements of how to interpret social rules into rules.
+
+intepretation and herminuitic injustice/epistemic injustice
+
 ## I. 
 
 ### Explication of Jorah's view
