@@ -1,454 +1,868 @@
-to genuine expressive limitations (until they introduce new simple symbols that do not get destroyed by the rearrangement). From an anti-Boolean point of view, the biconditionals corresponding to the Boolean axioms are not importantly different from the laws of nature in this respect.
+![](_page_0_Picture_0.jpeg)
 
-Define  $\Box$  as  $\lambda p.p \equiv \top$ , where  $\top$  is some arbitrarily chosen closed tautology, say  $\exists p(p) \vee \neg \exists p(p)$ . This operator  $\Box$  is of great interest in a Boolean setting, partly because it can take over the role of the propositional identification connective  $\equiv$ , since  $\Box(\varphi \leftrightarrow \psi) \leftrightarrow (\varphi \equiv \psi)$  is a theorem of Booleanism.<sup>57</sup> Booleanism implies that all instances of the modal axioms K and T hold for  $\Box$ .<sup>58</sup> Moreover, it would be natural for Booleans to endorse further principles about embedded occurrences of  $\equiv$  which have the effect of making  $\Box$  be a normal modal operator obeying the logic S4, or perhaps even S5.<sup>59</sup>
+The Logic of Essence Author(s): Kit Fine
 
-If one thought that  $\Box$  had an S5 logic, it would be natural to equate the claim that  $\Box \varphi$ —i.e. that  $\varphi \equiv \top$ —with the claim that it is *metaphysically necessary* that  $\varphi$ . Some might see this as a welcome explanation of the unfamiliar (identification) in terms of the familiar (metaphysical necessity).<sup>60</sup> My attitude towards the proposed
+Source: Journal of Philosophical Logic , Jun., 1995, Vol. 24, No. 3, Afterthoughts on
 
-Necessitated Ref 
-$$(x 
-ightleftharpoons_{ au} x) 
-ightleftharpoons op$$
-  
-Necessitated LL 
-$$((A 
-\rightleftharpoons B) 
-\rightarrow ( \eta 
-\rightarrow [B/_{?}A] \eta)) 
-\rightleftharpoons op$$
+Kaplan's Demonstratives (Jun., 1995), pp. 241-273
 
-Both of these are natural generalisations of *Taut*, since they assert identifications where the corresponding biconditionals were already provable in the system. Furthermore, if we accept *The Identity Identity*, we can derive these principles from the following natural analogues of Booleanism for the quantifiers:
+Published by: Springer
 
-$$\bigg((\lambda v_0 \dots v_n.A) \equiv (\lambda v_0 \dots v_n.A \wedge B)\bigg) \leftrightarrow \bigg((\lambda v_1 \dots v_n.\exists v_0(A)) \equiv (\lambda v_1 \dots v_n.\exists v_0(A) \wedge B)\bigg)
-\end{split}$$
+Stable URL:<https://www.jstor.org/stable/30226545>
 
-$$\bigg((\lambda v_0 \dots v_n.A) \equiv (\lambda v_0 \dots v_n.A \vee B)\bigg) \leftrightarrow \bigg((\lambda v_1 \dots v_n.\forall v_0(A)) \equiv (\lambda v_1 \dots v_n.\forall v_0(A) \vee B)\bigg)$$
+JSTOR is a not-for-profit service that helps scholars, researchers, and students discover, use, and build upon a wide range of content in a trusted digital archive. We use information technology and tools to increase productivity and facilitate new forms of scholarship. For more information about JSTOR, please contact support@jstor.org.
 
-(Here *B* is a formula in which *v<sub>0</sub>* does not occur free. See Dorr 2014a and J. Goodman 2016 for more on these *"Adjunction"* principles.) To get to S5, on the other hand, we would have to add something much less clearly well-motivated, namely the  $\Box$ -necessity of distinctness:
+Your use of the JSTOR archive indicates your acceptance of the Terms & Conditions of Use, available at https://about.jstor.org/terms
 
-$$(x \neq_{\tau} y) \to ((x \neq_{\tau} y) \equiv \mathsf{T})$$
+![](_page_0_Picture_8.jpeg)
 
-For arguments that Booleans should reject this principle, see [Bacon MS](#Bacon MS) and [J. Goodman MS](#J. Goodman MS).
+Springer is collaborating with JSTOR to digitize, preserve and extend access to Journal of Philosophical Logic
 
-Boolean algebra and theorems are sentences whose semantic value in every model is the top element of that model's Boolean algebra.
+#### KIT FINE
 
-Booleanism has more often been taken for granted than argued for. One exception is Ramsey (1927), whose rather compelling argument for Involution we already encountered in §6. After making this argument, Ramsey goes on in short order to generalise the conclusion to all the other Boolean equivalences. But it is doubtful whether the mode of argument from alternative possible forms of language actually extends as far as this. It certainly extends to De Morgan: Involution entails that both ∧∨*-De Morgan* and ∨∧*-De Morgan* hold when ∨ is interpreted as .¬(¬ ∧ ¬) or when ∧ is interpreted as .¬(¬ ∨ ¬), and it is hard to believe that the actual interpretations of ∧ and ∨ fail to fit together in the way that these possible interpretations do. (Indeed, Ramsey's community where negation is represented by inversion will not have different expressions corresponding to '¬( ∨ )' and '¬ ∧ ¬', or '¬(∧)' and '¬∨¬', if they wisely use ∧ and ∨ for conjunction and disjunction.) Another argument in a similar style, turning on possible languages whose sentences do not always have to consist of linearly ordered strings of symbols, can be used to support Commutativity.<sup>56</sup> The fact that our language forces us to choose an order for conjuncts and disjuncts seems no more relevant to enhancing its expressive capacity than the fact that we have to choose a typeface in writing, or a tone of voice in speech.
+# THE LOGIC OF ESSENCE
 
-However, it is hard to see how this mode of argument could be extended to any of the other Boolean equivalences. One could imagine a written language in which symbols, once arranged to form a formula, automatically rearrange themselves to form a tautologically equivalent formula in some canonical form (say, disjunctive normal form). But assuming the community in question retained the ability to introduce new simple symbols stipulatively equivalent to old complex expressions, they could use such symbols to generate stable equivalents to sentences of ours that are not in the canonical form, and use these to express counterexamples to Booleanism, if there are any: by contrast with the case of Involution, allowing for definitional expansions of the language seems to restore expressive parity. Anyway, this thought experiment seems lame as an argument for Booleanism in particular, given that we can also imagine a script whose symbols providentially rearrange themselves into the shortest expression equivalent to what was written down *modulo* the laws of nature, or indeed *modulo* the truth about some arbitrarily chosen subject matter. While users of such languages are lucky in one way, in that it is harder for them to communicate false beliefs about the relevant subject matter, they are surely subject
+ Central to this paper is a certain distinction. This is the distinction between objects simply having a property and their having that property essentially or by their very nature. Also central to the paper is a certain claim. This is the claim that the notion of essence, of objects essentially having a property, is not to be understood in terms of the notion of necessity.
 
-already (classical logic plus Ref, LL, and βη-conversion):
+ The claim is defended in my paper Essence and Modality. But the basic idea behind the defence can be given here. Consider Socrates and the singleton set containing him. Now although it is plausible to suppose that the singleton essentially contains the man, it is not plausible to suppose that the man essentially belongs to the singleton. There is nothing in the nature of Socrates which demands that there be any sets, let alone one that contains him. However, the standard accounts of essence in terms of necessity are unable to account for this asymmetry. For under such an account, the singleton essentially containing Socrates will consist in something like its being necessarily the case that the set contains Socrates if the set exists. But if this is true, then it will also be necessarily the case that Socrates belongs to the set if the man exists.
 
-**\$\wedge\$-Commutativity**       
-$$$ (\lambda v_1 ... v_n. \varphi \wedge \psi) \equiv (\lambda v_1 ... v_n. \psi \wedge \varphi) $$$
+ Once the claim is granted, the problem arises of developing a logic of essence, not now as a fragment of a modal system, but as a system in its own right; and it is the aim of the present paper to develop such a logic.
 
-**\$\vee\$-Commutativity**       
-$$$ (\lambda v_1 ... v_n. \varphi \vee \psi) \equiv (\lambda v_1 ... v_n. \psi \vee \varphi) $$$
+ To this end, a decision must be made as to how the basic essentialist statements of the system are to be formulated. Perhaps the most natural approach is to associate with each predicate G another predicate with the meaning "essentially G's". However, such an approach leads to inelegancies of presentation and to difficulties in making the comparison with modal logic. We shall therefore adopt an alternative approach, one which associates with each predicate F an operator OF. The role of the predicate is now to pick out the subjects of the essentialist claim; and the intended meaning of the sentence ODFA is that A is true in virtue of the
 
-**\$\wedge \vee\$-Distributivity**       
-$$$ (\lambda v_1 ... v_n. \varphi \wedge (\psi \vee \theta)) \equiv (\lambda v_1 ... v_n. (\varphi \wedge \psi) \vee (\varphi \wedge \theta)) $$$
+ Journal of Philosophical Logic 24: 241-273, 1995. A 1995 Kluwer Academic Publishers. Printed in the Netherlands.
 
-**\$\vee \wedge\$-Distributivity**       
-$$$ (\lambda v_1 ... v_n. \varphi \vee (\psi \wedge \theta)) \equiv (\lambda v_1 ... v_n. (\varphi \vee \psi) \wedge (\varphi \vee \theta)) $$$
+nature of the objects which F. Thus each class of objects is taken to give rise to its own modal operator, its own "sphere" of necessity; and it is the task of the logic of essence to lay down the laws which govern each of these spheres and the way they interact.
 
-**\$\wedge \vee\$-Dissolution**       
-$$$ (\lambda v_1 ... v_n. \varphi \wedge (\psi \vee \neg \psi)) \equiv (\lambda v_1 ... v_n. \varphi) $$$
+#### 1. INFORMAL INTERPRETATION
 
-**\$\vee \wedge\$-Dissolution**       
-$$$ (\lambda v_1 ... v_n. \varphi \vee (\psi \wedge \neg \psi)) \equiv (\lambda v_1 ... v_n. \varphi) $$$
+The principal primitive of our language is the relativized operator  $\Box_F$  introduced above. To illustrate the intended meaning of  $\Box_F A$ , let us suppose that A is the sentence 'Socrates belongs to Singleton Socrates'. Then if F is true of Socrates alone,  $\Box_F A$  will convey that Socrates essentially belongs to singleton Socrates; while if F is true of the singleton alone,  $\Box_F A$  will convey that the singleton essentially has Socrates as a member.
 
-Here  $v_1...v_n$  stands for any list of zero or more distinct variables, and  $\varphi$ ,  $\psi$ ,  $\theta$  are formulae. Given these axioms, various other familiar-looking schemas follow (see Huntingdon 1904 for proofs), including the following
+I offer no explanation of this primitive in more fundamental terms; but certain points still need to be clarified. First, the propositions true in virtue of the nature of given objects are taken to be closed under logical implication; any logical consequence of such propositions is also to be such a proposition. Thus given that singleton Socrates essentially contains Socrates, it will also be true that singleton Socrates essentially contains something.
 
-**Involution**
+However, this closure condition is subject to a certain constraint. For we do not allow the logical consequences in question to involve objects which do not pertain to the nature of the given objects. Let us suppose, for example, that the empty set does not pertain to the nature of Socrates, then we do not allow the proposition that the empty set is self-identical to be true in virtue of the nature of Socrates even though this proposition is a consequence of any set of propositions whatever.
 
-$$(
-\lambda v_1 \ldots v_n . \neg (\neg \varphi)
-) \equiv (
-\lambda v_1 \ldots v_n . \varphi
-)$$
-**\land-Associativity**
+Somewhat similar constraints might be imposed in the case of the epistemic attitudes. For even though we require the propositions known by someone to be closed under consequence, we might still limit those consequences to propositions which only involve objects within the "ken" of that person. Thus someone who was unaware of Socrates would not be taken to know that Socrates was self-identical.
 
-$$(
-\lambda v_1 \ldots v_n . (\varphi \land \psi) \land \theta
-) \equiv (
-\lambda v_1 \ldots v_n . \varphi \land (\psi \land \theta)
-)$$
-**\land-Idempotence**
+In the second place, a decision needs to be made concerning objects whose nature is understood in terms of one another (this is the objectual counterpart of simultaneous definition). Perhaps it lies in the nature of all the points of Euclidean space to enter into certain geometric
 
-$$(
-\lambda v_1 \ldots v_n . \varphi \land \varphi
-) \equiv (
-\lambda v_1 \ldots v_n . \varphi
-)$$
-**\land \lor-De Morgan**
+relationships with one another. What then do we say of the individual points? Does every other point pertain to its nature, or do none? We can go either way on this question, but my preference, at least for the purpose of the present paper, is to allow each point to pertain to the nature of every other point. Thus every collectively understood nature will resolve into a network of individually understood natures. (These, and other clarificatory, points are discussed further in my paper Senses of Essence).
 
-$$(
-\lambda v_1 \ldots v_n . \neg (\varphi \land \psi)
-) \equiv (
-\lambda v_1 \ldots v_n . \neg \varphi \lor \neg \psi
-)$$
-**\land \lor-Absorption**
+The other important primitive is that of one object pertaining to the nature of another or, as we shall also put it, of the second *depending* upon the first. Given the objectually constrained interpretation of essential truth, it is possible to dispense with dependence as a notion in its own right; for x will depend upon y just in case it is true in virtue of the nature of x that y is self-identical. But rather than adopt this equivalence as a definition, I have preferred to make clear the assumptions upon which it rests.
 
-$$(
-\lambda v_1 \ldots v_n . \varphi \land (\varphi \lor \psi)
-) \equiv (
-\lambda v_1 \ldots v_n . \varphi
-)$$
-**\land \lor-Annihilation**
+It is, of course, no surprise that dependence can be defined in terms of the objectually constrained form of essential truth; for the notion of dependence is already built into the constraints by which the relevant notion of essential truth is understood. But even without the constraints, a definition could still be given. For we may say that x depends upon y just in case, for some property  $\phi$  not involving y, it is true in virtue of the nature of x that y  $\phi$ 's and yet not true in virtue of the nature of x that every object  $\phi$ 's; the dependees are the objects which cannot be "generalized out". Thus we do not have, in the notion of dependence, an idea that is genuinely new.
 
-$$(
-\lambda v_1 \ldots v_n . \varphi \land (\psi \land \neg \psi)
-) \equiv (
-\lambda v_1 \ldots v_n . \psi \land \neg \psi
-)$$
+Our language has some other distinctive features. Although we allow ourselves the usual stock of predicate symbols, we take each of them to express a *pure* property, i.e., one which does not involve any objects. This understanding is not essential to our approach, but makes it simpler to keep track of "objectual content".
 
-We also get the dual versions that interchange  $\wedge$  and  $\vee$ .<sup>55</sup>
+In order to have an adequate stock of predicates by which essential truths may be relativized, we adopt the resources of  $\lambda$ -abstraction. In order to say that a proposition is true in virtue of the nature of a single object y, for example, we could use the predicate  $\lambda x(x=y)$ ; and in order to say that a proposition was true in virtue of the nature of all objects whatever, we could use the predicate  $\lambda x(x=y)$ .
 
-Booleanism could alternatively be axiomatised using a single schema with a more complicated condition on what counts as an instance:
+In addition to the pure predicate symbols, we allow ourselves a stock
 
-*Taut:*  $(\lambda v_1...v_n.\varphi) \equiv (\lambda v_1...v_n.\psi)$  whenever  $\varphi \leftrightarrow \psi$  is a tautology (theorem of classical propositional logic).
+of *rigid* predicate symbols. By a rigid property is meant a property of being identical to  $x_1$  or  $x_2$  or ..., for certain specific objects  $x_1, x_2, \ldots$ . For example, the property of being identical to Socrates or Plato  $(\lambda x(x = \text{Socrates} \lor x = \text{Plato}))$  and the property of being identical to a natural number  $(\lambda x(x = 0 \lor x = 1 \lor \ldots))$  are rigid. The rigid predicate symbols are then those which express rigid properties.
 
-The equivalence of *Taut* to the axioms listed above follows from the soundness and completeness of the Boolean-valued semantics for classical propositional logic, where the semantic values of sentences in a model are members of an arbitrary
+Rigid predicate symbols are helpful in developing a reasonable account of embedded essentialist operators. If the predicate F is rigid, then we can maintain such reductive theses as  $\Box_F A \to \Box_F \Box_F A$ . But not if F is nonrigid; for it may not then be true in virtue of the objects that F that each of them does F.
 
-It is natural to think of the formation of complex predicates by  $λ$ -abstraction as a device for "automating" the procedure of introducing a new predicate by stipulation and then using it—when we write  $λx_1, \\. \\ldots, x_n.π$  in a formula (where all of  $x_1, \\. \\ldots, x_n$  occur free in  $π$  and no other variables do), it is just as if we had inserted a simple predicate  $F$  which we had earlier defined by issuing the stipulation  $F(x_1, \\. \\ldots, x_n) ≈ df π$ . The differences between these procedures seem to be matters of convenience rather than principle. Thus we should not be surprised by the idea that disputed questions about the logic of  $λ$ -abstracts can be settled by reference to the behaviour of stipulatively defined predicates.
+Finally, we should note that for the sake of simplicity we have taken our quantifiers to range over all possible objects, and not just over the actual objects. In the context of the logic of essence, one might operate with a broader conception of possible object than is customary in modal logic. Under the customary conception, the existence of any possible object is compatible with the nature of all possible objects. But under a broader conception, one might allow there to be possible objects whose existence is incompatible with the nature of other possible objects. One might suppose that Satan and God, for example, are in some sense possible objects, even though the existence of the one is contrary to nature of the other. However, we shall not here consider the consequences of adopting this broader conception.
 
-Opponents of  $\beta$ -conversion will probably reply to these arguments by insisting that we have to choose between two different interpretations for stipulative definitions like (22a)–(22c). We could treat them as *mere abbreviations*, in which case the uses of existential generalisation and  $\eta$ -conversion are not licensed; or we could treat them as true predicates interchangeable with the corresponding lambda terms, in which case definitional substitutions will not be licensed in all contexts (and in particular, not in identifications). But the idea that we have to make such a choice looks like an artefact of a bad theory. True, logicians theorising in a metalanguage about a distinct object language sometimes introduce things called *"metalinguistic abbreviations"* which are not predicates at all, but part of a system for forming complex names for expressions in the object language. But despite superficial similarities, this practice is really quite different from the practice of stipulative definition as engaged in by mathematicians, scientists, and philosophers, which manifestly does lead to extensions of the language.
+### 2. THE FORMAL LANGUAGE
 
-## 7 **Booleanism**
+The vocabulary of our system consists of the following symbols:
 
-The questions discussed so far concern the 'pure logic' of identifications; they have nothing specific to say about the behaviour of other familiar logical vocabulary—truth-functional operators or quantifiers—within the scope of identifications. One simple theory about the interaction of identifications with truth-functional operators is *Booleanism*, according to which the truth-functional operators conform to the axioms of a Boolean algebra, with identification playing the role of identity. This theory can be axiomatised by adding the following schemas to the logic we have
+- (i) denumerably many individual variables;
+- (ii) denumerably many *n*-place pure predicate symbols, for n = 0, 1, 2, ...;
+- (iii) denumerable many 1-place rigid predicate symbols;
+- (iv) the 1-place existence predicate E, the 2-place identity predicate =, and the 2-place dependence predicate  $\geq$ ;
+- (v) the logical constants  $\sim$ ,  $\vee$ , and  $\Pi$ ;
+- (vi) the essentialist operator symbol  $\square$ ;
+- (vii) the abstraction operator  $\lambda$ ;
+- (viii) the bracketing devices (, ), [, ], and :.
 
- $\lambda x. Female(x) \land Fox(x)$  could be used to stand for the witnesses. And of course this mode of argument is extremely general. For any open sentence  $\varphi$  in which the variables  $x_1, \ldots, x_n$  all occur free, we can introduce a new  $n$ -ary predicate  $F$  by stipulating that  $F(x_1, \ldots, x_n) \stackrel{\text{df}}{=} \varphi$ , and then infer by substitution that  $F(A_1, \ldots, A_n) \equiv [A_i/x_i]\varphi$  and by existential generalisation that  $\exists f(f(B_1, \ldots, B_n) \equiv [A_i/x_i]\varphi)$ , which makes the denial of  $\lambda x_1, \ldots, x_n. \varphi(B_1, \ldots, B_n) \equiv [A_i/x_i]\varphi$  seem bizarre. (Note that this seems a lot less compelling in the vacuous case where some of  $x_1, \ldots, x_n$  do not occur free in  $\varphi$ , since we do not normally introduce new predicates by means of stipulations like that.)
+ The formulas and predicates of the system are defined by the following simultaneous induction:
 
-Another way to use our practice of stipulative definition to argue for *β-conversion* relies not on existential generalisation but on the following schema, which is considerably less controversial than *β-conversion*.
+- (i) if F is an n-place predicate and xl,..., xn are variables, then Fx1 ... xn is a formula;
+- (ii) standard rules for r and V and for the quantifier II.
+- (iii) if A is a formula and F is a 1-place predicate, then E [F: A] is a formula;
+- (iv) Each n-place predicate symbol is an n-place predicate;
+- (v) If A is a formula and x a variable, then AxA is a 1-place predicate. We adopt standard meta-linguistic conventions. In particular, we use:
+  - (i) T for IIx(x = x), where x is the first free variable under some standard ordering of the variables;
+  - (ii) 1 for ~ T;
+  `- (iii) V1<n Ai for I ifn = 0, for Ai ifn== 1, and for (... (Ai V A2) V ... V An) if n > 1.`
 
-(η-conversion)  $A 
-ightleftharpoons A^*$ , where  $A^*$  is derived from  $A$  by replacing some constituent of the form  $(\lambda v_1 \dots v_n . F(v_1, \dots, v_n))$ , where none of  $v_1, \dots, v_n$  is free in  $F$ , with  $F$ . <sup>54</sup>
+`Similarly for the generalized conjunction AI <i<n Ai.`
 
-η-conversion is not in tension with the structured picture, and several authors who reject *β-conversion* in general have expressed sympathy for η-conversion—for example, Fine (2012, §9) and Salmon (2010, §2) both suggest that η-convertible sentences may be equivalent in some strong sense in which β-equivalent sentences are not. Thus, the following argument from η-conversion to *β-conversion* is of some interest. As before, let  $φ$  be some formula with  $x_1, ..., x_n$  free, and introduce  $F$  by  $F(x_1, ..., x_n) =df φ$ . First use two applications of definitional substitution to get the following identifications:
+ We use F, G and H etc., for arbitrary 1-place predicates, R, S and T etc. for arbitrary n-place predicates, n > 0, and P, Q, R etc, for arbitrary rigid predicate symbols. We use boldface to indicate a list of symbols. Thus x indicates a list of n variables xl,..., xn, n > 0; and similarly for F, R and P. In the formula 0 [F: B], the predicate F is called the delimiter.
 
-The first equation is:
+` A predicate is said to be rigid if it is either a rigid predicate symbol or is of the form Ax V1 <<,, Ai, n > 0, where each formula Ai, i = 1,..., n, is either of the form Px or of the form x = y for some variable y distinct from x.`
 
-$$F(A_1, \ldots, A_n) \equiv [A_i/x_i] \varphi$$
-The second equation is:
+We adopt the following further abbreviations:
 
-$$(\lambda x_1 \ldots x_n.F(x_1, \ldots, x_n))(A_1, \ldots, A_n) \equiv (\lambda x_1 \ldots x_n.\varphi)(A_1, \ldots, A_n)$$
+- (I) Variants on 0.
+  - (i) OFA for l[F: A];
+  - (ii) O[F: A] (and OFA) for r O[F.: [ A];
+- (II) Dependency Notions.
+  - (i) `x < y for y > x;`
+- (ii) `x < F for Ey(Fy & x < y), y the first variable distinct from x and not free in F;`
+- (III) Constituency.
 
-***But***
-$$(\lambda x_1 \dots x_n.F(x_1, \dots, x_n))(A_1, \dots, A_n) \equiv F(A_1, \dots, A_n)$$
+ Let E be a formula or predicate. Suppose that xl,..., xm are the free variables of E in order of appearance and that P1,..., P, are the rigid
 
-is an instance of  $η$ -conversion. So by symmetry and transitivity, we can derive
+predicate symbols of E, likewise in order of appearance. We then use:
 
-$$(\lambda x_1 \dots x_n.\varphi)(A_1, \dots, A_n) \equiv [A_i/x_i]\varphi$$
+(i)  $x\eta E$  for  $\bigvee_{1 \le i \le m} x = x_i \lor \bigvee_{1 \le j \le n} P_j x$ .
 
-(Again, this is much less compelling in the vacuous case.)
+The intuitive meaning of  $x\eta E$  is that x occurs (as an object) in the proposition (or relation) expressed by E.
 
-I conclude that the structured picture is false. Since the structured picture looks to be the simplest and most systematic alternative to *β-conversion*, this bolsters the case for *β-conversion*. But of course, intermediate positions that accept neither *βconversion* nor the structured picture are imaginable. So, let me close this section by tentatively presenting a positive argument for β-conversion. This argument turns on the familiar practice of stipulative definition, in which new terms are introduced by writing down things like (22a)–(22c):
+- (IV) Predicational Notions.
+  - (i)  $\bigvee$  for  $\lambda x \top$ ;
+  - (ii)  $\bigwedge$  for  $\lambda x \perp$ ;
+  - (iii) (y) for  $\lambda x(x = y)$ , x the first variable distinct from y;
+  - (iv) |E| for  $\lambda x(x\eta E)$ , x the first variable not free in E;
+  - (v) cF for  $\lambda x (x \le F)$ , x the first variable not free in F;
+- (vi)  $(F_1, \ldots, F_n)$  for  $\lambda x \bigvee_{1 \le i \le n} F_i x$ , where  $n \ge 0$  and x is the first variable not to occur free in any of  $F_1, \ldots, F_n$ ;
+  - (viii) F G for  $\lambda x (Fx \& \sim Gx)$ ;
+- (ix)  $R \subseteq S$  for  $\Pi \mathbf{x}(R\mathbf{x} \to S\mathbf{x})$ , R and S n-place predicates and  $\mathbf{x}$  the sequence of the first n variable  $x_1, \ldots, x_n$  not to occur free in R or S;
+  - (x)  $R \approx S$  for  $(R \subseteq S \& S \subseteq R)$ .
 
-- (22) a. is a schmixen =df is female and is a fox
-  - b. Collinear(, , )=df Between(, , ) ∨ Between(, , ) ∨ Between(, , )
-  - c. is a transitive set =df ∀∀( ∈ ∧ ∈ → ∈ )
+The above defined predicates will often be used as delimiters. In particular,  $\Box_{\bigwedge}$  expresses the minimal necessity, truth regardless of the nature of any objects, while  $\Box_{\bigvee}$  expresses the maximal necessity, truth in virtue of the nature of all objects.
 
-As discussed in §2, it is central to the practice of introducing new predicates in this way that having done so, we get to substitute the open sentence on the right of '=df' for the one on the left, *salva veritate* (perhaps with a special exception for attitude and speech reports). In particular, we should be able to substitute in identifications, licensing claims like (23):
+In using (x), x a variable, as part of a delimiter we will usually omit the brackets. Outermost brackets of the disjunctive predicate  $(F_1, \ldots, F_n)$  under (vi) may also be omitted. Thus, combining these two conventions, we may use  $\Box_{x,y}A$  to abbreviate  $\Box_{\lambda z((x)z\vee(y)z)}A$ .
 
-(23) Schmixen(Nelly) ≡ Female(Nelly) ∧ Fox(Nelly)
+|E| is the content predicate; it is true of the objects in the proposition (or relation) expressed by E. Note that the predicate |E| is always rigid. cF represents the closure of the objects which F; it is true of the objects upon which the F's depend.
 
-For Nelly to be a schmixen is for it to be the case that Nelly is female and Nelly is a fox.
+We sometimes use:
 
-But words we have introduced in this way also seem to be perfectly genuine predicates in our expanded language. We should therefore be able to existentially generalise from (23) to (24):
+(viii)  $\square A$  for  $\square_{|A|}A$ .
 
-(24) 
-$$\exists f^{\langle e \rangle}(f(\text{Nelly}) \equiv \text{Female}(\text{Nelly}) \land \text{Fox}(\text{Nelly}))$$
+But note that the implicit delimiter attached to  $\Box$  in  $\Box A$  depends upon A; and so we cannot expect  $\Box$  to behave in the same way as  $\Box_F$  for fixed F.
 
-But this sits very strangely with the denial of the following instance of *β-conversion*:
+As the language stands we have no means of referring to that rigid predicate  $\langle F \rangle$  which has the same extension as a given nonrigid predicate F. However, through abbreviation we can achieve a form of virtual reference. For we may use  $A(\langle F \rangle)$  in place of  $P \approx F \rightarrow A(P)$ , for F a
 
-(25) 
-$$(ackslash lambda x. \text{Female}(x) \land \text{Fox}(x))\text{(Nelly)} \equiv \text{Female}(\text{Nelly}) \land \text{Fox}(\text{Nelly})$$
+1-place predicate and P the first rigid predicate symbol not to occur in  $A(\langle F \rangle)$ . This abbreviatory device may be applied when there are several occurrences of different quasi-predicates  $\langle F \rangle$  and even when some occur within the scope of others. We may agree, for the sake of definiteness in such cases, to eliminate the innermost occurrences first and to eliminate from left to right.
 
-If (24) is witnessed by some \$f^{(e)}\$, why on earth should we not take it to be witnessed by \$\lambda x. Female(x) \land Fox(x)\$? If existentially quantified claims like (24) were true, surely the best conventions about the use of \$\lambda\$-abstracts would be one on which
+However, we shall not use the notation when the quasi-predicate  $\langle F \rangle$  contains variables which are bound from the outside, for then in the disabbreviation  $P \approx F \to A(P)$  the bound variables would become unbound in the antecedent. Any occurrence of a variable of a formula A which occurs within the scope of a rigidifier  $\langle \dots \rangle$  will be said to be unbindable and any other free occurrence of a variable will be said to be bindable.
 
-ation might take, including an approach that (unlike that of Whitehead and Russell) keeps the syntax of the language intact and merely replaces each of our quantifiers with a hierarchy of "restricted" quantifiers. For considerations against ramification, see Ramsey 1926 and Prior 1971, ch. 3. Hodes (2015) considers an argument for ramification based on "converse-compositional" principles like *Propositional Structure*, and finds it wanting.
+Clearly, any formula A with rigidifiers abbreviates a formula of the form  $A_1 \to (A_2 \to \ldots \to (A_n \to A') \ldots)$ , where each  $A_i$  is of the form  $P_i \approx F_i$  and A' is without rigidifiers. Note that when A contains rigidifiers embedded one within the other, some of the earlier  $A_i$  will contain later  $P_i$ .
 
-Then we argue as follows:
+## 3. THE SYSTEM
 
-O(Op) \leftrightarrow \neg \forall f^{\langle \rangle}(Op \equiv f p \rightarrow f(Op))
+We divide the axioms and rules of the system into five groups:
 
-2. 
-$$\forall f(Op \equiv fp \rightarrow f(Op)) \rightarrow (Op \equiv Op \rightarrow O(Op))$$
- \forall-elim
+(I) Standard Classical Axioms and Rules:
 
-3. 
-$$\neg O(Op) \rightarrow (Op \equiv Op \rightarrow O(Op))$$
- (1, 2)
+We may use any of the standard axiomatizations of classical first-order logic. However, we shall suppose that the sole rules of inference are Modus Ponens (MP) and Universal Generalization (Gen).
 
-The equation "Op \equiv Op" should be represented with correct LaTeX. The symbol \equiv is correct for equivalence. The spacing around the symbols might need adjustment to ensure proper rendering in KaTeX. The reference (Ref) should be placed outside the math block, typically as a separate element after the equation. The original code uses a math block with display="block", which is correct for a standalone equation.
+- (II) Modal Axioms and Rules:
+  - (i)  $\Box_F A \to A$ ;
+  - (ii)  $\Box_F(A \to B) \to (\Box_F A \to \Box_F B)$ ;
+  - (iii)  $\sim \Box_F A \to \Box_{F,|A|} \sim \Box_F A$ , F rigid;
+  - (iv)  $A \setminus \square_{|A|}A$ ;
+  - (v)  $F \subseteq G \to (\Box_F A \to \Box_G A)$ .
+- (III) Predicational Axioms and Rules:
+- (i)  $\lambda x A y \leftrightarrow A(y)$ , where A(y) is the result of substituting y freely for the free occurrences of x in A;
 
-5. 
-$$\lnot O(Op) \rightarrow O(Op)$$
-   
-*(3,4)*
+- (ii)  $Px \rightarrow \Box_{P,x}Px$ ;
+- (iii)  $P \approx F \rightarrow A \setminus A$ , as long as the predicate P does not occur in A.
 
-6. 
-$$O(Op)$$
-   
+# (IV) Dependency Axioms:
+
+- (i)  $\Box_{cF}A \rightarrow \Box_{F}A$ ;
+- (ii)  $\Box_F A \& x \eta A \rightarrow x \leq F$ ;
+
+Postulates II(i)—(iv) correspond to the standard axioms and rules for S5, and we shall usually refer to them by their modal designations: II(i), for example, will be called the T-axiom. Axiom II(iii) is, however, not simply the relativized version of its modal counterpart. It differs from the relativization  $\sim \Box_F A \to \Box_F \sim \Box_F A$  in two ways. First, the inner delimiter F is required to be rigid; and second, |A| is added to the outer delimiter.
+
+The second of these modifications is clearly required under the constrained interpretation of the essentialist operators; for there is no guarantee, merely given  $\sim \Box_F A$ , that the objects of A pertain to the objects which F. The first of the modifications is also required. For let us suppose that my favourite object x is a painting. Then that x is a statue is not true and, a fortiori, not true in virtue of the nature of my favourite work of art. But that this is so is not something which is true by virtue of the nature of the painting x. For there is nothing in the nature of x which would make it true that my favourite work of art is a painting rather than a statue, let us say.
+
+Given the two modifications, the axiom would appear to be correct. For let us suppose that A is not true by virtue of the nature of the F's; and let  $x_1, x_2, \ldots$  be the objects which F. Given that F is rigid, it is then true in virtue of the nature of the objects  $x_1, x_2, \ldots$  that they are the only objects which F. It therefore suffices to show that it is true in virtue of the nature of  $x_1, x_2, \ldots$  and of the objects in the proposition A that A is not true in virtue of the nature of  $x_1, x_2, \ldots$ . We distinguish two cases. The first is when some object y in A is not an object upon which any  $x_i$  depends. But it is then true in virtue of the nature of the  $x_i$  and of y that no  $x_i$  depends upon y and hence true in virtue of the nature of the  $x_i$  and of the objects in A that A is not true in virtue of the nature of the  $x_i$ . The other case is when each object in A is an object upon which an  $x_i$  depends. But given  $p_1, p_2, \ldots$  are all of the propositions true in virtue of the nature of the  $x_i$ , it is true in virtue of the nature of the  $x_i$  that these propositions are all of the
+
+propositions true in virtue of the nature of the  $x_i$ . Since the particular proposition A only contains objects dependent upon an  $x_i$ , it will be true in virtue of the nature of the  $x_i$  that this proposition is not one of the propositions  $p_1, p_2, \ldots$ , and hence it will be true in virtue of the nature of the  $x_i$  that this proposition is not true in virtue of the nature of the  $x_i$ .
+
+Axiom (III)(i) is the familiar principle of  $\lambda$ -abstraction. Axiom (III)(ii), which we call *Rigidity*, is clearly correct. For if x is one of the objects  $x_1, x_2, \ldots$ , say  $x_i$ , then it is true in virtue of the nature of x that it is  $x_i$  and hence true in virtue of the nature of  $x_1, x_2, \ldots$  that x is one of  $x_1, x_2, \ldots$ 
+
+The rule (III)(iii) of *Predicate Elimination* is really a form of existential elimination. For if we had quantification over rigid predicates in our language, then from  $\vdash P \approx F \rightarrow A$  we could infer  $\vdash \Sigma P(P \approx F) \rightarrow A$ , given that P does not occur in A. But  $\Sigma P(P \approx F)$  should be a theorem; and so  $\vdash A$  would follow by Modus Ponens. Although we shall make use of the rule, I do not know whether it is required.
+
+Axiom (IV)(i) is the important principle of *Chaining*. It states that if the objects  $y_1, y_2, ...$  are "linked" by dependence to the objects  $x_1, x_2, ...$ , then any proposition true in virtue of the linking objects  $y_1, y_2, ...$  is also true in virtue of the linked objects  $x_1, x_2, ...$ 
+
+Axiom (IV)(ii), which we call *Localization*, can be regarded as the product of two rather different principles. One of these is a consequence of the constrained interpretation of the essentialist operators and states that when a proposition is true in virtue of the nature of various objects then any object in that proposition must be one upon which the plurality of objects depend. The other, which is Localization proper, states that if a plurality of objects depends upon a given object then one of the members of the plurality must depend upon the object.
+
+A potential counter-example to Localization arises from the case in which the nature of several objects is simultaneously understood in terms of one another. Perhaps it is of the nature of a mind and body to comprise a given person although this is not something which follows from the nature of the mind, considered apart from the body, and from the nature of the body, considered apart from the mind. However, we have agreed in such a case to allow each individual to share in the collective nature. Thus we will say that it is of the nature of the mind to
+
+comprise the person in conjunction with the body and of the nature of the body to comprise the person in conjunction with the mind
+
+In laying down the postulates, I have tried to maintain a neutral position on what kind of object belongs to the domain of quantification, although the axiom of specification in conjunction with the rules of the system require that the domain be non-empty and "increasing" across modalities. However, if the domain is taken to consist of all metaphysically possible objects, then two further axioms should be added:
+
+- (V) Domain:
+  - (i)  $\Diamond_{\bigvee} Ex$ .
+  - (ii)  $\Box \Pi x < \bigvee > x$ ;
+
+The first of these states, of each object in the domain, that its existence is compatible with the nature of all objects. The second states that it is true in virtue of the nature of all the objects that there are that they are all of the objects that there are; it lies in their nature to be exhaustive. The first of these axioms is uncontentious under our chosen conception of a possible object. The second is plausible if the domain is taken to include the concept of a metaphysically possible object. For if  $x_1, x_2, \ldots$  are all of the metaphysically possible objects, then it is presumably true in virtue of the nature of those objects and of the concept of being a metaphysically possible object that any metaphysically possible object is one of  $x_1, x_2, \ldots$ . Even if the domain consists only of the metaphysically possible individuals we can still guarantee the truth of the axiom by taking the minimal necessity  $\Box_{\Lambda}$  to be conceptual necessity, i.e., truth in virtue of the nature of all concepts.
+
+Under a broader conception of possible object, one might want to weaken axiom V(i). It could be replaced, for example, by  $\Diamond_x Ex$ : each object is self-possible; there is nothing in its nature to preclude its own existence. However, there are real difficulties in developing a reasonable account of such weakly possible objects. For it is plausible to maintain the principle  $\Diamond_F \exists x \phi \to \Sigma x \Diamond_{F,x} \phi$ : if it is compatible with the nature of the F's that there exists an object which  $\phi$ 's then, for some possible object x, it is compatible with the nature of the F's and of x that  $x \phi$ 's. Let us now take a logically contingent pure proposition A. Then it is plausible that
+
+ $\Diamond_{\Lambda} \exists x \Box_x A$  and  $\Diamond_{\Lambda} \exists x \Box_x \sim A$ : it is logically possible that there exists an object whose nature requires the truth of A and logically possible that there exists an object whose nature requires the falsehood of A. Applying the principle to these claims, we infer  $\Sigma x \Diamond_x \Box_x A$  and  $\Sigma x \Diamond_x \Box_x \sim A$ . But then with the help of the S5 axiom, we obtain  $\Sigma x \Box_x A$  and  $\Sigma x \Box_x \sim A$ ; and with the help of the T-axiom, we obtain the contradiction A and A. I shall not consider the question of how this some difficulty, and some related ones, might be resolved.
+
+There are some other axioms which might be added to the system, although their status as "logical" principles is somewhat unclear. Two of these concern the relationship between dependence and existence. The first states that an existent can only depend upon an existent:
+
+$$x \ge y \to (Ex \to Ey).$$
+
+The second is a kind of converse and states that no mere possible can be relevant to the truth of a proposition which only concerns existents:
+
+$$\Box_F A \& \Pi x(x\eta A \to Ex) \to \Box_{\lambda x(Fx \& Ex)} A$$
+
+Another set of principles gives "meat" to the minimal modality by requiring that it tolerate the existence of any finite number of objects:
+
+$$\Diamond_{\bigwedge} \Sigma x_1 \dots \Sigma x_n \left( \bigwedge_{1 \le i \le j \le n} x_i \ne x_j \land \Pi x \left( \bigvee_{1 \le i \le n} x = x_i \right) \right).$$
+
+This principle is, of course, much more plausible when the minimal modality is taken to be logical rather than conceptual necessity.
+
+We call the system constituted by the original set of axioms and rules, (I)–(IV), E5 ('E' for essence, '5' for the underlying S5 structure); and we call the extended system with the domain axioms E5<sup>+</sup>. For each of the systems, the definition of *theorem* is standard.
+
+# 4. SOME THEOREMS
+
+We establish some elementary theorems within the system E5. These theorems are of interest in themselves and will serve as a basis for subsequent meta-logical results. They are divided into eight groups – on chaining, objectual content, modal-type reasoning, reduction, identity, rigidity and dependence.
+
+We first note the following preliminary results:
+
+LEMMA 1. The following are theorems:
+
+- (i)  $\Box_x x = x$ ;
+- (ii)  $x \leq x$ ;
+- (iii)  $F \subseteq cF$ .
+
+*Proof.* (i)  $\vdash x = x$  by the logic of identity and hence  $\vdash \Box_{|x=x|} x = x$ , i.e.,  $\vdash \Box_x x = x$ , by Nec.
+
+(ii) 
+$$\vdash \Box_x x = x \land x\eta[x = x] \to x \le (x)$$
+ by Localization. But  $\vdash \Box_x x = x$  by (i), and  $\vdash x\eta[x = x]$  and  $\vdash x \le x(x) \to x \le x$  by Abstraction. Hence  $\vdash x \le x$ .
+
+(iii) From (ii) by Abstraction.
+
+We now have the following consequences of Chaining:
+
+LEMMA 2. (i)  $\vdash \Box_F A \& \Box_{|A|,G} B \to \Box_{F,G} B$ ;
+
+(ii)  $\vdash cF \approx cG \to \Box_F A \leftrightarrow \Box_G A$ .
+
+*Proof.* (i) We first prove for the case in which F and G are identified.  $\vdash \Box_F A \to |A| \subseteq cF$  by Localization ((IV)(ii)) and Abstraction;  $\vdash |A| \subseteq cF \to (\Box_{|A|,F} B \to \Box_{cF} B)$  by Subsumption, Lemma 1(iii) and Abstraction;  $\vdash \Box_{cF} B \to \Box_F B$  by Chaining; and so  $\vdash \Box_F A$  &  $\Box_{|A|,F} B \to \Box_F B$ .
+
+For the general case, we note that  $\vdash \Box_F A \to \Box_{F,G} A$  and that  $\vdash \Box_{|A|,G} B \to \Box_{|A|,(F,G)} B$  by Subsumption, Lemma 1(iii) and Chaining. By the special case,  $\vdash \Box_{F,G} A \& \Box_{|A|,(F,G)} B \to \Box_{F,G} B$ ; and so  $\vdash \Box_F A \& \Box_{|A|,G} B \to \Box_{F,G} B$ .
+
+(ii)  $\vdash \Box_F A \leftrightarrow \Box_{cF} A$  and  $\vdash \Box_G A \leftrightarrow \Box_{cG} A$  by Subsumption, Abstraction and Chaining;  $\vdash cF \approx cG \rightarrow (\Box_{cF} A \leftrightarrow \Box_{cG} A)$  by Subsumption; and so  $\vdash cF \approx cG \rightarrow (\Box_F A \leftrightarrow \Box_G A)$ .
+
+We call the result under (i) *Cut* in view of its similarity to the Gentzenian principle of the same name. According to this result, if certain objects "yield" a given proposition and if the objects of that proposition help yield another proposition, then in place of the yielded objects we may use the objects that yielded them.
+
+I have been careful to state all of the uses of Abstraction and Sub-sumption in the above proofs. In future, I will not usually be so careful.The following results on objectual content are straightforward consequences of the definitions and will normally be used without explicit mention:
+
+# LEMMA 3. The formulas below are theorems:
+
+- (i)  $|\sim A|\approx |A|$ ;
+- (ii)  $|A \vee B| \approx |A|, |B|$ ;
+- (iii)  $|\Box_F A| \approx |F|, |A|$ ;
+- (iv)  $|B| \approx |\Pi x B|, |x|, x$  free in B;
+- (v)  $F \approx |F|$ , for F rigid.
+
+Note that since the predicate |E| is itself rigid, it follows from theorem (v) that  $|E| \approx |E|$ .We now prove some theorems which are analogues of standard results in modal propositional logic:
+
+#### THEOREM 4.
+
+- (i) If  $\vdash A$  then  $\vdash |A| \subseteq cF \rightarrow \Box_F A$ .
+- (ii) If  $\vdash A \rightarrow B$  then  $\vdash |B| |A| \subseteq cF \rightarrow (\Box_F A \rightarrow \Box_F B)$ .
+- (iii) If  $\vdash A \to B$  then  $\vdash |A| |B| \subseteq cF \to (\lozenge_F A \to \lozenge_F B)$ .
+- (iv)  $\vdash \Box_F A \& \Box_F B \rightarrow \Box_F (A \& B)$ .
+- $(\mathbf{v}) \vdash \Diamond_F(A \vee B) \to (\Diamond_F A \vee \Diamond_F B).$
+- (vi) If  $A_1 \& \ldots \& A_n \to B$  then  $\vdash (|B| (|A_1|, \ldots, |A_n|)) \subseteq cF \to \Box_F A_1 \& \ldots \& \Box_F A_n \to \Box_F B$ .
+
+*Proof.* (i) Given  $\vdash A$ ,  $\vdash \Box_{|A|}A$  by Nec. So  $\vdash |A| \subseteq cF \to \Box_{cF}A$  by Subsumption; and so  $\vdash |A| \subseteq cF \to \Box_{F}A$  by Chaining.
+
+- (ii) Suppose  $\vdash A \to B$ . By (i) above,  $\vdash |A \to B| \subseteq cF \to \Box_F(A \to B)$ ; by Distribution ((II)(ii)),  $\vdash \Box_F(A \to B) \to (\Box_F A \to \Box_F B)$ ; and so  $\vdash \Box_F A & |A \to B| \subseteq cF \to \Box_F B$ . But  $\vdash (|A|, (|B| |A|)) \approx |A \to B|$  and  $\vdash \Box_F A \to |A| \subseteq cF$  by Localization. So  $\vdash \Box_F A & (|B| |A|) \subseteq cF \to \Box_F B$ .
+  - (iii) From (ii).
+- (iv)  $\vdash A \to (B \to A \& B)$  by truth-functional logic. By (ii) above (and Subsumption),  $\vdash |B| \subseteq cF \to (\Box_F A \to \Box_F (B \to A \& B))$ ; by Distribution,  $\vdash \Box_F (B \to A \& B) \to (\Box_F B \to \Box_F (A \& B))$ ; and by Localization,  $\vdash \Box_F B \to |B| \subseteq cF$ . The result then follows.
+  - (v) From (iv).
+  - (vi) Apply (ii) to  $\vdash A_1 \& \dots A_n \to B$  and then use (iv).
+
+The rule under (i) in the above theorem is a stronger form of our rule of necessitation. The rules under (ii) and (iii) correspond to the "monotonicity" rules, but with appropriate restrictions on objectual content. Note that for necessity to be preserved by a provable implication there must be no "new content" in the consequent whereas for possibility to be preserved there must be no new content in the antecedent. The results under (iv) and (v) can be stated without restriction. But this is not true for analogues of other standard modal theorems. For example,  $\Box_F A \to \Box_F (A \vee B)$  is not a theorem, the intuitive reason being that B may introduce objects upon which no F depends. (vi) is a compendious version of (ii) and (iv). It allows us, roughly speaking, to make the analogues of the inferences which we can make in non-iterative propositional modal logic as long as no illegitimate objectual content is thereby introduced. Use of this result, and of its companions, will often be implicit.
+
+We shall find it useful to extend the notion of rigid predicate. This extension, which we call quasi-rigidity, is defined by the following induction:
+
+- (i) Any rigid predicate is quasi-rigid;
+- (ii) If  $F_1, \ldots, F_n$  are quasi-rigid,  $n \ge 1$ , then so is their disjunction  $(F_1, \ldots, F_n)$ .
+
+# LEMMA 5. Let F be a quasi-rigid predicate. Then:
+
+- (i) there is a rigid predicate G such that  $\vdash F \approx G$  and  $\vdash |F| \approx |G|$ ;
+- (ii)  $\vdash |F| \approx F$ .
+
+*Proof.* (i) By induction on the construction of F. If F is itself rigid, then we may let G = F. So suppose that F is the disjunction  $F_1, \ldots, F_n$ , where each  $F_i$  is quasi-rigid. By IH, there are rigid predicates  $G_1, \ldots, G_n$  such that  $\vdash F_i \approx G_i$  and  $\vdash |F_i| \approx |G_i|$  for  $i = 1, \ldots, n$ . Now each  $G_i$  is of the form  $\lambda x_i D_i$  (where  $D_i$  is a disjunction of formulas of the form  $Px_i$  or  $x_i = y$ ). Choose a variable x which does not occur in any of  $G_1, \ldots, G_n$ ; and let G be  $\lambda x(D_1x/x_i \vee \ldots \vee D_nx/x_n)$ . Then it is evident from the IH that  $\vdash |F| \approx |G|$ ; and it is readily shown, applying Abstraction to IH, that  $\vdash F \approx G$ .
+
+(ii) By (i), it suffices to show that  $\vdash |G| \approx G$  for any rigid predicate G. But this is evident from the definition of |G|.
+
+ The S5 axiom can be extended to quasi-rigid predicates, and from the extension we can prove the S4 principle:
+
+THEOREM 6. (i) F- OFA - LOF, IAI , IOFA, for F quasi-rigid:
+
+(ii) 
+$$\vdash \Box_F A \to \Box_F \Box_F A$$
+, for  $F$  quasi-rigid.
+
+Proof. (i) By Lemma 5, F- F, G and F IFl , IGI for some rigid predicate G; and so by Subsumption,
+
+$$(1) \qquad \qquad \vdash \sim \Box_F A \leftrightarrow \sim \Box_G A.$$
+
+ By the S5 axiom, F- OG A -+ OG,IAI OG A; by the application of theorem 3(ii) to (1) (given that F Fl F IGI),
+
+$$\vdash \Box_{G,|A|} \sim \Box_G A \rightarrow \Box_{G,|A|} \sim \Box_F A$$
+; and so
+
+$$(2) \qquad \vdash \sim \Box_G A \to \Box_{G,|A|} \sim \Box_F A.$$
+
+But again by Abstraction, F F, Al G, JAl; and so by Subsumption,
+
+(3) \qquad \qquad \vdash \Box\_{G,|A|} \sim \Box\_F A \to \Box\_{F,|A|} \sim \Box\_F A.
+
+The required result then follows from (1), (2) and (3).
+
+ (ii) The proof is analogous to the derivation of OA -+ ODOA in S5, but requires careful control over the choice of delimiters. By the T-axiom,
+
+$$(1) \qquad \vdash \Box_F A \to \Diamond_{F,|A|} \Box_F A.$$
+
+By part (i) of the lemma, F OF, IAIIOFA - ODIFJIIAII,IAIO, IAIOIFA and so:
+
+(2)
+
+$$\vdash \Diamond_{F,|A|} \Box_F A \to \Box_{F,|A|} \Diamond_{F,|A|} \Box_F A.$$
+
+By the S5 axiom, OF, IAI-OFA - OIFA; and so by modal reasoning,
+
+$$(3) \qquad \vdash \Box_{F,|A|} \Diamond_{F,|A|} \Box_F A \to \Box_{F,|A|} \Box_F A.$$
+
+By Cut,
+
+$$(4) \qquad \vdash \Box_F A \land \Box_{F,|A|} \Box_F A \to \Box_F \Box_F A$$
+
+But then from (1), (2), (3) and (4), F- OFA --+ OF OFA.
+
+We turn to two noteworthy results on identity:
+
+THEOREM 7. (i) 
+$$\vdash x = y \to \Box_x x = y$$
+;
+
+(ii) 
+$$\vdash x \neq y \to \Box_{x,y} x \neq y$$
+.
+
+*Proof.* (i) By Lemma 1(i),  $\vdash \Box_x x = x$ . By Leibniz's Law,  $\vdash x = y \rightarrow (\Box_x x = x \rightarrow \Box_x x = y)$ . So  $\vdash x = y \rightarrow \Box_x x = y$ .
+
+(ii) Applying Theorem 4(iii) to (i) above, we obtain  $\vdash \Diamond_{x,y} x = y \to \Diamond_{x,y} \Box_x x = y$ . But  $\vdash \Diamond_{x,y} \Box_x x = y \to x = y$  by the T and S5 axioms; and so  $\vdash \Diamond_{x,y} x = y \to x = y$ , which implies the result to be proved.
+
+It should be noted that whereas a true identity x = y depends upon the nature of the one object x, a true non-identity  $x \neq y$  depends upon the nature of both objects.
+
+The Rigidity Axiom can be extended to quasi-rigid predicates; and related results can be established for negative and existential predications:
+
+THEOREM 8 (Rigidity). For F quasi-rigid,
+
+- (i)  $\vdash Fx \rightarrow \Box_F Fx$ ;
+- (ii)  $\vdash \sim Fx \rightarrow \Box_{F,x} \sim Fx$ ;
+- (iii)  $\vdash \Sigma x F x \rightarrow \Box_F \Sigma x F x$ .
+
+Subsumption,  $\vdash Px \rightarrow \Box_P Px$ .
+
+*Proof.* (i) Let us first prove this result for the special case in which F is a rigid predicate symbol P. By the Rigidity Axiom (III)(ii),  $\vdash Px \to \Box_{P,x} Px$ . But by Abstraction,  $\vdash Px \to P$ ,  $x \subseteq P$ ; and so by
+
+Let us now consider the case in which F is a rigid predicate. Let  $P_1, \ldots, P_m$  be the rigid predicates of F and  $x_1, \ldots, x_n$  its free variables. Then by Abstraction,  $\vdash Fx \leftrightarrow \bigvee_{1 \le i \le m} P_i x \lor \bigvee_{1 \le j \le n} x = x_j$ . Where B(x) is the disjunction on the right, we have  $\vdash |Fx| \approx |B(x)|$ ; and so it clearly suffices to show  $\vdash B(x) \to \Box_F B(x)$ . The result holds when m = n = 0, since then  $\vdash \sim B(x)$ . So we may suppose m + n > 0. Now  $\vdash P_i x \to \Box_{P_i} P_i x$  by the special case above; so  $\vdash P_i x \to \Box_F P_i x$  by Subsumption; and hence  $\vdash P_i x \to \Box_F B(x)$ . By using theorem 7(ii), we may similarly show that  $\vdash x = x_i \to \Box_F B(x)$ . But then  $\vdash B(x) \to \Box_F B(x)$ .
+
+Finally, let us consider the case in which F is a quasi-rigid predicate. By Lemma 5(i), there is a rigid predicate G such that  $\vdash F \approx G$  and  $\vdash |F| \approx |G|$ . So  $\vdash Fx \to Gx$ ,  $\vdash Gx \to \Box_G Gx$  (by the case above),  $\vdash \Box_G Gx \to \Box_G Fx$  (using modal reasoning),  $\vdash \Box_G Fx \to \Box_F Fx$  (by Subsumption), and hence  $\vdash Fx \to \Box_F Fx$ .
+
+(ii) By (i),  $\vdash Fx \to \Box_F Fx$ . So by Nec,  $\vdash \Box_{F,x}(Fx \to \Box_F Fx)$ . By modal
+
+reasoning,  $\vdash \lozenge_{F,x} Fx \to \lozenge_{F,x} \square_F Fx$ . But  $\vdash \lozenge_{F,x} \square_F Fx \to Fx$  by the T-axiom and S5 result (Theorem 6(i)); and so  $\vdash \lozenge_{F,x} Fx \to Fx$ , as required.
+
+(iii) By (i),  $\vdash Fx \to \Box_F Fx$ . Since  $\vdash Fx \to \Sigma x Fx$ , it follows from Theorem 4(ii) that  $\vdash \Box_F Fx \to \Box_F \Sigma x Fx$ ; and so  $\vdash Fx \to \Box_F \Sigma x Fx$ . But then by quantificational reasoning,  $\vdash \Sigma x Fx \to \Box_F \Sigma x Fx$ .
+
+We have the following fundamental result connecting dependence and essential truth:
+
+LEMMA 9. 
+$$\vdash x \ge y \leftrightarrow \Box_x y = y$$
+.
+
+*Proof.* For the  $\leftarrow$  direction, note that  $\vdash \Box_x y = y \& y\eta(y = y) \to x \ge y$  by Localization. But trivially,  $\vdash y\eta(y = y)$ ; and so  $\vdash x \ge y \leftrightarrow \Box_x y = y$ . For the  $\to$  direction, note that  $\vdash y = y$ . So by Nec,  $\vdash \Box_y y = y$  by lemma (i). Now  $\vdash x \ge y \to c(x)y$ ; and so by Subsumption,  $\vdash x \ge y \to \Box_{c(x)} y = y$ . But then by Chaining,  $\vdash x \ge y \to \Box_x y = y$ .
+
+If we were to adopt  $x \ge y \to (Ex \to Ey)$  as an axiom, then we could also prove the equivalence of  $x \ge y$  to  $\Box_x(Ex \to Ey)$ . For, on the one hand,  $\vdash \Box_x x \ge y \to \Box_x(Ex \to Ey)$  would follow from the axiom by modal reasoning and  $\vdash x \ge y \to \Box_x x \ge y$  would follow from the lemma above with the help of the S4 result (as in Theorem 10(ii) below). On the other hand,  $\vdash \Box_x(Ex \to Ey) \to x \ge y$  holds by the Localization axiom.
+
+We conclude with some elementary results on dependence:
+
+THEOREM 10 (Dependence). The formulas below are theorems:
+
+- (i)  $x \ge x$ ;
+- (ii)  $x \ge y \& y \ge z \rightarrow x \ge z$ ;
+- (iii)  $x \ge y \to \Box_x (x \ge y)$ ;
+- (iv)  $\sim (x \geq y) \rightarrow \Box_{x,y} \sim (x \geq y);$
+- (v)  $x \le F \to \Box_F x \le F$ , F rigid.
+
+Proof. (i) From Lemma 1(ii).
+
+- (ii) By Lemma  $9, \vdash x \ge y \to \Box_x y = y$  and  $\vdash y \ge z \to \Box_y z = z$ . By Cut,  $\vdash \Box_x y = y \& \Box_y z = z \to \Box_x z = z$ ; and by Lemma 9 again,  $\vdash \Box_x z = z \to x \ge z$ . The result then follows.
+- (iii) By the use of the lemma and modal reasoning, it suffices to show  $\Box_x y = y \to \Box_x \Box_x y = y$ . But this follows from the S4 result (Theorem 6(ii)).
+
+(iv) By the use of the lemma, it suffices to show  $\sim \Box_x y = y \to \Box_{x,y} \sim \Box_x y = y$ . But this follows from the S5 result.
+
+(v) 
+$$x \le F$$
+ abbreviates  $\sum y(Fy \& x \le y)$ . By Rigidity (Theorem 8(i)).
+
+(1) 
+$$\vdash Fy \rightarrow \Box_F Fy$$
+.
+
+ $\vdash x \leq y \rightarrow \Box_{\nu} x \leq y$  by (iii) above; and so from Subsumption,
+
+$$(2) \quad \vdash F y \ \& \ x \leq y \to \Box_F x \leq y.$$
+
+From (1) and (2) by modal reasoning,  $\vdash Fy \& x \le y \to \Box_F(Fy \& x \le y)$ . But  $\vdash \Box_F(Fy \& x \le y) \to \Box_F \Sigma y(Fy \& x \le y)$ , also by modal reasoning. So  $\vdash Fy \& x \le y \to \Box_F \Sigma y(Fy \& x \le y)$ ; and hence  $\vdash \Sigma y(Fy \& x \le y) \to \Box_F \Sigma y(Fy \& x \le y)$  by quantificational reasoning.
+
+#### 5. REVERSE BARCAN
+
+We deal with the important question of the conditions under which we can infer  $\Box_F \Pi x(A \to B)$  from  $\Pi x(A \to \Box_F B)$ .
+
+THEOREM 1.  $\vdash \Box_F \Pi x(A \to \Box_F A) \& |\Pi xB| \subseteq cF \to (\Pi x(A \to \Box_F B) \to \Box_F \Pi x(A \to B)$ , where x is free in A but not in F and F is quasi-rigid.
+
+*Proof.* The proof is a variant of the proof that  $\Pi x \square B \to \square \Pi x B$  is a theorem of quantified S5. For convenience, we label the following formulas:
+
+- (a)  $\Box_F \Pi x(A \to \Box_F A)$ ;
+- (b)  $|\Pi xB| \subseteq cF$ ;
+- (c)  $\prod x(A \to \square_F B)$ ;
+- (d)  $\Diamond_F \Sigma x(A \& \sim B)$ .
+
+Clearly, it suffices to show  $\vdash \sim ((a) \& (b) \& (c) \& (d))$ .
+
+Let us use G for the predicate  $|\Pi x(A \to B)|$ . By the T-axiom,
+
+- $\vdash$  (c)  $\rightarrow \lozenge_{F,G}$ (c). By the S5 result (Lemma 3.6(i)),
+- $\vdash \Diamond_{F,G}(c) \rightarrow \Box_{F,G} \Diamond_{F,G}(c)$ ; and so,
+
+(1) 
+$$\vdash (c) \rightarrow \Box_{F,G} \Diamond_{F,G}(c).$$
+
+By Localization,  $\vdash$  (a)  $\rightarrow |\Pi xA| \subseteq cF$ ; and so
+
+(2) 
+$$\vdash (a) \& (b) \rightarrow G \subseteq cF.$$
+
+From (1) and (2), with the help of Subsumption and Chaining,
+
+$$(3) \quad \vdash (a) \& (b) \& (c) \rightarrow \Box_F \Diamond_{F,G}(c).$$
+
+From (3) by modal reasoning,
+
+(4)
+
+$$\vdash (a) \& (b) \& (c) \& (d) \rightarrow \Diamond_F(\Sigma x(A \& \sim B) \& \Diamond_{F,G}(c)).$$
+
+Now  $\vdash$  (c)  $\rightarrow$  ( $A \rightarrow \Box_F B$ ). So  $\vdash \Diamond_{F,G}(c) \rightarrow \Diamond_{F,G}(A \rightarrow \Box_F B)$ ; so  $\vdash \Diamond_{F,G}(c) \rightarrow (\Diamond_{F,G} \sim A \lor \Diamond_{F,G} \Box_F B)$ ; and so  $\vdash \Diamond_{F,G}(c) \rightarrow \Box X(\Diamond_{F,G} \sim A \lor \Diamond_{F,G} \Box_F B)$ , given that X is not free in Y. So  $\vdash \Sigma X(A \& \sim B) \& \Diamond_{F,G}(c) \rightarrow \Sigma X(A \& \sim B \& (\Diamond_{F,G} \sim A \lor \Diamond_{F,G} \Box_F B))$ ; and therefore,
+
+$$(5) \qquad \qquad \Diamond_F(\Sigma x(A \& \neg B) \& \Diamond_{F,G}(c)) \to \Diamond_F \Sigma x(A \& \neg B \& (\Diamond_{F,G} \neg A \lor \Diamond_{F,G} \Box_F B)).$$
+
+With the help of Subsumption,  $\vdash \Pi x(A \to \Box_F A) \to \Pi x(\Diamond_{F,G} \sim A \to \sim A)$ . So by modal reasoning,  $\vdash \Box_{F,G} \Pi x(A \to \Box_F A) \to \Box_{F,G} \Pi x(\Diamond_{F,G} \sim A \to \sim A)$ ; and so with the help of (2):
+
+$$(6) \qquad \vdash (a) \& (b) \to \Box_F \Pi x (\Diamond_{F,G} \sim A \to \sim A).$$
+
+From the S5 and T results,  $\vdash \lozenge_{F,G,x} \square_F B \to B$ ; so using Cut and Subsumption,  $\vdash x \leq F \to (\lozenge_{F,G} \square_F B \to B)$ ; so  $\vdash \square_{F,G} \Pi x (x \leq F \to (\lozenge_{F,G} \square_F B \to B))$ ; and so by (2) and Chaining,
+
+(7)
+
+$$\vdash (a) \& (b) \to \Box_F \Pi x (x \le F \to (\Diamond_{F,G} \Box_F B \to B)).$$
+
+Since x occurs free in A,  $\vdash \Box_F \Pi x (\Box_F A \to x \leq F)$  follows from Localization; and so,
+
+(8) 
+$$\vdash (a) \rightarrow \Box_F \Pi x (A \rightarrow x \leq F)$$
+.
+
+From (7) and (8),
+
+$$(9) \quad \vdash (a) \& (b) \to \Box_F \Pi x (A \to (\Diamond_F G \Box_F B \to B)).$$
+
+From (6) and (9),  $\vdash$  (a) & (b) &  $\Diamond_F \Sigma x (A \& \sim B \& (\Diamond_{F,G} \sim A \lor \Diamond_{F,G} \Box_F B)) \rightarrow \Diamond_F \Sigma x (A \& \sim B \& (\sim A \lor B))$ . But by (2),  $\vdash$  (a) & (b)  $\rightarrow \sim \Diamond_F \Sigma x (A \& \sim B \& (\sim A \lor B))$ ; and so,
+
+$$\vdash (a) \& (b) \to \sim \Diamond_F \Sigma x (A \& \sim B \& (\Diamond_{F,G} \sim A \lor \Diamond_{F,G} \Box_F B)).$$
+
+But then (4), (5) and (10) yield the desired conclusion.
+
+In applying this theorem, we shall mean by condition (a) the condition that the formula (a) is a theorem; and similarly for condition (b). Note that the formula (b) can be replaced with  $\Sigma xA$ . For  $\Pi x(A \to \Box_F B)$  &  $\Sigma xA$  provably implies  $\Sigma x \Box_F B$ , which provably implies  $\Box_F \Sigma xB$ , which provably implies  $\Pi x(x\eta\Pi xB \to x < F)$ .
+
+We look now at the special case in which the formula A is a rigid predication. In this case, we can also prove a converse result:
+
+COROLLARY 2. (i)  $\vdash |\Pi xB| \subseteq cF \rightarrow (\Pi x(Gx \rightarrow \Box_F B) \rightarrow \Box_F \Pi x(Gx \rightarrow B))$ , where x is free in B, but not in F and G, and G is quasi-rigid.
+
+(ii)  $\vdash \Box_F \Pi x(Gx \to B) \to \Pi x(Gx \to \Box_F B)$ ), for x not free in F or G and G quasi-rigid.
+
+*Proof.* (i) We first prove for the case in which F = G. Applying the theorem in the obvious way, condition (a) is then  $\vdash \Box_F \Pi x(Fx \to \Box_F Fx)$ , which is satisfied by the Rigidity Theorem (4.8(i)), and formula (b) is as stated.
+
+We turn next to the case in which F and G are both quasi-rigid predicates. Let (b) be the formula  $|\Pi xB| \subseteq cF$  and (c) the formula  $\Pi x(Gx \to \Box_F B)$ , as before. Then by Subsumption:
+
+$$\vdash (c) \to \Pi x (Gx \to \Box_{F,G} B).$$
+
+Now  $\vdash B \to (Gx \to B)$ . So by modal reasoning (Theorem 4.4(ii)),  $\vdash x \leq G \& \Box_{F,G} B \to \Box_{F,G} (Gx \to B)$ . But by Theorem 4.10(i)),  $\vdash Gx \to x \leq G$ . So from the last two theorems,
+
+$$(2) \qquad \qquad \vdash \Pi x(Gx \to \Box_{F,G}B) \to \Pi x(Gx \to \Box_{F,G}(Gx \to B)).$$
+
+But then from (1) and (2):
+
+$$(3) \qquad \vdash (c) \to \Pi x (Gx \to \Box_{F,G} (Gx \to B)).$$
+
+We can also show:
+
+(4) \qquad \vdash (b) \to \Pi x (Fx \& \neg Gx \to \square\_{F,G}(Gx \to B)).
+
+For by the rigidity results (Theorem 4.8(ii)),  $\vdash \sim Gx \rightarrow \Box_{G,x} \sim Gx$ . So by Subsumption,  $\vdash Fx \& \sim Gx \rightarrow \Box_{F,G} \sim Gx$ ; and (4) then follows by modal reasoning.
+
+Putting together (3) and (4), we obtain:
+
 (5)
 
-7. 
-$$\neg \forall f(Op \equiv fp \to f(Op))$$
- (1, 6)
+$$\vdash (b) \land (c) \to \Pi x((F,G)x \to \square_{F,G}(Gx \to B)).$$
 
-8. 
-$$\forall f(O \equiv f \to (f(Op) \leftrightarrow O(Op)))$$
- (LL)
+Since F and G are quasi-rigid and do not contain x free, we may apply the special case proved above to the single quasi-rigid predicate F, G and thereby obtain:
 
-9. 
-$$\forall f (O \equiv f \rightarrow f(Op))$$
- (6,8)
+(6)
 
-\neg\forall f (Op \equiv f p \to O \equiv f)
+$$\vdash (b) \land (c) \rightarrow \Box_{F,G} \Pi x((F,G)x \rightarrow B))$$
 
-The conclusion is plainly inconsistent with the substitution instance ∀(( ≡ ) → (( ≡ ) ∧ ( ≡ ))) of *Propositional Structure*. 52
+Since x is free in  $B, \vdash \Box_F B \rightarrow x \leq F$  by Localization; and so,
 
-When we think about *why Propositional Structure* fails in this case, we can see that we should expect failures to be quite pervasive. The argument is essentially Cantorian: one can think of the conclusion as saying that the domain of properties of propositions is larger than the domain of propositions, so that there can be no oneone correspondence between the two domains, and in particular the relation of being a property and a proposition such that is () cannot be one-one as required by *Propositional Structure*. So it is wrong to think of the failure of uniqueness in the case of () as an isolated oddity. In the absence of some plausible criterion for confining failures of uniqueness to some special propositions, it seems that we should expect just about any proposition that is the result of applying an operator to also be the result of applying some other operator that is not even coextensive with .
+(7)
 
-One way to block this reasoning is to adopt a ramified type theory like that of Whitehead and B. Russell 1910. Even explaining the basic idea behind this move, let alone properly evaluating it, would take me too far afield; so let me just echo the widespread consensus that this would be a major cost.<sup>53</sup>
+$$\vdash (c) \rightarrow G \subseteq cF.$$
 
-true in their language if this stipulation is successful. For starting with  $\neg\neg\phi\equiv\neg\neg\phi$ , substitution in accordance with the schema yields  $\neg\neg\phi\equiv\neg\phi$ , which we can then turn into  $\neg\neg\phi\equiv\phi$  using  $\neg\phi\equiv\phi$ , which is another instance of the schema. The other way in which we could imagine them introducing the  $\neg$  symbol would be stipulate that it is equivalent to  $\lambda p.b$  (that's an upside-down 'p' after the dot); if  $\beta$ -conversion fails, this does not guarantee that instances of the schema  $\neg\phi\equiv\phi$  are true. But insofar as we think that this gives them a way of expressing the facts we express using 'not', we face a problem of expressive limitation in the opposite direction: *our* language seems to lack the resources to express the facts they express using inverted sentences. There seems to be no way for deniers of Involution to do justice to the thought that the two languages are on a par.
+From (7) with the help of Subsumption and Chaining,
 
-The fifth and last argument against *Propositional Structure* that I want to discuss is well-known (though it has been neglected): it is known as the "Russell-Myhill paradox" (after B. Russell (1903, Appendix B) and Myhill (1958)), and establishes that *Propositional Structure* is actually *inconsistent* when we have classical higher-order quantification. Let me start by stating the argument loosely in terms of propositions and properties. Choose some arbitrary proposition p, say that snow is white. Let a "heteropredicative" proposition be one that that predicates of p some property that it itself lacks. Now consider the proposition that p is heteropredicative, call it q. Is q heteropredicative? If not, then q must have every property that it predicates of p, and in particular the the property of being heteropredicative; contradiction. So q is heteropredicative: it predicates of p some property p that it, p, lacks. This p cannot be the property of being heteropredicative, which as we have just seen, p does p not lack. So, there must be two distinct—and indeed non-coextensive—properties which this single proposition p predicates of p.
+$$(8) \qquad \vdash (c) \to (\Box_{F,G} \Pi x((F,G)x \to B)) \to \Box_F \Pi x(Gx \to B)).$$
 
-For those who feel like working through it, here is a rigorous statement of the argument.<sup>51</sup> Let O ("is heteropredicative") abbreviate
+But the desired result then follows from (6) and (8).
 
-$$\lambda q^{\langle \rangle} . \neg \forall f^{\langle \langle \rangle \rangle} ((q \equiv f p) \to f q)$$
+We turn finally to the case in which only G is required to be quasirigid. Applying the previous case to F a rigid predicate symbol P which does not occur in G or B, we obtain  $\vdash |\Pi xB| \subseteq cP \rightarrow (\Pi x(Gx \rightarrow \Box_P B) \rightarrow \Box_P \Pi x(Gx \rightarrow B))$ . So by Subsumption,  $\vdash P \approx F \rightarrow (|\Pi xB| \subseteq cF \rightarrow (\Pi x(Gx \rightarrow \Box_F B) \rightarrow \Box_F \Pi x(Gx \rightarrow B)))$ . But the consequent does not contain P; and so by Predicate Elimination,  $\vdash |\Pi xB| \subseteq cF \rightarrow \Pi x(Gx \rightarrow \Box_F B) \rightarrow \Box_F \Pi x(Gx \rightarrow B)$ .
 
-happens by default, unless something special happens to stop it from happening, such as someone issuing some strange stipulation that would only ever occur to a philosopher trying to prove a point about the power of stipulation.
+(ii) Let us prove first for the case in which F is a rigid predicate symbol. Clearly,  $\vdash (\Box_F \Pi x (Gx \to B) \& Gx) \to B$ . By modal reasoning,  $\vdash \Box_F (\Box_F \Pi x (Gx \to B) \& Gx) \to \Box_F B)$ ; and so,
 
-The fourth objection involves the inconsistency of the structured picture with the following principle:
+(1)
 
-p \equiv\_{\circ} \neg \neg p
+$$\vdash \Box_F \Box_F \Pi x (Gx \to B) \to (\Box_F Gx \to \Box_F B).$$
 
-The inconsistency with *Propositional Structure* (or *Schematic Propositional Structure*) is straightforward. Consider, say, a possibility claim ✸. By Involution, we have ✸ 𠪪✸; by *Propositional Structure*, this is true only if ≡ ¬✸. But this is false for any true , since sentences flanking a true identification cannot differ in truth value.
+But  $\vdash Gx \to \Box_G Gx$  by the Rigidity Results;  $\vdash \Box_F \Pi x(Gx \to B) \to |G| \subseteq cF$  since x is not free in G; and so
+$$(2) \qquad \vdash Gx \to \Box_F Gx.$$
 
-But why believe Involution? The strongest case I know of is based on the following thought experiment from Ramsey (1927):
+Also by S4,
 
-We might, for instance, express negation not by writing a word "not", but by writing what we negate upside-down. Such a symbolism is only inconvenient because we are not trained to perceive complicated symmetry about a horizontal axis, and if we adopted it we should be rid of the redundant "not-not", for the result of negating the sentence "p" twice would simply be the sentence "p" itself. (Ramsey 1927, pp. 42–3)
+(3)
 
-If we spoke Ramsey's imagined language, we would simply have no pairs of distinct formulae in our language that relate to one another in the same way that relates to ¬¬ in our actual language.<sup>49</sup> If there are truths of the form ≢ ¬¬, they are inexpressible in such a language. But it is hard to believe that the use of such a language would be any sort of a *handicap* from a metaphysical point of view.<sup>50</sup>
+$$\vdash \Box_F \Pi x(Gx \to B) \to \Box_F \Box_F \Pi x(Gx \to B).$$
 
-The point doesn't turn on the lack of any symbol for ¬ in Ramsey's language. Suppose the speakers of the language are willing to introduce such a symbol by stipulation. One obvious way for them to accomplish this would be to stipulate that all instances of the schema ¬φ ≡ φ should be true. But ¬¬φ ≡ φ will certainly be
+So from (1), (2) and (3),  $\vdash \Box_F \Pi x(Gx \to B) \to (Gx \to \Box_F B)$ . But since x does not occur free in F, it follows by quantificational reasoning that  $\vdash \Box_F \Pi x(Gx \to B) \to \Pi x(Gx \to \Box_F B)$ .
 
-example, where ≡ (. ≡ ¬) seems to be like this, in the case where is a sentence we understand. In this case, it is hard to see what understanding-theoretic obstacle there could be to introducing ⊙ by stipulating the truth of ∀.(, ⊙). Thus, I think that we will have to get used to the idea that there are possible "illbehaved" languages in which not all of the connectives are bona fide, so we cannot dismiss out of hand the suggestion that some of the connectives in English might turn out to be like this.<sup>47</sup>
+Consider now the case for arbitrary F. Applying the special case above to F a new predicate symbol P, we obtain  $\vdash \Box_P \Pi x(Gx \to B) \to \Pi x(Gx \to \Box_P B)$ ; and so by Subsumption,  $\vdash P \approx F \to (\Box_F \Pi x(Gx \to B) \to \Pi x(Gx \to \Box_F B))$ . But the consequent does not contain P and so, by Predicate Elimination,  $\vdash \Box_F \Pi x(Gx \to B) \to \Pi x(Gx \to \Box_F B)$ .
 
-The real problem with the argument, I think, is that the challenge from madeup languages is simply too general to have any bite against the structured picture in particular: one can raise essentially the same challenge concerning *any* putatively valid schema. It would not be a compelling argument against, say, the law of non-contradiction (understood as a schema) to point out that we could stipulatively modify our language in such a way that it ceased to be valid, and that the new language would be no worse than the old from the point of view of everyday communication. So what? One might argue: 'The social function of language would be served equally well by a language in which *most* ordinary instances of this schema were true as by a language in which *all* instances of the schema were true; therefore it would be a surprising coincidence if a community were to end up speaking a language in which *all* instances of the schema were true'. But this seems a bit silly, since the truth of different instances of a schema in a community's language are not probabilistically independent events. Rather, the truth about metasemantics—about what it is for one abstractly specified language rather than another to be spoken by a given community—means that it is simply easier for a community to end up speaking a "regular", "well-behaved" language, other things being equal.<sup>48</sup> They don't have to *care* about regularity, or logic, or metaphysics, for this to happen. It just
+The previous result provides useful information on unrestricted quantification in the stronger system:
 
-These considerations about made-up languages do not of course show that *Schematic Propositional Structure* has any false instances in our actual language. But they do raise a challenge: given that languages where *Schematic Propositional Structure* fails are possible, what reason to we have for thinking that our own language is not one of them? After all, the primary social functions which explain how our languages socially evolved could, it seems, be fulfilled just as well by the imagined extended languages. As Rayo (2013, p. 10) puts the point: 'It is simply not the case that ordinary speakers are interested in conveying information about metaphysical structure.'<sup>46</sup> Their goals are much more down to earth. One can also turn this into a worry about the non-schematic *Propositional Structure*. Since this does not contain the new symbol ⊙, it will still be true in the new language if it was true in the old language: this means that higher-order existential generalisation will not be valid for ⊙. The challenge is to say why, if we reject *Plenitude*, we should ever be confident that existential generalisation works for terms in our current language, given that our communicative purposes can be perfectly well served by languages in which it fails. The underlying worry is that while quantification into operator position might initially seem like a readily intelligible generalisation of our ordinary quantificational idioms, its legitimacy becomes much harder to defend if its application requires us to make a metaphysically contentious distinction between the "bona fide" connectives (which admit existential generalisation) and the merely "apparent" connectives (which do not).
+COROLLARY 3.  $\Pi x \square_F B \rightarrow \square_F \Pi x B$ , for x not free in F, is a theorem of E5<sup>+</sup>.
 
-One way to respond to this argument is to insist that the relevant stipulation is simply impossible. This is plausible enough for some of the relevant functional relations . The idea would be that in some cases where a certain sentence means that , we fail to *know which* is such that (, ) in some metasemantically important sense of 'know which', and because of this, are not in a position to *understand* the new sentence ⊙ in a way that conforms to the attempted stipulation. For example, if (, ) is 'Either Caesar once asserted and ≡ , or Caesar never asserted and ≡ snow is white', we arguably know too little to really understand '⊙Elephants have trunks'. But for other , it is hard to see how this kind of complaint could be sustained, since we seem to "know the extension of " perfectly well. The previous
+*Proof.* Suppose first that B does not contain free x. But  $\vdash \Pi x \square_F B \to \square_F B$ ;  $\vdash B \to \Pi x B$ ; and so  $\vdash \Pi_F B \to \square_F \Pi x B$ ; and so  $\vdash \Pi x \square_F B \to \square_F \Pi x B$ .
 
-where ⊙ occurs as an argument of some higher-order term (e.g. of type ⟨⟨⟨⟩⟩⟩), rather than having a sentence as its argument. If one wants a stipulation that can make ⊙ behave just like ¬ or any other operator in the higher-order language, one will need something vastly more radical, perhaps a complete reinterpretation of the entire language mapping every term of type ⟨⟨⟩⟩ to one of type ⟨⟨⟩, ⟨⟩⟩ and extending this mapping to all types. This does much to undercut the force of the present objection. Thanks to Jeremy Goodman and Peter Fritz for discussion.
+Now suppose that B does contain free x. From the previous corollary,  $\vdash |\Pi xB| \subseteq cF \to (\Pi x(Px \to \Box_F B) \to \Box_F \Pi x(Px \to B))$ , for P a rigid predicate symbol not in F or B. Now  $\vdash P \approx \bigvee \to \Sigma xPx$  and  $\vdash \Sigma xPx \& \Pi x(Px \to \Box_F B) \to |\Pi xB| \subseteq cF$ . So,
 
-principle:
+$$(1) \qquad \qquad \vdash P \approx \bigvee \to (\prod x(Px \to \Box_F B) \to \Box_F \prod x(Px \to B)).$$
 
-Plenitude 
-$$\forall x^{\langle \tau, \langle \rangle \rangle} (\text{Functional}_{\langle \tau, \langle \rangle \rangle}(x) \to \exists z^{\langle \tau \rangle} \forall y^{\tau}(x(y, z(y))))$$
+Clearly,
 
-where
+(2)
 
-$$\operatorname{Functional}_{\langle \tau, \langle \rangle \rangle}(x) =_{\operatorname{df}} \forall y^{\tau} \exists p(x(y, p) \land \forall q(x(y, q) \to q \equiv_{\langle \rangle} p))$$
+$$\vdash \prod x \square_F B \to \prod x (Px \to \square_F B).$$
 
-Loosely speaking: for any functional relation between type- things and propositions, there is a corresponding property of type- things, such that for each type thing, the proposition that it has is the very proposition to which it is related by .
+Also  $\vdash \Pi x \square_F B \& \square_V \Pi x P x \to \square_F \Pi x P x$ , since  $\vdash \Pi x \square_F B \to \bigvee \subseteq cF$ ; and so
 
-*Plenitude* is drastically inconsistent with the structured picture. For some distinct objects and and property ⟨⟩, let be
+$$(3) \qquad \vdash \Pi x \square_F B \& \square_{\bigwedge} \Pi x P x \to ((\square_F \Pi x (P x \to B) \to \square_F \Pi x B).$$
 
-$$\lambda y. p^{\langle \rangle} . ((y = a) \land (p \equiv f(b))) \lor ((y \neq a) \land (p \equiv \neg f(b)))$$
+Therefore from (1), (2) and (3),  $\vdash P \approx \bigvee \& \Box_{\bigvee} \Pi x P x \to ((\Pi x \Box_F B \to \Box_F \Pi x B))$ . Using the special domain axiom V(ii),  $\vdash P \approx \bigvee \to \Box_{\bigvee} \Pi x P x$ ; so  $\vdash P \approx \bigvee \to (\Pi x \Box_F B \to \Box_F \Pi x B)$ ; and so by Predicate Elimination,  $\vdash \Pi x \Box_F B \to \Box_F \Pi x B$ .
 
-Since is functional, *Plenitude* entails that ∃⟨⟩∀(, ()). Choose a witnessing and set = . By *Extensional β-equivalence*, the fact that (, ()) implies that (( = ) ∧ (() ≡ ())) ∨ (( ≠ ) ∧ (() ≡ ¬())) and hence that () ≡ (). *Atomic Structure* entails that this is true only if = , but by stipulation ≠ .
+We do not have a full converse to the above result, even in the stronger system, because as x varies B may introduce objects which do not pertain to F. However, we do have the following qualified converse:
 
-But it is not clear what is to be said in favour of *Plenitude*, once we learn to be careful about the heuristic way of thinking in terms of functions that might make it seem undeniable. True, it is a strong and simple generalisation; but so is *Atomic Structure* (and so, as we shall see later, are certain other generalisations inconsistent with *Plenitude*). The final comparison between the packages that include *Plenitude* and those inconsistent with it will have to be made on other grounds.
+THEOREM 4.  $\vdash \Box_F \Pi x A \rightarrow \Pi x \Box_{F,x} A$ .
 
-The third objection takes off from the observation that the structured picture is inconsistent with *Plenitude*. Take any  $x^{⟨⟨⟩,⟨⟩⟩}$  that is counterexample to *Plenitude*—a functional relation among propositions that does not correspond to any operator  $z^{⟨⟨⟩⟩}$ . Couldn't we introduce into our language a new symbol ⊙, with the syntax of a sentential operator, just by stipulating that whenever a sentence  $φ$  means that  $p$  and  $x(p,q)$ , ⊙φ will mean that  $q$ ? If this stipulation is effective, *Schematic Propositional Structure* will fail in our new language, assuming that our new symbol ⊙ counts as a legitimate substitution instance for the schematic letter X. For example,  $x$  might be  $λpq.q ≡ ¬φ$ , for some chosen sentence  $φ$ .<sup>44</sup> Then we have  $⊙ψ ≡ ¬φ$  for all  $ψ$ , though obviously it is not true that  $ψ ≡ φ$  for all  $ψ$ . Even more simply, we could take  $x$  to be  $λpq.p ≡ q$ ; then we have  $⊙(¬φ) ≡ ¬φ$  despite the fact that  $φ ≢ ¬φ$ .<sup>45</sup>
+*Proof.*  $\vdash \Pi xA \to A$  is a classical theorem. Hence  $\vdash \Box_{F,x}\Pi xA \to \Box_{F,x}A$  by modal reasoning. But  $\vdash \Box_F\Pi xA \to \Box_{F,x}\Pi xA$  by Subsumption; so  $\vdash \Box_F\Pi xA \to \Box_{F,x}A$ ; and so  $\vdash \Box_F\Pi xA \to \Pi x\Box_{F,x}A$  by classical reasoning.
 
-theory I will be developing in §8.
+#### 6. META-THEOREMS
 
-The first objection involves apparent counterexamples: cases where ≡ just seems true despite the fact that and differ in structure in a way disallowed by the structured picture. For example, perhaps it just seems obvious that for London to be north of Paris is for Paris to be south of London. But the English sentences 'London is north of Paris' and 'Paris is south of London' have a binary subject-predicate structure: they result from applying the monadic predicates 'is north of Paris' and 'is south of London' to the names 'London' and 'Paris'. The identification is thus ruled out by *Atomic Structure*. Similarly, it might just look obvious that for it not to be necessary that is for it to be possible that not ; but this is ruled out by *Propositional Structure*, since it is false that for it to be necessary that is for it not to be the case that .
+We establish some meta-logical results and some of their consequences.
 
-The problem with such direct "appeals to intuition" is that it isn't clear that the judgments in question really involve our target interpretation of 'To be is to be ', understood literally. We are often pretty permissive in our use of 'To be is to be ', allowing ourselves the freedom to substitute not only logically equivalent expressions but expressions that we do not even regard as metaphysically necessarily equivalent. For example, when we are doing physical geometry, we might at one time say 'To be a line is to be the shortest path between two points' and at another 'To be a line is to be such that, of any three of one's points, one is between the other two', even if we are not convinced that these conditions are necessarily coextensive. Whatever is going on here, it suggests that we should not be too impatient if proponents of the structured picture respond to putative counterexamples by invoking some kind of "loose talk".
+### A. Reasoning with Rigidifiers
 
-The second objection depends not on case-by-case judgments but on a general principle which is inconsistent with the structured picture, and which is encouraged by some natural ways of thinking about higher order logic. Syntactically, the task of an operator is to combine with a sentence to make another sentence. This makes it natural to think of the semantic value of an operator as a function mapping propositions to propositions. A "function" here is simply a binary relation that is functional—every proposition bears it to some proposition, and no proposition bears it to more than one proposition. Those in the grip of this picture may well find it obvious that quantification into operator position is interchangeable with quantification into binary connective position restricted by a functionality requirement. More generally, quantification into type ⟨⟩ is interchangeable with quantification into type ⟨, ⟨⟩⟩ restricted by functionality. This is made precise by the following false—typically, .((, )) and .((, )) are not even coextensive.<sup>43</sup>
+We first show how, to some extent, one can reason with formulas containing the rigidifiers  $\langle$  and  $\rangle$  as if they were a primitive piece of notation:
 
-*Atomic Structure* is only a partial articulation of the structured picture, which would not really qualify as "systematic" if it only applied to identifications of the form () ≡ (). In a higher-order setting, a principled theory endorsing *Atomic Structure* should surely also endorse the analogous schema involving sentential operators:
+THEOREM 1. (i) If A(P) is a theorem in the language with rigidifiers, then so is the result  $A(\langle F \rangle)$  of freely substituting  $\langle F \rangle$  for all occurrences of P in A(P).
 
-Propositional Structure
+(ii) The class of theorems in the language with rigidifiers is closed under Modus Ponens and Generalization on bindable variables.
 
-$$x(p) \equiv_{\langle \rangle} y(q) \rightarrow ((x \equiv_{\langle \langle \rangle \rangle} y) \land (p \equiv_{\langle \rangle} q))$$
+*Proof.* For the purpose of proving these results, say that A' is a variant of the formula  $A = A(P_1, \ldots, P_n)$ , where  $P_1, \ldots, P_n$  are the distinct rigid predicate symbols of A, if it is of the form  $A(Q_1, \ldots, Q_n)$  for distinct rigid predicate symbols  $Q_1, \ldots, Q_n$ . Clearly, if A is a theorem then so is any variant of A.
 
-This extends the analogy with the theory of structured propositions, which involves the idea that, for example, when one proposition is the negation of another proposition, it is not also the result of applying some *other* operator to that proposition or any other, and it is not the result of applying negation to any other proposition.
+- (i) Write the formula which abbreviates A(P) in the form  $A_1 \to (\dots (A_n \to A') \dots)$ , for A' free of rigidifiers. Now  $A(\langle F \rangle)$  abbreviates a formula of the form  $B_1 \to (\dots (B_m \to C))$ , for B' rigidifier free. But it is clear that for some variant  $B'_1 \to (\dots (B'_m \to C'))$  of this formula, each antecedent  $A_i$  is one of the antecedents  $B'_j$  and A' = C'. But then by truth-functional reasoning,  $A(\langle F \rangle)$  is also a theorem.
+- (ii) Suppose that A and  $A \to B$  are theorems. Let  $\langle G_1 \rangle, \ldots, \langle G_n \rangle$  be the distinct rigidified predicates of B; and let  $\langle F_1 \rangle, \ldots, \langle F_m \rangle$ ,  $\langle G_1 \rangle, \ldots, \langle G_1 \rangle$  be the distinct rigidified predicates of A. Then A abbreviates a formula provably equivalent to a variant of the form  $P_1 \approx F_1 \& \ldots \& P_m \approx F_m \& Q_1 \approx G_1 \& \ldots \& Q_1 \approx G_1 \to A'$ , where
 
-Note that even those who reject the intelligibility of higher-order quantifiers or higher-order identifications might accept the following schemas, which capture much of the force of *Atomic Structure* and *Propositional Structure*:
+A' is without rigidifiers; and  $A \to B$  abbreviates a formula which has a variant which is provably equivalent to a formula of the form  $P_1 \approx F_1 \& \ldots \& P_m \approx F_m \& Q_1 \approx G_1 \& \ldots \& Q_n \approx G_n \to (A' \to B')$ , for B' without rigidifiers. Since both A and  $A \to B$  are theorems, it follows by truth-functional reasoning that  $P_1 \approx F_1 \to (\ldots (P_m \approx F_m \to (Q_1 \approx G_1 \to (\ldots (Q_n \approx G_n \to B') \ldots))) \ldots)$  is a theorem. But none of  $P_1, \ldots, P_m$  occur in B'; and so by m applications of Predicate Elimination of the formula  $Q_1 \approx G_1 \to (\ldots (Q_n \approx G_n \to B') \ldots)$ , which is equivalent to a variant of the abbreviation for B, is a theorem.
 
-**Schematic Atomic Structure**
+Suppose finally that A(x) is a theorem, with x bindable. Then A(x) abbreviates a formula of the form  $P_1 \approx F_1 \to (\dots (P_n \approx F_n \to A'(x)))$ , where A'(x) is without rigidifiers and x does not occur free in any of the antecedents. Since A(x) is a theorem, it follows by quantificational reasoning that the formula  $P_1 \approx F_1 \to (\dots (P_n \approx F_n \to \Pi x A'(x)))$ , which is the abbreviation for  $\Pi x A(x)$ , is a theorem.
 
-$$F(x) \equiv G(y) \rightarrow ((F \equiv G) \land (x = y))$$
+Use of this theorem will often be tacit. It should be noted that the class of formulas in the language with rigidifiers is not closed under the rule of necessitation. For  $\langle F \rangle \approx F$ , F a pure predicate symbol, is a theorem; but  $\Box_{|\langle F \rangle \approx F|}(\langle F \rangle \approx F)$ , which abbreviates  $P \approx F \to \Box_P(P \approx F)$ , is not. It is now possible to extend the results on rigidity:
 
-*Schematic Propositional Structure*
+**THEOREM 2.** The following are provable (with F and G quasi-rigid):
 
-$$(X(\varphi) \equiv Y(\psi)) \implies ((X(\theta) \equiv Y(\theta)) \land (\varphi \equiv \psi))$$
 
-I could say more to flesh out the structured picture, considering analogues of *Atomic Structure* for other types, as well as principles like (, ) ≢ () and ( ) ≢ (⟨⟩) corresponding to the idea that each proposition has a unique structure. But the most important objections to the structured picture require only *Propositional Structure*. I will consider five objections. The first three are in my view much weaker than the last two; I discuss them here because if they worked, they would threaten not just the structured picture but many other "fine-grained" theories, including the
+(i) F \subseteq G \to \Box(F \subseteq G);
 
-$$(r(a_1,\ldots,a_n) \equiv s(b_1,\ldots,b_n)) \to (r \equiv s \wedge a_1 = b_1 \wedge \cdots \wedge a_n = b_n)$$
+(ii) F \approx G \to \Box(F \approx G);
 
-(See, e.g., Audi 2012.) However, this is subject to a further objection which does not impugn *Atomic Structure*: it rules out the possibility that any ⟨,⟩ is symmetric in the strong sense that ≡ .(, ). While *Atomic Structure* clearly needs to extend *somehow* to the polyadic case to be worth taking seriously, the desire to allow for symmetry motivates weakening the extension somehow, perhaps to
+(iii) \Box(F \approx \langle F \rangle);
 
-$$(R(a_1, a_2) \equiv S(b_1, b_2)) \to (R \equiv S \lor R \equiv (\lambda x y. S y x)) \land ((a_1 = b_1 \land a_2 = b_2) \lor (a_1 = b_2 \land a_2 = b_1))$$
+(iv) \Pi x \sim Fx \to \Box_{\wedge} \Pi x \sim Fx;
 
-and its natural generalisation to the -adic case.
+(v) \Box_{\wedge} \Pi x \sim \langle \wedge \rangle x;
 
-saying that the original λK-term is vague and has several different λI-terms as admissible precisifications.<sup>41</sup> This seems a strong response: if vacuous β-conversion fails, our use of terms involving vacuous binding is less constrained than our use of λI-terms in a crucial respect, in a way that might be expected to make for vagueness. Thus opponents of vacuous β-conversion may legitimately take λI-languages to be metaphysically more perspicuous than λK-languages, as well as formally more convenient.
+(vi) \Box(\langle H_1, \dots, H_n \rangle \approx \langle H_1 \rangle, \dots, \langle H_n \rangle);
 
-From now on, when I say that something follows from something else by βconversion, I will always mean nonvacuous β-conversion. If we need the vacuous case I will say so explicitly.
+(vii) \Box(\langle x \rangle \approx x);
 
-In the next section I will further support (nonvacuous) β-conversion by pointing out some problems for the most systematic kind of theory in which it fails.
+(viii) \Box(\langle cH \rangle \approx c \langle H \rangle).
 
-## **6 Structure**
+Proof. (i) \vdash \Pi x(Gx \to \Box_G Gx) by Rigidity (Theorem 4.8(i)); and so \vdash F \subseteq G \to \Pi x(Fx \to \Box_G Gx). But then by Corollary 5.2,
 
-The "structured picture" involves a kind of thinking familiar from the theory of structured propositions (Cresswell 1985, Lewis 1970, Salmon 1986a, Soames 1987a), which holds that propositions have a kind of structure analogous to that of the sentences that express them.<sup>42</sup> One signature commitment of the theory of structured propositions is that the proposition that is = the proposition that is only if = and the property of being = the property of being . (This is often expressed by saying that these propositions are, or can harmlessly be identified with, ordered pairs of objects and properties.) The idea of the structured picture is that identifications work analogously. So we have (the universal closure of) the following axiom:
 
-(f(x) \equiv\_{\langle \rangle} g(y)) \rightarrow ((f \equiv\_{\langle e \rangle} g) \land (x = y))
+ $\vdash F \subseteq G \to \Box \Pi x (Fx \to Gx).$ (ii)  $\vdash F \approx G \to F \subseteq G$ ; and so by (i),  $\vdash F \approx G \to \Box_{F,G} (F \subseteq G)$ .
 
-*Atomic Structure* requires widespread failures of β-conversion. For example, βconversion implies that (.(, ))() ≡ (.(, ))(). But *Atomic Structure* allows this only if (.(, )) ≡ (.(, )). For most , this will be obviously
+Similarly,  $\vdash F \approx G \rightarrow \Box_{F,G}(G \subseteq F)$ . But then  $\vdash F \approx G \rightarrow \Box_{F,G}(F \approx G)$  by modal reasoning.
 
-endorse (BC) to accept its higher-order analogue:
+- (iii) Clearly,  $\vdash Fx \to \langle F \rangle x$ ;  $\vdash \langle F \rangle x \to \Box_F \langle F \rangle x$  by Rigidity and Subsumption; and so  $\vdash \Pi x(Fx \to \Box_F \langle F \rangle x)$ . But then by Corollary 5.2,  $\vdash \Box_F \Pi x(Fx \to \langle F \rangle x)$ . We show in a similar manner that  $\vdash \Box_F \Pi x(\langle F \rangle x \to Fx)$ ; and the result follows. (Note the implicit applications of theorem 1 in this and subsequent proofs).
+- (iv)  $\vdash \Pi x \sim Fx \rightarrow |\Pi x \sim Fx| \subseteq c \land$ . So by Corollary 5.2,  $\vdash \Pi x \sim Fx$ &  $\Pi x(Fx \rightarrow \Box \land \sim Fx) \rightarrow \Box \land \Pi x(Fx \rightarrow \sim Fx)$ . But  $\vdash \Pi x \sim Fx \rightarrow \Pi x(Fx \rightarrow \Box \land \sim Fx)$  and  $\vdash \Box \land \Pi x(Fx \rightarrow \sim Fx) \rightarrow \Box \land \Pi x \sim Fx$ ; and so  $\vdash \Pi x \sim Fx \rightarrow \Box \land \Pi x \sim Fx$ .
+- (v)  $\Box \bigwedge \Pi x \sim \langle \bigwedge \rangle x$  abbreviates  $P \approx \bigwedge \rightarrow \Box \Pi x \sim Px$ . But  $P \approx \bigwedge \rightarrow \Pi x \sim Px$ ; and so the result follows from (iv).
+- (vi) We prove for the case of two predicates  $H_1$  and  $H_2$ ; the proof for the general case is similar. The result to be proved abbreviates something equivalent to  $P_1 \approx H_1$  &  $P_2 \approx H_2$  &  $P \approx H_1$ ,  $H_2 \rightarrow \Box \Pi x (Px \leftrightarrow (P_1, P_2)x)$ . Let A be the antecedent of this conditional. Then  $\vdash A \rightarrow P_1 \subseteq P$ ; and so by (i) above,  $\vdash A \rightarrow \Box (P_1 \subseteq P)$ . Similarly,  $\vdash A \rightarrow \Box (P_2 \subseteq P)$ . So  $\vdash A \rightarrow \Box \Pi x ((P_1x \lor P_2)x \rightarrow Px)$ . But by Abstraction,  $\vdash \Box \Pi x ((P_1, P_2)x \rightarrow Px)$ ; and hence  $\vdash A \rightarrow \Box ((P_1, P_2) \subseteq P)$ . For the other direction, note that:
 
-(BC\_<sub><</sub>⟨>)
+(1) 
+$$\vdash A \to P \subseteq P_1, P_2$$
+.
 
-$$□∀p□(Op → ∃q(q ≡_{⟨⟩} p))$$
+By Rigidity,  $\vdash \Pi x(P_1x \to \Box_{P_1}P_1x)$ ; and so by Subsumption and modal reasoning,  $\vdash \Pi x(P_1x \to \Box_{P_1,P_2}(P_1x \vee P_2x))$ . Similarly,  $\vdash \Pi x(P_2x \to \Box_{P_1,P_2}(P_1x \vee P_2x))$ . Therefore:
 
-Here is schematic for a sentential operator—a term of type ⟨⟨⟩⟩. But since ¬ and ✸ are sentential operators, (BC⟨⟩) implies propositional necessitism:
+(2)
 
-1. 
-$$\Box \forall p \Box (\Diamond p \vee \neg p)$$
- classical modal logic (KT)  
-2. 
-$$\Box \forall p \Box (\Diamond p \to \exists q (q \equiv p))$$
- instance of  $BC_{\langle \rangle}$   
-3. 
-$$\Box \forall p \Box (\neg p \to \exists q (q \equiv p))$$
- instance of  $BC_{\langle \rangle}$   
-4. 
-$$\Box \forall p \Box (\exists q (q \equiv p))$$
- 1-3, classical
+$$\vdash \Pi x (P_1 x \vee P_2 x \to \square_{P_1, P_2} (P_1 x \vee P_2 x)).$$
 
-Higher-order contingentists must thus reject(BC⟨⟩), making (BC) look ill-motivated.)
+From (1) and (2),  $\vdash A \to \Pi x (Px \to \Box_{P_1,P_2}(P_1x \vee P_2x))$ . So by Corollary 5.2,  $\vdash A \to \Box_{P_1,P_2}\Pi x (Px \to (P_1x \vee P_2x))$ ; and hence  $\vdash A \to \Box (P \subseteq P_1,P_2)$ .
 
-A fourth strategy for arguing against *β-conversion* targets only the *vacuous* instances. For example, one can appeal to the concept of *aboutness*, arguing against the claim that for Obama to be such that snow is white is for snow to be white on the grounds that snow being white is not about Obama, whereas Obama being is about Obama (for any ). 'About' is a bit too vague for this argument to carry much weight by itself.<sup>40</sup> But it does help to undermine the positive case for full *β-conversion* based on examples, by drawing our attention to the possibility of a weaker generalisation that fits the examples equally well. §8 and §9 will introduce some other considerations that count against vacuous β-conversion but not against nonvacuous β-conversion.
+(vii) The result to be proved abbreviates  $P \approx (x) \to \Box (P \approx (x))$ . Let the antecedent be  $A \vdash A \to \Pi y((x)y \to Py)$ . But  $\vdash A \to \Pi y(Py \to \Box_P Py)$  by Rigidity; and so  $\vdash A \to \Pi y((x)y \to \Box_{P,x} Py)$ . But then  $\vdash A \to \Box_{P,x} \Pi y((x)y \to Py)$  by Corollary 5.2. The other direction is proved similarly.
 
-For formal purposes, if we reject vacuous β-conversion, it is convenient to work with a so-called *λI-language*, where ' $λv_1...v_n.φ$ ' is not well-formed unless all of  $v_1, ..., v_n$  have free occurrences in  $φ$ . (For details see Appendix A1.) This restriction lets us use the usual β-conversion rule rather than constantly having to make exceptions for the vacuous case. The more common form of language ('*λK-language*'), where vacuous binding is allowed, can be translated into the λI-language by appending trivial conjuncts to abstracts so that every abstracted variable has a free occurrence: for example, when  $y$  is not free in  $F$ ,  $λx.y.Fx$  could be translated as  $λx.y.Fx ∧ y = y$ . It might be objected that this is arbitrary. Why not instead choose  $λx.y.Fx ∨ y ≠ y$ , or  $λx.y.Fx ∧ ∃z(z = y)$ , or  $λx.y.Fx ∧ (x = y ∨ x ≠ y)$ , for example? This is not an issue if these various options are themselves equivalent (i.e. if the identifications between them are true). But even if the options are not equivalent, opponents of vacuous β-conversion can respond to the worry about arbitrariness by
+(viii)  $\vdash \langle cH \rangle x \to x \leq \langle H \rangle$  by Abstraction;  $\vdash x \leq \langle H \rangle \to \Box_{\langle cH \rangle}(x \leq \langle H \rangle)$  by the Dependency Results (4.10(v)) and Subsumption; and so  $\vdash \Pi x(\langle cH \rangle x \to \Box_{\langle cH \rangle}(x \leq \langle H \rangle))$ . Applying Corollary 5.2 in the obvious manner, we see that the side condition is satisfied; and so  $\vdash \Box_{\langle cH \rangle}\Pi x(\langle cH \rangle x \to x \leq \langle H \rangle)$ . But then  $\vdash \Box(\langle cH \rangle \subseteq c\langle H \rangle)$ .
 
-- (19) a. It could have happened that both of us didn't exist.
-  - b. If the second world war had not been fought, everyone who was actually born since then wouldn't have existed.
+For the other direction, note that  $\vdash x \leq \langle H \rangle \rightarrow \langle cH \rangle x$  by Abstraction,  $\vdash \langle cH \rangle x \rightarrow \Box_{\langle cH \rangle} \langle cH \rangle x$  by Rigidity, and so  $\vdash \Pi x (x \leq \langle H \rangle \rightarrow \Box_{\langle cH \rangle} \langle cH \rangle x)$ . The side condition of Corollary 5.2 is obviously satisfied: and so  $\vdash \Box_{\langle cH \rangle} \Pi x (x \leq \langle H \rangle \rightarrow \langle cH \rangle x)$ . But then  $\vdash \Box (c \langle H \rangle \subseteq \langle cH \rangle)$ .
 
-These sentences are clearly ambiguous in the same way as (18a) and (18b). But given standard contingentist views about the extent of contingent existence, it seems wrongheaded to insist that they are true only on their weak readings, where they are equivalent respectively to (20a) and (20b):
+We can also extend the earlier reductive theses to arbitrary predicates:
 
-- (20) a. It could have happened that it was not the case that both of us existed.
-  - b. If the second world war had not been fought, it would not have been the case that everyone who was actually born since then existed.
+THEOREM 3. (i)  $\vdash \Box_F A \& \Pi x(Fx \to \Box_F Fx) \& |F| \subseteq cF \to \Box_F \Box_F A$ , x not free in F:
 
-The most prominent reading of (19a) is the strong one on which, as uttered by A to B, it is true only if it could have happened that neither A nor B existed; assuming contingentism, it should be true on that reading. Similarly for (19b). But given (BC), a sentence of the form 'DP VP' will be modally equivalent to 'DP exist(s) and VP', so long as nothing in the VP takes scope over the DP. So the readings of (19a) and (19b) where 'not' takes scope within the VP will be equivalent to (21a) and (21b):
+$$\vdash \sim \Box_F A \land \Box_F \Pi x(Fx \to \langle F \rangle x) \to \Box_{F,|A|} \sim \Box_F A$$
 
-- (21) a. It could have happened that both of us existed and didn't exist.
-  - b. If the second world war had not been fought, everyone who was actually born since then would and wouldn't have existed.
+*Proof.* Let us label the three respective conjuncts of the antecedent by (a), (b) and (c).  $\vdash$  ((a)  $\rightarrow \Box_{\langle F \rangle} A$ ) by Subsumption; and so by S4 and Subsumption:
 
-And this looks bad, since (21a) and (21b) seem clearly false.<sup>39</sup>
+(1) 
+$$\vdash (a) \rightarrow \Box_F \Box_{(F)} A.$$
 
-(A further argument against the combination of contingentism and the Being Constraint, due to Fritz and J. Goodman (forthcoming, n. 14), turns on higher-order quantification. In a higher-order setting, there is an natural analogue of contingentism involving quantification into sentence position:
+Now  $\vdash$  (b)  $\rightarrow \Pi x(\langle F \rangle x \rightarrow \Box_F F x)); \vdash$  (c) &  $\Pi x(\langle F \rangle x \rightarrow \Box_F F x) \rightarrow \Box_F \Pi x(\langle F \rangle x \rightarrow F x)$  by Corollary 5.2; and so
 
-$$\Diamond \exists p \Diamond (\neg \exists q (q \equiv p))$$
+$$(2) \qquad \vdash (b) \& (c) \to \Box_F \Pi x(\langle F \rangle x \to Fx).$$
 
-There is some pressure on contingentists to endorse such "higher-order contingentism": see Williamson 2013, ch. 6. Similarly, there is some pressure on those who
+But  $\vdash \Box_P A \& \Pi x(Px \to Fx) \to \Box_F A$  by Subsumption. So by modal reasoning,  $\vdash \Box_F \Box_P A \& \Box_F \Pi x(Px \to Fx) \to \Box_F \Box_F A$ ; and so by Theorem 1,
 
-stance of *β-conversion* for any :
+$$(3) \qquad \qquad \vdash \Box_F \Box_{\langle F \rangle} A \land \Box_F \forall x (\langle F \rangle x \to F x) \to \Box_F \Box_F A.$$
 
-$$\Box \forall x \Box ((\lambda x. \varphi \lor \neg \varphi)(x)) \leftrightarrow \Box \forall x \Box (\varphi \lor \neg \varphi)$$
+But then from (1), (2) and (3),  $\vdash$  (a) & (b) & (c)  $\rightarrow \Box_F \Box_F A$ .
 
-since the right hand side is a theorem of classical modal logic, whereas the left hand side implies ✷∀✷(∃( = )) given (BC). 37
+- (ii) Label the two antecedents (a) and (b). By Subsumption,
+- $\vdash$  (a)  $\rightarrow \sim \Box_{\langle F \rangle} A$ ; by S5 and Subsumption,  $\vdash \sim \Box_{\langle F \rangle} A \rightarrow \Box_{\langle F \rangle} A$ ; and so,
 
-My main complaint about this strategy is that the motivation for the Being Constraint seems weak given contingentism. The central contrast this package draws between subject-predicate sentences and other kinds of sentences is not borne out when we actually look at natural languages.
+$$(1) \qquad \vdash (a) \to \Box_{F,|A|} \sim \Box_{\langle F \rangle} A.$$
 
-A naïve way to make this argument would be as follows. 'Obama doesn't exist' is a subject-predicate sentence: it results from combining the name 'Obama' with the complex predicate 'doesn't exist'. So if the Being Constraint were correct, it would have to be necessary that if Obama doesn't exist, Obama exists, in which case it would be necessary that Obama exists, which is something no contingentist will grant. The reason this is naïve is that surface syntax may be misleading. Sentences where 'not' occurs inside the verb phrase sometimes have readings in which the subject really occurs within the scope of the negation, in the sense of 'scope' that matters for semantics:
+But  $\vdash \sim \Box_P A$  &  $\Pi x(Fx \to Px) \to \sim \Box_F A$ . So by modal reasoning,  $\vdash \Box_{F,|A|} \sim \Box_P A$  &  $\Box_{F,|A|} \Pi x(Fx \to Px) \to \Box_{F,|A|} \sim \Box_F A$ ; and so by
 
-- (18) a. Everyone hasn't yet had a chance to read the minutes.
-  - b. All that glitters is not gold.
+Subsumption and Theorem 1,
 
-(18a) and (18b) are structurally ambiguous: they have weak readings equivalent to 'It is not the case that everyone has already had a chance to read the minutes' and 'It is not the case that all that glitters is gold' as well as the strong readings equivalent to 'No-one has yet had a chance to read the minutes' and 'Nothing that glitters is gold'. Proponents of the Being Constraint can therefore respond to the naïve argument by saying that 'It is possible that Obama doesn't exist' is similarly ambiguous, and is true only on the reading where the negation takes scope over 'Obama'.<sup>38</sup>
+$$\vdash \Box_{F,|A|} \sim \Box_{\langle F \rangle} A \& \Box_{F,|A|} \Pi x (Fx \to \langle F \rangle x) \to \Box_{F,|A|} \sim \Box_F A.$$
+By Subsumption,
 
-The problem with this response is that when 'doesn't exist' has a quantified subject, the reading where negation takes scope over the subject is often much too weak. If contingentism is true, sentences like the following are plausibly true on *both* readings:
+$$(3) \qquad \vdash (b) \to \Box_{F,|A|} \Pi x (Fx \to \langle F \rangle x).$$
 
-first being introduced to the language of grounding, we will be tempted to deploy it quite promiscuously. For example, we will be tempted to claim that the fact that Nelly is a vixen is grounded by the fact that Nelly is a female fox. After all, 'Nelly is a vixen because Nelly is a female fox' certainly sounds true, and there are no obvious tests for distinguishing the 'because' here from the 'because' of grounding. But this temptation must certainly be resisted, as discussed in §2. Given that to be a vixen is to be a female fox, it certainly follows that for Nelly to be a vixen is for Nelly to be a female fox, and hence that the fact that Nelly is a female fox does not ground the fact that Nelly is a vixen, since it does not ground itself. Of course Fine and Rosen need not dispute this, since they can claim that this one fact is distinct from the fact that Nelly is female and Nelly is a fox, which grounds it. But once we have realised that we need to be careful in going from intuitive 'because' claims to grounding claims, it is hard to see any principled grounds for resisting the temptation in the case of the fact that Nelly is a female fox while yielding to it in the case of the fact that Nelly is female and Nelly is a fox.
+But then from (1), (2) and (3),
 
-There is a third influential strategy for arguing against instances of *β-conversion*, developed by Stalnaker (1977), whose application is more limited. It has two premises. The first is contingentism, the view that it is metaphysically possible for there to be something such that it is not metaphysically necessary that it exists (in the sense of being identical to something):
+$$\vdash (a) \& (b) \rightarrow \Box_{F,|A|} \sim \Box_F A.$$
 
-Contingentism 
-$$\Diamond \exists x \neg \Box \exists y (y = x)$$
+ Note the implicit application of Predicate Elimination in the last step of the above proof of (i). Note also that the proof requires a detour through rigid predicate symbols even though the theorem itself does not involve such symbols.
 
-The second premise is what Williamson (2013) calls "the being constraint", which can be stated schematically as follows:
+ Using part (ii) of the above result, it is an easy matter to show that the strengthened system E5+ yields the correct logic for metaphysical necessity. Let S5rx be the system of quantified modal logic for S5 with constant (non-empty) domain. Any formula A of S5ir may be translated into a formula A' of E5 by replacing each occurrence of 0 with Ov. Then:
 
-(BC) 
-  
+THEOREM 4. For any theorem A of S57r, A' is a theorem of E5+.
 
-$$\Box \forall x \Box (Fx \to \exists y (y = x))$$
+ Proof. Take a standard axiomatization of S57r. We may establish the result by an induction on the proof of A within that axiomatization. The only difficulty is with the S5 axiom. This translates into r OVAA DV - OVA. By Theorem 3(ii) and Subsumption, F- OVA & DOVx(vx - (V)x) - OV OVA. But the second conjunct of the antecedent follows from the domain axiom V(ii); and so F ~ rOVA -+ OV r OVA.
 
-Here stands for any predicate.<sup>36</sup> The combination of contingentism, (BC), and classical modal logic requires the failure of *β-conversion*. For example, we cannot have the following instance of *β-conversion*:
+ By semantical methods it is possible to establish that the translation is exact. It would be of interest to determine the logic of quantified S57r with rigid predicates.
 
-□∀x□((λz.¬∃y(y=z))(x) → ∃y(y=x)) ↔ □∀x□(¬∃y(y=x) → ∃y(y=x))
+# B. Modalization
 
-since the formula on the left is an instance of (BC), while the one on the right is equivalent in classical modal logic to ✷∀✷∃( = ) and thus inconsistent with contingentism.
+ An occurrence of a predicate or a quantifier within a formula is said to be modal if it is within the scope of an essentialist operator and otherwise is said to be nonmodal. (For the purposes of this definition, the predicate F in OFA is regarded as part of the operator and not as
 
-Similarly, contingentists who endorse (BC) will have to reject the following in-
+within its scope). A formula A is said to be *modalized* if any predicate which occurs nonmodally is either quasi-rigid or is the identity or dependence predicate and if each nonmodal occurrence of a quantifier is relativized to a quasi-rigid predicate, i.e., occurs in the context  $\Pi x(Fx \to B)$  with F a quasi-rigid predicate not containing x free.
 
-The second argumentative strategy is more promising, since it turns on environments that have nothing obvious to do with propositional attitudes or "intentionality". Gideon Rosen (2010) and Kit Fine (2012) suggest certain general principles about *grounding* which, if true, would provide a widely-applicable strategy for arguing against instances of *\beta-conversion*. Rosen puts the point in terms of an ontology of facts: he maintains that in general, the fact that  $[a/x]\varphi$  grounds the fact that  $(\lambda x.\varphi)(a)$ . Since no fact grounds itself, this entails that the facts in question are distinct. Fine thinks of grounding claims as involving a sentential operator which (at least in the straightforward case where it connects two sentences) we can pronounce 'because'. So for him, the key claim is that whenever  $(\lambda x.\varphi)(a)$ ,  $(\lambda x.\varphi)(a)$  because  $[a/x]\varphi$ , although it is never true that  $(\lambda x.\varphi)(a)$  because  $(\lambda x.\varphi)(a)$ . <sup>34</sup> These claims certainly *sound* like they should entail that it is not true, in our target sense, that for it to be the case that  $(\lambda x.\varphi)(a)$  is for it to be the case that  $[a/x]\varphi$ . Rosen and Fine are at the forefront of a movement to give questions expressed in grounding-theoretic terms a central role in metaphysics, not merely as tools for investigating some other questions (in the way that, e.g., questions about conceptual analysis might be), but as topics of investigation for their own sake. At least insofar as one is convinced by the picture I presented in §2—according to which the "subject matter of metaphysics" is conceived of as being about the world as opposed to our representations of it, and true identifications license substitution within claims of this sort—one will not want to resist the grounding-theoretic argument against *\beta-conversion* at its last step.<sup>35</sup>However, so long as we conceive of grounding as a worldly matter, I see no good reason for accepting the premise that  $[a/x]\varphi$  ever grounds  $(\lambda x. \varphi)(a)$ . When we are
+THEOREM 5 (Modalization).  $\vdash A \rightarrow \Box A$ , for A modalized.
 
-to the propositional attitudes;  $'fact'$  is ruled out since there cannot be a fact that  $φ$  unless  $φ$ ; and some treat  $'state of affairs'$  as like  $'fact'$  in this respect. I am tempted by  $'factoid'$ .
+*Proof.* We prove (a)  $\vdash A \to \Box_{|A|}A$  and (b)  $\vdash \sim A \to \Box_{|A|} \sim A$  by a simultaneous induction on the construction of A.
 
-<sup>57</sup>*Proof:* Suppose \$\varphi \equiv \psi\$. (\$\varphi \leftrightarrow \psi\$) \$\equiv\$ (\$\varphi \leftrightarrow \varphi\$) is true by Ref and LL; \$\top\$ \$\equiv\$ (\$\varphi \leftrightarrow \psi\$) is true by *Taut*, so (\$\varphi \leftrightarrow \psi\$) \$\equiv\$ \$\top\$ is true by LL. In the other direction, suppose (\$\varphi \leftrightarrow \psi\$) \$\equiv\$ \$\top\$. \$\varphi\$ \$\equiv\$ (\$\psi \leftrightarrow (\varphi \leftrightarrow \psi)\$) is true by *Taut*, so by LL, \$\varphi\$ \$\equiv\$ (\$\psi \leftrightarrow \top\$); also (\$\psi \leftrightarrow \top\$) \$\equiv\$ \$\psi\$ by *Taut*, so \$\varphi\$ \$\equiv\$ \$\psi\$ by LL.<sup>58</sup>For K, suppose that  $φ → ψ ≡ ⊤$  and  $φ ≡ ⊤$ ; then  $(⊤ → ψ) ≡ ⊤$  by LL; since  $(⊤ → ψ) ≡ ψ$  by *Taut*, a second application of LL yields  $ψ ≡ ⊤$ . For T, suppose that  $φ ≡ ⊤$ ; ⊤ is true by propositional logic, so we can infer  $φ$  by LL.<sup>59</sup>The following principles suffice for S4:<sup>60</sup>Such an explanation would be worth little if it only applied to the sentential connective  $\equiv\langle\rangle$ ,
-<sup>56</sup>Cf. Williamson (1985), who in a somewhat different context imagines languages whose sentences are built up by putting expressions into bags.
+- (i) A = Fx, F quasi-rigid. By Rigidity results: (a) from Theorem 4.8(i); and (b) from Theorem 4.8(ii).
+- (ii) A is of the form x = y or x = x. By Identity results: (a) from Theorem 4.7(i); and (b) from Theorem 4.7(ii).
+- (iii) A is of the form  $x \ge y$  or  $x \ge x$ . By Dependency results: (a) from Theorem 4.10(iii); (b) from Theorem 4.10(iv).
+  - (iv)  $A = \sim B$ . A straightforward application of IH.
+- (v)  $A = (B \vee C)$ . (a) By IH,  $\vdash B \to \Box_{|B|}B$ . So by Subsumption,  $\vdash B \to \Box_{|B|,|C|}B$ ; and so by modal reasoning,  $\vdash B \to \Box_{|B|,|C|}(B \vee C)$ . Similarly,  $\vdash C \to \Box_{|B|,|C|}(B \vee C)$ . Hence  $\vdash (B \vee C) \to \Box_{|B \vee C|}(B \vee C)$ . (b) By IH,  $\vdash \sim B \to \Box_{|B|} \sim B$ ; and so by Subsumption,  $\vdash \sim B \to \Box_{|B|,|C|} \sim B$ . Similarly,  $\vdash \sim C \to \Box_{|B|,|C|} \sim C$ . But then by modal reasoning,  $\vdash \sim (B \vee C) \to \Box_{|\sim (B \vee C)|} \sim (B \vee C)$ .
+- (vi)  $A = \Box_F B$ , F quasi-rigid. By the Reductive results: (a) from Theorem 4.6(ii); and (b) from Theorem 4.6(i).
+- (vii)  $A = \Pi x(Fx \to B)$ , F quasi-rigid. (a) Suppose first that x is not free in B. Then  $\vdash \Pi x(Fx \to B) \leftrightarrow (\Pi x \sim Fx \vee B)$ . But  $\vdash \Pi x \sim Fx \to \Box \cap \Pi x \sim Fx$  by Theorem 2(iv) and  $\vdash B \to \Box_{|B|}B$  by IH. So by the reasoning under case (v) above,  $\vdash A \to \Box(\Pi x \sim Fx \vee B)$ ; and consequently,  $\vdash A \to \Box A$ .
 
-<sup>&</sup>lt;sup>55</sup>In a higher-order  $\lambda$ K-language, there is no need to use schemas in axiomatising Booleanism. For example, we can replace  $\wedge\vee$ -Distributivity with the single axiom  $(\lambda pqr.p \wedge (q \vee r)) \equiv (\lambda pqr.(p \wedge q) \vee (p \wedge r))$ . In a  $\lambda$ I-language we can still do this for Commutativity and Distributivity, but it will not work for Dissolution since  $\lambda pq.p$  is ill-formed. However, Booleans will see no advantage to  $\lambda$ I-languages. As noted in §5, vacuous lambda abstracts can be translated into a  $\lambda$ I-language by adding tautologous conjuncts to turn them into non-vacuous abstracts; for example translating  $\lambda p.\varphi$  when p is not free in  $\varphi$  as  $\lambda p.\varphi \vee (p \wedge \neg p)$ . Because they accept Dissolution, Booleans accept full  $\beta$ -conversion even for the expanded language.
+Suppose now that x occurs free in B. By IH,  $\vdash B \to \Box_{|B|}B$ , and so,
 
-<sup>54</sup>Note that instances of *η-conversion* where  $F is (\lambda v_1 \ldots v_n. \phi)$  for some formula  $\phi$  are also instances of (nonvacuous) *β-conversion*.
+(1) 
+$$\vdash \Pi x(Fx \to (B \to \Box_{|B|}B)).$$
 
-<sup>52</sup>The argument remains valid if we uniformly replace all constituents of the form '*X(p)*' with  $[X/y<sup>⟨⟨⟩⟩</sup>]φ$  for any formula *φ*. The conclusion will be interesting, and arguably inconsistent with the structured picture, when *φ* contains at least one occurrence of the operator variable *y<sup>⟨⟨⟩⟩</sup>*. We can recover something close to Russell's original argument (B. Russell 1903, Appendix B) by taking *φ* to be  $∀p(((y<sup>⟨⟨⟩⟩</sup>)p) → p)$  ('every *y<sup>⟨⟨⟩⟩</sup>* proposition is true').  
-<sup>53</sup>See Bacon, Hawthorne and Uzquiano 2016, sect. 7 for a survey of some of the forms that ramific-
+(Note that the predicate |B| will contain free x). Clearly,
 
- $<sup>^{51}</sup>$ My version of the argument is similar to the versions given (and endorsed) by Hodes 2015 and J. Goodman forthcoming.
+$$(2) \qquad \qquad \vdash \Pi x(Fx \to |B| \subseteq |A|).$$
 
-<sup>49</sup>We had better assume that the basic symbols of the language are chosen so that we never have vertically mirror-symmetric sentences like the English 'HE DOCKED' (see Sorensen 1999, p. 159).
+From (1) and (2) by Subsumption,  $\vdash \Pi x(Fx \to (B \to \Box_{|A|}B))$ ; and so:
 
-<sup>50</sup>It would, perhaps, make it harder to describe certain possible mental states, such as the mental states of those intuitionistic logicians who rejected the claim that every set of natural numbers has a least element while still accepting that every set of natural numbers does not not have a least element. But this is not the kind of deficiency metaphysicians should care about: *any* form of language will enable people to get confused in certain distinctive ways, and will be better suited than others for the task of characterising those particular forms of confusion.
+$$(3) \qquad \vdash \prod x(Fx \to B) \to \prod x(Fx \to \Box_{|A|}B).$$
 
-<sup>47</sup>Someone might object that when we introduce ⊙ in the imagined way, does not really occur as a syntactic, as opposed to merely orthographic, constituent in the sentence ⊙, so that the failure of existential generalisation or the substitution into *Schematic Propositional Structure* is completely unsurprising. (The apparatus of schemas needs to be understood in such a way as to rule out merely orthographic "embeddings": 'c=d → (Fido is a dog → Fido is a cog)' is not an instance of Leibniz's Law.) While this may be correct in some cases, I do not think it would be wise for proponents of the structured picture to rely on the the science of syntax to save them from these kinds of objections. Whether something is a constituent in the sense relevant to *syntax* presumably turns either on cognitivepsychological facts about how speakers process the compound formula, or on sociological facts about the systems of linguistic rules prevalent in a community. To be in a position to insist that stipulations of the kind we have envisaged never create new sentences with genuine syntactic constituents, one would have to be thinking of syntax as directly answerable to metaphysics in a way that seems alien to the practice of actual syntacticians.
+Now the side condition for the application of Corollary 5.2(i) is obviously satisfied; and so
 
-<sup>48</sup>The notion of easiness here could be cashed out in terms of physical probability, as in Dorr and Hawthorne 2014.
+(4)
 
-<sup>46</sup>Rayo is arguing against a view he calls "metaphysicalism", which seems quite close to the structured picture: see Dorr 2014b.
+$$\Pi x(Fx \to \square_{|A|}B) \to \square_{|A|}\Pi x(Fx \to B).$$
 
-<sup>44</sup>In a λI-language, use . ≡ ¬ ∧ ≡ .
+But then from (3) and (4),  $\vdash \Pi x(Fx \to B) \to \Box_{|A|} \Pi x(Fx \to B)$ , as required.
 
-<sup>45</sup>As Jeremy Goodman pointed out, these stipulations do not specify any meaning for sentences
+- (b) Clearly it suffices to show  $\vdash \Sigma x(Fx \& \sim B) \to \Box_{|A|} \Sigma x(Fx \& \sim B)$ . By Rigidity and Subsumption,
+  - (1)  $\vdash Fx \to \Box_{|A|}Fx.$
 
-<sup>43</sup>The standard theory of structured propositions suggests the following polyadic generalisation of *Atomic Structure*:
+By IH,  $\vdash \sim B \rightarrow \Box_{|B|} \sim B$ ; and so with the help of Subsumption,
 
-<sup>41</sup>Different classical-logic-friendly theories of vagueness offer different tools to help one face down arbitrariness-based objections to classical theorems like 'Everyone is either bald or not bald'. The suggestion is that opponents of vacuous β-conversion should respond to the present worry in the same way.
+$$(2) \qquad \qquad \vdash Fx \land \sim B \to \square_{|A|} \sim B.$$
 
-<sup>42</sup>See also Bealer 1982, whose theory of 'concepts' provides an especially close analogue of the structured picture in a first-order setting.
+From (1) and (2) by modal reasoning,
 
-<sup>40</sup>J. Goodman (MS) shows how the way of thinking about aboutness that underlies this strategy can be developed into a systematic theory.
+(3)
 
-<sup>39</sup>Contingentist proponents of (BC) might reply at this point that (21a) and (21b) are in fact true, for the same reason that 'All unicorns both are and are not unicorns' is true. There are many problems with this move, but perhaps the worst one is that it does not generalise to examples using other quantifiers. 'If that had happened, most of us wouldn't have existed' has a reading where, assuming contingentism, it is true if 'us' refers to A, B, and C, and if the relevant thing had happened, A and B would never have been born but C still would have. But 'If that happened, most of us both would and wouldn't have existed' isn't true in this circumstance.
+$$\vdash Fx \& \sim B \to \square_{|\mathcal{A}|}(Fx \& \sim B).$$
 
-<sup>37</sup>Stalnaker (1994) develops a quantified modal logic in which (BC) is upheld and β-conversion fails. Many other authors, most influentially Plantinga (1983), have defended a structurally similar package in the context of a theory of properties, namely that property-exemplification entails existence, so that the intersubstitutability of ' has the property of being an such that ' and '[/]' must be restricted in modal contexts.
+Now  $\vdash (Fx \& \sim B) \to \Sigma x(Fx \& \sim B)$  by classical reasoning; and so
 
-<sup>38</sup>See Plantinga 1983, p. 13.
+$$(4) \qquad \vdash \Box_{|A|}(Fx \land \neg B) \to \Box_{|A|}\Sigma x(Fx \land \neg B).$$
 
-<sup>36</sup>The variable could occur free in , but the argument does not depend on instances of this sort.
+From (3) and (4),  $\vdash Fx \& \sim B \to \Box_{|A|} \Sigma x(Fx \& \sim B)$ . But then again by classical reasoning,  $\vdash \Sigma x(Fx \& \sim B) \to \Box_{|A|} \Sigma x(Fx \& \sim B)$ .
 
-<sup>34</sup>Fine suggests just one possible exception to the generalisation that  $[a/x]φ$  strictly grounds  $(λx.φ)(a)$ , namely when  $φ$  is a predication  $F(x)$  where  $x$  is not free in  $F$ , so that  $(λx.φ)(a) ≡ [a/x]φ$  is an instance of *η-conversion* (see below) as well as *β-conversion*.
+It should be noted that  $A \to \Box A$  may be provable in the original system even though  $\Pi xA \to \Box \Pi xA$  is not provable in the extended system E5<sup>+</sup>. For let A be the formula  $x \ge y$ . Then  $x \ge y \to \Box_{x,y} x \ge y$  is provable but, as may be shown by semantical methods,  $\Pi x(x \ge y) \to \Box_y \Pi x(x \ge y)$  is not.
 
-<sup>35</sup>Interestingly, however, there are indications that Fine and some other grounding-enthusiasts are not thinking along these lines. Fine is open to a view on which propositions are individuated too coarsely to respect grounding-theoretic distinctions: 'the truth of "A, B < C" might be taken to depend not merely upon the propositions expressed by "A", "B" and "C" but also upon how these propositions are expressed'. This suggests a picture where grounding-theoretic claims are in some important sense about our representations, rather than simply about how things are in the world. Correia (2010) takes seriously the idea that 'grounding' admits a "conceptual" interpretation that works like this, as well as a "worldly" interpretation, and interprets Fine and Rosen as concerned with the "conceptual" notion. If he is right, the present argument against *β-conversion* from putative failures of substitutivity in grounding claims would have no more force than the previously considered argument from failures of substitutivity in attitude reports. However, I have little sense of what the conceptual interpretation of grounding claims is supposed to be, or why anyone would regard such claims as having a distinctive interest for metaphysics.
+Several of our previous results can be viewed as consequences of Modalization. For example, the S4 result  $\vdash \Box_F A \to \Box_F \Box_F A$ , A quasirigid, holds since  $\Box_F A$  is modalized, as does Theorem 2(i),  $\vdash P \subseteq Q \to \Box(P \subseteq Q)$ , since the antecedent  $P \subseteq Q$  is modalized. Further consequences of the theorem will be given later.
+
+## C. Replacement
+
+In the statement of the following result, we suppose B = B(F) contains a single occurrence of the predicate F and that no free variable of F is
+
+bound at that occurrence within B, and we use B(G) to represent the result of *freely* replacing that occurrence of F with G, i.e., of replacing it in such a way that none of the free variables of G thereby become bound.
+
+THEOREM 6 (Replacement).  $\vdash \Box(F \approx G) \& (|F| \approx |G|) \rightarrow (B(F) \leftrightarrow B(G))$ .
+
+*Proof.* The proof is by induction on the construction of A(F) from the designated occurrence of F. Let us use A for the antecedent  $\Box(F \approx G)$  &  $(|F| \approx |G|)$  of the conditional and C for its consequent  $B(F) \leftrightarrow B(G)$ . Let us note that since |F| and |G| are quasi-rigid, it follows from Theorem 2(ii) that  $\vdash |F| \approx |G| \rightarrow \Box(|F| \approx |G|)$ .
+
+- (i) B = Fx, F a predicate symbol.  $\vdash A \rightarrow F \approx G$  by the T-axiom and  $\vdash F \approx G \rightarrow C$  by classical reasoning.
+- (ii)  $B = \lambda x D(F, x) y$ . Suppose y first to be a variable which does not occur in A or C. By IH,  $\vdash A \to (D(F, y) \leftrightarrow D(G, y))$ . By Abstraction,  $\vdash (D(F, y) \leftrightarrow D(G, y)) \to \lambda x D(F, x) y \leftrightarrow \lambda x D(G, x) y$ ; and so,  $\vdash A \to \lambda x D(F, x) y \leftrightarrow \lambda x D(G, x) y$ , as required.
+
+Now suppose y occurs in either A or C. Choose a z which does not. Then by the previous reasoning,  $\vdash A \to \lambda x D(F, x)z \leftrightarrow \lambda x D(G, x)z$ . By quantificational reasoning,  $\vdash A \to \Pi z(\lambda x D(F, x)z \leftrightarrow \lambda x$ 
+
+- D(G,x)z); and so by Specification,  $\vdash A \rightarrow \lambda x D(F,x)y \leftrightarrow \lambda x D(G,x)y$ .
+- (iii)  $B = \sim D(F)$ . By IH,  $\vdash A \to (D(F) \leftrightarrow D(G))$ . But then by classical reasoning,  $\vdash A \to (\sim D(F) \leftrightarrow \sim D(G))$ .
+  - (iv)  $B = (D(F) \vee E)$  (or  $B = (D \vee E(F))$ ). Similarly.
+- (v)  $B = \Box_H D(F)$ . Let A' be the formula  $|D(F)| \subseteq cH$ . It then suffices to show (a)  $\vdash A \& \sim A' \to C$  and (b)  $\vdash A \& A' \to C$ .
+- (a)  $\vdash \sim A' \to \sim \Box_H D(F)$  by Localization.  $\vdash A \to |D(F)| \approx |D(G)|$ . So  $\vdash A \& \sim A' \to \sim (|D(G)| \subseteq cH)$ ; and so  $\vdash A \& \sim A' \to \sim \Box_H D(G)$ . But then  $\vdash A \& \sim A' \to \Box_H D(F) \leftrightarrow \Box_H D(G)$ .
+- (b) By IH,  $\vdash A \to (D(F) \leftrightarrow D(G))$ . Applying Nec and Subsumption,  $\vdash \Box_{|A|,|C|}(A \to (D(F) \leftrightarrow D(G)))$  (where C is the formula  $D(F) \leftrightarrow D(G)$ ); and so by modal reasoning,
+
+$$(1) \qquad \qquad \vdash \Box_{|A|,|C|,H}A \to (\Box_{|A|,|C|,H}D(F) \leftrightarrow \Box_{|A|,|C|,H}D(G)).$$
+
+Since A is modalized, it follows by the Modalization Theorem and Subsumption that:
+
+(2)
+
+$$\vdash A \to \Box_{|A|,|C|,H}A.$$
+
+It is evident that  $\vdash |A| \subseteq |C|$  and that  $\vdash A \& A' \to |C| \subseteq cH$ . So  $\vdash A \& A' \to c(|A|, |C|, H) \approx cH$ . But then by Lemma 4.2(ii),
+
+(3) 
+$$\vdash A \& A' \rightarrow (\square_{|A|,|C|,H}D(F) \leftrightarrow \square_HD(F));$$
+ and
+
+$$(4) \qquad \qquad \vdash A \& A' \to (\Box_{|A|,|C|,H}D(G) \leftrightarrow \Box_{H}D(G)).$$
+
+From (1), (2), (3) and (4), we then obtain  $\vdash A \& A' \to \Box_H D(F) \leftrightarrow \Box_H D(G)$ .
+
+- (vi)  $B = \Box_{H(F)}D$ . By IH,  $\vdash A \rightarrow (H(F)x \leftrightarrow H(G)x)$ , x a variable not free in A; and so,
+  - (1)  $\vdash A \to H(F) \approx H(G).$
+
+By Subsumption,
+
+$$(2) \quad \vdash H(F) \approx H(G) \to (\square_{H(F)} B \leftrightarrow \square_{H(G)} B).$$
+
+But then from (1) and (2),  $\vdash A \rightarrow (\Box_{H(F)}B \leftrightarrow \Box_{H(G)}B)$ .
+
+(vii)  $B = \Pi x D(F)$ . By IH,  $\vdash A \to (D(F) \leftrightarrow D(G))$ . But x does not occur free in A. So  $\vdash A \to \Pi x (D(F) \leftrightarrow D(G))$ ; and hence  $\vdash A \to (\Pi x D(F) \leftrightarrow \Pi x D(G))$ .
+
+We note three almost immediate consequences of the result:
+
+COROLLARY 7.  $\vdash F \approx G \rightarrow (A(F) \leftrightarrow A(G))$ , for F and G quasi-rigid. Proof. Since  $\vdash F \approx G \rightarrow \Box(F \approx G)$  by Rigidity (Theorem 2(ii)) and  $\vdash F \approx G \rightarrow |F| \approx |G|$ .
+
+COROLLARY 8.  $\vdash \Box(B \leftrightarrow C)$  &  $|B| \approx |C| \rightarrow A(B) \leftrightarrow A(C)$ .
+
+Proof. From the theorem by taking F and G to be 0-place predicates.
+
+COROLLARY 9. If  $\vdash A(P)$  then  $\vdash A(F)$ , for F quasi-rigid and A(F) the result of replacing every occurrence of P in A(P) with F.
+
+*Proof.* By Corollary 7,  $\vdash P \approx F \rightarrow (A(P) \leftrightarrow A(F))$ . Given  $\vdash A(P)$ , it follows that  $\vdash P \approx F \rightarrow A(F)$ . But P does not occur in A(F); and so  $\vdash A(F)$  by Predicate Elimination.
+
+## D. Reduction
+
+We use  $\top_F$  for a theorem whose content is |F|. We are not bothered which theorem is used, but given that the rigid predicates of F are
+
+ $P_1, \ldots, P_m$  and that its variables are  $x_1, \ldots, x_n$ , we might for the sake of definiteness let  $\top_F$  be the formula  $\bigwedge_{1 \le i \le m} \prod x(P_i x \to P_i x)$  &  $\bigwedge_{1 \le j \le n} x_j = x_j$ .
+
+LEMMA 10. (i)  $\vdash \Box_P(\Box_Q A \lor B) \leftrightarrow \Box_P \top_{Q,|A|,|B|} \& (\Box_Q A \lor \Box_P B)$ . (ii)  $\vdash \Box_P(\sim \Box_Q A \lor B) \leftrightarrow \Box_P \top_{Q,|A|,|B|} \& (\sim \Box_Q A \lor \Box_P B)$ .*Proof.* (i) Let us use (a) for the antecedent of the above conditional and (c) for its consequent. Then  $\vdash$  (a)  $\rightarrow \Box_P \top_{Q,|A|,|B|}$  by straightforward modal reasoning. Also,  $\vdash$  (a)  $\rightarrow \Box_P (\sim \Box_Q A \rightarrow B)$  by Corollary 8 above;  $\vdash \Box_P (\sim \Box_Q A \rightarrow B) \rightarrow \Box_P \sim \Box_Q A \rightarrow \Box_P B$  by Distribution; and so  $\vdash$  (a)  $\rightarrow (\Box_P \sim \Box_Q A \rightarrow \Box_P B)$ . But  $\vdash \Box_P \top_{Q,|A|,|B|} \& \sim \Box_Q A \rightarrow \Box_P B$ ); and so  $\vdash$  (a)  $\rightarrow (\sim \Box_Q A \rightarrow \Box_P B)$ ; and so  $\vdash$  (a)  $\rightarrow (\sim \Box_Q A \rightarrow \Box_P B)$ ; and so  $\vdash$  (a)  $\rightarrow$  (c).
+
+As for the other direction,
+
+- $\vdash (\Box_Q A \lor \Box_P B) \to \Box_{P,Q,|A|,|B|}(\Box_Q A \lor \Box_P B)$ ; and so, with the help of Cut,  $\vdash (c) \to \Box_P(\Box_Q A \lor \Box_P B)$ . But  $\vdash (\Box_Q A \lor \Box_P B) \to \Box_Q A \lor B)$ ; and so by modal reasoning,  $\vdash (c) \to (a)$ .
+- (ii) The proof is similar to that for (i) but uses the S4 in place of the S5 result.
+
+A formula A is said to be propositional if no bound occurrence of a variable occurs free within the scope of an essentialist operator, to be rigid if each of its delimiters is a rigid predicate symbol, to be iterative if some essentialist operator occurs within the scope of another, and to be modal if it contains an essentialist operator.
+
+THEOREM 11 (Reduction). Any rigid propositional formula A is provably equivalent to a non-iterative propositional formula.
+
+*Proof.* By induction on the number n of embedded occurrence of essentialist operators in A, i.e. those within the scope of others. If n=1, there is nothing to prove. So suppose n>1. Pick a subformula  $\Box_P B$  of  $A=A(\Box_P B)$ , where B is non-iterative but modal. B may be put into a conjunctive normal from  $C=\bigwedge_{1\leq i\leq n}D_i, n\geq 1$ ; and, given that B is propositional, the "atoms" of C may be taken either to be essentialist formulas (beginning with an operator  $\Box_Q$ ) or to be nonmodal. By classical reasoning,  $\vdash B \leftrightarrow C$ ; and clearly we may so choose C that  $\vdash |B| \approx |C|$ . By modal reasoning,  $\vdash \Box_P \bigwedge_{1\leq i\leq n}D_i \leftrightarrow \bigwedge_{1\leq i\leq n}\Box_P D_i$ .
+
+Take a particular modal  $D_i$ . Its disjuncts are either essentialist formulas or non-modal. So by repeated applications of the above lemma, we may find a non-iterative formula  $E_i$  such that  $\vdash \Box_P D_i \leftrightarrow E_i$  and  $\vdash |\Box_P D_i| \approx |E_i|$ . But then by Corollary  $8, \vdash A \leftrightarrow A(\bigwedge_{1 \le i \le n} E_i)$ ; and the IH applies.
+
+Many tasks remain. The most important is to find a semantics for the system and establish completeness. This is something I hope to do in another paper. Various fragments and extensions of the system need to be considered. It would be interesting, for example, to determine the system in which the quantifiers are required to be actualist (ranging only over the existents) or in which the apparatus of abstraction and rigid predication is dropped. On the other hand, it is natural to introduce second-order methods. One might, at one extreme, allow quantification over all rigid properties, or even over all properties whatever. But various intermediate possibilities might be considered, such as allowing explicit reference to the rigid property corresponding to a given condition. Systems for cognate notions of essence should also be developed. It is especially important in this regard to investigate the logic for an objectually unconstrained conception of essence.
+
+### ACKNOWLEDGEMENT
+
+I am grateful to David Kaplan; for, through his work on direct reference, he has done more than anyone to help create an environment in which an object-oriented approach to intensional logic could flourish.
+
+## REFERENCES
+
+Fine, K. (1994) Concept and Modality, to appear in Philosophical Perspectives (ed. J. Tomberlin).
+
+Fine, K. (1994) Senses of Essence, to appear in a volume for Ruth Barcan Marcus.
