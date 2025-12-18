@@ -186,4 +186,9 @@ h'(x) =& \lim_{\Delta x \to 0} \frac{h(x+\Delta x) - h(x)}{\Delta x} \\
 =& f'(x) + g'(x) 
 \end{align*}
 $$
+Given that, 
 
+- if $g(x)=kf(x)$, then $g'(x)=kf'(x)$ 
+- if $g(x)=f(x)+h(x)$, then $g'(x) = f'(x) + h'(x)$
+
+In other words, differentiation "respects" addition and multpication by a constant. The feature of "respecting addition and constant multiplication" is called "linearity".
