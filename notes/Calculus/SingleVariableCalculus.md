@@ -192,3 +192,25 @@ Given that,
 - if $g(x)=f(x)+h(x)$, then $g'(x) = f'(x) + h'(x)$
 
 In other words, differentiation "respects" addition and multpication by a constant. The feature of "respecting addition and constant multiplication" is called "linearity".
+
+**Example**: What is $f'(1)$ if $f(x)=-3x^{2}+\frac{1}{x}-2$?
+
+$$\begin{align*} f'(x) &= (-3x^2)' + \left(\frac{1}{x}\right)' - (2)' \\
+&= -3 \cdot 2x + -1 \cdot \frac{1}{x^2} - 0 \\
+&= -6x - \frac{1}{x^2}\end{align*}$$
+Then we have $f'(1)=-7$
+
+Power Rule
+: If $f(x)=x^n$, then $f'(x) = nx^{n-1}$
+
+**Proof**:
+
+Lemma: $b^n-x^n=(b-x)(b^{n-1}+ b^{n-2}x + \cdots + b x^{n-2} + x^{n-1})$
+
+Given this lemma, we can calculate  $$ \begin{align*}
+f'(x) &= \lim_{b \to x} \frac{f(b) - f(x)}{b - x} \\
+&= \lim_{b \to x} \frac{b^n - x^n}{b - x} \\
+&= \lim_{b \to x} \left( b^{n-1} + b^{n-2}x + \cdots + bx^{n-2} + x^{n-1} \right) \\
+&= n x^{n-1}
+\end{align*}$$
+
