@@ -41879,6 +41879,46 @@ var fewShotExampleSchema = z.object({
 }).strict();
 
 // src/settings/versions/v1/v1.ts
+var DEFAULT_FIM_SYSTEM_MESSAGE = `You are a precise fill-in-the-middle completion engine. You will receive text with a missing middle; return ONLY the missing text.
+Hard rules:
+- Output only the missing text, no labels, no explanations, no quotes.
+- Do NOT repeat the prefix or suffix.
+- Do NOT add leading/trailing whitespace or extra newlines.
+- Preserve formatting (indentation, line breaks, math/code style).
+- If the prefix/suffix are plain text (no $), do NOT introduce $ or LaTeX.
+- If the missing text is inside inline math and the suffix already has '$', do NOT add '$'.
+- If the prefix has '$' but the suffix does NOT, then the missing text must include the closing '$'.
+- If the missing text is inside display math $$...$$, do NOT add $$ delimiters.
+- If the missing text is inside a partial sentence, output only the missing 1-2 words.
+- If the missing text is inside a word, output ONLY the missing letters (not the whole word).
+- Never output special tokens like <|fim_...|> or <|endoftext|>.
+- Stop immediately after the missing text is complete.
+
+Examples (for guidance only; do not copy them):
+1) We wish you a <mask> Christmas. -> merry
+2) Saul Kripke is the author of <mask> and Necessity. -> Naming
+3) # The <mask> function
+   The softmax function transforms a vector into a probability distribution. -> Softmax
+4) The <mask> is known as the sampling rate. -> chosen interval
+5) A logarithm ... in other words $ <mask> $. -> 3 = \\log_2(8)
+6) $$ sample\\_mean(x) = <mask> $$ -> \\frac{1}{n} \\sum_i^n x_i
+7) $a^2-b^2=(a-b)(a+<mask>)$ -> b
+8) $\\sin^2 x + \\cos^2 x = <mask>$ -> 1
+9) $\\frac{d}{dx} x^3 = <mask>$ -> 3x^2
+10) $$\\int x \\, dx = <mask>$$ -> \\frac{x^2}{2}+C
+11) function debounce(func, timeout = 300){
+     <mask>
+   } -> let timer; return (...args) => { clearTimeout(timer); timer = setTimeout(() => { func.apply(this, args); }, timeout); };
+12) def fibonacci(<mask>) -> int: -> n: int
+13) - [ ] Research
+    - [ ] <mask> -> Write the first draft
+14) We wish you a merry Chir<mask>. -> smas
+15) Boston is in Mas<mask>. -> sachusetts
+16) The word micro<mask> is related to magnification. -> scope
+17) Bio<mask> studies life. -> logy
+18) The law of excluded middle is $<mask>. -> P \\lor \\neg P$
+19) Given propositions P and Q, their conjunction is $<mask>. -> P \\land Q$
+`;
 var triggerSchema = z.object({
   type: z.enum(["string", "regex"]),
   value: z.string().min(1, { message: "Trigger value must be at least 1 character long" })
@@ -41908,10 +41948,12 @@ var settingsSchema = z.object({
   azureOAIApiSettings: azureOAIApiSettingsSchema,
   openAIApiSettings: openAIApiSettingsSchema,
   ollamaApiSettings: ollamaApiSettingsSchema,
+  ollamaUseFIM: z.boolean(),
   triggers: z.array(triggerSchema),
   delay: z.number().int().min(MIN_DELAY, { message: "Delay must be between 0ms and 2000ms" }).max(MAX_DELAY, { message: "Delay must be between 0ms and 2000ms" }),
   modelOptions: modelOptionsSchema,
   systemMessage: z.string().min(3, { message: "System message must be at least 3 characters long" }),
+  fimSystemMessage: z.string().min(3, { message: "FIM system message must be at least 3 characters long" }),
   fewShotExamples: z.array(fewShotExampleSchema),
   userMessageTemplate: z.string().min(3, { message: "User message template must be at least 3 characters long" }),
   chainOfThoughRemovalRegex: z.string().refine((regex) => isRegexValid(regex), { message: "Invalid regex" }),
@@ -41960,6 +42002,7 @@ var DEFAULT_SETTINGS = {
     url: "http://localhost:11434/api/chat",
     model: ""
   },
+  ollamaUseFIM: false,
   // Trigger settings
   triggers: [
     { type: "string", value: "# " },
@@ -42005,6 +42048,7 @@ THOUGHT: here, you reason about the answer; use the 80/20 principle to be brief.
 LANGUAGE: here, you write the language of your answer, e.g. English, Python, Dutch, etc.
 ANSWER: here, you write the text that should be at the location of <mask/>
 `,
+  fimSystemMessage: DEFAULT_FIM_SYSTEM_MESSAGE,
   fewShotExamples: [
     block_qoute_example_default,
     codeblock_function_completion_default,
@@ -42392,6 +42436,8 @@ function migrateFromV0ToV1(settings) {
   updatedSettings.ignoredTags = DEFAULT_SETTINGS.ignoredTags;
   updatedSettings.cacheSuggestions = DEFAULT_SETTINGS.cacheSuggestions;
   updatedSettings.ollamaApiSettings = DEFAULT_SETTINGS.ollamaApiSettings;
+  updatedSettings.ollamaUseFIM = DEFAULT_SETTINGS.ollamaUseFIM;
+  updatedSettings.fimSystemMessage = DEFAULT_SETTINGS.fimSystemMessage;
   updatedSettings.debugMode = DEFAULT_SETTINGS.debugMode;
   return settingsSchema.parse(updatedSettings);
 }
@@ -42620,7 +42666,7 @@ var combineResultAsyncList = (asyncResultList) => ResultAsync.fromSafePromise(Pr
 var combineResultListWithAllErrors = (resultList) => resultList.reduce((acc, result) => result.isErr() ? acc.isErr() ? err([...acc.error, result.error]) : err([result.error]) : acc.isErr() ? acc : ok([...acc.value, result.value]), ok([]));
 var combineResultAsyncListWithAllErrors = (asyncResultList) => ResultAsync.fromSafePromise(Promise.all(asyncResultList)).andThen(combineResultListWithAllErrors);
 var Result;
-(function(Result5) {
+(function(Result6) {
   function fromThrowable2(fn, errorFn) {
     return (...args) => {
       try {
@@ -42631,15 +42677,15 @@ var Result;
       }
     };
   }
-  Result5.fromThrowable = fromThrowable2;
+  Result6.fromThrowable = fromThrowable2;
   function combine(resultList) {
     return combineResultList(resultList);
   }
-  Result5.combine = combine;
+  Result6.combine = combine;
   function combineWithAllErrors(resultList) {
     return combineResultListWithAllErrors(resultList);
   }
-  Result5.combineWithAllErrors = combineWithAllErrors;
+  Result6.combineWithAllErrors = combineWithAllErrors;
 })(Result || (Result = {}));
 var ok = (value) => new Ok(value);
 var err = (err2) => new Err(err2);
@@ -43437,6 +43483,80 @@ var OllamaApiClient = class {
 };
 var OllamaApiClient_default = OllamaApiClient;
 
+// src/prediction_services/api_clients/OllamaFIMApiClient.ts
+var OllamaFIMApiClient = class {
+  static fromSettings(settings) {
+    return new OllamaFIMApiClient(
+      resolveOllamaGenerateUrl(settings.ollamaApiSettings.url),
+      settings.ollamaApiSettings.model,
+      settings.modelOptions,
+      settings.fimSystemMessage
+    );
+  }
+  constructor(url, model, modelOptions, systemPrompt) {
+    this.url = url;
+    this.modelOptions = modelOptions;
+    this.model = model;
+    this.systemPrompt = systemPrompt;
+  }
+  async queryFIM(prompt, stop) {
+    const headers = {
+      "Content-Type": "application/json"
+    };
+    const body = {
+      prompt,
+      stream: false,
+      model: this.model,
+      system: this.systemPrompt,
+      options: {
+        temperature: this.modelOptions.temperature,
+        top_p: this.modelOptions.top_p,
+        num_predict: this.modelOptions.max_tokens,
+        stop
+      }
+    };
+    const data = await makeAPIRequest(this.url, "POST", body, headers);
+    return data.map((data2) => data2.response);
+  }
+  async checkIfConfiguredCorrectly() {
+    const errors = [];
+    if (!this.url) {
+      errors.push("Ollama API url is not set");
+    }
+    if (!this.model) {
+      errors.push("Ollama model is not set");
+    }
+    if (errors.length > 0) {
+      return errors;
+    }
+    const result = await this.queryFIM(
+      "<|fim_prefix|>A<|fim_suffix|>C<|fim_middle|>",
+      ["<|fim_prefix|>", "<|fim_suffix|>", "<|fim_middle|>", "<|endoftext|>"]
+    );
+    if (result.isErr()) {
+      errors.push(result.error.message);
+    }
+    return errors;
+  }
+};
+function resolveOllamaGenerateUrl(url) {
+  if (!url) {
+    return url;
+  }
+  const trimmed = url.trim();
+  if (/\/api\/chat\/?$/.test(trimmed)) {
+    return trimmed.replace(/\/api\/chat\/?$/, "/api/generate");
+  }
+  if (/\/api\/generate\/?$/.test(trimmed)) {
+    return trimmed;
+  }
+  if (/\/api\/?$/.test(trimmed)) {
+    return trimmed.replace(/\/api\/?$/, "/api/generate");
+  }
+  return trimmed;
+}
+var OllamaFIMApiClient_default = OllamaFIMApiClient;
+
 // src/settings/components/ConnectivityCheck.tsx
 function ConnectivityCheck(props) {
   const [status, setStatus] = (0, import_react2.useState)(0 /* NotStarted */);
@@ -43452,6 +43572,9 @@ function ConnectivityCheck(props) {
       return OpenAIApiClient_default.fromSettings(props.settings);
     }
     if (props.settings.apiProvider === "ollama") {
+      if (props.settings.ollamaUseFIM) {
+        return OllamaFIMApiClient_default.fromSettings(props.settings);
+      }
       return OllamaApiClient_default.fromSettings(props.settings);
     }
     throw new Error("Unknown API provider");
@@ -43696,7 +43819,7 @@ function SettingsView(props) {
         TextSettingItem,
         {
           name: "API URL",
-          description: "The URL used in the requests.",
+          description: settings.ollamaUseFIM ? "The URL used in the requests. For FIM mode, this should point to Ollama's /api/generate endpoint." : "The URL used in the requests.",
           placeholder: "Your API URL...",
           value: settings.ollamaApiSettings.url,
           errorMessage: errors.get("ollamaApiSettings.url"),
@@ -43721,6 +43844,14 @@ function SettingsView(props) {
             }
           }),
           errorMessage: errors.get("ollamaApiSettings.model")
+        }
+      ), /* @__PURE__ */ React9.createElement(
+        CheckBoxSettingItem,
+        {
+          name: "Use FIM mode",
+          description: "Enable fill-in-the-middle (FIM) prompting for Ollama models that support it (for example, Qwen3-Coder). This switches requests to /api/generate and uses FIM prompt tokens. If your model ignores the system prompt, create a custom Modelfile that includes {{ .System }}.",
+          enabled: settings.ollamaUseFIM,
+          setEnabled: (value) => updateSettings({ ollamaUseFIM: value })
         }
       ), /* @__PURE__ */ React9.createElement(ConnectivityCheck, { key: "openai", settings }));
     }
@@ -44003,7 +44134,7 @@ function SettingsView(props) {
     SettingsItem,
     {
       name: "System Message",
-      description: "This system message gives the models all the context and instructions they need to complete the answer generation tasks. You can edit this message to your liking. If you edit the chain of thought formatting, make sure to update the extract regex and examples accordingly.",
+      description: settings.apiProvider === "ollama" && settings.ollamaUseFIM ? "This system message is used for chat-based providers. Ollama FIM mode uses the FIM system prompt below instead." : "This system message gives the models all the context and instructions they need to complete the answer generation tasks. You can edit this message to your liking. If you edit the chain of thought formatting, make sure to update the extract regex and examples accordingly.",
       display: "block",
       errorMessage: errors.get("systemMessage")
     },
@@ -44016,6 +44147,26 @@ function SettingsView(props) {
         value: settings.systemMessage,
         onChange: (e) => updateSettings({
           systemMessage: e.target.value
+        })
+      }
+    )
+  ), settings.apiProvider === "ollama" && settings.ollamaUseFIM && /* @__PURE__ */ React9.createElement(
+    SettingsItem,
+    {
+      name: "FIM System Prompt",
+      description: "This system prompt is used when Ollama FIM mode is enabled. It should instruct the model to output only the missing middle text without extra tokens.",
+      display: "block",
+      errorMessage: errors.get("fimSystemMessage")
+    },
+    /* @__PURE__ */ React9.createElement(
+      "textarea",
+      {
+        className: "setting-item-text-area-copilot-auto-completion",
+        rows: 14,
+        placeholder: "Your FIM system prompt...",
+        value: settings.fimSystemMessage,
+        onChange: (e) => updateSettings({
+          fimSystemMessage: e.target.value
         })
       }
     )
@@ -44751,6 +44902,139 @@ function fewShotExamplesToChatMessages(examples) {
   }).flat();
 }
 var chat_gpt_with_reasoning_default = ChatGPTWithReasoning;
+
+// src/prediction_services/ollama_fim/index.ts
+var OllamaFIM = class {
+  constructor(client, preProcessors, postProcessors, debugMode) {
+    this.client = client;
+    this.preProcessors = preProcessors;
+    this.postProcessors = postProcessors;
+    this.debugMode = debugMode;
+  }
+  static fromSettings(settings) {
+    const preProcessors = [];
+    if (settings.dontIncludeDataviews) {
+      preProcessors.push(new data_view_remover_default());
+    }
+    preProcessors.push(
+      new length_limiter_default(
+        settings.maxPrefixCharLimit,
+        settings.maxSuffixCharLimit
+      )
+    );
+    const postProcessors = [];
+    if (settings.removeDuplicateMathBlockIndicator) {
+      postProcessors.push(new remove_math_indicators_default());
+    }
+    if (settings.removeDuplicateCodeBlockIndicator) {
+      postProcessors.push(new remove_code_indicators_default());
+    }
+    postProcessors.push(new remove_overlap_default());
+    postProcessors.push(new remove_whitespace_default());
+    const client = OllamaFIMApiClient_default.fromSettings(settings);
+    return new OllamaFIM(
+      client,
+      preProcessors,
+      postProcessors,
+      settings.debugMode
+    );
+  }
+  async fetchPredictions(prefix, suffix) {
+    const context = context_detection_default.getContext(prefix, suffix);
+    for (const preProcessor of this.preProcessors) {
+      if (preProcessor.removesCursor(prefix, suffix)) {
+        return ok("");
+      }
+      ({ prefix, suffix } = preProcessor.process(
+        prefix,
+        suffix,
+        context
+      ));
+    }
+    const prompt = this.buildFIMPrompt(prefix, suffix);
+    const stopTokens = this.getStopTokens(prefix, suffix, context);
+    if (this.debugMode) {
+      console.log("Copilot FIM prompt:\n", prompt);
+      console.log("Copilot FIM stop tokens:\n", stopTokens);
+    }
+    let result = await this.client.queryFIM(prompt, stopTokens);
+    if (this.debugMode && result.isOk()) {
+      console.log("Copilot FIM response:\n", result.value);
+    }
+    for (const postProcessor of this.postProcessors) {
+      result = result.map((r) => postProcessor.process(prefix, suffix, r, context));
+    }
+    result = this.checkAgainstGuardRails(result);
+    return result;
+  }
+  buildFIMPrompt(prefix, suffix) {
+    return `<|fim_prefix|>${prefix}<|fim_suffix|>${suffix}<|fim_middle|>`;
+  }
+  getStopTokens(prefix, suffix, context) {
+    const stopTokens = [
+      "<|fim_suffix|>",
+      "<|fim_prefix|>",
+      "<|fim_middle|>",
+      "<|endoftext|>"
+    ];
+    const isOpenDisplayMath = hasUnclosedDoubleDollar(prefix, suffix);
+    const isOpenInlineMath = hasUnclosedSingleDollar(prefix, suffix);
+    if (context !== context_detection_default.MathBlock && !isOpenDisplayMath && !isOpenInlineMath) {
+      return stopTokens;
+    }
+    const trimmedSuffix = suffix.trimStart();
+    const hasDisplayClose = trimmedSuffix.startsWith("$$") || suffix.includes("$$");
+    if (hasDisplayClose) {
+      stopTokens.push("$$", "\n");
+      return stopTokens;
+    }
+    const hasInlineClose = trimmedSuffix.startsWith("$") || suffix.includes("$");
+    if (hasInlineClose) {
+      stopTokens.push("$", "\n");
+      return stopTokens;
+    }
+    stopTokens.push("\n");
+    return stopTokens;
+  }
+  checkAgainstGuardRails(result) {
+    if (result.isErr()) {
+      return result;
+    }
+    if (result.value.length === 0) {
+      return err(new Error("Empty result"));
+    }
+    if (result.value.includes("<mask/>") || result.value.includes("<|fim_")) {
+      return err(new Error("Mask in result"));
+    }
+    return result;
+  }
+};
+var ollama_fim_default = OllamaFIM;
+function countOccurrences(text, needle) {
+  if (!text || !needle) {
+    return 0;
+  }
+  let count = 0;
+  let idx = 0;
+  while (idx !== -1) {
+    idx = text.indexOf(needle, idx);
+    if (idx !== -1) {
+      count += 1;
+      idx += needle.length;
+    }
+  }
+  return count;
+}
+function hasUnclosedDoubleDollar(prefix, suffix) {
+  const prefixCount = countOccurrences(prefix, "$$");
+  const suffixCount = countOccurrences(suffix, "$$");
+  return prefixCount % 2 === 1 && suffixCount === 0;
+}
+function hasUnclosedSingleDollar(prefix, suffix) {
+  const prefixCount = countOccurrences(prefix, "$");
+  const suffixCount = countOccurrences(suffix, "$");
+  return prefixCount % 2 === 1 && suffixCount === 0;
+}
 
 // src/states/disabled_manual_state.ts
 var DisabledManualState = class extends state_default {
@@ -46477,6 +46761,9 @@ var EventListener = class {
   }
 };
 function createPredictionService(settings) {
+  if (settings.apiProvider === "ollama" && settings.ollamaUseFIM) {
+    return ollama_fim_default.fromSettings(settings);
+  }
   return chat_gpt_with_reasoning_default.fromSettings(settings);
 }
 var event_listener_default = EventListener;
