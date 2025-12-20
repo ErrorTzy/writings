@@ -214,3 +214,4 @@ f'(x) &= \lim_{b \to x} \frac{f(b) - f(x)}{b - x} \\
 &= n x^{n-1}
 \end{align*}$$
 
+This proof only works when $n$ is a positive integer. However, the power rule applies also to all $n \in \mathbb{R}$
