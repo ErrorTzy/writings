@@ -205,7 +205,7 @@ Power Rule
 
 **Proof**:
 
-Lemma: $b^n-x^n=(b-x)(b^{n-1}+ b^{n-2}x + \cdots + b x^{n-2} + x^{n-1})$
+Lemma: $b^n-x^n=(b-x)(b^{n-1}+ b^{n-2}x + \cdots + bx^{n-2} + x^{n-1})$
 
 Given this lemma, we can calculate  $$ \begin{align*}
 f'(x) &= \lim_{b \to x} \frac{f(b) - f(x)}{b - x} \\
@@ -214,6 +214,4 @@ f'(x) &= \lim_{b \to x} \frac{f(b) - f(x)}{b - x} \\
 &= n x^{n-1}
 \end{align*}$$
 
-This proof only works when $n$ is a positive integer. However, the power rule applies also to all $n \in \mathbb{R}$
-
-$\times$
+This proof only works when $n$ is a positive integer. However, the power rule applies also to all $n \in \mathbb{R}$. 
