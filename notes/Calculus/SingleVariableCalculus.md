@@ -195,23 +195,33 @@ In other words, differentiation "respects" addition and multpication by a consta
 
 **Example**: What is $f'(1)$ if $f(x)=-3x^{2}+\frac{1}{x}-2$?
 
-$$\begin{align*} f'(x) &= (-3x^2)' + \left(\frac{1}{x}\right)' - (2)' \\
+$$\begin{align*} f'(x) &= (-3x^2)' + (\frac{1}{x})' - (2)' \\
 &= -3 \cdot 2x + -1 \cdot \frac{1}{x^2} - 0 \\
 &= -6x - \frac{1}{x^2}\end{align*}$$
 Then we have $f'(1)=-7$
 
 Power Rule
-: If $f(x)=x^n$, then $f'(x) = nx^{n-1}$
+: If $f(x)=x^n$, then $f'(x) = nx^{n-1}$, for any $n \in \mathbb{R}$
 
-**Proof**:
+**Partial Proof**:
 
 Lemma: $b^n-x^n=(b-x)(b^{n-1}+ b^{n-2}x + \cdots + bx^{n-2} + x^{n-1})$
 
-Given this lemma, we can calculate  $$ \begin{align*}
+Given this lemma, we can calculate  $$\begin{align*}
 f'(x) &= \lim_{b \to x} \frac{f(b) - f(x)}{b - x} \\
 &= \lim_{b \to x} \frac{b^n - x^n}{b - x} \\
-&= \lim_{b \to x} \left( b^{n-1} + b^{n-2}x + \cdots + bx^{n-2} + x^{n-1} \right) \\
+&= \lim_{b \to x} (b^{n-1} + b^{n-2}x + \cdots + bx^{n-2} + x^{n-1}) \\
 &= n x^{n-1}
 \end{align*}$$
 
 This proof only works when $n$ is a positive integer. However, the power rule applies also to all $n \in \mathbb{R}$. 
+
+*Warning*: The power rule does not apply to functions of the following form: 
+
+- $f(x) = a^x$, $f'(x) \neq xa^{x-1}$ 
+- $f(x) = cos(x)^2$, $f'(x) \neq 2cos(x)$
+- $f(x) = x^{x}$, $f'(x) \neq x \cdot x^{x-1}$
+
+The power rule only directly applies to functions of the form $f(x) = x^n$, where the base is the variable and the exponent is a constant.
+
+
