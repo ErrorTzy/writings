@@ -43,3 +43,81 @@
     75%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 100%)}
     100% {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 0)}
 }
+
+.copilot-refactor-preview {
+    max-height: 40vh;
+    overflow: auto;
+    background: var(--background-secondary);
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 6px;
+    padding: 0.75em;
+    white-space: pre-wrap;
+}
+
+.copilot-refactor-preview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.copilot-refactor-preview-block {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.copilot-refactor-preview-title {
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    font-size: 0.75em;
+    letter-spacing: 0.04em;
+}
+
+.copilot-refactor-preview-section {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.copilot-refactor-preview-subtitle {
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    font-size: 0.7em;
+    letter-spacing: 0.04em;
+}
+
+.copilot-refactor-rendered {
+    max-height: 40vh;
+    overflow: auto;
+    background: var(--background-secondary);
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 6px;
+    padding: 0.75em;
+}
+
+.copilot-refactor-rendered > :first-child {
+    margin-top: 0;
+}
+
+.copilot-refactor-rendered > :last-child {
+    margin-bottom: 0;
+}
+
+.copilot-refactor-instruction {
+    width: 100%;
+    min-height: 140px;
+    resize: vertical;
+}
+
+.copilot-refactor-picker-title {
+    font-weight: 600;
+}
+
+.copilot-refactor-picker-description {
+    color: var(--text-muted);
+    font-size: 0.9em;
+    margin-top: 4px;
+}

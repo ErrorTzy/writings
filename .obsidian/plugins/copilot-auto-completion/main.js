@@ -282,20 +282,20 @@ var require_react_development = __commonJS({
         {
           Object.freeze(emptyObject);
         }
-        function Component(props, context, updater) {
+        function Component2(props, context, updater) {
           this.props = props;
           this.context = context;
           this.refs = emptyObject;
           this.updater = updater || ReactNoopUpdateQueue;
         }
-        Component.prototype.isReactComponent = {};
-        Component.prototype.setState = function(partialState, callback) {
+        Component2.prototype.isReactComponent = {};
+        Component2.prototype.setState = function(partialState, callback) {
           if (typeof partialState !== "object" && typeof partialState !== "function" && partialState != null) {
             throw new Error("setState(...): takes an object of state variables to update or a function which returns an object of state variables.");
           }
           this.updater.enqueueSetState(this, partialState, callback, "setState");
         };
-        Component.prototype.forceUpdate = function(callback) {
+        Component2.prototype.forceUpdate = function(callback) {
           this.updater.enqueueForceUpdate(this, callback, "forceUpdate");
         };
         {
@@ -304,7 +304,7 @@ var require_react_development = __commonJS({
             replaceState: ["replaceState", "Refactor your code to use setState instead (see https://github.com/facebook/react/issues/3236)."]
           };
           var defineDeprecationWarning = function(methodName, info) {
-            Object.defineProperty(Component.prototype, methodName, {
+            Object.defineProperty(Component2.prototype, methodName, {
               get: function() {
                 warn("%s(...) is deprecated in plain JavaScript React classes. %s", info[0], info[1]);
                 return void 0;
@@ -319,7 +319,7 @@ var require_react_development = __commonJS({
         }
         function ComponentDummy() {
         }
-        ComponentDummy.prototype = Component.prototype;
+        ComponentDummy.prototype = Component2.prototype;
         function PureComponent(props, context, updater) {
           this.props = props;
           this.context = context;
@@ -328,7 +328,7 @@ var require_react_development = __commonJS({
         }
         var pureComponentPrototype = PureComponent.prototype = new ComponentDummy();
         pureComponentPrototype.constructor = PureComponent;
-        assign(pureComponentPrototype, Component.prototype);
+        assign(pureComponentPrototype, Component2.prototype);
         pureComponentPrototype.isPureReactComponent = true;
         function createRef() {
           var refObject = {
@@ -554,7 +554,7 @@ var require_react_development = __commonJS({
           }
           return element;
         };
-        function createElement11(type, config, children) {
+        function createElement12(type, config, children) {
           var propName;
           var props = {};
           var key = null;
@@ -1393,8 +1393,8 @@ var require_react_development = __commonJS({
             return describeNativeComponentFrame(fn, false);
           }
         }
-        function shouldConstruct(Component2) {
-          var prototype = Component2.prototype;
+        function shouldConstruct(Component3) {
+          var prototype = Component3.prototype;
           return !!(prototype && prototype.isReactComponent);
         }
         function describeUnknownElementTypeFrameInDEV(type, source, ownerFn) {
@@ -1653,7 +1653,7 @@ var require_react_development = __commonJS({
               error("React.createElement: type is invalid -- expected a string (for built-in components) or a class/function (for composite components) but got: %s.%s", typeString, info);
             }
           }
-          var element = createElement11.apply(this, arguments);
+          var element = createElement12.apply(this, arguments);
           if (element == null) {
             return element;
           }
@@ -1900,7 +1900,7 @@ var require_react_development = __commonJS({
           only: onlyChild
         };
         exports.Children = Children;
-        exports.Component = Component;
+        exports.Component = Component2;
         exports.Fragment = REACT_FRAGMENT_TYPE;
         exports.Profiler = REACT_PROFILER_TYPE;
         exports.PureComponent = PureComponent;
@@ -2426,9 +2426,9 @@ var require_react_dom_development = __commonJS({
         if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart === "function") {
           __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(new Error());
         }
-        var React11 = require_react();
+        var React12 = require_react();
         var Scheduler = require_scheduler();
-        var ReactSharedInternals = React11.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+        var ReactSharedInternals = React12.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
         var suppressWarning = false;
         function setSuppressWarning(newSuppressWarning) {
           {
@@ -2477,7 +2477,7 @@ var require_react_dom_development = __commonJS({
         var HostPortal = 4;
         var HostComponent = 5;
         var HostText = 6;
-        var Fragment3 = 7;
+        var Fragment4 = 7;
         var Mode = 8;
         var ContextConsumer = 9;
         var ContextProvider = 10;
@@ -3463,8 +3463,8 @@ var require_react_dom_development = __commonJS({
             return describeNativeComponentFrame(fn, false);
           }
         }
-        function shouldConstruct(Component) {
-          var prototype = Component.prototype;
+        function shouldConstruct(Component2) {
+          var prototype = Component2.prototype;
           return !!(prototype && prototype.isReactComponent);
         }
         function describeUnknownElementTypeFrameInDEV(type, source, ownerFn) {
@@ -3633,7 +3633,7 @@ var require_react_dom_development = __commonJS({
               return "DehydratedFragment";
             case ForwardRef:
               return getWrappedName$1(type, type.render, "ForwardRef");
-            case Fragment3:
+            case Fragment4:
               return "Fragment";
             case HostComponent:
               return type;
@@ -4033,7 +4033,7 @@ var require_react_dom_development = __commonJS({
           {
             if (props.value == null) {
               if (typeof props.children === "object" && props.children !== null) {
-                React11.Children.forEach(props.children, function(child) {
+                React12.Children.forEach(props.children, function(child) {
                   if (child == null) {
                     return;
                   }
@@ -9432,7 +9432,7 @@ var require_react_dom_development = __commonJS({
             }
           }
         }
-        function createElement11(type, props, rootContainerElement, parentNamespace) {
+        function createElement12(type, props, rootContainerElement, parentNamespace) {
           var isCustomComponentTag;
           var ownerDocument = getOwnerDocumentFromRootContainer(rootContainerElement);
           var domElement;
@@ -10293,7 +10293,7 @@ var require_react_dom_development = __commonJS({
             }
             parentNamespace = hostContextDev.namespace;
           }
-          var domElement = createElement11(type, props, rootContainerInstance, parentNamespace);
+          var domElement = createElement12(type, props, rootContainerInstance, parentNamespace);
           precacheFiberNode(internalInstanceHandle, domElement);
           updateFiberProps(domElement, props);
           return domElement;
@@ -10897,9 +10897,9 @@ var require_react_dom_development = __commonJS({
         var contextStackCursor = createCursor(emptyContextObject);
         var didPerformWorkStackCursor = createCursor(false);
         var previousContext = emptyContextObject;
-        function getUnmaskedContext(workInProgress2, Component, didPushOwnContextIfProvider) {
+        function getUnmaskedContext(workInProgress2, Component2, didPushOwnContextIfProvider) {
           {
-            if (didPushOwnContextIfProvider && isContextProvider(Component)) {
+            if (didPushOwnContextIfProvider && isContextProvider(Component2)) {
               return previousContext;
             }
             return contextStackCursor.current;
@@ -11036,8 +11036,8 @@ var require_react_dom_development = __commonJS({
                 case HostRoot:
                   return node.stateNode.context;
                 case ClassComponent: {
-                  var Component = node.type;
-                  if (isContextProvider(Component)) {
+                  var Component2 = node.type;
+                  if (isContextProvider(Component2)) {
                     return node.stateNode.__reactInternalMemoizedMergedChildContext;
                   }
                   break;
@@ -11799,10 +11799,10 @@ var require_react_dom_development = __commonJS({
             pendingLegacyContextWarning = /* @__PURE__ */ new Map();
           };
         }
-        function resolveDefaultProps(Component, baseProps) {
-          if (Component && Component.defaultProps) {
+        function resolveDefaultProps(Component2, baseProps) {
+          if (Component2 && Component2.defaultProps) {
             var props = assign({}, baseProps);
-            var defaultProps = Component.defaultProps;
+            var defaultProps = Component2.defaultProps;
             for (var propName in defaultProps) {
               if (props[propName] === void 0) {
                 props[propName] = defaultProps[propName];
@@ -12480,7 +12480,7 @@ var require_react_dom_development = __commonJS({
           }
         }
         var fakeInternalInstance = {};
-        var emptyRefsObject = new React11.Component().refs;
+        var emptyRefsObject = new React12.Component().refs;
         var didWarnAboutStateAssignmentForComponent;
         var didWarnAboutUninitializedState;
         var didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate;
@@ -13304,7 +13304,7 @@ var require_react_dom_development = __commonJS({
             }
           }
           function updateFragment2(returnFiber, current2, fragment, lanes, key) {
-            if (current2 === null || current2.tag !== Fragment3) {
+            if (current2 === null || current2.tag !== Fragment4) {
               var created = createFiberFromFragment(fragment, returnFiber.mode, lanes, key);
               created.return = returnFiber;
               return created;
@@ -13707,7 +13707,7 @@ var require_react_dom_development = __commonJS({
               if (child.key === key) {
                 var elementType = element.type;
                 if (elementType === REACT_FRAGMENT_TYPE) {
-                  if (child.tag === Fragment3) {
+                  if (child.tag === Fragment4) {
                     deleteRemainingChildren(returnFiber, child.sibling);
                     var existing = useFiber(child, element.props.children);
                     existing.return = returnFiber;
@@ -14097,7 +14097,7 @@ var require_react_dom_development = __commonJS({
           }
           return true;
         }
-        function renderWithHooks(current2, workInProgress2, Component, props, secondArg, nextRenderLanes) {
+        function renderWithHooks(current2, workInProgress2, Component2, props, secondArg, nextRenderLanes) {
           renderLanes = nextRenderLanes;
           currentlyRenderingFiber$1 = workInProgress2;
           {
@@ -14117,7 +14117,7 @@ var require_react_dom_development = __commonJS({
               ReactCurrentDispatcher$1.current = HooksDispatcherOnMountInDEV;
             }
           }
-          var children = Component(props, secondArg);
+          var children = Component2(props, secondArg);
           if (didScheduleRenderPhaseUpdateDuringThisPass) {
             var numberOfReRenders = 0;
             do {
@@ -14137,7 +14137,7 @@ var require_react_dom_development = __commonJS({
                 hookTypesUpdateIndexDev = -1;
               }
               ReactCurrentDispatcher$1.current = HooksDispatcherOnRerenderInDEV;
-              children = Component(props, secondArg);
+              children = Component2(props, secondArg);
             } while (didScheduleRenderPhaseUpdateDuringThisPass);
           }
           ReactCurrentDispatcher$1.current = ContextOnlyDispatcher;
@@ -16247,22 +16247,22 @@ var require_react_dom_development = __commonJS({
           workInProgress2.child = reconcileChildFibers(workInProgress2, current2.child, null, renderLanes2);
           workInProgress2.child = reconcileChildFibers(workInProgress2, null, nextChildren, renderLanes2);
         }
-        function updateForwardRef(current2, workInProgress2, Component, nextProps, renderLanes2) {
+        function updateForwardRef(current2, workInProgress2, Component2, nextProps, renderLanes2) {
           {
             if (workInProgress2.type !== workInProgress2.elementType) {
-              var innerPropTypes = Component.propTypes;
+              var innerPropTypes = Component2.propTypes;
               if (innerPropTypes) {
                 checkPropTypes(
                   innerPropTypes,
                   nextProps,
                   // Resolved props
                   "prop",
-                  getComponentNameFromType(Component)
+                  getComponentNameFromType(Component2)
                 );
               }
             }
           }
-          var render2 = Component.render;
+          var render2 = Component2.render;
           var ref = workInProgress2.ref;
           var nextChildren;
           var hasId;
@@ -16300,11 +16300,11 @@ var require_react_dom_development = __commonJS({
           reconcileChildren(current2, workInProgress2, nextChildren, renderLanes2);
           return workInProgress2.child;
         }
-        function updateMemoComponent(current2, workInProgress2, Component, nextProps, renderLanes2) {
+        function updateMemoComponent(current2, workInProgress2, Component2, nextProps, renderLanes2) {
           if (current2 === null) {
-            var type = Component.type;
-            if (isSimpleFunctionComponent(type) && Component.compare === null && // SimpleMemoComponent codepath doesn't resolve outer props either.
-            Component.defaultProps === void 0) {
+            var type = Component2.type;
+            if (isSimpleFunctionComponent(type) && Component2.compare === null && // SimpleMemoComponent codepath doesn't resolve outer props either.
+            Component2.defaultProps === void 0) {
               var resolvedType = type;
               {
                 resolvedType = resolveFunctionForHotReloading(type);
@@ -16328,14 +16328,14 @@ var require_react_dom_development = __commonJS({
                 );
               }
             }
-            var child = createFiberFromTypeAndProps(Component.type, null, nextProps, workInProgress2, workInProgress2.mode, renderLanes2);
+            var child = createFiberFromTypeAndProps(Component2.type, null, nextProps, workInProgress2, workInProgress2.mode, renderLanes2);
             child.ref = workInProgress2.ref;
             child.return = workInProgress2;
             workInProgress2.child = child;
             return child;
           }
           {
-            var _type = Component.type;
+            var _type = Component2.type;
             var _innerPropTypes = _type.propTypes;
             if (_innerPropTypes) {
               checkPropTypes(
@@ -16351,7 +16351,7 @@ var require_react_dom_development = __commonJS({
           var hasScheduledUpdateOrContext = checkScheduledUpdateOrContext(current2, renderLanes2);
           if (!hasScheduledUpdateOrContext) {
             var prevProps = currentChild.memoizedProps;
-            var compare = Component.compare;
+            var compare = Component2.compare;
             compare = compare !== null ? compare : shallowEqual;
             if (compare(prevProps, nextProps) && current2.ref === workInProgress2.ref) {
               return bailoutOnAlreadyFinishedWork(current2, workInProgress2, renderLanes2);
@@ -16364,7 +16364,7 @@ var require_react_dom_development = __commonJS({
           workInProgress2.child = newChild;
           return newChild;
         }
-        function updateSimpleMemoComponent(current2, workInProgress2, Component, nextProps, renderLanes2) {
+        function updateSimpleMemoComponent(current2, workInProgress2, Component2, nextProps, renderLanes2) {
           {
             if (workInProgress2.type !== workInProgress2.elementType) {
               var outerMemoType = workInProgress2.elementType;
@@ -16404,7 +16404,7 @@ var require_react_dom_development = __commonJS({
               }
             }
           }
-          return updateFunctionComponent(current2, workInProgress2, Component, nextProps, renderLanes2);
+          return updateFunctionComponent(current2, workInProgress2, Component2, nextProps, renderLanes2);
         }
         function updateOffscreenComponent(current2, workInProgress2, renderLanes2) {
           var nextProps = workInProgress2.pendingProps;
@@ -16494,24 +16494,24 @@ var require_react_dom_development = __commonJS({
             }
           }
         }
-        function updateFunctionComponent(current2, workInProgress2, Component, nextProps, renderLanes2) {
+        function updateFunctionComponent(current2, workInProgress2, Component2, nextProps, renderLanes2) {
           {
             if (workInProgress2.type !== workInProgress2.elementType) {
-              var innerPropTypes = Component.propTypes;
+              var innerPropTypes = Component2.propTypes;
               if (innerPropTypes) {
                 checkPropTypes(
                   innerPropTypes,
                   nextProps,
                   // Resolved props
                   "prop",
-                  getComponentNameFromType(Component)
+                  getComponentNameFromType(Component2)
                 );
               }
             }
           }
           var context;
           {
-            var unmaskedContext = getUnmaskedContext(workInProgress2, Component, true);
+            var unmaskedContext = getUnmaskedContext(workInProgress2, Component2, true);
             context = getMaskedContext(workInProgress2, unmaskedContext);
           }
           var nextChildren;
@@ -16523,12 +16523,12 @@ var require_react_dom_development = __commonJS({
           {
             ReactCurrentOwner$1.current = workInProgress2;
             setIsRendering(true);
-            nextChildren = renderWithHooks(current2, workInProgress2, Component, nextProps, context, renderLanes2);
+            nextChildren = renderWithHooks(current2, workInProgress2, Component2, nextProps, context, renderLanes2);
             hasId = checkDidRenderIdHook();
             if (workInProgress2.mode & StrictLegacyMode) {
               setIsStrictModeForDevtools(true);
               try {
-                nextChildren = renderWithHooks(current2, workInProgress2, Component, nextProps, context, renderLanes2);
+                nextChildren = renderWithHooks(current2, workInProgress2, Component2, nextProps, context, renderLanes2);
                 hasId = checkDidRenderIdHook();
               } finally {
                 setIsStrictModeForDevtools(false);
@@ -16550,7 +16550,7 @@ var require_react_dom_development = __commonJS({
           reconcileChildren(current2, workInProgress2, nextChildren, renderLanes2);
           return workInProgress2.child;
         }
-        function updateClassComponent(current2, workInProgress2, Component, nextProps, renderLanes2) {
+        function updateClassComponent(current2, workInProgress2, Component2, nextProps, renderLanes2) {
           {
             switch (shouldError(workInProgress2)) {
               case false: {
@@ -16573,20 +16573,20 @@ var require_react_dom_development = __commonJS({
               }
             }
             if (workInProgress2.type !== workInProgress2.elementType) {
-              var innerPropTypes = Component.propTypes;
+              var innerPropTypes = Component2.propTypes;
               if (innerPropTypes) {
                 checkPropTypes(
                   innerPropTypes,
                   nextProps,
                   // Resolved props
                   "prop",
-                  getComponentNameFromType(Component)
+                  getComponentNameFromType(Component2)
                 );
               }
             }
           }
           var hasContext;
-          if (isContextProvider(Component)) {
+          if (isContextProvider(Component2)) {
             hasContext = true;
             pushContextProvider(workInProgress2);
           } else {
@@ -16597,15 +16597,15 @@ var require_react_dom_development = __commonJS({
           var shouldUpdate;
           if (instance === null) {
             resetSuspendedCurrentOnMountInLegacyMode(current2, workInProgress2);
-            constructClassInstance(workInProgress2, Component, nextProps);
-            mountClassInstance(workInProgress2, Component, nextProps, renderLanes2);
+            constructClassInstance(workInProgress2, Component2, nextProps);
+            mountClassInstance(workInProgress2, Component2, nextProps, renderLanes2);
             shouldUpdate = true;
           } else if (current2 === null) {
-            shouldUpdate = resumeMountClassInstance(workInProgress2, Component, nextProps, renderLanes2);
+            shouldUpdate = resumeMountClassInstance(workInProgress2, Component2, nextProps, renderLanes2);
           } else {
-            shouldUpdate = updateClassInstance(current2, workInProgress2, Component, nextProps, renderLanes2);
+            shouldUpdate = updateClassInstance(current2, workInProgress2, Component2, nextProps, renderLanes2);
           }
-          var nextUnitOfWork = finishClassComponent(current2, workInProgress2, Component, shouldUpdate, hasContext, renderLanes2);
+          var nextUnitOfWork = finishClassComponent(current2, workInProgress2, Component2, shouldUpdate, hasContext, renderLanes2);
           {
             var inst = workInProgress2.stateNode;
             if (shouldUpdate && inst.props !== nextProps) {
@@ -16617,19 +16617,19 @@ var require_react_dom_development = __commonJS({
           }
           return nextUnitOfWork;
         }
-        function finishClassComponent(current2, workInProgress2, Component, shouldUpdate, hasContext, renderLanes2) {
+        function finishClassComponent(current2, workInProgress2, Component2, shouldUpdate, hasContext, renderLanes2) {
           markRef(current2, workInProgress2);
           var didCaptureError = (workInProgress2.flags & DidCapture) !== NoFlags;
           if (!shouldUpdate && !didCaptureError) {
             if (hasContext) {
-              invalidateContextProvider(workInProgress2, Component, false);
+              invalidateContextProvider(workInProgress2, Component2, false);
             }
             return bailoutOnAlreadyFinishedWork(current2, workInProgress2, renderLanes2);
           }
           var instance = workInProgress2.stateNode;
           ReactCurrentOwner$1.current = workInProgress2;
           var nextChildren;
-          if (didCaptureError && typeof Component.getDerivedStateFromError !== "function") {
+          if (didCaptureError && typeof Component2.getDerivedStateFromError !== "function") {
             nextChildren = null;
             {
               stopProfilerTimerIfRunning();
@@ -16663,7 +16663,7 @@ var require_react_dom_development = __commonJS({
           }
           workInProgress2.memoizedState = instance.state;
           if (hasContext) {
-            invalidateContextProvider(workInProgress2, Component, true);
+            invalidateContextProvider(workInProgress2, Component2, true);
           }
           return workInProgress2.child;
         }
@@ -16763,45 +16763,45 @@ var require_react_dom_development = __commonJS({
           var lazyComponent = elementType;
           var payload = lazyComponent._payload;
           var init = lazyComponent._init;
-          var Component = init(payload);
-          workInProgress2.type = Component;
-          var resolvedTag = workInProgress2.tag = resolveLazyComponentTag(Component);
-          var resolvedProps = resolveDefaultProps(Component, props);
+          var Component2 = init(payload);
+          workInProgress2.type = Component2;
+          var resolvedTag = workInProgress2.tag = resolveLazyComponentTag(Component2);
+          var resolvedProps = resolveDefaultProps(Component2, props);
           var child;
           switch (resolvedTag) {
             case FunctionComponent: {
               {
-                validateFunctionComponentInDev(workInProgress2, Component);
-                workInProgress2.type = Component = resolveFunctionForHotReloading(Component);
+                validateFunctionComponentInDev(workInProgress2, Component2);
+                workInProgress2.type = Component2 = resolveFunctionForHotReloading(Component2);
               }
-              child = updateFunctionComponent(null, workInProgress2, Component, resolvedProps, renderLanes2);
+              child = updateFunctionComponent(null, workInProgress2, Component2, resolvedProps, renderLanes2);
               return child;
             }
             case ClassComponent: {
               {
-                workInProgress2.type = Component = resolveClassForHotReloading(Component);
+                workInProgress2.type = Component2 = resolveClassForHotReloading(Component2);
               }
-              child = updateClassComponent(null, workInProgress2, Component, resolvedProps, renderLanes2);
+              child = updateClassComponent(null, workInProgress2, Component2, resolvedProps, renderLanes2);
               return child;
             }
             case ForwardRef: {
               {
-                workInProgress2.type = Component = resolveForwardRefForHotReloading(Component);
+                workInProgress2.type = Component2 = resolveForwardRefForHotReloading(Component2);
               }
-              child = updateForwardRef(null, workInProgress2, Component, resolvedProps, renderLanes2);
+              child = updateForwardRef(null, workInProgress2, Component2, resolvedProps, renderLanes2);
               return child;
             }
             case MemoComponent: {
               {
                 if (workInProgress2.type !== workInProgress2.elementType) {
-                  var outerPropTypes = Component.propTypes;
+                  var outerPropTypes = Component2.propTypes;
                   if (outerPropTypes) {
                     checkPropTypes(
                       outerPropTypes,
                       resolvedProps,
                       // Resolved for outer only
                       "prop",
-                      getComponentNameFromType(Component)
+                      getComponentNameFromType(Component2)
                     );
                   }
                 }
@@ -16809,8 +16809,8 @@ var require_react_dom_development = __commonJS({
               child = updateMemoComponent(
                 null,
                 workInProgress2,
-                Component,
-                resolveDefaultProps(Component.type, resolvedProps),
+                Component2,
+                resolveDefaultProps(Component2.type, resolvedProps),
                 // The inner type can have defaults too
                 renderLanes2
               );
@@ -16819,33 +16819,33 @@ var require_react_dom_development = __commonJS({
           }
           var hint = "";
           {
-            if (Component !== null && typeof Component === "object" && Component.$$typeof === REACT_LAZY_TYPE) {
+            if (Component2 !== null && typeof Component2 === "object" && Component2.$$typeof === REACT_LAZY_TYPE) {
               hint = " Did you wrap a component in React.lazy() more than once?";
             }
           }
-          throw new Error("Element type is invalid. Received a promise that resolves to: " + Component + ". " + ("Lazy element type must resolve to a class or function." + hint));
+          throw new Error("Element type is invalid. Received a promise that resolves to: " + Component2 + ". " + ("Lazy element type must resolve to a class or function." + hint));
         }
-        function mountIncompleteClassComponent(_current, workInProgress2, Component, nextProps, renderLanes2) {
+        function mountIncompleteClassComponent(_current, workInProgress2, Component2, nextProps, renderLanes2) {
           resetSuspendedCurrentOnMountInLegacyMode(_current, workInProgress2);
           workInProgress2.tag = ClassComponent;
           var hasContext;
-          if (isContextProvider(Component)) {
+          if (isContextProvider(Component2)) {
             hasContext = true;
             pushContextProvider(workInProgress2);
           } else {
             hasContext = false;
           }
           prepareToReadContext(workInProgress2, renderLanes2);
-          constructClassInstance(workInProgress2, Component, nextProps);
-          mountClassInstance(workInProgress2, Component, nextProps, renderLanes2);
-          return finishClassComponent(null, workInProgress2, Component, true, hasContext, renderLanes2);
+          constructClassInstance(workInProgress2, Component2, nextProps);
+          mountClassInstance(workInProgress2, Component2, nextProps, renderLanes2);
+          return finishClassComponent(null, workInProgress2, Component2, true, hasContext, renderLanes2);
         }
-        function mountIndeterminateComponent(_current, workInProgress2, Component, renderLanes2) {
+        function mountIndeterminateComponent(_current, workInProgress2, Component2, renderLanes2) {
           resetSuspendedCurrentOnMountInLegacyMode(_current, workInProgress2);
           var props = workInProgress2.pendingProps;
           var context;
           {
-            var unmaskedContext = getUnmaskedContext(workInProgress2, Component, false);
+            var unmaskedContext = getUnmaskedContext(workInProgress2, Component2, false);
             context = getMaskedContext(workInProgress2, unmaskedContext);
           }
           prepareToReadContext(workInProgress2, renderLanes2);
@@ -16855,8 +16855,8 @@ var require_react_dom_development = __commonJS({
             markComponentRenderStarted(workInProgress2);
           }
           {
-            if (Component.prototype && typeof Component.prototype.render === "function") {
-              var componentName = getComponentNameFromType(Component) || "Unknown";
+            if (Component2.prototype && typeof Component2.prototype.render === "function") {
+              var componentName = getComponentNameFromType(Component2) || "Unknown";
               if (!didWarnAboutBadClass[componentName]) {
                 error("The <%s /> component appears to have a render method, but doesn't extend React.Component. This is likely to cause errors. Change %s to extend React.Component instead.", componentName, componentName);
                 didWarnAboutBadClass[componentName] = true;
@@ -16867,7 +16867,7 @@ var require_react_dom_development = __commonJS({
             }
             setIsRendering(true);
             ReactCurrentOwner$1.current = workInProgress2;
-            value = renderWithHooks(null, workInProgress2, Component, props, context, renderLanes2);
+            value = renderWithHooks(null, workInProgress2, Component2, props, context, renderLanes2);
             hasId = checkDidRenderIdHook();
             setIsRendering(false);
           }
@@ -16877,7 +16877,7 @@ var require_react_dom_development = __commonJS({
           workInProgress2.flags |= PerformedWork;
           {
             if (typeof value === "object" && value !== null && typeof value.render === "function" && value.$$typeof === void 0) {
-              var _componentName = getComponentNameFromType(Component) || "Unknown";
+              var _componentName = getComponentNameFromType(Component2) || "Unknown";
               if (!didWarnAboutModulePatternComponent[_componentName]) {
                 error("The <%s /> component appears to be a function component that returns a class instance. Change %s to a class that extends React.Component instead. If you can't use a class try assigning the prototype on the function as a workaround. `%s.prototype = React.Component.prototype`. Don't use an arrow function since it cannot be called with `new` by React.", _componentName, _componentName, _componentName);
                 didWarnAboutModulePatternComponent[_componentName] = true;
@@ -16890,7 +16890,7 @@ var require_react_dom_development = __commonJS({
             typeof value === "object" && value !== null && typeof value.render === "function" && value.$$typeof === void 0
           ) {
             {
-              var _componentName2 = getComponentNameFromType(Component) || "Unknown";
+              var _componentName2 = getComponentNameFromType(Component2) || "Unknown";
               if (!didWarnAboutModulePatternComponent[_componentName2]) {
                 error("The <%s /> component appears to be a function component that returns a class instance. Change %s to a class that extends React.Component instead. If you can't use a class try assigning the prototype on the function as a workaround. `%s.prototype = React.Component.prototype`. Don't use an arrow function since it cannot be called with `new` by React.", _componentName2, _componentName2, _componentName2);
                 didWarnAboutModulePatternComponent[_componentName2] = true;
@@ -16900,7 +16900,7 @@ var require_react_dom_development = __commonJS({
             workInProgress2.memoizedState = null;
             workInProgress2.updateQueue = null;
             var hasContext = false;
-            if (isContextProvider(Component)) {
+            if (isContextProvider(Component2)) {
               hasContext = true;
               pushContextProvider(workInProgress2);
             } else {
@@ -16909,15 +16909,15 @@ var require_react_dom_development = __commonJS({
             workInProgress2.memoizedState = value.state !== null && value.state !== void 0 ? value.state : null;
             initializeUpdateQueue(workInProgress2);
             adoptClassInstance(workInProgress2, value);
-            mountClassInstance(workInProgress2, Component, props, renderLanes2);
-            return finishClassComponent(null, workInProgress2, Component, true, hasContext, renderLanes2);
+            mountClassInstance(workInProgress2, Component2, props, renderLanes2);
+            return finishClassComponent(null, workInProgress2, Component2, true, hasContext, renderLanes2);
           } else {
             workInProgress2.tag = FunctionComponent;
             {
               if (workInProgress2.mode & StrictLegacyMode) {
                 setIsStrictModeForDevtools(true);
                 try {
-                  value = renderWithHooks(null, workInProgress2, Component, props, context, renderLanes2);
+                  value = renderWithHooks(null, workInProgress2, Component2, props, context, renderLanes2);
                   hasId = checkDidRenderIdHook();
                 } finally {
                   setIsStrictModeForDevtools(false);
@@ -16929,16 +16929,16 @@ var require_react_dom_development = __commonJS({
             }
             reconcileChildren(null, workInProgress2, value, renderLanes2);
             {
-              validateFunctionComponentInDev(workInProgress2, Component);
+              validateFunctionComponentInDev(workInProgress2, Component2);
             }
             return workInProgress2.child;
           }
         }
-        function validateFunctionComponentInDev(workInProgress2, Component) {
+        function validateFunctionComponentInDev(workInProgress2, Component2) {
           {
-            if (Component) {
-              if (Component.childContextTypes) {
-                error("%s(...): childContextTypes cannot be defined on a function component.", Component.displayName || Component.name || "Component");
+            if (Component2) {
+              if (Component2.childContextTypes) {
+                error("%s(...): childContextTypes cannot be defined on a function component.", Component2.displayName || Component2.name || "Component");
               }
             }
             if (workInProgress2.ref !== null) {
@@ -16957,15 +16957,15 @@ var require_react_dom_development = __commonJS({
                 error("Function components cannot be given refs. Attempts to access this ref will fail. Did you mean to use React.forwardRef()?%s", info);
               }
             }
-            if (typeof Component.getDerivedStateFromProps === "function") {
-              var _componentName3 = getComponentNameFromType(Component) || "Unknown";
+            if (typeof Component2.getDerivedStateFromProps === "function") {
+              var _componentName3 = getComponentNameFromType(Component2) || "Unknown";
               if (!didWarnAboutGetDerivedStateOnFunctionComponent[_componentName3]) {
                 error("%s: Function components do not support getDerivedStateFromProps.", _componentName3);
                 didWarnAboutGetDerivedStateOnFunctionComponent[_componentName3] = true;
               }
             }
-            if (typeof Component.contextType === "object" && Component.contextType !== null) {
-              var _componentName4 = getComponentNameFromType(Component) || "Unknown";
+            if (typeof Component2.contextType === "object" && Component2.contextType !== null) {
+              var _componentName4 = getComponentNameFromType(Component2) || "Unknown";
               if (!didWarnAboutContextTypeOnFunctionComponent[_componentName4]) {
                 error("%s: Function components do not support contextType.", _componentName4);
                 didWarnAboutContextTypeOnFunctionComponent[_componentName4] = true;
@@ -17727,8 +17727,8 @@ var require_react_dom_development = __commonJS({
               pushHostContext(workInProgress2);
               break;
             case ClassComponent: {
-              var Component = workInProgress2.type;
-              if (isContextProvider(Component)) {
+              var Component2 = workInProgress2.type;
+              if (isContextProvider(Component2)) {
                 pushContextProvider(workInProgress2);
               }
               break;
@@ -17855,10 +17855,10 @@ var require_react_dom_development = __commonJS({
               return mountLazyComponent(current2, workInProgress2, elementType, renderLanes2);
             }
             case FunctionComponent: {
-              var Component = workInProgress2.type;
+              var Component2 = workInProgress2.type;
               var unresolvedProps = workInProgress2.pendingProps;
-              var resolvedProps = workInProgress2.elementType === Component ? unresolvedProps : resolveDefaultProps(Component, unresolvedProps);
-              return updateFunctionComponent(current2, workInProgress2, Component, resolvedProps, renderLanes2);
+              var resolvedProps = workInProgress2.elementType === Component2 ? unresolvedProps : resolveDefaultProps(Component2, unresolvedProps);
+              return updateFunctionComponent(current2, workInProgress2, Component2, resolvedProps, renderLanes2);
             }
             case ClassComponent: {
               var _Component = workInProgress2.type;
@@ -17882,7 +17882,7 @@ var require_react_dom_development = __commonJS({
               var _resolvedProps2 = workInProgress2.elementType === type ? _unresolvedProps2 : resolveDefaultProps(type, _unresolvedProps2);
               return updateForwardRef(current2, workInProgress2, type, _resolvedProps2, renderLanes2);
             }
-            case Fragment3:
+            case Fragment4:
               return updateFragment(current2, workInProgress2, renderLanes2);
             case Mode:
               return updateMode(current2, workInProgress2, renderLanes2);
@@ -18155,7 +18155,7 @@ var require_react_dom_development = __commonJS({
             case SimpleMemoComponent:
             case FunctionComponent:
             case ForwardRef:
-            case Fragment3:
+            case Fragment4:
             case Mode:
             case Profiler:
             case ContextConsumer:
@@ -18163,8 +18163,8 @@ var require_react_dom_development = __commonJS({
               bubbleProperties(workInProgress2);
               return null;
             case ClassComponent: {
-              var Component = workInProgress2.type;
-              if (isContextProvider(Component)) {
+              var Component2 = workInProgress2.type;
+              if (isContextProvider(Component2)) {
                 popContext(workInProgress2);
               }
               bubbleProperties(workInProgress2);
@@ -18482,8 +18482,8 @@ var require_react_dom_development = __commonJS({
           popTreeContext(workInProgress2);
           switch (workInProgress2.tag) {
             case ClassComponent: {
-              var Component = workInProgress2.type;
-              if (isContextProvider(Component)) {
+              var Component2 = workInProgress2.type;
+              if (isContextProvider(Component2)) {
                 popContext(workInProgress2);
               }
               var flags = workInProgress2.flags;
@@ -22170,18 +22170,18 @@ var require_react_dom_development = __commonJS({
         var createFiber = function(tag, pendingProps, key, mode) {
           return new FiberNode(tag, pendingProps, key, mode);
         };
-        function shouldConstruct$1(Component) {
-          var prototype = Component.prototype;
+        function shouldConstruct$1(Component2) {
+          var prototype = Component2.prototype;
           return !!(prototype && prototype.isReactComponent);
         }
         function isSimpleFunctionComponent(type) {
           return typeof type === "function" && !shouldConstruct$1(type) && type.defaultProps === void 0;
         }
-        function resolveLazyComponentTag(Component) {
-          if (typeof Component === "function") {
-            return shouldConstruct$1(Component) ? ClassComponent : FunctionComponent;
-          } else if (Component !== void 0 && Component !== null) {
-            var $$typeof = Component.$$typeof;
+        function resolveLazyComponentTag(Component2) {
+          if (typeof Component2 === "function") {
+            return shouldConstruct$1(Component2) ? ClassComponent : FunctionComponent;
+          } else if (Component2 !== void 0 && Component2 !== null) {
+            var $$typeof = Component2.$$typeof;
             if ($$typeof === REACT_FORWARD_REF_TYPE) {
               return ForwardRef;
             }
@@ -22414,7 +22414,7 @@ var require_react_dom_development = __commonJS({
           return fiber;
         }
         function createFiberFromFragment(elements, mode, lanes, key) {
-          var fiber = createFiber(Fragment3, elements, key, mode);
+          var fiber = createFiber(Fragment4, elements, key, mode);
           fiber.lanes = lanes;
           return fiber;
         }
@@ -22618,9 +22618,9 @@ var require_react_dom_development = __commonJS({
           var fiber = get3(parentComponent);
           var parentContext = findCurrentUnmaskedContext(fiber);
           if (fiber.tag === ClassComponent) {
-            var Component = fiber.type;
-            if (isContextProvider(Component)) {
-              return processChildContext(fiber, Component, parentContext);
+            var Component2 = fiber.type;
+            if (isContextProvider(Component2)) {
+              return processChildContext(fiber, Component2, parentContext);
             }
           }
           return parentContext;
@@ -24106,7 +24106,7 @@ var require_compile = __commonJS({
     "use strict";
     var fill = require_fill_range();
     var utils = require_utils();
-    var compile2 = (ast, options = {}) => {
+    var compile4 = (ast, options = {}) => {
       let walk = (node, parent = {}) => {
         let invalidBlock = utils.isInvalidBrace(parent);
         let invalidNode = node.invalid === true && options.escapeInvalid === true;
@@ -24147,7 +24147,7 @@ var require_compile = __commonJS({
       };
       return walk(ast);
     };
-    module2.exports = compile2;
+    module2.exports = compile4;
   }
 });
 
@@ -24598,7 +24598,7 @@ var require_braces = __commonJS({
   "node_modules/braces/index.js"(exports, module2) {
     "use strict";
     var stringify = require_stringify();
-    var compile2 = require_compile();
+    var compile4 = require_compile();
     var expand = require_expand();
     var parse = require_parse();
     var braces = (input, options = {}) => {
@@ -24631,7 +24631,7 @@ var require_braces = __commonJS({
       if (typeof input === "string") {
         input = braces.parse(input, options);
       }
-      return compile2(input, options);
+      return compile4(input, options);
     };
     braces.expand = (input, options = {}) => {
       if (typeof input === "string") {
@@ -32910,13 +32910,13 @@ var require_no_conflict = __commonJS({
   "node_modules/handlebars/dist/cjs/handlebars/no-conflict.js"(exports, module2) {
     "use strict";
     exports.__esModule = true;
-    exports["default"] = function(Handlebars2) {
+    exports["default"] = function(Handlebars4) {
       var root = typeof global !== "undefined" ? global : window, $Handlebars = root.Handlebars;
-      Handlebars2.noConflict = function() {
-        if (root.Handlebars === Handlebars2) {
+      Handlebars4.noConflict = function() {
+        if (root.Handlebars === Handlebars4) {
           root.Handlebars = $Handlebars;
         }
-        return Handlebars2;
+        return Handlebars4;
       };
     };
     module2.exports = exports["default"];
@@ -34254,7 +34254,7 @@ var require_compiler = __commonJS({
     exports.__esModule = true;
     exports.Compiler = Compiler;
     exports.precompile = precompile;
-    exports.compile = compile2;
+    exports.compile = compile4;
     function _interopRequireDefault(obj) {
       return obj && obj.__esModule ? obj : { "default": obj };
     }
@@ -34288,7 +34288,7 @@ var require_compiler = __commonJS({
         return true;
       },
       guid: 0,
-      compile: function compile3(program, options) {
+      compile: function compile5(program, options) {
         this.sourceNode = [];
         this.opcodes = [];
         this.children = [];
@@ -34603,7 +34603,7 @@ var require_compiler = __commonJS({
       var ast = env.parse(input, options), environment = new env.Compiler().compile(ast, options);
       return new env.JavaScriptCompiler().compile(environment, options);
     }
-    function compile2(input, options, env) {
+    function compile4(input, options, env) {
       if (options === void 0)
         options = {};
       if (input == null || typeof input !== "string" && input.type !== "Program") {
@@ -36609,7 +36609,7 @@ var require_javascript_compiler = __commonJS({
         return ["lookupProperty(", parent, ",", JSON.stringify(name), ")"];
       },
       lookupPropertyFunctionIsUsed: false,
-      compile: function compile2(environment, options, context, asObject) {
+      compile: function compile4(environment, options, context, asObject) {
         this.environment = environment;
         this.options = options;
         this.stringParams = this.options.stringParams;
@@ -37689,14 +37689,14 @@ __export(main_exports, {
   default: () => CopilotPlugin
 });
 module.exports = __toCommonJS(main_exports);
-var import_obsidian8 = require("obsidian");
+var import_obsidian12 = require("obsidian");
 
 // src/settings/SettingsTab.tsx
 var import_obsidian5 = require("obsidian");
 var import_client = __toESM(require_client());
 
 // src/settings/SettingsView.tsx
-var React9 = __toESM(require_react());
+var React10 = __toESM(require_react());
 var import_react3 = __toESM(require_react());
 
 // src/settings/components/TextSettingItem.tsx
@@ -38102,6 +38102,127 @@ LANGUAGE: English
 ANSWER: The dead ReLU problem`
 };
 var header_example_relu_default = example10;
+
+// src/settings/versions/v1/refactor_examples/math_inline_examples.ts
+var math_inline_examples = [
+  {
+    input: "lim x->0 (sin x)/x",
+    output: "$\\lim_{x \\to 0} \\frac{\\sin x}{x}$"
+  },
+  {
+    input: "int_0^1 x^2 dx",
+    output: "$\\int_0^1 x^2 \\, dx$"
+  },
+  {
+    input: "sum_{k=1}^n k^2 = n(n+1)(2n+1)/6",
+    output: "$\\sum_{k=1}^n k^2 = \\frac{n(n+1)(2n+1)}{6}$"
+  },
+  {
+    input: "x = (-b +- sqrt(b^2-4ac))/(2a)",
+    output: "$x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$"
+  },
+  {
+    input: "f(x) = 1/(1+e^-x)",
+    output: "$f(x) = \\frac{1}{1 + e^{-x}}$"
+  },
+  {
+    input: "$use \\sum to add from x1 to x10$",
+    output: "$\\sum_{i=1}^{10} x_i$"
+  },
+  {
+    input: "$add x1 to x10$",
+    output: "$x_{1} + x_{2} + \\dots + x_{10}$"
+  },
+  {
+    input: "$some x(PxvQx)$",
+    output: "$\\exists x (Px \\lor Qx)$"
+  },
+  {
+    input: "Pv~Q",
+    output: "$P \\lor \\neg Q$"
+  }
+];
+var math_inline_examples_default = math_inline_examples;
+
+// src/settings/versions/v1/refactor_examples/inline_to_math_block_examples.ts
+var inline_to_math_block_examples = [
+  {
+    input: "2x + 3 = 11 => 2x = 8 => x = 4",
+    output: "$$\\begin{align*}\n2x + 3 &= 11 \\\\\n2x &= 8 \\\\\nx &= 4\n\\end{align*}$$"
+  },
+  {
+    input: "y = 3x + 2; y - 2 = 3x; x = (y - 2)/3",
+    output: "$$\\begin{align*}\ny &= 3x + 2 \\\\\ny - 2 &= 3x \\\\\nx &= \\frac{y - 2}{3}\n\\end{align*}$$"
+  },
+  {
+    input: "g(x) = (x^2 + 1)^2 = x^4 + 2x^2 + 1",
+    output: "$$\\begin{align*}\ng(x) &= (x^2 + 1)^2 \\\\\n&= x^4 + 2x^2 + 1\n\\end{align*}$$"
+  },
+  {
+    input: "a^2 - b^2 = (a-b)(a+b) = a^2 + ab - ab - b^2",
+    output: "$$\\begin{align*}\na^2 - b^2 &= (a-b)(a+b) \\\\\n&= a^2 + ab - ab - b^2\n\\end{align*}$$"
+  },
+  {
+    input: "S = 1 + 2 + ... + n = n(n+1)/2",
+    output: "$$\\begin{align*}\nS &= 1 + 2 + \\cdots + n \\\\\nS &= \\frac{n(n+1)}{2}\n\\end{align*}$$"
+  }
+];
+var inline_to_math_block_examples_default = inline_to_math_block_examples;
+
+// src/settings/versions/v1/refactor_examples/grammar_correction_examples.ts
+var grammar_correction_examples = [
+  {
+    input: "This sentence are wrong.",
+    output: "This sentence is wrong."
+  },
+  {
+    input: "We was going to the store, but it close early.",
+    output: "We were going to the store, but it closed early."
+  },
+  {
+    input: "Their going to lose there keys.",
+    output: "They're going to lose their keys."
+  },
+  {
+    input: "In 2020, the companys revenue increased.",
+    output: "In 2020, the company's revenue increased."
+  },
+  {
+    input: "Please send the report by Friday , thanks.",
+    output: "Please send the report by Friday, thanks."
+  }
+];
+var grammar_correction_examples_default = grammar_correction_examples;
+
+// src/settings/versions/v1/refactor_examples/custom_examples.ts
+var custom_examples = [
+  {
+    instruction: "Rewrite in passive voice.",
+    input: "The team finished the draft.",
+    output: "The draft was finished by the team."
+  },
+  {
+    instruction: "Convert to a bullet list.",
+    input: "Install dependencies, run tests, deploy.",
+    output: "- Install dependencies\n- Run tests\n- Deploy"
+  },
+  {
+    instruction: "Shorten to one sentence.",
+    input: "The build failed because the cache was stale, and the server restarted.",
+    output: "The build failed due to a stale cache and a server restart."
+  },
+  {
+    instruction: "Make it more formal.",
+    input: "Can't do that right now.",
+    output: "I am unable to do that at the moment."
+  },
+  {
+    instruction: "Expand abbreviations.",
+    input: "ETA is 5 mins; FYI server ok.",
+    output: "Estimated time of arrival is 5 minutes; for your information the server is ok."
+  }
+];
+var custom_examples_default = custom_examples;
 
 // node_modules/zod/lib/index.mjs
 var util;
@@ -41877,6 +41998,11 @@ var fewShotExampleSchema = z.object({
   input: z.string().min(3, { message: "The Input must be at least 3 characters long" }),
   answer: z.string().min(3, { message: "The Answer must be at least 3 characters long" })
 }).strict();
+var refactorFewShotExampleSchema = z.object({
+  input: z.string().min(3, { message: "The input must be at least 3 characters long" }),
+  output: z.string().min(3, { message: "The output must be at least 3 characters long" }),
+  instruction: z.string().min(3, { message: "The instruction must be at least 3 characters long" }).optional()
+}).strict();
 
 // src/settings/versions/v1/v1.ts
 var DEFAULT_FIM_SYSTEM_MESSAGE = `You are a precise fill-in-the-middle completion engine. You will receive text with a missing middle; return ONLY the missing text.
@@ -41919,6 +42045,43 @@ Examples (for guidance only; do not copy them):
 18) The law of excluded middle is $<mask>. -> P \\lor \\neg P$
 19) Given propositions P and Q, their conjunction is $<mask>. -> P \\land Q$
 `;
+var DEFAULT_REFACTOR_USER_TEMPLATE = `You are refactoring selected text in a Markdown note.
+Task: {{taskName}}
+{{#if instruction}}Instruction: {{instruction}}{{/if}}
+
+Input:
+{{selection}}
+
+{{outputDelimiter}}`;
+var DEFAULT_REFACTOR_FIM_SYSTEM_MESSAGE = `You are a refactor engine. Return ONLY the refactored text without explanations, labels, or quotes. Preserve formatting and do not add extra markers. If Task is inline to math block, each line in align* must end with \\\\ (double backslash), not a single backslash. Append <<END>> when the output is complete.`;
+var DEFAULT_REFACTOR_SYSTEM_MESSAGES = {
+  math_inline: `You are a refactor assistant. Convert the selection into a single inline LaTeX expression.
+Rules:
+- Output only the refactored text, no explanations.
+- Use $...$ for inline math (no $$).
+- Do not include code fences.
+- Keep the math faithful to the input.`,
+  inline_to_math_block: `You are a refactor assistant. Convert the selection into a display math block using $$ and \\begin{align*}.
+Rules:
+- Output only the math block, no explanations.
+- Use \\begin{align*} ... \\end{align*} with line breaks (\\\\) and alignment with &=.
+- Each line inside align* must end with \\\\ (double backslash). A single \\ is invalid.
+- Do not include code fences.`,
+  grammar_correction: `You are a refactor assistant. Correct grammar and spelling with minimal edits.
+Rules:
+- Preserve meaning, tone, and punctuation style.
+- Output only the corrected text with no commentary.`,
+  custom: `You are a refactor assistant. Apply the user's instruction to the selection.
+Rules:
+- Output only the refactored text, no explanations.
+- Do not include code fences.`
+};
+var DEFAULT_REFACTOR_FEW_SHOT_EXAMPLES = {
+  math_inline: math_inline_examples_default,
+  inline_to_math_block: inline_to_math_block_examples_default,
+  grammar_correction: grammar_correction_examples_default,
+  custom: custom_examples_default
+};
 var triggerSchema = z.object({
   type: z.enum(["string", "regex"]),
   value: z.string().min(1, { message: "Trigger value must be at least 1 character long" })
@@ -41940,6 +42103,18 @@ var triggerSchema = z.object({
     }
   }
 });
+var refactorSystemMessagesSchema = z.object({
+  math_inline: z.string().min(3, { message: "Refactor system message must be at least 3 characters long" }),
+  inline_to_math_block: z.string().min(3, { message: "Refactor system message must be at least 3 characters long" }),
+  grammar_correction: z.string().min(3, { message: "Refactor system message must be at least 3 characters long" }),
+  custom: z.string().min(3, { message: "Refactor system message must be at least 3 characters long" })
+}).strict();
+var refactorFewShotExamplesSchema = z.object({
+  math_inline: z.array(refactorFewShotExampleSchema),
+  inline_to_math_block: z.array(refactorFewShotExampleSchema),
+  grammar_correction: z.array(refactorFewShotExampleSchema),
+  custom: z.array(refactorFewShotExampleSchema)
+}).strict();
 var settingsSchema = z.object({
   version: z.literal("1"),
   enabled: z.boolean(),
@@ -41955,6 +42130,11 @@ var settingsSchema = z.object({
   systemMessage: z.string().min(3, { message: "System message must be at least 3 characters long" }),
   fimSystemMessage: z.string().min(3, { message: "FIM system message must be at least 3 characters long" }),
   fewShotExamples: z.array(fewShotExampleSchema),
+  refactorSystemMessages: refactorSystemMessagesSchema,
+  refactorFewShotExamples: refactorFewShotExamplesSchema,
+  refactorUserTemplate: z.string().min(3, { message: "Refactor user template must be at least 3 characters long" }),
+  refactorFimSystemMessage: z.string().min(3, { message: "Refactor FIM system message must be at least 3 characters long" }),
+  refactorDirectReplace: z.boolean(),
   userMessageTemplate: z.string().min(3, { message: "User message template must be at least 3 characters long" }),
   chainOfThoughRemovalRegex: z.string().refine((regex) => isRegexValid(regex), { message: "Invalid regex" }),
   dontIncludeDataviews: z.boolean(),
@@ -42065,6 +42245,11 @@ ANSWER: here, you write the text that should be at the location of <mask/>
     math_block_multi_line_default,
     header_example_relu_default
   ].sort((a, b) => a.toString().localeCompare(b.toString())),
+  refactorSystemMessages: DEFAULT_REFACTOR_SYSTEM_MESSAGES,
+  refactorFewShotExamples: DEFAULT_REFACTOR_FEW_SHOT_EXAMPLES,
+  refactorUserTemplate: DEFAULT_REFACTOR_USER_TEMPLATE,
+  refactorFimSystemMessage: DEFAULT_REFACTOR_FIM_SYSTEM_MESSAGE,
+  refactorDirectReplace: true,
   userMessageTemplate: "{{prefix}}<mask/>{{suffix}}",
   chainOfThoughRemovalRegex: `(.|\\n)*ANSWER:`,
   // Preprocessing settings
@@ -42438,6 +42623,11 @@ function migrateFromV0ToV1(settings) {
   updatedSettings.ollamaApiSettings = DEFAULT_SETTINGS.ollamaApiSettings;
   updatedSettings.ollamaUseFIM = DEFAULT_SETTINGS.ollamaUseFIM;
   updatedSettings.fimSystemMessage = DEFAULT_SETTINGS.fimSystemMessage;
+  updatedSettings.refactorSystemMessages = DEFAULT_SETTINGS.refactorSystemMessages;
+  updatedSettings.refactorFewShotExamples = DEFAULT_SETTINGS.refactorFewShotExamples;
+  updatedSettings.refactorUserTemplate = DEFAULT_SETTINGS.refactorUserTemplate;
+  updatedSettings.refactorFimSystemMessage = DEFAULT_SETTINGS.refactorFimSystemMessage;
+  updatedSettings.refactorDirectReplace = DEFAULT_SETTINGS.refactorDirectReplace;
   updatedSettings.debugMode = DEFAULT_SETTINGS.debugMode;
   return settingsSchema.parse(updatedSettings);
 }
@@ -42666,7 +42856,7 @@ var combineResultAsyncList = (asyncResultList) => ResultAsync.fromSafePromise(Pr
 var combineResultListWithAllErrors = (resultList) => resultList.reduce((acc, result) => result.isErr() ? acc.isErr() ? err([...acc.error, result.error]) : err([result.error]) : acc.isErr() ? acc : ok([...acc.value, result.value]), ok([]));
 var combineResultAsyncListWithAllErrors = (asyncResultList) => ResultAsync.fromSafePromise(Promise.all(asyncResultList)).andThen(combineResultListWithAllErrors);
 var Result;
-(function(Result6) {
+(function(Result9) {
   function fromThrowable2(fn, errorFn) {
     return (...args) => {
       try {
@@ -42677,15 +42867,15 @@ var Result;
       }
     };
   }
-  Result6.fromThrowable = fromThrowable2;
+  Result9.fromThrowable = fromThrowable2;
   function combine(resultList) {
     return combineResultList(resultList);
   }
-  Result6.combine = combine;
+  Result9.combine = combine;
   function combineWithAllErrors(resultList) {
     return combineResultListWithAllErrors(resultList);
   }
-  Result6.combineWithAllErrors = combineWithAllErrors;
+  Result9.combineWithAllErrors = combineWithAllErrors;
 })(Result || (Result = {}));
 var ok = (value) => new Ok(value);
 var err = (err2) => new Err(err2);
@@ -43301,8 +43491,206 @@ function FewShotExampleSettings(props) {
   )));
 }
 
-// src/settings/components/ConnectivityCheck.tsx
+// src/settings/components/refactor_few_shot_example_settings.tsx
 var React7 = __toESM(require_react());
+function RefactorFewShotExampleSettings(props) {
+  const onClickRemoveButton = (index) => {
+    return () => {
+      const newExamples = props.examples.slice(0, index).concat(props.examples.slice(index + 1));
+      props.setExamples(newExamples);
+    };
+  };
+  const onClickAddButton = () => {
+    const newExample = {
+      input: "TODO",
+      output: "TODO"
+    };
+    if (props.showInstruction) {
+      newExample.instruction = "TODO";
+    }
+    props.setExamples([newExample, ...props.examples]);
+  };
+  const onChangeInput = (index) => {
+    return (e) => {
+      const newExamples = [...props.examples];
+      newExamples[index] = {
+        ...newExamples[index],
+        input: e.target.value
+      };
+      props.setExamples(newExamples);
+    };
+  };
+  const onChangeOutput = (index) => {
+    return (e) => {
+      const newExamples = [...props.examples];
+      newExamples[index] = {
+        ...newExamples[index],
+        output: e.target.value
+      };
+      props.setExamples(newExamples);
+    };
+  };
+  const onChangeInstruction = (index) => {
+    return (e) => {
+      const newExamples = [...props.examples];
+      newExamples[index] = {
+        ...newExamples[index],
+        instruction: e.target.value
+      };
+      props.setExamples(newExamples);
+    };
+  };
+  const errorFor = (path) => {
+    return props.errorMessages.get(`${props.errorPrefix}.${path}`);
+  };
+  return /* @__PURE__ */ React7.createElement("div", null, /* @__PURE__ */ React7.createElement("div", { className: "setting-item", style: { display: "flex" } }, /* @__PURE__ */ React7.createElement("div", { className: "setting-item-info" }, /* @__PURE__ */ React7.createElement("div", { className: "setting-item-name" }, props.name), /* @__PURE__ */ React7.createElement("div", { className: "setting-item-description" }, props.description), props.errorMessages.get(props.errorPrefix) !== void 0 && /* @__PURE__ */ React7.createElement("div", { className: "setting-item-description" }, /* @__PURE__ */ React7.createElement("span", { className: "mod-warning" }, props.errorMessages.get(props.errorPrefix)))), /* @__PURE__ */ React7.createElement("div", { style: { top: 0, right: 0 } }, /* @__PURE__ */ React7.createElement(
+    "span",
+    {
+      className: "clickable-icon setting-editor-extra-setting-button",
+      "aria-label": "Add",
+      onClick: onClickAddButton
+    },
+    /* @__PURE__ */ React7.createElement(
+      "svg",
+      {
+        xmlns: "http://www.w3.org/2000/svg",
+        width: "24",
+        height: "24",
+        viewBox: "0 0 24 24",
+        fill: "none",
+        stroke: "currentColor",
+        strokeWidth: "2",
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        className: "svg-icon lucide-plus"
+      },
+      /* @__PURE__ */ React7.createElement("line", { x1: "12", y1: "5", x2: "12", y2: "19" }),
+      /* @__PURE__ */ React7.createElement("line", { x1: "5", y1: "12", x2: "19", y2: "12" })
+    )
+  ))), props.examples.map((example21, index) => {
+    var _a2;
+    return /* @__PURE__ */ React7.createElement(
+      "div",
+      {
+        key: `refactor-example-${index}`,
+        style: {
+          borderBottom: "1px solid var(--background-modifier-border)"
+        }
+      },
+      /* @__PURE__ */ React7.createElement("div", { className: "setting-item", style: { display: "flex" } }, /* @__PURE__ */ React7.createElement("div", { className: "setting-item-info" }, /* @__PURE__ */ React7.createElement("div", { className: "setting-item-name" }, "Example ", index + 1)), /* @__PURE__ */ React7.createElement("div", { style: { top: 0, right: 0 } }, /* @__PURE__ */ React7.createElement(
+        "span",
+        {
+          className: "clickable-icon setting-editor-extra-setting-button",
+          "aria-label": "Remove",
+          onClick: onClickRemoveButton(index)
+        },
+        /* @__PURE__ */ React7.createElement(
+          "svg",
+          {
+            xmlns: "http://www.w3.org/2000/svg",
+            width: "24",
+            height: "24",
+            viewBox: "0 0 24 24",
+            fill: "none",
+            stroke: "currentColor",
+            strokeWidth: "2",
+            strokeLinecap: "round",
+            strokeLinejoin: "round",
+            className: "svg-icon lucide-x"
+          },
+          /* @__PURE__ */ React7.createElement("line", { x1: "18", y1: "6", x2: "6", y2: "18" }),
+          /* @__PURE__ */ React7.createElement("line", { x1: "6", y1: "6", x2: "18", y2: "18" })
+        )
+      ))),
+      /* @__PURE__ */ React7.createElement(
+        "div",
+        {
+          className: "setting-item",
+          style: { display: "block", borderTop: 0 }
+        },
+        props.showInstruction && /* @__PURE__ */ React7.createElement(React7.Fragment, null, /* @__PURE__ */ React7.createElement(
+          "div",
+          {
+            className: "setting-item-name",
+            style: { width: "100%", textAlign: "left" }
+          },
+          "Instruction"
+        ), errorFor(`${index}.instruction`) !== void 0 && /* @__PURE__ */ React7.createElement(
+          "div",
+          {
+            className: "setting-item-description",
+            style: { width: "100%", textAlign: "left" }
+          },
+          /* @__PURE__ */ React7.createElement("span", { className: "mod-warning" }, errorFor(`${index}.instruction`))
+        ), /* @__PURE__ */ React7.createElement(
+          "textarea",
+          {
+            className: "setting-item-text-area-copilot-auto-completion",
+            rows: 2,
+            style: { width: "100%" },
+            value: (_a2 = example21.instruction) != null ? _a2 : "",
+            onChange: onChangeInstruction(index)
+          }
+        )),
+        /* @__PURE__ */ React7.createElement(
+          "div",
+          {
+            className: "setting-item-name",
+            style: { width: "100%", textAlign: "left" }
+          },
+          "Input"
+        ),
+        errorFor(`${index}.input`) !== void 0 && /* @__PURE__ */ React7.createElement(
+          "div",
+          {
+            className: "setting-item-description",
+            style: { width: "100%", textAlign: "left" }
+          },
+          /* @__PURE__ */ React7.createElement("span", { className: "mod-warning" }, errorFor(`${index}.input`))
+        ),
+        /* @__PURE__ */ React7.createElement(
+          "textarea",
+          {
+            className: "setting-item-text-area-copilot-auto-completion",
+            rows: 3,
+            style: { width: "100%" },
+            value: example21.input,
+            onChange: onChangeInput(index)
+          }
+        ),
+        /* @__PURE__ */ React7.createElement(
+          "div",
+          {
+            className: "setting-item-name",
+            style: { width: "100%", textAlign: "left" }
+          },
+          "Output"
+        ),
+        errorFor(`${index}.output`) !== void 0 && /* @__PURE__ */ React7.createElement(
+          "div",
+          {
+            className: "setting-item-description",
+            style: { width: "100%", textAlign: "left" }
+          },
+          /* @__PURE__ */ React7.createElement("span", { className: "mod-warning" }, errorFor(`${index}.output`))
+        ),
+        /* @__PURE__ */ React7.createElement(
+          "textarea",
+          {
+            className: "setting-item-text-area-copilot-auto-completion",
+            rows: 3,
+            style: { width: "100%" },
+            value: example21.output,
+            onChange: onChangeOutput(index)
+          }
+        )
+      )
+    );
+  }));
+}
+
+// src/settings/components/ConnectivityCheck.tsx
+var React8 = __toESM(require_react());
 var import_react2 = __toESM(require_react());
 var import_obsidian3 = require("obsidian");
 
@@ -43485,12 +43873,12 @@ var OllamaApiClient_default = OllamaApiClient;
 
 // src/prediction_services/api_clients/OllamaFIMApiClient.ts
 var OllamaFIMApiClient = class {
-  static fromSettings(settings) {
+  static fromSettings(settings, systemPromptOverride) {
     return new OllamaFIMApiClient(
       resolveOllamaGenerateUrl(settings.ollamaApiSettings.url),
       settings.ollamaApiSettings.model,
       settings.modelOptions,
-      settings.fimSystemMessage
+      systemPromptOverride != null ? systemPromptOverride : settings.fimSystemMessage
     );
   }
   constructor(url, model, modelOptions, systemPrompt) {
@@ -43561,7 +43949,7 @@ var OllamaFIMApiClient_default = OllamaFIMApiClient;
 function ConnectivityCheck(props) {
   const [status, setStatus] = (0, import_react2.useState)(0 /* NotStarted */);
   const [errors, setErrors] = (0, import_react2.useState)([]);
-  React7.useEffect(() => {
+  React8.useEffect(() => {
     setStatus(0 /* NotStarted */);
   }, [props.settings]);
   const createClient = () => {
@@ -43606,10 +43994,10 @@ function ConnectivityCheck(props) {
   };
   const ProgressFeedback = () => {
     if (status === 1 /* Loading */) {
-      return /* @__PURE__ */ React7.createElement("span", { className: "loader-copilot-auto-completion" });
+      return /* @__PURE__ */ React8.createElement("span", { className: "loader-copilot-auto-completion" });
     }
     if (status === 2 /* Success */) {
-      return /* @__PURE__ */ React7.createElement("span", { className: "loader-placeholder-copilot-auto-completion" }, /* @__PURE__ */ React7.createElement(
+      return /* @__PURE__ */ React8.createElement("span", { className: "loader-placeholder-copilot-auto-completion" }, /* @__PURE__ */ React8.createElement(
         "svg",
         {
           xmlns: "http://www.w3.org/2000/svg",
@@ -43623,11 +44011,11 @@ function ConnectivityCheck(props) {
           strokeLinejoin: "round",
           className: "lucide lucide-check"
         },
-        /* @__PURE__ */ React7.createElement("polyline", { points: "20 6 9 17 4 12" })
+        /* @__PURE__ */ React8.createElement("polyline", { points: "20 6 9 17 4 12" })
       ));
     }
     if (status === 3 /* Failure */) {
-      return /* @__PURE__ */ React7.createElement("span", { className: "loader-placeholder-copilot-auto-completion" }, /* @__PURE__ */ React7.createElement(
+      return /* @__PURE__ */ React8.createElement("span", { className: "loader-placeholder-copilot-auto-completion" }, /* @__PURE__ */ React8.createElement(
         "svg",
         {
           xmlns: "http://www.w3.org/2000/svg",
@@ -43641,13 +44029,13 @@ function ConnectivityCheck(props) {
           strokeLinejoin: "round",
           className: "lucide lucide-x"
         },
-        /* @__PURE__ */ React7.createElement("path", { d: "M18 6 6 18" }),
-        /* @__PURE__ */ React7.createElement("path", { d: "m6 6 12 12" })
+        /* @__PURE__ */ React8.createElement("path", { d: "M18 6 6 18" }),
+        /* @__PURE__ */ React8.createElement("path", { d: "m6 6 12 12" })
       ));
     }
-    return /* @__PURE__ */ React7.createElement("span", { className: "loader-placeholder-copilot-auto-completion" });
+    return /* @__PURE__ */ React8.createElement("span", { className: "loader-placeholder-copilot-auto-completion" });
   };
-  return /* @__PURE__ */ React7.createElement(
+  return /* @__PURE__ */ React8.createElement(
     SettingsItem,
     {
       name: "Test Connection",
@@ -43655,7 +44043,7 @@ function ConnectivityCheck(props) {
       errorMessage: errors.join("\n")
     },
     ProgressFeedback(),
-    /* @__PURE__ */ React7.createElement(
+    /* @__PURE__ */ React8.createElement(
       "button",
       {
         "aria-label": "Test Connection",
@@ -43668,20 +44056,20 @@ function ConnectivityCheck(props) {
 }
 
 // src/settings/components/DropDownSettingItem.tsx
-var React8 = __toESM(require_react());
+var React9 = __toESM(require_react());
 function DropDownSettingItem(props) {
   const { name, description, errorMessage } = props;
   const onChange = (e) => {
     props.setValue(e.target.value);
   };
-  return /* @__PURE__ */ React8.createElement(
+  return /* @__PURE__ */ React9.createElement(
     SettingsItem,
     {
       name,
       description,
       errorMessage
     },
-    /* @__PURE__ */ React8.createElement(
+    /* @__PURE__ */ React9.createElement(
       "select",
       {
         className: "dropdown",
@@ -43689,7 +44077,7 @@ function DropDownSettingItem(props) {
         onChange,
         disabled: props.disabled
       },
-      Object.entries(props.options).map(([key, value]) => /* @__PURE__ */ React8.createElement("option", { key, value: key }, value))
+      Object.entries(props.options).map(([key, value]) => /* @__PURE__ */ React9.createElement("option", { key, value: key }, value))
     )
   );
 }
@@ -43699,7 +44087,7 @@ var import_obsidian4 = require("obsidian");
 function SettingsView(props) {
   const [settings, _setSettings] = (0, import_react3.useState)(props.settings);
   const errors = checkForErrors(settings);
-  React9.useEffect(() => {
+  React10.useEffect(() => {
     _setSettings(props.settings);
   }, [props.settings]);
   const updateSettings = (update) => {
@@ -43732,7 +44120,7 @@ function SettingsView(props) {
   };
   const renderAPISettings = () => {
     if (settings.apiProvider === "azure") {
-      return /* @__PURE__ */ React9.createElement(React9.Fragment, null, /* @__PURE__ */ React9.createElement(
+      return /* @__PURE__ */ React10.createElement(React10.Fragment, null, /* @__PURE__ */ React10.createElement(
         TextSettingItem,
         {
           name: "Azure OAI API URL",
@@ -43747,7 +44135,7 @@ function SettingsView(props) {
             }
           })
         }
-      ), /* @__PURE__ */ React9.createElement(
+      ), /* @__PURE__ */ React10.createElement(
         TextSettingItem,
         {
           name: "Azure API key",
@@ -43763,10 +44151,10 @@ function SettingsView(props) {
             }
           })
         }
-      ), /* @__PURE__ */ React9.createElement(ConnectivityCheck, { key: "azure", settings }));
+      ), /* @__PURE__ */ React10.createElement(ConnectivityCheck, { key: "azure", settings }));
     }
     if (settings.apiProvider === "openai") {
-      return /* @__PURE__ */ React9.createElement(React9.Fragment, null, /* @__PURE__ */ React9.createElement(
+      return /* @__PURE__ */ React10.createElement(React10.Fragment, null, /* @__PURE__ */ React10.createElement(
         TextSettingItem,
         {
           name: "OpenAI API URL",
@@ -43781,7 +44169,7 @@ function SettingsView(props) {
             }
           })
         }
-      ), /* @__PURE__ */ React9.createElement(
+      ), /* @__PURE__ */ React10.createElement(
         TextSettingItem,
         {
           name: "OpenAI API key",
@@ -43797,7 +44185,7 @@ function SettingsView(props) {
             }
           })
         }
-      ), /* @__PURE__ */ React9.createElement(
+      ), /* @__PURE__ */ React10.createElement(
         TextSettingItem,
         {
           name: "Model",
@@ -43812,10 +44200,10 @@ function SettingsView(props) {
           }),
           errorMessage: errors.get("openAIApiSettings.model")
         }
-      ), /* @__PURE__ */ React9.createElement(ConnectivityCheck, { key: "openai", settings }));
+      ), /* @__PURE__ */ React10.createElement(ConnectivityCheck, { key: "openai", settings }));
     }
     if (settings.apiProvider === "ollama") {
-      return /* @__PURE__ */ React9.createElement(React9.Fragment, null, /* @__PURE__ */ React9.createElement(
+      return /* @__PURE__ */ React10.createElement(React10.Fragment, null, /* @__PURE__ */ React10.createElement(
         TextSettingItem,
         {
           name: "API URL",
@@ -43830,7 +44218,7 @@ function SettingsView(props) {
             }
           })
         }
-      ), /* @__PURE__ */ React9.createElement(
+      ), /* @__PURE__ */ React10.createElement(
         TextSettingItem,
         {
           name: "Model",
@@ -43845,7 +44233,7 @@ function SettingsView(props) {
           }),
           errorMessage: errors.get("ollamaApiSettings.model")
         }
-      ), /* @__PURE__ */ React9.createElement(
+      ), /* @__PURE__ */ React10.createElement(
         CheckBoxSettingItem,
         {
           name: "Use FIM mode",
@@ -43853,10 +44241,10 @@ function SettingsView(props) {
           enabled: settings.ollamaUseFIM,
           setEnabled: (value) => updateSettings({ ollamaUseFIM: value })
         }
-      ), /* @__PURE__ */ React9.createElement(ConnectivityCheck, { key: "openai", settings }));
+      ), /* @__PURE__ */ React10.createElement(ConnectivityCheck, { key: "openai", settings }));
     }
   };
-  return /* @__PURE__ */ React9.createElement("div", null, /* @__PURE__ */ React9.createElement("h2", null, "General"), /* @__PURE__ */ React9.createElement(
+  return /* @__PURE__ */ React10.createElement("div", null, /* @__PURE__ */ React10.createElement("h2", null, "General"), /* @__PURE__ */ React10.createElement(
     CheckBoxSettingItem,
     {
       name: "Enable",
@@ -43864,7 +44252,7 @@ function SettingsView(props) {
       enabled: settings.enabled,
       setEnabled: (value) => updateSettings({ enabled: value })
     }
-  ), /* @__PURE__ */ React9.createElement(
+  ), /* @__PURE__ */ React10.createElement(
     CheckBoxSettingItem,
     {
       name: "Cache completions",
@@ -43872,7 +44260,7 @@ function SettingsView(props) {
       enabled: settings.cacheSuggestions,
       setEnabled: (value) => updateSettings({ cacheSuggestions: value })
     }
-  ), /* @__PURE__ */ React9.createElement(
+  ), /* @__PURE__ */ React10.createElement(
     DropDownSettingItem,
     {
       name: "API provider",
@@ -43890,7 +44278,7 @@ function SettingsView(props) {
       },
       errorMessage: errors.get("apiProvider")
     }
-  ), /* @__PURE__ */ React9.createElement(
+  ), /* @__PURE__ */ React10.createElement(
     CheckBoxSettingItem,
     {
       name: "Debug mode",
@@ -43898,7 +44286,7 @@ function SettingsView(props) {
       enabled: settings.debugMode,
       setEnabled: (value) => updateSettings({ debugMode: value })
     }
-  ), /* @__PURE__ */ React9.createElement("h2", null, "API"), renderAPISettings(), /* @__PURE__ */ React9.createElement("h2", null, "Model Options"), /* @__PURE__ */ React9.createElement(
+  ), /* @__PURE__ */ React10.createElement("h2", null, "API"), renderAPISettings(), /* @__PURE__ */ React10.createElement("h2", null, "Model Options"), /* @__PURE__ */ React10.createElement(
     SliderSettingsItem,
     {
       name: "Temperature",
@@ -43915,7 +44303,7 @@ function SettingsView(props) {
       max: MAX_TEMPERATURE,
       step: 0.05
     }
-  ), /* @__PURE__ */ React9.createElement(
+  ), /* @__PURE__ */ React10.createElement(
     SliderSettingsItem,
     {
       name: "TopP",
@@ -43932,7 +44320,7 @@ function SettingsView(props) {
       max: MAX_TOP_P,
       step: 0.05
     }
-  ), settings.apiProvider !== "ollama" && /* @__PURE__ */ React9.createElement(React9.Fragment, null, /* @__PURE__ */ React9.createElement(
+  ), settings.apiProvider !== "ollama" && /* @__PURE__ */ React10.createElement(React10.Fragment, null, /* @__PURE__ */ React10.createElement(
     SliderSettingsItem,
     {
       name: "Frequency Penalty",
@@ -43949,7 +44337,7 @@ function SettingsView(props) {
       max: MAX_FREQUENCY_PENALTY,
       step: 0.05
     }
-  ), /* @__PURE__ */ React9.createElement(
+  ), /* @__PURE__ */ React10.createElement(
     SliderSettingsItem,
     {
       name: "Presence Penalty",
@@ -43966,7 +44354,7 @@ function SettingsView(props) {
       max: MAX_PRESENCE_PENALTY,
       step: 0.05
     }
-  )), /* @__PURE__ */ React9.createElement(
+  )), /* @__PURE__ */ React10.createElement(
     SliderSettingsItem,
     {
       name: "Max Tokens",
@@ -43983,7 +44371,7 @@ function SettingsView(props) {
       max: MAX_MAX_TOKENS,
       step: 10
     }
-  ), /* @__PURE__ */ React9.createElement("h2", null, "Preprocessing"), /* @__PURE__ */ React9.createElement(
+  ), /* @__PURE__ */ React10.createElement("h2", null, "Preprocessing"), /* @__PURE__ */ React10.createElement(
     CheckBoxSettingItem,
     {
       name: "Don't include dataviews",
@@ -43991,7 +44379,7 @@ function SettingsView(props) {
       enabled: settings.dontIncludeDataviews,
       setEnabled: (value) => updateSettings({ dontIncludeDataviews: value })
     }
-  ), /* @__PURE__ */ React9.createElement(
+  ), /* @__PURE__ */ React10.createElement(
     SliderSettingsItem,
     {
       name: "Maximum Prefix Length",
@@ -44004,7 +44392,7 @@ function SettingsView(props) {
       step: 100,
       suffix: " chars"
     }
-  ), /* @__PURE__ */ React9.createElement(
+  ), /* @__PURE__ */ React10.createElement(
     SliderSettingsItem,
     {
       name: "Maximum Suffix Length",
@@ -44017,7 +44405,7 @@ function SettingsView(props) {
       step: 100,
       suffix: " chars"
     }
-  ), /* @__PURE__ */ React9.createElement("h2", null, "Postprocessing"), /* @__PURE__ */ React9.createElement(
+  ), /* @__PURE__ */ React10.createElement("h2", null, "Postprocessing"), /* @__PURE__ */ React10.createElement(
     CheckBoxSettingItem,
     {
       name: "Auto remove duplicate mat block indicators",
@@ -44025,7 +44413,7 @@ function SettingsView(props) {
       enabled: settings.removeDuplicateMathBlockIndicator,
       setEnabled: (value) => updateSettings({ removeDuplicateMathBlockIndicator: value })
     }
-  ), /* @__PURE__ */ React9.createElement(
+  ), /* @__PURE__ */ React10.createElement(
     CheckBoxSettingItem,
     {
       name: "Auto remove duplicate mat block indicators",
@@ -44033,7 +44421,7 @@ function SettingsView(props) {
       enabled: settings.removeDuplicateCodeBlockIndicator,
       setEnabled: (value) => updateSettings({ removeDuplicateCodeBlockIndicator: value })
     }
-  ), /* @__PURE__ */ React9.createElement("h2", null, "Trigger"), /* @__PURE__ */ React9.createElement(
+  ), /* @__PURE__ */ React10.createElement("h2", null, "Trigger"), /* @__PURE__ */ React10.createElement(
     SliderSettingsItem,
     {
       name: "Delay",
@@ -44046,7 +44434,7 @@ function SettingsView(props) {
       step: 100,
       suffix: "ms"
     }
-  ), /* @__PURE__ */ React9.createElement(
+  ), /* @__PURE__ */ React10.createElement(
     TriggerSettings_default,
     {
       name: "Trigger words",
@@ -44056,15 +44444,23 @@ function SettingsView(props) {
       errorMessage: errors.get("triggerWords"),
       errorMessages: errors
     }
-  ), /* @__PURE__ */ React9.createElement("h2", null, "Privacy"), /* @__PURE__ */ React9.createElement(
+  ), /* @__PURE__ */ React10.createElement("h2", null, "Refactor"), /* @__PURE__ */ React10.createElement(
+    CheckBoxSettingItem,
+    {
+      name: "Direct replace",
+      description: "When enabled, refactor results replace the selection immediately. When disabled, you will be asked to confirm before replacing.",
+      enabled: settings.refactorDirectReplace,
+      setEnabled: (value) => updateSettings({ refactorDirectReplace: value })
+    }
+  ), /* @__PURE__ */ React10.createElement("h2", null, "Privacy"), /* @__PURE__ */ React10.createElement(
     SettingsItem,
     {
       name: "Ignored files",
-      description: /* @__PURE__ */ React9.createElement("div", null, /* @__PURE__ */ React9.createElement("p", null, "This field enables you to specify files and directories that the plugin should ignore. When you open any of these files, the plugin will automatically disable itself and display a 'disabled' status in the bottom menu. Enter one pattern per line. These patterns function similar to glob patterns. Here are some frequently used patterns:"), /* @__PURE__ */ React9.createElement("ul", null, /* @__PURE__ */ React9.createElement("li", null, /* @__PURE__ */ React9.createElement("code", null, "path/to/folder/**"), ": This pattern ignores all files and sub folders within this folder."), /* @__PURE__ */ React9.createElement("li", null, /* @__PURE__ */ React9.createElement("code", null, '"**/secret/**"'), ": This pattern ignores any file located inside a 'secret' directory, regardless of its location in the path."), /* @__PURE__ */ React9.createElement("li", null, /* @__PURE__ */ React9.createElement("code", null, "!path/to/folder/example.md"), ": This pattern explicitly undoes an ignore, making this file noticeable to the plugin."), /* @__PURE__ */ React9.createElement("li", null, /* @__PURE__ */ React9.createElement("code", null, "**/*Python*.md"), ": This pattern ignores any file with 'Python' in its name, irrespective of its location."))),
+      description: /* @__PURE__ */ React10.createElement("div", null, /* @__PURE__ */ React10.createElement("p", null, "This field enables you to specify files and directories that the plugin should ignore. When you open any of these files, the plugin will automatically disable itself and display a 'disabled' status in the bottom menu. Enter one pattern per line. These patterns function similar to glob patterns. Here are some frequently used patterns:"), /* @__PURE__ */ React10.createElement("ul", null, /* @__PURE__ */ React10.createElement("li", null, /* @__PURE__ */ React10.createElement("code", null, "path/to/folder/**"), ": This pattern ignores all files and sub folders within this folder."), /* @__PURE__ */ React10.createElement("li", null, /* @__PURE__ */ React10.createElement("code", null, '"**/secret/**"'), ": This pattern ignores any file located inside a 'secret' directory, regardless of its location in the path."), /* @__PURE__ */ React10.createElement("li", null, /* @__PURE__ */ React10.createElement("code", null, "!path/to/folder/example.md"), ": This pattern explicitly undoes an ignore, making this file noticeable to the plugin."), /* @__PURE__ */ React10.createElement("li", null, /* @__PURE__ */ React10.createElement("code", null, "**/*Python*.md"), ": This pattern ignores any file with 'Python' in its name, irrespective of its location."))),
       display: "block",
       errorMessage: errors.get("ignoredFilePatterns")
     },
-    /* @__PURE__ */ React9.createElement(
+    /* @__PURE__ */ React10.createElement(
       "textarea",
       {
         className: "setting-item-text-area-copilot-auto-completion",
@@ -44076,15 +44472,15 @@ function SettingsView(props) {
         })
       }
     )
-  ), /* @__PURE__ */ React9.createElement(
+  ), /* @__PURE__ */ React10.createElement(
     SettingsItem,
     {
       name: "Ignored tags",
-      description: /* @__PURE__ */ React9.createElement("div", null, /* @__PURE__ */ React9.createElement("p", null, "Files containing any of these tags will be ignored. When you open a file containing a tag listed here, the plugin will automatically disable itself and display a 'disabled' status in the bottom menu. Enter one tag per line.")),
+      description: /* @__PURE__ */ React10.createElement("div", null, /* @__PURE__ */ React10.createElement("p", null, "Files containing any of these tags will be ignored. When you open a file containing a tag listed here, the plugin will automatically disable itself and display a 'disabled' status in the bottom menu. Enter one tag per line.")),
       display: "block",
       errorMessage: errors.get("ignoredTags")
     },
-    /* @__PURE__ */ React9.createElement(
+    /* @__PURE__ */ React10.createElement(
       "textarea",
       {
         className: "setting-item-text-area-copilot-auto-completion",
@@ -44096,13 +44492,13 @@ function SettingsView(props) {
         })
       }
     )
-  ), /* @__PURE__ */ React9.createElement("h2", null, "Danger zone"), /* @__PURE__ */ React9.createElement(
+  ), /* @__PURE__ */ React10.createElement("h2", null, "Danger zone"), /* @__PURE__ */ React10.createElement(
     SettingsItem,
     {
       name: "Factory Reset",
       description: "Messed-up the settings? No worries, press this button! After that, the plugin will go back to the default settings. The URL and API key will remain unchanged."
     },
-    /* @__PURE__ */ React9.createElement(
+    /* @__PURE__ */ React10.createElement(
       "button",
       {
         "aria-label": "Reset to default settings",
@@ -44110,7 +44506,7 @@ function SettingsView(props) {
       },
       "Reset"
     )
-  ), /* @__PURE__ */ React9.createElement(
+  ), /* @__PURE__ */ React10.createElement(
     CheckBoxSettingItem,
     {
       name: "Advanced mode",
@@ -44118,7 +44514,7 @@ function SettingsView(props) {
       enabled: settings.advancedMode,
       setEnabled: (value) => updateSettings({ advancedMode: value })
     }
-  ), settings.advancedMode && /* @__PURE__ */ React9.createElement(React9.Fragment, null, /* @__PURE__ */ React9.createElement("h2", null, "Advanced"), /* @__PURE__ */ React9.createElement(
+  ), settings.advancedMode && /* @__PURE__ */ React10.createElement(React10.Fragment, null, /* @__PURE__ */ React10.createElement("h2", null, "Advanced"), /* @__PURE__ */ React10.createElement(
     TextSettingItem,
     {
       name: "Chain of thought removal regex",
@@ -44130,7 +44526,7 @@ function SettingsView(props) {
         chainOfThoughRemovalRegex: value
       })
     }
-  ), /* @__PURE__ */ React9.createElement(
+  ), /* @__PURE__ */ React10.createElement(
     SettingsItem,
     {
       name: "System Message",
@@ -44138,7 +44534,7 @@ function SettingsView(props) {
       display: "block",
       errorMessage: errors.get("systemMessage")
     },
-    /* @__PURE__ */ React9.createElement(
+    /* @__PURE__ */ React10.createElement(
       "textarea",
       {
         className: "setting-item-text-area-copilot-auto-completion",
@@ -44150,7 +44546,7 @@ function SettingsView(props) {
         })
       }
     )
-  ), settings.apiProvider === "ollama" && settings.ollamaUseFIM && /* @__PURE__ */ React9.createElement(
+  ), settings.apiProvider === "ollama" && settings.ollamaUseFIM && /* @__PURE__ */ React10.createElement(
     SettingsItem,
     {
       name: "FIM System Prompt",
@@ -44158,7 +44554,7 @@ function SettingsView(props) {
       display: "block",
       errorMessage: errors.get("fimSystemMessage")
     },
-    /* @__PURE__ */ React9.createElement(
+    /* @__PURE__ */ React10.createElement(
       "textarea",
       {
         className: "setting-item-text-area-copilot-auto-completion",
@@ -44170,7 +44566,7 @@ function SettingsView(props) {
         })
       }
     )
-  ), /* @__PURE__ */ React9.createElement(
+  ), /* @__PURE__ */ React10.createElement(
     SettingsItem,
     {
       name: "User Message template",
@@ -44178,7 +44574,7 @@ function SettingsView(props) {
       display: "block",
       errorMessage: errors.get("userMessageTemplate")
     },
-    /* @__PURE__ */ React9.createElement(
+    /* @__PURE__ */ React10.createElement(
       "textarea",
       {
         className: "setting-item-text-area-copilot-auto-completion",
@@ -44190,7 +44586,7 @@ function SettingsView(props) {
         })
       }
     )
-  ), /* @__PURE__ */ React9.createElement(
+  ), /* @__PURE__ */ React10.createElement(
     FewShotExampleSettings,
     {
       fewShotExamples: settings.fewShotExamples,
@@ -44199,11 +44595,204 @@ function SettingsView(props) {
       setFewShotExamples: (value) => updateSettings({ fewShotExamples: value }),
       errorMessages: errors
     }
+  ), /* @__PURE__ */ React10.createElement("h2", null, "Refactor Prompts"), /* @__PURE__ */ React10.createElement(
+    SettingsItem,
+    {
+      name: "Refactor user template",
+      description: "This template defines how the refactor prompt is structured. Available variables: {{taskName}}, {{taskId}}, {{selection}}, {{instruction}}, {{outputDelimiter}}.",
+      display: "block",
+      errorMessage: errors.get("refactorUserTemplate")
+    },
+    /* @__PURE__ */ React10.createElement(
+      "textarea",
+      {
+        className: "setting-item-text-area-copilot-auto-completion",
+        rows: 6,
+        placeholder: "Your refactor user template...",
+        value: settings.refactorUserTemplate,
+        onChange: (e) => updateSettings({
+          refactorUserTemplate: e.target.value
+        })
+      }
+    )
+  ), /* @__PURE__ */ React10.createElement(
+    SettingsItem,
+    {
+      name: "Refactor system message: Math inline",
+      description: "System prompt for the math inline refactor task.",
+      display: "block",
+      errorMessage: errors.get("refactorSystemMessages.math_inline")
+    },
+    /* @__PURE__ */ React10.createElement(
+      "textarea",
+      {
+        className: "setting-item-text-area-copilot-auto-completion",
+        rows: 6,
+        placeholder: "Your refactor system message...",
+        value: settings.refactorSystemMessages.math_inline,
+        onChange: (e) => updateSettings({
+          refactorSystemMessages: {
+            ...settings.refactorSystemMessages,
+            math_inline: e.target.value
+          }
+        })
+      }
+    )
+  ), /* @__PURE__ */ React10.createElement(
+    SettingsItem,
+    {
+      name: "Refactor system message: Inline to math block",
+      description: "System prompt for the inline to math block refactor task.",
+      display: "block",
+      errorMessage: errors.get("refactorSystemMessages.inline_to_math_block")
+    },
+    /* @__PURE__ */ React10.createElement(
+      "textarea",
+      {
+        className: "setting-item-text-area-copilot-auto-completion",
+        rows: 6,
+        placeholder: "Your refactor system message...",
+        value: settings.refactorSystemMessages.inline_to_math_block,
+        onChange: (e) => updateSettings({
+          refactorSystemMessages: {
+            ...settings.refactorSystemMessages,
+            inline_to_math_block: e.target.value
+          }
+        })
+      }
+    )
+  ), /* @__PURE__ */ React10.createElement(
+    SettingsItem,
+    {
+      name: "Refactor system message: Grammar correction",
+      description: "System prompt for the grammar correction refactor task.",
+      display: "block",
+      errorMessage: errors.get("refactorSystemMessages.grammar_correction")
+    },
+    /* @__PURE__ */ React10.createElement(
+      "textarea",
+      {
+        className: "setting-item-text-area-copilot-auto-completion",
+        rows: 6,
+        placeholder: "Your refactor system message...",
+        value: settings.refactorSystemMessages.grammar_correction,
+        onChange: (e) => updateSettings({
+          refactorSystemMessages: {
+            ...settings.refactorSystemMessages,
+            grammar_correction: e.target.value
+          }
+        })
+      }
+    )
+  ), /* @__PURE__ */ React10.createElement(
+    SettingsItem,
+    {
+      name: "Refactor system message: Custom",
+      description: "System prompt for custom refactor instructions.",
+      display: "block",
+      errorMessage: errors.get("refactorSystemMessages.custom")
+    },
+    /* @__PURE__ */ React10.createElement(
+      "textarea",
+      {
+        className: "setting-item-text-area-copilot-auto-completion",
+        rows: 6,
+        placeholder: "Your refactor system message...",
+        value: settings.refactorSystemMessages.custom,
+        onChange: (e) => updateSettings({
+          refactorSystemMessages: {
+            ...settings.refactorSystemMessages,
+            custom: e.target.value
+          }
+        })
+      }
+    )
+  ), settings.apiProvider === "ollama" && /* @__PURE__ */ React10.createElement(
+    SettingsItem,
+    {
+      name: "Refactor FIM system prompt",
+      description: "System prompt for Ollama generate (FIM) refactor mode.",
+      display: "block",
+      errorMessage: errors.get("refactorFimSystemMessage")
+    },
+    /* @__PURE__ */ React10.createElement(
+      "textarea",
+      {
+        className: "setting-item-text-area-copilot-auto-completion",
+        rows: 4,
+        placeholder: "Your refactor FIM system prompt...",
+        value: settings.refactorFimSystemMessage,
+        onChange: (e) => updateSettings({
+          refactorFimSystemMessage: e.target.value
+        })
+      }
+    )
+  ), /* @__PURE__ */ React10.createElement(
+    RefactorFewShotExampleSettings,
+    {
+      name: "Refactor few-shot examples: Math inline",
+      description: "Examples for math inline refactors.",
+      errorMessages: errors,
+      errorPrefix: "refactorFewShotExamples.math_inline",
+      examples: settings.refactorFewShotExamples.math_inline,
+      setExamples: (examples) => updateSettings({
+        refactorFewShotExamples: {
+          ...settings.refactorFewShotExamples,
+          math_inline: examples
+        }
+      })
+    }
+  ), /* @__PURE__ */ React10.createElement(
+    RefactorFewShotExampleSettings,
+    {
+      name: "Refactor few-shot examples: Inline to math block",
+      description: "Examples for inline to math block refactors.",
+      errorMessages: errors,
+      errorPrefix: "refactorFewShotExamples.inline_to_math_block",
+      examples: settings.refactorFewShotExamples.inline_to_math_block,
+      setExamples: (examples) => updateSettings({
+        refactorFewShotExamples: {
+          ...settings.refactorFewShotExamples,
+          inline_to_math_block: examples
+        }
+      })
+    }
+  ), /* @__PURE__ */ React10.createElement(
+    RefactorFewShotExampleSettings,
+    {
+      name: "Refactor few-shot examples: Grammar correction",
+      description: "Examples for grammar correction refactors.",
+      errorMessages: errors,
+      errorPrefix: "refactorFewShotExamples.grammar_correction",
+      examples: settings.refactorFewShotExamples.grammar_correction,
+      setExamples: (examples) => updateSettings({
+        refactorFewShotExamples: {
+          ...settings.refactorFewShotExamples,
+          grammar_correction: examples
+        }
+      })
+    }
+  ), /* @__PURE__ */ React10.createElement(
+    RefactorFewShotExampleSettings,
+    {
+      name: "Refactor few-shot examples: Custom",
+      description: "Examples that include custom instructions.",
+      errorMessages: errors,
+      errorPrefix: "refactorFewShotExamples.custom",
+      examples: settings.refactorFewShotExamples.custom,
+      setExamples: (examples) => updateSettings({
+        refactorFewShotExamples: {
+          ...settings.refactorFewShotExamples,
+          custom: examples
+        }
+      }),
+      showInstruction: true
+    }
   )));
 }
 
 // src/settings/SettingsTab.tsx
-var React10 = __toESM(require_react());
+var React11 = __toESM(require_react());
 var SettingTab = class extends import_obsidian5.PluginSettingTab {
   constructor(plugin, settings, saveSettings) {
     super(plugin.app, plugin);
@@ -44236,7 +44825,7 @@ var SettingTab = class extends import_obsidian5.PluginSettingTab {
   display() {
     this.root = (0, import_client.createRoot)(this.containerEl);
     this.root.render(
-      /* @__PURE__ */ React10.createElement(React10.StrictMode, null, /* @__PURE__ */ React10.createElement(
+      /* @__PURE__ */ React11.createElement(React11.StrictMode, null, /* @__PURE__ */ React11.createElement(
         SettingsView,
         {
           onSettingsChanged: async (settings) => {
@@ -47096,8 +47685,653 @@ function CompletionKeyWatcher(handleAcceptKey, handlePartialAcceptKey, handleCan
 }
 var completion_key_watcher_default = CompletionKeyWatcher;
 
+// src/refactor/refactor_controller.ts
+var import_obsidian9 = require("obsidian");
+
+// src/prediction_services/refactor/refactor_prompt_builder.ts
+var Handlebars2 = __toESM(require_lib());
+var DEFAULT_REFACTOR_OUTPUT_DELIMITER = "OUTPUT:";
+var RefactorPromptBuilder = class {
+  constructor(settings) {
+    this.userMessageFormatter = Handlebars2.compile(
+      settings.refactorUserTemplate,
+      { noEscape: true, strict: true }
+    );
+    this.systemMessages = settings.refactorSystemMessages;
+    this.fewShotExamples = settings.refactorFewShotExamples;
+    this.outputDelimiter = DEFAULT_REFACTOR_OUTPUT_DELIMITER;
+  }
+  buildMessages(request) {
+    var _a2, _b, _c;
+    const systemMessage = this.systemMessages[request.kind];
+    const examples = (_a2 = this.fewShotExamples[request.kind]) != null ? _a2 : [];
+    const messages9 = [
+      { role: "system", content: systemMessage }
+    ];
+    for (const example21 of examples) {
+      messages9.push({
+        role: "user",
+        content: this.formatUserMessage(
+          request.kind,
+          example21.input,
+          (_b = example21.instruction) != null ? _b : ""
+        )
+      });
+      messages9.push({
+        role: "assistant",
+        content: example21.output
+      });
+    }
+    messages9.push({
+      role: "user",
+      content: this.formatUserMessage(
+        request.kind,
+        request.selection,
+        (_c = request.instruction) != null ? _c : ""
+      )
+    });
+    return messages9;
+  }
+  extractOutput(raw) {
+    return extractRefactorOutput(raw, this.outputDelimiter);
+  }
+  formatUserMessage(kind, selection, instruction) {
+    return this.userMessageFormatter({
+      taskName: getRefactorTaskName(kind),
+      taskId: kind,
+      selection,
+      instruction,
+      outputDelimiter: this.outputDelimiter
+    });
+  }
+};
+function getRefactorTaskName(kind) {
+  switch (kind) {
+    case "math_inline" /* MathInline */:
+      return "Math inline";
+    case "inline_to_math_block" /* InlineToMathBlock */:
+      return "Inline to math block";
+    case "grammar_correction" /* GrammarCorrection */:
+      return "Grammar correction";
+    case "custom" /* Custom */:
+      return "Custom refactor";
+    default:
+      return "Refactor";
+  }
+}
+function extractRefactorOutput(raw, outputDelimiter) {
+  if (!raw) {
+    return "";
+  }
+  let cleaned = raw;
+  const delimiterIndex = cleaned.lastIndexOf(outputDelimiter);
+  if (delimiterIndex !== -1) {
+    cleaned = cleaned.slice(delimiterIndex + outputDelimiter.length);
+  }
+  cleaned = cleaned.replace(/^\s*OUTPUT:\s*/i, "");
+  cleaned = stripCodeFences(cleaned).trim();
+  return cleaned;
+}
+function stripCodeFences(text) {
+  const trimmed = text.trim();
+  const fenced = trimmed.match(/^```([a-zA-Z0-9_-]+)?\n([\s\S]*?)\n```$/);
+  if (fenced) {
+    return fenced[2];
+  }
+  const fencedInline = trimmed.match(/^```([a-zA-Z0-9_-]+)?\s*([\s\S]*?)```$/);
+  if (fencedInline) {
+    return fencedInline[2].trim();
+  }
+  const tilde = trimmed.match(/^~~~([a-zA-Z0-9_-]+)?\n([\s\S]*?)\n~~~$/);
+  if (tilde) {
+    return tilde[2];
+  }
+  const tildeInline = trimmed.match(/^~~~([a-zA-Z0-9_-]+)?\s*([\s\S]*?)~~~$/);
+  if (tildeInline) {
+    return tildeInline[2].trim();
+  }
+  return trimmed;
+}
+
+// src/prediction_services/refactor/chat_refactor_service.ts
+var ChatRefactorService = class {
+  static fromSettings(settings) {
+    let client;
+    if (settings.apiProvider === "openai") {
+      client = OpenAIApiClient_default.fromSettings(settings);
+    } else if (settings.apiProvider === "azure") {
+      client = AzureOAIClient_default.fromSettings(settings);
+    } else if (settings.apiProvider === "ollama") {
+      client = OllamaApiClient_default.fromSettings(settings);
+    } else {
+      throw new Error("Invalid API provider");
+    }
+    return new ChatRefactorService(
+      client,
+      new RefactorPromptBuilder(settings),
+      settings.debugMode
+    );
+  }
+  constructor(client, promptBuilder, debugMode) {
+    this.client = client;
+    this.promptBuilder = promptBuilder;
+    this.debugMode = debugMode;
+  }
+  async refactor(request) {
+    const messages9 = this.promptBuilder.buildMessages(request);
+    if (this.debugMode) {
+      console.log("Copilot refactor messages:\n", messages9);
+    }
+    const result = await this.client.queryChatModel(messages9);
+    if (result.isErr()) {
+      return err(result.error);
+    }
+    if (this.debugMode) {
+      console.log("Copilot refactor response:\n", result.value);
+    }
+    const output = this.promptBuilder.extractOutput(result.value);
+    if (!output || output.trim().length === 0) {
+      return err(new Error("Empty refactor output"));
+    }
+    return ok({ output });
+  }
+};
+
+// src/prediction_services/refactor/refactor_fim_prompt_builder.ts
+var Handlebars3 = __toESM(require_lib());
+var DEFAULT_REFACTOR_FIM_SENTINEL = "<<END>>";
+var INLINE_TO_MATH_BLOCK_INSTRUCTION = "Use $$...$$ with \\begin{align*}...\\end{align*}. Put each step on its own line and end every line in align* with \\\\ (double backslash), not a single backslash. Use &= for alignment. Preserve the input's token style (keep a/b or (a/b) if written that way, keep v0 if written that way, keep * instead of \\cdot unless the input used \\cdot).";
+var RefactorFimPromptBuilder = class {
+  constructor(settings) {
+    this.userMessageFormatter = Handlebars3.compile(
+      settings.refactorUserTemplate,
+      { noEscape: true, strict: true }
+    );
+    this.fewShotExamples = settings.refactorFewShotExamples;
+    this.taskSystemMessages = settings.refactorSystemMessages;
+    this.outputDelimiter = DEFAULT_REFACTOR_OUTPUT_DELIMITER;
+    this.sentinel = DEFAULT_REFACTOR_FIM_SENTINEL;
+    this.systemMessage = appendSentinelInstruction(
+      settings.refactorFimSystemMessage,
+      this.sentinel
+    );
+  }
+  buildPrompt(request) {
+    var _a2, _b;
+    const examples = (_a2 = this.fewShotExamples[request.kind]) != null ? _a2 : [];
+    const parts = [];
+    const taskRules = this.taskSystemMessages[request.kind];
+    if (taskRules && taskRules.trim().length > 0) {
+      parts.push(`Task rules:
+${taskRules}`);
+    }
+    for (const example21 of examples) {
+      parts.push(this.formatExample(request.kind, example21));
+    }
+    parts.push(
+      `${this.formatUserMessage(
+        request.kind,
+        request.selection,
+        (_b = request.instruction) != null ? _b : ""
+      )}
+`
+    );
+    return parts.join("\n\n").trimStart();
+  }
+  getSystemMessage() {
+    return this.systemMessage;
+  }
+  getStopTokens() {
+    return [this.sentinel, "<|endoftext|>"];
+  }
+  extractOutput(raw) {
+    return extractRefactorFimOutput(raw, this.outputDelimiter, this.sentinel);
+  }
+  formatExample(kind, example21) {
+    var _a2;
+    return `${this.formatUserMessage(
+      kind,
+      example21.input,
+      (_a2 = example21.instruction) != null ? _a2 : ""
+    )}
+${example21.output}
+${this.sentinel}`;
+  }
+  formatUserMessage(kind, selection, instruction) {
+    const resolvedInstruction = this.resolveInstruction(kind, instruction);
+    return this.userMessageFormatter({
+      taskName: getRefactorTaskName(kind),
+      taskId: kind,
+      selection,
+      instruction: resolvedInstruction,
+      outputDelimiter: this.outputDelimiter
+    });
+  }
+  resolveInstruction(kind, instruction) {
+    var _a2;
+    const trimmed = (_a2 = instruction == null ? void 0 : instruction.trim()) != null ? _a2 : "";
+    if (trimmed.length > 0) {
+      return instruction;
+    }
+    if (kind === "inline_to_math_block" /* InlineToMathBlock */) {
+      return INLINE_TO_MATH_BLOCK_INSTRUCTION;
+    }
+    return "";
+  }
+};
+function appendSentinelInstruction(base, sentinel) {
+  if (base.includes(sentinel)) {
+    return base;
+  }
+  return `${base}
+
+When you finish, append ${sentinel}.`;
+}
+function extractRefactorFimOutput(raw, outputDelimiter, sentinel) {
+  if (!raw) {
+    return "";
+  }
+  let cleaned = raw;
+  const sentinelIndex = cleaned.indexOf(sentinel);
+  if (sentinelIndex !== -1) {
+    cleaned = cleaned.slice(0, sentinelIndex);
+  }
+  const delimiterIndex = cleaned.lastIndexOf(outputDelimiter);
+  if (delimiterIndex !== -1) {
+    cleaned = cleaned.slice(delimiterIndex + outputDelimiter.length);
+  }
+  cleaned = cleaned.replace(/^\s*OUTPUT:\s*/i, "");
+  cleaned = stripCodeFences(cleaned).trim();
+  return cleaned;
+}
+
+// src/prediction_services/refactor/generate_refactor_service.ts
+var GenerateRefactorService = class {
+  static fromSettings(settings) {
+    const promptBuilder = new RefactorFimPromptBuilder(settings);
+    const client = OllamaFIMApiClient_default.fromSettings(
+      settings,
+      promptBuilder.getSystemMessage()
+    );
+    return new GenerateRefactorService(
+      client,
+      promptBuilder,
+      settings.debugMode
+    );
+  }
+  constructor(client, promptBuilder, debugMode) {
+    this.client = client;
+    this.promptBuilder = promptBuilder;
+    this.debugMode = debugMode;
+  }
+  async refactor(request) {
+    const prompt = this.promptBuilder.buildPrompt(request);
+    const stopTokens = this.promptBuilder.getStopTokens();
+    if (this.debugMode) {
+      console.log("Copilot refactor FIM system message:\n", this.promptBuilder.getSystemMessage());
+      console.log("Copilot refactor FIM prompt:\n", prompt);
+      console.log("Copilot refactor FIM stop tokens:\n", stopTokens);
+    }
+    const result = await this.client.queryFIM(prompt, stopTokens);
+    if (result.isErr()) {
+      return err(result.error);
+    }
+    if (this.debugMode) {
+      console.log("Copilot refactor FIM response:\n", result.value);
+    }
+    const output = this.promptBuilder.extractOutput(result.value);
+    if (!output || output.trim().length === 0) {
+      return err(new Error("Empty refactor output"));
+    }
+    return ok({ output });
+  }
+};
+
+// src/prediction_services/refactor_service.ts
+function createRefactorService(settings) {
+  if (settings.apiProvider === "ollama" && settings.ollamaUseFIM) {
+    return GenerateRefactorService.fromSettings(settings);
+  }
+  return ChatRefactorService.fromSettings(settings);
+}
+
+// src/refactor/refactor_confirm_modal.ts
+var import_obsidian8 = require("obsidian");
+var RefactorConfirmModal = class extends import_obsidian8.Modal {
+  constructor(app, original, output, sourcePath, onConfirm) {
+    super(app);
+    this.original = original;
+    this.output = output;
+    this.sourcePath = sourcePath;
+    this.onConfirm = onConfirm;
+    this.resolved = false;
+    this.renderComponent = null;
+  }
+  onOpen() {
+    this.titleEl.setText("Refactor preview");
+    const { contentEl } = this;
+    contentEl.empty();
+    this.renderComponent = new import_obsidian8.Component();
+    this.renderComponent.load();
+    contentEl.createEl("p", {
+      text: "Review the refactor output below before replacing the selection."
+    });
+    const previewContainer = contentEl.createDiv({ cls: "copilot-refactor-preview-grid" });
+    const originalBlock = this.createPreviewBlock(previewContainer, "Original selection", this.original);
+    const outputBlock = this.createPreviewBlock(previewContainer, "Refactor output", this.output);
+    void this.renderMarkdown(this.original, originalBlock.renderedEl);
+    void this.renderMarkdown(this.output, outputBlock.renderedEl);
+    new import_obsidian8.Setting(contentEl).addButton((button) => {
+      button.setButtonText("Replace");
+      button.setCta();
+      button.onClick(() => {
+        this.resolve(true);
+        this.close();
+      });
+    }).addButton((button) => {
+      button.setButtonText("Cancel");
+      button.onClick(() => {
+        this.resolve(false);
+        this.close();
+      });
+    });
+  }
+  onClose() {
+    var _a2;
+    (_a2 = this.renderComponent) == null ? void 0 : _a2.unload();
+    this.renderComponent = null;
+    this.contentEl.empty();
+    this.resolve(false);
+  }
+  resolve(confirmed) {
+    if (this.resolved) {
+      return;
+    }
+    this.resolved = true;
+    this.onConfirm(confirmed);
+  }
+  createPreviewBlock(parent, title, rawText) {
+    const block = parent.createDiv({ cls: "copilot-refactor-preview-block" });
+    block.createEl("div", {
+      text: title,
+      cls: "copilot-refactor-preview-title"
+    });
+    const rawSection = block.createDiv({ cls: "copilot-refactor-preview-section" });
+    rawSection.createEl("div", {
+      text: "Raw",
+      cls: "copilot-refactor-preview-subtitle"
+    });
+    const rawContent = rawSection.createEl("pre", { text: rawText });
+    rawContent.addClass("copilot-refactor-preview");
+    const renderedSection = block.createDiv({ cls: "copilot-refactor-preview-section" });
+    renderedSection.createEl("div", {
+      text: "Rendered",
+      cls: "copilot-refactor-preview-subtitle"
+    });
+    const renderedEl = renderedSection.createDiv({ cls: "copilot-refactor-rendered" });
+    renderedEl.addClass("markdown-preview-view");
+    renderedEl.addClass("markdown-rendered");
+    return { renderedEl };
+  }
+  async renderMarkdown(markdown, el) {
+    if (!markdown || markdown.trim().length === 0) {
+      return;
+    }
+    if (!this.renderComponent) {
+      this.renderComponent = new import_obsidian8.Component();
+      this.renderComponent.load();
+    }
+    await import_obsidian8.MarkdownRenderer.renderMarkdown(
+      markdown,
+      el,
+      this.sourcePath,
+      this.renderComponent
+    );
+  }
+};
+
+// src/refactor/refactor_controller.ts
+var isBeforeOrEqual = (left, right) => {
+  if (left.line !== right.line) {
+    return left.line < right.line;
+  }
+  return left.ch <= right.ch;
+};
+var getRefactorSelection = (editor) => {
+  const selections = editor.listSelections();
+  if (selections.length === 0) {
+    return { status: "empty" };
+  }
+  if (selections.length > 1) {
+    return { status: "multi" };
+  }
+  const selection = selections[0];
+  const isForward = isBeforeOrEqual(selection.anchor, selection.head);
+  const from = isForward ? selection.anchor : selection.head;
+  const to = isForward ? selection.head : selection.anchor;
+  const text = editor.getRange(from, to);
+  if (text.length === 0) {
+    return { status: "empty" };
+  }
+  return { status: "ok", range: { from, to, text } };
+};
+var canRefactorSelection = (editor) => {
+  return getRefactorSelection(editor).status === "ok";
+};
+var RefactorController = class {
+  static fromSettings(settings, eventListener, app) {
+    return new RefactorController(
+      eventListener,
+      createRefactorService(settings),
+      app,
+      settings.refactorDirectReplace
+    );
+  }
+  constructor(eventListener, service, app, directReplace) {
+    this.eventListener = eventListener;
+    this.service = service;
+    this.app = app;
+    this.directReplace = directReplace;
+  }
+  handleSettingChanged(settings) {
+    this.service = createRefactorService(settings);
+    this.directReplace = settings.refactorDirectReplace;
+  }
+  async runRefactor(kind, editor, _view, instruction) {
+    var _a2, _b;
+    const selectionState = getRefactorSelection(editor);
+    if (selectionState.status === "empty") {
+      new import_obsidian9.Notice("Copilot: Select some text to refactor.");
+      return;
+    }
+    if (selectionState.status === "multi") {
+      new import_obsidian9.Notice("Copilot: Refactor supports a single selection.");
+      return;
+    }
+    if (kind === "custom" /* Custom */ && (!instruction || instruction.trim().length === 0)) {
+      new import_obsidian9.Notice("Copilot: Enter custom refactor instructions.");
+      return;
+    }
+    if (this.eventListener.isSuggesting()) {
+      this.eventListener.cancelSuggestion();
+    }
+    const request = {
+      kind,
+      selection: selectionState.range.text,
+      instruction
+    };
+    const result = await this.service.refactor(request);
+    if (result.isErr()) {
+      new import_obsidian9.Notice("Copilot: Refactor failed. See console for details.");
+      console.error(result.error);
+      return;
+    }
+    const output = result.value.output;
+    if (!output || output.trim().length === 0) {
+      new import_obsidian9.Notice("Copilot: Refactor returned empty output.");
+      return;
+    }
+    if (!this.directReplace) {
+      const sourcePath = (_b = (_a2 = _view == null ? void 0 : _view.file) == null ? void 0 : _a2.path) != null ? _b : "";
+      const confirmed = await this.confirmReplace(selectionState.range.text, output, sourcePath);
+      if (!confirmed) {
+        return;
+      }
+    }
+    editor.replaceRange(
+      output,
+      selectionState.range.from,
+      selectionState.range.to,
+      "copilot-refactor"
+    );
+  }
+  async confirmReplace(original, output, sourcePath) {
+    return new Promise((resolve) => {
+      const modal = new RefactorConfirmModal(
+        this.app,
+        original,
+        output,
+        sourcePath,
+        resolve
+      );
+      modal.open();
+    });
+  }
+};
+
+// src/refactor/refactor_instruction_modal.ts
+var import_obsidian10 = require("obsidian");
+var RefactorInstructionModal = class extends import_obsidian10.Modal {
+  constructor(app, onSubmit, initialInstruction = "") {
+    super(app);
+    this.onSubmit = onSubmit;
+    this.initialInstruction = initialInstruction;
+    this.resolved = false;
+  }
+  onOpen() {
+    this.titleEl.setText("Custom refactor");
+    const { contentEl } = this;
+    contentEl.empty();
+    contentEl.createEl("p", {
+      text: "Describe how you want the selection to be refactored."
+    });
+    const textarea = contentEl.createEl("textarea", {
+      attr: {
+        placeholder: "Example: Rewrite in active voice and keep technical terms."
+      }
+    });
+    textarea.addClass("setting-item-text-area-copilot-auto-completion");
+    textarea.addClass("copilot-refactor-instruction");
+    textarea.value = this.initialInstruction;
+    this.instructionInput = textarea;
+    const updateSubmitState = () => {
+      var _a2;
+      const trimmed = textarea.value.trim();
+      (_a2 = this.submitButton) == null ? void 0 : _a2.setDisabled(trimmed.length === 0);
+    };
+    textarea.addEventListener("input", updateSubmitState);
+    textarea.addEventListener("keydown", (event) => {
+      if ((event.metaKey || event.ctrlKey) && event.key === "Enter") {
+        event.preventDefault();
+        this.submit();
+      }
+    });
+    new import_obsidian10.Setting(contentEl).addButton((button) => {
+      this.submitButton = button;
+      button.setButtonText("Refactor");
+      button.setCta();
+      button.onClick(() => {
+        this.submit();
+      });
+    }).addButton((button) => {
+      button.setButtonText("Cancel");
+      button.onClick(() => {
+        this.resolve(null);
+        this.close();
+      });
+    });
+    updateSubmitState();
+    textarea.focus();
+    textarea.select();
+  }
+  onClose() {
+    this.contentEl.empty();
+    this.resolve(null);
+  }
+  submit() {
+    var _a2, _b;
+    const instruction = (_b = (_a2 = this.instructionInput) == null ? void 0 : _a2.value) != null ? _b : "";
+    const trimmed = instruction.trim();
+    if (!trimmed) {
+      new import_obsidian10.Notice("Copilot: Enter custom refactor instructions.");
+      return;
+    }
+    this.resolve(trimmed);
+    this.close();
+  }
+  resolve(instruction) {
+    if (this.resolved) {
+      return;
+    }
+    this.resolved = true;
+    this.onSubmit(instruction);
+  }
+};
+
+// src/refactor/refactor_type_picker_modal.ts
+var import_obsidian11 = require("obsidian");
+var DEFAULT_REFACTOR_TYPES = [
+  {
+    kind: "math_inline" /* MathInline */,
+    label: "Math inline",
+    description: "Convert the selection into a single inline LaTeX expression."
+  },
+  {
+    kind: "inline_to_math_block" /* InlineToMathBlock */,
+    label: "Inline to math block",
+    description: "Expand the selection into a multi-line $$ align* $$ block."
+  },
+  {
+    kind: "grammar_correction" /* GrammarCorrection */,
+    label: "Grammar correction",
+    description: "Fix grammar and spelling while keeping tone and meaning."
+  },
+  {
+    kind: "custom" /* Custom */,
+    label: "Custom refactor",
+    description: "Provide your own instruction to rewrite the selection."
+  }
+];
+var RefactorTypePickerModal = class extends import_obsidian11.SuggestModal {
+  constructor(app, onSelect, options = DEFAULT_REFACTOR_TYPES) {
+    super(app);
+    this.options = options;
+    this.onSelect = onSelect;
+    this.setPlaceholder("Refactor selection to...");
+  }
+  getSuggestions(query) {
+    const normalized = query.trim().toLowerCase();
+    if (!normalized) {
+      return this.options;
+    }
+    return this.options.filter((option) => {
+      return option.label.toLowerCase().includes(normalized) || option.description.toLowerCase().includes(normalized);
+    });
+  }
+  renderSuggestion(option, el) {
+    el.addClass("copilot-refactor-picker-item");
+    const title = el.createEl("div", { text: option.label });
+    title.addClass("copilot-refactor-picker-title");
+    const description = el.createEl("div", { text: option.description });
+    description.addClass("copilot-refactor-picker-description");
+  }
+  onChooseSuggestion(option) {
+    this.onSelect(option.kind);
+  }
+};
+
 // src/main.ts
-var CopilotPlugin = class extends import_obsidian8.Plugin {
+var CopilotPlugin = class extends import_obsidian12.Plugin {
   async onload() {
     const settings = await this.loadSettings();
     const settingsTab = await SettingTab.addSettingsTab(
@@ -47112,6 +48346,12 @@ var CopilotPlugin = class extends import_obsidian8.Plugin {
       this.app
     );
     settingsTab.addObserver(eventListener);
+    const refactorController = RefactorController.fromSettings(
+      settingsTab.settings,
+      eventListener,
+      this.app
+    );
+    settingsTab.addObserver(refactorController);
     this.registerEditorExtension([
       InlineSuggestionState,
       completion_key_watcher_default(
@@ -47125,14 +48365,14 @@ var CopilotPlugin = class extends import_obsidian8.Plugin {
       render_surgestion_plugin_default()
     ]);
     this.app.workspace.onLayoutReady(() => {
-      const view = this.app.workspace.getActiveViewOfType(import_obsidian8.MarkdownView);
+      const view = this.app.workspace.getActiveViewOfType(import_obsidian12.MarkdownView);
       if (view) {
         const editorView = view.editor.cm;
         eventListener.onViewUpdate(editorView);
       }
     });
     this.app.workspace.on("active-leaf-change", (leaf) => {
-      if ((leaf == null ? void 0 : leaf.view) instanceof import_obsidian8.MarkdownView) {
+      if ((leaf == null ? void 0 : leaf.view) instanceof import_obsidian12.MarkdownView) {
         const editorView = leaf.view.editor.cm;
         eventListener.onViewUpdate(editorView);
         eventListener.handleFileChange(leaf.view.file);
@@ -47167,6 +48407,135 @@ var CopilotPlugin = class extends import_obsidian8.Plugin {
         return true;
       }
     });
+    let lastCustomInstruction = "";
+    const promptCustomInstruction = async () => {
+      return new Promise((resolve) => {
+        const modal = new RefactorInstructionModal(
+          this.app,
+          (instruction) => {
+            if (instruction) {
+              lastCustomInstruction = instruction;
+            }
+            resolve(instruction);
+          },
+          lastCustomInstruction
+        );
+        modal.open();
+      });
+    };
+    const runRefactor = async (kind, editor, view) => {
+      if (kind === "custom" /* Custom */) {
+        const instruction = await promptCustomInstruction();
+        if (!instruction) {
+          return;
+        }
+        await refactorController.runRefactor(kind, editor, view, instruction);
+        return;
+      }
+      await refactorController.runRefactor(kind, editor, view);
+    };
+    const openRefactorTypePicker = (editor, view) => {
+      const modal = new RefactorTypePickerModal(
+        this.app,
+        (kind) => {
+          void runRefactor(kind, editor, view);
+        }
+      );
+      modal.open();
+    };
+    const runRefactorCommand = (kind) => {
+      return (checking, editor, view) => {
+        if (checking) {
+          return canRefactorSelection(editor);
+        }
+        void runRefactor(kind, editor, view);
+        return true;
+      };
+    };
+    this.addCommand({
+      id: "refactor_choose_type",
+      name: "Refactor: Choose Type",
+      editorCheckCallback: (checking, editor, view) => {
+        if (checking) {
+          return canRefactorSelection(editor);
+        }
+        openRefactorTypePicker(editor, view);
+        return true;
+      }
+    });
+    this.addCommand({
+      id: "refactor_math_inline",
+      name: "Refactor to Math Inline",
+      editorCheckCallback: runRefactorCommand("math_inline" /* MathInline */)
+    });
+    this.addCommand({
+      id: "refactor_inline_to_math_block",
+      name: "Refactor to Math Block",
+      editorCheckCallback: runRefactorCommand("inline_to_math_block" /* InlineToMathBlock */)
+    });
+    this.addCommand({
+      id: "refactor_grammar_correction",
+      name: "Refactor to Grammar Correction",
+      editorCheckCallback: runRefactorCommand("grammar_correction" /* GrammarCorrection */)
+    });
+    this.addCommand({
+      id: "refactor_custom",
+      name: "Refactor to Custom",
+      editorCheckCallback: runRefactorCommand("custom" /* Custom */)
+    });
+    this.registerEvent(
+      this.app.workspace.on("editor-menu", (menu, editor, view) => {
+        const canRefactor = canRefactorSelection(editor);
+        menu.addSeparator();
+        menu.addItem((item) => {
+          item.setTitle("Refactor to...");
+          if ("setIsLabel" in item && typeof item.setIsLabel === "function") {
+            item.setIsLabel(true);
+          }
+          item.setDisabled(true);
+        });
+        menu.addItem((item) => {
+          item.setTitle("Math inline");
+          item.setDisabled(!canRefactor);
+          item.onClick(() => {
+            void refactorController.runRefactor(
+              "math_inline" /* MathInline */,
+              editor,
+              view
+            );
+          });
+        });
+        menu.addItem((item) => {
+          item.setTitle("Inline to math block");
+          item.setDisabled(!canRefactor);
+          item.onClick(() => {
+            void refactorController.runRefactor(
+              "inline_to_math_block" /* InlineToMathBlock */,
+              editor,
+              view
+            );
+          });
+        });
+        menu.addItem((item) => {
+          item.setTitle("Grammar correction");
+          item.setDisabled(!canRefactor);
+          item.onClick(() => {
+            void refactorController.runRefactor(
+              "grammar_correction" /* GrammarCorrection */,
+              editor,
+              view
+            );
+          });
+        });
+        menu.addItem((item) => {
+          item.setTitle("Custom refactor");
+          item.setDisabled(!canRefactor);
+          item.onClick(() => {
+            void runRefactor("custom" /* Custom */, editor, view);
+          });
+        });
+      })
+    );
     this.addCommand({
       id: "toggle",
       name: "Toggle",
@@ -47208,7 +48577,7 @@ var CopilotPlugin = class extends import_obsidian8.Plugin {
     if (result.isOk()) {
       return result.value;
     } else {
-      new import_obsidian8.Notice("Copilot: Could not load settings, reverting to default settings");
+      new import_obsidian12.Notice("Copilot: Could not load settings, reverting to default settings");
       console.error(result.error);
       return DEFAULT_SETTINGS;
     }
