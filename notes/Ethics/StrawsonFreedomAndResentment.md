@@ -7,5 +7,5 @@
 
 Strawson's attempt: reconcile them
 
-
+Optimists' argument: Punishment is effective for regulating socially desirable behavior; Therefore, punishment is 
 
