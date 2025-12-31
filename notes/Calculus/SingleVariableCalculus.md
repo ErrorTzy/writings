@@ -167,7 +167,7 @@ $$
 Similarly, we can show that for $f(x)=mx+b$, $f'(x)=m$
  
 Derivatives of constant multiples
-: let $g(x)=k \cdot f(x)$, then $g'(x) = k \cdot f'(x)$
+: let $g(x)=k \cdot f(x)$, then $g'(x) = k \cdot f'(x)$ 
 
 **Example**: Given this, we can now know when $g(x)=-5x^{2}$, $g'(x)= -10x$ because $g(x)= -5 \cdot f(x)$ and $f(x)=x^2$. Given that $f'(x)=2x$, then $g'(x) = -5 \cdot 2x=10x$.
 
@@ -224,3 +224,11 @@ This proof only works when $n$ is a positive integer. However, the power rule ap
 
 The power rule only directly applies to functions of the form $f(x) = x^n$, where the base is the variable and the exponent is a constant.
 
+Useful shortcuts: if $f'(x)=k\cdot x^n$, then $f(x)=\frac{k}{n+1}x^{n+1}$
+
+### Leibniz Notation
+
+- Newton's notation: The derivative of $f(x)$ is $f'(x)$
+- Leibniz's notation: The derivative of $f(x)$ is $\frac{dy}{dx}$. Sometimes, also $\frac{df}{dx}$, $\frac{d}{dx}f$, $\frac{d}{dx}y$
+
+The motivation for the Leibniz's notation is the definition of derivatives: $f'(x)=\lim_{\Delta x \to 0} \frac{\Delta y}{\Delta x}$
