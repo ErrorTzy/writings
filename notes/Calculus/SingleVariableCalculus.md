@@ -166,12 +166,12 @@ f'(k) &= \lim_{h \to 0} \frac{(k+h)^2 - k^2}{h} \\
 $$
 Similarly, we can show that for $f(x)=mx+b$, $f'(x)=m$
  
-**Derivatives of constant multiples**
+Derivatives of constant multiples
 : let $g(x)=k \cdot f(x)$, then $g'(x) = k \cdot f'(x)$
 
 **Example**: Given this, we can now know when $g(x)=-5x^{2}$, $g'(x)= -10x$ because $g(x)= -5 \cdot f(x)$ and $f(x)=x^2$. Given that $f'(x)=2x$, then $g'(x) = -5 \cdot 2x=10x$.
 
-**Derivatives of a sum**
+Derivatives of a sum
 : if $h(x)= f(x) + g(x)$, then $h'(x) = f'(x) + g'(x)$
 : Similarly, if $h(x) = f(x) - g(x)$, then $h'(x) = f'(x) - g'(x)$
 
@@ -223,5 +223,4 @@ This proof only works when $n$ is a positive integer. However, the power rule ap
 - $f(x) = x^{x}$, $f'(x) \neq x \cdot x^{x-1}$
 
 The power rule only directly applies to functions of the form $f(x) = x^n$, where the base is the variable and the exponent is a constant.
-
 
