@@ -233,3 +233,5 @@ Useful shortcuts: if $f'(x)=k\cdot x^n$, then $f(x)=\frac{k}{n+1}x^{n+1}$
 
 The motivation for the Leibniz's notation is the definition of derivatives: $f'(x)=\lim_{\Delta x \to 0} \frac{\Delta y}{\Delta x}$. In other words, the "d" stands for *the limit of a difference*. This notation makes explict what is changing with respect to what.
 
+## Differentiation
+
