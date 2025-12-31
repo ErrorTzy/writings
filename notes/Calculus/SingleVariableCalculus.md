@@ -229,6 +229,8 @@ Useful shortcuts: if $f'(x)=k\cdot x^n$, then $f(x)=\frac{k}{n+1}x^{n+1}$
 ### Leibniz Notation
 
 - Newton's notation: The derivative of $f(x)$ is $f'(x)$
-- Leibniz's notation: The derivative of $f(x)$ is $\frac{dy}{dx}$. Sometimes, also $\frac{df}{dx}$, $\frac{d}{dx}f$, $\frac{d}{dx}y$
+- Leibniz's notation: The derivative of $f(x)$ is $\frac{dy}{dx}|_{r=x}$. Sometimes, also $\frac{df}{dx}$, $\frac{d}{dx}f$, $\frac{d}{dx}y$
 
-The motivation for the Leibniz's notation is the definition of derivatives: $f'(x)=\lim_{\Delta x \to 0} \frac{\Delta y}{\Delta x}$
+The motivation for the Leibniz's notation is the definition of derivatives: $f'(x)=\lim_{\Delta x \to 0} \frac{\Delta y}{\Delta x}$. In other words, the "d" stands for *the limit of a difference*
+
+
