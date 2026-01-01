@@ -233,5 +233,14 @@ Useful shortcuts: if $f'(x)=k\cdot x^n$, then $f(x)=\frac{k}{n+1}x^{n+1}$
 
 The motivation for the Leibniz's notation is the definition of derivatives: $f'(x)=\lim_{\Delta x \to 0} \frac{\Delta y}{\Delta x}$. In other words, the "d" stands for *the limit of a difference*. This notation makes explict what is changing with respect to what.
 
+
+### Trigonometric functions
+
+Derivative of sine function: $$\begin{align*}
+sin'(x) &= \frac{\sin(x+\Delta x) - \sin x}{\Delta x} \\
+&= \frac{\cos x \sin(\Delta x) + \sin x \cos(\Delta x) - \sin x}{\Delta x} \\
+&= \cos x \frac{\sin(\Delta x)}{\Delta x} + \sin x \frac{\cos(\Delta x) - 1}{\Delta x}
+\end{align*}$$
+
 ## Differentiation
 
