@@ -236,11 +236,27 @@ The motivation for the Leibniz's notation is the definition of derivatives: $f'(
 
 ### Trigonometric functions
 
-Derivative of sine function: $$\begin{align*}
-sin'(x) &= \frac{\sin(x+\Delta x) - \sin x}{\Delta x} \\
+Derivative of sine function: 
+
+$$\frac{d}{dx} \sin x = \lim_{\Delta x \to 0} \frac{\sin(x+\Delta x) - \sin x}{\Delta x}$$Let $\frac{\sin(x + \Delta x) - \sin x}{\Delta x} = P$:
+
+$$\begin{align*}
+P &= \frac{\sin(x+\Delta x) - \sin x}{\Delta x} \\
 &= \frac{\cos x \sin(\Delta x) + \sin x \cos(\Delta x) - \sin x}{\Delta x} \\
 &= \cos x \frac{\sin(\Delta x)}{\Delta x} + \sin x \frac{\cos(\Delta x) - 1}{\Delta x}
 \end{align*}$$
+
+Then $$\begin{align*}
+\lim_{\Delta x \to 0} P &= \lim_{\Delta x \to 0} \cos x \lim_{\Delta x \to 0} \frac{\sin(\Delta x)}{\Delta x} + \lim_{\Delta x \to 0}\sin x \lim_{\Delta x \to 0} \frac{\cos(\Delta x) - 1}{\Delta x}\\
+&= cosx \lim_{\Delta x \to 0} \frac{\sin(\Delta x)}{\Delta x} + \sin x \lim_{\Delta x \to 0} \frac{\cos(\Delta x) - 1}{\Delta x}
+\end{align*}$$
+Important observation: $\lim_{\Delta x \to 0} \frac{\sin(\Delta x)}{\Delta x} = sin'(0)$, and $\lim_{\Delta x \to 0} \frac{\cos(\Delta x) - 1}{\Delta x} = \cos'(0)$. If we can know $sin'(0)$ and $\cos'(0)$, we can find the derivative of sine and cosine.
+
+
+**Very Loose Geometric proof**: $sin'(0)=1$ and $cos'(0)=0$
+*This argument only works when x is radius degree.* Consider the unit circle, and the angle $\theta$. Let $\theta$ be the angle, then $sin'(0)$ is the ratio of the straight line $sin(\theta)$ and the arc $\theta$. And from the graph, we see that $sin(\theta)$ and $\theta$ approach each other as $\theta \to 0$. Therefore, $sin'(0)=1$. Similarly, we may infer from the graph that $cos'(0)=0$. This can be confirmed from the cosine graph that the slope is horizontal when $x=0$
+
+Given this, we can know $sin'(x)=cos(x)$. By the same token, $cos'(x)=-sin(x)$
 
 ## Differentiation
 
