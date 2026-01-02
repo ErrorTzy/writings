@@ -256,6 +256,8 @@ Important observation: $\lim_{\Delta x \to 0} \frac{\sin(\Delta x)}{\Delta x} = 
 **Very Loose Geometric proof**: $sin'(0)=1$ and $cos'(0)=0$
 *This argument only works when x is radius degree.* Consider the unit circle, and the angle $\theta$. Let $\theta$ be the angle, then $sin'(0)$ is the ratio of the straight line $sin(\theta)$ and the arc $\theta$. And from the graph, we see that $sin(\theta)$ and $\theta$ approach each other as $\theta \to 0$. Therefore, $sin'(0)=1$. Similarly, we may infer from the graph that $cos'(0)=0$. This can be confirmed from the cosine graph that the slope is horizontal when $x=0$
 
+This argument can be rigorously proven by squeeze.
+
 Given this, we can know $sin'(x)=cos(x)$. By the same token, $cos'(x)=-sin(x)$
 
 ## Differentiation
