@@ -260,6 +260,10 @@ This argument can be rigorously proven by squeeze.
 
 Given this, we can know $sin'(x)=cos(x)$. By the same token, $cos'(x)=-sin(x)$
 
+Trigonometric functions' derivatives: 
+: $\sin'(x)=\cos x$
+: $\cos'(x)=-\sin x$
+
 ## Differentiation
 
 Derivatives are useful for LINEAR APPROXIMATION.
@@ -270,3 +274,14 @@ Product rule
 : $\frac{d}{dx}[f(x)g(x)] = f'(x)g(x) + f(x)g'(x)$
 
 Justificatin for $\frac{d}{dx}[f(x)g(x)]$ not being $f'(x)g'(x)$: Assume $x$ is time (s), and $g$ and $f$ are functions that maps time to distance (m). Then $f'(x)$ and $g'(x)$ measures speed in $m/s$. Then we can see $f(x)\cdot g(x)$ is distance times distance (m²). Therefore, $\frac{d}{dx}[f(x)g(x)]$ is measured in m²/s. But $f'(x)g'(x)$ is speed times speed (m²/s²). Since the units don't match, $f'(x)g'(x)$ cannot be the derivative of $f(x)g(x)$.
+
+The way to think about the problem: given that f and g are both functions that maps time to distance, we can understand their product as a rectangular area, where one side is f(x) and the other is g(x). The derivative of $f(x) \cdot g(x)$ is the rate of change of the area as $x$ increases.
+
+More rigorous proof: $$\begin{align*}
+\frac{d}{dx} [f(x) \cdot g(x)] &= \lim_{\Delta x \to 0} \frac{f(x+\Delta x)g(x+\Delta x) - f(x)g(x)}{\Delta x} \\
+&= \lim_{\Delta x \to 0} \frac{f(x+\Delta x)g(x+\Delta x) - f(x)g(x+\Delta x) + f(x)g(x+\Delta x) - f(x)g(x)}{\Delta x} \\
+&= \lim_{\Delta x \to 0} \frac{[f(x+\Delta x) - f(x)]g(x+\Delta x) + f(x)[g(x+\Delta x) - g(x)]}{\Delta x} \\
+&= \lim_{\Delta x \to 0} \frac{f(x+\Delta x) - f(x)}{\Delta x}g(x+\Delta x) + \lim_{\Delta x \to 0} \frac{g(x+\Delta x) - g(x)}{\Delta x}f(x) \\
+&= f(x)g'(x) + f'(x)g(x)\\
+\end{align*}$$
+
