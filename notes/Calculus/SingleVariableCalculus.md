@@ -266,3 +266,7 @@ Derivatives are useful for LINEAR APPROXIMATION.
 
 **Example**: we want to approximate $\sqrt{104}$. We know that $\sqrt{100}=10$, and $\sqrt{104}$ is close to $\sqrt{100}$. Let $f(x)=\sqrt{x}$, then $f'(x)=\frac{1}{2\sqrt{x}}$. So $f'(100)=\frac{1}{20}$. Then we can approximate $\sqrt{104}$ by $f(100)+f'(100)(104-100)=10+\frac{1}{20}\cdot 4=10.2$.
 
+Product rule
+: $\frac{d}{dx}[f(x)g(x)] = f'(x)g(x) + f(x)g'(x)$
+
+Justificatin for $\frac{d}{dx}[f(x)g(x)]$ not being $f'(x)g'(x)$: Assume $x$ is time (s), and $g$ and $f$ are functions that maps time to distance (m). Then $f'(x)$ and $g'(x)$ measures speed in $m/s$. Then we can see $f(x)\cdot g(x)$ is distance times distance (m²). Then $f'(x)g'(x)$ is speed times speed (m²/s²). Since the units don't match, $f'(x)g'(x)$ cannot be the derivative of $f(x)g(x)$.
