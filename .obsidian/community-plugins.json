@@ -19,5 +19,6 @@
   "pandoc-extended-markdown",
   "better-word-count",
   "typing-transformer-obsidian",
-  "copilot-auto-completion"
+  "copilot-auto-completion",
+  "obsidian-functionplot"
 ]

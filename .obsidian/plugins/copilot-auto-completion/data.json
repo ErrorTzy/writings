@@ -1,7 +1,7 @@
 {
   "settings": {
     "version": "1",
-    "enabled": false,
+    "enabled": true,
     "advancedMode": true,
     "apiProvider": "ollama",
     "azureOAIApiSettings": {
@@ -14,7 +14,7 @@
       "model": "gpt-3.5-turbo"
     },
     "ollamaApiSettings": {
-      "url": "http://localhost:11434/api/chat",
+      "url": "http://10.0.0.88:11434/api/chat",
       "model": "qwen3-coder-fim-system"
     },
     "ollamaUseFIM": true,
