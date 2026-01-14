@@ -132,3 +132,26 @@ Then now the question is, what exactly do we mean when we say "there being a tab
 6.7. Hence the core question emerges: **What principle or method—if any—can tell us what we should be ontologically committed to, and how to justify that commitment, without relying on shaky notions like concreteness, ungrounded claims about fundamentality, or an uncritical appeal to common sense?**
 
 That’s the structure of your worry, as I understand it: it’s a three-front attack on concreteness, fundamentality, and common sense as guides to “what there really is,” leaving the status of our ontological commitments deeply unclear.
+
+---
+
+Starting point of meaning:
+
+1. Observable events (what's out there, directly observable)
+2. Our judgement of the events (are they similar?)
+3. Our explanation of the events (intentionality?)
+
+Is it possible to deal with meaning with just 1 and 2? Linguistic laws would be like physics: correlation of things being refered to and the symbols. But we don't think correlations are "language"
+
+stroke people language
+
+uninterpretable language: tolo tolo tolo tolo? (one word language?)
+
+explanation of linguistic behavior like natural phenomena? law of nature: "chair" comes with chair?
+
+meaning of a sentence = truth condition? Why?
+
+learning language stage and capable language user statge
+
+ why do we ask how do we learn language? We try to understand how the mapping is created in the first place: what is mapped to what --> This task does not require inqury into learning language phase. The question emerges when we want to ask why? what's the rule for mapping?
+ Why do we care about why? Disagreement about linguistic meaning: who wins? People seems to map the same symbol to different things.
