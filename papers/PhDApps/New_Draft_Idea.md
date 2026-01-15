@@ -165,3 +165,7 @@ for (2), not all sound we produce intentionally are considered "linguistic". We 
 for (3), not all linguitic event can be said to be true or false. For example, uttering "I promise to do something" is intentional, linguistic event, but this expression has no truth value. Why?
 
 The reason I ask these three questions is that, I want to know when we say a sentence is true, what exactly do we presuppose? To say something is true or false, it first needs to be some linguistic expression. And linguistic expression needs intentionality. And being linguisitic expression is not enough to qualify as being truth apt. So we want to know what are the rules that we use to interpret some event that can be evaluated as being "truth apt"
+
+metasemantics should not only ask how our words get their meanings. We should also ask, why do we treat something as words? We interpret some sound, signs or gestures as words. How? Out of what reason do we do that?
+We interpret some (1) intentional actions that (2) express somthing as linguistic behavior. So there are some rules for judging whether something is , and judging some event is 
+The problem is we almost subconsciously do that. We do not really infer. So what's the methodology?
