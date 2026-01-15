@@ -155,3 +155,13 @@ learning language stage and capable language user statge
 
  why do we ask how do we learn language? We try to understand how the mapping is created in the first place: what is mapped to what --> This task does not require inqury into learning language phase. The question emerges when we want to ask why? what's the rule for mapping?
  Why do we care about why? Disagreement about linguistic meaning: who wins? People seems to map the same symbol to different things.
+
+1. how do we distinguish intentional events and non-intentional events? (some mind is involved)
+2. how do we distinguish intentional, and linguistic events from non linguistic events? (it's expressing something)
+3. how do we distinguish truth-apt linguitic expressions from non-truth-apt linguistic expression? (it's expressing some description)
+
+for (1), not all events are intentional. Tornado moves, but we don't say tornado moves intentionally. Why?
+for (2), not all sound we produce intentionally are considered "linguistic". We may intentionally produce knuckle cracking sound, but we don't think it's linguitic. Why?
+for (3), not all linguitic event can be said to be true or false. For example, uttering "I promise to do something" is intentional, linguistic event, but this expression has no truth value. Why?
+
+The reason I ask these three questions is that, I want to know when we say a sentence is true, what exactly do we presuppose? To say something is true or false, it first needs to be some linguistic expression. And linguistic expression needs intentionality. And being linguisitic expression is not enough to qualify as being truth apt. So we want to know what are the rules that we use to interpret some event that can be evaluated as being "truth apt"
