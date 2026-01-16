@@ -2,6 +2,8 @@
 
 ### 1. Normative Concepts
 
+> Eli: Parfit is looking for a action related concept that is parallel to reason vs evidence for belief.
+
 Parfit's way of talking
 
 - **I have reason X to do Y**: X is a reason for doing Y if and only if X is a reason for doing Y, even if we are not aware of it.
