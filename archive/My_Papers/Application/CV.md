@@ -50,7 +50,3 @@ Expertise: political philosophy
 School of International Relations & Public Affairs
 Shanghai International Studies University
 xiongwenchi@shisu.edu.cn
-
-## Additional Information
-
-I am now taking a gap year to prepare for applying to philosophy programs and make room for more reading.

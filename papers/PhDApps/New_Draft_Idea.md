@@ -169,3 +169,7 @@ The reason I ask these three questions is that, I want to know when we say a sen
 metasemantics should not only ask how our words get their meanings. We should also ask, why do we treat something as words? We interpret some sound, signs or gestures as words. How? Out of what reason do we do that?
 We interpret some (1) intentional actions that (2) express somthing as linguistic behavior. So there are some rules for judging whether something is , and judging some event is 
 The problem is we almost subconsciously do that. We do not really infer. So what's the methodology?
+
+A corollary of interpretative charity: all rules are automatically valid? But that seems strange: some rules are truth apt. Some seems not. e.g. mathematical rules are true/false. Moral rules are not. What about game rules? "There are biships" are true? Or not truth apt? What do you mean? What about moral rules? Why some rules can be truth-apt at all? Or are they rules at all? Why do we interpret these as rules?
+
+Axioms as inference rule are RULES for derivations and deduction. Are they truth apt really? Formal models are constructed for rules, i.e. the kind of structure that rule specifies. (i.e. the situation/board where the game can be played) When is anything true?
