@@ -188,6 +188,8 @@ Again, if we just think languistic expressions have meaning just because it give
 
 But one can surely secretly think "wow" to be an abbreviation of "I am superised". There is no behavioral difference between those who think in this way. In fact, the skepticism is: how do you know "wow" in English is not truth-apt? Maybe all English speakers are interpreting "wow" as "I am superised", except you? Or maybe more plausibly, maybe there is a community where they interpret "wow" as simply short for "I am superised", is there any thing wrong about their language?
 
+RM: Either they follow the same rule but make absurd mistake; Or they follow different but absurd rules. Either way, there are some absurdities: either we don't understand their way of following rules (i.e. the disagreement is on what are "rules"), or we don't understand their way of forming rules (agree on what rules are, but disagree on which one to follow).
+
 Can rules be evaluated as true and false? It seems so: when we say, in chess, there are bishops, this is true as long as chess has a definite referent. But in chess seems necessary for evaluation. There are no bishop in sodoku. Is the bare sentence "there are bishops" true, without adding "in chess"? This is like asking whether "there are numbers" is true without adding "in peano axiom".
 
 Interpretive charity: all rules are automatically valid.
