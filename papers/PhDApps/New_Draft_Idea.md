@@ -173,3 +173,25 @@ The problem is we almost subconsciously do that. We do not really infer. So what
 A corollary of interpretative charity: all rules are automatically valid? But that seems strange: some rules are truth apt. Some seems not. e.g. mathematical rules are true/false. Moral rules are not. What about game rules? "There are biships" are true? Or not truth apt? What do you mean? What about moral rules? Why some rules can be truth-apt at all? Or are they rules at all? Why do we interpret these as rules?
 
 Axioms as inference rule are RULES for derivations and deduction. Are they truth apt really? Formal models are constructed for rules, i.e. the kind of structure that rule specifies. (i.e. the situation/board where the game can be played) When is anything true?
+
+"Wow" is not truth-apt, but "I am surprised" is truth-apt; "Ouch" is not truth-apt, but "I am in pain" is truth-apt. A lot of meaningful expressions are not truth-apt. So what is truth?
+
+Alien semantics that has no concept of truth: all words are like "wow" or "ouch": they express some sort of mood or emotion. "There is a table" express the feeling of there being a table. (a truth-less language) But this language is surely meaningful.
+
+Given that we don't interpret language in this way, we have a primitive state of mind where can be evaluated as true and false. What do we mean when we say we evaluate something as true or false, really? I think somewhere along verification or truth condition is essential. In order for something to be true, there must be some condition to appeal to.
+
+Why we think "ouch" and "wow" don't have a truth value, dispite we know that they express something very similar to "I am in pain" and "I am surprised"? One response is, they don't express propostions. But why do we interpret them as not expressing propositions? Some expressions that take the form of a proposition, like "God bless you" isn't a proposition dispite its surface grammer. When asked "where's the book?", we also interpret the answer "On the table" as truth-apt dispite it lacks the surface grammar of a proposition. Explaining truth in terms of "expressing a proposition" is still not explaining.
+
+Briefness, and the tone of "ouch" and "wow" seems to be a reason. It's because when we are in pain or superised, we (ordinary people, at least) have involuntary response. So we think these expressions are more of involuntary behavior, like people shivers when they are cold: we can infer the feeling of cold from the shiver, but we don't think the shiver intend to express some fact.
+
+Again, if we just think languistic expressions have meaning just because it gives us inference, and when we say something it's just disposition, then there is no good reason to distinguish "wow" and "I am superised". There's something more than inferential role and dispositions: a special state of mind that is "about the world". When saying "I am superised", I am in a mental state where I intend to express something about the world. When I say "wow", I'm not.
+
+But one can surely secretly think "wow" to be an abbreviation of "I am superised". There is no behavioral difference between those who think in this way. In fact, the skepticism is: how do you know "wow" in English is not truth-apt? Maybe all English speakers are interpreting "wow" as "I am superised", except you? Or maybe more plausibly, maybe there is a community where they interpret "wow" as simply short for "I am superised", is there any thing wrong about their language?
+
+Can rules be evaluated as true and false? It seems so: when we say, in chess, there are bishops, this is true as long as chess has a definite referent. But in chess seems necessary for evaluation. There are no bishop in sodoku. Is the bare sentence "there are bishops" true, without adding "in chess"? This is like asking whether "there are numbers" is true without adding "in peano axiom".
+
+Interpretive charity: all rules are automatically valid.
+
+Valid in what? Valid in the models that satisfies the rule, for sure. But is the rule valid *in reality*?
+
+We have some guesses of meanings in the first place, and we attach these guesses to words. We don't have to really understand the referent: ordinary understand electrons like balls roaming around atoms. I can talk about electrons.
