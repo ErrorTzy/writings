@@ -197,3 +197,5 @@ Interpretive charity: all rules are automatically valid.
 Valid in what? Valid in the models that satisfies the rule, for sure. But is the rule valid *in reality*?
 
 We have some guesses of meanings in the first place, and we attach these guesses to words. We don't have to really understand the referent: ordinary understand electrons like balls roaming around atoms. I can talk about electrons.
+
+**The ultimate question: are ontological dispute merely verbal?**
