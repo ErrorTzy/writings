@@ -199,3 +199,7 @@ Valid in what? Valid in the models that satisfies the rule, for sure. But is the
 We have some guesses of meanings in the first place, and we attach these guesses to words. We don't have to really understand the referent: ordinary understand electrons like balls roaming around atoms. I can talk about electrons.
 
 **The ultimate question: are ontological dispute merely verbal?**
+
+Assume we can calculate extremely fast, and we explain people's utterance as the output of a turin machine. We don't need any interpretation of thoughts, for all behvaiors can be explained by the configuration of a TM. If we do that, then there wouldn't be a difference between shivering while cold and speaking. Only when we interpret meanings in terms of mental states can linguistic behavior be "meaningful" at all.
+
+Surely meaning is something mental: interpretation is merely a "guess". Meaning is the mental states themselves, not the interpretation of mental states.
