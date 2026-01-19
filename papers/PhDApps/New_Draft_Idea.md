@@ -204,4 +204,6 @@ Assume we can calculate extremely fast, and we explain people's utterance as the
 
 Surely meaning is something mental: interpretation is merely a "guess". Meaning is the mental states themselves, not the interpretation of mental states.
 
-What is the aim of ontology?
+What is the aim of ontology? If representation could be arbitrary, then ontology is arbitrary, and there is no right or wrong at all. Our aim is to understand the concept of truth.
+
+naturalize intentionality?
