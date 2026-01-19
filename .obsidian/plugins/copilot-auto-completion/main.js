@@ -2477,7 +2477,7 @@ var require_react_dom_development = __commonJS({
         var HostPortal = 4;
         var HostComponent = 5;
         var HostText = 6;
-        var Fragment4 = 7;
+        var Fragment5 = 7;
         var Mode = 8;
         var ContextConsumer = 9;
         var ContextProvider = 10;
@@ -3633,7 +3633,7 @@ var require_react_dom_development = __commonJS({
               return "DehydratedFragment";
             case ForwardRef:
               return getWrappedName$1(type, type.render, "ForwardRef");
-            case Fragment4:
+            case Fragment5:
               return "Fragment";
             case HostComponent:
               return type;
@@ -13304,7 +13304,7 @@ var require_react_dom_development = __commonJS({
             }
           }
           function updateFragment2(returnFiber, current2, fragment, lanes, key) {
-            if (current2 === null || current2.tag !== Fragment4) {
+            if (current2 === null || current2.tag !== Fragment5) {
               var created = createFiberFromFragment(fragment, returnFiber.mode, lanes, key);
               created.return = returnFiber;
               return created;
@@ -13707,7 +13707,7 @@ var require_react_dom_development = __commonJS({
               if (child.key === key) {
                 var elementType = element.type;
                 if (elementType === REACT_FRAGMENT_TYPE) {
-                  if (child.tag === Fragment4) {
+                  if (child.tag === Fragment5) {
                     deleteRemainingChildren(returnFiber, child.sibling);
                     var existing = useFiber(child, element.props.children);
                     existing.return = returnFiber;
@@ -17882,7 +17882,7 @@ var require_react_dom_development = __commonJS({
               var _resolvedProps2 = workInProgress2.elementType === type ? _unresolvedProps2 : resolveDefaultProps(type, _unresolvedProps2);
               return updateForwardRef(current2, workInProgress2, type, _resolvedProps2, renderLanes2);
             }
-            case Fragment4:
+            case Fragment5:
               return updateFragment(current2, workInProgress2, renderLanes2);
             case Mode:
               return updateMode(current2, workInProgress2, renderLanes2);
@@ -18155,7 +18155,7 @@ var require_react_dom_development = __commonJS({
             case SimpleMemoComponent:
             case FunctionComponent:
             case ForwardRef:
-            case Fragment4:
+            case Fragment5:
             case Mode:
             case Profiler:
             case ContextConsumer:
@@ -22414,7 +22414,7 @@ var require_react_dom_development = __commonJS({
           return fiber;
         }
         function createFiberFromFragment(elements, mode, lanes, key) {
-          var fiber = createFiber(Fragment4, elements, key, mode);
+          var fiber = createFiber(Fragment5, elements, key, mode);
           fiber.lanes = lanes;
           return fiber;
         }
@@ -41962,7 +41962,7 @@ var MIN_DELAY = 0;
 var MAX_DELAY = 2e3;
 var MIN_MAX_CHAR_LIMIT = 100;
 var MAX_MAX_CHAR_LIMIT = 1e4;
-var MIN_MAX_TOKENS = 128;
+var MIN_MAX_TOKENS = 1;
 var MAX_MAX_TOKENS = 8192;
 var MIN_TEMPERATURE = 0;
 var MAX_TEMPERATURE = 1;
@@ -43128,6 +43128,7 @@ function findEqualPaths(obj1, obj2, basePath = "") {
 var React3 = __toESM(require_react());
 var import_react = __toESM(require_react());
 function SliderSettingsItem(props) {
+  var _a2;
   const { errorMessage } = props;
   const [isFocused, setIsFocused] = React3.useState(false);
   const sliderRef = (0, import_react.useRef)(null);
@@ -43147,24 +43148,45 @@ function SliderSettingsItem(props) {
       description: props.description,
       errorMessage
     },
-    /* @__PURE__ */ React3.createElement(
-      "input",
+    /* @__PURE__ */ React3.createElement(React3.Fragment, null, /* @__PURE__ */ React3.createElement(
+      "div",
       {
-        ref: sliderRef,
-        onChange: onValueChange,
-        className: "slider",
-        type: "range",
-        min: props.min,
-        max: props.max,
-        step: props.step,
-        value: props.value,
-        onMouseEnter: () => setIsFocused(true),
-        onMouseLeave: () => setIsFocused(false),
-        onFocus: () => setIsFocused(true),
-        onBlur: () => setIsFocused(false)
-      }
-    ),
-    isFocused && sliderRef.current !== null && /* @__PURE__ */ React3.createElement(
+        style: {
+          display: "flex",
+          alignItems: "center",
+          gap: "8px"
+        }
+      },
+      /* @__PURE__ */ React3.createElement(
+        "input",
+        {
+          ref: sliderRef,
+          onChange: onValueChange,
+          className: "slider",
+          type: "range",
+          min: props.min,
+          max: props.max,
+          step: props.step,
+          value: props.value,
+          onMouseEnter: () => setIsFocused(true),
+          onMouseLeave: () => setIsFocused(false),
+          onFocus: () => setIsFocused(true),
+          onBlur: () => setIsFocused(false)
+        }
+      ),
+      props.showInput && /* @__PURE__ */ React3.createElement(
+        "input",
+        {
+          type: "number",
+          min: props.min,
+          max: props.max,
+          step: (_a2 = props.inputStep) != null ? _a2 : 1,
+          value: props.value,
+          onChange: onValueChange,
+          style: { width: "88px" }
+        }
+      )
+    ), isFocused && sliderRef.current !== null && /* @__PURE__ */ React3.createElement(
       "div",
       {
         className: "tooltip mod-top",
@@ -43174,7 +43196,7 @@ function SliderSettingsItem(props) {
         }
       },
       displayValue
-    )
+    ))
   );
 }
 
@@ -43734,11 +43756,11 @@ var AzureOAIClient = class {
     this.url = url;
     this.modelOptions = modelOptions;
   }
-  static fromSettings(settings) {
+  static fromSettings(settings, modelOptionsOverride) {
     return new AzureOAIClient(
       settings.azureOAIApiSettings.key,
       settings.azureOAIApiSettings.url,
-      settings.modelOptions
+      modelOptionsOverride != null ? modelOptionsOverride : settings.modelOptions
     );
   }
   async queryChatModel(messages9) {
@@ -43774,12 +43796,12 @@ var AzureOAIClient_default = AzureOAIClient;
 
 // src/prediction_services/api_clients/OpenAIApiClient.ts
 var OpenAIApiClient = class {
-  static fromSettings(settings) {
+  static fromSettings(settings, modelOptionsOverride) {
     return new OpenAIApiClient(
       settings.openAIApiSettings.key,
       settings.openAIApiSettings.url,
       settings.openAIApiSettings.model,
-      settings.modelOptions
+      modelOptionsOverride != null ? modelOptionsOverride : settings.modelOptions
     );
   }
   constructor(apiKey, url, model, modelOptions) {
@@ -43822,11 +43844,11 @@ var OpenAIApiClient_default = OpenAIApiClient;
 
 // src/prediction_services/api_clients/OllamaApiClient.ts
 var OllamaApiClient = class {
-  static fromSettings(settings) {
+  static fromSettings(settings, modelOptionsOverride) {
     return new OllamaApiClient(
       settings.ollamaApiSettings.url,
       settings.ollamaApiSettings.model,
-      settings.modelOptions
+      modelOptionsOverride != null ? modelOptionsOverride : settings.modelOptions
     );
   }
   constructor(url, model, modelOptions) {
@@ -43845,8 +43867,7 @@ var OllamaApiClient = class {
       options: {
         temperature: this.modelOptions.temperature,
         top_p: this.modelOptions.top_p,
-        // Align Ollama's output limit with the plugin's max_tokens setting
-        num_predict: this.modelOptions.max_tokens
+        ...this.modelOptions.max_tokens !== void 0 ? { num_predict: this.modelOptions.max_tokens } : {}
       }
     };
     const data = await makeAPIRequest(this.url, "POST", body, headers);
@@ -43873,12 +43894,13 @@ var OllamaApiClient_default = OllamaApiClient;
 
 // src/prediction_services/api_clients/OllamaFIMApiClient.ts
 var OllamaFIMApiClient = class {
-  static fromSettings(settings, systemPromptOverride) {
+  static fromSettings(settings, options) {
+    var _a2, _b;
     return new OllamaFIMApiClient(
       resolveOllamaGenerateUrl(settings.ollamaApiSettings.url),
       settings.ollamaApiSettings.model,
-      settings.modelOptions,
-      systemPromptOverride != null ? systemPromptOverride : settings.fimSystemMessage
+      (_a2 = options == null ? void 0 : options.modelOptionsOverride) != null ? _a2 : settings.modelOptions,
+      (_b = options == null ? void 0 : options.systemPromptOverride) != null ? _b : settings.fimSystemMessage
     );
   }
   constructor(url, model, modelOptions, systemPrompt) {
@@ -43899,8 +43921,8 @@ var OllamaFIMApiClient = class {
       options: {
         temperature: this.modelOptions.temperature,
         top_p: this.modelOptions.top_p,
-        num_predict: this.modelOptions.max_tokens,
-        stop
+        stop,
+        ...this.modelOptions.max_tokens !== void 0 ? { num_predict: this.modelOptions.max_tokens } : {}
       }
     };
     const data = await makeAPIRequest(this.url, "POST", body, headers);
@@ -44358,7 +44380,7 @@ function SettingsView(props) {
     SliderSettingsItem,
     {
       name: "Max Tokens",
-      description: settings.apiProvider === "ollama" ? "Caps the number of tokens returned by Ollama (sent as num_predict). Includes any reasoning tokens before the answer." : "This parameter changes the maximum number of tokens the model is allowed to generate. This includes the chain of thought tokens before the answer.",
+      description: settings.apiProvider === "ollama" ? "Caps the number of tokens returned by Ollama autocompletions (sent as num_predict). Includes any reasoning tokens before the answer." : "This parameter changes the maximum number of tokens the model is allowed to generate for autocompletion. This includes the chain of thought tokens before the answer.",
       value: settings.modelOptions.max_tokens,
       errorMessage: errors.get("modelOptions.max_tokens"),
       setValue: (value) => updateSettings({
@@ -44369,7 +44391,9 @@ function SettingsView(props) {
       }),
       min: MIN_MAX_TOKENS,
       max: MAX_MAX_TOKENS,
-      step: 10
+      step: 10,
+      showInput: true,
+      inputStep: 1
     }
   ), /* @__PURE__ */ React10.createElement("h2", null, "Preprocessing"), /* @__PURE__ */ React10.createElement(
     CheckBoxSettingItem,
@@ -47793,16 +47817,23 @@ function stripCodeFences(text) {
   return trimmed;
 }
 
+// src/prediction_services/model_options.ts
+function withoutMaxTokens(modelOptions) {
+  const { max_tokens: _ignored, ...rest } = modelOptions;
+  return rest;
+}
+
 // src/prediction_services/refactor/chat_refactor_service.ts
 var ChatRefactorService = class {
   static fromSettings(settings) {
+    const refactorModelOptions = withoutMaxTokens(settings.modelOptions);
     let client;
     if (settings.apiProvider === "openai") {
-      client = OpenAIApiClient_default.fromSettings(settings);
+      client = OpenAIApiClient_default.fromSettings(settings, refactorModelOptions);
     } else if (settings.apiProvider === "azure") {
-      client = AzureOAIClient_default.fromSettings(settings);
+      client = AzureOAIClient_default.fromSettings(settings, refactorModelOptions);
     } else if (settings.apiProvider === "ollama") {
-      client = OllamaApiClient_default.fromSettings(settings);
+      client = OllamaApiClient_default.fromSettings(settings, refactorModelOptions);
     } else {
       throw new Error("Invalid API provider");
     }
@@ -47951,7 +47982,10 @@ var GenerateRefactorService = class {
     const promptBuilder = new RefactorFimPromptBuilder(settings);
     const client = OllamaFIMApiClient_default.fromSettings(
       settings,
-      promptBuilder.getSystemMessage()
+      {
+        systemPromptOverride: promptBuilder.getSystemMessage(),
+        modelOptionsOverride: withoutMaxTokens(settings.modelOptions)
+      }
     );
     return new GenerateRefactorService(
       client,

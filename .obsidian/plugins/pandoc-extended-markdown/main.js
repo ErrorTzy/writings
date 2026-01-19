@@ -40,6 +40,7 @@ var DEFAULT_SETTINGS = {
   strictPandocMode: false,
   autoRenumberLists: false,
   moreExtendedSyntax: false,
+  enableListPanel: true,
   panelOrder: ["custom-labels", "example-lists", "definition-lists", "footnotes"]
 };
 
@@ -79,32 +80,32 @@ var INDENTATION = {
 // src/core/constants/cssConstants.ts
 var CSS_CLASSES = {
   // Fancy List Classes
-  FANCY_LIST: "pandoc-list-fancy",
-  FANCY_LIST_UPPER_ALPHA: "pandoc-list-upper-alpha",
-  FANCY_LIST_LOWER_ALPHA: "pandoc-list-lower-alpha",
-  FANCY_LIST_UPPER_ROMAN: "pandoc-list-upper-roman",
-  FANCY_LIST_LOWER_ROMAN: "pandoc-list-lower-roman",
-  FANCY_LIST_PAREN: "pandoc-list-paren",
+  FANCY_LIST: "pem-list-fancy",
+  FANCY_LIST_UPPER_ALPHA: "pem-list-upper-alpha",
+  FANCY_LIST_LOWER_ALPHA: "pem-list-lower-alpha",
+  FANCY_LIST_UPPER_ROMAN: "pem-list-upper-roman",
+  FANCY_LIST_LOWER_ROMAN: "pem-list-lower-roman",
+  FANCY_LIST_PAREN: "pem-list-paren",
   // Definition List Classes
-  DEFINITION_LIST: "pandoc-definition-list",
-  DEFINITION_TERM: "pandoc-definition-term",
-  DEFINITION_DESC: "pandoc-list-definition-desc",
-  DEFINITION_ITEMS: "pandoc-definition-items",
-  DEFINITION_CONTENT_TEXT: "pandoc-definition-content-text",
+  DEFINITION_LIST: "pem-definition-list",
+  DEFINITION_TERM: "pem-definition-term",
+  DEFINITION_DESC: "pem-list-definition-desc",
+  DEFINITION_ITEMS: "pem-definition-items",
+  DEFINITION_CONTENT_TEXT: "pem-definition-content-text",
   // Example List Classes
-  EXAMPLE_REF: "pandoc-example-reference",
-  EXAMPLE_LIST: "pandoc-example-list",
-  EXAMPLE_ITEM: "pandoc-example-item",
-  DUPLICATE_MARKERS: "pandoc-duplicate-markers",
+  EXAMPLE_REF: "pem-example-reference",
+  EXAMPLE_LIST: "pem-example-list",
+  EXAMPLE_ITEM: "pem-example-item",
+  DUPLICATE_MARKERS: "pem-duplicate-markers",
   // Superscript and Subscript Classes
-  SUPERSCRIPT: "pandoc-superscript",
-  SUBSCRIPT: "pandoc-subscript",
+  SUPERSCRIPT: "pem-superscript",
+  SUBSCRIPT: "pem-subscript",
   // Suggestion Classes
-  SUGGESTION_CONTENT: "pandoc-suggestion-content",
-  SUGGESTION_TITLE: "pandoc-suggestion-title",
-  SUGGESTION_PREVIEW: "pandoc-suggestion-preview",
-  SUGGESTION_NUMBER: "pandoc-suggestion-number",
-  SUGGESTION_PLACEHOLDER: "pandoc-suggestion-placeholder",
+  SUGGESTION_CONTENT: "pem-suggestion-content",
+  SUGGESTION_TITLE: "pem-suggestion-title",
+  SUGGESTION_PREVIEW: "pem-suggestion-preview",
+  SUGGESTION_NUMBER: "pem-suggestion-number",
+  SUGGESTION_PLACEHOLDER: "pem-suggestion-placeholder",
   // CodeMirror Classes
   LIST_LINE: "HyperMD-list-line",
   LIST_LINE_1: "HyperMD-list-line-1",
@@ -120,24 +121,24 @@ var CSS_CLASSES = {
   CM_FORMATTING_LIST_OL: "cm-formatting-list-ol",
   CM_FORMATTING_LIST_UL: "cm-formatting-list-ul",
   LIST_NUMBER: "list-number",
-  DEFINITION_TERM_DECORATION: "cm-pandoc-definition-term",
-  DEFINITION_PARAGRAPH: "cm-pandoc-definition-paragraph",
+  DEFINITION_TERM_DECORATION: "cm-pem-definition-term",
+  DEFINITION_PARAGRAPH: "cm-pem-definition-paragraph",
   // Generic Classes
-  PANDOC_LIST_MARKER: "pandoc-list-marker",
-  PANDOC_LIST_LINE_INDENT: "pandoc-list-line-indent",
-  PANDOC_LIST_LINE: "pandoc-list-line",
-  DEFINITION_MARKER_CURSOR: "cm-pandoc-definition-marker-cursor",
-  LIST_CONTINUATION_WIDGET: "pandoc-list-continuation-widget",
+  PANDOC_LIST_MARKER: "pem-list-marker",
+  PANDOC_LIST_LINE_INDENT: "pem-list-line-indent",
+  PANDOC_LIST_LINE: "pem-list-line",
+  DEFINITION_MARKER_CURSOR: "cm-pem-definition-marker-cursor",
+  LIST_CONTINUATION_WIDGET: "pem-list-continuation-widget",
   // Custom Label Classes
-  CUSTOM_LABEL_PROCESSED: "pandoc-custom-label-processed",
-  CUSTOM_LABEL_ITEM: "pandoc-custom-label-item",
-  CUSTOM_LABEL_REFERENCE_PROCESSED: "pandoc-custom-label-reference-processed",
-  CUSTOM_LABEL_REF_CLICKABLE: "pandoc-custom-label-ref-clickable",
-  CUSTOM_LABEL_PLACEHOLDER: "pandoc-custom-label-placeholder",
-  INLINE_PLACEHOLDER_NUMBER: "pandoc-inline-placeholder-number",
-  CUSTOM_LABEL_MARKER: "pandoc-custom-label-marker",
-  CUSTOM_LABEL_BRACKET: "pandoc-custom-label-bracket",
-  CUSTOM_LABEL_TEXT: "pandoc-custom-label-text",
+  CUSTOM_LABEL_PROCESSED: "pem-custom-label-processed",
+  CUSTOM_LABEL_ITEM: "pem-custom-label-item",
+  CUSTOM_LABEL_REFERENCE_PROCESSED: "pem-custom-label-reference-processed",
+  CUSTOM_LABEL_REF_CLICKABLE: "pem-custom-label-ref-clickable",
+  CUSTOM_LABEL_PLACEHOLDER: "pem-custom-label-placeholder",
+  INLINE_PLACEHOLDER_NUMBER: "pem-inline-placeholder-number",
+  CUSTOM_LABEL_MARKER: "pem-custom-label-marker",
+  CUSTOM_LABEL_BRACKET: "pem-custom-label-bracket",
+  CUSTOM_LABEL_TEXT: "pem-custom-label-text",
   // Custom Label View Classes
   CUSTOM_LABEL_VIEW_CONTAINER: "custom-label-view-container",
   CUSTOM_LABEL_VIEW_HEADER: "custom-label-view-header",
@@ -150,40 +151,41 @@ var CSS_CLASSES = {
   CUSTOM_LABEL_HOVER_PREVIEW: "custom-label-hover-preview",
   CUSTOM_LABEL_HIGHLIGHT: "custom-label-highlight",
   // Hover popover styles
-  HOVER_POPOVER: "pandoc-hover-popover",
-  HOVER_POPOVER_LABEL: "pandoc-hover-popover-label",
-  HOVER_POPOVER_CONTENT: "pandoc-hover-popover-content",
-  HOVER_POPOVER_POSITIONED: "pandoc-hover-popover-positioned",
+  HOVER_POPOVER: "pem-hover-popover",
+  HOVER_POPOVER_LABEL: "pem-hover-popover-label",
+  HOVER_POPOVER_CONTENT: "pem-hover-popover-content",
+  HOVER_POPOVER_POSITIONED: "pem-hover-popover-positioned",
   // List Panel View Classes
-  LIST_PANEL_VIEW_CONTAINER: "pandoc-list-panel-view-container",
-  LIST_PANEL_ICON_ROW: "pandoc-list-panel-icon-row",
-  LIST_PANEL_ICON_BUTTON: "pandoc-list-panel-icon-button",
-  LIST_PANEL_ICON_CONTAINER: "pandoc-panel-icon-container",
-  LIST_PANEL_ICON_CUSTOM_LABEL: "pandoc-icon-custom-label",
-  LIST_PANEL_ICON_EXAMPLE_LIST: "pandoc-icon-example-list",
-  LIST_PANEL_ICON_FOOTNOTE: "pandoc-icon-footnote",
-  LIST_PANEL_SEPARATOR: "pandoc-list-panel-separator",
-  LIST_PANEL_CONTENT_CONTAINER: "pandoc-list-panel-content-container",
+  LIST_PANEL_VIEW_CONTAINER: "pem-list-panel-view-container",
+  LIST_PANEL_ICON_ROW: "pem-list-panel-icon-row",
+  LIST_PANEL_ICON_BUTTON: "pem-list-panel-icon-button",
+  LIST_PANEL_ICON_CONTAINER: "pem-panel-icon-container",
+  LIST_PANEL_ICON_CUSTOM_LABEL: "pem-icon-custom-label",
+  LIST_PANEL_ICON_EXAMPLE_LIST: "pem-icon-example-list",
+  LIST_PANEL_ICON_DEFINITION_LIST: "pem-icon-definition-list",
+  LIST_PANEL_ICON_FOOTNOTE: "pem-icon-footnote",
+  LIST_PANEL_SEPARATOR: "pem-list-panel-separator",
+  LIST_PANEL_CONTENT_CONTAINER: "pem-list-panel-content-container",
   LIST_PANEL_ICON_ACTIVE: "is-active",
   // Example List View Classes
-  EXAMPLE_LIST_VIEW_CONTAINER: "pandoc-example-list-view-container",
-  EXAMPLE_LIST_VIEW_ROW: "pandoc-example-list-view-row",
-  EXAMPLE_LIST_VIEW_NUMBER: "pandoc-example-list-view-number",
-  EXAMPLE_LIST_VIEW_LABEL: "pandoc-example-list-view-label",
-  EXAMPLE_LIST_VIEW_CONTENT: "pandoc-example-list-view-content",
-  EXAMPLE_LIST_VIEW_EMPTY: "pandoc-example-list-view-empty",
+  EXAMPLE_LIST_VIEW_CONTAINER: "pem-example-list-view-container",
+  EXAMPLE_LIST_VIEW_ROW: "pem-example-list-view-row",
+  EXAMPLE_LIST_VIEW_NUMBER: "pem-example-list-view-number",
+  EXAMPLE_LIST_VIEW_LABEL: "pem-example-list-view-label",
+  EXAMPLE_LIST_VIEW_CONTENT: "pem-example-list-view-content",
+  EXAMPLE_LIST_VIEW_EMPTY: "pem-example-list-view-empty",
   // Definition List View Classes
-  DEFINITION_LIST_VIEW_CONTAINER: "pandoc-definition-list-view-container",
-  DEFINITION_LIST_VIEW_ROW: "pandoc-definition-list-view-row",
-  DEFINITION_LIST_VIEW_TERM: "pandoc-definition-list-view-term",
-  DEFINITION_LIST_VIEW_DEFINITIONS: "pandoc-definition-list-view-definitions",
-  DEFINITION_LIST_VIEW_EMPTY: "pandoc-definition-list-view-empty",
+  DEFINITION_LIST_VIEW_CONTAINER: "pem-definition-list-view-container",
+  DEFINITION_LIST_VIEW_ROW: "pem-definition-list-view-row",
+  DEFINITION_LIST_VIEW_TERM: "pem-definition-list-view-term",
+  DEFINITION_LIST_VIEW_DEFINITIONS: "pem-definition-list-view-definitions",
+  DEFINITION_LIST_VIEW_EMPTY: "pem-definition-list-view-empty",
   // Footnote Panel View Classes
-  FOOTNOTE_PANEL_CONTAINER: "pandoc-footnote-panel-container",
-  FOOTNOTE_PANEL_ROW: "pandoc-footnote-panel-row",
-  FOOTNOTE_PANEL_INDEX: "pandoc-footnote-panel-index",
-  FOOTNOTE_PANEL_CONTENT: "pandoc-footnote-panel-content",
-  FOOTNOTE_PANEL_EMPTY: "pandoc-footnote-panel-empty"
+  FOOTNOTE_PANEL_CONTAINER: "pem-footnote-panel-container",
+  FOOTNOTE_PANEL_ROW: "pem-footnote-panel-row",
+  FOOTNOTE_PANEL_INDEX: "pem-footnote-panel-index",
+  FOOTNOTE_PANEL_CONTENT: "pem-footnote-panel-content",
+  FOOTNOTE_PANEL_EMPTY: "pem-footnote-panel-empty"
 };
 var COMPOSITE_CSS = {
   // Standard formatting for list markers in widgets
@@ -218,6 +220,7 @@ var MESSAGES = {
   NO_DEFINITION_LISTS: "No definition lists found",
   NO_FOOTNOTES: "No footnotes found",
   FOOTNOTE_REFERENCE_NOT_FOUND: "No matching footnote reference found",
+  LIST_PANEL_DISABLED: "List panel is disabled in settings",
   CUSTOM_LABELS_VIEW_TITLE: "Custom Labels",
   EXAMPLE_LISTS_VIEW_TITLE: "Example Lists",
   DEFINITION_LISTS_VIEW_TITLE: "Definition Lists",
@@ -232,9 +235,28 @@ var COMMANDS = {
   TOGGLE_DEFINITION_UNDERLINE: "toggle-definition-underline-style",
   OPEN_LIST_PANEL: "open-list-panel"
 };
+var SETTINGS_UI = {
+  STRICT_MODE: {
+    NAME: "Strict Pandoc mode",
+    DESCRIPTION: "Enable strict pandoc formatting requirements. When enabled, lists must have empty lines before and after them, and capital letter lists require double spacing after markers."
+  },
+  AUTO_RENUMBER: {
+    NAME: "Auto-renumber lists",
+    DESCRIPTION: "Automatically renumber all list items when inserting a new item. This ensures proper sequential ordering of fancy lists (A, B, C... or i, ii, iii...) when you add items in the middle of a list."
+  },
+  CUSTOM_LABEL: {
+    NAME: "Custom label list",
+    DESCRIPTION: "Should use it together with CustomLabelList.lua to enhance pandoc output. Enables custom label lists using {::LABEL} syntax. When strict pandoc mode is enabled, custom label lists must be preceded and followed by blank lines."
+  },
+  LIST_PANEL: {
+    NAME: "List panel",
+    DESCRIPTION: "Enable the list panel view and its ribbon icon in the sidebar."
+  }
+};
 var UI_CONSTANTS = {
   NOTICE_DURATION_MS: 1e4,
   STATE_TRANSITION_DELAY_MS: 100,
+  MODE_REFRESH_DELAY_MS: 20,
   HIGHLIGHT_ANIMATION_DURATION_MS: 2e3,
   // Custom Label View
   LABEL_MAX_LENGTH: 6,
@@ -783,8 +805,8 @@ ListPatterns.EXAMPLE_LIST_WITH_CONTENT = /^(\s*)\(@([a-zA-Z0-9_-]+)\)\s+(.*)$/;
 ListPatterns.EXAMPLE_REFERENCE = /\(@([a-zA-Z0-9_-]+)\)/g;
 ListPatterns.DEFINITION_MARKER = /^(\s*)([~:])(\s+)/;
 ListPatterns.DEFINITION_MARKER_WITH_INDENT = /^(\s*)([~:])(\s+)/;
-ListPatterns.DEFINITION_INDENTED = /^(    |\t)/;
-ListPatterns.DEFINITION_INDENTED_WITH_CONTENT = /^(    |\t)(.*)$/;
+ListPatterns.DEFINITION_INDENTED = /^( {4}|\t)/;
+ListPatterns.DEFINITION_INDENTED_WITH_CONTENT = /^( {4}|\t)(.*)$/;
 ListPatterns.DEFINITION_TERM_PATTERN = /^([^\n:~]+)$/;
 ListPatterns.FOOTNOTE_DEFINITION = /^\[\^([^\]]+)\]:\s*(.*)$/;
 ListPatterns.FOOTNOTE_CONTINUATION = /^( {4,}|\t+)(.*)$/;
@@ -854,22 +876,22 @@ ListPatterns.HEADING_WITH_CONTENT = /^(#{1,6})\s+(.*)$/;
 // Superscript and subscript patterns
 // Matches ^text^ for superscript and ~text~ for subscript
 // Text can contain escaped spaces (\ ) but not unescaped spaces
-ListPatterns.SUPERSCRIPT = /\^([^\^\s]|\\[ ])+?\^/g;
-ListPatterns.SUBSCRIPT = /~([^~\s]|\\[ ])+?~/g;
+ListPatterns.SUPERSCRIPT = /\^([^\s^\x60]|\\[ ])+?\^/g;
+ListPatterns.SUBSCRIPT = /~([^\s~\x60]|\\[ ])+?~/g;
 /**
  * Inline superscript pattern for inline processors.
  * Excludes $ character to prevent matching across LaTeX math boundaries,
  * ensuring math expressions like $R^{+}_{xy}$ remain intact.
  * Excludes [ and ] to prevent matching footnote syntax like [^1].
  */
-ListPatterns.SUPERSCRIPT_INLINE = /\^([^^~\s$\[\]]+(?:\s+[^^~\s$\[\]]+)*)\^/g;
+ListPatterns.SUPERSCRIPT_INLINE = /\^([^^~\s$\x5B\x5D\x60]+(?:\s+[^^~\s$\x5B\x5D\x60]+)*)\^/g;
 /**
  * Inline subscript pattern for inline processors.
  * Excludes $ character to prevent matching across LaTeX math boundaries,
  * ensuring math expressions remain properly formatted.
  * Excludes [ and ] to prevent matching patterns that might conflict with brackets.
  */
-ListPatterns.SUBSCRIPT_INLINE = /~([^~^\s$\[\]]+(?:\s+[^~^\s$\[\]]+)*)~/g;
+ListPatterns.SUBSCRIPT_INLINE = /~([^~^\s$\x5B\x5D\x60]+(?:\s+[^~^\s$\x5B\x5D\x60]+)*)~/g;
 // Custom label list patterns for More Extended Syntax
 // Matches {::LABEL} at start of line with required space after
 // Now supports placeholders like {::P(#first)} or pure placeholders like {::(#name)}
@@ -936,6 +958,13 @@ var PlaceholderContext = class {
    */
   getPlaceholderNumber(name) {
     return this.placeholderMap.get(name) || null;
+  }
+  /**
+   * Wrapper to expose placeholder values for UI rendering.
+   * Returns undefined when the placeholder has not been assigned yet.
+   */
+  getPlaceholderValue(name) {
+    return this.placeholderMap.get(name);
   }
   /**
    * Get the processed version of a label without modifying state.
@@ -1043,7 +1072,7 @@ function extractCustomLabels(content, moreExtendedSyntax) {
     if (!moreExtendedSyntax) {
       return labels;
     }
-    const { processedLabels, rawToProcessed } = processLabels(lines);
+    const { rawToProcessed } = processLabels(lines);
     for (let i = 0; i < lines.length; i++) {
       const line = lines[i];
       const match = ListPatterns.isCustomLabelList(line);
@@ -1134,7 +1163,6 @@ function tokenizeMath(mathContent) {
 function truncateMathContent(mathContent, maxRenderedLength) {
   const tokens = tokenizeMath(mathContent);
   let result = "$";
-  let tokenCount = 0;
   let accumulatedTokens = [];
   for (const token of tokens) {
     const testTokens = [...accumulatedTokens, token];
@@ -1142,7 +1170,6 @@ function truncateMathContent(mathContent, maxRenderedLength) {
     const testRendered = renderMathToText(testLatex);
     if (testRendered.length <= maxRenderedLength) {
       accumulatedTokens.push(token);
-      tokenCount++;
     } else {
       break;
     }
@@ -1427,18 +1454,19 @@ function applyLineHighlight(editor, lineNumber) {
   if (!cm) return;
   const editorDom = cm.dom || cm.contentDOM;
   if (!editorDom) return;
-  setTimeout(() => {
+  window.setTimeout(() => {
     findAndHighlightLine(editorDom, editor);
   }, 50);
 }
 function findAndHighlightLine(editorDom, editor) {
+  var _a;
   const activeLine = editorDom.querySelector(".cm-line.cm-active");
-  if (activeLine) {
+  if (activeLine instanceof HTMLElement) {
     applyHighlight(activeLine);
     return;
   }
   const allLines = editorDom.querySelectorAll(".cm-line");
-  const coords = editor.cursorCoords(true, "local");
+  const coords = (_a = editor.cursorCoords) == null ? void 0 : _a.call(editor, true, "local");
   if (!coords || allLines.length === 0) return;
   let targetLine = null;
   let minDistance = Infinity;
@@ -1447,7 +1475,7 @@ function findAndHighlightLine(editorDom, editor) {
     const editorRect = editorDom.getBoundingClientRect();
     const relativeTop = rect.top - editorRect.top;
     const distance = Math.abs(relativeTop - coords.top);
-    if (distance < minDistance) {
+    if (distance < minDistance && line instanceof HTMLElement) {
       minDistance = distance;
       targetLine = line;
     }
@@ -1460,13 +1488,13 @@ function applyHighlight(lineElement) {
   lineElement.classList.remove(CSS_CLASSES.CUSTOM_LABEL_HIGHLIGHT);
   void lineElement.offsetWidth;
   lineElement.classList.add(CSS_CLASSES.CUSTOM_LABEL_HIGHLIGHT);
-  setTimeout(() => {
+  window.setTimeout(() => {
     lineElement.classList.remove(CSS_CLASSES.CUSTOM_LABEL_HIGHLIGHT);
   }, UI_CONSTANTS.HIGHLIGHT_ANIMATION_DURATION_MS);
 }
 function setupLabelClickHandler(element, rawLabel, abortSignal) {
-  const clickHandler = async () => {
-    await withAsyncErrorBoundary(async () => {
+  const clickHandler = () => {
+    void withAsyncErrorBoundary(async () => {
       await navigator.clipboard.writeText(rawLabel);
       new import_obsidian2.Notice(MESSAGES.LABEL_COPIED);
     }, void 0, "copy label to clipboard");
@@ -1526,7 +1554,7 @@ function renderContentWithMath(element, truncatedContent, app, component, contex
   if (context) {
     contentToRender = processContent(truncatedContent, context);
   }
-  import_obsidian2.MarkdownRenderer.render(
+  void import_obsidian2.MarkdownRenderer.render(
     app,
     contentToRender,
     element,
@@ -1537,10 +1565,6 @@ function renderContentWithMath(element, truncatedContent, app, component, contex
 
 // src/shared/utils/hoverPopovers.ts
 var import_obsidian3 = require("obsidian");
-function processPopoverContent(content, context) {
-  if (!context) return content;
-  return processContent(content, context);
-}
 function createHoverState() {
   return {
     hoverPopover: null,
@@ -1552,7 +1576,7 @@ function createHoverState() {
 }
 function clearCleanupTimeout(state) {
   if (state.cleanupTimeout) {
-    clearTimeout(state.cleanupTimeout);
+    window.clearTimeout(state.cleanupTimeout);
     state.cleanupTimeout = null;
   }
 }
@@ -1569,7 +1593,7 @@ function removePopover(state) {
 }
 function scheduleRemoval(state) {
   clearCleanupTimeout(state);
-  state.cleanupTimeout = setTimeout(() => {
+  state.cleanupTimeout = window.setTimeout(() => {
     if (!state.isMouseOverElement && !state.isMouseOverPopover) {
       removePopover(state);
     }
@@ -1577,7 +1601,7 @@ function scheduleRemoval(state) {
 }
 function scheduleAsyncRemoval(state) {
   clearCleanupTimeout(state);
-  state.cleanupTimeout = setTimeout(() => {
+  state.cleanupTimeout = window.setTimeout(() => {
     if (!state.isMouseOverElement && !state.isMouseOverPopover) {
       removeAsyncPopover(state);
     }
@@ -1673,7 +1697,7 @@ function removeAsyncPopover(state) {
   }
 }
 async function renderPopoverContent(popoverElement, content, app, component, context) {
-  const processedContent = processPopoverContent(content, context);
+  const processedContent = context ? processContent(content, context) : content;
   try {
     await import_obsidian3.MarkdownRenderer.render(
       app,
@@ -1700,7 +1724,7 @@ function setupRenderedHoverPreview(element, content, app, component, context, po
     hoverElement.classList.add(CSS_CLASSES.HOVER_POPOVER, popoverClass);
     try {
       await renderPopoverContent(hoverElement, content, app, component, context);
-    } catch (error) {
+    } catch (e) {
       if ((_a = state.renderAbortController) == null ? void 0 : _a.signal.aborted) {
         return;
       }
@@ -1733,7 +1757,10 @@ function setupRenderedHoverPreview(element, content, app, component, context, po
   if (abortSignal) {
     abortSignal.addEventListener("abort", () => removeAsyncPopover(state), { once: true });
   }
-  element.addEventListener("mouseenter", mouseEnterHandler, { signal: abortSignal });
+  const enterListener = () => {
+    void mouseEnterHandler();
+  };
+  element.addEventListener("mouseenter", enterListener, { signal: abortSignal });
   element.addEventListener("mouseleave", mouseLeaveHandler, { signal: abortSignal });
   element.addEventListener("click", clickHandler, { signal: abortSignal });
 }
@@ -2003,7 +2030,7 @@ function highlightLine2(view, lineNumber, cursorPosition) {
     if (cm) {
       const editorDom = cm.dom || cm.contentDOM;
       if (editorDom) {
-        setTimeout(() => {
+        window.setTimeout(() => {
           highlightTargetLine(editorDom, editor);
         }, 50);
       }
@@ -2019,18 +2046,19 @@ function moveCursorToLine(editor, lineNumber) {
 }
 function highlightTargetLine(editorDom, editor) {
   const activeLine = editorDom.querySelector(".cm-line.cm-active");
-  if (activeLine) {
+  if (activeLine instanceof HTMLElement) {
     applyHighlight2(activeLine);
   } else {
     const targetLine = findClosestLine(editorDom, editor);
-    if (targetLine) {
+    if (targetLine instanceof HTMLElement) {
       applyHighlight2(targetLine);
     }
   }
 }
 function findClosestLine(editorDom, editor) {
+  var _a;
   const allLines = editorDom.querySelectorAll(".cm-line");
-  const coords = editor.cursorCoords(true, "local");
+  const coords = (_a = editor.cursorCoords) == null ? void 0 : _a.call(editor, true, "local");
   if (!coords || allLines.length === 0) return null;
   let targetLine = null;
   let minDistance = Infinity;
@@ -2039,7 +2067,7 @@ function findClosestLine(editorDom, editor) {
     const editorRect = editorDom.getBoundingClientRect();
     const relativeTop = rect.top - editorRect.top;
     const distance = Math.abs(relativeTop - coords.top);
-    if (distance < minDistance) {
+    if (distance < minDistance && line instanceof HTMLElement) {
       minDistance = distance;
       targetLine = line;
     }
@@ -2050,7 +2078,7 @@ function applyHighlight2(lineElement) {
   lineElement.classList.remove(CSS_CLASSES.CUSTOM_LABEL_HIGHLIGHT);
   void lineElement.offsetWidth;
   lineElement.classList.add(CSS_CLASSES.CUSTOM_LABEL_HIGHLIGHT);
-  setTimeout(() => {
+  window.setTimeout(() => {
     lineElement.classList.remove(CSS_CLASSES.CUSTOM_LABEL_HIGHLIGHT);
   }, UI_CONSTANTS.HIGHLIGHT_DURATION_MS);
 }
@@ -2720,7 +2748,7 @@ var ListPanelView = class extends import_obsidian6.ItemView {
     this.contentContainerEl = null;
     this.plugin = plugin;
     this.hoverLinkSource = {
-      display: "List Panel",
+      display: "List panel",
       defaultMod: true
     };
     this.initializePanels();
@@ -2775,12 +2803,16 @@ var ListPanelView = class extends import_obsidian6.ItemView {
     return VIEW_TYPE_LIST_PANEL;
   }
   getDisplayText() {
-    return "List Panel";
+    return "List panel";
   }
   getIcon() {
     return ICONS.LIST_PANEL_ID;
   }
   async onOpen() {
+    if (!this.plugin.settings.enableListPanel) {
+      this.leaf.detach();
+      return;
+    }
     this.renderView();
     await this.updateView();
     this.registerEvent(
@@ -2805,14 +2837,15 @@ var ListPanelView = class extends import_obsidian6.ItemView {
     );
     this.plugin.registerHoverLinkSource(VIEW_TYPE_LIST_PANEL, this.hoverLinkSource);
   }
-  async onClose() {
+  onClose() {
     if (this.updateTimer) {
-      clearTimeout(this.updateTimer);
+      window.clearTimeout(this.updateTimer);
     }
     for (const panel of this.panels) {
       panel.module.destroy();
     }
     this.contentEl.empty();
+    return Promise.resolve();
   }
   renderView() {
     this.contentEl.empty();
@@ -2834,18 +2867,18 @@ var ListPanelView = class extends import_obsidian6.ItemView {
         cls: CSS_CLASSES.LIST_PANEL_ICON_CONTAINER
       });
       if (panel.id === "custom-labels") {
-        const iconText = iconContainer.createSpan({
+        iconContainer.createSpan({
           cls: CSS_CLASSES.LIST_PANEL_ICON_CUSTOM_LABEL,
           text: "{::}"
         });
       } else if (panel.id === "example-lists") {
-        const iconText = iconContainer.createSpan({
+        iconContainer.createSpan({
           cls: CSS_CLASSES.LIST_PANEL_ICON_EXAMPLE_LIST,
           text: "(@)"
         });
       } else if (panel.id === "definition-lists") {
-        const iconText = iconContainer.createSpan({
-          cls: "pandoc-icon-definition-list",
+        iconContainer.createSpan({
+          cls: CSS_CLASSES.LIST_PANEL_ICON_DEFINITION_LIST,
           text: "DL:"
         });
       } else if (panel.id === "footnotes") {
@@ -2854,13 +2887,13 @@ var ListPanelView = class extends import_obsidian6.ItemView {
           text: "[^]"
         });
       } else {
-        iconContainer.addClass(`pandoc-icon-${panel.id}`);
+        iconContainer.addClass(`pem-icon-${panel.id}`);
       }
       iconButton.addEventListener("click", () => {
         this.switchToPanel(panel);
       });
     }
-    const separator = viewContainer.createEl("hr", {
+    viewContainer.createEl("hr", {
       cls: CSS_CLASSES.LIST_PANEL_SEPARATOR
     });
     this.contentContainerEl = viewContainer.createDiv({
@@ -2890,27 +2923,29 @@ var ListPanelView = class extends import_obsidian6.ItemView {
   }
   scheduleUpdate() {
     if (this.updateTimer) {
-      clearTimeout(this.updateTimer);
+      window.clearTimeout(this.updateTimer);
     }
-    this.updateTimer = setTimeout(() => {
-      this.updateView();
+    this.updateTimer = window.setTimeout(() => {
+      void this.updateView();
     }, UI_CONSTANTS.UPDATE_DEBOUNCE_MS);
   }
-  async updateView() {
-    try {
-      let markdownView = this.app.workspace.getActiveViewOfType(import_obsidian6.MarkdownView);
-      if (markdownView && markdownView.file) {
-        this.lastActiveMarkdownView = markdownView;
+  updateView() {
+    return Promise.resolve().then(() => {
+      try {
+        let markdownView = this.app.workspace.getActiveViewOfType(import_obsidian6.MarkdownView);
+        if (markdownView && markdownView.file) {
+          this.lastActiveMarkdownView = markdownView;
+        }
+        if (!markdownView || !markdownView.file) {
+          markdownView = this.lastActiveMarkdownView;
+        }
+        if (this.activePanel && this.activePanel.shouldUpdate()) {
+          this.activePanel.onUpdate(markdownView);
+        }
+      } catch (error) {
+        handleError(error, "Update list panel view");
       }
-      if (!markdownView || !markdownView.file) {
-        markdownView = this.lastActiveMarkdownView;
-      }
-      if (this.activePanel && this.activePanel.shouldUpdate()) {
-        this.activePanel.onUpdate(markdownView);
-      }
-    } catch (error) {
-      handleError(error, "Update list panel view");
-    }
+    });
   }
   getCustomLabels() {
     const customLabelPanel = this.panels.find((p) => p.id === "custom-labels");
@@ -2954,32 +2989,37 @@ var PandocExtendedMarkdownSettingTab = class extends import_obsidian7.PluginSett
     this.renderPanelOrderSettings(containerEl);
   }
   renderGeneralSettings(containerEl) {
-    new import_obsidian7.Setting(containerEl).setName("Strict Pandoc mode").setDesc("Enable strict pandoc formatting requirements. When enabled, lists must have empty lines before and after them, and capital letter lists require double spacing after markers.").addToggle((toggle) => toggle.setValue(this.plugin.settings.strictPandocMode).onChange(async (value) => {
+    new import_obsidian7.Setting(containerEl).setName(SETTINGS_UI.STRICT_MODE.NAME).setDesc(SETTINGS_UI.STRICT_MODE.DESCRIPTION).addToggle((toggle) => toggle.setValue(this.plugin.settings.strictPandocMode).onChange(async (value) => {
       this.plugin.settings.strictPandocMode = value;
       await this.plugin.saveSettings();
     }));
-    new import_obsidian7.Setting(containerEl).setName("Auto-renumber lists").setDesc("Automatically renumber all list items when inserting a new item. This ensures proper sequential ordering of fancy lists (A, B, C... or i, ii, iii...) when you add items in the middle of a list.").addToggle((toggle) => toggle.setValue(this.plugin.settings.autoRenumberLists).onChange(async (value) => {
+    new import_obsidian7.Setting(containerEl).setName(SETTINGS_UI.AUTO_RENUMBER.NAME).setDesc(SETTINGS_UI.AUTO_RENUMBER.DESCRIPTION).addToggle((toggle) => toggle.setValue(this.plugin.settings.autoRenumberLists).onChange(async (value) => {
       this.plugin.settings.autoRenumberLists = value;
       await this.plugin.saveSettings();
     }));
-    new import_obsidian7.Setting(containerEl).setName("Custom Label List").setDesc("Should use it together with CustomLabelList.lua to enhance pandoc output. Enables custom label lists using {::LABEL} syntax. When strict pandoc mode is enabled, custom label lists must be preceded and followed by blank lines.").addToggle((toggle) => toggle.setValue(this.plugin.settings.moreExtendedSyntax).onChange(async (value) => {
+    new import_obsidian7.Setting(containerEl).setName(SETTINGS_UI.CUSTOM_LABEL.NAME).setDesc(SETTINGS_UI.CUSTOM_LABEL.DESCRIPTION).addToggle((toggle) => toggle.setValue(this.plugin.settings.moreExtendedSyntax).onChange(async (value) => {
       this.plugin.settings.moreExtendedSyntax = value;
       await this.plugin.saveSettings();
       this.refreshListPanels();
     }));
+    new import_obsidian7.Setting(containerEl).setName(SETTINGS_UI.LIST_PANEL.NAME).setDesc(SETTINGS_UI.LIST_PANEL.DESCRIPTION).addToggle((toggle) => toggle.setValue(this.plugin.settings.enableListPanel).onChange(async (value) => {
+      this.plugin.settings.enableListPanel = value;
+      await this.plugin.saveSettings();
+      this.plugin.updateListPanelAvailability();
+    }));
   }
   renderPanelOrderSettings(containerEl) {
-    containerEl.createEl("h2", { text: PANEL_SETTINGS.UI_TEXT.PANEL_ORDER_HEADING });
-    const panelOrderSetting = new import_obsidian7.Setting(containerEl).setName("").setDesc(PANEL_SETTINGS.UI_TEXT.PANEL_ORDER_DESC);
+    new import_obsidian7.Setting(containerEl).setName(PANEL_SETTINGS.UI_TEXT.PANEL_ORDER_HEADING).setHeading();
+    const panelOrderSetting = new import_obsidian7.Setting(containerEl).setDesc(PANEL_SETTINGS.UI_TEXT.PANEL_ORDER_DESC);
     const infoEl = panelOrderSetting.infoEl;
     if (infoEl) {
-      infoEl.addClass("pandoc-panel-order-info");
+      infoEl.addClass("pem-panel-order-info");
     }
     const flexContainer = panelOrderSetting.controlEl.createDiv({
-      cls: "pandoc-panel-order-container"
+      cls: "pem-panel-order-container"
     });
     const listEl = flexContainer.createDiv({
-      cls: "pandoc-panel-order-list"
+      cls: "pem-panel-order-list"
     });
     listEl.setAttribute("role", "listbox");
     listEl.tabIndex = 0;
@@ -3008,13 +3048,13 @@ var PandocExtendedMarkdownSettingTab = class extends import_obsidian7.PluginSett
         continue;
       }
       const itemEl = listEl.createDiv({
-        cls: "pandoc-panel-order-item"
+        cls: "pem-panel-order-item"
       });
       itemEl.setAttribute("role", "option");
       itemEl.dataset.id = panelId;
       itemEl.tabIndex = 0;
       const iconContainer = itemEl.createDiv({
-        cls: "pandoc-panel-order-icon"
+        cls: "pem-panel-order-icon"
       });
       const parser = new DOMParser();
       const svgDoc = parser.parseFromString(panelInfo.icon, "image/svg+xml");
@@ -3047,27 +3087,27 @@ var PandocExtendedMarkdownSettingTab = class extends import_obsidian7.PluginSett
   }
   createPanelOrderButtons(container) {
     const btnWrap = container.createDiv({
-      cls: "pandoc-panel-order-buttons"
+      cls: "pem-panel-order-buttons"
     });
     const btnMoveUp = btnWrap.createEl("button", {
       text: PANEL_SETTINGS.UI_TEXT.BTN_MOVE_UP,
-      cls: "pandoc-panel-order-button"
+      cls: "pem-panel-order-button"
     });
     const btnMoveDown = btnWrap.createEl("button", {
       text: PANEL_SETTINGS.UI_TEXT.BTN_MOVE_DOWN,
-      cls: "pandoc-panel-order-button"
+      cls: "pem-panel-order-button"
     });
     const btnTop = btnWrap.createEl("button", {
       text: PANEL_SETTINGS.UI_TEXT.BTN_MOVE_TOP,
-      cls: "pandoc-panel-order-button"
+      cls: "pem-panel-order-button"
     });
     const btnBottom = btnWrap.createEl("button", {
       text: PANEL_SETTINGS.UI_TEXT.BTN_MOVE_BOTTOM,
-      cls: "pandoc-panel-order-button"
+      cls: "pem-panel-order-button"
     });
     const btnReset = btnWrap.createEl("button", {
       text: PANEL_SETTINGS.UI_TEXT.BTN_RESTORE_DEFAULT,
-      cls: "pandoc-panel-order-button"
+      cls: "pem-panel-order-button"
     });
     return {
       moveUp: btnMoveUp,
@@ -3086,20 +3126,20 @@ var PandocExtendedMarkdownSettingTab = class extends import_obsidian7.PluginSett
     buttons.moveBottom.disabled = idx < 0 || idx >= visiblePanels.length - 1;
   }
   setupPanelOrderEventHandlers(listEl, buttons) {
-    buttons.moveUp.addEventListener("click", async () => {
-      await this.movePanelUp();
+    buttons.moveUp.addEventListener("click", () => {
+      void this.movePanelUp();
     });
-    buttons.moveDown.addEventListener("click", async () => {
-      await this.movePanelDown();
+    buttons.moveDown.addEventListener("click", () => {
+      void this.movePanelDown();
     });
-    buttons.moveTop.addEventListener("click", async () => {
-      await this.movePanelToTop();
+    buttons.moveTop.addEventListener("click", () => {
+      void this.movePanelToTop();
     });
-    buttons.moveBottom.addEventListener("click", async () => {
-      await this.movePanelToBottom();
+    buttons.moveBottom.addEventListener("click", () => {
+      void this.movePanelToBottom();
     });
-    buttons.reset.addEventListener("click", async () => {
-      await this.resetPanelOrder();
+    buttons.reset.addEventListener("click", () => {
+      void this.resetPanelOrder();
     });
     listEl.addEventListener("keydown", (evt) => {
       if (!this.selectedPanelId) return;
@@ -3303,7 +3343,7 @@ var PluginStateManager = class {
       this.resetDocumentCounters(event.currentPath);
     }
     if (event.currentMode === "reading" && event.currentPath) {
-      setTimeout(() => {
+      window.setTimeout(() => {
         this.clearReprocessFlag(event.currentPath);
       }, UI_CONSTANTS.STATE_TRANSITION_DELAY_MS);
     }
@@ -3478,85 +3518,137 @@ var pluginStateManager = new PluginStateManager();
 var import_state = require("@codemirror/state");
 
 // src/live-preview/pipeline/utils/codeDetection.ts
-function detectCodeRegions(doc) {
+var import_language = require("@codemirror/language");
+function detectCodeRegions(doc, state) {
+  return detectCodeRegionsFromSyntaxTree(state, doc);
+}
+function detectCodeRegionsFromSyntaxTree(state, doc) {
+  var _a;
   const regions = [];
-  const text = doc.toString();
-  detectCodeBlocks(text, regions);
-  detectInlineCode(text, regions);
-  detectMathRegions(text, regions);
+  const inlineCandidates = [];
+  const blockCandidates = [];
+  const mathCandidates = [];
+  const blockStarts = [];
+  const blockEnds = [];
+  const tree = (_a = (0, import_language.ensureSyntaxTree)(state, doc.length, 1e3)) != null ? _a : (0, import_language.syntaxTree)(state);
+  tree.iterate({
+    enter: (node) => {
+      const name = node.type.name.toLowerCase();
+      if (isInlineCodeNode(name)) {
+        inlineCandidates.push({
+          from: node.from,
+          to: node.to,
+          type: "inline-code"
+        });
+        return;
+      }
+      if (isMathNode(name)) {
+        mathCandidates.push({
+          from: node.from,
+          to: node.to,
+          type: "math"
+        });
+      }
+      if (isCodeBlockStartNode(name)) {
+        blockStarts.push(node.from);
+      }
+      if (isCodeBlockEndNode(name)) {
+        blockEnds.push(node.to);
+      }
+      if (isCodeBlockNode(name)) {
+        blockCandidates.push({
+          from: node.from,
+          to: node.to,
+          type: "codeblock"
+        });
+      }
+    }
+  });
+  const pairedBlocks = pairCodeBlockRegions(blockStarts, blockEnds, doc.length);
+  const mergedBlocks = pairedBlocks.length > 0 ? pairedBlocks : mergeRegions(blockCandidates, true);
+  const expandedBlocks = expandRegionsToFullLines(mergedBlocks, doc);
+  const inlineRegions = mergeRegions(inlineCandidates, false);
+  const mathRegions = mergeRegions(mathCandidates, true);
+  regions.push(...expandedBlocks);
+  regions.push(...inlineRegions);
+  regions.push(...mathRegions);
   return regions;
 }
-function detectCodeBlocks(text, regions) {
-  const codeBlockRegex = ListPatterns.CODE_BLOCK_FENCE;
-  let match;
-  let inCodeBlock = false;
-  let codeBlockStart = -1;
-  while ((match = codeBlockRegex.exec(text)) !== null) {
-    if (!inCodeBlock) {
-      inCodeBlock = true;
-      codeBlockStart = match.index;
-    } else {
+function isInlineCodeNode(name) {
+  return name.includes("inline-code") || name.includes("code_inline") || name.includes("inlinecode");
+}
+function isCodeBlockStartNode(name) {
+  return name.includes("codeblock-begin");
+}
+function isCodeBlockEndNode(name) {
+  return name.includes("codeblock-end");
+}
+function isCodeBlockNode(name) {
+  if (name.includes("inline-code")) {
+    return false;
+  }
+  return name.includes("codeblock") || name.includes("code-block") || name.includes("fenced") || name.includes("hmd-codeblock");
+}
+function isMathNode(name) {
+  return name.includes("math");
+}
+function pairCodeBlockRegions(starts, ends, docLength) {
+  const regions = [];
+  const sortedStarts = [...starts].sort((a, b) => a - b);
+  const sortedEnds = [...ends].sort((a, b) => a - b);
+  let endIndex = 0;
+  for (const start of sortedStarts) {
+    while (endIndex < sortedEnds.length && sortedEnds[endIndex] <= start) {
+      endIndex++;
+    }
+    if (endIndex < sortedEnds.length) {
       regions.push({
-        from: codeBlockStart,
-        to: match.index + match[0].length,
+        from: start,
+        to: sortedEnds[endIndex],
         type: "codeblock"
       });
-      inCodeBlock = false;
-      codeBlockStart = -1;
-    }
-  }
-  if (inCodeBlock && codeBlockStart !== -1) {
-    regions.push({
-      from: codeBlockStart,
-      to: text.length,
-      type: "codeblock"
-    });
-  }
-}
-function detectInlineCode(text, regions) {
-  let i = 0;
-  while (i < text.length) {
-    if (isInCodeBlock(i, regions)) {
-      i++;
-      continue;
-    }
-    if (text[i] === "`") {
-      if (i > 0 && text[i - 1] === "\\") {
-        i++;
-        continue;
-      }
-      let j = i + 1;
-      while (j < text.length) {
-        if (text[j] === "`") {
-          if (j > 0 && text[j - 1] === "\\") {
-            j++;
-            continue;
-          }
-          regions.push({
-            from: i,
-            to: j + 1,
-            type: "inline-code"
-          });
-          i = j + 1;
-          break;
-        }
-        j++;
-      }
-      if (j >= text.length) {
-        i++;
-      }
+      endIndex++;
     } else {
-      i++;
+      regions.push({
+        from: start,
+        to: docLength,
+        type: "codeblock"
+      });
     }
   }
+  return regions;
 }
-function isInCodeBlock(pos, regions) {
-  for (const region of regions) {
-    if (region.type === "codeblock" && pos >= region.from && pos < region.to) {
-      return true;
+function mergeRegions(regions, mergeAdjacent) {
+  if (regions.length === 0) {
+    return regions;
+  }
+  const sorted = [...regions].sort((a, b) => a.from - b.from || a.to - b.to);
+  const merged = [sorted[0]];
+  for (let i = 1; i < sorted.length; i++) {
+    const current = sorted[i];
+    const last = merged[merged.length - 1];
+    const overlaps = current.from <= (mergeAdjacent ? last.to : last.to - 1);
+    if (current.type === last.type && overlaps) {
+      last.to = Math.max(last.to, current.to);
+    } else if (!(current.from === last.from && current.to === last.to && current.type === last.type)) {
+      merged.push(current);
     }
   }
-  return false;
+  return merged;
+}
+function expandRegionsToFullLines(regions, doc) {
+  return regions.map((region) => {
+    if (region.type !== "codeblock") {
+      return region;
+    }
+    const startLine = doc.lineAt(region.from);
+    const endLine = doc.lineAt(Math.max(region.to - 1, region.from));
+    return {
+      ...region,
+      from: startLine.from,
+      to: endLine.to
+    };
+  });
 }
 function isLineInCodeBlock(lineNumber, doc, codeRegions) {
   const line = doc.line(lineNumber);
@@ -3572,80 +3664,10 @@ function isLineInCodeBlock(lineNumber, doc, codeRegions) {
 function isLineInCodeRegion(lineNumber, doc, codeRegions) {
   return isLineInCodeBlock(lineNumber, doc, codeRegions);
 }
-function isRangeCompletelyInCodeRegion(from, to, codeRegions) {
-  for (const region of codeRegions) {
-    if (from >= region.from && to <= region.to) {
-      return true;
-    }
-  }
-  return false;
-}
 function isRangeInCodeRegion(from, to, codeRegions) {
-  return isRangeCompletelyInCodeRegion(from, to, codeRegions);
-}
-function detectMathRegions(text, regions) {
-  let i = 0;
-  while (i < text.length) {
-    if (isInExistingRegion(i, regions)) {
-      i++;
-      continue;
-    }
-    if (text[i] === "$") {
-      if (i > 0 && text[i - 1] === "\\") {
-        i++;
-        continue;
-      }
-      if (i + 1 < text.length && text[i + 1] === "$") {
-        let j = i + 2;
-        while (j < text.length - 1) {
-          if (text[j] === "$" && text[j + 1] === "$") {
-            if (j > 0 && text[j - 1] === "\\") {
-              j++;
-              continue;
-            }
-            regions.push({
-              from: i,
-              to: j + 2,
-              type: "math"
-            });
-            i = j + 2;
-            break;
-          }
-          j++;
-        }
-        if (j >= text.length - 1) {
-          i += 2;
-        }
-      } else {
-        let j = i + 1;
-        while (j < text.length) {
-          if (text[j] === "$") {
-            if (j > 0 && text[j - 1] === "\\") {
-              j++;
-              continue;
-            }
-            regions.push({
-              from: i,
-              to: j + 1,
-              type: "math"
-            });
-            i = j + 1;
-            break;
-          }
-          j++;
-        }
-        if (j >= text.length) {
-          i++;
-        }
-      }
-    } else {
-      i++;
-    }
-  }
-}
-function isInExistingRegion(pos, regions) {
-  for (const region of regions) {
-    if (pos >= region.from && pos < region.to) {
+  if (from === to) return false;
+  for (const region of codeRegions) {
+    if (from < region.to && to > region.from) {
       return true;
     }
   }
@@ -3774,7 +3796,6 @@ var ListBlockValidator = class {
     for (let i = 0; i < lines.length; i++) {
       const line = lines[i];
       const isCurrentList = this.isListItemForValidation(line);
-      const prevWasListOrContinuation = i > 0 && (this.isListItemForValidation(lines[i - 1]) || this.isListContinuation(lines[i - 1], inListBlock) || lines[i - 1].trim() === "");
       const isContinuation = this.isListContinuation(line, inListBlock);
       const prevIsDefinitionTerm = i > 0 && lines[i - 1].trim() && !ListPatterns.isDefinitionMarker(lines[i - 1]) && !ListPatterns.isIndentedContent(lines[i - 1]) && ListPatterns.isDefinitionMarker(line);
       if (isCurrentList && listBlockStart === -1) {
@@ -3963,7 +3984,7 @@ var ProcessingPipeline = class {
   createContext(view, settings) {
     const doc = view.state.doc;
     const docPath = this.getDocumentPath();
-    const codeRegions = detectCodeRegions(doc);
+    const codeRegions = detectCodeRegions(doc, view.state);
     const exampleScanResult = scanExampleLabelsFromDoc(doc, settings, codeRegions);
     const placeholderContext = this.getPlaceholderContext(docPath);
     const customScanResult = this.getCustomScanResult(doc, settings, placeholderContext, codeRegions);
@@ -4338,7 +4359,7 @@ var DefinitionBulletWidget = class extends BaseWidget {
     super(view, pos);
   }
   applyStyles(element) {
-    element.className = "cm-formatting cm-formatting-list cm-list-1 pandoc-list-marker";
+    element.className = "cm-formatting cm-formatting-list cm-list-1 pem-list-marker";
   }
   setContent(element) {
     element.textContent = "\u2022 ";
@@ -4590,8 +4611,10 @@ var ListContinuationIndentWidget = class extends import_view2.WidgetType {
     outerSpacing.appendChild(innerSpacing);
     const indentSpan = document.createElement("span");
     indentSpan.className = `cm-hmd-list-indent cm-hmd-list-indent-${this.getClampedLevel()} ${CSS_CLASSES.LIST_CONTINUATION_WIDGET}`;
-    indentSpan.style.width = `${this.width}px`;
-    indentSpan.style.whiteSpace = "pre";
+    indentSpan.setCssProps({
+      width: `${this.width}px`,
+      whiteSpace: "pre"
+    });
     indentSpan.textContent = "\xA0";
     indentSpan.setAttribute("aria-hidden", "true");
     innerSpacing.appendChild(indentSpan);
@@ -4775,7 +4798,6 @@ var FancyListProcessor = class extends BaseStructuralProcessor {
       return { decorations: [] };
     }
     const indent = fancyMatch[1];
-    const markerWithDelimiter = fancyMatch[2];
     const marker = fancyMatch[3];
     const delimiter = fancyMatch[4];
     const space = fancyMatch[5];
@@ -5306,7 +5328,7 @@ var DefinitionProcessor = class {
       from: line.from,
       to: line.to,
       decoration: import_view6.Decoration.mark({
-        class: "cm-strong cm-pandoc-definition-term"
+        class: `cm-strong ${CSS_CLASSES.DEFINITION_TERM_DECORATION}`
       })
     });
     return {
@@ -5837,8 +5859,7 @@ var CustomLabelReferenceProcessor = class {
   processPlaceholders(label, placeholderContext) {
     if (!placeholderContext) return label;
     return ListPatterns.replacePlaceholderLetters(label, (match, letter) => {
-      var _a;
-      const value = (_a = placeholderContext.getPlaceholderValue) == null ? void 0 : _a.call(placeholderContext, letter);
+      const value = placeholderContext.getPlaceholderValue(letter);
       return value !== void 0 ? `(${value})` : match;
     });
   }
@@ -5903,7 +5924,7 @@ function getSectionInfo(element) {
   if (typeof element.getSection === "function") {
     try {
       return element.getSection();
-    } catch (error) {
+    } catch (e) {
       return null;
     }
   }
@@ -5920,6 +5941,15 @@ function createTextNodeWalker(element, filter) {
       acceptNode: filter || (() => NodeFilter.FILTER_ACCEPT)
     }
   );
+}
+function createSmartTextNodeWalker(element) {
+  return createTextNodeWalker(element, (node) => {
+    const parent = node.parentElement;
+    if (parent && (parent.matches("code, .cm-math, .math, mjx-container") || parent.closest("code, .cm-math, .math, mjx-container"))) {
+      return NodeFilter.FILTER_REJECT;
+    }
+    return NodeFilter.FILTER_ACCEPT;
+  });
 }
 
 // src/reading-mode/parsers/fancyListParser.ts
@@ -6012,16 +6042,14 @@ function findSuperSubInText(text) {
   return matches;
 }
 function processSuperSub(element) {
-  const walker = createTextNodeWalker(element, (node) => {
-    const parent = node.parentElement;
-    if (parent && (parent.classList.contains(CSS_CLASSES.SUPERSCRIPT) || parent.classList.contains(CSS_CLASSES.SUBSCRIPT))) {
-      return NodeFilter.FILTER_REJECT;
-    }
-    return NodeFilter.FILTER_ACCEPT;
-  });
+  const walker = createSmartTextNodeWalker(element);
   const nodesToReplace = [];
   while (walker.nextNode()) {
     const node = walker.currentNode;
+    const parent = node.parentElement;
+    if (parent && (parent.classList.contains(CSS_CLASSES.SUPERSCRIPT) || parent.classList.contains(CSS_CLASSES.SUBSCRIPT))) {
+      continue;
+    }
     const text = node.textContent || "";
     const matches = findSuperSubInText(text);
     if (matches.length > 0) {
@@ -6031,11 +6059,12 @@ function processSuperSub(element) {
   nodesToReplace.forEach(({ node, matches }) => {
     const parent = node.parentNode;
     if (!parent) return;
+    const text = node.textContent || "";
     let lastIndex = 0;
     const fragments = [];
     matches.forEach((match) => {
       if (match.index > lastIndex) {
-        fragments.push(node.textContent.substring(lastIndex, match.index));
+        fragments.push(text.substring(lastIndex, match.index));
       }
       const elem = match.type === "superscript" ? document.createElement("sup") : document.createElement("sub");
       elem.className = match.type === "superscript" ? CSS_CLASSES.SUPERSCRIPT : CSS_CLASSES.SUBSCRIPT;
@@ -6043,8 +6072,8 @@ function processSuperSub(element) {
       fragments.push(elem);
       lastIndex = match.index + match.length;
     });
-    if (lastIndex < node.textContent.length) {
-      fragments.push(node.textContent.substring(lastIndex));
+    if (lastIndex < text.length) {
+      fragments.push(text.substring(lastIndex));
     }
     fragments.forEach((fragment) => {
       if (typeof fragment === "string") {
@@ -6440,7 +6469,7 @@ function processCustomLabelLists(element, context, placeholderContext) {
   listItems.forEach((li) => {
     processElement(li, placeholderContext);
     if (li.querySelector(`.${CSS_CLASSES.PANDOC_LIST_MARKER}`)) {
-      li.classList.add("pandoc-custom-label-item");
+      li.classList.add("pem-custom-label-item");
     }
   });
 }
@@ -6492,9 +6521,9 @@ function processReferencesInText(text, container, placeholderContext) {
   }
 }
 function processElementPreservingSpans(elem, placeholderContext) {
-  const walker = createTextNodeWalker(elem, (node2) => {
-    const parent = node2.parentElement;
-    if (parent && (parent.className === CSS_CLASSES.EXAMPLE_REF || parent.className === CSS_CLASSES.PANDOC_LIST_MARKER || parent.className.includes("pandoc-list-fancy") || parent.className === CSS_CLASSES.EXAMPLE_LIST || parent.className === CSS_CLASSES.CUSTOM_LABEL_REFERENCE_PROCESSED || parent.tagName === "STRONG" || // Skip text inside strong tags that might contain processed content
+  const walker = createTextNodeWalker(elem, (node) => {
+    const parent = node.parentElement;
+    if (parent && (parent.className === CSS_CLASSES.EXAMPLE_REF || parent.className === CSS_CLASSES.PANDOC_LIST_MARKER || parent.className.includes("pem-list-fancy") || parent.className === CSS_CLASSES.EXAMPLE_LIST || parent.className === CSS_CLASSES.CUSTOM_LABEL_REFERENCE_PROCESSED || parent.tagName === "STRONG" || // Skip text inside strong tags that might contain processed content
     parent.tagName === "EM")) {
       return NodeFilter.FILTER_SKIP;
     }
@@ -6505,10 +6534,10 @@ function processElementPreservingSpans(elem, placeholderContext) {
     return NodeFilter.FILTER_ACCEPT;
   });
   const nodesToProcess = [];
-  let node;
-  while (node = walker.nextNode()) {
-    if (node.textContent && node.textContent.includes("{::")) {
-      nodesToProcess.push(node);
+  let currentNode;
+  while (currentNode = walker.nextNode()) {
+    if (currentNode.textContent && currentNode.textContent.includes("{::")) {
+      nodesToProcess.push(currentNode);
     }
   }
   nodesToProcess.forEach((textNode) => {
@@ -6537,7 +6566,7 @@ function hasProcessedContent(elem) {
   return !!(elem.querySelector("span") || elem.querySelector("strong") || elem.querySelector("em"));
 }
 function isProcessedSpan(elemNode) {
-  return elemNode.tagName === "SPAN" && (elemNode.className === CSS_CLASSES.EXAMPLE_REF || elemNode.className === CSS_CLASSES.PANDOC_LIST_MARKER || elemNode.className.includes("pandoc-list-fancy") || elemNode.className === CSS_CLASSES.EXAMPLE_LIST || elemNode.className === CSS_CLASSES.CUSTOM_LABEL_REFERENCE_PROCESSED);
+  return elemNode.tagName === "SPAN" && (elemNode.className === CSS_CLASSES.EXAMPLE_REF || elemNode.className === CSS_CLASSES.PANDOC_LIST_MARKER || elemNode.className.includes("pem-list-fancy") || elemNode.className === CSS_CLASSES.EXAMPLE_LIST || elemNode.className === CSS_CLASSES.CUSTOM_LABEL_REFERENCE_PROCESSED);
 }
 function processTextNodeLines(node, container, placeholderContext) {
   const text = node.textContent || "";
@@ -6617,15 +6646,11 @@ function isStrictPandocFormatting(context, strictMode) {
       return false;
     }
   }
-  let isLastItemInList = true;
   if (currentLine < lines.length - 1) {
     const nextLine = lines[currentLine + 1];
     const nextIsListItem = isListItem(nextLine, false);
     if (!nextIsListItem && nextLine.trim() !== "") {
       return false;
-    }
-    if (nextIsListItem) {
-      isLastItemInList = false;
     }
   }
   return true;
@@ -6770,11 +6795,11 @@ function processReadingMode(element, context, config) {
     if (elem.closest("h1, h2, h3, h4, h5, h6")) {
       return;
     }
-    if (pluginStateManager.isElementProcessed(elem, "pandoc-processed", docPath)) {
+    if (pluginStateManager.isElementProcessed(elem, "pem-processed", docPath)) {
       return;
     }
     processElementTextNodes(elem, parser, renderer, config, docPath, validationLines);
-    pluginStateManager.markElementProcessed(elem, "pandoc-processed", true);
+    pluginStateManager.markElementProcessed(elem, "pem-processed", true);
   });
   if (config.enableSuperSubscripts) {
     processSuperSub(element);
@@ -7782,7 +7807,7 @@ ${markerInfo.indent}${markerInfo.marker}${spaces}`;
   view.dispatch(transaction);
   if (settings.autoRenumberLists && markerInfo.marker !== "(@)" && markerInfo.marker !== "{::}" && markerInfo.marker !== "#." && !markerInfo.marker.match(ListPatterns.DEFINITION_MARKER_ONLY)) {
     const newLineNum = line.number;
-    setTimeout(() => {
+    window.setTimeout(() => {
       renumberListItems(view, newLineNum);
     }, 0);
   }
@@ -7875,7 +7900,7 @@ ${markerInfo.indent}${markerInfo.marker}${spaces}`;
   view.dispatch(transaction);
   if (settings.autoRenumberLists && markerInfo.marker !== "(@)" && markerInfo.marker !== "{::}" && markerInfo.marker !== "#." && !markerInfo.marker.match(ListPatterns.DEFINITION_MARKER_ONLY)) {
     const newLineNum = currentLine.line.number;
-    setTimeout(() => {
+    window.setTimeout(() => {
       renumberListItems(view, newLineNum);
     }, 0);
   }
@@ -8049,6 +8074,10 @@ function createListAutocompletionKeymap(settings) {
 
 // src/core/main.ts
 var PandocExtendedMarkdownPlugin = class extends import_obsidian15.Plugin {
+  constructor() {
+    super(...arguments);
+    this.listPanelRibbonIcon = null;
+  }
   async onload() {
     await this.loadSettings();
     this.registerViewIcons();
@@ -8064,10 +8093,11 @@ var PandocExtendedMarkdownPlugin = class extends import_obsidian15.Plugin {
       VIEW_TYPE_LIST_PANEL,
       (leaf) => new ListPanelView(leaf, this)
     );
-    this.addRibbonIcon(ICONS.LIST_PANEL_ID, "Open list panel", () => {
-      this.activateListPanelView();
-    });
     this.registerCommands();
+    this.updateListPanelAvailability();
+    this.app.workspace.onLayoutReady(() => {
+      this.updateListPanelAvailability();
+    });
   }
   registerViewIcons() {
     (0, import_obsidian15.addIcon)(ICONS.CUSTOM_LABEL_ID, ICONS.CUSTOM_LABEL_SVG);
@@ -8100,13 +8130,9 @@ var PandocExtendedMarkdownPlugin = class extends import_obsidian15.Plugin {
       const leaves = this.app.workspace.getLeavesOfType("markdown");
       const hadChanges = pluginStateManager.scanAllLeaves(leaves);
       if (hadChanges) {
-        setTimeout(() => {
-          this.app.workspace.iterateCodeMirrors((cm) => {
-            if (cm.dispatch) {
-              cm.dispatch({ effects: [] });
-            }
-          });
-        }, 10);
+        window.setTimeout(() => {
+          this.app.workspace.updateOptions();
+        }, UI_CONSTANTS.MODE_REFRESH_DELAY_MS);
       }
     };
     updateStates();
@@ -8178,7 +8204,7 @@ ${issueList}`, UI_CONSTANTS.NOTICE_DURATION_MS);
       id: COMMANDS.OPEN_LIST_PANEL,
       name: "Open list panel",
       callback: () => {
-        this.activateListPanelView();
+        void this.activateListPanelView();
       }
     });
   }
@@ -8186,6 +8212,10 @@ ${issueList}`, UI_CONSTANTS.NOTICE_DURATION_MS);
     pluginStateManager.clearAllStates();
   }
   async activateListPanelView() {
+    if (!this.settings.enableListPanel) {
+      new import_obsidian15.Notice(MESSAGES.LIST_PANEL_DISABLED);
+      return;
+    }
     const { workspace } = this.app;
     let leaf = null;
     const leaves = workspace.getLeavesOfType(VIEW_TYPE_LIST_PANEL);
@@ -8198,7 +8228,32 @@ ${issueList}`, UI_CONSTANTS.NOTICE_DURATION_MS);
       }
     }
     if (leaf) {
-      workspace.revealLeaf(leaf);
+      await workspace.revealLeaf(leaf);
+    }
+  }
+  updateListPanelAvailability() {
+    if (this.settings.enableListPanel) {
+      this.ensureListPanelRibbonIcon();
+    } else {
+      this.removeListPanelRibbonIcon();
+      this.closeListPanelViews();
+    }
+  }
+  ensureListPanelRibbonIcon() {
+    if (this.listPanelRibbonIcon) return;
+    this.listPanelRibbonIcon = this.addRibbonIcon(ICONS.LIST_PANEL_ID, "Open list panel", () => {
+      void this.activateListPanelView();
+    });
+  }
+  removeListPanelRibbonIcon() {
+    if (!this.listPanelRibbonIcon) return;
+    this.listPanelRibbonIcon.remove();
+    this.listPanelRibbonIcon = null;
+  }
+  closeListPanelViews() {
+    const leaves = this.app.workspace.getLeavesOfType(VIEW_TYPE_LIST_PANEL);
+    for (const leaf of leaves) {
+      leaf.detach();
     }
   }
   async loadSettings() {
