@@ -33,5 +33,18 @@ The sense of normativity is not of morality: If I want to catch the train, and I
 
 2. Reason-involving goodness
 
-**x is good**: there are certain facts about x that would in certain situations give us reason to respond to this thing in some positive way (e.g. wanting, choosing, using, producing, etc.)
+**x is good**: there are certain *facts about x* that would in certain situations *give us reason* to respond to this thing in some positive way (e.g. wanting, choosing, using, producing, etc.)
 
+> This already seems to define goodness as a relational property between facts and us. If so, then different people would have different goodness.
+
+
+- **x is intrinsically good**: x makes our lives worth living
+- **x is instrumentally good**: x has effect s that are intrinsically good for us
+
+- **self-interested reason**: reasons to care about our own well-being
+- **altruistic reason**: reasons to care about the well-being of other people
+	- **partial/person relative reason**: reasons to care about the well-being of people who are related to us in some way
+	- **impartial reason**: reasonsn to care about the well-being of whatever that person's relation to us
+
+
+- **x is good for someone**: x gives this person self-interested reason and give other people altruistic reason for the sake of that person.
