@@ -34,3 +34,4 @@ The sense of normativity is not of morality: If I want to catch the train, and I
 2. Reason-involving goodness
 
 **x is good**: there are certain facts about x that would in certain situations give us reason to respond to this thing in some positive way (e.g. wanting, choosing, using, producing, etc.)
+
