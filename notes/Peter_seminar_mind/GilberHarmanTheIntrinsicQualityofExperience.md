@@ -1,14 +1,14 @@
-Three arguments against functionalism:
+## Three arguments against functionalism:
 
 1. intrinsic nature of our own mental states is not captured by functionalist accounts because functionalist accounts are mere relations between inputs, internal states, and outputs.
 2. A person blind from birth can know everything about physical and functional facts about color without having any experience of color.
 3. Two people can have similar functional organization but experience inverted spectrum.
 
-Intentionality
+## Intentionality
 
 **The properties of a represented object vs. The properties of the represention**: An intentional object doesn't need to be actual: When we intend a unicorn, we may have a *mental picture* of a unicorn. The mental picture is different from the unicorn being intended. The mental picture is mental, but the unicorn is not. 
 
-Two arguments from sense datum theorists:
+### Two arguments from sense datum theorists:
 
 **The argument from illusion**: 
 
@@ -32,3 +32,10 @@ Line 4 is fallacious because the thing that is internal and mental is the repres
 3. Therefore, Elois sees the tree that is a mental (i.e. as a representation)
 
 **Defense**: a painting is representational, and we can realize there are two different things and can tune our awareness to either the representation or the represented. But when we look at a tree, we cannot tune our awareness to the representation. Therefore, the tree is not a representation.
+
+> The argument relies on the assertion that, we cannot tune our awareness to the mental picture of a tree, like how we tune our awareness to the painting itself. However, if we cannot tune our awareness to the mental picture of a tree at all, how is it possible for us to talk about experience of seeing a tree at all?
+
+**An additional comment on pain**: When we feel pain in the leg while it's actually caused by a spinal injury, the intentional object is located in the leg, but the experience itself is not. There are some sense in which the pain is hallucination, but we say the pain exists because the truth condition is "the experience of pain exists", not "the intentional object of the painful experience exists".
+
+## Assessment of the First Objection
+
