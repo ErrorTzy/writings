@@ -1,7 +1,7 @@
 {
   "settings": {
     "version": "1",
-    "enabled": true,
+    "enabled": false,
     "advancedMode": true,
     "apiProvider": "ollama",
     "azureOAIApiSettings": {

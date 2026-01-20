@@ -4,7 +4,7 @@
 
 > Eli: Parfit is looking for a action related concept that is parallel to reason vs evidence for belief.
 
-Parfit's way of talking
+**Reasons**: fundamental
 
 - **I have reason X to do Y**: X is a reason for doing Y if and only if X is a reason for doing Y, even if we are not aware of it.
 - **I have more reason to do Y**: the reasons for doing Y is stronger/outweights the reasons for doing Z.
@@ -12,6 +12,8 @@ Parfit's way of talking
 - **X is a decisive reason**: X is stronger than our reasons to act in any other way
 - **X is strongly decisive reason**: X is *much* stronger than other conflicting reasons
 - **X is a sufficent reason**: X is not weaker than reasons for acting in any other way
+
+**Rationality and "ought to"**: defined in terms of reason
 
 - **We ought do Y**: When X is an *decisive reason* to do Y, we *should* do Y.
 - **Doing Y is rational**: We have beliefs whose truth would be *sufficient reason* to do Y
@@ -33,6 +35,8 @@ The sense of normativity is not of morality: If I want to catch the train, and I
 
 2. Reason-involving goodness
 
+**Good**: Defined in terms of reasons
+
 **x is good**: there are certain *facts about x* that would in certain situations *give us reason* to respond to this thing in some positive way (e.g. wanting, choosing, using, producing, etc.)
 
 > This already seems to define goodness as a relational property between facts and us. If so, then different people would have different goodness.
@@ -40,11 +44,26 @@ The sense of normativity is not of morality: If I want to catch the train, and I
 
 - **x is intrinsically good**: x makes our lives worth living
 - **x is instrumentally good**: x has effect s that are intrinsically good for us
+- **x is good for us**: x is in our well-being
 
 - **self-interested reason**: reasons to care about our own well-being
 - **altruistic reason**: reasons to care about the well-being of other people
 	- **partial/person relative reason**: reasons to care about the well-being of people who are related to us in some way
 	- **impartial reason**: reasonsn to care about the well-being of whatever that person's relation to us
 
-
 - **x is good for someone**: x gives this person self-interested reason and give other people altruistic reason for the sake of that person.
+- **x is better (in the impartial-reason-implying sense) than y**: everyone would have strong reason to want x to occur rather than y from an impartial point of view
+
+**Upshot**: The concept of "good" or "good for" is defined in terms of giving us reason, and therefore not fundamental.
+
+> Different types of reasons: teleological? factual?
+
+### 2. Objective Theories
+
+#### 3. Two Kinds of Theory
+
+Two senses of "want to x"
+
+- The wider sense: Any state of being motivated to do x
+- The narrower sense: Being disposed to make x happen
+
