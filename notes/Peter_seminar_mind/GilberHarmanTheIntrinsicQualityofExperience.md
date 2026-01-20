@@ -33,9 +33,18 @@ Line 4 is fallacious because the thing that is internal and mental is the repres
 
 **Defense**: a painting is representational, and we can realize there are two different things and can tune our awareness to either the representation or the represented. But when we look at a tree, we cannot tune our awareness to the representation. Therefore, the tree is not a representation.
 
-> The argument relies on the assertion that, we cannot tune our awareness to the mental picture of a tree, like how we tune our awareness to the painting itself. However, if we cannot tune our awareness to the mental picture of a tree at all, how is it possible for us to talk about experience of seeing a tree at all?
+> The argument relies on the assertion that, we cannot tune our awareness to the mental picture of a tree, like how we tune our awareness to the painting itself. However, if we cannot tune our awareness to the mental picture of a tree at all, how is it possible for us to talk about experience of seeing a tree at all?will be in touch about rescheduling the session for later in the semester. Our next meeting will be a week from tomorrow (Tuesday, 1/27); we will discuss the Harman reading and the background SEP article on the Problem of Perception then.
 
 **An additional comment on pain**: When we feel pain in the leg while it's actually caused by a spinal injury, the intentional object is located in the leg, but the experience itself is not. There are some sense in which the pain is hallucination, but we say the pain exists because the truth condition is "the experience of pain exists", not "the intentional object of the painful experience exists".
 
 ## Assessment of the First Objection
 
+**The first objection**: functionalism cannot explain the intrinsic quality of experience
+
+**Reply**: 
+1. Normally, there is no awareness of the intrinsic quality of experience. Therefore, there's nothing to be explained.
+2. Even if someone did some brain surgery so that they are aware of the intrinsic quality of experience, the functionalist account would be able to explain it just like how the functionalist account explains how we perceives trees and tables (except now the object being perceived is the brain process itself)
+
+> What do we mean when we say we have an experience of somthing? In ordinary language, when we say we have a good/bad experience, most of the time we are talking about some non-representational states like satisfaction, fear, anger, joy, etc. The "experience" of seeing a tree, however, is hardly something we say in ordinary language. 
+
+> Some people think slugs are disgusting. Just from the surface grammar, it seems we are ascribing the property of "disgusting" to slugs. We are not saying "I am digusted by slugs", which is describing our own mental states. However, we may grow up and no longer disgusted by slugs. The problem is we don't think slugs changed. It's us that changed and no longer feel disgust. We wouldn't say "it's still a disgusting slug, dispite I can no longer sense the disgust". However, when we see a red tree, and then become color blind, we still say, it is a red tree instead of saying, "it is no longer red". 

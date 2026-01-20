@@ -269,7 +269,7 @@ Any program is a tuple of (I,S,O,F,G):
 - F: the mapping of (I,S) to S
 - G: the mapping of (I,S) to O
 
-The configuration of M = {P}xIxSxO
+The configuration of $M = \{P\} \times I \times S \times O$
 
 > What is "mental state"? Why is it a state? What is a state?
 
@@ -299,7 +299,7 @@ If we adopt sense-reference modal, then the reference of pain **is the sense of 
 
 **Functionalism:** Other creatures can have consciousness.
 No assertion. Purely abstract assertion that mind is some kind of structure/functional role. Very *scientific*.
-*Problem:* Our intuition is that mind must have feels (qualia)
+*Problem:* Our intuition is that mind must have feelings (qualia).
 
 ### Block: Homunculi-headed robots
 
@@ -319,7 +319,7 @@ Self-knowledge and my own mental state:
 2. Whether the pain occurs
 3. Whether I am having a pain
 
-### Nida: Qualia
+### Nida: Qualia,
 
 The felt or phenomenal qualities associated with experience
 
