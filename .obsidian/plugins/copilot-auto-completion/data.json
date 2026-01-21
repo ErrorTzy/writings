@@ -234,6 +234,7 @@
     "maxSuffixCharLimit": 4000,
     "removeDuplicateMathBlockIndicator": true,
     "removeDuplicateCodeBlockIndicator": true,
+    "onlyInlineCompletion": true,
     "ignoredFilePatterns": "**/secret/**\n",
     "ignoredTags": "",
     "acceptSuggestionKey": "Shift-Tab",

@@ -45422,7 +45422,7 @@ var trim_after_newline_default = TrimAfterNewline;
 
 // src/prediction_services/chat_gpt_with_reasoning/index.ts
 var ChatGPTWithReasoning = class {
-  constructor(client, systemMessage, userMessageFormatter, removePreAnswerGenerationRegex, preProcessors, postProcessors, fewShotExamples, debugMode) {
+  constructor(client, systemMessage, userMessageFormatter, removePreAnswerGenerationRegex, preProcessors, postProcessors, fewShotExamples, debugMode, onlyInlineCompletion) {
     this.client = client;
     this.systemMessage = systemMessage;
     this.userMessageFormatter = userMessageFormatter;
@@ -45431,6 +45431,7 @@ var ChatGPTWithReasoning = class {
     this.postProcessors = postProcessors;
     this.fewShotExamples = fewShotExamples;
     this.debugMode = debugMode;
+    this.onlyInlineCompletion = onlyInlineCompletion;
   }
   static fromSettings(settings) {
     const formatter = Handlebars.compile(
@@ -45477,7 +45478,8 @@ var ChatGPTWithReasoning = class {
       preProcessors,
       postProcessors,
       settings.fewShotExamples,
-      settings.debugMode
+      settings.debugMode,
+      settings.onlyInlineCompletion
     );
   }
   async fetchPredictions(prefix, suffix) {
@@ -45522,31 +45524,46 @@ var ChatGPTWithReasoning = class {
     return result;
   }
   getSystemMessageFor(context) {
+    let systemMessage = this.systemMessage;
     if (context === context_detection_default.Text) {
-      return this.systemMessage + "\n\nThe <mask/> is located in a paragraph. Your answer must complete this paragraph or sentence in a way that fits the surrounding text without overlapping with it. It must be in the same language as the paragraph.";
+      systemMessage += "\n\nThe <mask/> is located in a paragraph. Your answer must complete this paragraph or sentence in a way that fits the surrounding text without overlapping with it. It must be in the same language as the paragraph.";
+      return this.applyInlineCompletionConstraint(systemMessage);
     }
     if (context === context_detection_default.Heading) {
-      return this.systemMessage + "\n\nThe <mask/> is located in the Markdown heading. Your answer must complete this title in a way that fits the content of this paragraph and be in the same language as the paragraph.";
+      systemMessage += "\n\nThe <mask/> is located in the Markdown heading. Your answer must complete this title in a way that fits the content of this paragraph and be in the same language as the paragraph.";
+      return this.applyInlineCompletionConstraint(systemMessage);
     }
     if (context === context_detection_default.BlockQuotes) {
-      return this.systemMessage + "\n\nThe <mask/> is located within a quote. Your answer must complete this quote in a way that fits the context of the paragraph.";
+      systemMessage += "\n\nThe <mask/> is located within a quote. Your answer must complete this quote in a way that fits the context of the paragraph.";
+      return this.applyInlineCompletionConstraint(systemMessage);
     }
     if (context === context_detection_default.UnorderedList) {
-      return this.systemMessage + "\n\nThe <mask/> is located in an unordered list. Your answer must include one or more list items that fit with the surrounding list without overlapping with it.";
+      systemMessage += "\n\nThe <mask/> is located in an unordered list. Your answer must include one or more list items that fit with the surrounding list without overlapping with it.";
+      return this.applyInlineCompletionConstraint(systemMessage);
     }
     if (context === context_detection_default.NumberedList) {
-      return this.systemMessage + "\n\nThe <mask/> is located in a numbered list. Your answer must include one or more list items that fit the sequence and context of the surrounding list without overlapping with it.";
+      systemMessage += "\n\nThe <mask/> is located in a numbered list. Your answer must include one or more list items that fit the sequence and context of the surrounding list without overlapping with it.";
+      return this.applyInlineCompletionConstraint(systemMessage);
     }
     if (context === context_detection_default.CodeBlock) {
-      return this.systemMessage + "\n\nThe <mask/> is located in a code block. Your answer must complete this code block in the same programming language and support the surrounding code and text outside of the code block.";
+      systemMessage += "\n\nThe <mask/> is located in a code block. Your answer must complete this code block in the same programming language and support the surrounding code and text outside of the code block.";
+      return this.applyInlineCompletionConstraint(systemMessage);
     }
     if (context === context_detection_default.MathBlock) {
-      return this.systemMessage + "\n\nThe <mask/> is located in a math block. Your answer must only contain LaTeX code that captures the math discussed in the surrounding text. No text or explaination only LaTex math code.";
+      systemMessage += "\n\nThe <mask/> is located in a math block. Your answer must only contain LaTeX code that captures the math discussed in the surrounding text. No text or explaination only LaTex math code.";
+      return this.applyInlineCompletionConstraint(systemMessage);
     }
     if (context === context_detection_default.TaskList) {
-      return this.systemMessage + "\n\nThe <mask/> is located in a task list. Your answer must include one or more (sub)tasks that are logical given the other tasks and the surrounding text.";
+      systemMessage += "\n\nThe <mask/> is located in a task list. Your answer must include one or more (sub)tasks that are logical given the other tasks and the surrounding text.";
+      return this.applyInlineCompletionConstraint(systemMessage);
     }
-    return this.systemMessage;
+    return this.applyInlineCompletionConstraint(systemMessage);
+  }
+  applyInlineCompletionConstraint(systemMessage) {
+    if (!this.onlyInlineCompletion) {
+      return systemMessage;
+    }
+    return systemMessage + "\n\nInline-only mode: The ANSWER must be a single line with no newline characters. If multiple lines are appropriate, return only the first line.";
   }
   extractAnswerFromChainOfThoughts(result) {
     if (result.isErr()) {
@@ -45590,12 +45607,14 @@ function fewShotExamplesToChatMessages(examples) {
 var chat_gpt_with_reasoning_default = ChatGPTWithReasoning;
 
 // src/prediction_services/ollama_fim/index.ts
+var INLINE_ONLY_FIM_SYSTEM_HINT = "Inline-only mode: Return a single line with no newline characters. If multiple lines are appropriate, return only the first line.";
 var OllamaFIM = class {
-  constructor(client, preProcessors, postProcessors, debugMode) {
+  constructor(client, preProcessors, postProcessors, debugMode, onlyInlineCompletion) {
     this.client = client;
     this.preProcessors = preProcessors;
     this.postProcessors = postProcessors;
     this.debugMode = debugMode;
+    this.onlyInlineCompletion = onlyInlineCompletion;
   }
   static fromSettings(settings) {
     const preProcessors = [];
@@ -45620,12 +45639,16 @@ var OllamaFIM = class {
     if (settings.onlyInlineCompletion) {
       postProcessors.push(new trim_after_newline_default());
     }
-    const client = OllamaFIMApiClient_default.fromSettings(settings);
+    const systemPromptOverride = settings.onlyInlineCompletion ? appendInlineOnlySystemMessage(settings.fimSystemMessage) : settings.fimSystemMessage;
+    const client = OllamaFIMApiClient_default.fromSettings(settings, {
+      systemPromptOverride
+    });
     return new OllamaFIM(
       client,
       preProcessors,
       postProcessors,
-      settings.debugMode
+      settings.debugMode,
+      settings.onlyInlineCompletion
     );
   }
   async fetchPredictions(prefix, suffix) {
@@ -45666,6 +45689,9 @@ var OllamaFIM = class {
       "<|fim_middle|>",
       "<|endoftext|>"
     ];
+    if (this.onlyInlineCompletion) {
+      addStopTokens(stopTokens, ["\n", "\r"]);
+    }
     const isOpenDisplayMath = hasUnclosedDoubleDollar(prefix, suffix);
     const isOpenInlineMath = hasUnclosedSingleDollar(prefix, suffix);
     if (context !== context_detection_default.MathBlock && !isOpenDisplayMath && !isOpenInlineMath) {
@@ -45674,15 +45700,15 @@ var OllamaFIM = class {
     const trimmedSuffix = suffix.trimStart();
     const hasDisplayClose = trimmedSuffix.startsWith("$$") || suffix.includes("$$");
     if (hasDisplayClose) {
-      stopTokens.push("$$", "\n");
+      addStopTokens(stopTokens, ["$$", "\n"]);
       return stopTokens;
     }
     const hasInlineClose = trimmedSuffix.startsWith("$") || suffix.includes("$");
     if (hasInlineClose) {
-      stopTokens.push("$", "\n");
+      addStopTokens(stopTokens, ["$", "\n"]);
       return stopTokens;
     }
-    stopTokens.push("\n");
+    addStopTokens(stopTokens, ["\n"]);
     return stopTokens;
   }
   checkAgainstGuardRails(result) {
@@ -45698,6 +45724,16 @@ var OllamaFIM = class {
     return result;
   }
 };
+function appendInlineOnlySystemMessage(systemMessage) {
+  return systemMessage + "\n\n" + INLINE_ONLY_FIM_SYSTEM_HINT;
+}
+function addStopTokens(target, tokens) {
+  for (const token of tokens) {
+    if (!target.includes(token)) {
+      target.push(token);
+    }
+  }
+}
 var ollama_fim_default = OllamaFIM;
 function countOccurrences(text, needle) {
   if (!text || !needle) {
