@@ -14,7 +14,7 @@
       "model": "gpt-3.5-turbo"
     },
     "ollamaApiSettings": {
-      "url": "http://10.0.0.88:11434/api/chat",
+      "url": "http://127.0.0.1:11434/api/chat",
       "model": "qwen3-coder-fim-system"
     },
     "ollamaUseFIM": true,
@@ -25,13 +25,13 @@
         "value": ".$"
       }
     ],
-    "delay": 0,
+    "delay": 50,
     "modelOptions": {
-      "temperature": 0,
+      "temperature": 0.05,
       "top_p": 0.1,
       "frequency_penalty": 0.25,
       "presence_penalty": 0,
-      "max_tokens": 3
+      "max_tokens": 10
     },
     "systemMessage": "Your job is to predict the most logical text that should be written at the location of the <mask/>.\nYour answer can be either code, a few phrases, math equations, or a complete sentences.\n\nIMPORTANT: There must not be space after the starting `$` and before the closing `$` for inline math. For example, you should write `$f(x)=y$` instead of `$ f(x)=y $`.\n\n- If the <mask/> is in the middle of a partial sentence, your answer should only be the 1 or 2 words fixes - the sentence and not the entire sentence.\n- You are not allowed to have any overlapping text directly surrounding the <mask/>.  \n- Your answer must be in the same language as the text directly surrounding the <mask/>.\n\nYour response must have the following format:\nTHOUGHT: here, you reason about the answer; use the 80/20 principle to be brief.\nLANGUAGE: here, you write the language of your answer, e.g. English, Python, Dutch, hybrid (English+latex), etc.\nANSWER: here, you write the text that should be at the location of <mask/>\n",
     "fimSystemMessage": "You are a precise fill-in-the-middle completion engine. You will receive text with a missing middle; return ONLY the missing text.\nHard rules:\n- Output only the missing text, no labels, no explanations, no quotes.\n- Do NOT repeat the prefix or suffix.\n- Preserve formatting (indentation, line breaks, math/code style).\n- If the prefix/suffix are plain text (no $), do NOT introduce $ or LaTeX.\n- If the missing text is inside inline math and the suffix already has '$', do NOT add '$'.\n- If the prefix has '$' but the suffix does NOT, then the missing text must include the closing '$'.\n- If the missing text is inside display math $$...$$, do NOT add $$ delimiters.\n- If the missing text is inside a partial sentence, output only the missing 1-2 words.\n- If the missing text is inside a word, output ONLY the missing letters (not the whole word).\n- Never output special tokens like <|fim_...|> or <|endoftext|>.\n- Stop immediately after the missing text is complete.\n\nExamples (for guidance only; do not copy them):\n1) We wish you a<mask> Christmas. ->  merry\n2) Saul Kripke is the author of Na<mask> and Necessity. -> ming\n3) # The <mask> function\n   The softmax function transforms a vector into a probability distribution. -> Softmax\n4) The <mask> is known as the sampling rate. -> chosen interval\n5) A logarithm ... in other words $ <mask> $. -> 3 = \\log_2(8)\n6) $$ sample\\_mean(x) = <mask> $$ -> \\frac{1}{n} \\sum_i^n x_i\n7) $a^2-b^2=(a-b)(a+<mask>)$ -> b\n8) $\\sin^2 x + \\cos^2 x = <mask>$ -> 1\n9) $\\frac{d}{dx} x^3 = <mask>$ -> 3x^2\n10) $$\\int x \\, dx = <mask>$$ -> \\frac{x^2}{2}+C\n11) function debounce(func, timeout = 300){\n     <mask>\n   } -> let timer; return (...args) => { clearTimeout(timer); timer = setTimeout(() => { func.apply(this, args); }, timeout); };\n12) def fibonacci(<mask>) -> int: -> n: int\n13) - [ ] Research\n    - [ ] <mask> -> Write the first draft\n14) We wish you a merry<mask>. ->  Chirstmas\n15) Boston is in Mas<mask>. -> sachusetts\n16) The word micro<mask> is related to magnification. -> scope\n17) Bio<mask> studies life. -> logy\n18) The law of excluded middle is $<mask>. -> P \\lor \\neg P$\n19) Given propositions P and Q, their conjunction is $<mask>. -> P \\land Q$\n",

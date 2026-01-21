@@ -44458,7 +44458,9 @@ function SettingsView(props) {
       setValue: (value) => updateSettings({ delay: value }),
       min: MIN_DELAY,
       max: MAX_DELAY,
-      step: 100,
+      step: 10,
+      showInput: true,
+      inputStep: 1,
       suffix: "ms"
     }
   ), /* @__PURE__ */ React10.createElement(
