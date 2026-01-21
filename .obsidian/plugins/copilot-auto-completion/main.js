@@ -47467,7 +47467,7 @@ var UserEvent = /* @__PURE__ */ ((UserEvent2) => {
   }
   UserEvent2.isDelete = isDelete;
   function values_string() {
-    return Object.values(UserEvent2).map((event) => event.toString());
+    return Object.values(UserEvent2).map((event) => event.toString()).sort((a, b) => b.length - a.length);
   }
   UserEvent2.values_string = values_string;
   function fromString(event) {
@@ -47508,7 +47508,7 @@ var DocumentChanges = class {
   }
   hasUserTyped() {
     const userEvents = this.getUserEvents();
-    return userEvents.contains(user_event_default.INPUT_TYPE);
+    return userEvents.contains(user_event_default.INPUT_TYPE) || userEvents.contains(user_event_default.INPUT_TYPE_COMPOSE);
   }
   hasUserUndone() {
     const userEvents = this.getUserEvents();

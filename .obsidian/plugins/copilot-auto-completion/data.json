@@ -25,7 +25,7 @@
         "value": ".$"
       }
     ],
-    "delay": 100,
+    "delay": 0,
     "modelOptions": {
       "temperature": 1,
       "top_p": 0.1,

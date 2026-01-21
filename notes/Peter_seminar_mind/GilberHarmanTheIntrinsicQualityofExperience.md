@@ -51,4 +51,3 @@ Line 4 is fallacious because the thing that is internal and mental is the repres
 > I think the answer is that, we actually can, but we are not guestured to use the word "disgusting" in this way. For example, we are willing to retract our judgment about red when people point out when there's some abnormality in the lighting condition. However, when we say something is disgusting, we are not disposed to retract even if someone points out we are in some special condition. 
 
 > What exactly is the demand of "give an account" when we want to "give an account for intrinsic quality"? For example, we may say a circle is the graph of $x^2+y^2=r^2$ in Cartesian plane. But we may still ask why the set of points that fits this function has such circular geometrical feature. A mathematician would just say the question is confusing.
-
