@@ -47372,6 +47372,9 @@ var EventListener = class {
   handleAcceptCommand() {
     this.state.handleAcceptCommand();
   }
+  handlePartialAcceptCommand() {
+    this.state.handlePartialAcceptKeyPressed();
+  }
   containsTriggerCharacters(documentChanges) {
     for (const trigger of this.settings.triggers) {
       if (trigger.type === "string" && documentChanges.getPrefix().endsWith(trigger.value)) {
@@ -47723,17 +47726,9 @@ var render_surgestion_plugin_default = RenderSuggestionPlugin;
 // src/render_plugin/completion_key_watcher.ts
 var import_view3 = require("@codemirror/view");
 var import_state10 = require("@codemirror/state");
-function CompletionKeyWatcher(handleAcceptKey, handlePartialAcceptKey, handleCancelKey) {
+function CompletionKeyWatcher(handleCancelKey) {
   return import_state10.Prec.highest(
     import_view3.keymap.of([
-      {
-        key: "Tab",
-        run: handleAcceptKey
-      },
-      {
-        key: "ArrowRight",
-        run: handlePartialAcceptKey
-      },
       {
         key: "Escape",
         run: handleCancelKey
@@ -48423,8 +48418,6 @@ var CopilotPlugin = class extends import_obsidian12.Plugin {
     this.registerEditorExtension([
       InlineSuggestionState,
       completion_key_watcher_default(
-        eventListener.handleAcceptKeyPressed.bind(eventListener),
-        eventListener.handlePartialAcceptKeyPressed.bind(eventListener),
         eventListener.handleCancelKeyPressed.bind(eventListener)
       ),
       document_changes_listener_default(
@@ -48452,11 +48445,34 @@ var CopilotPlugin = class extends import_obsidian12.Plugin {
     this.addCommand({
       id: "accept",
       name: "Accept",
+      hotkeys: [
+        {
+          modifiers: ["Shift"],
+          key: "Tab"
+        }
+      ],
       editorCheckCallback: (checking, editor, view) => {
         if (checking) {
           return eventListener.isSuggesting();
         }
         eventListener.handleAcceptCommand();
+        return true;
+      }
+    });
+    this.addCommand({
+      id: "accept_next_word",
+      name: "Accept Next Word",
+      hotkeys: [
+        {
+          modifiers: [],
+          key: "Tab"
+        }
+      ],
+      editorCheckCallback: (checking, editor, view) => {
+        if (checking) {
+          return eventListener.isSuggesting();
+        }
+        eventListener.handlePartialAcceptCommand();
         return true;
       }
     });
