@@ -1,7 +1,7 @@
 {
   "settings": {
     "version": "1",
-    "enabled": false,
+    "enabled": true,
     "advancedMode": true,
     "apiProvider": "ollama",
     "azureOAIApiSettings": {
@@ -18,13 +18,14 @@
       "model": "qwen3-coder-fim-system"
     },
     "ollamaUseFIM": true,
+    "triggerOnEveryKeypress": true,
     "triggers": [
       {
         "type": "regex",
         "value": ".$"
       }
     ],
-    "delay": 0,
+    "delay": 100,
     "modelOptions": {
       "temperature": 1,
       "top_p": 0.1,

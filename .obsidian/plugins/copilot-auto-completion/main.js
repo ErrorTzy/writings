@@ -42124,6 +42124,7 @@ var settingsSchema = z.object({
   openAIApiSettings: openAIApiSettingsSchema,
   ollamaApiSettings: ollamaApiSettingsSchema,
   ollamaUseFIM: z.boolean(),
+  triggerOnEveryKeypress: z.boolean(),
   triggers: z.array(triggerSchema),
   delay: z.number().int().min(MIN_DELAY, { message: "Delay must be between 0ms and 2000ms" }).max(MAX_DELAY, { message: "Delay must be between 0ms and 2000ms" }),
   modelOptions: modelOptionsSchema,
@@ -42184,6 +42185,7 @@ var DEFAULT_SETTINGS = {
   },
   ollamaUseFIM: false,
   // Trigger settings
+  triggerOnEveryKeypress: false,
   triggers: [
     { type: "string", value: "# " },
     { type: "string", value: ". " },
@@ -42622,6 +42624,7 @@ function migrateFromV0ToV1(settings) {
   updatedSettings.cacheSuggestions = DEFAULT_SETTINGS.cacheSuggestions;
   updatedSettings.ollamaApiSettings = DEFAULT_SETTINGS.ollamaApiSettings;
   updatedSettings.ollamaUseFIM = DEFAULT_SETTINGS.ollamaUseFIM;
+  updatedSettings.triggerOnEveryKeypress = DEFAULT_SETTINGS.triggerOnEveryKeypress;
   updatedSettings.fimSystemMessage = DEFAULT_SETTINGS.fimSystemMessage;
   updatedSettings.refactorSystemMessages = DEFAULT_SETTINGS.refactorSystemMessages;
   updatedSettings.refactorFewShotExamples = DEFAULT_SETTINGS.refactorFewShotExamples;
@@ -44459,6 +44462,14 @@ function SettingsView(props) {
       suffix: "ms"
     }
   ), /* @__PURE__ */ React10.createElement(
+    CheckBoxSettingItem,
+    {
+      name: "Trigger on every keypress",
+      description: "When enabled, every typed character schedules a completion after the delay. Trigger words and regex patterns are ignored (cache still applies).",
+      enabled: settings.triggerOnEveryKeypress,
+      setEnabled: (value) => updateSettings({ triggerOnEveryKeypress: value })
+    }
+  ), /* @__PURE__ */ React10.createElement(
     TriggerSettings_default,
     {
       name: "Trigger words",
@@ -45067,6 +45078,10 @@ var IdleState = class extends state_default {
       this.context.transitionToSuggestingState(cachedSuggestion, documentChanges.getPrefix(), documentChanges.getSuffix());
       return;
     }
+    if (this.context.settings.triggerOnEveryKeypress && documentChanges.hasUserTyped() && documentChanges.isTextAdded()) {
+      this.context.transitionToQueuedState(documentChanges.getPrefix(), documentChanges.getSuffix());
+      return;
+    }
     if (this.context.containsTriggerCharacters(documentChanges)) {
       this.context.transitionToQueuedState(documentChanges.getPrefix(), documentChanges.getSuffix());
     }
@@ -45112,7 +45127,11 @@ var SuggestingState = class extends state_default {
       this.context.transitionToSuggestingState(suggestion, currentPrefix, currentSuffix);
       return;
     }
+    const shouldQueue = this.context.settings.triggerOnEveryKeypress && documentChanges.hasUserTyped() && documentChanges.isTextAdded();
     this.clearPrediction();
+    if (shouldQueue) {
+      this.context.transitionToQueuedState(currentPrefix, currentSuffix);
+    }
   }
   hasUserAddedPartOfSuggestion(documentChanges) {
     const addedPrefixText = documentChanges.getAddedPrefixText();
@@ -45338,7 +45357,7 @@ var remove_overlap_default = RemoveOverlap;
 var RemoveWhitespace = class {
   process(prefix, suffix, completion, context) {
     if (context === context_detection_default.Text || context === context_detection_default.Heading || context === context_detection_default.MathBlock || context === context_detection_default.TaskList || context === context_detection_default.NumberedList || context === context_detection_default.UnorderedList) {
-      if (prefix.endsWith(" ") || suffix.endsWith("\n")) {
+      if (prefix.endsWith(" ")) {
         completion = completion.trimStart();
       }
       if (suffix.startsWith(" ")) {
@@ -47082,7 +47101,7 @@ var QueuedState = class extends state_default {
     return true;
   }
   async handleDocumentChange(documentChanges) {
-    if (documentChanges.isDocInFocus() && documentChanges.isTextAdded() && this.context.containsTriggerCharacters(documentChanges)) {
+    if (documentChanges.isDocInFocus() && documentChanges.isTextAdded() && (this.context.settings.triggerOnEveryKeypress ? documentChanges.hasUserTyped() : this.context.containsTriggerCharacters(documentChanges))) {
       this.cancelTimer();
       this.context.transitionToQueuedState(documentChanges.getPrefix(), documentChanges.getSuffix());
       return;
@@ -47132,7 +47151,20 @@ var PredictingState = class extends state_default {
   }
   async handleDocumentChange(documentChanges) {
     if (documentChanges.hasCursorMoved() || documentChanges.hasUserTyped() || documentChanges.hasUserDeleted() || documentChanges.isTextAdded()) {
+      const currentPrefix = documentChanges.getPrefix();
+      const currentSuffix = documentChanges.getSuffix();
+      const cachedSuggestion = this.context.getCachedSuggestionFor(currentPrefix, currentSuffix);
+      const isThereCachedSuggestion = cachedSuggestion !== void 0 && cachedSuggestion.trim().length > 0;
+      if (this.context.settings.cacheSuggestions && isThereCachedSuggestion) {
+        this.cancelPrediction();
+        this.context.transitionToSuggestingState(cachedSuggestion, currentPrefix, currentSuffix);
+        return;
+      }
+      const shouldQueue = this.context.settings.triggerOnEveryKeypress && documentChanges.hasUserTyped() && documentChanges.isTextAdded();
       this.cancelPrediction();
+      if (shouldQueue) {
+        this.context.transitionToQueuedState(currentPrefix, currentSuffix);
+      }
     }
   }
   cancelPrediction() {
