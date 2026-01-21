@@ -42143,6 +42143,7 @@ var settingsSchema = z.object({
   maxSuffixCharLimit: z.number().int().min(MIN_MAX_CHAR_LIMIT, { message: `Max prefix char limit must be at least ${MIN_MAX_CHAR_LIMIT}` }).max(MAX_MAX_CHAR_LIMIT, { message: `Max prefix char limit must be at most ${MAX_MAX_CHAR_LIMIT}` }),
   removeDuplicateMathBlockIndicator: z.boolean(),
   removeDuplicateCodeBlockIndicator: z.boolean(),
+  onlyInlineCompletion: z.boolean(),
   ignoredFilePatterns: z.string().refine(
     (value) => value.split("\n").filter((s) => s.trim().length > 0).filter((s) => !isValidIgnorePattern(s)).length === 0,
     { message: "Invalid ignore pattern" }
@@ -42263,6 +42264,7 @@ ANSWER: here, you write the text that should be at the location of <mask/>
   // Postprocessing settings
   removeDuplicateMathBlockIndicator: true,
   removeDuplicateCodeBlockIndicator: true,
+  onlyInlineCompletion: false,
   ignoredFilePatterns: "**/secret/**\n",
   ignoredTags: "",
   acceptSuggestionKey: "Tab",
@@ -42637,6 +42639,7 @@ function migrateFromV0ToV1(settings) {
   updatedSettings.refactorDirectReplace = DEFAULT_SETTINGS.refactorDirectReplace;
   updatedSettings.acceptSuggestionKey = DEFAULT_SETTINGS.acceptSuggestionKey;
   updatedSettings.acceptNextWordKey = DEFAULT_SETTINGS.acceptNextWordKey;
+  updatedSettings.onlyInlineCompletion = DEFAULT_SETTINGS.onlyInlineCompletion;
   updatedSettings.debugMode = DEFAULT_SETTINGS.debugMode;
   return settingsSchema.parse(updatedSettings);
 }
@@ -44474,6 +44477,14 @@ function SettingsView(props) {
       enabled: settings.removeDuplicateCodeBlockIndicator,
       setEnabled: (value) => updateSettings({ removeDuplicateCodeBlockIndicator: value })
     }
+  ), /* @__PURE__ */ React10.createElement(
+    CheckBoxSettingItem,
+    {
+      name: "Only inline auto completion",
+      description: "When enabled, completions are trimmed at the first newline so suggestions stay in-line.",
+      enabled: settings.onlyInlineCompletion,
+      setEnabled: (value) => updateSettings({ onlyInlineCompletion: value })
+    }
   ), /* @__PURE__ */ React10.createElement("h2", null, "Trigger"), /* @__PURE__ */ React10.createElement(
     SliderSettingsItem,
     {
@@ -45397,6 +45408,18 @@ var RemoveWhitespace = class {
 };
 var remove_whitespace_default = RemoveWhitespace;
 
+// src/prediction_services/post_processors/trim_after_newline.ts
+var TrimAfterNewline = class {
+  process(prefix, suffix, completion, context) {
+    const newlineIndex = completion.search(/[\r\n]/);
+    if (newlineIndex === -1) {
+      return completion;
+    }
+    return completion.slice(0, newlineIndex);
+  }
+};
+var trim_after_newline_default = TrimAfterNewline;
+
 // src/prediction_services/chat_gpt_with_reasoning/index.ts
 var ChatGPTWithReasoning = class {
   constructor(client, systemMessage, userMessageFormatter, removePreAnswerGenerationRegex, preProcessors, postProcessors, fewShotExamples, debugMode) {
@@ -45433,6 +45456,9 @@ var ChatGPTWithReasoning = class {
     }
     postProcessors.push(new remove_overlap_default());
     postProcessors.push(new remove_whitespace_default());
+    if (settings.onlyInlineCompletion) {
+      postProcessors.push(new trim_after_newline_default());
+    }
     let client;
     if (settings.apiProvider === "openai") {
       client = OpenAIApiClient_default.fromSettings(settings);
@@ -45591,6 +45617,9 @@ var OllamaFIM = class {
     }
     postProcessors.push(new remove_overlap_default());
     postProcessors.push(new remove_whitespace_default());
+    if (settings.onlyInlineCompletion) {
+      postProcessors.push(new trim_after_newline_default());
+    }
     const client = OllamaFIMApiClient_default.fromSettings(settings);
     return new OllamaFIM(
       client,

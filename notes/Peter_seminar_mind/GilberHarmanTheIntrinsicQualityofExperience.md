@@ -31,10 +31,10 @@ Line 4 is fallacious because the thing that is internal and mental is the repres
 2. The angle or perspective is not an intrinsic property of the tree, but the intrinsic property of the experience of seeing the tree
 3. Therefore, Elois sees the tree that is a mental (i.e. as a representation)
 
-**Defense**: Deny 2: a painting is representational, and we can realize there are two different things and can tune our awareness to either the representation or the represented. But when we look at a tree, we cannot tune our awareness to the representation. Therefore, the tree is not a representation. 
+**Defense**: Deny 2: a painting is representational, and we can realize there are two different things and can tune our awareness to either the representation or the represented. But when we look at a tree, we cannot tune our awareness to the representation itself. Therefore, the tree is not a representation. 
 
-> The argument relies on the assertion that, we cannot tune our awareness to the mental picture of a tree, like how we tune our awareness to the painting itself. Though Harman is not saying we cannot direct our attention to the experience at all. He is agreeing that we can (1) aware of the experience itself, and (2) aware of the experience having certain content. But we cannot aware of the sense data or representation itsself ("those intrinsic features of the experience by virtue of which it has that content")
-> But I think the argument from visual experience is saying: it's not that we can't aware of the representation. We are aware of them, but we mistakenly attribute the features of the representation to the represented object. By reflection, we will realize the features, like how something looks like from a certain angle, are not intrinsic to the tree. 
+> Harman is not saying we cannot direct our attention to the experience at all. He is agreeing that we can (1) aware of the experience itself, and (2) aware of the experience having certain content. But we cannot aware of the sense data or representation itsself ("those intrinsic features of the experience by virtue of which it has that content")
+> But I think the argument from visual experience is saying: It's not that we can't be aware of the representation. We are aware of them, but we mistakenly attribute the features of the representation to the represented object. By reflection, we will realize the features, like how something looks like from a certain angle, are not intrinsic to the tree. Therefore, by reflection, we can distinguish between the representation and the represented. The alternative is to say we project some feature to the tree. 
 
 
 
