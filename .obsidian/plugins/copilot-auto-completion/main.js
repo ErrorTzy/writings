@@ -25160,7 +25160,7 @@ var require_scan = __commonJS({
         isExtglob = false;
         isGlob = false;
       }
-      let base = str;
+      let base2 = str;
       let prefix = "";
       let glob = "";
       if (start > 0) {
@@ -25168,32 +25168,32 @@ var require_scan = __commonJS({
         str = str.slice(start);
         lastIndex -= start;
       }
-      if (base && isGlob === true && lastIndex > 0) {
-        base = str.slice(0, lastIndex);
+      if (base2 && isGlob === true && lastIndex > 0) {
+        base2 = str.slice(0, lastIndex);
         glob = str.slice(lastIndex);
       } else if (isGlob === true) {
-        base = "";
+        base2 = "";
         glob = str;
       } else {
-        base = str;
+        base2 = str;
       }
-      if (base && base !== "" && base !== "/" && base !== str) {
-        if (isPathSeparator(base.charCodeAt(base.length - 1))) {
-          base = base.slice(0, -1);
+      if (base2 && base2 !== "" && base2 !== "/" && base2 !== str) {
+        if (isPathSeparator(base2.charCodeAt(base2.length - 1))) {
+          base2 = base2.slice(0, -1);
         }
       }
       if (opts.unescape === true) {
         if (glob)
           glob = utils.removeBackslashes(glob);
-        if (base && backslashes === true) {
-          base = utils.removeBackslashes(base);
+        if (base2 && backslashes === true) {
+          base2 = utils.removeBackslashes(base2);
         }
       }
       const state = {
         prefix,
         input,
         start,
-        base,
+        base: base2,
         glob,
         isBrace,
         isBracket,
@@ -32947,7 +32947,7 @@ var require_handlebars_runtime = __commonJS({
       }
     }
     var _handlebarsBase = require_base();
-    var base = _interopRequireWildcard(_handlebarsBase);
+    var base2 = _interopRequireWildcard(_handlebarsBase);
     var _handlebarsSafeString = require_safe_string();
     var _handlebarsSafeString2 = _interopRequireDefault(_handlebarsSafeString);
     var _handlebarsException = require_exception();
@@ -32959,8 +32959,8 @@ var require_handlebars_runtime = __commonJS({
     var _handlebarsNoConflict = require_no_conflict();
     var _handlebarsNoConflict2 = _interopRequireDefault(_handlebarsNoConflict);
     function create() {
-      var hb = new base.HandlebarsEnvironment();
-      Utils.extend(hb, base);
+      var hb = new base2.HandlebarsEnvironment();
+      Utils.extend(hb, base2);
       hb.SafeString = _handlebarsSafeString2["default"];
       hb.Exception = _handlebarsException2["default"];
       hb.Utils = Utils;
@@ -34744,7 +34744,7 @@ var require_base64_vlq = __commonJS({
     exports.decode = function base64VLQ_decode(aStr, aIndex, aOutParam) {
       var strLen = aStr.length;
       var result = 0;
-      var shift = 0;
+      var shift2 = 0;
       var continuation, digit;
       do {
         if (aIndex >= strLen) {
@@ -34756,8 +34756,8 @@ var require_base64_vlq = __commonJS({
         }
         continuation = !!(digit & VLQ_CONTINUATION_BIT);
         digit &= VLQ_BASE_MASK;
-        result = result + (digit << shift);
-        shift += VLQ_BASE_SHIFT;
+        result = result + (digit << shift2);
+        shift2 += VLQ_BASE_SHIFT;
       } while (continuation);
       aOutParam.value = fromVLQSigned(result);
       aOutParam.rest = aIndex;
@@ -41473,23 +41473,23 @@ var ZodEffects = class extends ZodType {
     }
     if (effect.type === "transform") {
       if (ctx.common.async === false) {
-        const base = this._def.schema._parseSync({
+        const base2 = this._def.schema._parseSync({
           data: ctx.data,
           path: ctx.path,
           parent: ctx
         });
-        if (!isValid(base))
-          return base;
-        const result = effect.transform(base.value, checkCtx);
+        if (!isValid(base2))
+          return base2;
+        const result = effect.transform(base2.value, checkCtx);
         if (result instanceof Promise) {
           throw new Error(`Asynchronous transform encountered during synchronous parse operation. Use .parseAsync instead.`);
         }
         return { status: status.value, value: result };
       } else {
-        return this._def.schema._parseAsync({ data: ctx.data, path: ctx.path, parent: ctx }).then((base) => {
-          if (!isValid(base))
-            return base;
-          return Promise.resolve(effect.transform(base.value, checkCtx)).then((result) => ({ status: status.value, value: result }));
+        return this._def.schema._parseAsync({ data: ctx.data, path: ctx.path, parent: ctx }).then((base2) => {
+          if (!isValid(base2))
+            return base2;
+          return Promise.resolve(effect.transform(base2.value, checkCtx)).then((result) => ({ status: status.value, value: result }));
         });
       }
     }
@@ -42157,6 +42157,8 @@ var settingsSchema = z.object({
     (value) => value.split("\n").filter((s) => s.includes(",")).length === 0,
     { message: "Enter each tag on a new line without commas" }
   ),
+  acceptSuggestionKey: z.string().min(1, { message: "Accept key must be at least 1 character long" }),
+  acceptNextWordKey: z.string().min(1, { message: "Accept next word key must be at least 1 character long" }),
   cacheSuggestions: z.boolean(),
   debugMode: z.boolean()
 }).strict();
@@ -42263,6 +42265,8 @@ ANSWER: here, you write the text that should be at the location of <mask/>
   removeDuplicateCodeBlockIndicator: true,
   ignoredFilePatterns: "**/secret/**\n",
   ignoredTags: "",
+  acceptSuggestionKey: "Tab",
+  acceptNextWordKey: "ArrowRight",
   cacheSuggestions: true,
   debugMode: false
 };
@@ -42631,6 +42635,8 @@ function migrateFromV0ToV1(settings) {
   updatedSettings.refactorUserTemplate = DEFAULT_SETTINGS.refactorUserTemplate;
   updatedSettings.refactorFimSystemMessage = DEFAULT_SETTINGS.refactorFimSystemMessage;
   updatedSettings.refactorDirectReplace = DEFAULT_SETTINGS.refactorDirectReplace;
+  updatedSettings.acceptSuggestionKey = DEFAULT_SETTINGS.acceptSuggestionKey;
+  updatedSettings.acceptNextWordKey = DEFAULT_SETTINGS.acceptNextWordKey;
   updatedSettings.debugMode = DEFAULT_SETTINGS.debugMode;
   return settingsSchema.parse(updatedSettings);
 }
@@ -44310,6 +44316,26 @@ function SettingsView(props) {
       description: "If enabled, various debug messages will be logged to the console, such as the complete response from the API, including the chain of thought tokens.",
       enabled: settings.debugMode,
       setEnabled: (value) => updateSettings({ debugMode: value })
+    }
+  ), /* @__PURE__ */ React10.createElement("h2", null, "Keybindings"), /* @__PURE__ */ React10.createElement(
+    TextSettingItem,
+    {
+      name: "Accept suggestion key",
+      description: "Key used to accept the full suggestion while it is visible. Use single key combinations like Tab, ArrowRight, Shift-Tab, or Ctrl-Enter.",
+      placeholder: "Tab",
+      value: settings.acceptSuggestionKey,
+      errorMessage: errors.get("acceptSuggestionKey"),
+      setValue: (value) => updateSettings({ acceptSuggestionKey: value })
+    }
+  ), /* @__PURE__ */ React10.createElement(
+    TextSettingItem,
+    {
+      name: "Accept next word key",
+      description: "Key used to accept the next word while a suggestion is visible. Use single key combinations like ArrowRight or Tab.",
+      placeholder: "ArrowRight",
+      value: settings.acceptNextWordKey,
+      errorMessage: errors.get("acceptNextWordKey"),
+      setValue: (value) => updateSettings({ acceptNextWordKey: value })
     }
   ), /* @__PURE__ */ React10.createElement("h2", null, "API"), renderAPISettings(), /* @__PURE__ */ React10.createElement("h2", null, "Model Options"), /* @__PURE__ */ React10.createElement(
     SliderSettingsItem,
@@ -47726,9 +47752,231 @@ var render_surgestion_plugin_default = RenderSuggestionPlugin;
 // src/render_plugin/completion_key_watcher.ts
 var import_view3 = require("@codemirror/view");
 var import_state10 = require("@codemirror/state");
-function CompletionKeyWatcher(handleCancelKey) {
+
+// node_modules/w3c-keyname/index.js
+var base = {
+  8: "Backspace",
+  9: "Tab",
+  10: "Enter",
+  12: "NumLock",
+  13: "Enter",
+  16: "Shift",
+  17: "Control",
+  18: "Alt",
+  20: "CapsLock",
+  27: "Escape",
+  32: " ",
+  33: "PageUp",
+  34: "PageDown",
+  35: "End",
+  36: "Home",
+  37: "ArrowLeft",
+  38: "ArrowUp",
+  39: "ArrowRight",
+  40: "ArrowDown",
+  44: "PrintScreen",
+  45: "Insert",
+  46: "Delete",
+  59: ";",
+  61: "=",
+  91: "Meta",
+  92: "Meta",
+  106: "*",
+  107: "+",
+  108: ",",
+  109: "-",
+  110: ".",
+  111: "/",
+  144: "NumLock",
+  145: "ScrollLock",
+  160: "Shift",
+  161: "Shift",
+  162: "Control",
+  163: "Control",
+  164: "Alt",
+  165: "Alt",
+  173: "-",
+  186: ";",
+  187: "=",
+  188: ",",
+  189: "-",
+  190: ".",
+  191: "/",
+  192: "`",
+  219: "[",
+  220: "\\",
+  221: "]",
+  222: "'"
+};
+var shift = {
+  48: ")",
+  49: "!",
+  50: "@",
+  51: "#",
+  52: "$",
+  53: "%",
+  54: "^",
+  55: "&",
+  56: "*",
+  57: "(",
+  59: ":",
+  61: "+",
+  173: "_",
+  186: ":",
+  187: "+",
+  188: "<",
+  189: "_",
+  190: ">",
+  191: "?",
+  192: "~",
+  219: "{",
+  220: "|",
+  221: "}",
+  222: '"'
+};
+var mac = typeof navigator != "undefined" && /Mac/.test(navigator.platform);
+var ie = typeof navigator != "undefined" && /MSIE \d|Trident\/(?:[7-9]|\d{2,})\..*rv:(\d+)/.exec(navigator.userAgent);
+for (i = 0; i < 10; i++)
+  base[48 + i] = base[96 + i] = String(i);
+var i;
+for (i = 1; i <= 24; i++)
+  base[i + 111] = "F" + i;
+var i;
+for (i = 65; i <= 90; i++) {
+  base[i] = String.fromCharCode(i + 32);
+  shift[i] = String.fromCharCode(i);
+}
+var i;
+for (code in base)
+  if (!shift.hasOwnProperty(code))
+    shift[code] = base[code];
+var code;
+function keyName(event) {
+  var ignoreKey = mac && event.metaKey && event.shiftKey && !event.ctrlKey && !event.altKey || ie && event.shiftKey && event.key && event.key.length == 1 || event.key == "Unidentified";
+  var name = !ignoreKey && event.key || (event.shiftKey ? shift : base)[event.keyCode] || event.key || "Unidentified";
+  if (name == "Esc")
+    name = "Escape";
+  if (name == "Del")
+    name = "Delete";
+  if (name == "Left")
+    name = "ArrowLeft";
+  if (name == "Up")
+    name = "ArrowUp";
+  if (name == "Right")
+    name = "ArrowRight";
+  if (name == "Down")
+    name = "ArrowDown";
+  return name;
+}
+
+// src/render_plugin/completion_key_watcher.ts
+var isMac = typeof navigator !== "undefined" && /Mac|iPhone|iPad|iPod/.test(navigator.platform);
+var isSingleCodePoint = (value) => {
+  if (value.length === 0) {
+    return false;
+  }
+  const codePoint = value.codePointAt(0);
+  return codePoint !== void 0 && String.fromCodePoint(codePoint) === value;
+};
+var normalizeKeyName = (value) => {
+  const trimmed = value.trim();
+  if (trimmed.length === 0) {
+    return "";
+  }
+  const parts = trimmed.split(/-(?!$)|\\+(?!$)/);
+  let result = parts[parts.length - 1];
+  if (result === "Space") {
+    result = " ";
+  }
+  let alt = false;
+  let ctrl = false;
+  let shift2 = false;
+  let meta = false;
+  for (let i = 0; i < parts.length - 1; i++) {
+    const mod = parts[i];
+    if (/^(cmd|meta|m)$/i.test(mod)) {
+      meta = true;
+    } else if (/^a(lt)?$/i.test(mod)) {
+      alt = true;
+    } else if (/^(c|ctrl|control)$/i.test(mod)) {
+      ctrl = true;
+    } else if (/^s(hift)?$/i.test(mod)) {
+      shift2 = true;
+    } else if (/^mod$/i.test(mod)) {
+      if (isMac) {
+        meta = true;
+      } else {
+        ctrl = true;
+      }
+    } else if (mod.trim().length > 0) {
+      throw new Error(`Unrecognized modifier name: ${mod}`);
+    }
+  }
+  if (alt) {
+    result = `Alt-${result}`;
+  }
+  if (ctrl) {
+    result = `Ctrl-${result}`;
+  }
+  if (meta) {
+    result = `Meta-${result}`;
+  }
+  if (shift2) {
+    result = `Shift-${result}`;
+  }
+  return result;
+};
+var eventKeyName = (event) => {
+  const name = keyName(event);
+  if (!name) {
+    return "";
+  }
+  const isChar = isSingleCodePoint(name) && name !== " ";
+  let result = name;
+  if (event.altKey) {
+    result = `Alt-${result}`;
+  }
+  if (event.ctrlKey) {
+    result = `Ctrl-${result}`;
+  }
+  if (event.metaKey) {
+    result = `Meta-${result}`;
+  }
+  if (!isChar && event.shiftKey) {
+    result = `Shift-${result}`;
+  }
+  return result;
+};
+function CompletionKeyWatcher(getAcceptKey, getPartialAcceptKey, handleAcceptKey, handlePartialAcceptKey, handleCancelKey) {
   return import_state10.Prec.highest(
     import_view3.keymap.of([
+      {
+        any: (view, event) => {
+          let eventKey = "";
+          try {
+            eventKey = normalizeKeyName(eventKeyName(event));
+          } catch (error) {
+            console.warn("Copilot: Invalid key event name", error);
+            return false;
+          }
+          if (!eventKey) {
+            return false;
+          }
+          try {
+            const acceptKey = normalizeKeyName(getAcceptKey());
+            if (acceptKey && eventKey === acceptKey) {
+              return handleAcceptKey();
+            }
+            const partialKey = normalizeKeyName(getPartialAcceptKey());
+            if (partialKey && eventKey === partialKey) {
+              return handlePartialAcceptKey();
+            }
+          } catch (error) {
+            console.warn("Copilot: Invalid key binding in settings", error);
+          }
+          return false;
+        }
+      },
       {
         key: "Escape",
         run: handleCancelKey
@@ -47979,11 +48227,11 @@ ${this.sentinel}`;
     return "";
   }
 };
-function appendSentinelInstruction(base, sentinel) {
-  if (base.includes(sentinel)) {
-    return base;
+function appendSentinelInstruction(base2, sentinel) {
+  if (base2.includes(sentinel)) {
+    return base2;
   }
-  return `${base}
+  return `${base2}
 
 When you finish, append ${sentinel}.`;
 }
@@ -48418,6 +48666,10 @@ var CopilotPlugin = class extends import_obsidian12.Plugin {
     this.registerEditorExtension([
       InlineSuggestionState,
       completion_key_watcher_default(
+        () => eventListener.settings.acceptSuggestionKey,
+        () => eventListener.settings.acceptNextWordKey,
+        eventListener.handleAcceptKeyPressed.bind(eventListener),
+        eventListener.handlePartialAcceptKeyPressed.bind(eventListener),
         eventListener.handleCancelKeyPressed.bind(eventListener)
       ),
       document_changes_listener_default(
@@ -48445,12 +48697,6 @@ var CopilotPlugin = class extends import_obsidian12.Plugin {
     this.addCommand({
       id: "accept",
       name: "Accept",
-      hotkeys: [
-        {
-          modifiers: ["Shift"],
-          key: "Tab"
-        }
-      ],
       editorCheckCallback: (checking, editor, view) => {
         if (checking) {
           return eventListener.isSuggesting();
@@ -48462,12 +48708,6 @@ var CopilotPlugin = class extends import_obsidian12.Plugin {
     this.addCommand({
       id: "accept_next_word",
       name: "Accept Next Word",
-      hotkeys: [
-        {
-          modifiers: [],
-          key: "Tab"
-        }
-      ],
       editorCheckCallback: (checking, editor, view) => {
         if (checking) {
           return eventListener.isSuggesting();

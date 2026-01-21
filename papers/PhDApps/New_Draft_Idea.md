@@ -200,10 +200,26 @@ We have some guesses of meanings in the first place, and we attach these guesses
 
 **The ultimate question: are ontological dispute merely verbal?**
 
-Assume we can calculate extremely fast, and we explain people's utterance as the output of a turin machine. We don't need any interpretation of thoughts, for all behvaiors can be explained by the configuration of a TM. If we do that, then there wouldn't be a difference between shivering while cold and speaking. Only when we interpret meanings in terms of mental states can linguistic behavior be "meaningful" at all.
+The problem is we are saying 
+
+**Thought experiment: fasting thinking human need no language**.
+
+Assume we can calculate extremely fast, and we explain people's utterance as the output of a turin machine. We don't need any interpretation of thoughts, for all behvaiors can be explained by the configuration of a TM. If we do that, then there wouldn't be a difference between shivering while cold and speaking. Only when we interpret meanings in terms of mental states can linguistic behavior be "meaningful" at all. In other words, there are language at all because we this is the easiest way to explain the behavior.
 
 Surely meaning is something mental: interpretation is merely a "guess". Meaning is the mental states themselves, not the interpretation of mental states.
+
+**The hope for a heavyweight meaning: truth is not arbitrary, but rely on how we represent the world**
 
 What is the aim of ontology? If representation could be arbitrary, then ontology is arbitrary, and there is no right or wrong at all. Our aim is to understand the concept of truth. Explaning misrepresentation might be the key.
 
 naturalize intentionality?
+
+**One the ontological status of disgustingness and color: A matter of language use:**
+
+Some people think slugs are disgusting. Just from the surface grammar, it seems we are ascribing the property of "disgusting" to slugs, in the same way we acribe "green" to plants. We are not saying "I am digusted by slugs", which is describing our own mental states. However, we may grow up and no longer disgusted by slugs. The problem is we don't think slugs changed. It's us that changed and no longer feel disgust. We wouldn't say "it's still a disgusting slug, dispite I can no longer sense the disgust". We would be likely to say "it's disgusting to me". However, when we see a red tree, and then become color blind, we still say, it is a red tree instead of saying, "it is no longer red to me". Therefore, dispite the surface grammer, we seems to think the property "disgusting" is quite different from "red". Now the problem is, if our perception is always about something out here, how come we don't ascribe the concept of "disgusting"? Why don't we say, "disgusting" is some disjunctive physical properties?
+
+I think the answer is that, we actually can, but we are not guestured to use the word "disgusting" in this way. For example, we are willing to retract our judgment about red when people point out when there's some abnormality in the lighting condition. However, when we say something is disgusting, we are not disposed to retract even if someone points out we are in some special condition. Due to the possibility of hallucination, we can't say this kind of guesture can still make the word "disgusting" refer to something "external and real", or at least it is something relational. We can still say some physical properties is disgusting relavant to someone, given someone's state. But we cannot say these physical properties are disgusting, period.
+
+In other words, whether some predicate is in fact relational or just real in itself depends on how we use these words. Whether something is dependent on us or not depends on whether we would retract our judgment. We fixed the reference of "red" by the sensation of red. But it is possible for us to retract that there's no red present. This is not the case for "disgusting".
+
+A further problem, however, is why we have this distinction at all. Why we tend to use "disgusting" in a way that we refuse to retract our judgment, but use "red" in a way that we are? Now we have a "Euthyphro dilemma": the property is (in)dependent of us because we use language in a certain way, or we use language in a certain way because the property is (in)dependent of us?
