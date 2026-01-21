@@ -47557,7 +47557,8 @@ var DocumentChanges = class {
     return this.update.docChanged || this.hasUserTyped() || this.hasUserDeleted();
   }
   hasCursorMoved() {
-    return this.getUserEvents().contains(user_event_default.CURSOR_MOVED);
+    const userEvents = this.getUserEvents();
+    return userEvents.contains(user_event_default.CURSOR_MOVED) || userEvents.contains(user_event_default.CURSOR_MOVED_BY_MOUSE);
   }
   getUserEvents() {
     const userEvents = [];

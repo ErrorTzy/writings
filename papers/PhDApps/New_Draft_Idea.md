@@ -200,7 +200,7 @@ We have some guesses of meanings in the first place, and we attach these guesses
 
 **The ultimate question: are ontological dispute merely verbal?**
 
-The problem is we are saying 
+The problem is, if both party are saying something true, and both party can interpret each other's semantics, then according to Hirsch, it is merely a verbal dispute.
 
 **Thought experiment: fasting thinking human need no language**.
 

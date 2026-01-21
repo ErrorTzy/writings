@@ -20,20 +20,24 @@ Line 4 is fallacious because the thing that is internal and mental is the repres
 
 **Objection**: We are now choosing between two explanations: Eloise is intending something *mental*, or Eloise is intending something that *does not exist*. 
 
-**Defense**: Harman says he don't know how to work out a theory of intentional object, but it is clear that when Ponce de Leon was looking for something, he was looking for something that is not mental. In other words, Harman is just saying "Eloise is looking for x" cannot derive that "x exists".
+**Defense**: Harman says he don't know how to work out a theory of intentional object, but it is clear that when Ponce de Leon was looking for something, he was looking for something that is *not mental*. In other words, Harman is just saying "Eloise is looking for x" cannot derive that "x exists".
 
-> Maybe this is the time when we need to ponder what exactly do we mean by "refer". According to Amie Thomson, we can introduce a semantic rule that says we can infer "x exists" from "Eloise is looking for x". If so, then x would refer. 
+> Maybe this is the time when we need to ponder what exactly do we mean by "refer". According to Amie Thomson, we can introduce a semantic rule that says we can infer "x exists" from "Eloise is looking for x". If so, then x would refer? Or is it possible to say "x exists" without saying "x refers"?
 
 
 **The argument from visual experience**:
 
 1. Elois sees a tree that is presented from an angle or perspective
-2. The angle or perspective is not an intrinsic property of the tree
+2. The angle or perspective is not an intrinsic property of the tree, but the intrinsic property of the experience of seeing the tree
 3. Therefore, Elois sees the tree that is a mental (i.e. as a representation)
 
-**Defense**: a painting is representational, and we can realize there are two different things and can tune our awareness to either the representation or the represented. But when we look at a tree, we cannot tune our awareness to the representation. Therefore, the tree is not a representation.
+**Defense**: Deny 2: a painting is representational, and we can realize there are two different things and can tune our awareness to either the representation or the represented. But when we look at a tree, we cannot tune our awareness to the representation. Therefore, the tree is not a representation. 
 
-> The argument relies on the assertion that, we cannot tune our awareness to the mental picture of a tree, like how we tune our awareness to the painting itself. However, if we cannot tune our awareness to the mental picture of a tree at all, how is it possible for us to talk about experience of seeing a tree at all?will be in touch about rescheduling the session for later in the semester. Our next meeting will be a week from tomorrow (Tuesday, 1/27); we will discuss the Harman reading and the background SEP article on the Problem of Perception then.
+> The argument relies on the assertion that, we cannot tune our awareness to the mental picture of a tree, like how we tune our awareness to the painting itself. Though Harman is not saying we cannot direct our attention to the experience at all. He is agreeing that we can (1) aware of the experience itself, and (2) aware of the experience having certain content. But we cannot aware of the sense data or representation itsself ("those intrinsic features of the experience by virtue of which it has that content")
+> But I think the argument from visual experience is saying: it's not that we can't aware of the representation. We are aware of them, but we mistakenly attribute the features of the representation to the represented object. By reflection, we will realize the features, like how something looks like from a certain angle, are not intrinsic to the tree. 
+
+
+
 
 **An additional comment on pain**: When we feel pain in the leg while it's actually caused by a spinal injury, the intentional object is located in the leg, but the experience itself is not. There are some sense in which the pain is hallucination, but we say the pain exists because the truth condition is "the experience of pain exists", not "the intentional object of the painful experience exists".
 
