@@ -58,4 +58,3 @@ Line 4 is fallacious because the thing that is internal and mental is the repres
 > What do we mean when we say we have an experience of somthing? In ordinary language, when we say we have a good/bad experience, most of the time we are talking about some non-representational states like satisfaction, fear, anger, joy, etc. The "experience" of seeing a tree, however, is hardly something we say in ordinary language. 
 
 > What exactly is the demand of "give an account" when we want to "give an account for intrinsic quality"? For example, we may say a circle is the graph of $x^2+y^2=r^2$ in Cartesian plane. But we may still ask why the set of points that fits this function has such circular geometrical feature. A mathematician would just say the question is confusing.
-
