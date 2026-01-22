@@ -35,6 +35,7 @@ Line 4 is fallacious because the thing that is internal and mental is the repres
 
 > [!warning]
 > But I think the argument from visual experience is saying: It's not that we can't aware of the representation. We are aware of them, but we mistakenly attribute the features of the representation to the represented object. By reflection, we will realize the features, like how something looks like from a certain angle, are not intrinsic to the tree. Therefore, by reflection, we can distinguish between the representation and the represented. The alternative is to say we see the external object tree directly, but we also project some features to the tree.
+> Harman seems to address this on p.42, but he used a wrong analogy: I may know a man, who happens to be a spy. In this case, I am not aware of the spy-ness. However, according to sense data theorists, we are aware of features of sense data. We just mistakenly ascribed these feature to the object.
 > So both party agree on two things: there is a tree that we see from a certain angle, and there is a tree that is in the world. (p.38: objects of visual experience vs. objects in the world) And both party agree the object of our perception is the former. The only disagreement seems to be merely the following: should we call the former a representation of the latter? And they seems to talk past each other: Harman said we shouldn't because naively we don't take it as a representation; And sense datum theorists said we should because by reflection, this explains the difference between the object of visual experience and the object in the world. This is merely a verbal dispute?
 
 
@@ -52,8 +53,11 @@ Line 4 is fallacious because the thing that is internal and mental is the repres
 > The dialectic here is the following: the antifunctionalist asks how functionalism can explain the sensation of redness when we are looking at an apple. And Harman is replying that if you are requiring me to explain the feature of experience, then there is no such thing; if you are requiring me to explain the feature of the represented object, it is explained by the apple itself because the redness is a feature of the object apple.
 > However, there is a mistake here. Harman earlier distinguishes two things: the intentional object, and the object in the world. And we (normally) only have ontological commitment to the former, but not the latter. But some properties, like being the angle of view belongs to the intentional apple, not the actual apple. The anti-functionalists' challenge is how to explain the additional features, like disgusting, or looking red, which we do not think is a property that is "really out there on the object".
 > (Additional comment on a property being "really on the object": if we think a property is really on the object, then we would judge the object changes if the object looses this property. For example, if I stand next to an apple, then the apple has the property of being next to me. If I move away, the apple no longer has this property, but we do not judge that the apple has changed. Therefore, the property "being next to me" is not "really on the apple")
+> In a shorter refutation, Harman is saying the features like being red is an intrinsic quality of the object; But our judgement of "really on the object" differs from this.
 
+## Perception and Understanding
 
+**The second objection**: A colorblind person can learn something new when they restore their color vision, even if they are completely knowledgeable about the functional description of colors.
 
 > What do we mean when we say we have an experience of somthing? In ordinary language, when we say we have a good/bad experience, most of the time we are talking about some non-representational states like satisfaction, fear, anger, joy, etc. The "experience" of seeing a tree, however, is hardly something we say in ordinary language. 
 

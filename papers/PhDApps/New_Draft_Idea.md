@@ -223,3 +223,7 @@ I think the answer is that, we actually can, but we are not guestured to use the
 In other words, whether some predicate is in fact relational or just real in itself depends on how we use these words. Whether something is dependent on us or not depends on whether we would retract our judgment. We fixed the reference of "red" by the sensation of red. But it is possible for us to retract that there's no red present. This is not the case for "disgusting".
 
 A further problem, however, is why we have this distinction at all. Why we tend to use "disgusting" in a way that we refuse to retract our judgment, but use "red" in a way that we are? Now we have a "Euthyphro dilemma": the property is (in)dependent of us because we use language in a certain way, or we use language in a certain way because the property is (in)dependent of us?
+
+**Ultra-charitable intepretation**: when we play chess and someone moves a pawn like a queen, our normal reaction is, "You are cheating!". But maybe there is a ultra-charitable player. They would say, "You must be playing a very strange variant of chess." The problem here is, if we stick to interpretive charity, nothing can be false
+
+**The unclosability of the explanatory gap**: The explanatory gap is unclosable because we explain everything in terms of thoughts, including intentional thoughts about external world. But when it comes to why we have such and such thought at all, we hit the bottom.
