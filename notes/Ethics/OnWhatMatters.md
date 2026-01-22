@@ -2,7 +2,7 @@
 
 ### 1. Normative Concepts
 
-> Eli: Parfit is looking for a action related concept that is parallel to reason vs evidence for belief.
+> Eli: Parfit is looking for a action related concept that is parallel to reason vs evidence for belief. But there's highly likely that there's no such concept. 
 
 #### **Reasons**: fundamental
 
@@ -66,4 +66,6 @@ Two senses of "want to x"
 
 - The wider sense: Any state of being motivated to do x
 - The narrower sense: Being disposed to make x happen
+
+> What Parfit means seems to be: when we say we want x, we may not know what x exactly is, like "I want to do what you want me to do": I know how to fix x, but I don't know what x is. Therefore, the narrow sense of "want to x" is that, "x itself provides me with motivation", which arguably requires me to know what x exactly is; the wider sense is "something about x, not x itself, provides me with motivation."
 
