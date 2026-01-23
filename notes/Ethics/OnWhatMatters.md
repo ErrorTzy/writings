@@ -67,7 +67,7 @@ Two senses of "want to x"
 - The wider sense: Any state of being motivated to do x
 - The narrower sense: Being disposed to make x happen
 
-> What Parfit means seems to be: when we say we want x, we may not know what x exactly is, like "I want to do what you want me to do": I know how to fix x, but I don't know what x is. Therefore, the narrow sense of "want to x" is that, "x itself provides me with motivation", which arguably requires me to know what x exactly is; the wider sense is "something about x, not x itself, provides me with motivation."
+> What Parfit means seems to be: when we say we want x, we may not know what x exactly is, like "I want to do what you want me to do": I know how to fix x, but I don't know what x is. Therefore, the narrow sense of "want to x" is that, "x itself provides me with motivation", which arguably requires me to know what x exactly is; the wider sense is "something about x, not x itself, provides me with motivation." It seems the difference is just, whether we are motivated to do x by some property intrinsic to x, or external to x.
 
 **psychological egoism**:
 
@@ -75,6 +75,8 @@ Two senses of "want to x"
 2. Doing what we want is selfish
 3. Therefore, whenever people act, they are acting selfishly
 
-**Parfit's objection**: This argument fails because the "want to x" in premise 1 is in the wider sense, while the "want to x" in premise 2 is in the narrower sense: if I do what I want to do in the broader sense, I wouldn't be acting selfishly.
+**Parfit's objection**: This argument fails because the "want to x" in premise 1 is in the wider sense, while the "want to x" in premise 2 is in the narrower sense: if I do what I want to do in the broader sense, I wouldn't be acting selfishly. 
 
+- The object of our desire: an event
+- Aim: Some desires are instrumental, and is for the sake of something else; The telic desire is our aim.
 
