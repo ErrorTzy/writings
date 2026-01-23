@@ -80,3 +80,6 @@ Two senses of "want to x"
 - The object of our desire: an event
 - Aim: Some desires are instrumental, and is for the sake of something else; The telic desire is our aim.
 
+**psychological hedonists:** All telic desires are desires for pleasure.
+
+**Parfit's objection**: this confuses the pleasure of fullfilling a desire with the object of the desire. If I want posthumous fame, even if I may gain pleasure from thinking about it, I work hard for the sake of fame, not pleasure.
