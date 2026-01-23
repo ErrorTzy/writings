@@ -69,3 +69,12 @@ Two senses of "want to x"
 
 > What Parfit means seems to be: when we say we want x, we may not know what x exactly is, like "I want to do what you want me to do": I know how to fix x, but I don't know what x is. Therefore, the narrow sense of "want to x" is that, "x itself provides me with motivation", which arguably requires me to know what x exactly is; the wider sense is "something about x, not x itself, provides me with motivation."
 
+**psychological egoism**:
+
+1. Whenever people act, they are doing what they want to do
+2. Doing what we want is selfish
+3. Therefore, whenever people act, they are acting selfishly
+
+**Parfit's objection**: This argument fails because the "want to x" in premise 1 is in the wider sense, while the "want to x" in premise 2 is in the narrower sense: if I do what I want to do in the broader sense, I wouldn't be acting selfishly.
+
+
