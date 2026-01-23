@@ -83,3 +83,6 @@ Two senses of "want to x"
 **psychological hedonists:** All telic desires are desires for pleasure.
 
 **Parfit's objection**: this confuses the pleasure of fullfilling a desire with the object of the desire. If I want posthumous fame, even if I may gain pleasure from thinking about it, I work hard for the sake of fame, not pleasure.
+
+**Objectivists about reasons**: Desires or aims has objects (facts); These facts are reasons.
+
