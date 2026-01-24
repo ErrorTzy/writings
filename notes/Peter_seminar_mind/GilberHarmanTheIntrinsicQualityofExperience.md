@@ -62,7 +62,11 @@ Line 4 is fallacious because the thing that is internal and mental is the repres
 
 **Functionalists' account of concepts**: A concept is defined in terms of: 1. its connection with the perceptual input; 2. its connection with other concepts; 3. its connection with the behavioral output.
 
-**Harman's reply**: In order to know the concept of red, they need the concept of "red". But the blind person cannot have the concept of red. Therefore, they cannot understand what it is like to be red.
+**Harman's reply**: In order to know the red, they need the concept of red. But the blind person cannot have the concept of red. Therefore, they cannot know the facts about red.
+
+> [!warning]
+> 
+> The argument is obviously flawed. I don't have to have the concept of red to know the truth of a proposition. For example, I don't have to know who exactly is Superman, though I know it is true that Superman can fly. Something more needs to be said.
 
 
 
