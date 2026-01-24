@@ -68,6 +68,8 @@ Line 4 is fallacious because the thing that is internal and mental is the repres
 > 
 > The argument is obviously flawed. I don't have to have the concept of red to know the truth of a proposition. For example, I don't have to know who exactly is Superman, though I know it is true that Superman can fly. Something more needs to be said.
 
+## Inverted Spectrum
+
 
 
 > What do we mean when we say we have an experience of somthing? In ordinary language, when we say we have a good/bad experience, most of the time we are talking about some non-representational states like satisfaction, fear, anger, joy, etc. The "experience" of seeing a tree, however, is hardly something we say in ordinary language. 
