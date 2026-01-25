@@ -70,7 +70,7 @@ Line 4 is fallacious because the thing that is internal and mental is the repres
 
 ## Inverted Spectrum
 
-
+mm
 
 > What do we mean when we say we have an experience of somthing? In ordinary language, when we say we have a good/bad experience, most of the time we are talking about some non-representational states like satisfaction, fear, anger, joy, etc. The "experience" of seeing a tree, however, is hardly something we say in ordinary language. 
 
