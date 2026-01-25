@@ -62,11 +62,11 @@ Line 4 is fallacious because the thing that is internal and mental is the repres
 
 **Functionalists' account of concepts**: A concept is defined in terms of: 1. its connection with the perceptual input; 2. its connection with other concepts; 3. its connection with the behavioral output.
 
-**Harman's reply**: In order to know the red, they need the concept of red. But the blind person cannot have the concept of red. Therefore, they cannot know the facts about red.
+**Harman's reply**: In order to know the red, they need the concept of red. But the blind person cannot have the concept of red. Therefore, they cannot know all the facts about red. But the objection says the blind person can know all the facts about red. So the objection is based on a mistaken premise.
 
 > [!warning]
 > 
-> The argument is obviously flawed. I don't have to have the concept of red to know the truth of a proposition. For example, I don't have to know who exactly is Superman, though I know it is true that Superman can fly. Something more needs to be said.
+> The argument is obviously flawed. I don't have to have the concept of red to know the truth of a proposition. For example, I don't have to know who exactly is Superman, though I know it is true that Superman can fly. Therefore, I don't need to be able to form the concept "red" to know that the sentence "red has such and such functional role" is true. Something more needs to be said.
 
 ## Inverted Spectrum
 
