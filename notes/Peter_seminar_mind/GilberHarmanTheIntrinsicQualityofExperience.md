@@ -70,6 +70,13 @@ Line 4 is fallacious because the thing that is internal and mental is the repres
 
 ## Inverted Spectrum
 
+**The third objection**: Inverted spectrum cannot be explicated in functionalism term
+
+**Harman's reply**: Belief content is the perceptual content. Given that Alice and Fred have inverted perceptual content, they have different belief. But they both say "it's red" when they see strawberries. Therefore, either (a) one of them is not correctly using language to express belief, or (b) 
+
+> [!warning]
+> 
+> Then tension here is the sameness of belief report and the difference in belief content. 
 
 
 > What do we mean when we say we have an experience of somthing? In ordinary language, when we say we have a good/bad experience, most of the time we are talking about some non-representational states like satisfaction, fear, anger, joy, etc. The "experience" of seeing a tree, however, is hardly something we say in ordinary language. 
