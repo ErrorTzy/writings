@@ -1,7 +1,7 @@
 {
   "settings": {
     "version": "1",
-    "enabled": false,
+    "enabled": true,
     "advancedMode": true,
     "apiProvider": "ollama",
     "azureOAIApiSettings": {
@@ -15,7 +15,7 @@
     },
     "ollamaApiSettings": {
       "url": "http://127.0.0.1:11434/api/chat",
-      "model": "qwen3-coder-fim-system"
+      "model": "qwen3-coder-fim-system:latest"
     },
     "ollamaUseFIM": true,
     "triggerOnEveryKeypress": true,
