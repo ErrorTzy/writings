@@ -79,6 +79,7 @@ Line 4 is fallacious because the thing that is internal and mental is the repres
 > Then tension here is the sameness of belief report and the difference in belief content. But we should not say at least one of Alice and Fred are misusing the language. They both mean the same thing, in the sense that they refer to the same thing, i.e. the feature on the surface of the apple. But they use different mental representation to fix the reference, i.e. they have different qualia. Therefore, their belief report are correct, and their belief content is the same as perceptual content. It's just, the difference in the content can not be revealed by words.
 
 
+
 > What do we mean when we say we have an experience of somthing? In ordinary language, when we say we have a good/bad experience, most of the time we are talking about some non-representational states like satisfaction, fear, anger, joy, etc. The "experience" of seeing a tree, however, is hardly something we say in ordinary language. 
 
 > What exactly is the demand of "give an account" when we want to "give an account for intrinsic quality"? For example, we may say a circle is the graph of $x^2+y^2=r^2$ in Cartesian plane. But we may still ask why the set of points that fits this function has such circular geometrical feature. A mathematician would just say the question is confusing.
