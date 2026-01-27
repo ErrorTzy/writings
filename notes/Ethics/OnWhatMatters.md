@@ -86,3 +86,11 @@ Two senses of "want to x"
 
 **Objectivists about reasons**: Desires or aims has objects (facts); These facts are reasons.
 
+**Subjectivists about reasons**: The fact that doing x fulfills telic desires are reasons for doing x.
+
+(P. 59: the Telic Desire Theory: We have most reason to do whatever would best fulﬁl or achieve our *present* telic desires or aims.)
+
+> They are in tention because objectivists can say telic desires are irrational; Subjectivists do not think desires can be irrational; Eli is a moderate objectivist in the sense that, some desires can give reasons and some desires can't
+
+> The Telic Desire Theory, according to Parfit, only consider our PRESENT desire; It does not take future desires into account.
+
