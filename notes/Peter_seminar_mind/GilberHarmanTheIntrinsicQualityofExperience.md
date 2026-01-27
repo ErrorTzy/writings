@@ -15,7 +15,7 @@
 1. Eloise sees some x that is brown and green in front of her
 2. There is nothing brown and green in the exteral world
 3. Therefore, Eloise sees some x that is internal and mental.
-
+******
 Line 4 is fallacious because the thing that is internal and mental is the representation, not the object. We should just say Eloise sees some x that does not exist. 
 
 **Objection**: We are now choosing between two explanations: Eloise is intending something *mental*, or Eloise is intending something that *does not exist*. 

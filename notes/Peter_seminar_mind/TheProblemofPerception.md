@@ -30,7 +30,7 @@ An attempted answer to the Structure Question:
 **Direct Realist Presentation**
 : perceptual experience are *direct perceptual presentations of ordinary objects*.
 
- **Direct Realism**
+**Direct Realism**
 : We can directly perceive ordinary objects.
 
 ### 1.5 The character of experience
