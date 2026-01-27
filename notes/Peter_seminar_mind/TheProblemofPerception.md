@@ -36,7 +36,9 @@ An attempted answer to the Structure Question:
 ### 1.5 The character of experience
 
 - **The Character Question**: what determines the phenomenal character of experience?
-- **Direct Realist Character**: The phenomenal character of experience is determined, at least partly, by *the direct presentation of ordinary objects*
+
+**Direct Realist Character**
+: The phenomenal character of experience is determined, at least partly, by *the direct presentation of ordinary objects*
 
 ### 1.6 The common kind claim
 
