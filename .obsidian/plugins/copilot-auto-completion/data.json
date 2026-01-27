@@ -15,7 +15,7 @@
     },
     "ollamaApiSettings": {
       "url": "http://127.0.0.1:11434/api/chat",
-      "model": "qwen3-coder-fim-system:latest"
+      "model": "qwen3-coder-fim-system"
     },
     "ollamaUseFIM": true,
     "triggerOnEveryKeypress": true,
