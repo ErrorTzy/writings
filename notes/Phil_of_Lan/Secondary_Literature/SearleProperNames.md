@@ -17,6 +17,8 @@ A statement is analytic iff. it is true in virtue of linguistic rules alone.
 This is because in the sentence 'Tully = Tully', Tully can be arbitrarily replaced.
 
 **Defense:** Language Rules
+(a) and (b) are fundamentally different. Therefore, they cannot be both analytic.
+This is because in the sentence 'Tully = Tully', Tully can be arbitrarily replaced.
 
 If I set down a rule that X and Y can be used interchangeably in my writing, then X = Y is also trivially analytic for *those who know the rule*.
 

@@ -93,4 +93,3 @@ Two senses of "want to x"
 > They are in tention because objectivists can say telic desires are irrational; Subjectivists do not think desires can be irrational; Eli is a moderate objectivist in the sense that, some desires can give reasons and some desires can't
 
 > The Telic Desire Theory, according to Parfit, only consider our PRESENT desire; It does not take future desires into account.
-
