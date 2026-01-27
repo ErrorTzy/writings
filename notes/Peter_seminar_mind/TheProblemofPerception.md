@@ -1,1 +1,1 @@
-> Why do we think it is possible for us to hallucinate at all? It's not MISREPRESENTATION, it's NOT PRESENTATION: when we say we are 
+> Why do we think it is possible for us to hallucinate at all? It's not MISREPRESENTATION, it's NOT PRESENTATION: when we say we are hallucinating, what we are seeing is completely not anything. It's not like seeing a mirage or a fake barn: we misjudged the object, but we are still seeing something. 
