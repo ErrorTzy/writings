@@ -62,10 +62,10 @@ The sense of normativity is not of morality: If I want to catch the train, and I
 
 #### 3. Two Kinds of Theory
 
-Two senses of "want to x"
+**Two senses of "want to x"**
 
-- The wider sense: Any state of being motivated to do x
-- The narrower sense: Being disposed to make x happen
+- The wider sense: Any state of being motivated to do x (if s does x willingly, then s wants to do x)
+- The narrower sense: Being disposed to make x happen (if s is attracted by x itself, then s wants to do x)
 
 > What Parfit means seems to be: when we say we want x, we may not know what x exactly is, like "I want to do what you want me to do": I know how to fix x, but I don't know what x is. Therefore, the narrow sense of "want to x" is that, "x itself provides me with motivation", which arguably requires me to know what x exactly is; the wider sense is "something about x, not x itself, provides me with motivation." It seems the difference is just, whether we are motivated to do x by some property intrinsic to x, or external to x.
 
@@ -74,11 +74,14 @@ Two senses of "want to x"
 1. Whenever people act, they are doing what they want to do
 2. Doing what we want is selfish
 3. Therefore, whenever people act, they are acting selfishly
-
+1
 **Parfit's objection**: This argument fails because the "want to x" in premise 1 is in the wider sense, while the "want to x" in premise 2 is in the narrower sense: if I do what I want to do in the broader sense, I wouldn't be acting selfishly. 
 
 - The object of our desire: an event
 - Aim: Some desires are instrumental, and is for the sake of something else; The telic desire is our aim.
+
+- **Telic desire**: If we want some event as an end, instead of wanting it for the sake of something else, then it is a telic desire.
+- **Instrumental desire**: If we want some event for the sake of something else, then it is an instrumental desire
 
 **psychological hedonists:** All telic desires are desires for pleasure.
 

@@ -42011,39 +42011,90 @@ Hard rules:
 - Do NOT repeat the prefix or suffix.
 - Do NOT add leading/trailing whitespace or extra newlines.
 - Preserve formatting (indentation, line breaks, math/code style).
+- If the missing text is inside paired delimiters already present on both sides (e.g., ** **, * *, *** ***, == ==, $ $, \` \`, ~~ ~~), output ONLY the inner missing text. Do NOT output the closing delimiter or anything that comes after the closing delimiter if it already appears in the suffix.
 - If the prefix/suffix are plain text (no $), do NOT introduce $ or LaTeX.
-- If the missing text is inside inline math and the suffix already has '$', do NOT add '$'.
-- If the prefix has '$' but the suffix does NOT, then the missing text must include the closing '$'.
-- If the missing text is inside display math $$...$$, do NOT add $$ delimiters.
 - If the missing text is inside a partial sentence, output only the missing 1-2 words.
 - If the missing text is inside a word, output ONLY the missing letters (not the whole word).
 - Never output special tokens like <|fim_...|> or <|endoftext|>.
 - Stop immediately after the missing text is complete.
 
-Examples (for guidance only; do not copy them):
-1) We wish you a <mask> Christmas. -> merry
-2) Saul Kripke is the author of <mask> and Necessity. -> Naming
-3) # The <mask> function
-   The softmax function transforms a vector into a probability distribution. -> Softmax
-4) The <mask> is known as the sampling rate. -> chosen interval
-5) A logarithm ... in other words $ <mask> $. -> 3 = \\log_2(8)
-6) $$ sample\\_mean(x) = <mask> $$ -> \\frac{1}{n} \\sum_i^n x_i
-7) $a^2-b^2=(a-b)(a+<mask>)$ -> b
-8) $\\sin^2 x + \\cos^2 x = <mask>$ -> 1
-9) $\\frac{d}{dx} x^3 = <mask>$ -> 3x^2
-10) $$\\int x \\, dx = <mask>$$ -> \\frac{x^2}{2}+C
-11) function debounce(func, timeout = 300){
-     <mask>
-   } -> let timer; return (...args) => { clearTimeout(timer); timer = setTimeout(() => { func.apply(this, args); }, timeout); };
-12) def fibonacci(<mask>) -> int: -> n: int
-13) - [ ] Research
-    - [ ] <mask> -> Write the first draft
-14) We wish you a merry Chir<mask>. -> smas
-15) Boston is in Mas<mask>. -> sachusetts
-16) The word micro<mask> is related to magnification. -> scope
-17) Bio<mask> studies life. -> logy
-18) The law of excluded middle is $<mask>. -> P \\lor \\neg P$
-19) Given propositions P and Q, their conjunction is $<mask>. -> P \\land Q$
+Examples (Prefix/Suffix/Output; do not copy them):
+1) Prefix: We wish you a 
+   Suffix:  Christmas.
+   Output: merry
+2) Prefix: Saul Kripke is the author of 
+   Suffix:  and Necessity.
+   Output: Naming
+3) Prefix: # The 
+   Suffix:  function
+The softmax function transforms a vector into a probability distribution.
+   Output: Softmax
+4) Prefix: The 
+   Suffix:  is known as the sampling rate.
+   Output: chosen interval
+5) Prefix: A logarithm ... in other words $ 
+   Suffix:  $.
+   Output: 3 = \\log_2(8)
+6) Prefix: $$ sample\\_mean(x) = 
+   Suffix:  $$
+   Output: \\frac{1}{n} \\sum_i^n x_i
+7) Prefix: $a^2-b^2=(a-b)(a+
+   Suffix: )$
+   Output: b
+8) Prefix: $\\sin^2 x + \\cos^2 x = 
+   Suffix: $
+   Output: 1
+9) Prefix: $\\frac{d}{dx} x^3 = 
+   Suffix: $
+   Output: 3x^2
+10) Prefix: $$\\int x \\, dx = 
+    Suffix: $$
+    Output: \\frac{x^2}{2}+C
+11) Prefix: function debounce(func, timeout = 300){
+     
+    Suffix: 
+   }
+    Output: let timer; return (...args) => { clearTimeout(timer); timer = setTimeout(() => { func.apply(this, args); }, timeout); };
+12) Prefix: def fibonacci(
+    Suffix: ) -> int:
+    Output: n: int
+13) Prefix: - [ ] Research
+    - [ ] 
+    Suffix: 
+    Output: Write the first draft
+14) Prefix: We wish you a merry Chir
+    Suffix: .
+    Output: smas
+15) Prefix: Boston is in Mas
+    Suffix: .
+    Output: sachusetts
+16) Prefix: The word micro
+    Suffix:  is related to magnification.
+    Output: scope
+17) Prefix: Bio
+    Suffix:  studies life.
+    Output: logy
+18) Prefix: The law of excluded middle is $
+    Suffix: .
+    Output: P \\lor \\neg P$
+19) Prefix: Given propositions P and Q, their conjunction is $
+    Suffix: .
+    Output: P \\land Q$
+20) Prefix: **The definition of transformer archi
+    Suffix: **
+    Output: tecture
+21) Prefix: *importan
+    Suffix: *
+    Output: t
+22) Prefix: ***deep lear
+    Suffix: ***
+    Output: ning
+23) Prefix: ==highli
+    Suffix: ==
+    Output: ght
+24) Prefix: Einstein wrote $E = mc^
+    Suffix: $ in 1905.
+    Output: 2
 `;
 var DEFAULT_REFACTOR_USER_TEMPLATE = `You are refactoring selected text in a Markdown note.
 Task: {{taskName}}
@@ -42227,7 +42278,14 @@ var DEFAULT_SETTINGS = {
 Your answer can be either code, a single word, or multiple sentences.
 If the <mask/> is in the middle of a partial sentence, your answer should only be the 1 or 2 words fixes the sentence and not the entire sentence.
 You are not allowed to have any overlapping text directly surrounding the <mask/>.  
+If the <mask/> is inside paired delimiters already present on both sides (e.g., ** **, * *, *** ***, == ==, $ $, \` \`, ~~ ~~), output ONLY the inner missing text. Do NOT output the closing delimiter if it already appears in the suffix.
 Your answer must be in the same language as the text directly surrounding the <mask/>.
+Examples (do not copy; Input -> Output):
+- **The definition of transformer archi<mask/>** -> tecture
+- *importan<mask/>* -> t
+- ***deep lear<mask/>*** -> ning
+- ==highli<mask/>== -> ght
+- Einstein wrote $E = mc^<mask/>$ in 1905. -> 2
 Your response must have the following format:
 THOUGHT: here, you reason about the answer; use the 80/20 principle to be brief.
 LANGUAGE: here, you write the language of your answer, e.g. English, Python, Dutch, etc.
