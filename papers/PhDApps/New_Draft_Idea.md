@@ -243,3 +243,7 @@ The reason why the concept of "change" is related to ontology is because we want
 
 
 We don't want object to change when we change our perspective. Is it possible to do ontology just with "objects of the first glance"?
+
+Essence, semantic variance and linguistric aboutness: fixing the reference relies on intentionality
+
+Computation may be inexplicable
