@@ -232,8 +232,8 @@
     "onlyInlineCompletion": true,
     "ignoredFilePatterns": "**/secret/**\n",
     "ignoredTags": "",
-    "acceptSuggestionKey": "Tab",
-    "acceptNextWordKey": "ArrowRight",
+    "acceptSuggestionKey": "Shift-Tab",
+    "acceptNextWordKey": "Tab",
     "cacheSuggestions": true,
     "debugMode": false
   }

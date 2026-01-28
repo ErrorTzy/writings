@@ -151,8 +151,11 @@ Two views on Practical Reasons:
 
 **Practical Reasons**: A fact can be a reason for (1) the mental state of wanting x to happen, and (2) the behavior of doing something to make x happen
 
-**Responding to a reason by action vs. Responding to a reason by having desire**: The former is always volaruntary, the latter is not always voluntary. We can choose to act in some way, but we cannot choose to want in some way.
+**Responding to a reason by action vs. Responding to a reason by having desire**: The former is always *volaruntary*, the latter is not always *voluntary*. We can choose to act in some way, but we cannot choose to want in some way.
 
-
+The free choice to be made: which desire we are trying to fulfill. 
 
 > The Telic Desire Theory, according to Parfit, only consider our PRESENT desire; It does not take future desires into account.
+
+#### 5. State-Given Reasons
+
