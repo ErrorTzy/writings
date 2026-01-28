@@ -9,7 +9,7 @@ b. Tully = Cicero
 
 A statement is analytic iff. it is true in virtue of linguistic rules alone.
 
-## Ans 1: b is analytic. 
+## Ans 1: b is analytic
 
 **Question:** How can they be analytic? 
 
