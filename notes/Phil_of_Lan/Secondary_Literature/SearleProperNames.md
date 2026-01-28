@@ -1,4 +1,4 @@
-# Is Tully = Cicero analytic?
+e# Is Tully = Cicero analytic?
 
 a. Tully = Tully
 b. Tully = Cicero
