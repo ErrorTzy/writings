@@ -14,18 +14,13 @@
       "model": "gpt-3.5-turbo"
     },
     "ollamaApiSettings": {
-      "url": "http://127.0.0.1:11434/api/chat",
-      "model": "qwen3-coder-fim-system"
+      "url": "http://localhost:11434/api/chat",
+      "model": "qwen3-coder-fim-system:latest"
     },
     "ollamaUseFIM": true,
     "triggerOnEveryKeypress": true,
-    "triggers": [
-      {
-        "type": "regex",
-        "value": ".$"
-      }
-    ],
-    "delay": 200,
+    "triggers": [],
+    "delay": 0,
     "modelOptions": {
       "temperature": 0,
       "top_p": 0.1,
@@ -33,8 +28,8 @@
       "presence_penalty": 0,
       "max_tokens": 10
     },
-    "systemMessage": "Your job is to predict the most logical text that should be written at the location of the <mask/>.\nYour answer can be either code, a few phrases, math equations, or a complete sentences.\n\nIMPORTANT: There must not be space after the starting `$` and before the closing `$` for inline math. For example, you should write `$f(x)=y$` instead of `$ f(x)=y $`.\n\n- If the <mask/> is in the middle of a partial sentence, your answer should only be the 1 or 2 words fixes - the sentence and not the entire sentence.\n- You are not allowed to have any overlapping text directly surrounding the <mask/>.  \n- Your answer must be in the same language as the text directly surrounding the <mask/>.\n\nYour response must have the following format:\nTHOUGHT: here, you reason about the answer; use the 80/20 principle to be brief.\nLANGUAGE: here, you write the language of your answer, e.g. English, Python, Dutch, hybrid (English+latex), etc.\nANSWER: here, you write the text that should be at the location of <mask/>\n",
-    "fimSystemMessage": "You are a precise fill-in-the-middle completion engine. You will receive text with a missing middle; return ONLY the missing text.\nHard rules:\n- Output only the missing text, no labels, no explanations, no quotes.\n- Do NOT repeat the prefix or suffix.\n- Preserve formatting (indentation, line breaks, math/code style).\n- If the prefix/suffix are plain text (no $), do NOT introduce $ or LaTeX.\n- If the missing text is inside inline math and the suffix already has '$', do NOT add '$'.\n- If the prefix has '$' but the suffix does NOT, then the missing text must include the closing '$'.\n- If the missing text is inside display math $$...$$, do NOT add $$ delimiters.\n- If the missing text is inside a partial sentence, output only the missing 1-2 words.\n- If the missing text is inside a word, output ONLY the missing letters (not the whole word).\n- Never output special tokens like <|fim_...|> or <|endoftext|>.\n- Stop immediately after the missing text is complete.\n\nExamples (for guidance only; do not copy them):\n1) We wish you a<mask>Christmas. ->  merry  (Notice the space before and after \"merry\")\n2) Saul Kripke is the author of Na<mask> and Necessity. -> ming\n3) # The <mask> function\n   The softmax function transforms a vector into a probability distribution. -> Softmax\n4) The <mask> is known as the sampling rate. -> chosen interval\n5) A logarithm ... in other words $ <mask> $. -> 3 = \\log_2(8)\n6) $$ sample\\_mean(x) = <mask> $$ -> \\frac{1}{n} \\sum_i^n x_i\n7) $a^2-b^2=(a-b)(a+<mask>)$ -> b\n8) $\\sin^2 x + \\cos^2 x = <mask>$ -> 1\n9) $\\frac{d}{dx} x^3 = <mask>$ -> 3x^2\n10) $$\\int x \\, dx = <mask>$$ -> \\frac{x^2}{2}+C\n11) function debounce(func, timeout = 300){\n     <mask>\n   } -> let timer; return (...args) => { clearTimeout(timer); timer = setTimeout(() => { func.apply(this, args); }, timeout); };\n12) def fibonacci(<mask>) -> int: -> n: int\n13) - [ ] Research\n    - [ ] <mask> -> Write the first draft\n14) We wish you a merry<mask>. ->  Chirstmas (Notice the space before \"Chirstmas\")\n15) Boston is in Mas<mask>. -> sachusetts\n16) The word micro<mask> is related to magnification. -> scope\n17) Bio<mask> studies life. -> logy\n18) The law of excluded middle is $<mask>. -> P \\lor \\neg P$\n19) Given propositions P and Q, their conjunction is $<mask>. -> P \\land Q$\n",
+    "systemMessage": "Your job is to predict the most logical text that should be written at the location of the <mask/>.\nYour answer can be either code, a single word, or multiple sentences.\nIf the <mask/> is in the middle of a partial sentence, your answer should only be the 1 or 2 words fixes the sentence and not the entire sentence.\nYou are not allowed to have any overlapping text directly surrounding the <mask/>.  \nIf the <mask/> is inside paired delimiters already present on both sides (e.g., ** **, * *, *** ***, == ==, $ $, ` `, ~~ ~~), output ONLY the inner missing text. Do NOT output the closing delimiter if it already appears in the suffix.\nYour answer must be in the same language as the text directly surrounding the <mask/>.\nExamples (do not copy; Input -> Output):\n- **The definition of transformer archi<mask/>** -> tecture\n- *importan<mask/>* -> t\n- ***deep lear<mask/>*** -> ning\n- ==highli<mask/>== -> ght\n- Einstein wrote $E = mc^<mask/>$ in 1905. -> 2\nYour response must have the following format:\nTHOUGHT: here, you reason about the answer; use the 80/20 principle to be brief.\nLANGUAGE: here, you write the language of your answer, e.g. English, Python, Dutch, etc.\nANSWER: here, you write the text that should be at the location of <mask/>\n",
+    "fimSystemMessage": "You are a precise fill-in-the-middle completion engine. You will receive text with a missing middle; return ONLY the missing text.\nHard rules:\n- Output only the missing text, no labels, no explanations, no quotes.\n- Do NOT repeat the prefix or suffix.\n- Do NOT add leading/trailing whitespace or extra newlines.\n- Preserve formatting (indentation, line breaks, math/code style).\n- If the missing text is inside paired delimiters already present on both sides (e.g., ** **, * *, *** ***, == ==, $ $, ` `, ~~ ~~), output ONLY the inner missing text. Do NOT output the closing delimiter or anything that comes after the closing delimiter if it already appears in the suffix.\n- If the prefix/suffix are plain text (no $), do NOT introduce $ or LaTeX.\n- If the missing text is inside a partial sentence, output only the missing 1-2 words.\n- If the missing text is inside a word, output ONLY the missing letters (not the whole word).\n- Never output special tokens like <|fim_...|> or <|endoftext|>.\n- Stop immediately after the missing text is complete.\n\nExamples (Prefix/Suffix/Output; do not copy them):\n1) Prefix: We wish you a \n   Suffix: Christmas.\n   Output: merry \n2) Prefix: Saul Kripke is the author of\n   Suffix:  and Necessity.\n   Output:  Naming\n3) Prefix: # The \n   Suffix:  function\nThe softmax function transforms a vector into a probability distribution.\n   Output: Softmax\n4) Prefix: The \n   Suffix:  is known as the sampling rate.\n   Output: chosen interval\n5) Prefix: A logarithm ... in other words $ \n   Suffix:  $.\n   Output: 3 = \\log_2(8)\n6) Prefix: $$ sample\\_mean(x) = \n   Suffix:  $$\n   Output: \\frac{1}{n} \\sum_i^n x_i\n7) Prefix: $a^2-b^2=(a-b)(a+\n   Suffix: )$\n   Output: b\n8) Prefix: $\\sin^2 x + \\cos^2 x = \n   Suffix: $\n   Output: 1\n9) Prefix: $\\frac{d}{dx} x^3 = \n   Suffix: $\n   Output: 3x^2\n10) Prefix: $$\\int x \\, dx = \n    Suffix: $$\n    Output: \\frac{x^2}{2}+C\n11) Prefix: function debounce(func, timeout = 300){\n     \n    Suffix: \n   }\n    Output: let timer; return (...args) => { clearTimeout(timer); timer = setTimeout(() => { func.apply(this, args); }, timeout); };\n12) Prefix: def fibonacci(\n    Suffix: ) -> int:\n    Output: n: int\n13) Prefix: - [ ] Research\n    - [ ] \n    Suffix: \n    Output: Write the first draft\n14) Prefix: We wish you a merry Chir\n    Suffix: .\n    Output: smas\n15) Prefix: Boston is in Mas\n    Suffix: .\n    Output: sachusetts\n16) Prefix: The word micro\n    Suffix: is related to magnification.\n    Output: scope \n17) Prefix: Bio\n    Suffix:  studies life.\n    Output: logy\n18) Prefix: The law of excluded middle is $\n    Suffix: .\n    Output: P \\lor \\neg P$\n19) Prefix: Given propositions P and Q, their conjunction is $\n    Suffix: .\n    Output: P \\land Q$\n20) Prefix: **The definition of transformer archi\n    Suffix: **\n    Output: tecture\n21) Prefix: *importan\n    Suffix: *\n    Output: t\n22) Prefix: ***deep lear\n    Suffix: ***\n    Output: ning\n23) Prefix: ==highli\n    Suffix: ==\n    Output: ght\n24) Prefix: Einstein wrote $E = mc^\n    Suffix: $ in 1905.\n    Output: 2\n",
     "fewShotExamples": [
       {
         "context": "BlockQuotes",
@@ -93,8 +88,8 @@
       },
       {
         "context": "MathBlock",
-        "input": "# Logarithm definition\nA logarithm is the power to which a base must be raised to yield a given number. For example, $2^3 =8$; therefore, $3$ is the logarithm of $8$ to base $2$, or in other words $<mask/>",
-        "answer": "The text close to the $<mask/> is about the definition of the log and logarithm of 8 to base 2. The answer is an inline formula for base 2 of 8 equals 3.\nLANGUAGE: LaTeX, English\nANSWER: 3 = \\log_2(8)$"
+        "input": "# Logarithm definition\nA logarithm is the power to which a base must be raised to yield a given number. For example, $2^3 =8$; therefore, $3$ is the logarithm of $8$ to base $2$, or in other words $ <mask/>$",
+        "answer": "The text close to the <mask/> is about the definition of the log and logarithm of 8 to base 2. The answer is an inline formula for base 2 of 8 equals 3.\nLANGUAGE: LaTeX, English\nANSWER: 3 = \\log_2(8)"
       },
       {
         "context": "MathBlock",
@@ -237,9 +232,9 @@
     "onlyInlineCompletion": true,
     "ignoredFilePatterns": "**/secret/**\n",
     "ignoredTags": "",
-    "acceptSuggestionKey": "Shift-Tab",
-    "acceptNextWordKey": "Tab",
+    "acceptSuggestionKey": "Tab",
+    "acceptNextWordKey": "ArrowRight",
     "cacheSuggestions": true,
-    "debugMode": true
+    "debugMode": false
   }
 }

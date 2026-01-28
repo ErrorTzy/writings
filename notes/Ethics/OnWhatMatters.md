@@ -4,7 +4,8 @@
 
 > Eli: Parfit is looking for a action related concept that is parallel to reason vs evidence for belief. But there's highly likely that there's no such concept. 
 
-#### **Reasons**: fundamental
+#### 1 Normative Reasons
+##### **Reasons**: fundamental
 
 **I have reason X to do Y**
 : X is a reason for doing Y if and only if X is a reason for doing Y, even if we are not aware of it.
@@ -21,7 +22,7 @@
 **X is a sufficent reason**
 : X is not weaker than reasons for acting in any other way.
 
-#### **Rationality and "ought to"**: defined in terms of reason
+##### **Rationality and "ought to"**: defined in terms of reason
 
 **We ought do Y**
 : When X is an *decisive reason* to do Y, we *should* do Y.
@@ -53,7 +54,8 @@ Is following the reasons given by beliefs sufficient for our action being ration
 
 The sense of normativity is not of morality: If I want to catch the train, and I believe that if I don't leave now, I will miss the train, then I ought rationally to leave now. This is not what I ought morally to do. It is possible that we have no reason to do what we are morally required to do. What "ought to" means here simply appears to be irrelavant to morality.
 
-#### **Good**: Defined in terms of reasons
+#### 2. Reason-Involving Goodness
+##### **Good**: Defined in terms of reasons
 
 **x is good**
 : there are certain *facts about x* that would in certain situations *give us reason* to respond to this thing in some positive way (e.g. wanting, choosing, using, producing, etc.)
@@ -144,5 +146,13 @@ Two views on Practical Reasons:
 **Difference between objectivism and subjectivism about reasons:** Though objectivists can agree that, the facts taking the form "Doing x would fulfill our present desires" are reasons, these reasons, according to objectivists, derive their force from the facts that give us reason to have these aims (desires). But subjectivists think there's no such fact of the matter that can make desires or aims rationally preferable to others.
 
 > They are in tention because objectivists can say telic desires are irrational; Subjectivists do not think desires can be irrational; Eli is a moderate objectivist in the sense that, some desires can give reasons and some desires can't
+
+#### 4. Responding to Reasons
+
+**Practical Reasons**: A fact can be a reason for (1) the mental state of wanting x to happen, and (2) the behavior of doing something to make x happen
+
+**Responding to a reason by action vs. Responding to a reason by having desire**: The former is always volaruntary, the latter is not always voluntary. We can choose to act in some way, but we cannot choose to want in some way.
+
+
 
 > The Telic Desire Theory, according to Parfit, only consider our PRESENT desire; It does not take future desires into account.
