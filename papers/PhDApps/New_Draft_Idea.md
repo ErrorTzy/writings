@@ -246,4 +246,17 @@ We don't want object to change when we change our perspective. Is it possible to
 
 Essence, semantic variance and linguistric aboutness: fixing the reference relies on intentionality
 
-Computation may be inexplicable
+Computation may be inexplicable?
+
+Irreducible grasp of rules. 
+
+**what is a rule?** A normative relation between two things:
+(Given x), some y *should* occur. 
+
+Example, given the following condition: it's your turn to move, and you decide to move your biship, then there are some positions where the bishop move is allowed (if going to other direction, the move is wrong).
+
+It does not require that y *must* occur, but if y does not occur, then whoever is following the rule followed it wrong. The case where y *must* occur with x might be called a law, not a rule. For example, the law of gravity is not normative. We won't say a stone *correctly* drops.
+
+What's the relation between a rule and relations? Rules are not necessarily relations. One can have a conditionless rule, like Kantian moral rules. So rules are just normative claims, with optional application conditions.
+
+what about semantic rules? How exactly should we formulate semantic rules? Surely semantic rules about language only applies to language. And a semantic rule about a term applies to the use of a term. For example, if one uses the word "plus", then --- some normative claim. 
