@@ -13,4 +13,8 @@
 
 **Kripke's response:** This operation can be fixed only if you can fix the meaning of 'count'. But we can define the operation of 'quount' which means 'count' if the pile of marbles is less than 57, and yields the anser 5 otherwise. So the problem remains: why do I mean count and not quount?
 
-> Remark: I think this regression reveals the problem of explicability of something. When is something explicable? In a sense, everything that we are aware of is explicable, in the sense that we can use a word to denote it. However, the problem is if we *publicly* explicate the meaning of a word. Can we ever teach something else to another party to understand what we mean by a word, assuming that the other party is fully cooperative? For publicly observable things like some particular tables, it might be easier. But once it becomes abstract, like relations, functions, or concepts, the problem becomes more severe.
+To be more general, if we explain which rule exactly do we intend by appealing to a more basic rule, the the skepticism can be repeated on the basic rule.
+
+> Remark:
+> I think this regression reveals the problem of explicability of something. When is something explicable? In a sense, everything that we are aware of is explicable, in the sense that we can use a word to denote it. However, the problem is if we *publicly* explicate the meaning of a word. Can we ever teach something else to another party to understand what we mean by a word, assuming that the other party is fully cooperative? For publicly observable things like some particular tables, it might be easier. But once it becomes abstract, like relations, functions, or concepts, the problem becomes more severe.
+
