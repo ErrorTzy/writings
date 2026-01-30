@@ -20,7 +20,7 @@ X is strongly decisive reason
 : X is *much* stronger than other conflicting reasons.
 
 X is a sufficent reason
-: X is stronger or equal to than reasons for acting in any other way.
+: X is stronger or equal to reasons for acting in any other way.
 
 ##### **Rationality and "ought to"**: defined in terms of reason
 
