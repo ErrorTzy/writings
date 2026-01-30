@@ -20,7 +20,7 @@ X is strongly decisive reason
 : X is *much* stronger than other conflicting reasons.
 
 X is a sufficent reason
-: X is not weaker than reasons for acting in any other way.
+: X is stronger or equal to than reasons for acting in any other way.
 
 ##### **Rationality and "ought to"**: defined in terms of reason
 
@@ -213,9 +213,20 @@ Meta-hedonic desires
 
 **Parfit's objection**: Korsgaard's argument did not distinguish desire and dislike. Our liking something can make conscious states good or bad, but our desires can't.
 
-### 7. Irrational Preferences
+#### 7. Irrational Preferences
 
 Rational desires
 : If the feature of the object of our desires are reasons for wanting them, then the desire is rational
 
-> I thought reasons are facts, not events?
+Irrational desires
+: If we desire some event contrary to reasons, then the desire is irrational
+
+**Example**: Tuesday indifference is irrational; Similarly, baise towards the near is irrational
+
+### 3. Subjective Theories
+
+#### 8. Subjectivism about Reasons
+
+Desire-Based Theory
+: We have a reason to do whatever would fulfill any of our present desires.
+
