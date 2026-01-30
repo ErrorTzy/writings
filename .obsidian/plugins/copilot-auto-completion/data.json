@@ -20,9 +20,9 @@
     "ollamaUseFIM": true,
     "triggerOnEveryKeypress": true,
     "triggers": [],
-    "delay": 0,
+    "delay": 100,
     "modelOptions": {
-      "temperature": 0,
+      "temperature": 0.15,
       "top_p": 0.1,
       "frequency_penalty": 0.25,
       "presence_penalty": 0,
@@ -224,9 +224,9 @@
     "refactorDirectReplace": true,
     "userMessageTemplate": "{{prefix}}<mask/>{{suffix}}",
     "chainOfThoughRemovalRegex": "(.|\\n)*ANSWER:",
-    "dontIncludeDataviews": true,
-    "maxPrefixCharLimit": 4000,
-    "maxSuffixCharLimit": 4000,
+    "dontIncludeDataviews": false,
+    "maxPrefixCharLimit": 10000,
+    "maxSuffixCharLimit": 10000,
     "removeDuplicateMathBlockIndicator": true,
     "removeDuplicateCodeBlockIndicator": true,
     "onlyInlineCompletion": true,
@@ -235,6 +235,6 @@
     "acceptSuggestionKey": "Shift-Tab",
     "acceptNextWordKey": "Tab",
     "cacheSuggestions": true,
-    "debugMode": false
+    "debugMode": true
   }
 }

@@ -7,36 +7,36 @@
 #### 1 Normative Reasons
 ##### **Reasons**: fundamental
 
-**I have reason X to do Y**
+I have reason X to do Y
 : X is a reason for doing Y if and only if X is a reason for doing Y, even if we are not aware of it.
 
-**I have more reason to do Y**
+I have more reason to do Y
 : The reasons for doing Y is stronger/outweights the reasons for doing Z.
 
-**X is a decisive reason**
+X is a decisive reason
 : X is stronger than our reasons to act in any other way.
 
-**X is strongly decisive reason**
+X is strongly decisive reason
 : X is *much* stronger than other conflicting reasons.
 
-**X is a sufficent reason**
+X is a sufficent reason
 : X is not weaker than reasons for acting in any other way.
 
 ##### **Rationality and "ought to"**: defined in terms of reason
 
-**We ought do Y**
+We ought do Y
 : When X is an *decisive reason* to do Y, we *should* do Y.
 
-**Doing Y is rational**
+Doing Y is rational
 : We have beliefs whose truth would be *sufficient reason* to do Y.
 
-**We ought rationally to do Y**
+We ought rationally to do Y
 : We have beliefs whose truth would be *decisive reason* to do Y.
 
-**Doing Y is less than fully rational**
+Doing Y is less than fully rational
 : If we have beliefs whose truth would be *clear and decisive reason* NOT to do Y.
 
-**Doing Y is irrational**
+Doing Y is irrational
 : If we have beliefs whose truth would be *strongly decisive reason* NOT to do Y.
 
 In other words, whether we ought to do something depends on reason giving facts; Whether it is rational to do something depends on our belief.
@@ -46,10 +46,10 @@ Is following the reasons given by beliefs sufficient for our action being ration
 1. Do the beliefs also need to be rational?
 2. Other rational requirements, like not to have contradictary intentions, beliefs, etc.? Later give some argument against the sufficiency of these requirements
 
-**Motivating reason**
+Motivating reason
 : The belief that provides reason for an action, could be false
 
-**Normative reason**
+Normative reason
 : The fact that, if correctly believed, would provide reason for an action
 
 The sense of normativity is not of morality: If I want to catch the train, and I believe that if I don't leave now, I will miss the train, then I ought rationally to leave now. This is not what I ought morally to do. It is possible that we have no reason to do what we are morally required to do. What "ought to" means here simply appears to be irrelavant to morality.
@@ -57,36 +57,36 @@ The sense of normativity is not of morality: If I want to catch the train, and I
 #### 2. Reason-Involving Goodness
 ##### **Good**: Defined in terms of reasons
 
-**x is good**
+x is good
 : there are certain *facts about x* that would in certain situations *give us reason* to respond to this thing in some positive way (e.g. wanting, choosing, using, producing, etc.)
 
 > This already seems to define goodness as a relational property between facts and us. If so, then different people would have different goodness.
 
-**x is intrinsically good**
+x is intrinsically good
 : x makes our lives worth living
 
-**x is instrumentally good**
+x is instrumentally good
 : x has effects that are intrinsically good for us
 
-**x is good for us**
+x is good for us
 : x is in our well-being
 
-**self-interested reason**
+self-interested reason
 : reasons to care about our own well-being
 
-**altruistic reason**
+altruistic reason
 : reasons to care about the well-being of other people
 
-**partial/person relative reason**
+partial/person relative reason
 : reasons to care about the well-being of people who are related to us in some way
 
-**impartial reason**
+impartial reason
 : reasons to care about the well-being of whatever that person's relation to us
 
-**x is good for someone**
+x is good for someone
 : x gives this person self-interested reason and give other people altruistic reason for the sake of that person
 
-**x is better (in the impartial-reason-implying sense) than y**
+x is better (in the impartial-reason-implying sense) than y
 : everyone would have strong reason to want x to occur rather than y from an impartial point of view
 
 **Upshot**: The concept of "good" or "good for" is defined in terms of giving us reason, and therefore not fundamental.
@@ -122,7 +122,7 @@ Telic desire
 : If we want some event as an end, instead of wanting it for the sake of something else, then it is a telic desire.
 
 Instrumental desire
-: If we want1 some event for the sake of something else, then it is an instrumental desire.
+: If we want some event for the sake of something else, then it is an instrumental desire.
 
 Aim
 : The object of a telic desire is called our aim.
@@ -135,10 +135,10 @@ Aim
 
 Two views on Practical Reasons:
 
-**Objectivists about reasons**
-: There are some facts such that these facts are reasons for our desires or aims; These partucluar facts are called "object-giving reasons"
+Objectivists about reasons
+: There are some facts such that these facts are reasons for our desires or aims; These partucluar facts are called "*object-given reasons*"
 
-**Subjectivists about reasons**
+Subjectivists about reasons
 : Reasons are all provided by facts taking the following form: Doing x would fulfill our present desires or aims (or the desires or aims we would now have if we had carefully considered all the relevlant facts)
 
 (P. 59: the Telic Desire Theory: We have most reason to do whatever would best fulﬁl or achieve our *present* telic desires or aims.)
@@ -159,3 +159,63 @@ The free choice to be made: which desire we are trying to fulfill.
 
 #### 5. State-Given Reasons
 
+| Category     | Telic and Intrinsic                                                | Instrumental                                     |
+| ------------ | ------------------------------------------------------------------ | ------------------------------------------------ |
+| object-given | The event that we want would be in itself good, or worth achieving | Our wanting this event would be in itself good   |
+| state-given  | *Our wanting this event* would be in itself good                   | *Our wanting this event* would have good effects |
+
+There is a parallel in beliefs: some reasons for believing are related to the truth of the proposition; Some reasons for believing are related to the pragmatic goodness of our believing.
+
+**Parfit's comment**: It's not worth claiming that there's such state-given reasons
+
+#### 6 Hedonic Reasons
+
+Intrinsic telic reason
+: The feature of the object of the desire that is worth achieving is intrinsic to the object of the desire.
+
+Extrinsic telic reason
+: The feature of the object of the desire that is worth achieving is extrinsic or relational to other events.
+
+> Translation: If some intrinsic feature of some events should trigger our desire, then it's intrinsic telic reason.
+
+> Difference between extrinsic telic reason and instrumental reason: The former is about the object contituting the goodness of a sequence of events, the latter is about causing the occurrence of a desirable event.
+
+Different objective theories disagree on which kinds of facts gives us intrinsic telic reasons
+
+
+Different objective theories also disagree on whose well-being we should care about.
+
+- **Rational Egoism**: We only have reasons to promote our own well-being
+- **Rational Impartialism**: We have reasons to promote everyone's well-being
+
+(Parfit thinks none of these is correct)
+
+Desire-like states
+: The states that are like desires, but they are not reponses to reasons, like hunger, thirst and lust
+
+Hedonic likings and dislikings
+: They are about *actual*, *present* sensations
+: these likings or dislikings of some of our sensations make these sensations pleasant, painful or unpleasant.
+
+**Examples**: We may like or dislike the taste of a food, or touching velvet, etc. But these are neither rational or irrational. These states only have causes, not reasons. 
+
+> Parfit is giving way to subjectivists about likings and dislikings: they can be responses to some facts, but these facts are not reasons but merely causes.
+
+Meta-hedonic desires
+: The desire of some states
+
+**Difference between meta-hedonic desires and the dislike of a state**: 
+
+1. desires can be fulfilled: if one desire a state, the desire is fulfilled by continuing to have it or ceasing to dislike it; But likes or dislikes cannot be fulfilled or unfulfilled.
+2. Desires can aim at something not actual and not present; Like or dislike can only aim at present actual states
+
+**Korsgaard**: something can be 'objectively good as an end because it is desired for its own sake'
+
+**Parfit's objection**: Korsgaard's argument did not distinguish desire and dislike. Our liking something can make conscious states good or bad, but our desires can't.
+
+### 7. Irrational Preferences
+
+Rational desires
+: If the feature of the object of our desires are reasons for wanting them, then the desire is rational
+
+> I thought reasons are facts, not events?
