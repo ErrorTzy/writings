@@ -260,3 +260,5 @@ It does not require that y *must* occur, but if y does not occur, then whoever i
 What's the relation between a rule and relations? Rules are not necessarily relations. One can have a conditionless rule, like Kantian moral rules. So rules are just normative claims, with optional application conditions.
 
 what about semantic rules? How exactly should we formulate semantic rules? Surely semantic rules about language only applies to language. And a semantic rule about a term applies to the use of a term. For example, if one uses the word "plus", then --- some normative claim. 
+
+**Problem with dispositionalists**: what's the point of reflecting at all?
