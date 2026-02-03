@@ -319,7 +319,7 @@ Self-knowledge and my own mental state:
 2. Whether the pain occurs
 3. Whether I am having a pain
 
-### Nida: Qualia,
+### Nida: Qualia
 
 The felt or phenomenal qualities associated with experience
 
