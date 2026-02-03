@@ -28,7 +28,7 @@ A distinction needed for the hypothesis of inverted spectrum:
 
 **Block's position**: 
 
-- The intentional content of experience of functional
+- The intentional content of experience is functional
 - The qualitative content of experience is not functional
 
 > [!Warning]
