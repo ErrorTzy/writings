@@ -230,3 +230,7 @@ Irrational desires
 Desire-Based Theory
 : We have a reason to do whatever would fulfill any of our present desires.
 
+## 6. Morality
+
+### 19 Sidgwick's Dualism
+
