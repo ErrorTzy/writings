@@ -4,6 +4,8 @@
 
 > Eli: Parfit is looking for a action related concept that is parallel to reason vs evidence for belief. But there's highly likely that there's no such concept. 
 
+To eli: I think you admitted earlier that it's not fully rational to do way 3 when you have 5 ways to walk down the street; So I think what Parfit mean by "rational" is what you mean by "fully rational". And what you mean by "rational" somewhat cut through Parfit's terminology: it's neither "rational", not "less-than-rational". Arguably it's something in between.
+
 #### 1 Normative Reasons
 ##### **Reasons**: fundamental
 
@@ -234,3 +236,23 @@ Desire-Based Theory
 
 ### 19 Sidgwick's Dualism
 
+Morality is not defined by reasons, though it may largely depend on reasons.
+
+Reasons are different from moral obligations
+
+impartial reasons = impartial reasons apart from moral obligations
+
+**Rational Egoism**: We always have most reason to do whatever would be best for ourselves.
+
+**Rational Impartialism**: We always have most reason to do whatever would be impartially best.
+
+Parfit's stance: Deny both; there must be some balance
+
+**Wide Dualism**: When we are choosing between two morally permissible acts, of which one would be better for ourselves and the other would be better for one or more strangers, we could rationally either 
+
+- give greater weight to our own well-being, or 
+- give roughly equal weight to everyone’s well-being.
+
+> Eli: This definition is based on the premise that we are *putting aside moral obligations*
+
+The opposite of rationality is craziness; The opposite of morality is not following rules. One can desire X while commit oneself to not do X.
