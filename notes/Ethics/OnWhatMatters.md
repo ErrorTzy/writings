@@ -248,7 +248,15 @@ impartial reasons = impartial reasons apart from moral obligations
 
 **the Dualism of Practical Reason**: We always have most reason to do whatever would be impartially best, unless some other act would be best for ourselves. In such cases, we would have sufﬁcient reasons to act *in either way*. If we knew the relevant facts, either act would be rational.
 
-Parfit's stance: Deny both; there must be some balance
+**Defense for the dualism**:Two Viewpoints argument
+
+A.  When we try to decide what we have most reason to do, we can rationally ask this question either from our own personal point of view or from an imagined impartial point of view.
+B.  When we ask this question from our personal point of view, the answer is that self-interested reasons are supreme.
+C.  When we ask this question from an impartial point of view, the answer is that impartial reasons are supreme.
+D.  To compare the strength of these two kinds of reason, we would need to have some third, neutral point of view.
+E.  There is no such point of view.
+
+**Parfit's stance**: Dialism is right, but the argument is unsound. (A) is wrong because 
 
 According to Sidgwick’s Dualism, in contrast, impartial and self-interested reasons are wholly incomparable: they can't be stronger or weaker than another
 
