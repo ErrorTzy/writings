@@ -236,9 +236,7 @@ Desire-Based Theory
 
 ### 19 Sidgwick's Dualism
 
-Morality is not defined by reasons, though it may largely depend on reasons.
-
-Reasons are different from moral obligations
+> Morality is not defined by reasons, though it may largely depend on reasons. Reasons are different from moral obligations
 
 impartial reasons = impartial reasons apart from moral obligations
 
@@ -256,7 +254,11 @@ C.  When we ask this question from an impartial point of view, the answer is tha
 D.  To compare the strength of these two kinds of reason, we would need to have some third, neutral point of view.
 E.  There is no such point of view.
 
-**Parfit's stance**: Dialism is right, but the argument is unsound. (A) is wrong because 
+**Parfit's stance**: Dialism is right, but the argument is unsound. 
+
+- (A) is wrong because when we are trying to decide what we have most reason to do, we ought to ask this question from our actual point of view.
+- (D) is wrong because we can compare these two kinds of reason from our actual, personal point of view.
+- (B) is wrong because 
 
 According to Sidgwick’s Dualism, in contrast, impartial and self-interested reasons are wholly incomparable: they can't be stronger or weaker than another
 
@@ -268,3 +270,6 @@ According to Sidgwick’s Dualism, in contrast, impartial and self-interested re
 > Eli: This definition is based on the premise that we are *putting aside moral obligations*
 
 The opposite of rationality is craziness; The opposite of morality is not following rules. One can desire X while commit oneself to not do X.
+
+## 9. Merely as a Means
+
