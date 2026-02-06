@@ -246,7 +246,11 @@ impartial reasons = impartial reasons apart from moral obligations
 
 **Rational Impartialism**: We always have most reason to do whatever would be impartially best.
 
+**the Dualism of Practical Reason**: We always have most reason to do whatever would be impartially best, unless some other act would be best for ourselves. In such cases, we would have sufﬁcient reasons to act *in either way*. If we knew the relevant facts, either act would be rational.
+
 Parfit's stance: Deny both; there must be some balance
+
+According to Sidgwick’s Dualism, in contrast, impartial and self-interested reasons are wholly incomparable: they can't be stronger or weaker than another
 
 **Wide Dualism**: When we are choosing between two morally permissible acts, of which one would be better for ourselves and the other would be better for one or more strangers, we could rationally either 
 
