@@ -271,5 +271,7 @@ According to Sidgwick’s Dualism, in contrast, impartial and self-interested re
 
 The opposite of rationality is craziness; The opposite of morality is not following rules. One can desire X while commit oneself to not do X.
 
+Act Consequentialism
+
 ## 9. Merely as a Means
 
