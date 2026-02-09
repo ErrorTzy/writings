@@ -8,7 +8,7 @@ IP:
 
 - 1-2: The motivation for the notion of qualia
 - 3-6: The paradox
-- 7-12: dissaote qualia
+- 7-12: dissipate qualia
 - 13-: notion in replacement
 
 ## The Special Properties of Qualia
@@ -53,7 +53,47 @@ We cannot define qualia in terms of non-intentional content, because physiologic
 **IP6 (alternative neurosurgery)**
 : There are at least two different ways to produce IP5's result: (1) invert qualia-producing chennels in the optic nerves, (2) invert memory access-link, i.e. invert memory-linked qualia.
 
-**Dennett's remark:** IP6 shows that IP5 is no better than IP4 because the memory link is just as fallible as the cable of the machine.
+**Dennett's remark:** IP6 shows that IP5 is no better than IP4 because the memory link is just as fallible as the cable of the machine. Therefore, even the intrapersonal case cannot show that our qualia must have shifted.
 
+> So what? Currently the conclusion is, we can't be certain about whether our own qualia have shifted, if we cast doubt in our memory. So what? Does it show any problem with the notion of qualia?
 
+## Making mistakes about qualia
 
+**IP7 (Chase and Sanborn)**
+: Chase: The coffee taste remains the same during the 6 years, but I no longer like it (same qualia, different attitude)
+: Sanborn: I still like the coffee taste 6 years, but my taste has changed so I don't like the taste of the coffee now. (same attitude, different qualia)
+
+**Dennett's remark:** For chase's case, there could be 3 situations: 
+
+1) Chase was right about his experience; 
+2) Chase was wrong, and the actual situation for Chase is like what Sanborn described, but Chase lacks the self knowledge to realize it; 
+3) both (1) and (2), i.e. both qualia and attitude have changed. 
+
+And similarly for Sanborn's case. 
+
+Is it possible to claim that (1) is always true, and our report about qualia is always infallibly correct?
+
+**Contentless Infallibility:** "one way to buy such infallibility is to acquiesce in the complete evaporation of content"
+
+> ? What does this mean exactly? No truth condition? Tautology? How does it apply to the case of Chase and Sanborn?
+
+- **Response to IP7**: "But after all is said and done, there is still something I know in a special way: I know how it is with me right now."
+- **Dennett's reply:** If nothing follows from this persumed knowledge, -- nothing, for instance, that would shed any light on the on the different psychological claims that might be true of Chase or Sanborn -- what is the point of asserting that one has it?
+
+**Infallibility out of logical contruction:** a subject's has the quale F iff the subject judges his experience to have quale F.
+
+> This is probably easier to understand. For example, we may say singleton Socretes is a logical consstruction of Socrates. But immediately this position violates the directness of qualia. There's no separation between qualia and the judgment about qualia. 
+
+- **Dennett's reply:** Logical construction should be treated as theorist's fiction.
+
+**Empirical fallabilism**: If one claims we can verify whether (1) is true by verifying empirically, then one must also accept that this would also falsify (1)
+
+> I think the point is, if we think it's just infallible, then there's no need to verify it, like there's no need to empricially verify a tautology. 
+
+**IP8 (the gradual post-operative recovery)**
+: Inverted taste with inverted attitude and verbal report: For Chase, his taste is inverted after t, but he picked up the inverted language after t, so he reports normally. Meanwhile:
+
+1) The qualia in memory are inverted, so Chase does not notice any anomaly
+2) The qualia in memory are unchanged, but memory comparison now yields inverted result when comparing experience before t with experience after t.
+
+Chase cannot introspectively distinguish the two situations.
