@@ -166,7 +166,22 @@ According to IP10, redness or bitterness is not instrinsic properties, but actua
 
 **Ineffibility**:
 
-IP13 (the osprey cry)
+**IP13 (the osprey cry)**
 : Even if I know every description about osprey's cry, the first time I hear osprey crying, it seems like all previous description fall short of capturing how osprey sounds like. Therefore, it seems the how osprey sound like is ineffible.
 
-**Dennett's remark**: First, it seems to overstate that I have learned how osprey sounds like, because I can't know 
+**Dennett's remark**: First, it seems to overstate that I have learned how osprey sounds like, because I can't know how this projects to similar sounds. I don't even know this can pick out the exact same voice. Therefore, it is ineffiable because
+
+1. it has an untested profile `I think Dennett means I don't know whether it can stably pick out any property, so I have not acquired the ability to pick out anything yet?`
+2. it is a highly informative way of thinking `I think Dennett means, highly complex, or contains too much information`
+
+**IP14 (the Jello box)**
+: by tearing the paper, the jagged edge becomes practically unique pattern recognition device for its mate
+
+**Dennett's remark**: the information carried by the detector is objective, independent of what subject take to be the information, and thus intrinsic; Exactly what information it carries is practically ineffiable `I think Dennett is saying it's in principle effable, but it's just too complicated. But this is already implausible`; Private in the sense that different people have different detectors
+
+**Reinterpreting IP7**: When Chase drinks coffee, his experience has information-bearing, phenomenal property. This property has power to allow Chase to get the deliverance (output?) of the property detector. And Chase thinks his property detector did not change, while Sanborn think it changed. We do not need to know how we identify or re-identify or gain access to such internal response types in order to be able to identify them. `what?` 
+
+**IP15 (the guitar string)**
+: The ineffibility is gone after some musical operation
+
+**Dennett's Remark**: Nothing is in principle not effiable; They are just highly complicated.
