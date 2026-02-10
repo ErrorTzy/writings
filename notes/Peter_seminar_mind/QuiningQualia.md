@@ -16,8 +16,8 @@ IP:
 **IP1 (Watching you eat cauliflower)**
 : I hate cauliflower, but you seems to enjoy it. And I may have different tastes at different times. Therefore, it seems to say talk about:
 
-1. the way the juice tastes to Dennett at time t
-2. whether the taste of juice to Dennett at time t' is the same as the taste of juice to Jones at time t
+1. the way the juice tastes to Dennett at time t (qualia is separable from reactions to it, addressed in IP9-12)
+2. whether the taste of juice to Dennett at time t' is the same as the taste of juice to Jones at time t (one quale can be compared with another quale, addressed in IP3-6)
 
 **Dennett's remark**: The fallacy here is that we can *isolate the qualia* (the way the juice tastes to x at time t) from everything else
 
@@ -25,13 +25,15 @@ IP:
 : a machine that analyzes the chemical composition of wine and prints taste reports doesn't have any "qualia" of taste.
 
 Features of qualia:
-
+Who would think the sensation of red is intrinsic to the red object?
 - Ineffiable
-- Intrinsic `??What are you talking about? What's the connection between intrinsicality and ineffability? And the explanation Dennett gives seems to point at 'simplicity' or 'homogenic' instead of intrinsic'; And in p. 622, dennett even drops the intrinsicity. What??`
+- Intrinsic `It seems to mean, qualia is intrinsic to conscious experience; But first, it's not clear why Dennett says this implies it being a simple or atomic property. And in IP10 and p.635 where Dennett talks about intrinsicality, he said redness is intrinsic to a ball, or bitterness intrinsic to the chemical. So it's intrinsic to the object, not conscious experience? Is Dennett's use of intrinsicality consistent at all?`
 - Private, cannot be revealed by behavioral test
 - Directly or immediately apprehensible in consciousness
 
-We cannot define qualia in terms of non-intentional content, because physiological properties are not accessible to introspection (`what's that?`), and some properties that are acccessible to introspection, like making me think about going to bed, may not be qualia. (`what?`)
+**Alternative definition**: non-intentional content
+
+**Dennett's remark**: We cannot define qualia in terms of non-intentional content, because physiological properties are not accessible to introspection (`what's that?`), and some properties that are acccessible to introspection, like making me think about going to bed, may not be qualia. (`what?`)
 
 ## The Traditional Paradox Regained
 
@@ -41,9 +43,9 @@ We cannot define qualia in terms of non-intentional content, because physiologic
 **IP4 (The brainstom machine)**
 : Assume there is a machine that feeds your visual experience directly into my brain, and I experienced inverted color sensations. However, if the technician inverts the plug for 180 degrees, I would experience normal color sensations. What is the right orientation of the machine?
 
-**Dennett's remark:** "The moral of this IPis that no intersubjective comparison of qualia is possible, even with perfect technology."
+**Dennett's remark:** "The moral of this IP is that no intersubjective comparison of qualia is possible, even with perfect technology."
 
-> What's the point of this IP? Is the point being, that we can't emprically verify whether the machine is working correctly? Because surely if we are committed to the existence of qualia, then we can simply say the right orientation is the one that correctly reproduces your qualia in me. And assume we agree there is some physically necessary correlation between qualia and neural activity, then as long as we are working with functionally similar systems, we can determine whether someone is experiencing inverted qualia by measuring visual cortices wiring patterns, etc. So why no intersubjective comparison is impossible? It seems metaphysically possible (by appealing to god), and physically possible if we are able to map the neural correlates of qualia.
+> What's the point of this IP? Is the point being, that we can't emprically verify whether the machine is working correctly? Because surely if we are committed to the existence of qualia, then we can simply say the right orientation is the one that correctly reproduces your qualia in me. And assume we agree there is some physically necessary correlation between qualia and neural activity, then as long as we have functionally similar brains, we can determine whether someone is experiencing inverted qualia by measuring visual cortices wiring patterns, etc. So why no intersubjective comparison is impossible? It seems metaphysically possible (by appealing to god), and physically possible if we are able to map correlations.
 
 **IP5 (the neuralsurgical prank)**
 : The intrapersonal inversion of color spectrum
@@ -55,7 +57,7 @@ We cannot define qualia in terms of non-intentional content, because physiologic
 
 **Dennett's remark:** IP6 shows that IP5 is no better than IP4 because the memory link is just as fallible as the cable of the machine. Therefore, even the intrapersonal case cannot show that our qualia must have shifted.
 
-> So what? Currently the conclusion is, we can't be certain about whether our own qualia have shifted, if we cast doubt in our memory. So what? Does it show any problem with the notion of qualia?
+> So what? The upshot of the paradox seems to be is, there is no reliable way for us to tell our own qualia have shifted, if we doubt the reliability of our memory. So what? Does it show any problem with the notion of qualia?
 
 ## Making mistakes about qualia
 
@@ -81,6 +83,8 @@ Is it possible to claim that (1) is always true, and our report about qualia is 
 
 - **Response to IP7**: "But after all is said and done, there is still something I know in a special way: I know how it is with me right now."
 - **Dennett's reply:** If nothing follows from this persumed knowledge, -- nothing, for instance, that would shed any light on the on the different psychological claims that might be true of Chase or Sanborn -- what is the point of asserting that one has it?
+
+> What about, the point being, to express the subjective, first-person experience?
 
 **Infallibility out of logical contruction:** a subject's has the quale F iff the subject judges his experience to have quale F.
 
@@ -116,7 +120,7 @@ In IP7, Chase distinguishes *the quale* from *the attitude toward the quale*. Bu
 **IP10 (the world-wide eugenics experiment)**
 : There is a substance phenol-thio-urea (PTU) that tastes bitter to 3/4 of the population, but tasteless for the other 1/4. If we only breed the 3/4 population, then PTU would be bitter; But if we only breed the 1/4 population, then PTU would be tasteless. Therefore, bitterness is not intrinsic to PTU.
 
-> What? Can't we just say people have different idiolects when they use the word "bitter"? So "bitter" used by 3/4 population refers to different (arguably disjunctive) physical properties to the 1/4 population.
+> What? Can't we just say people have different idiolects when they use the word "bitter"? So "bitter" used by 3/4 population refers to different (arguably disjunctive) physical properties to the 1/4 population. That said, maybe Dennett is saying "what PTU tastes like" is not intrinsic to PTU, but depends on who tastes this? But who would deny this? Isn't it obviously that what something tastes like is not intrinsic but relational?
 
 **Dennett's Remark**: This is the "heart of the case": if we allow this sense of "qualia", then which sense is the right concept of qualia?
 
@@ -141,9 +145,7 @@ In IP7, Chase distinguishes *the quale* from *the attitude toward the quale*. Bu
 
 ## Some Puzzling Real Cases
 
-What's the concept in replacement?
-
-**Motivation**: cerebral achromatopsia
+**Cases of cerebral achromatopsia**
 
 - **Case 1**: Unable to name or recognize any color on the left field, but the right field is normal
 - **Case 2**: Able to match actual color, or match color words with object names; but unable to match color words with actual objects; But he never says I don't know
@@ -156,3 +158,15 @@ Some are self-aware about their color perception anomoly (1,4) and some are not 
 
 ## Filling the Vacuum
 
+Debunking the features:
+
+**Intrinsicality**:
+
+According to IP10, redness or bitterness is not instrinsic properties, but actually relational; And we should abandon the dictinction extrinsic vs. intrinsic distinction, so just forget about it.
+
+**Ineffibility**:
+
+IP13 (the osprey cry)
+: Even if I know every description about osprey's cry, the first time I hear osprey crying, it seems like all previous description fall short of capturing how osprey sounds like. Therefore, it seems the how osprey sound like is ineffible.
+
+**Dennett's remark**: First, it seems to overstate that I have learned how osprey sounds like, because I can't know 
