@@ -21,7 +21,7 @@ Given 1,2,3,  $\equiv_n$ is an equivalence relation.
 
 (ii) To show that $\mathbb{N}/_{\equiv_n}$ has exactly $n$ members, we must define what does it mean for a set to have $n$ members. Unfortunately, the textbook does not provide a definition, so I have to define this myself.
 
-**Definition:** (Informal) A singleton set is a set $S$ such that for any $x,y \in S$, $x=y$. Suppose we have $n$ singleton sets $S_{1}, S_{2}, ..., S_{n}, n \in \mathbb{Z^{+}}$. Let $A=\bigcup_{n}S_{n}$. If members in $S_{1}, S_{2}, ..., S_{n}$ are all mutually different, then A has n elements. (This is still informal because "mutually different" is not yet formalized.)
+**Definition:** (Informal) A singleton set is a set $S$ such that for any $x,y \in S$, $x=y$. Suppose we have $n$ non-empty singleton sets $S_{1}, S_{2}, ..., S_{n}, n \in \mathbb{Z^{+}}$. Let $A=\bigcup_{n}S_{n}$. If members in $S_{1}, S_{2}, ..., S_{n}$ are all mutually different, then A has n elements. (This is still informal because "mutually different" is not yet formalized.)e
 
 **Lemma 1**: For all $a,n \in \mathbb{N}$, there is always a $k \in \mathbb{Z}, b \in \mathbb{N}$ and $b<n$ such that $a=kn+b$
 
