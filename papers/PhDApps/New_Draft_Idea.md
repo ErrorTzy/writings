@@ -1,4 +1,4 @@
-What is semantics? We have linguistic behaviors. These behaviors encode our thoughts; And we decode other people's thought by interpreting other people's behabvior of uttering words in a context. 
+What is semantics? We have linguistic behaviors. These behaviors encode our thoughts; And we decode other people's thought by interpreting other people's behabvior of uttering words in a context. PM
 
 Starting intuition: out of all entities we talk about, we privilige some instead of others. For example, we say tables, chairs, rocks and cats are really something out there; But though we talk about promises, holes, prime numbers and shadows, we do not think they "really exist", or at least not "as real as" tables and chairs. What does this "real" here mean is a great great mystery. 
 
@@ -262,3 +262,9 @@ What's the relation between a rule and relations? Rules are not necessarily rela
 what about semantic rules? How exactly should we formulate semantic rules? Surely semantic rules about language only applies to language. And a semantic rule about a term applies to the use of a term. For example, if one uses the word "plus", then --- some normative claim. 
 
 **Problem with dispositionalists**: what's the point of reflecting at all?
+
+How do we interpret rules? Why we don't think breathing every 30-60 times per minute, which is a pervalent convention among our society, is a rule?
+
+Of course, we can imagine there to be a society where breathing too quick is a taboo.
+
+(vivid/constant) intention only comes from perception; When relying on the community, we are appealing to other people's intention (intend a varable)? Like "Godel" coming from the community.
