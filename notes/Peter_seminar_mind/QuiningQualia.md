@@ -135,6 +135,24 @@ In IP7, Chase distinguishes *the quale* from *the attitude toward the quale*. Bu
 > This is supposed to show that we cannnot distinguish between the reaction to qualia and the qualia themselves. But right-side-up and up-side-down are properties that requires comparison. I can admit there is a property about orientation without admitting there being a property of "right-side-upness". "right-side-upness" is not an intrinsic property of the experience, but qualia exists. Any problem?
 
 - **Response**: I can imagine inverted spectrum from the inside. Therefore spectrum inversion is possible. If spectrum inversion is possible, then qualia must exist.
-- **Dennett's reply**: What one images and what one says one imagines is different. You are not really imagining inverted spectrum of qualia.
+- **Dennett's reply**: What one images and what one says one imagines is different. You are not really imagining inverted spectrum of qualia, just like you are not imagining the actual visual field inversion
 
+> Why do I have to imagine the actual visual field inversion? All we need is that, inverted spectrum is metaphysically possible. It doesn't have to be physically possible.
+
+## Some Puzzling Real Cases
+
+What's the concept in replacement?
+
+**Motivation**: cerebral achromatopsia
+
+- **Case 1**: Unable to name or recognize any color on the left field, but the right field is normal
+- **Case 2**: Able to match actual color, or match color words with object names; but unable to match color words with actual objects; But he never says I don't know
+- **Case 3**: Reports that everything wents black or grey, but has 50% chance of being correct when asked to identify colors
+- **Case 4**: Colors seem to drain out; aware of the deficit
+
+Some are self-aware about their color perception anomoly (1,4) and some are not (2...3?)
+
+**Dennett's remark**: There are all kinds of interpretations in terms of qualia: maybe the issue is purely verbal: they see things normally but they just cannot correct report them; Or maybe they indeed have anomoly in qualia.
+
+## Filling the Vacuum
 

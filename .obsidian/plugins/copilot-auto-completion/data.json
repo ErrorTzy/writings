@@ -20,7 +20,7 @@
     "ollamaUseFIM": true,
     "triggerOnEveryKeypress": true,
     "triggers": [],
-    "delay": 100,
+    "delay": 370,
     "modelOptions": {
       "temperature": 0.15,
       "top_p": 0.1,
