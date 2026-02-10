@@ -60,8 +60,8 @@ We cannot define qualia in terms of non-intentional content, because physiologic
 ## Making mistakes about qualia
 
 **IP7 (Chase and Sanborn)**
-: Chase: The coffee taste remains the same during the 6 years, but I no longer like it (same qualia, different attitude)
-: Sanborn: I still like the coffee taste 6 years, but my taste has changed so I don't like the taste of the coffee now. (same attitude, different qualia)
+: Chase: The coffee taste remains the same during the 6 years, but I no longer like it (same qualia, different reaction)
+: Sanborn: I still like the coffee taste 6 years, but my taste has changed so I don't like the taste of the coffee now. (same reaction, different qualia)
 
 **Dennett's remark:** For chase's case, there could be 3 situations: 
 
@@ -70,6 +70,8 @@ We cannot define qualia in terms of non-intentional content, because physiologic
 3) both (1) and (2), i.e. both qualia and attitude have changed. 
 
 And similarly for Sanborn's case. 
+
+### Fallibility
 
 Is it possible to claim that (1) is always true, and our report about qualia is always infallibly correct?
 
@@ -96,4 +98,43 @@ Is it possible to claim that (1) is always true, and our report about qualia is 
 1) The qualia in memory are inverted, so Chase does not notice any anomaly
 2) The qualia in memory are unchanged, but memory comparison now yields inverted result when comparing experience before t with experience after t.
 
-Chase cannot introspectively distinguish the two situations.
+Chase cannot introspectively distinguish the two situations, but the empirical evidence can distinguish them.
+
+> Here Dannett's is casting doubt on the comparison between qualia. Up to now, Dennett has convinenced us that, we can make mistakes about remembering past experience, or we can make mistakes about comparing two present experences (which is already strange). But why this shows that there's no such thing as qualia? What's inconsistent about admitting the fallibility of recollection and comparison, while still maintaining that qualia exist?
+
+### Counting reaction Into qualia
+
+In IP7, Chase distinguishes *the quale* from *the attitude toward the quale*. But maybe there is another sense of "quale" that includes the reaction or attitude toward the experience, as shown in IP9.
+
+**IP9 (the experienced beer drinker)**
+: Beer drinkers report that the taste of beer *changes* because when they first drink beer, they experience something awful, but after drinking a lot of beer they starts to enjoy it.
+
+**Dennett's Remark**: For this use of "quale", the quale is relational instead of intrinsic.
+
+> Intrinsic to what? I thought it's intrinsic to my experience? Why IP10 is talking about intrinsicality of the object?
+
+**IP10 (the world-wide eugenics experiment)**
+: There is a substance phenol-thio-urea (PTU) that tastes bitter to 3/4 of the population, but tasteless for the other 1/4. If we only breed the 3/4 population, then PTU would be bitter; But if we only breed the 1/4 population, then PTU would be tasteless. Therefore, bitterness is not intrinsic to PTU.
+
+> What? Can't we just say people have different idiolects when they use the word "bitter"? So "bitter" used by 3/4 population refers to different (arguably disjunctive) physical properties to the 1/4 population.
+
+**Dennett's Remark**: This is the "heart of the case": if we allow this sense of "qualia", then which sense is the right concept of qualia?
+
+> What? Isn't this just a verbal dispute? Arguably when we use the word "qualia", there are ambiguity in the usage. What's the problem? Why would that be "confused and incoherent"?
+
+**IP11 (the cauliflower cure)**
+: I took a pill and become a cauliflower appreciator. But nothing in my experience tells me whether the pill changed my qualia or just changed my reaction to it. 
+
+**Dennett's remark**: If we count reaction into qualia, then the concept of qualia is unnecessary: "There is no reason to be cowed into supposing that my cauliflower experience have some intrinsic property behind, or in addition to, their various dispositional, reaction-provoking properties"
+
+> Why there's no reason? Can't the reason just be: I experienced it?
+
+**IP12 (visual field inversion created by wearing inverting spectacles)**
+: After wearing the spectacles that turns visual field upside-down for a while, the visual experience becomes normal. The subject cannot distinguish between the two situations.
+
+> This is supposed to show that we cannnot distinguish between the reaction to qualia and the qualia themselves. But right-side-up and up-side-down are properties that requires comparison. I can admit there is a property about orientation without admitting there being a property of "right-side-upness". "right-side-upness" is not an intrinsic property of the experience, but qualia exists. Any problem?
+
+- **Response**: I can imagine inverted spectrum from the inside. Therefore spectrum inversion is possible. If spectrum inversion is possible, then qualia must exist.
+- **Dennett's reply**: What one images and what one says one imagines is different. You are not really imagining inverted spectrum of qualia.
+
+
