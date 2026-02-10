@@ -9,7 +9,7 @@ IP:
 - 1-2: The motivation for the notion of qualia
 - 3-6: The paradox
 - 7-12: dissipate qualia
-- 13-: notion in replacement
+- 13-15: notion in replacement
 
 ## The Special Properties of Qualia
 
@@ -73,13 +73,15 @@ Who would think the sensation of red is intrinsic to the red object?
 
 And similarly for Sanborn's case. 
 
-### Fallibility
+> Something has shifted. The question is whether qualia have shifted.
+
+### Whether *qualia shifted* or not resist empirical evidence?
 
 Is it possible to claim that (1) is always true, and our report about qualia is always infallibly correct?
 
 **Contentless Infallibility:** "one way to buy such infallibility is to acquiesce in the complete evaporation of content"
 
-> ? What does this mean exactly? No truth condition? Tautology? How does it apply to the case of Chase and Sanborn?
+  > ? What does this mean exactly? No truth condition? Tautology? How does it apply to the case of Chase and Sanborn?
 
 - **Response to IP7**: "But after all is said and done, there is still something I know in a special way: I know how it is with me right now."
 - **Dennett's reply:** If nothing follows from this persumed knowledge, -- nothing, for instance, that would shed any light on the on the different psychological claims that might be true of Chase or Sanborn -- what is the point of asserting that one has it?
@@ -92,9 +94,12 @@ Is it possible to claim that (1) is always true, and our report about qualia is 
 
 - **Dennett's reply:** Logical construction should be treated as theorist's fiction.
 
+---
+Resisting or not resisting empirical evidence
+
 **Empirical fallabilism**: If one claims we can verify whether (1) is true by verifying empirically, then one must also accept that this would also falsify (1)
 
-> I think the point is, if we think it's just infallible, then there's no need to verify it, like there's no need to empricially verify a tautology. 
+> I think the point is, empricial evidence can say something about it, but for now it's not clear which is better evidence.
 
 **IP8 (the gradual post-operative recovery)**
 : Inverted taste with inverted attitude and verbal report: For Chase, his taste is inverted after t, but he picked up the inverted language after t, so he reports normally. Meanwhile:
@@ -105,6 +110,8 @@ Is it possible to claim that (1) is always true, and our report about qualia is 
 Chase cannot introspectively distinguish the two situations, but the empirical evidence can distinguish them.
 
 > Here Dannett's is casting doubt on the comparison between qualia. Up to now, Dennett has convinenced us that, we can make mistakes about remembering past experience, or we can make mistakes about comparing two present experences (which is already strange). But why this shows that there's no such thing as qualia? What's inconsistent about admitting the fallibility of recollection and comparison, while still maintaining that qualia exist?
+
+The point is, if deciding the answer whether qualia has shifted is nowhere to be found (both empirical or introspection), then we should drop the concept of qualia.
 
 ### Counting reaction Into qualia
 
@@ -147,14 +154,14 @@ In IP7, Chase distinguishes *the quale* from *the attitude toward the quale*. Bu
 
 **Cases of cerebral achromatopsia**
 
-- **Case 1**: Unable to name or recognize any color on the left field, but the right field is normal
+- **Case 1**: Unable to name or recognize any color on the left visual field, but the right visual field is normal
 - **Case 2**: Able to match actual color, or match color words with object names; but unable to match color words with actual objects; But he never says I don't know
 - **Case 3**: Reports that everything wents black or grey, but has 50% chance of being correct when asked to identify colors
 - **Case 4**: Colors seem to drain out; aware of the deficit
 
 Some are self-aware about their color perception anomoly (1,4) and some are not (2...3?)
 
-**Dennett's remark**: There are all kinds of interpretations in terms of qualia: maybe the issue is purely verbal: they see things normally but they just cannot correct report them; Or maybe they indeed have anomoly in qualia.
+**Dennett's remark**: There are all kinds of interpretations in terms of qualia: maybe the issue is purely verbal: they see things normally but they just cannot correct report them; Or maybe they indeed have anomoly in qualia. So judgement of qualia vs qualia may be separated
 
 ## Filling the Vacuum
 
