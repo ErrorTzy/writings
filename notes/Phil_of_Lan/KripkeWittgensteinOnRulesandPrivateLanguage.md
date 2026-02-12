@@ -18,3 +18,4 @@ To be more general, if we explain which rule exactly do we intend by appealing t
 > Remark:
 > I think this regression reveals the problem of explicability of something. When is something explicable? In a sense, everything that we are aware of is explicable, in the sense that we can use a word to denote it. However, the problem is if we *publicly* explicate the meaning of a word. Can we ever teach something else to another party to understand what we mean by a word, assuming that the other party is fully cooperative? For publicly observable things like some particular tables, it might be easier. But once it becomes abstract, like relations, functions, or concepts, the problem becomes more severe.
 
+Intuition: When asked what is 68+57, or whether something is a table, I proceed according to an algorithm, or guided by something. It's not that I am just giving answers automatically.
