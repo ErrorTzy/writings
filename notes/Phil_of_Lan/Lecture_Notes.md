@@ -409,7 +409,7 @@ A postori necessary truth: Heat is motion of molecules
 Problem of Kripke: hard to explain some complicated causal link, like switching baby, etc.
 Evans: extension on causal theory of reference
 key difference:
-dominant source of causal origin: tracking the *naming scenario* and how it *comes into the community* (there are interactions between scenario and community, dynamic) VS. baptism: tracking the object, static
+dominant source of causal origin: tracking the *naming scenario* and how it *comes into the community* (there are interactions between scenario and community, dynamic) VS. baptism: tracking the object, statiec
 community of speakers
 convention of speakers/users ==what if there's no consensus? How to define a "community" if there's a lot of fractions in how to use a word? i.e. 内卷? Indeterminacy again?==
 
@@ -439,11 +439,8 @@ The two stage theory: context of use vs. circumstance of evaluation
 
 the narrow definition of context: $<C_{agent}, C_{place}, C_{world}, C_{time}>$
 
+**Modern model**
 
-**Modern model** 
-
-Free enrichment and modulation 
+Free enrichment and modulation
 context can generate content without character/everything are index-sensitive
 Fancy contextualism: context affect circumstance
-
-

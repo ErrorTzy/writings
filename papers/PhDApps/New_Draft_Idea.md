@@ -268,3 +268,21 @@ How do we interpret rules? Why we don't think breathing every 30-60 times per mi
 Of course, we can imagine there to be a society where breathing too quick is a taboo.
 
 (vivid/constant) intention only comes from perception; When relying on the community, we are appealing to other people's intention (intend a varable)? Like "Godel" coming from the community.
+
+Disposition to retract cannot explain moral deliberation: We may encounter haulocast in childhood and therefore formed the rule of "don't kill". And when you grow up and you becomes angry, you want to kill. Now the disposition is to kill. But out of a sudden you remember you are commited to the rule "don't kill". So you retract and stopped killing. You are not shown any further evidence. You just retract by reflection.
+
+Dispositionism seems to assume we are always following the rule. But dispositionism does not distinguish the state between desire and commitment.
+
+it doesn't apply to everything: the input must come with some sort of structure in order to be calculated. -- but where does this structure comes from? Why it's iterating 1-9, and then add 1 to the next level? Arguably this also would face the skepticism. Eventually, we need to trace back to the initial scene where we first learn the rule.
+
+Rules must come from an intended goal: what is someone trying to achieve when one try to follow this rule? For "don't kill", one is following the rule because, say, they don't want haulocost to happen. What do we want when we starts to count, then? I think we learn from cases, and we are trying to follow the rules in order to achieve the aim in the cases we learnt.
+
+---
+
+intentional theory of reference:
+
+We refer to things by intending to things; Causation is not a necessary requirement. causation or first person connection is a way to fix the reference
+
+- case A: demon cats
+- case B: confusing aliens whose utterance can only be true if we interpret that they refer to things that are not causally connected to them
+- case C: BIV (pressure from externalist: same intention, different referent --> we rely on causal connection to intend ordinary objects)
