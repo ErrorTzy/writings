@@ -22,4 +22,5 @@ Intuition: When asked what is 68+57, or whether something is a table, I proceed 
 
 > The problem is how come that I can justify my application to inifinitely many cases. The issue is we can't load infinitely many cases to my mind.
 
-Nothing in external behavior or internal mental history can answer the skeptic's question
+Nothing in *external behavior* or *internal mental history* can answer the skeptic's question
+There is no fact about me that distinguishes between my meaning plus and my meaning quus.
