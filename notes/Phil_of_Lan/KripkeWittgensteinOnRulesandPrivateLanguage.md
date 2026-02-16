@@ -24,3 +24,7 @@ Intuition: When asked what is 68+57, or whether something is a table, I proceed 
 
 Nothing in *external behavior* or *internal mental history* can answer the skeptic's question
 There is no fact about me that distinguishes between my meaning plus and my meaning quus.
+
+"To say that there is a general rule in my mind that tells me how to add in the future is only to throw the problem back on to other rules that also seem to be given only in terms of finitely many cases."
+
+**Response**: This problem stem from the assumption that such a fact (about whether I mean plus of quus) must consist in an occurent mental state
