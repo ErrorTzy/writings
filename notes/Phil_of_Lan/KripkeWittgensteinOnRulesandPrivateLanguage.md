@@ -37,7 +37,9 @@ If "whatever is going to seem right to me is right", then "that only means that 
 
 > Why? We can't talk about right about pain? Surely I can lie that I am in pain if I am actually not. 
 
-If I *mean* a function, then there is a unique thing that I *should* do regardless of what I am disposed to do. (per Kripke: Ultimately, almost all objections to the dispositional account boil down to this one.) 
+If I *mean* a function, then there is a unique thing that I *should* do regardless of what I am disposed to do. (*per Kripke: Ultimately, almost all objections to the dispositional account boil down to this one*.) 
+
+> I think what Kripke is saying is, if the kind of mental states that generates my response just is the mental state that I justify it, then it is impossible for me to make mistake; But we can make mistake and correct ourselves. Therefore, the justification we appeal to cannot just be the disposition to generate an output.
 
 **A closer look at the dispositional response**: The referent of a function f is fixed by the following function: if queried about 'f(m,n)', I am disposed to reply 'p'. In other words, my disposition would define the function.
 
@@ -45,8 +47,18 @@ If I *mean* a function, then there is a unique thing that I *should* do regardle
 
 > What? I think to the extend that I have the time, I can always calculate the sum. Why do you think I can't? I can't write it down and calculate slowly? Addition is defined in terms of successor operation, which is basically, count. And counting in decimal system is just rotating between 10 symbols. What's ingraspable about this? I don't think Kripke's response is convincing.
 
-**Dispositionalism defense**: we can define the meaning of "disposition" in a more fine-grained way: it's cateris paribus If my brain had been stuffed with sufficient extra matter to grasp large enough numbers, and if it were given enough capacity to perform such a large addition, and if my life (in a healthy state) were prolonged enough, then given an addition problem involving two large numbers, m and n, I would respond with their sum, and not with the result according to some quus-like rule.
+**Idealized Dispositionalism defense**: we can define the meaning of "disposition" in a more fine-grained way: it's cateris paribus If my brain had been stuffed with sufficient extra matter to grasp large enough numbers, and if it were given enough capacity to perform such a large addition, and if my life (in a healthy state) were prolonged enough, then given an addition problem involving two large numbers, m and n, I would respond with their sum, and not with the result according to some quus-like rule.
 
-**Kripke's objection**: But how can we have any confidence of this? How can I tell what would happen if my brain were stuffed with extra brain matter? This, at bottom, presupposes that, there is an intention that can be carried out on m and n. The skepticism is just doubting this fact. The challenge must be met by specifying the nature of such fact.
+**Kripke's objection 1**: But how can we have any confidence of this? How can I tell what would happen if my brain were stuffed with extra brain matter? This, at bottom, presupposes that, there is an intention that can be carried out on m and n. The skepticism is just doubting this fact. The challenge must be met by specifying the nature of such fact.
 
-> Assume I am a machine that runs python code. How do I know what the function SHOULD do?
+> Assume I am a machine that runs python code. How do I know what the function SHOULD do? I think Kripke's response in somewhat similar with this: a machine adds. But there's no sense in which a machine can "make mistake": it's just obeying the law of nature. A "bug" in the pragram never happens because the program really went wrong; Instead it is always following the instructions. It cannot have "computational mistake". Rather, a program can have a "bug" when it's not achieving a certain aim.
+
+**Kripke's objection 2**: According to the dispositionalist account, how can we make sense of the possibility of making mistakes, given that our reply may always contain "noise"? In other words, if one agrees that we are disposed to make mistakes, then one should agree that we can be disposed to give answer other than the one accords with the function I meant.
+
+**Retraction Dispositionalism 2.1**: we can appeal to the disposition to correct oneself (p.32)
+
+**Kripke's objection to 2.1**: 1. There might be stubborn people who persist in error; 2. what does it mean by 'retraction'? One may also retract right answers and give wrong ones.
+
+
+
+*Comment on Warren: What if the retraction also makes mistakes? Regression of retraction? Maybe we need to count into the disposition to rectract retraction? And the disposition to retraction the retraction of retraction...*
