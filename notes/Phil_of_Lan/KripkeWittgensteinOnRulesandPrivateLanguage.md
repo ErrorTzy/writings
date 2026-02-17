@@ -59,10 +59,10 @@ If I *mean* a function, then there is a unique thing that I *should* do regardle
 
 **Kripke's objection to 2.1**: 1. There might be stubborn people who persist in error; 2. what does it mean by 'retraction'? One may also retract right answers and give wrong ones.
 
+*Comment on Warren: What if the retraction also makes mistakes? Regression of retraction? Maybe we need to count into the disposition to rectract retraction? And the disposition to retraction the retraction of retraction...*
+
 > So in general, there are two objections: the finiteness objection and the normativity objection
 
 **Machine Dispositionalism 1.1**: We can build a machine that computes the relevant function.
 
 **Kripke's objection to 1.1**: what do you mean by a machine? If you mean (1) a written machine program, the problem will come back: maybe the program should be interpret in a quus-like manner; or (2) an abstract math object; but this is not going anywhere: how do we fix this abstract machine, if the program can't fix it? ==I think the answer is already here: through intending it!== or (3) a concrete machine. But the problem is, a. what the machine takes in also needs interpretation, which will run into the skepticism againl and b. the concrete machine is finite c. When we judge a machine is malfunctioning, we must appeal to the program or the programmer's intent, which goes back to (1)! 
-
-*Comment on Warren: What if the retraction also makes mistakes? Regression of retraction? Maybe we need to count into the disposition to rectract retraction? And the disposition to retraction the retraction of retraction...*
