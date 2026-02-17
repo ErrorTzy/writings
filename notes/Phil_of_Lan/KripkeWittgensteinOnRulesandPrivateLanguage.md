@@ -47,7 +47,7 @@ If I *mean* a function, then there is a unique thing that I *should* do regardle
 
 > What? I think to the extend that I have the time, I can always calculate the sum. Why do you think I can't? I can't write it down and calculate slowly? Addition is defined in terms of successor operation, which is basically, count. And counting in decimal system is just rotating between 10 symbols. What's ingraspable about this? I don't think Kripke's response is convincing.
 
-**Idealized Dispositionalism defense**: we can define the meaning of "disposition" in a more fine-grained way: it's cateris paribus If my brain had been stuffed with sufficient extra matter to grasp large enough numbers, and if it were given enough capacity to perform such a large addition, and if my life (in a healthy state) were prolonged enough, then given an addition problem involving two large numbers, m and n, I would respond with their sum, and not with the result according to some quus-like rule.
+**Idealized Dispositionalism defense 1**: we can define the meaning of "disposition" in a more fine-grained way: it's cateris paribus If my brain had been stuffed with sufficient extra matter to grasp large enough numbers, and if it were given enough capacity to perform such a large addition, and if my life (in a healthy state) were prolonged enough, then given an addition problem involving two large numbers, m and n, I would respond with their sum, and not with the result according to some quus-like rule.
 
 **Kripke's objection 1**: But how can we have any confidence of this? How can I tell what would happen if my brain were stuffed with extra brain matter? This, at bottom, presupposes that, there is an intention that can be carried out on m and n. The skepticism is just doubting this fact. The challenge must be met by specifying the nature of such fact.
 
@@ -61,6 +61,8 @@ If I *mean* a function, then there is a unique thing that I *should* do regardle
 
 > So in general, there are two objections: the finiteness objection and the normativity objection
 
+**Machine Dispositionalism 1.1**: We can build a machine that computes the relevant function.
 
+**Kripke's objection to 1.1**: what do you mean by a machine? If you mean (1) a written machine program, the problem will come back: maybe the program should be interpret in a quus-like manner; or (2) an abstract math object; but this is not going anywhere: how do we fix this abstract machine, if the program can't fix it? ==I think the answer is already here: through intending it!== or (3) a concrete machine. But the problem is, a. what the machine takes in also needs interpretation, which will run into the skepticism againl and b. the concrete machine is finite c. When we judge a machine is malfunctioning, we must appeal to the program or the programmer's intent, which goes back to (1)! 
 
 *Comment on Warren: What if the retraction also makes mistakes? Regression of retraction? Maybe we need to count into the disposition to rectract retraction? And the disposition to retraction the retraction of retraction...*
