@@ -43,7 +43,7 @@ If I *mean* a function, then there is a unique thing that I *should* do regardle
 
 **A closer look at the dispositional response**: The referent of a function f is fixed by the following function: if queried about 'f(m,n)', I am disposed to reply 'p'. In other words, my disposition would define the function.
 
-**Kripke 's reply**: This move from actual behavior to disposition (possible behavior) is to aviod the problem of finiteness. But the totality of my disposition is also finite: if queried about the sum of any two numbers (esp. when they are too long), I will not be able to reply with their actual sum. Instead, the response would be, if I were able to carry out my intention of adding on these two numbers, then the sum I carries out would be the sum.
+**Kripke 's reply**: This move from actual behavior to disposition (possible behavior) is to aviod the problem of finiteness. But the *totality of my disposition is also finite*: if queried about the sum of any two numbers (esp. when they are too long), I will not be able to reply with their actual sum. Instead, the response would be, if I were able to carry out my intention of adding on these two numbers, then the sum I carries out would be the sum.
 
 > What? I think to the extend that I have the time, I can always calculate the sum. Why do you think I can't? I can't write it down and calculate slowly? Addition is defined in terms of successor operation, which is basically, count. And counting in decimal system is just rotating between 10 symbols. What's ingraspable about this? I don't think Kripke's response is convincing.
 
@@ -53,11 +53,13 @@ If I *mean* a function, then there is a unique thing that I *should* do regardle
 
 > Assume I am a machine that runs python code. How do I know what the function SHOULD do? I think Kripke's response in somewhat similar with this: a machine adds. But there's no sense in which a machine can "make mistake": it's just obeying the law of nature. A "bug" in the pragram never happens because the program really went wrong; Instead it is always following the instructions. It cannot have "computational mistake". Rather, a program can have a "bug" when it's not achieving a certain aim.
 
-**Kripke's objection 2**: According to the dispositionalist account, how can we make sense of the possibility of making mistakes, given that our reply may always contain "noise"? In other words, if one agrees that we are disposed to make mistakes, then one should agree that we can be disposed to give answer other than the one accords with the function I meant.
+**Kripke's objection 2**: According to the dispositionalist account, how can we make sense of the possibility of *making mistakes*, given that our reply may always contain "noise"? In other words, if one agrees that we are disposed to make mistakes, then one should agree that we can be disposed to give answer other than the one accords with the function I meant.
 
 **Retraction Dispositionalism 2.1**: we can appeal to the disposition to correct oneself (p.32)
 
 **Kripke's objection to 2.1**: 1. There might be stubborn people who persist in error; 2. what does it mean by 'retraction'? One may also retract right answers and give wrong ones.
+
+> So in general, there are two objections: the finiteness objection and the normativity objection
 
 
 
