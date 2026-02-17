@@ -47,6 +47,6 @@ If I *mean* a function, then there is a unique thing that I *should* do regardle
 
 **Dispositionalism defense**: we can define the meaning of "disposition" in a more fine-grained way: it's cateris paribus If my brain had been stuffed with sufficient extra matter to grasp large enough numbers, and if it were given enough capacity to perform such a large addition, and if my life (in a healthy state) were prolonged enough, then given an addition problem involving two large numbers, m and n, I would respond with their sum, and not with the result according to some quus-like rule.
 
-**Kripke's objection**: But how can we have any confidence of this? How can I tell what would happen if my brain were stuffed with extra brain matter? This, at bottom, presupposes that, there is an intention that can be carried out on m and n.
+**Kripke's objection**: But how can we have any confidence of this? How can I tell what would happen if my brain were stuffed with extra brain matter? This, at bottom, presupposes that, there is an intention that can be carried out on m and n. The skepticism is just doubting this fact. The challenge must be met by specifying the nature of such fact.
 
 > Assume I am a machine that runs python code. How do I know what the function SHOULD do?
