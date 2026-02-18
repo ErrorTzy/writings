@@ -188,5 +188,22 @@
     }
   ],
   "copilot-auto-completion:accept": [],
-  "copilot-auto-completion:accept_next_word": []
+  "copilot-auto-completion:accept_next_word": [],
+  "obsidian-smarter-md-hotkeys:smarter-single-quotation-marks": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "'"
+    }
+  ],
+  "obsidian-smarter-md-hotkeys:smarter-quotation-marks": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "'"
+    }
+  ]
 }

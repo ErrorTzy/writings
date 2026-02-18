@@ -65,4 +65,23 @@ If I *mean* a function, then there is a unique thing that I *should* do regardle
 
 **Machine Dispositionalism 1.1**: We can build a machine that computes the relevant function.
 
-**Kripke's objection to 1.1**: what do you mean by a machine? If you mean (1) a written machine program, the problem will come back: maybe the program should be interpret in a quus-like manner; or (2) an abstract math object; but this is not going anywhere: how do we fix this abstract machine, if the program can't fix it? ==I think the answer is already here: through intending it!== or (3) a concrete machine. But the problem is, a. what the machine takes in also needs interpretation, which will run into the skepticism againl and b. the concrete machine is finite c. When we judge a machine is malfunctioning, we must appeal to the program or the programmer's intent, which goes back to (1)! 
+**Kripke's objection to 1.1**: what do you mean by a machine? If you mean (1) a written machine program, the problem will come back: maybe the program should be interpret in a quus-like manner; or (2) an abstract math object; but this is not going anywhere: how do we fix this abstract machine, if the program can't fix it? ==I think the answer is already here: through intending it!== or (3) a concrete machine. But the problem is, a. what the machine takes in also needs interpretation, which will run into the "skepticism" againl and b. the concrete machine is finite c. When we judge a machine is malfunctioning, we must appeal to the program or the programmer's intent, which goes back to (1)! 
+
+**Appealing to Simplicity 3** (p.37-40): Maybe there  is not theoratical way to decide plus or quus, but we can choose plus instead of quus based on the consideration that plus is simpler than quus.
+
+**Kripke's objection**: The issue is whether there is such a fact that constitute one's statement of meaning plus rather than quus, not whether we can come to decide whether it's plus or quus. A pragmatic solution cannot answer a question about the fact. In addition, if one argues that the only way to decide is to appeal to simplicity, then one presupposes that I do not know whether I mean plus or quus.
+
+**Irreducible qualia 4** (p.40-42): There is such a fact, but it's unique and irreducible, like pain; Therefore I cannot appeal to any other facts.
+
+**Kripke's objection**: The skeptic's challenge being, when asked '68+57', which is never thought of in the past, why I am so sure of the answer being 125 instead of 5? If a headache indicates that the answer is 125, the problem is why I *should* say 125?
+
+> I think we can say the "headache" is the grasp of the rule, not just giving the answer.
+
+**Image of a headache 4.1** (p. 42-4?) Words are associated with an 'image', and one should say the word 'cube' when a shape matches the image of 'cube'
+
+**Kripke's objection to 4.1**: How do we know what count as a 'fit' of an image? There can be a triangular prism that fits the image of a cube. 
+
+> Why images must be 2D? Why not say the mental image of a cube is just 3D? Why does the "image" must be a literal image? That said, assuming that our mental image of a cube is 3D, how would Kripke respond? I think Kripke would say, given that our mental image of a cube is not 2D, but our visual experience is (roughly) 2D, then there must be a mapping between the 2D experience and 3D mental image. The problem is how do I know the mapping, even if I haven't seen it or thought of it before. In other words, if our mental image of 'cube' is really what we actually see, then the problem of inifinity haunts us back, for we can't imagine all possible 2D projections; But if our mental image is not concrete 2D, then a sort of judgement (per Kripke, method of projection) that tells us whether this is a cube, the skeptical challenge is how do we know our judgement is *correct*? How do we know what is the right method of projection?
+> 
+> My solution is to defend private language; I tend to think public language is impossible. So yes, I am always correct about my rule, assuming it is stable.
+
