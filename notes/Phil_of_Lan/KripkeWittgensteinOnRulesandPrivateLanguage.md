@@ -27,6 +27,8 @@ There is no fact about me that distinguishes between my meaning plus and my mean
 
 "To say that there is a general rule in my mind that tells me how to add in the future is only to throw the problem back on to other rules that also seem to be given only in terms of finitely many cases."
 
+Dispositionalism
+
 **Dispositionalism Response**: This problem stem from the assumption that such a fact (about whether I mean plus of quus) must consist in an *occurent mental state* (i.e. what's *actual*); But in fact it should be analyzed *dispositionally* (i.e. what's *possible*). To mean "plus" is to be disposed to give the sum of x+y when asked what the sum of x and y is. 
 
 To mean addition by '+' is to be disposed, when asked for any sum 'x+y' to give the sum of x and y as the answer (in particular, to say '125' when queried about '68+ 57'); to mean quus is to be disposed when queried about any arguments, to respond with their quum (in particular to answer '5' when queried about '68+ 57').
@@ -71,17 +73,20 @@ If I *mean* a function, then there is a unique thing that I *should* do regardle
 
 **Kripke's objection**: The issue is whether there is such a fact that constitute one's statement of meaning plus rather than quus, not whether we can come to decide whether it's plus or quus. A pragmatic solution cannot answer a question about the fact. In addition, if one argues that the only way to decide is to appeal to simplicity, then one presupposes that I do not know whether I mean plus or quus.
 
+Introspectible Experience
+
 **Irreducible qualia 4** (p.40-42): There is such a fact, but it's unique and irreducible, like pain; Therefore I cannot appeal to any other facts.
 
 **Kripke's objection**: The skeptic's challenge being, when asked '68+57', which is never thought of in the past, why I am so sure of the answer being 125 instead of 5? If a headache indicates that the answer is 125, the problem is why I *should* say 125?
 
 > I think we can say the "headache" is the grasp of the rule, not just giving the answer.
 
-**Image of a headache 4.1** (p. 42-4?) Words are associated with an 'image', and one should say the word 'cube' when a shape matches the image of 'cube'
+**Image of a headache 4.1** (p. 42-43) Words are associated with an 'image', and one should say the word 'cube' when a shape matches the image of 'cube'
 
 **Kripke's objection to 4.1**: How do we know what count as a 'fit' of an image? There can be a triangular prism that fits the image of a cube. 
 
-> Why images must be 2D? Why not say the mental image of a cube is just 3D? Why does the "image" must be a literal image? That said, assuming that our mental image of a cube is 3D, how would Kripke respond? I think Kripke would say, given that our mental image of a cube is not 2D, but our visual experience is (roughly) 2D, then there must be a mapping between the 2D experience and 3D mental image. The problem is how do I know the mapping, even if I haven't seen it or thought of it before. In other words, if our mental image of 'cube' is really what we actually see, then the problem of inifinity haunts us back, for we can't imagine all possible 2D projections; But if our mental image is not concrete 2D, then a sort of judgement (per Kripke, method of projection) that tells us whether this is a cube, the skeptical challenge is how do we know our judgement is *correct*? How do we know what is the right method of projection?
+> Why images must be 2D? Why not say the mental image of a cube is just 3D? Why does the "image" must be a literal image? That said, assuming that our mental image of a cube is 3D, how would Kripke respond? I think Kripke would say, given that our mental image of a cube is not 2D, but our visual experience is (roughly) 2D, then there must be a mapping between the 2D experience and 3D mental image. The problem is how do I know the mapping, even if I haven't seen it or thought of it before. In other words, if our mental image of 'cube' is really what we actually see, then the problem of inifinity haunts us back, for we can't imagine all possible 2D projections; But if our mental image is not concrete 2D, then a sort of judgement (per Kripke, method of projection) that tells us whether this is a cube, the skeptical challenge is how do we know our judgement is *correct*? How do we know which one is the right method of projection? What is the justification for saying that an object is or is not a cube, given the "form of the cube"?
 > 
 > My solution is to defend private language; I tend to think public language is impossible. So yes, I am always correct about my rule, assuming it is stable.
 
+The unattractiveness of the introspectible experience response: 1. Wittgenstein's view has been absorbed; 2. the materialistic-behavioralistic views are popular; 
