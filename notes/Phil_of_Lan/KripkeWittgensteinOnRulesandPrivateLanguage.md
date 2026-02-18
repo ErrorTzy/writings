@@ -77,7 +77,7 @@ Introspectible Experience
 
 **Irreducible qualia 4** (p.40-42): There is such a fact, but it's unique and irreducible, like pain; Therefore I cannot appeal to any other facts.
 
-**Kripke's objection**: The skeptic's challenge being, when asked '68+57', which is never thought of in the past, why I am so sure of the answer being 125 instead of 5? If a headache indicates that the answer is 125, the problem is why I *should* say 125?
+**Kripke's objection 1 to 4**: The skeptic's challenge being, when asked '68+57', which is never thought of in the past, why I am so sure of the answer being 125 instead of 5? If a headache indicates that the answer is 125, the problem is why I *should* say 125?
 
 > I think we can say the "headache" is the grasp of the rule, not just giving the answer.
 
@@ -87,6 +87,10 @@ Introspectible Experience
 
 > Why images must be 2D? Why not say the mental image of a cube is just 3D? Why does the "image" must be a literal image? That said, assuming that our mental image of a cube is 3D, how would Kripke respond? I think Kripke would say, given that our mental image of a cube is not 2D, but our visual experience is (roughly) 2D, then there must be a mapping between the 2D experience and 3D mental image. The problem is how do I know the mapping, even if I haven't seen it or thought of it before. In other words, if our mental image of 'cube' is really what we actually see, then the problem of inifinity haunts us back, for we can't imagine all possible 2D projections; But if our mental image is not concrete 2D, then a sort of judgement (per Kripke, method of projection) that tells us whether this is a cube, the skeptical challenge is how do we know our judgement is *correct*? How do we know which one is the right method of projection? What is the justification for saying that an object is or is not a cube, given the "form of the cube"?
 > 
-> My solution is to defend private language; I tend to think public language is impossible. So yes, I am always correct about my rule, assuming it is stable.
+> My solution is to defend private language; I tend to think public language is impossible. So yes, I am always correct about my rule, assuming it is stable. Anyway, I think the philosophical task is to say something about this introspectible experience.
 
 The unattractiveness of the introspectible experience response: 1. Wittgenstein's view has been absorbed; 2. the materialistic-behavioralistic views are popular; 
+
+**Kripke's objection 2 to 4**: There is no point in my childhood when I suddenly felt I have grasped the rule of addition. But when we first experience something, we have Eureka moment. Therefore, there is no such thing as introspectible experience of meaning; Even if there is such a moment, probably we just figured out *a few particular cases*.
+
+> No? I thought when learning language, there are a lot of time where we suddenly figured out what other people are doing.
