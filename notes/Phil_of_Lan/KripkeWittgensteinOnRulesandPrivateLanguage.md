@@ -93,4 +93,9 @@ The unattractiveness of the introspectible experience response: 1. Wittgenstein'
 
 **Kripke's objection 2 to 4**: There is no point in my childhood when I suddenly felt I have grasped the rule of addition. But when we first experience something, we have Eureka moment. Therefore, there is no such thing as introspectible experience of meaning; Even if there is such a moment, probably we just figured out *a few particular cases*.
 
-> No? I thought when learning language, there are a lot of time where we suddenly figured out what other people are doing.
+> No? I thought when learning language, there are a lot of time where we suddenly figured out what other people are doing. And yes, I agree that most of the time our Eureka moment is that, we figured out the patter for a few particular cases. But the point is that we figured out a patter!
+
+**Wittgenstein's "Reading" argument**: When someone is learning how to read (in the sense of reading our loud, not understanding), this is the simplest case of "following a rule"; There seems to be no introspectible experience of following this reading rule
+
+> The argument being: for this kind of repetitive rule following (i.e. always produce the same sound when seeing some text), is there a "feeling of the rule"?
+> I think the issue is, when we learn how to read, it is true that our disposition will give us the sound we need to utter, so in some sense this process is automatic. But we may get it right or get it wrong. Normally, we appeal to the teacher (some capable reader) to check whether the sound is right or wrong. But this just seems to be an issue with our memory: if our memory is completely reliable, we never need to ask whether our utterance is correct (given the rule is repetitive, unlike the projection issue in the "quus" case.) The issue of appealing to others is partly because we are learning rules from OTHERS, not inventing new rules by our own. So the teacher 
