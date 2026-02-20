@@ -102,3 +102,6 @@ The unattractiveness of the introspectible experience response: 1. Wittgenstein'
 > The argument being: for this kind of repetitive rule following (i.e. always produce the same sound when seeing some text), is there a "feeling of the rule"?
 > I think the issue is, when we learn how to read, it is true that our disposition will give us the sound we need to utter, so in some sense this process is automatic. But we may get it right or get it wrong. Normally, we appeal to the teacher (some capable reader) to check whether the sound is right or wrong. But this just seems to be an issue with our memory: if our memory is completely reliable, we never need to ask whether our utterance is correct (given the rule is repetitive, unlike the projection issue in the "quus" case.) The issue of appealing to others is partly because we are learning rules from OTHERS, not inventing new rules by our own. So the teacher has the authority because we are learning the teacher's rule.
 
+**unique state response**: It is a unique kind of its own, neither reducible nor be assimilated to sensations like headaches
+
+**Kripke's objection**: 
