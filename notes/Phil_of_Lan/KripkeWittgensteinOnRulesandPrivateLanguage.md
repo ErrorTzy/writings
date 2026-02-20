@@ -57,7 +57,10 @@ If I *mean* a function, then there is a unique thing that I *should* do regardle
 
 **Kripke's objection 2**: According to the dispositionalist account, how can we make sense of the possibility of *making mistakes*, given that our reply may always contain "noise"? In other words, if one agrees that we are disposed to make mistakes, then one should agree that we can be disposed to give answer other than the one accords with the function I meant.
 
-**Retraction Dispositionalism 2.1**: we can appeal to the disposition to correct oneself (p.32)
+**Retraction Dispositionalism 2.1**: we can appeal to the disposition to correct oneself (p.32)There is then no problem - as far as the present
+consIderatIOns go - as to how the addition function (taken
+say, as a set oftriples)36 contains within it all its instances such
+as the triple (68, 57, 12 5). 
 
 **Kripke's objection to 2.1**: 1. There might be stubborn people who persist in error; 2. what does it mean by 'retraction'? One may also retract right answers and give wrong ones.
 
@@ -95,7 +98,10 @@ The unattractiveness of the introspectible experience response: 1. Wittgenstein'
 
 **Kripke's objection 2 to 4**: There is no point in my childhood when I suddenly felt I have grasped the rule of addition. But when we first experience something, we have Eureka moment. Therefore, there is no such thing as introspectible experience of meaning; Even if there is such a moment, probably we just figured out *a few particular cases*.
 
-> No? I thought when learning language, there are a lot of time where we suddenly figured out what other people are doing. And yes, I agree that most of the time our Eureka moment is that, we figured out the patter for a few particular cases. But the point is that we figured out a patter!
+> No? I thought when learning language, there are a lot of time where we suddenly figured out what other people are doing. And yes, I agree that most of the time our Eureka moment is that, we figured out the patter for a few particular cases. But the point is that we figured out a patter!There is then no problem - as far as the present
+consIderatIOns go - as to how the addition function (taken
+say, as a set oftriples)36 contains within it all its instances such
+as the triple (68, 57, 12 5). 
 
 **Wittgenstein's "Reading" argument**: When someone is learning how to read (in the sense of reading our loud, not understanding), this is the simplest case of "following a rule"; There seems to be no introspectible experience of following this reading rule
 
@@ -105,3 +111,6 @@ The unattractiveness of the introspectible experience response: 1. Wittgenstein'
 **unique state response**: It is a unique kind of its own, neither reducible nor be assimilated to sensations like headaches
 
 **Kripke's objection**: It leaves the nature of this postulated primitive state - the primitive state of 'meaning addition by "plus"' - remains completely mysterious.
+
+## The Solution and the Private Language Argument
+
