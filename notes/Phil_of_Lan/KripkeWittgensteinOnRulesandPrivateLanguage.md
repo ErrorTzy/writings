@@ -73,6 +73,8 @@ If I *mean* a function, then there is a unique thing that I *should* do regardle
 
 **Kripke's objection**: The issue is whether there is such a fact that constitute one's statement of meaning plus rather than quus, not whether we can come to decide whether it's plus or quus. A pragmatic solution cannot answer a question about the fact. In addition, if one argues that the only way to decide is to appeal to simplicity, then one presupposes that I do not know whether I mean plus or quus.
 
+> I think the biggest problem is that, one can be disposed to mean things even if that one is a chinese room, or a zombie.
+
 Introspectible Experience
 
 **Irreducible qualia 4** (p.40-42): There is such a fact, but it's unique and irreducible, like pain; Therefore I cannot appeal to any other facts.
@@ -99,3 +101,4 @@ The unattractiveness of the introspectible experience response: 1. Wittgenstein'
 
 > The argument being: for this kind of repetitive rule following (i.e. always produce the same sound when seeing some text), is there a "feeling of the rule"?
 > I think the issue is, when we learn how to read, it is true that our disposition will give us the sound we need to utter, so in some sense this process is automatic. But we may get it right or get it wrong. Normally, we appeal to the teacher (some capable reader) to check whether the sound is right or wrong. But this just seems to be an issue with our memory: if our memory is completely reliable, we never need to ask whether our utterance is correct (given the rule is repetitive, unlike the projection issue in the "quus" case.) The issue of appealing to others is partly because we are learning rules from OTHERS, not inventing new rules by our own. So the teacher has the authority because we are learning the teacher's rule.
+
