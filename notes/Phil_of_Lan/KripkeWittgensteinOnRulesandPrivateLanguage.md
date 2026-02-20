@@ -104,4 +104,4 @@ The unattractiveness of the introspectible experience response: 1. Wittgenstein'
 
 **unique state response**: It is a unique kind of its own, neither reducible nor be assimilated to sensations like headaches
 
-**Kripke's objection**: 
+**Kripke's objection**: It leaves the nature of this postulated primitive state - the primitive state of 'meaning addition by "plus"' - remains completely mysterious.
