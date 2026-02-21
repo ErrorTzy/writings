@@ -122,5 +122,7 @@ Comparision with other problems
 
 **Goodman's new riddle of induction**: p.57-59; Very close, but the issue is not induction but meaning
 
-Wittgenstein's solution: Denial of the private language -- But the issue is the denial of *all* language to be impossible
+Wittgenstein's solution: Denial of the private language -- But the issue is the denial of *all* language to be impossible: there is no "superlative fact" about my mind that constitutes my meaning addition by 'plus' and determines in advance what I should do to accord with this meaning.
+
+
 
