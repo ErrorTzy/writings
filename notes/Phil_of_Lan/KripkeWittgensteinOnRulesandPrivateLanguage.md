@@ -112,6 +112,15 @@ as the triple (68, 57, 12 5).
 
 **Kripke's objection**: It leaves the nature of this postulated primitive state - the primitive state of 'meaning addition by "plus"' - remains completely mysterious.
 
+> Additional argument against disposition: what kind of disposition would be the right ones? What if someone have a different pronounciation? Or maybe just silently speaking to oneself? Or mere writing? What about writing in the air, or using a different font?
+
 ## The Solution and the Private Language Argument
 
-gokujitsu
+Comparision with other problems
+
+**Quine's radical translation**: p.55-57; The skepticism of meaning also applies to non-behhavioralists
+
+**Goodman's new riddle of induction**: p.57-59; Very close, but the issue is not induction but meaning
+
+Wittgenstein's solution: Denial of the private language -- But the issue is the denial of *all* language to be impossible
+
