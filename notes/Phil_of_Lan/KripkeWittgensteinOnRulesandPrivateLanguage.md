@@ -124,5 +124,8 @@ Comparision with other problems
 
 Wittgenstein's solution: Denial of the private language -- But the issue is the denial of *all* language to be impossible: there is no "superlative fact" about my mind that constitutes my meaning addition by 'plus' and determines in advance what I should do to accord with this meaning.
 
+**A staright solution vs a skeptical solution** (p.66)
 
+- **A straight solution** dismissed skepticism
+- **A skeptical solution** accepts that the skeptical challenge is unanswerable, but our ordinary practice or belief is justified because the untenable justification in the skeptical doubt is not required
 
