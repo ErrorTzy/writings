@@ -131,4 +131,4 @@ Wittgenstein's solution: Denial of the private language -- But the issue is the 
 
 **Example**: Hume's solution to causation is to deny there really is such a thing as a causal connection; All there is is the "feeling of customary transition" between our ideas of these event types; We can *SAY* A causes B when there's a Humean regularity between A-type and B-type events; There can be no causation between isolated event tokens, i.e. no private causation
 
-**Wittgenstein's skeptical solution**: There is no fact of the matter where an individual means anything.
+**Wittgenstein's skeptical solution**: There is no fact of the matter where an individual means anything; But not denying that all language is meaningless.
