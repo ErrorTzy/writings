@@ -129,3 +129,5 @@ Wittgenstein's solution: Denial of the private language -- But the issue is the 
 - **A straight solution** dismissed skepticism
 - **A skeptical solution** accepts that the skeptical challenge is unanswerable, but our ordinary practice or belief is justified because the untenable justification in the skeptical doubt is not required
 
+Example: Hume's solution to causation is to deny there really is such a thing as a causal connection; All there is is the "feeling of customary transition" between our ideas of these event types.
+
