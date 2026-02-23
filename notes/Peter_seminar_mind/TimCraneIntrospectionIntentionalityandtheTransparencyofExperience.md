@@ -19,8 +19,8 @@ Debate between Block and Tye: Tye says it's obvious from introspection, and bloc
 
 > Namely, my "intending" x, according to Crane, is not a relation between me and x?
 
-**meaning of "intentional content"**: The intentional object that actually exists; Intentional state is a relation between the content and us
+**meaning of "intentional content"**: The actual content, like a proposition as belief content; Intentional state is the relation between the subject and the intentional content.
 
-> So according to Crane's terminology, intentional object is the object that we do not have to attach ontological commitment; intentional content, on the other hand, is the ontological object.
+> Crane's terminology is basically the distinction between proposition and facts.
 
-The relation between "content" and "object" is like sense and reference: one intentional object can correspond many contents, 
+The relation between "content" and "object" is like sense and reference: one intentional object can correspond many contents (?One object can correspond to many contents?)
