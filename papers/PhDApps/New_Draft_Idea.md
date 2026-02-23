@@ -290,3 +290,7 @@ We refer to things by intending to things; Causation is not a necessary requirem
 ---
 
 Reidentification: the reason why 'pain' is not identical to any brain states is because when we refer to something that we have ontological commitment, we can accept reidentifications. Water can turn out to be H2O, and red can turn out to be a certain physical feature of the surface. The test for reidentification is through our intuition about necessity. This point is clarified by Kripke. A red thing does not necessarily look red in other possible worlds, and hot things does not necessarily feels hot in other possible worlds. We are talking about the thing that is independent of how we pick the reference out. This is probably ontological commitment: we are commited to something that produced our sensation, instead of our sensation itself. We can say it is a gesture towards some sensation. We have the sensation of perceiving the table. We can, in theory, use the word table to refer to the sensation of the table alone. There is a more tricky case where we refer to the table, but we think we are infallible, and hallucination is impossible. in either of these cases, our sentences are infallible. 
+
+---
+
+Against dispositionalism: think in plus and say quus, and think in quus and say quus
