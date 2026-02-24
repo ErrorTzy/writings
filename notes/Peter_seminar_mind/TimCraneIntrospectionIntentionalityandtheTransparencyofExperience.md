@@ -1,3 +1,5 @@
+The only way to make sense of this paper is to see Crane to be defending the externalist version of intentionalism, or there would be no motivation to introduce "mode"
+
 ## I. Introspection and phenomenal character
 
 To what extent can introspection determine the correct theoretical account of phenomenal character
