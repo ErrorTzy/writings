@@ -52,3 +52,33 @@ Motivation for sense data theory:
 2. The argument from hallucination and illusion shows that the thing given cannot be a public, mind-independent object
 3. Therefore, the given must be mind-dependent sense data
 
+According to Crane, the sense data theory is a form of intentionalism because it is directed upon an object, and the nature of the experience is determined by the nature of its object
+
+Is there any theory of perception that denies intentionalism, defined in Crane's sense?
+
+**The adverbial theory of perception**: "I perceive a blue ball", is for me to perceive blue-ball-ly, or in other words, properties are modifiers of perceptual verbs. Objects of perception are really qualities of the perceptual state itself. This view allow us to avoid commiting to strange objects (that may not exist), but instead to treat them as properties.
+
+**objection to adverbial theory**: It seems unable to account for the fact that our visual experience is spatially arrayed objects and properties, i.e. perceptions have a subject-matter.
+
+**Direct realist theory of perception**: The pressure comes from hallucination and illusion. The answer given by contemporary disjunctivists is that, our visual perception of a glass is either a glass, or a hallucination of a glass.
+
+**The phenomental principle**: when one experience that something is F, there is something F which one is experiencing
+
+**Standard intentionalism**: 
+
+- denies this principle by drawing the parallel between intentional states like beliefs: if someone believes that a is F, it does not follow that there is an a which is believed to be F. 
+- This answers the problem of hallucination and illusion by drawing parallel between belief and perception: believing something does not require the object of the belief to really exist.
+- This prevents the counterintuive idea that one's state of mind is different when one is hallucinating
+
+The topic of this paper: resolve the dispute between strong intentionalism and weak intentionalism
+
+## IV. The Transparency of experience
+
+**Tye's argument**: when one tries to focus on the experience in introspection one cannot help but see right through it so that what one actually ends up attending to is the real color blue
+
+What does "see right through" mean?
+
+1. 1st reading: When one sees something blue, one does not see it by first seeing something else; But this is unconctroversial, since sense datum theoreists would not deny that we are seeing something blue by seeing something else (namely, we perceived blue sense datum)
+2. 2nd reading: introspection of the experience only reveals awareness of the objects of the experience and their properties, that's all. The consequence would be, any feature like inverted spectrum or blurry vision would become features of the object.
+
+According to the transparency thesis, the introspection of the experience is exhausted by the nature of its *content*; Weak intentionalism reject it by saying it is exhausted by the nature of its *content* and its *mode*
