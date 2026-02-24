@@ -30,4 +30,25 @@ All intentional states must have the structure of being a relation to a certain 
 **Intententionalism**: it has various forms
 
 - Most extreme: all mental states are intentional, like moods and emotions
-- 
+- Restricted: applies only to a certain kind of mental state perception or sensation
+
+To say a state is an intentional state is to say it has the relational strcuture towards the content
+
+The current scope: intentionalism about perception
+
+- **weak intentionalism**: some intentional states can have non-intentional properties, like qualia (proponents: Peacocke, Shoemaker)
+- **strong intentionalism**: intentional states are exhausted by their intentional properties (proponents: Tye, Dretske, Lycan)
+
+Clarifications:
+
+1. intentionalism is not functionalism, it is compatible with either functionalism or non-functionalism. ==I think the reason people might think intentionalism is functionalism is because it formalizes the state as a relation. But surely we don't have to read that off our formal system and say the state is just the function.==
+2. intentionalism is not externalism (externalism is the view that, the experience of something is metaphysically dependent on something external; If there's no external object, then one cannot have that experience.) One can hold an internalist view about intentionalism
+
+## III. The intentionality of perception
+
+Motivation for sense data theory:
+
+1. Something is given to us when we perceive
+2. The argument from hallucination and illusion shows that the thing given cannot be a public, mind-independent object
+3. Therefore, the given must be mind-dependent sense data
+
