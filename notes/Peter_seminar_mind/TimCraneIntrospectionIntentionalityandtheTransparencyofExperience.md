@@ -106,7 +106,6 @@ Defending Crane's own view to be *strong intentionalism*
 
 > But this seems to be a mere formal trick. When we say some content has a property called qualia, we can translate this into, having qualia in relation to the subject. Then qualia will become relational. In fact crane himself admits this
 
-
 2. There are cases of qualia that are not mode; There are cases of mode that are not qualia. So this is not merely verbal
 	- According to weak intentionalists, there are color qualia; But there's no mode for seeing a certain color; Colors are different in content not in mode. ==There's none? It seems surely the blue and black vs. white and gold dress can be a case of difference in mode==
 	- wishing and judging are phenomenally different because they have different modes, but there's no qualia. ==If I believe there are phenomenal character of wishing, then I can say there are qualia of wishing==
