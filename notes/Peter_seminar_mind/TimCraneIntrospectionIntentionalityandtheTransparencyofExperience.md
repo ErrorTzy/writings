@@ -21,6 +21,13 @@ Debate between Block and Tye: Tye says it's obvious from introspection, and bloc
 
 **meaning of "intentional content"**: The actual content, like a proposition as belief content; Intentional state is the relation between the subject and the intentional content.
 
-> Crane's terminology is basically the distinction between proposition and facts.
+> Crane's terminology is basically the distinction between proposition and facts; but not all content are propositional
 
-The relation between "content" and "object" is like sense and reference: one intentional object can correspond many contents (?One object can correspond to many contents?)
+The relation between "content" and "object" is like sense and reference: one intentional object can correspond many contents
+
+All intentional states must have the structure of being a relation to a certain content, i.e. subject-mode (the relation)-content
+
+**Intententionalism**: it has various forms
+
+- Most extreme: all mental states are intentional, like moods and emotions
+- 
