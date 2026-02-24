@@ -294,3 +294,7 @@ Reidentification: the reason why 'pain' is not identical to any brain states is 
 ---
 
 Against dispositionalism: think in plus and say quus, and think in quus and say quus
+
+---
+
+Intention is separate from ontological commitment: we can intend to things we do not attach ontological commitment; But can we have ontological commitment to something without intending it? When we have blurry vision, we do not intend blurry objects
