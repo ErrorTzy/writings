@@ -81,4 +81,12 @@ What does "see right through" mean?
 1. 1st reading: When one sees something blue, one does not see it by first seeing something else; But this is unconctroversial, since sense datum theoreists would not deny that we are seeing something blue by seeing something else (namely, we perceived blue sense datum)
 2. 2nd reading: introspection of the experience only reveals awareness of the objects of the experience and their properties, that's all. The consequence would be, any feature like inverted spectrum or blurry vision would become features of the object.
 
-According to the transparency thesis, the introspection of the experience is exhausted by the nature of its *content*; Weak intentionalism reject it by saying it is exhausted by the nature of its *content* and its *mode*
+**Content vs. mode**: According to the transparency thesis, the introspection of the experience is exhausted by the nature of its *content*; Weak intentionalism reject it by saying it is exhausted by the nature of its *content* and its *mode*
+
+**Example from different modalities**: It is clear that experience can differ without differing in the content (object?): The tactial and visual experience are different, but they are both of a wooden cube. The difference of tactile and visual experience of a cube being the difference in *mode*.
+
+Two kinds of arguments against intentionalism:
+
+1. After-images (seeing something that's not in the external world)
+2. Blurry vision (experience is effected in some way)
+
