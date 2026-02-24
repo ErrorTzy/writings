@@ -68,7 +68,7 @@ Is there any theory of perception that denies intentionalism, defined in Crane's
 
 - denies this principle by drawing the parallel between intentional states like beliefs: if someone believes that a is F, it does not follow that there is an a which is believed to be F. 
 - This answers the problem of hallucination and illusion by drawing parallel between belief and perception: believing something does not require the object of the belief to really exist.
-- This prevents the counterintuive idea that one's state of mind is different when one is hallucinating
+- **Against disjunctivism**: This prevents the counterintuive idea that one's state of mind is different when one is hallucinating
 
 The topic of this paper: resolve the dispute between strong intentionalism and weak intentionalism
 
