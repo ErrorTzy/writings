@@ -131,4 +131,8 @@ Wittgenstein's solution: Denial of the private language -- But the issue is the 
 
 **Example**: Hume's solution to causation is to deny there really is such a thing as a causal connection; All there is is the "feeling of customary transition" between our ideas of these event types; We can *SAY* A causes B when there's a Humean regularity between A-type and B-type events; There can be no causation between isolated event tokens, i.e. no private causation
 
-**Wittgenstein's skeptical solution**: There is no fact of the matter where an individual means anything; But not denying that all language is meaningless
+**Wittgenstein's skeptical solution**: There is no fact of the matter where an individual means anything; But not denying that all language is meaningless:
+
+Wittgenstein's theory of meaning: Do not look for 'entities' and 'facts' corresponding to numerical assertions, but look at the circumstances under which utterances involving numerals are made, and the utility ofmaking them under these circumstances.
+
+Given this theory of meaning, language is meanful in the sense that, there are roughly specifiable circumstances under which they are legitimately assertable
