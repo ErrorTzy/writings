@@ -298,3 +298,11 @@ Against dispositionalism: think in plus and say quus, and think in quus and say 
 ---
 
 Intention is separate from ontological commitment: we can intend to things we do not attach ontological commitment; But can we have ontological commitment to something without intending it? When we have blurry vision, we do not intend blurry objects
+
+---
+
+When we assert, we express propositions. Propositions are about facts, and are made true or false by facts. Objects and properties are parts of facts. Given this, why not think there is a parallel thing, like objects, to be propositions?
+
+---
+
+If our thoughts are around propositions, and we project propositions as metaphysics, it seems the only way to make sense of metaphysics is that it is isomorphic to propositions. If we deny isomorphism, then metaphysics could be arbitrary.

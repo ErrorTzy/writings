@@ -136,3 +136,6 @@ Wittgenstein's solution: Denial of the private language -- But the issue is the 
 Wittgenstein's theory of meaning: Do not look for 'entities' and 'facts' corresponding to numerical assertions, but look at the circumstances under which utterances involving numerals are made, and the utility ofmaking them under these circumstances.
 
 Given this theory of meaning, language is meanful in the sense that, there are roughly specifiable circumstances under which they are legitimately assertable
+
+The case about plus and quus is not vagueness: it's not that we are unclear about what plus means, like how we are unclear about what 'bold' means. Instead, each case of plus (ignoring infinite series) is determinate for us. In other word, there's no vagueness in the concept of addition
+
