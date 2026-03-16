@@ -25,5 +25,36 @@ Two options for the skeptical solution:
 > Comment: The objection seems wrong because one can admit the agreement of behavior and argue that behavior does not amount to meaning. Basically error theorists are agreeing with kripke about dispostionalism falling short of capturing meaning, but using the resource of dispositionalism to cash out error theory.
 ### 3.2 Non-factualism
 
-Judgements and claims about meanings are not stating facts
+Judgements and claims about meanings are not stating facts (parallel to expressivist account)
+
+**Objection**: If you can give a correctness condition for meaning ascriptions (e.g. promise making is not truth-apt, But there is a fact of matter, namely, saying "I promise to X" is correct when someone plans to do X. So there is a correctness condition of uttering the sentence), then there would be a fact of matter about someone meaning something.
+
+> Comment: It's not entirely clear whether this objection works. We may intend a fact about meaning but it turns out whether it is true depend on something that is not the fact that I intend. (e.g. I believe cats exist, but if it turns out that cats are demons, I may retract and say there are no cats)
+
+### 3.3 An Alternate form of factualism
+
+The essence of semantics realism cannot be met, but we can change our conception of meaning.
+
+## 4 Reductive Dispositionalism
+
+The fact that I mean cat by "cat" is determined by my disposition to apply "cat" to cats. 
+
+Kripke's argument against dispositionalism:
+
+1. Dispositions are finite, but meaning applies to infinite cases
+2. One can make mistakes, but dispositions cannot give account of mistakes
+3. Meaning is normative; Utterance are justified through knowledge of meaning; Disposition cannot give justification (if we think the disposition of doing A cannot justify doing A)
+
+- Response to the finitude objection: Dispositions are not finite. To be fragile is to be disposed to break under infinite conditions. Similarly, our brain could be disposed to react to infinite conditions.
+	- Problem: our brain will simply break down when dealing with inaccessible numbers. So we do have disposition, but the output is not what we expect.
+	- Response: If the disposition in accessible cases were to expand, then we would give a non-breaking response.
+	- Problem: There is a disanalogy between the case of fragile and the case of meaning. Whatever the condition a glass is in, we don't think the nature of the glass has changed. But if we extend our disposition, then we are changing the nature of being a biological creature ==I don't think this is the issue. The true objection is, our disposition is simply failing to give an output. And dispositionalist should say addition is not defined for inaccessible numbers. Regarding the glass, we should consider the case where the glass is in some condition that violates the law of physics, like asking whether a glass is fragile when it is traveling faster than light. So to answer this, dispositionalist should say there is a way to extend the notion of disposition in the case where we fail to give an output. (And there is a difference between a number being too big and a number being divided by zero. Dispositionalism should account for this difference) And the problem is how to define "extended disposition" that only make use of dispositionalist resource==
+	- Response: Warren argued for "normalcy"
+
+## 5. Non-Reductionism
+
+Kripke's argument against dispositionalism:
+
+1. It is mysterious
+2. It seems hard to explain the problem of infinity
 

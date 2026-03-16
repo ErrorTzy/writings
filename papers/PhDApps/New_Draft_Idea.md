@@ -297,6 +297,8 @@ Against dispositionalism:
 
 1. Same intention, different disposition: secret translation
 2. Same disposition, different intention: strange interpretation of English
+3. Promise-making and dispositionism?
+4. Making mistakes
 
 ---
 
