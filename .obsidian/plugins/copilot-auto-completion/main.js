@@ -42168,7 +42168,8 @@ var refactorFewShotExamplesSchema = z.object({
 }).strict();
 var settingsSchema = z.object({
   version: z.literal("1"),
-  enabled: z.boolean(),
+  enableAutocomplete: z.boolean(),
+  enableRefactor: z.boolean(),
   advancedMode: z.boolean(),
   apiProvider: z.enum(["azure", "openai", "ollama"]),
   azureOAIApiSettings: azureOAIApiSettingsSchema,
@@ -42220,7 +42221,8 @@ var pluginDataSchema = z.object({
 var DEFAULT_SETTINGS = {
   version: "1",
   // General settings
-  enabled: true,
+  enableAutocomplete: true,
+  enableRefactor: true,
   advancedMode: false,
   apiProvider: "openai",
   // API settings
@@ -42695,6 +42697,9 @@ function migrateFromV0ToV1(settings) {
   updatedSettings.refactorUserTemplate = DEFAULT_SETTINGS.refactorUserTemplate;
   updatedSettings.refactorFimSystemMessage = DEFAULT_SETTINGS.refactorFimSystemMessage;
   updatedSettings.refactorDirectReplace = DEFAULT_SETTINGS.refactorDirectReplace;
+  updatedSettings.enableAutocomplete = updatedSettings.enabled;
+  updatedSettings.enableRefactor = updatedSettings.enabled;
+  delete updatedSettings.enabled;
   updatedSettings.acceptSuggestionKey = DEFAULT_SETTINGS.acceptSuggestionKey;
   updatedSettings.acceptNextWordKey = DEFAULT_SETTINGS.acceptNextWordKey;
   updatedSettings.onlyInlineCompletion = DEFAULT_SETTINGS.onlyInlineCompletion;
@@ -43150,11 +43155,28 @@ function deserializeSettings(data) {
     console.log("Migrating settings from v0 to v1");
     settings = migrateFromV0ToV1(settings);
   }
+  settings = migrateLegacyFeatureToggles(settings);
   if (!isSettingsV1(settings)) {
     console.log("Fixing settings structure and value errors");
     return fixStructureAndValueErrors(settingsSchema, settings, DEFAULT_SETTINGS);
   }
   return parseWithSchema(settingsSchema, settings);
+}
+function migrateLegacyFeatureToggles(settings) {
+  if (settings === null || settings === void 0 || typeof settings !== "object") {
+    return settings;
+  }
+  const migratedSettings = (0, import_lodash2.cloneDeep)(settings);
+  if (typeof migratedSettings.enabled === "boolean") {
+    if (typeof migratedSettings.enableAutocomplete !== "boolean") {
+      migratedSettings.enableAutocomplete = migratedSettings.enabled;
+    }
+    if (typeof migratedSettings.enableRefactor !== "boolean") {
+      migratedSettings.enableRefactor = migratedSettings.enabled;
+    }
+    delete migratedSettings.enabled;
+  }
+  return migratedSettings;
 }
 function isRegexValid(value) {
   try {
@@ -44339,10 +44361,18 @@ function SettingsView(props) {
   return /* @__PURE__ */ React10.createElement("div", null, /* @__PURE__ */ React10.createElement("h2", null, "General"), /* @__PURE__ */ React10.createElement(
     CheckBoxSettingItem,
     {
-      name: "Enable",
-      description: "If disabled, nothing will trigger the extension or can result in an API call.",
-      enabled: settings.enabled,
-      setEnabled: (value) => updateSettings({ enabled: value })
+      name: "Enable autocompletion",
+      description: "If disabled, inline completion suggestions and prediction commands will not trigger or make API calls.",
+      enabled: settings.enableAutocomplete,
+      setEnabled: (value) => updateSettings({ enableAutocomplete: value })
+    }
+  ), /* @__PURE__ */ React10.createElement(
+    CheckBoxSettingItem,
+    {
+      name: "Enable refactor",
+      description: "If disabled, selection refactor commands and context-menu actions will not make API calls.",
+      enabled: settings.enableRefactor,
+      setEnabled: (value) => updateSettings({ enableRefactor: value })
     }
   ), /* @__PURE__ */ React10.createElement(
     CheckBoxSettingItem,
@@ -44945,8 +44975,20 @@ var SettingTab = class extends import_obsidian5.PluginSettingTab {
   addObserver(observer) {
     this.observers.push(observer);
   }
-  setEnable(enabled) {
-    this.settings = { ...this.settings, enabled };
+  setAutocompleteEnabled(enabled) {
+    this.settings = { ...this.settings, enableAutocomplete: enabled };
+    this.saveSettings(this.settings).then(() => this.updateObservers());
+  }
+  setRefactorEnabled(enabled) {
+    this.settings = { ...this.settings, enableRefactor: enabled };
+    this.saveSettings(this.settings).then(() => this.updateObservers());
+  }
+  setAllFeaturesEnabled(enabled) {
+    this.settings = {
+      ...this.settings,
+      enableAutocomplete: enabled,
+      enableRefactor: enabled
+    };
     this.saveSettings(this.settings).then(() => this.updateObservers());
   }
   updateObservers() {
@@ -45126,8 +45168,8 @@ var State = class {
   }
   handleSettingChanged(settings) {
     const settingErrors = checkForErrors(settings);
-    if (!settings.enabled) {
-      new import_obsidian6.Notice("Copilot is now disabled.");
+    if (!settings.enableAutocomplete) {
+      new import_obsidian6.Notice("Copilot autocomplete is now disabled.");
       this.context.transitionToDisabledManualState();
     } else if (settingErrors.size > 0) {
       new import_obsidian6.Notice(
@@ -45825,7 +45867,7 @@ var DisabledManualState = class extends state_default {
     return "Disabled";
   }
   handleSettingChanged(settings) {
-    if (this.context.settings.enabled) {
+    if (settings.enableAutocomplete) {
       this.context.transitionToIdleState();
     }
   }
@@ -45840,7 +45882,7 @@ var DisabledFileSpecificState = class extends state_default {
     return "Disabled for this file";
   }
   handleSettingChanged(settings) {
-    if (!this.context.settings.enabled) {
+    if (!settings.enableAutocomplete) {
       this.context.transitionToDisabledManualState();
     }
     if (!this.context.isCurrentFilePathIgnored() || !this.context.currentFileContainsIgnoredTag()) {
@@ -45851,7 +45893,7 @@ var DisabledFileSpecificState = class extends state_default {
     if (this.context.isCurrentFilePathIgnored() || this.context.currentFileContainsIgnoredTag()) {
       return;
     }
-    if (this.context.settings.enabled) {
+    if (this.context.settings.enableAutocomplete) {
       this.context.transitionToIdleState();
     } else {
       this.context.transitionToDisabledManualState();
@@ -47223,7 +47265,7 @@ var DisabledInvalidSettingsState = class extends state_default {
     if (settingErrors.size > 0) {
       return;
     }
-    if (this.context.settings.enabled) {
+    if (settings.enableAutocomplete) {
       this.context.transitionToIdleState();
     } else {
       this.context.transitionToDisabledManualState();
@@ -47378,11 +47420,11 @@ var EventListener = class {
       predictionService
     );
     const settingErrors = checkForErrors(settings);
-    if (settings.enabled) {
+    if (settings.enableAutocomplete) {
       eventListener.transitionToIdleState();
     } else if (settingErrors.size > 0) {
       eventListener.transitionToDisabledInvalidSettingsState();
-    } else if (!settings.enabled) {
+    } else if (!settings.enableAutocomplete) {
       eventListener.transitionToDisabledManualState();
     }
     return eventListener;
@@ -48423,7 +48465,18 @@ var GenerateRefactorService = class {
 };
 
 // src/prediction_services/refactor_service.ts
+var DisabledRefactorService = class {
+  constructor(message = "Refactor service is disabled") {
+    this.message = message;
+  }
+  async refactor(_request) {
+    return err(new Error(this.message));
+  }
+};
 function createRefactorService(settings) {
+  if (!settings.enableRefactor) {
+    return new DisabledRefactorService("Refactor is disabled in settings");
+  }
   if (settings.apiProvider === "ollama" && settings.ollamaUseFIM) {
     return GenerateRefactorService.fromSettings(settings);
   }
@@ -48559,21 +48612,39 @@ var RefactorController = class {
       eventListener,
       createRefactorService(settings),
       app,
-      settings.refactorDirectReplace
+      settings.refactorDirectReplace,
+      settings.enableRefactor,
+      checkForErrors(settings).size > 0
     );
   }
-  constructor(eventListener, service, app, directReplace) {
+  constructor(eventListener, service, app, directReplace, enabled, hasSettingsErrors) {
     this.eventListener = eventListener;
     this.service = service;
     this.app = app;
     this.directReplace = directReplace;
+    this.enabled = enabled;
+    this.hasSettingsErrors = hasSettingsErrors;
   }
   handleSettingChanged(settings) {
     this.service = createRefactorService(settings);
     this.directReplace = settings.refactorDirectReplace;
+    this.enabled = settings.enableRefactor;
+    this.hasSettingsErrors = checkForErrors(settings).size > 0;
   }
   async runRefactor(kind, editor, _view, instruction) {
     var _a2, _b;
+    if (!this.enabled) {
+      new import_obsidian9.Notice("Copilot: Refactor is disabled in settings.");
+      return;
+    }
+    if (this.hasSettingsErrors) {
+      new import_obsidian9.Notice("Copilot: Fix settings errors before using refactor.");
+      return;
+    }
+    if (this.eventListener.isCurrentFilePathIgnored() || this.eventListener.currentFileContainsIgnoredTag()) {
+      new import_obsidian9.Notice("Copilot: Refactor is disabled for this file.");
+      return;
+    }
     const selectionState = getRefactorSelection(editor);
     if (selectionState.status === "empty") {
       new import_obsidian9.Notice("Copilot: Select some text to refactor.");
@@ -48894,7 +48965,7 @@ var CopilotPlugin = class extends import_obsidian12.Plugin {
     const runRefactorCommand = (kind) => {
       return (checking, editor, view) => {
         if (checking) {
-          return canRefactorSelection(editor);
+          return settingsTab.settings.enableRefactor && canRefactorSelection(editor);
         }
         void runRefactor(kind, editor, view);
         return true;
@@ -48905,7 +48976,7 @@ var CopilotPlugin = class extends import_obsidian12.Plugin {
       name: "Refactor: Choose Type",
       editorCheckCallback: (checking, editor, view) => {
         if (checking) {
-          return canRefactorSelection(editor);
+          return settingsTab.settings.enableRefactor && canRefactorSelection(editor);
         }
         openRefactorTypePicker(editor, view);
         return true;
@@ -48933,7 +49004,7 @@ var CopilotPlugin = class extends import_obsidian12.Plugin {
     });
     this.registerEvent(
       this.app.workspace.on("editor-menu", (menu, editor, view) => {
-        const canRefactor = canRefactorSelection(editor);
+        const canRefactor = settingsTab.settings.enableRefactor && canRefactorSelection(editor);
         menu.addSeparator();
         menu.addItem((item) => {
           item.setTitle("Refactor to...");
@@ -48988,8 +49059,8 @@ var CopilotPlugin = class extends import_obsidian12.Plugin {
       id: "toggle",
       name: "Toggle",
       callback: () => {
-        const newValue = !settingsTab.settings.enabled;
-        settingsTab.setEnable(newValue);
+        const newValue = !(settingsTab.settings.enableAutocomplete || settingsTab.settings.enableRefactor);
+        settingsTab.setAllFeaturesEnabled(newValue);
       }
     });
     this.addCommand({
@@ -48997,9 +49068,9 @@ var CopilotPlugin = class extends import_obsidian12.Plugin {
       name: "Enable",
       checkCallback: (checking) => {
         if (checking) {
-          return !settingsTab.settings.enabled;
+          return !(settingsTab.settings.enableAutocomplete && settingsTab.settings.enableRefactor);
         }
-        settingsTab.setEnable(true);
+        settingsTab.setAllFeaturesEnabled(true);
         return true;
       }
     });
@@ -49008,9 +49079,9 @@ var CopilotPlugin = class extends import_obsidian12.Plugin {
       name: "Disable",
       checkCallback: (checking) => {
         if (checking) {
-          return settingsTab.settings.enabled;
+          return settingsTab.settings.enableAutocomplete || settingsTab.settings.enableRefactor;
         }
-        settingsTab.setEnable(false);
+        settingsTab.setAllFeaturesEnabled(false);
         return true;
       }
     });

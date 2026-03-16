@@ -40,9 +40,42 @@ var DEFAULT_SETTINGS = {
   strictPandocMode: false,
   autoRenumberLists: false,
   moreExtendedSyntax: false,
+  enableHashAutoNumber: true,
+  enableFancyLists: true,
+  enableExampleLists: true,
+  enableDefinitionLists: true,
+  enableSuperscript: true,
+  enableSubscript: true,
+  enableCustomLabelLists: false,
   enableListPanel: true,
   panelOrder: ["custom-labels", "example-lists", "definition-lists", "footnotes"]
 };
+function isSyntaxFeatureEnabled(settings, key) {
+  var _a, _b, _c, _d, _e;
+  if (key === "enableCustomLabelLists") {
+    if (settings.moreExtendedSyntax === true) {
+      return true;
+    }
+    return (_c = (_b = (_a = settings.enableCustomLabelLists) != null ? _a : settings.moreExtendedSyntax) != null ? _b : DEFAULT_SETTINGS.enableCustomLabelLists) != null ? _c : false;
+  }
+  return (_e = (_d = settings[key]) != null ? _d : DEFAULT_SETTINGS[key]) != null ? _e : false;
+}
+function normalizeSettings(settings) {
+  const sourceSettings = settings != null ? settings : {};
+  const normalized = {
+    ...DEFAULT_SETTINGS,
+    ...settings
+  };
+  normalized.enableHashAutoNumber = isSyntaxFeatureEnabled(sourceSettings, "enableHashAutoNumber");
+  normalized.enableFancyLists = isSyntaxFeatureEnabled(sourceSettings, "enableFancyLists");
+  normalized.enableExampleLists = isSyntaxFeatureEnabled(sourceSettings, "enableExampleLists");
+  normalized.enableDefinitionLists = isSyntaxFeatureEnabled(sourceSettings, "enableDefinitionLists");
+  normalized.enableSuperscript = isSyntaxFeatureEnabled(sourceSettings, "enableSuperscript");
+  normalized.enableSubscript = isSyntaxFeatureEnabled(sourceSettings, "enableSubscript");
+  normalized.enableCustomLabelLists = isSyntaxFeatureEnabled(sourceSettings, "enableCustomLabelLists");
+  normalized.moreExtendedSyntax = normalized.enableCustomLabelLists;
+  return normalized;
+}
 
 // src/core/constants/listConstants.ts
 var LIST_MARKERS = {
@@ -236,6 +269,10 @@ var COMMANDS = {
   OPEN_LIST_PANEL: "open-list-panel"
 };
 var SETTINGS_UI = {
+  SYNTAX_FEATURES: {
+    NAME: "Syntax features",
+    DESCRIPTION: "Choose which Pandoc syntaxes the plugin should recognize and render."
+  },
   STRICT_MODE: {
     NAME: "Strict Pandoc mode",
     DESCRIPTION: "Enable strict pandoc formatting requirements. When enabled, lists must have empty lines before and after them, and capital letter lists require double spacing after markers."
@@ -244,9 +281,33 @@ var SETTINGS_UI = {
     NAME: "Auto-renumber lists",
     DESCRIPTION: "Automatically renumber all list items when inserting a new item. This ensures proper sequential ordering of fancy lists (A, B, C... or i, ii, iii...) when you add items in the middle of a list."
   },
+  HASH_AUTO_NUMBER: {
+    NAME: "Hash auto-number lists",
+    DESCRIPTION: "Enable `#.` auto-numbering lists in live preview, reading mode, and list continuation logic."
+  },
+  FANCY_LISTS: {
+    NAME: "Fancy lists",
+    DESCRIPTION: "Enable alphabetic and Roman numeral list markers such as `A.` and `iv.`."
+  },
+  EXAMPLE_LISTS: {
+    NAME: "Example lists",
+    DESCRIPTION: "Enable Pandoc example lists using `(@label)` markers and example reference rendering."
+  },
+  DEFINITION_LISTS: {
+    NAME: "Definition lists",
+    DESCRIPTION: "Enable Pandoc definition lists with term lines followed by `:` or `~` definitions."
+  },
+  SUPERSCRIPT: {
+    NAME: "Superscript",
+    DESCRIPTION: "Render inline superscript syntax like `2^10^`."
+  },
+  SUBSCRIPT: {
+    NAME: "Subscript",
+    DESCRIPTION: "Render inline subscript syntax like `H~2~O`."
+  },
   CUSTOM_LABEL: {
-    NAME: "Custom label list",
-    DESCRIPTION: "Should use it together with CustomLabelList.lua to enhance pandoc output. Enables custom label lists using {::LABEL} syntax. When strict pandoc mode is enabled, custom label lists must be preceded and followed by blank lines."
+    NAME: "Custom label lists",
+    DESCRIPTION: "Enable `{::LABEL}` custom label lists and references. Use together with `CustomLabelList.lua` for Pandoc output. In strict mode, custom label lists must be surrounded by blank lines."
   },
   LIST_PANEL: {
     NAME: "List panel",
@@ -1880,24 +1941,28 @@ var BasePanelModule = class {
    * Common implementation that can be overridden if needed.
    */
   buildRenderingContext(content) {
-    const exampleItems = extractExampleLists(content);
     const exampleLabels = /* @__PURE__ */ new Map();
     const exampleContent = /* @__PURE__ */ new Map();
-    exampleItems.forEach((item) => {
-      if (item.label) {
-        exampleLabels.set(item.label, item.number);
-        exampleContent.set(item.label, item.content.trim());
-      }
-    });
-    const customLabels = extractCustomLabels(content);
+    if (isSyntaxFeatureEnabled(this.plugin.settings, "enableExampleLists")) {
+      const exampleItems = extractExampleLists(content);
+      exampleItems.forEach((item) => {
+        if (item.label) {
+          exampleLabels.set(item.label, item.number);
+          exampleContent.set(item.label, item.content.trim());
+        }
+      });
+    }
     const customLabelMap = /* @__PURE__ */ new Map();
     const rawToProcessed = /* @__PURE__ */ new Map();
-    customLabels.forEach((label) => {
-      customLabelMap.set(label.rawLabel, label.content);
-      if (label.processedLabel !== label.rawLabel) {
-        rawToProcessed.set(label.rawLabel, label.processedLabel);
-      }
-    });
+    if (isSyntaxFeatureEnabled(this.plugin.settings, "enableCustomLabelLists")) {
+      const customLabels = extractCustomLabels(content, true);
+      customLabels.forEach((label) => {
+        customLabelMap.set(label.rawLabel, label.content);
+        if (label.processedLabel !== label.rawLabel) {
+          rawToProcessed.set(label.rawLabel, label.processedLabel);
+        }
+      });
+    }
     this.currentContext = {
       exampleLabels,
       exampleContent,
@@ -1926,8 +1991,10 @@ var CustomLabelPanelModule = class extends BasePanelModule {
     this.labels = [];
   }
   extractData(content) {
-    var _a;
-    this.labels = extractCustomLabels(content, ((_a = this.plugin.settings) == null ? void 0 : _a.moreExtendedSyntax) || false);
+    this.labels = extractCustomLabels(
+      content,
+      isSyntaxFeatureEnabled(this.plugin.settings, "enableCustomLabelLists")
+    );
   }
   renderContent(activeView) {
     this.renderLabels(activeView);
@@ -2114,7 +2181,6 @@ var ExampleListPanelModule = class extends BasePanelModule {
    * @param content The document content to extract context from
    */
   buildRenderingContext(content) {
-    var _a;
     super.buildRenderingContext(content);
     const exampleLabels = /* @__PURE__ */ new Map();
     this.exampleItems.forEach((item) => {
@@ -2124,7 +2190,7 @@ var ExampleListPanelModule = class extends BasePanelModule {
       }
     });
     const rawToProcessed = /* @__PURE__ */ new Map();
-    if ((_a = this.plugin.settings) == null ? void 0 : _a.moreExtendedSyntax) {
+    if (isSyntaxFeatureEnabled(this.plugin.settings, "enableCustomLabelLists")) {
       const customLabels = extractCustomLabels(content, true);
       customLabels.forEach((label) => {
         const match = label.rawLabel.match(/\{::([^}]+)\}/);
@@ -2747,6 +2813,7 @@ var ListPanelView = class extends import_obsidian6.ItemView {
     this.iconRowEl = null;
     this.contentContainerEl = null;
     this.plugin = plugin;
+    this.plugin.settings = normalizeSettings(this.plugin.settings);
     this.hoverLinkSource = {
       display: "List panel",
       defaultMod: true
@@ -2755,7 +2822,7 @@ var ListPanelView = class extends import_obsidian6.ItemView {
   }
   initializePanels() {
     const availablePanels = [];
-    if (this.plugin.settings.moreExtendedSyntax) {
+    if (isSyntaxFeatureEnabled(this.plugin.settings, "enableCustomLabelLists")) {
       const customLabelModule = new CustomLabelPanelModule(this.plugin);
       availablePanels.push({
         id: customLabelModule.id,
@@ -2764,20 +2831,24 @@ var ListPanelView = class extends import_obsidian6.ItemView {
         module: customLabelModule
       });
     }
-    const exampleListModule = new ExampleListPanelModule(this.plugin);
-    availablePanels.push({
-      id: exampleListModule.id,
-      displayName: exampleListModule.displayName,
-      icon: exampleListModule.icon,
-      module: exampleListModule
-    });
-    const definitionListModule = new DefinitionListPanelModule(this.plugin);
-    availablePanels.push({
-      id: definitionListModule.id,
-      displayName: definitionListModule.displayName,
-      icon: definitionListModule.icon,
-      module: definitionListModule
-    });
+    if (isSyntaxFeatureEnabled(this.plugin.settings, "enableExampleLists")) {
+      const exampleListModule = new ExampleListPanelModule(this.plugin);
+      availablePanels.push({
+        id: exampleListModule.id,
+        displayName: exampleListModule.displayName,
+        icon: exampleListModule.icon,
+        module: exampleListModule
+      });
+    }
+    if (isSyntaxFeatureEnabled(this.plugin.settings, "enableDefinitionLists")) {
+      const definitionListModule = new DefinitionListPanelModule(this.plugin);
+      availablePanels.push({
+        id: definitionListModule.id,
+        displayName: definitionListModule.displayName,
+        icon: definitionListModule.icon,
+        module: definitionListModule
+      });
+    }
     const footnoteModule = new FootnotePanelModule(this.plugin);
     availablePanels.push({
       id: footnoteModule.id,
@@ -2809,6 +2880,7 @@ var ListPanelView = class extends import_obsidian6.ItemView {
     return ICONS.LIST_PANEL_ID;
   }
   async onOpen() {
+    this.plugin.settings = normalizeSettings(this.plugin.settings);
     if (!this.plugin.settings.enableListPanel) {
       this.leaf.detach();
       return;
@@ -2985,6 +3057,7 @@ var PandocExtendedMarkdownSettingTab = class extends import_obsidian7.PluginSett
   display() {
     const { containerEl } = this;
     containerEl.empty();
+    this.plugin.settings = normalizeSettings(this.plugin.settings);
     this.renderGeneralSettings(containerEl);
     this.renderPanelOrderSettings(containerEl);
   }
@@ -2997,15 +3070,61 @@ var PandocExtendedMarkdownSettingTab = class extends import_obsidian7.PluginSett
       this.plugin.settings.autoRenumberLists = value;
       await this.plugin.saveSettings();
     }));
-    new import_obsidian7.Setting(containerEl).setName(SETTINGS_UI.CUSTOM_LABEL.NAME).setDesc(SETTINGS_UI.CUSTOM_LABEL.DESCRIPTION).addToggle((toggle) => toggle.setValue(this.plugin.settings.moreExtendedSyntax).onChange(async (value) => {
-      this.plugin.settings.moreExtendedSyntax = value;
+    new import_obsidian7.Setting(containerEl).setName(SETTINGS_UI.SYNTAX_FEATURES.NAME).setDesc(SETTINGS_UI.SYNTAX_FEATURES.DESCRIPTION).setHeading();
+    this.createFeatureToggle(
+      containerEl,
+      SETTINGS_UI.HASH_AUTO_NUMBER.NAME,
+      SETTINGS_UI.HASH_AUTO_NUMBER.DESCRIPTION,
+      "enableHashAutoNumber"
+    );
+    this.createFeatureToggle(
+      containerEl,
+      SETTINGS_UI.FANCY_LISTS.NAME,
+      SETTINGS_UI.FANCY_LISTS.DESCRIPTION,
+      "enableFancyLists"
+    );
+    this.createFeatureToggle(
+      containerEl,
+      SETTINGS_UI.EXAMPLE_LISTS.NAME,
+      SETTINGS_UI.EXAMPLE_LISTS.DESCRIPTION,
+      "enableExampleLists"
+    );
+    this.createFeatureToggle(
+      containerEl,
+      SETTINGS_UI.DEFINITION_LISTS.NAME,
+      SETTINGS_UI.DEFINITION_LISTS.DESCRIPTION,
+      "enableDefinitionLists"
+    );
+    this.createFeatureToggle(
+      containerEl,
+      SETTINGS_UI.SUPERSCRIPT.NAME,
+      SETTINGS_UI.SUPERSCRIPT.DESCRIPTION,
+      "enableSuperscript"
+    );
+    this.createFeatureToggle(
+      containerEl,
+      SETTINGS_UI.SUBSCRIPT.NAME,
+      SETTINGS_UI.SUBSCRIPT.DESCRIPTION,
+      "enableSubscript"
+    );
+    new import_obsidian7.Setting(containerEl).setName(SETTINGS_UI.CUSTOM_LABEL.NAME).setDesc(SETTINGS_UI.CUSTOM_LABEL.DESCRIPTION).addToggle((toggle) => toggle.setValue(isSyntaxFeatureEnabled(this.plugin.settings, "enableCustomLabelLists")).onChange(async (value) => {
+      this.plugin.settings.enableCustomLabelLists = value;
       await this.plugin.saveSettings();
       this.refreshListPanels();
+      this.display();
     }));
     new import_obsidian7.Setting(containerEl).setName(SETTINGS_UI.LIST_PANEL.NAME).setDesc(SETTINGS_UI.LIST_PANEL.DESCRIPTION).addToggle((toggle) => toggle.setValue(this.plugin.settings.enableListPanel).onChange(async (value) => {
       this.plugin.settings.enableListPanel = value;
       await this.plugin.saveSettings();
       this.plugin.updateListPanelAvailability();
+    }));
+  }
+  createFeatureToggle(containerEl, name, description, settingKey) {
+    new import_obsidian7.Setting(containerEl).setName(name).setDesc(description).addToggle((toggle) => toggle.setValue(isSyntaxFeatureEnabled(this.plugin.settings, settingKey)).onChange(async (value) => {
+      this.plugin.settings[settingKey] = value;
+      await this.plugin.saveSettings();
+      this.refreshListPanels();
+      this.display();
     }));
   }
   renderPanelOrderSettings(containerEl) {
@@ -3044,7 +3163,7 @@ var PandocExtendedMarkdownSettingTab = class extends import_obsidian7.PluginSett
     for (const panelId of this.plugin.settings.panelOrder) {
       const panelInfo = PANEL_SETTINGS.AVAILABLE_PANELS.find((p) => p.id === panelId);
       if (!panelInfo) continue;
-      if (panelId === "custom-labels" && !this.plugin.settings.moreExtendedSyntax) {
+      if (!this.isPanelVisible(panelId)) {
         continue;
       }
       const itemEl = listEl.createDiv({
@@ -3203,11 +3322,21 @@ var PandocExtendedMarkdownSettingTab = class extends import_obsidian7.PluginSett
   }
   getVisiblePanels() {
     return this.plugin.settings.panelOrder.filter((id) => {
-      if (id === "custom-labels" && !this.plugin.settings.moreExtendedSyntax) {
-        return false;
-      }
+      if (!this.isPanelVisible(id)) return false;
       return PANEL_SETTINGS.AVAILABLE_PANELS.some((panel) => panel.id === id);
     });
+  }
+  isPanelVisible(panelId) {
+    if (panelId === "custom-labels") {
+      return isSyntaxFeatureEnabled(this.plugin.settings, "enableCustomLabelLists");
+    }
+    if (panelId === "example-lists") {
+      return isSyntaxFeatureEnabled(this.plugin.settings, "enableExampleLists");
+    }
+    if (panelId === "definition-lists") {
+      return isSyntaxFeatureEnabled(this.plugin.settings, "enableDefinitionLists");
+    }
+    return true;
   }
   getCurrentPanelIndex() {
     if (!this.selectedPanelId) return -1;
@@ -3227,18 +3356,19 @@ var PandocExtendedMarkdownSettingTab = class extends import_obsidian7.PluginSett
 
 // src/shared/types/processorConfig.ts
 function createProcessorConfig(vaultConfig, pluginSettings) {
-  var _a, _b, _c;
-  const moreExtendedSyntax = (_a = pluginSettings.moreExtendedSyntax) != null ? _a : false;
+  var _a, _b;
   return {
-    strictLineBreaks: (_b = vaultConfig.strictLineBreaks) != null ? _b : false,
-    strictPandocMode: (_c = pluginSettings.strictPandocMode) != null ? _c : false,
-    moreExtendedSyntax,
-    enableHashLists: true,
-    enableFancyLists: true,
-    enableExampleLists: true,
-    enableDefinitionLists: true,
-    enableSuperSubscripts: true,
-    enableCustomLabelLists: moreExtendedSyntax
+    strictLineBreaks: (_a = vaultConfig.strictLineBreaks) != null ? _a : false,
+    strictPandocMode: (_b = pluginSettings.strictPandocMode) != null ? _b : false,
+    moreExtendedSyntax: isSyntaxFeatureEnabled(pluginSettings, "enableCustomLabelLists"),
+    enableHashLists: isSyntaxFeatureEnabled(pluginSettings, "enableHashAutoNumber"),
+    enableFancyLists: isSyntaxFeatureEnabled(pluginSettings, "enableFancyLists"),
+    enableExampleLists: isSyntaxFeatureEnabled(pluginSettings, "enableExampleLists"),
+    enableDefinitionLists: isSyntaxFeatureEnabled(pluginSettings, "enableDefinitionLists"),
+    enableSuperSubscripts: isSyntaxFeatureEnabled(pluginSettings, "enableSuperscript") || isSyntaxFeatureEnabled(pluginSettings, "enableSubscript"),
+    enableSuperscript: isSyntaxFeatureEnabled(pluginSettings, "enableSuperscript"),
+    enableSubscript: isSyntaxFeatureEnabled(pluginSettings, "enableSubscript"),
+    enableCustomLabelLists: isSyntaxFeatureEnabled(pluginSettings, "enableCustomLabelLists")
   };
 }
 
@@ -3720,7 +3850,7 @@ function scanCustomLabels(doc, settings, placeholderContext, codeRegions) {
   const duplicateLineInfo = /* @__PURE__ */ new Map();
   const seenLabels = /* @__PURE__ */ new Map();
   const context = placeholderContext || new PlaceholderContext();
-  if (!settings.moreExtendedSyntax) {
+  if (!isSyntaxFeatureEnabled(settings, "enableCustomLabelLists")) {
     return { customLabels, rawToProcessed, duplicateLabels, duplicateLineInfo, placeholderContext: context };
   }
   const placeholdersInOrder = collectPlaceholders(doc, codeRegions);
@@ -3879,6 +4009,9 @@ function createExampleScanResult() {
 }
 function scanExampleLabelsFromDoc(doc, settings, codeRegions) {
   const result = createExampleScanResult();
+  if (!isSyntaxFeatureEnabled(settings, "enableExampleLists")) {
+    return { ...result, duplicateLineNumbers: /* @__PURE__ */ new Set() };
+  }
   const counter = { value: 1 };
   const lines = doc.toString().split("\n");
   const invalidLines = settings.strictPandocMode ? validateListBlocks(doc) : /* @__PURE__ */ new Set();
@@ -3941,7 +4074,7 @@ var ProcessingPipeline = class {
   }
   // Helper: Get custom scan result
   getCustomScanResult(doc, settings, placeholderContext, codeRegions) {
-    return settings.moreExtendedSyntax ? scanCustomLabels(doc, settings, placeholderContext, codeRegions) : {
+    return isSyntaxFeatureEnabled(settings, "enableCustomLabelLists") ? scanCustomLabels(doc, settings, placeholderContext, codeRegions) : {
       customLabels: /* @__PURE__ */ new Map(),
       rawToProcessed: /* @__PURE__ */ new Map(),
       duplicateLabels: /* @__PURE__ */ new Set(),
@@ -4744,6 +4877,9 @@ var HashListProcessor = class extends BaseStructuralProcessor {
     this.priority = 10;
   }
   canProcess(line, context) {
+    if (!isSyntaxFeatureEnabled(context.settings, "enableHashAutoNumber")) {
+      return false;
+    }
     const lineText = line.text;
     return ListPatterns.isHashList(lineText) !== null;
   }
@@ -4785,6 +4921,9 @@ var FancyListProcessor = class extends BaseStructuralProcessor {
     this.priority = 20;
   }
   canProcess(line, context) {
+    if (!isSyntaxFeatureEnabled(context.settings, "enableFancyLists")) {
+      return false;
+    }
     const lineText = line.text;
     return ListPatterns.isFancyList(lineText) !== null;
   }
@@ -4828,6 +4967,9 @@ var ExampleListProcessor = class extends BaseStructuralProcessor {
     this.priority = 30;
   }
   canProcess(line, context) {
+    if (!isSyntaxFeatureEnabled(context.settings, "enableExampleLists")) {
+      return false;
+    }
     const lineText = line.text;
     return ListPatterns.isExampleList(lineText) !== null;
   }
@@ -5191,7 +5333,7 @@ var CustomLabelProcessor = class {
   }
   // Process after basic lists
   canProcess(line, context) {
-    if (!context.settings.moreExtendedSyntax) {
+    if (!isSyntaxFeatureEnabled(context.settings, "enableCustomLabelLists")) {
       return false;
     }
     const lineText = context.document.sliceString(line.from, line.to);
@@ -5237,6 +5379,9 @@ var DefinitionProcessor = class {
   }
   // Process after other lists
   canProcess(line, context) {
+    if (!isSyntaxFeatureEnabled(context.settings, "enableDefinitionLists")) {
+      return false;
+    }
     const lineText = context.document.sliceString(line.from, line.to);
     if (ListPatterns.isDefinitionMarker(lineText)) {
       return true;
@@ -5638,6 +5783,9 @@ var ExampleReferenceProcessor = class {
   }
   findMatches(text, region, context) {
     const matches = [];
+    if (!isSyntaxFeatureEnabled(context.settings, "enableExampleLists")) {
+      return matches;
+    }
     const pattern = ListPatterns.EXAMPLE_REFERENCE;
     const regionCursorPos = getRegionCursorPosition(context, region);
     let match;
@@ -5692,6 +5840,9 @@ var SuperscriptProcessor = class {
   }
   findMatches(text, region, context) {
     const matches = [];
+    if (!isSyntaxFeatureEnabled(context.settings, "enableSuperscript")) {
+      return matches;
+    }
     const pattern = ListPatterns.SUPERSCRIPT_INLINE;
     const regionCursorPos = getRegionCursorPosition(context, region);
     let match;
@@ -5733,6 +5884,9 @@ var SubscriptProcessor = class {
   }
   findMatches(text, region, context) {
     const matches = [];
+    if (!isSyntaxFeatureEnabled(context.settings, "enableSubscript")) {
+      return matches;
+    }
     const pattern = ListPatterns.SUBSCRIPT_INLINE;
     const regionCursorPos = getRegionCursorPosition(context, region);
     let match;
@@ -5774,7 +5928,7 @@ var CustomLabelReferenceProcessor = class {
   }
   findMatches(text, region, context) {
     const matches = [];
-    if (!context.settings.moreExtendedSyntax) {
+    if (!isSyntaxFeatureEnabled(context.settings, "enableCustomLabelLists")) {
       return matches;
     }
     const regionCursorPos = getRegionCursorPosition(context, region);
@@ -6014,34 +6168,38 @@ function extractContent(match, delimiter) {
   const content = match.slice(1, -1);
   return ListPatterns.unescapeSpaces(content);
 }
-function findSuperSubInText(text) {
+function findSuperSubInText(text, options) {
   const matches = [];
-  const superscripts = ListPatterns.findSuperscripts(text);
-  superscripts.forEach((match) => {
-    if (match.index !== void 0) {
-      matches.push({
-        index: match.index,
-        length: match[0].length,
-        content: extractContent(match[0], "^"),
-        type: "superscript"
-      });
-    }
-  });
-  const subscripts = ListPatterns.findSubscripts(text);
-  subscripts.forEach((match) => {
-    if (match.index !== void 0) {
-      matches.push({
-        index: match.index,
-        length: match[0].length,
-        content: extractContent(match[0], "~"),
-        type: "subscript"
-      });
-    }
-  });
+  if ((options == null ? void 0 : options.enableSuperscript) !== false) {
+    const superscripts = ListPatterns.findSuperscripts(text);
+    superscripts.forEach((match) => {
+      if (match.index !== void 0) {
+        matches.push({
+          index: match.index,
+          length: match[0].length,
+          content: extractContent(match[0], "^"),
+          type: "superscript"
+        });
+      }
+    });
+  }
+  if ((options == null ? void 0 : options.enableSubscript) !== false) {
+    const subscripts = ListPatterns.findSubscripts(text);
+    subscripts.forEach((match) => {
+      if (match.index !== void 0) {
+        matches.push({
+          index: match.index,
+          length: match[0].length,
+          content: extractContent(match[0], "~"),
+          type: "subscript"
+        });
+      }
+    });
+  }
   matches.sort((a, b) => a.index - b.index);
   return matches;
 }
-function processSuperSub(element) {
+function processSuperSub(element, options) {
   const walker = createSmartTextNodeWalker(element);
   const nodesToReplace = [];
   while (walker.nextNode()) {
@@ -6051,7 +6209,7 @@ function processSuperSub(element) {
       continue;
     }
     const text = node.textContent || "";
-    const matches = findSuperSubInText(text);
+    const matches = findSuperSubInText(text, options);
     if (matches.length > 0) {
       nodesToReplace.push({ node, matches });
     }
@@ -6118,8 +6276,8 @@ var ReadingModeParser = class {
   /**
    * Parse a single line and identify its type and data
    */
-  parseLine(line, context) {
-    const hashMatch = ListPatterns.isHashList(line);
+  parseLine(line, context, config) {
+    const hashMatch = (config == null ? void 0 : config.enableHashLists) !== false ? ListPatterns.isHashList(line) : null;
     if (hashMatch) {
       return {
         type: "hash",
@@ -6132,7 +6290,7 @@ var ReadingModeParser = class {
         }
       };
     }
-    const fancyMarker = parseFancyListMarker(line);
+    const fancyMarker = (config == null ? void 0 : config.enableFancyLists) !== false ? parseFancyListMarker(line) : null;
     if (fancyMarker && fancyMarker.type !== "hash") {
       return {
         type: "fancy",
@@ -6145,7 +6303,7 @@ var ReadingModeParser = class {
         }
       };
     }
-    if ((context == null ? void 0 : context.isInParagraph) && (context == null ? void 0 : context.isAtParagraphStart) !== false) {
+    if ((config == null ? void 0 : config.enableExampleLists) !== false && (context == null ? void 0 : context.isInParagraph) && (context == null ? void 0 : context.isAtParagraphStart) !== false) {
       const exampleMarker = parseExampleListMarker(line);
       if (exampleMarker) {
         const contentStart = exampleMarker.indent.length + exampleMarker.originalMarker.length + 1;
@@ -6161,7 +6319,7 @@ var ReadingModeParser = class {
         };
       }
     }
-    const defMarker = parseDefinitionListMarker(line);
+    const defMarker = (config == null ? void 0 : config.enableDefinitionLists) !== false ? parseDefinitionListMarker(line) : null;
     if (defMarker && defMarker.type === "definition") {
       return {
         type: "definition-item",
@@ -6171,7 +6329,7 @@ var ReadingModeParser = class {
         }
       };
     }
-    if ((context == null ? void 0 : context.nextLine) && ListPatterns.isDefinitionMarker(context.nextLine)) {
+    if ((config == null ? void 0 : config.enableDefinitionLists) !== false && (context == null ? void 0 : context.nextLine) && ListPatterns.isDefinitionMarker(context.nextLine)) {
       return {
         type: "definition-term",
         content: line,
@@ -6180,7 +6338,7 @@ var ReadingModeParser = class {
         }
       };
     }
-    const references = this.findExampleReferences(line);
+    const references = (config == null ? void 0 : config.enableExampleLists) !== false ? this.findExampleReferences(line) : [];
     if (references.length > 0) {
       return {
         type: "reference",
@@ -6198,11 +6356,11 @@ var ReadingModeParser = class {
   /**
    * Parse multiple lines with context
    */
-  parseLines(lines, isInParagraph = false, isAtParagraphStart = true) {
+  parseLines(lines, isInParagraph = false, isAtParagraphStart = true, config) {
     return lines.map((line, index) => {
       const nextLine = index < lines.length - 1 ? lines[index + 1] : void 0;
       const isLineAtStart = index === 0 ? isAtParagraphStart : true;
-      return this.parseLine(line, { nextLine, isInParagraph, isAtParagraphStart: isLineAtStart });
+      return this.parseLine(line, { nextLine, isInParagraph, isAtParagraphStart: isLineAtStart }, config);
     });
   }
   /**
@@ -6802,7 +6960,10 @@ function processReadingMode(element, context, config) {
     pluginStateManager.markElementProcessed(elem, "pem-processed", true);
   });
   if (config.enableSuperSubscripts) {
-    processSuperSub(element);
+    processSuperSub(element, {
+      enableSuperscript: config.enableSuperscript !== false,
+      enableSubscript: config.enableSubscript !== false
+    });
   }
   if (config.enableCustomLabelLists) {
     const counters = pluginStateManager.getDocumentCounters(docPath);
@@ -6832,7 +6993,7 @@ function processElementTextNodes(elem, parser, renderer, config, docPath, valida
     const isInParagraph = parent.nodeName === "P";
     const isAtParagraphStart = parent.firstChild === node;
     const lines = text.split("\n");
-    const parsedLines = parser.parseLines(lines, isInParagraph, isAtParagraphStart);
+    const parsedLines = parser.parseLines(lines, isInParagraph, isAtParagraphStart, config);
     if (config.strictPandocMode) {
       parsedLines.forEach((parsedLine, index) => {
         if (parsedLine.type === "fancy" && validationLines.length > 0) {
@@ -6878,7 +7039,7 @@ function processElementTextNodes(elem, parser, renderer, config, docPath, valida
   });
 }
 function containsPandocSyntax(text, config) {
-  const hasBasicSyntax = ListPatterns.isHashList(text) || ListPatterns.isFancyList(text) || ListPatterns.isExampleList(text) || ListPatterns.isDefinitionMarker(text) || ListPatterns.findExampleReferences(text).length > 0;
+  const hasBasicSyntax = (config == null ? void 0 : config.enableHashLists) !== false && !!ListPatterns.isHashList(text) || (config == null ? void 0 : config.enableFancyLists) !== false && !!ListPatterns.isFancyList(text) || (config == null ? void 0 : config.enableExampleLists) !== false && !!ListPatterns.isExampleList(text) || (config == null ? void 0 : config.enableDefinitionLists) !== false && !!ListPatterns.isDefinitionMarker(text) || (config == null ? void 0 : config.enableExampleLists) !== false && ListPatterns.findExampleReferences(text).length > 0;
   const hasCustomLabelSyntax = (config == null ? void 0 : config.enableCustomLabelLists) && (ListPatterns.isCustomLabelList(text) || ListPatterns.findCustomLabelReferences(text).length > 0);
   return hasBasicSyntax || hasCustomLabelSyntax;
 }
@@ -6908,6 +7069,9 @@ var ExampleReferenceSuggest = class extends import_obsidian13.EditorSuggest {
     this.plugin = plugin;
   }
   onTrigger(cursor, editor, file) {
+    if (!isSyntaxFeatureEnabled(this.plugin.settings, "enableExampleLists")) {
+      return null;
+    }
     const line = editor.getLine(cursor.line).substring(0, cursor.ch);
     if (!line.contains("(@")) return null;
     const matches = ListPatterns.findExampleRefStarts(line);
@@ -7002,7 +7166,7 @@ var CustomLabelReferenceSuggest = class extends import_obsidian14.EditorSuggest 
     this.plugin = plugin;
   }
   onTrigger(cursor, editor, file) {
-    if (!this.plugin.settings.moreExtendedSyntax) return null;
+    if (!isSyntaxFeatureEnabled(this.plugin.settings, "enableCustomLabelLists")) return null;
     const line = editor.getLine(cursor.line).substring(0, cursor.ch);
     if (!line.includes("{::")) return null;
     const matches = ListPatterns.findCustomLabelRefStarts(line);
@@ -7187,10 +7351,10 @@ function getCurrentLineInfo(view) {
 }
 
 // src/editor-extensions/listAutocompletion/utils/markerDetection.ts
-function detectListMarker(currentLine, view) {
+function detectListMarker(currentLine, view, settings) {
   const { lineText, selection, line, distanceFromEnd } = currentLine;
   const state = view.state;
-  const isEmptyExampleList = lineText.match(ListPatterns.EMPTY_EXAMPLE_LIST_NO_LABEL);
+  const isEmptyExampleList = isSyntaxFeatureEnabled(settings, "enableExampleLists") ? lineText.match(ListPatterns.EMPTY_EXAMPLE_LIST_NO_LABEL) : null;
   if (isEmptyExampleList) {
     const beforeCursor = state.doc.sliceString(line.from, selection.from);
     const afterCursor = state.doc.sliceString(selection.from, line.to);
@@ -7203,7 +7367,7 @@ function detectListMarker(currentLine, view) {
       };
     }
   }
-  const isEmptyCustomLabelList = lineText.match(ListPatterns.EMPTY_CUSTOM_LABEL_LIST_NO_LABEL);
+  const isEmptyCustomLabelList = isSyntaxFeatureEnabled(settings, "enableCustomLabelLists") ? lineText.match(ListPatterns.EMPTY_CUSTOM_LABEL_LIST_NO_LABEL) : null;
   if (isEmptyCustomLabelList) {
     const beforeCursor = state.doc.sliceString(line.from, selection.from);
     const afterCursor = state.doc.sliceString(selection.from, line.to);
@@ -7216,7 +7380,7 @@ function detectListMarker(currentLine, view) {
       };
     }
   }
-  const isListItem2 = lineText.match(ListPatterns.ANY_LIST_MARKER);
+  const isListItem2 = isExtendedList(lineText, settings);
   if (!isListItem2) {
     const shouldHandle2 = selection.from === line.to && selection.from === selection.to;
     return {
@@ -7234,8 +7398,8 @@ function detectListMarker(currentLine, view) {
     isEmptyCustomLabelSpecial: false
   };
 }
-function isExtendedList(lineText) {
-  return !!(ListPatterns.isFancyList(lineText) || ListPatterns.isExampleList(lineText) || ListPatterns.isCustomLabelList(lineText) || ListPatterns.isHashList(lineText));
+function isExtendedList(lineText, settings) {
+  return !!(isSyntaxFeatureEnabled(settings, "enableFancyLists") && ListPatterns.isFancyList(lineText) || isSyntaxFeatureEnabled(settings, "enableExampleLists") && ListPatterns.isExampleList(lineText) || isSyntaxFeatureEnabled(settings, "enableCustomLabelLists") && ListPatterns.isCustomLabelList(lineText) || isSyntaxFeatureEnabled(settings, "enableHashAutoNumber") && ListPatterns.isHashList(lineText) || isSyntaxFeatureEnabled(settings, "enableDefinitionLists") && ListPatterns.isDefinitionMarker(lineText));
 }
 
 // src/editor-extensions/listAutocompletion/handlers/emptyListHandler.ts
@@ -7293,8 +7457,8 @@ function isEmptyListItem(line) {
 }
 
 // src/shared/utils/listMarkerDetector.ts
-function parseMarkerParts(line) {
-  const hashMatch = ListPatterns.isHashList(line);
+function parseMarkerParts(line, settings) {
+  const hashMatch = isSyntaxFeatureEnabled(settings || {}, "enableHashAutoNumber") ? ListPatterns.isHashList(line) : null;
   if (hashMatch) {
     return {
       type: "hash",
@@ -7303,7 +7467,7 @@ function parseMarkerParts(line) {
       spaces: hashMatch[3]
     };
   }
-  const customLabelMatch = ListPatterns.isCustomLabelList(line);
+  const customLabelMatch = isSyntaxFeatureEnabled(settings || {}, "enableCustomLabelLists") ? ListPatterns.isCustomLabelList(line) : null;
   if (customLabelMatch) {
     return {
       type: "custom-label",
@@ -7313,7 +7477,7 @@ function parseMarkerParts(line) {
       // Group 4 is spaces in CUSTOM_LABEL_LIST pattern
     };
   }
-  const listMatch = line.match(ListPatterns.LETTER_OR_ROMAN_LIST);
+  const listMatch = isSyntaxFeatureEnabled(settings || {}, "enableFancyLists") ? line.match(ListPatterns.LETTER_OR_ROMAN_LIST) : null;
   if (listMatch) {
     return {
       type: "unknown",
@@ -7324,7 +7488,7 @@ function parseMarkerParts(line) {
       spaces: listMatch[4]
     };
   }
-  const exampleMatch = line.match(ListPatterns.EXAMPLE_LIST);
+  const exampleMatch = isSyntaxFeatureEnabled(settings || {}, "enableExampleLists") ? line.match(ListPatterns.EXAMPLE_LIST) : null;
   if (exampleMatch) {
     return {
       type: LIST_TYPES.EXAMPLE,
@@ -7334,7 +7498,7 @@ function parseMarkerParts(line) {
       // Group 4 is spaces in EXAMPLE_LIST pattern
     };
   }
-  const altMatch = line.match(ListPatterns.EXAMPLE_LIST_OPTIONAL_SPACE);
+  const altMatch = isSyntaxFeatureEnabled(settings || {}, "enableExampleLists") ? line.match(ListPatterns.EXAMPLE_LIST_OPTIONAL_SPACE) : null;
   if (altMatch && line.length > altMatch[0].length) {
     return {
       type: LIST_TYPES.EXAMPLE,
@@ -7344,7 +7508,7 @@ function parseMarkerParts(line) {
       // Group 3 is spaces in EXAMPLE_LIST_OPTIONAL_SPACE pattern
     };
   }
-  const definitionMatch = line.match(ListPatterns.DEFINITION_MARKER);
+  const definitionMatch = isSyntaxFeatureEnabled(settings || {}, "enableDefinitionLists") ? line.match(ListPatterns.DEFINITION_MARKER) : null;
   if (definitionMatch) {
     return {
       type: LIST_TYPES.DEFINITION,
@@ -7474,9 +7638,9 @@ function handleSpecialCases(components) {
       return null;
   }
 }
-function getNextListMarker(currentLine, allLines, currentLineIndex) {
+function getNextListMarker(currentLine, allLines, currentLineIndex, settings) {
   const context = { currentLine, allLines, currentLineIndex };
-  const components = parseMarkerParts(currentLine);
+  const components = parseMarkerParts(currentLine, settings);
   if (!components) {
     return null;
   }
@@ -7575,7 +7739,7 @@ function handleEmptyListItem(config) {
       const prevIndentMatch = prevText.match(ListPatterns.INDENT_ONLY);
       if (prevIndentMatch && prevIndentMatch[1] === newIndent) {
         const allLines = state.doc.toString().split("\n");
-        const markerInfo = getNextListMarker(prevText, allLines, i - 1);
+        const markerInfo = getNextListMarker(prevText, allLines, i - 1, config.settings);
         if (markerInfo) {
           previousMarker = markerInfo;
           break;
@@ -7814,7 +7978,7 @@ ${markerInfo.indent}${markerInfo.marker}${spaces}`;
   return true;
 }
 function handleNonEmptyListItem(config) {
-  const { currentLine } = config;
+  const { currentLine, settings } = config;
   const { lineText } = currentLine;
   if (lineText.match(ListPatterns.NUMBERED_LIST_WITH_SPACE)) {
     return false;
@@ -7822,7 +7986,7 @@ function handleNonEmptyListItem(config) {
   const state = config.view.state;
   const allLines = state.doc.toString().split("\n");
   const currentLineIndex = currentLine.line.number - 1;
-  const markerInfo = getNextListMarker(lineText, allLines, currentLineIndex);
+  const markerInfo = getNextListMarker(lineText, allLines, currentLineIndex, settings);
   if (markerInfo) {
     const newConfig = { ...config, markerInfo };
     return insertNewListItem(newConfig);
@@ -7879,7 +8043,7 @@ function handleContinuationLine(config) {
     return false;
   }
   const allLines = state.doc.toString().split("\n");
-  const markerInfo = getNextListMarker(lastListItem.text, allLines, lastListItem.line.number - 1);
+  const markerInfo = getNextListMarker(lastListItem.text, allLines, lastListItem.line.number - 1, settings);
   if (!markerInfo) {
     return false;
   }
@@ -7921,7 +8085,7 @@ function createEnterHandler(settings) {
       if (handleContinuationLine(continuationConfig)) {
         return true;
       }
-      const detection = detectListMarker(currentLine, view);
+      const detection = detectListMarker(currentLine, view, settings);
       if (!detection.shouldHandleEnter) {
         return false;
       }
@@ -7932,6 +8096,7 @@ function createEnterHandler(settings) {
         const specialConfig = {
           view,
           currentLine,
+          settings,
           beforeCursor,
           afterCursor
         };
@@ -7943,6 +8108,7 @@ function createEnterHandler(settings) {
       const emptyListConfig = {
         view,
         currentLine,
+        settings,
         beforeCursor: "",
         afterCursor: ""
       };
@@ -7961,7 +8127,7 @@ function createEnterHandler(settings) {
 
 // src/editor-extensions/listAutocompletion/handlers/tabHandler.ts
 var import_state6 = require("@codemirror/state");
-function createTabHandler() {
+function createTabHandler(settings) {
   return {
     key: "Tab",
     run: (view) => {
@@ -7969,7 +8135,7 @@ function createTabHandler() {
       const selection = state.selection.main;
       const line = state.doc.lineAt(selection.from);
       const lineText = line.text;
-      const listMatch = lineText.match(ListPatterns.ANY_LIST_MARKER_WITH_SPACE);
+      const listMatch = isExtendedList(lineText, settings) ? lineText.match(ListPatterns.ANY_LIST_MARKER_WITH_SPACE) : null;
       if (listMatch) {
         const currentIndent = listMatch[1];
         const marker = listMatch[2];
@@ -7995,7 +8161,7 @@ function createTabHandler() {
     }
   };
 }
-function createShiftTabHandler() {
+function createShiftTabHandler(settings) {
   return {
     key: "Shift-Tab",
     run: (view) => {
@@ -8003,7 +8169,7 @@ function createShiftTabHandler() {
       const selection = state.selection.main;
       const line = state.doc.lineAt(selection.from);
       const lineText = line.text;
-      const listMatch = lineText.match(ListPatterns.ANY_LIST_MARKER_WITH_INDENT_AND_SPACE);
+      const listMatch = isExtendedList(lineText, settings) ? lineText.match(ListPatterns.ANY_LIST_MARKER_WITH_INDENT_AND_SPACE) : null;
       if (listMatch && listMatch[1].length > 0) {
         const currentIndent = listMatch[1];
         const marker = listMatch[2];
@@ -8033,7 +8199,7 @@ function createShiftTabHandler() {
 
 // src/editor-extensions/listAutocompletion/handlers/shiftHandlers.ts
 var import_state7 = require("@codemirror/state");
-function createShiftEnterHandler() {
+function createShiftEnterHandler(settings) {
   return {
     key: "Shift-Enter",
     run: (view) => {
@@ -8041,7 +8207,7 @@ function createShiftEnterHandler() {
       const selection = state.selection.main;
       const line = state.doc.lineAt(selection.from);
       const lineText = line.text;
-      if (isExtendedList(lineText)) {
+      if (isExtendedList(lineText, settings)) {
         const continuationIndent = "   ";
         const insertPos = selection.from;
         const changes = {
@@ -8066,9 +8232,9 @@ function createShiftEnterHandler() {
 function createListAutocompletionKeymap(settings) {
   return [
     createEnterHandler(settings),
-    createShiftEnterHandler(),
-    createTabHandler(),
-    createShiftTabHandler()
+    createShiftEnterHandler(settings),
+    createTabHandler(settings),
+    createShiftTabHandler(settings)
   ];
 }
 
@@ -8146,7 +8312,10 @@ var PandocExtendedMarkdownPlugin = class extends import_obsidian15.Plugin {
       name: "Check pandoc formatting",
       editorCallback: (editor) => {
         const content = editor.getValue();
-        const issues = checkPandocFormatting(content, this.settings.moreExtendedSyntax);
+        const issues = checkPandocFormatting(
+          content,
+          isSyntaxFeatureEnabled(this.settings, "enableCustomLabelLists")
+        );
         if (issues.length === 0) {
           new import_obsidian15.Notice(MESSAGES.PANDOC_COMPLIANT);
         } else {
@@ -8163,7 +8332,10 @@ ${issueList}`, UI_CONSTANTS.NOTICE_DURATION_MS);
       name: "Format document to pandoc standard",
       editorCallback: (editor) => {
         const content = editor.getValue();
-        const formatted = formatToPandocStandard(content, this.settings.moreExtendedSyntax);
+        const formatted = formatToPandocStandard(
+          content,
+          isSyntaxFeatureEnabled(this.settings, "enableCustomLabelLists")
+        );
         if (content !== formatted) {
           editor.setValue(formatted);
           new import_obsidian15.Notice(MESSAGES.FORMAT_SUCCESS);
@@ -8257,9 +8429,10 @@ ${issueList}`, UI_CONSTANTS.NOTICE_DURATION_MS);
     }
   }
   async loadSettings() {
-    this.settings = Object.assign({}, DEFAULT_SETTINGS, await this.loadData());
+    this.settings = normalizeSettings(Object.assign({}, DEFAULT_SETTINGS, await this.loadData()));
   }
   async saveSettings() {
+    this.settings = normalizeSettings(this.settings);
     await this.saveData(this.settings);
   }
   isDefinitionTerm(lines, index) {
@@ -8356,3 +8529,5 @@ ${issueList}`, UI_CONSTANTS.NOTICE_DURATION_MS);
   }
 };
 var main_default = PandocExtendedMarkdownPlugin;
+
+/* nosourcemap */
