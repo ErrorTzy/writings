@@ -293,7 +293,10 @@ Reidentification: the reason why 'pain' is not identical to any brain states is 
 
 ---
 
-Against dispositionalism: think in plus and say quus, and think in quus and say quus
+Against dispositionalism: 
+
+1. Same intention, different disposition: secret translation
+2. Same disposition, different intention: strange interpretation of English
 
 ---
 
@@ -306,3 +309,4 @@ When we assert, we express propositions. Propositions are about facts, and are m
 ---
 
 If our thoughts are around propositions, and we project propositions as metaphysics, it seems the only way to make sense of metaphysics is that it is isomorphic to propositions. If we deny isomorphism, then metaphysics could be arbitrary.
+
