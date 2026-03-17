@@ -58,3 +58,14 @@ Kripke's argument against dispositionalism:
 1. It is mysterious
 2. It seems hard to explain the problem of infinity
 
+The minor premise problem (Wright 2007):
+
+1. the only way in which rule-following can be understood is if it conforms to what he calls “the modus ponens model”; 
+2. if we assume that the modus ponens model applies to these cases, we are saddled with an Augustinian picture, according to which conceptual capacities are necessarily prior to capacities to use language. 
+3. At the same time, he accepts that Wittgenstein has revealed the bankruptcy of the Augustinian picture in _Philosophical Investigations_; 
+4. Therefore, the idea of antecedent conceptual capacities is unintelligible.
+
+The inference problem (Boghossian 2012):
+
+1. the non-reductionist still owes us an account of what it is to be guided by a rule (or by one’s understanding of an expression).
+
