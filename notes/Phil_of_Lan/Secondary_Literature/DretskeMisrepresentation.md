@@ -45,5 +45,24 @@ the needle pointing to empty means~f~ the tank is empty because the needle's fun
 
 ## 3. Needs
 
+**marine bacteria example**: some marine bacteria, that can only survive in oxygen-free environments, have internal magnets (magnetosomes) that allow them to orient themselves to avoid surface water. Southern and Northern marine bacteria's magnetosomes have reverse orientation, allowing them to avoid surface water. Transplanting the Southern bacteria to the Northern ocean would cause them to swim toward the surface, where they die.
 
+**Claim**: the magnetosomes of marine bacteria represent the oxygen-free environment
 
+**Proof**: 
+
+1. marine bacteria needs oxygen-free environment to survive
+2. magnetosomes' state is correlated with oxygen-free environment (within some geographical region)
+3. Therefore, magnetosomes represent oxygen-free environment
+
+> In other words, the state of a physical system represents x if and only if x is needed by the system.
+> 
+> Problem: how do you naturalize needs without appealing to desire? Do I *need* to survive? And if I need to survive, isn't this presupposing that I am representing a goal called "survival"?
+
+## 4. The indetermanicy of function
+
+**Problem**: according to the definition, if x in not needed by the physcial system, then the physcial system cannot represent x. But this doesn't seem right. 
+
+**Reply**: even if we do not need everything, we may say that everything is need-related. For example, even if we may not have the biological need for a pinkness, our ability to represent a pink flower is still related to our need to distinguish between pink, fresh pork and rotten pork.
+
+**More serious problem**: 
