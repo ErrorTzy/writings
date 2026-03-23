@@ -65,4 +65,9 @@ the needle pointing to empty means~f~ the tank is empty because the needle's fun
 
 **Reply**: even if we do not need everything, we may say that everything is need-related. For example, even if we may not have the biological need for a pinkness, our ability to represent a pink flower is still related to our need to distinguish between pink, fresh pork and rotten pork.
 
-**More serious problem**: 
+**More serious problem**: Why not say magnetosomes represent the magnetic field instead of oxygen-free environment? It seems that, when you use a magnet to mislead the marine bacteria, it's not the sensory organ that we should place the blame and say it misrepresents. It seems that the sensory organ itself is performing its duty and react to inputs. If so, then the marine bacteria would not be able to misrepresent anything.
+
+## 5. Functional determination
+
+
+
