@@ -93,3 +93,47 @@ Then we can apply our stipulation maneuver again.
 | **Agreed sentence U1**: "0=1" (any necessarily false sentence)                                                | *false*  | *false*   |
 | **Agreed sentence U2**: "It is fundamenta there exists an electron"                                           | *true*   | *true*    |
 
+
+|                                                                | Kripke              | Williamson          |
+| -------------------------------------------------------------- | ------------------- | ------------------- |
+| **Disputed sentence C**: "Whatever exists exists necessarily"  | *necessarily false* | *necessarily true*  |
+| **Agreed sentence U1**: "0=1" (any necessarily false sentence) | *necessarily false* | *necessarily false* |
+| **Agreed sentence U2**: "0=0" (any necessarily true sentence)  | *necessarily true*  | *necessarily true*  |
+
+**Some clarifications**
+
+- The stipulation maneuver does not really require equivalence; It works as long as you can interpret the truth condition of the disputed sentence.
+- There are multiple ways to stipulate.
+- To stipulate a language is to stipulate sentences and their truth conditions.
+- The feature of this move is that it does not need to adopt the view that, the stipulated language IS the language that the disputants are using.
+
+## 1.3 Why the stipulation maneuver is not applicable to goldbach Conjecture
+
+For the Goldbach Conjecture, the stipulation maneuver seems feasible:
+
+|                                                                                    | Rejection           | Acceptance          |
+| ---------------------------------------------------------------------------------- | ------------------- | ------------------- |
+| **Disputed sentence C**: "Any even integer geater than 2 is the sum of two primes" | *necessarily false* | *necessarily true*  |
+| **Agreed sentence U1**: "0=1" (any necessarily false sentence)                     | *necessarily false* | *necessarily false* |
+| **Agreed sentence U2**: "0=0" (any necessarily true sentence)                      | *necessarily true*  | *necessarily true*  |
+
+However, this maneuver fails in "applied sentence" like 
+
+- "If the number of stars is even, then the number of stars is the sum of two primes"
+
+The acceptance side can take it to be equivalent to any necessarily true sentence, while there is no way to find an equivalence for the rejection side, for this sentence would be contingent.
+
+**Problem**: Maybe from the Rejection-side, they can secure a risk-free truth by interpreting whatever fact the Acceptance-side is asserting. 
+
+**Reply**: The S-Acceptance language is not inferentially discernible from the language of the Acceptance-side. In the acceptance side, one can infer "the number of stars is the sum of two primes" from "the number of stars is even". But in the S-Acceptance language where the Rejection side interprets the sentence "If the number of stars is even then the number of stars is the sum of two primes" to be 0=0, there is no such inference available. 
+
+(Later in "On ontology by stipulation", Hirsch said that inferential discernibility entails truth-conditionally discernibility because if P entails Q, then for any world where P holds, Q also holds. But if one deny such inference, then there is a world where P holds but Q does not)
+
+> Can't we again do the stipulation maneuver once again on the concept of inference, i.e. the meaning of $\vDash$? Though if we do that, the two party arguably would disagree on the concept of truth, since truth is closely connected to $\vDash$. Though not necessarily. They can agree on the meaning of $M \vDash S$ but disagree on what it means to say $S_{1} \vDash S_{2}$
+
+The stipulation maneuver fails for mathematics in general because mathematics has applications in contingencies in the world; But ontology does not have such applications.
+
+
+
+
+
