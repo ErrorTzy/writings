@@ -77,9 +77,9 @@ What if van Inwagen or Lewis is wrong about the equivalence? If only one of them
 
 |                                                                                 | Organist van Inwagen | Four-dimensionalist Lewis |
 | ------------------------------------------------------------------------------- | -------------------- | ------------------------- |
-| **Disputed sentence C**: "It is fundamental that there are (non-living) tables" | *false*              | *true*                    |
-| **Agreed sentence U1**: "0=1" (any necessarily false sentence)                  | *false*              | *false*                   |
-| **Agreed sentence U2**: "There are (non-living) tables"                         | *true*               | *true*                    |
+| **Disputed sentence C**: "It is fundamental that there are (non-living) tables" | *necessarily false*  | *contingently true*       |
+| **Agreed sentence U1**: "0=1" (any necessarily false sentence)                  | *necessarily false*  | *necessarily false*       |
+| **Agreed sentence U2**: "There are (non-living) tables"                         | *contingently true*  | *contingently true*       |
 
 Then we can apply our stipulation maneuver again.
 
@@ -131,9 +131,6 @@ The acceptance side can take it to be equivalent to any necessarily true sentenc
 
 > Can't we again do the stipulation maneuver once again on the concept of inference, i.e. the meaning of $\vDash$? Though if we do that, the two party arguably would disagree on the concept of truth, since truth is closely connected to $\vDash$. Though not necessarily. They can agree on the meaning of $M \vDash S$ but disagree on what it means to say $S_{1} \vDash S_{2}$
 
-The stipulation maneuver fails for mathematics in general because mathematics has applications in contingencies in the world; But ontology does not have such applications.
+The stipulation maneuver fails for mathematics in general because *mathematics has applications in contingencies in the world*; But ontology does not have such applications.
 
-
-
-
-
+> This is implausible! What do you mean mathematics has applications in contingencies in the world?

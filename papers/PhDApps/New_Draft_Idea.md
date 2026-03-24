@@ -312,3 +312,4 @@ When we assert, we express propositions. Propositions are about facts, and are m
 
 If our thoughts are around propositions, and we project propositions as metaphysics, it seems the only way to make sense of metaphysics is that it is isomorphic to propositions. If we deny isomorphism, then metaphysics could be arbitrary.
 
+No language without perception
