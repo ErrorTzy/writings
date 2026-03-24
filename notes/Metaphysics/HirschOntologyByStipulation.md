@@ -107,7 +107,7 @@ Then we can apply our stipulation maneuver again.
 - To stipulate a language is to stipulate sentences and their truth conditions.
 - The feature of this move is that it does not need to adopt the view that, the stipulated language IS the language that the disputants are using.
 
-## 1.3 Why the stipulation maneuver is not applicable to goldbach Conjecture
+## 1.3 Where stipulation maneuver does not apply
 
 For the Goldbach Conjecture, the stipulation maneuver seems feasible:
 
@@ -130,8 +130,9 @@ The acceptance side can take it to be equivalent to any necessarily true sentenc
 (Later in "On ontology by stipulation", Hirsch said that inferential discernibility entails truth-conditionally discernibility because if P entails Q, then for any world where P holds, Q also holds. But if one deny such inference, then there is a world where P holds but Q does not)
 
 > Can't we again do the stipulation maneuver once again on the concept of inference, i.e. the meaning of $\vDash$? They can agree on the meaning of $M \vDash S$ but disagree on what it means to say $S_{1} \vDash S_{2}$, so they agree on what count as true but disagree on the meaning if inference.
+> According to Hirsch, we are not allowed to stipulate this way. ("Our stipulation cannot affect these uncontroversial sentences or **their entailment relations**")
 
 The stipulation maneuver fails for mathematics in general because *mathematics has applications in contingencies in the world*; But ontology does not have such applications.
 
-> I can deny that they agree on how math applies to contingencies in the world. The rejectors can be platonists who believe the platonic numbers work differently than "the numbers of stars". They can admit that the inference from the number of stars being even to the number of stars being the sum of two primes is valid, but deny that the platonic numbers are such that Goldbach's conjecture is true.
+> Alternatively, I can deny that they agree on how math applies to contingencies in the world. The rejectors can be platonists who believe the platonic numbers work differently than "the numbers of stars". They can admit that the inference from the number of stars being even to the number of stars being the sum of two primes is valid, but deny that the platonic numbers are such that Goldbach's conjecture is true.
 
