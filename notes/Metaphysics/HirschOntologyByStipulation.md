@@ -85,3 +85,11 @@ Then we can apply our stipulation maneuver again.
 
 > This translation maneuver seems already wacky. If someone uttered any necessarily true sentence, you just translate it to 0=0; If someone uttered any necessarily false sentence, you just translate it to 0=1. And only contingent sentences need careful translation. Given that a lot of disputes in ontology are of necessity, this maneuver seems to apply to almost all disputes.
 
+**Other applications of this maneuver**
+
+|                                                                                                               | Kit Fine | Ted Sider |
+| ------------------------------------------------------------------------------------------------------------- | -------- | --------- |
+| **Disputed sentence C**: "It is fundamental that either there exists an electron or there exists an electron" | *false*  | *true*    |
+| **Agreed sentence U1**: "0=1" (any necessarily false sentence)                                                | *false*  | *false*   |
+| **Agreed sentence U2**: "It is fundamenta there exists an electron"                                           | *true*   | *true*    |
+
