@@ -129,8 +129,9 @@ The acceptance side can take it to be equivalent to any necessarily true sentenc
 
 (Later in "On ontology by stipulation", Hirsch said that inferential discernibility entails truth-conditionally discernibility because if P entails Q, then for any world where P holds, Q also holds. But if one deny such inference, then there is a world where P holds but Q does not)
 
-> Can't we again do the stipulation maneuver once again on the concept of inference, i.e. the meaning of $\vDash$? Though if we do that, the two party arguably would disagree on the concept of truth, since truth is closely connected to $\vDash$. Though not necessarily. They can agree on the meaning of $M \vDash S$ but disagree on what it means to say $S_{1} \vDash S_{2}$
+> Can't we again do the stipulation maneuver once again on the concept of inference, i.e. the meaning of $\vDash$? They can agree on the meaning of $M \vDash S$ but disagree on what it means to say $S_{1} \vDash S_{2}$, so they agree on what count as true but disagree on the meaning if inference.
 
 The stipulation maneuver fails for mathematics in general because *mathematics has applications in contingencies in the world*; But ontology does not have such applications.
 
-> This is implausible! What do you mean mathematics has applications in contingencies in the world?
+> I can deny that they agree on how math applies to contingencies in the world. The rejectors can be platonists who believe the platonic numbers work differently than "the numbers of stars". They can admit that the inference from the number of stars being even to the number of stars being the sum of two primes is valid, but deny that the platonic numbers are such that Goldbach's conjecture is true.
+

@@ -313,3 +313,5 @@ When we assert, we express propositions. Propositions are about facts, and are m
 If our thoughts are around propositions, and we project propositions as metaphysics, it seems the only way to make sense of metaphysics is that it is isomorphic to propositions. If we deny isomorphism, then metaphysics could be arbitrary.
 
 No language without perception
+
+skeptical solution as a guidance for life: ontological disputes are not solvable, but we can go on our lifes; when things goes very wrong, at least in our society we just throw them into psych ward, or philosophy phd programs, until they align with our normal practices
