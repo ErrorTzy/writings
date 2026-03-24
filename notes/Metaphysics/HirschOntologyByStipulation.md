@@ -9,6 +9,8 @@ Definition RI(Referentially indiscernable)
 Proposition Referential Supervience, or RSp(TCI entails RI)
 : It is necessarily the case that if L1 and L2 are *truth-conditionally indiscernable*, then L1 and L2 are *referentially indiscernable*.
 
+> Notice that this entailment is already implausible. According to this proposition, any language that are true or false necessarily have the same reference. For example, the language of geometry is truth-conditionally indiscernable with the language of arithmetic. It follows that the language of geometry and the language of arithmetic refer to the same things. That's absurd.
+
 Definition RS(Reference Scheme)
 : A reference scheme is a function that assigns objects to expressions in a way that generates the correct truth conditions of the sentences in the language.
 
@@ -82,3 +84,4 @@ What if van Inwagen or Lewis is wrong about the equivalence? If only one of them
 Then we can apply our stipulation maneuver again.
 
 > This translation maneuver seems already wacky. If someone uttered any necessarily true sentence, you just translate it to 0=0; If someone uttered any necessarily false sentence, you just translate it to 0=1. And only contingent sentences need careful translation. Given that a lot of disputes in ontology are of necessity, this maneuver seems to apply to almost all disputes.
+
