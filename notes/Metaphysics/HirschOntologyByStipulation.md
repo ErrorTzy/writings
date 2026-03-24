@@ -45,9 +45,9 @@ Proposition Propositional Supervience, or PSp(TCI entails sameness of propositio
 
 **Comment on fine-grained view of propositions**: according to the fine-grained view of propositions, whether two propositions are identical depends on the referent of expressions in the propositions. Therefore, RI entails sameness of propositions. Then given RSp(TCI entails RI), then PSp is true. In other words, if one accepts the fine-grained view of propositions, then one only needs to accept RSp if one accepts PSp.
 
-## 1.2
+## 1.2 Ontology by stituation
 
-Consider the following dispute:
+Consider the following dispute, assuming both party are speaking the same language Ontologese:
 
 |                                                                                                        | Organist van Inwagen | Four-dimensionalist Lewis |
 | ------------------------------------------------------------------------------------------------------ | -------------------- | ------------------------- |
@@ -63,3 +63,22 @@ Now we can stipulate two languages:
 - S-Inwagen language: Semantic rule: **C** is true if **U2**
 - S-Lewis language: Semantic rule: **C** is true if **U1**
 
+Now, if van Inwagen is right about the equivalence, then the language that van Inwagen uses is *truth-conditionally indiscernable* with S-Inwagen language. This also holds for Lewis's side.
+
+What if van Inwagen or Lewis is wrong about the equivalence? If only one of them is wrong, then only one side of the equivalence holds, so we can gain knowledge about the fact being disputed because C in S-Inwagen and C in S-Lewis are all true anyway, and one of the interpretation captures the disputed fact. 
+
+> However, what if both of them are wrong?
+
+**Objection**: We still don't know whether S-Inwagen is more *fundamental* than S-Lewis. Therefore, we missed the knowledge about fundamentality
+
+**Reply**: The same stipulation maneuver applies:
+
+|                                                                                 | Organist van Inwagen | Four-dimensionalist Lewis |
+| ------------------------------------------------------------------------------- | -------------------- | ------------------------- |
+| **Disputed sentence C**: "It is fundamental that there are (non-living) tables" | *false*              | *true*                    |
+| **Agreed sentence U1**: "0=1" (any necessarily false sentence)                  | *false*              | *false*                   |
+| **Agreed sentence U2**: "There are (non-living) tables"                         | *true*               | *true*                    |
+
+Then we can apply our stipulation maneuver again.
+
+> This translation maneuver seems already wacky. If someone uttered any necessarily true sentence, you just translate it to 0=0; If someone uttered any necessarily false sentence, you just translate it to 0=1. And only contingent sentences need careful translation. Given that a lot of disputes in ontology are of necessity, this maneuver seems to apply to almost all disputes.
