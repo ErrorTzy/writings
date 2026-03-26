@@ -19,12 +19,13 @@ header-includes:
   - \usepackage{ulem}
   - \renewcommand{\descriptionlabel}[1]{\hspace{\labelsep}\textbf{\uline{#1}}}
 ---
+## Ontology by stipulation
 
 
-## 1.1 Clarification of Terms
+### 1.1 Clarification of Terms
 
 Definition TCI(truth-conditionally indiscernable)
-: If L1 and L2 have the same sentences and any sentence, relative to any context of utterance, has the same truth value in L1 and L2, then L1 and L2 are *truth-conditionally indiscernable*.
+: If L1 and L2 have the same sentences and any sentence, relative to any context of utterance, has the same truth condition in L1 and L2, then L1 and L2 are *truth-conditionally indiscernable*.
 
 Definition RI(Referentially indiscernable)
 : For any expression E in L1 and L2, if E have the same intention in L1 and L2 (i.e. the same referent in any possible world), then L1 and L2 are *referentially indiscernable*.
@@ -68,9 +69,14 @@ Definition Proposition
 Proposition Propositional Supervience, or PSp(TCI entails sameness of propositions)
 : It is necessarily the case that if L1 and L2 are truth-conditionally indiscernable, then any sentence in L1 and L2 expresses the same proposition.
 
+Two views of propositions:
+
+1. Coarse-grained view: propositions are just truth conditions or sets of possible worlds
+2. Fine-grained view: propositions are fine-grained structures
+
 **Comment on fine-grained view of propositions**: according to the fine-grained view of propositions, whether two propositions are identical depends on the referent of expressions in the propositions. Therefore, RI entails sameness of propositions. Then given RSp(TCI entails RI), then PSp is true. In other words, if one accepts the fine-grained view of propositions, then one only needs to accept RSp if one accepts PSp.
 
-## 1.2 Ontology by stituation
+### 1.2 Ontology by stituation
 
 Consider the following dispute, assuming both party are speaking the same language Ontologese:
 
@@ -130,7 +136,7 @@ Then we can apply our stipulation maneuver again.
 - To stipulate a language is to stipulate sentences and their truth conditions.
 - The feature of this move is that it does not need to adopt the view that, the stipulated language IS the language that the disputants are using.
 
-## 1.3 Where stipulation maneuver does not apply
+### 1.3 Where stipulation maneuver does not apply
 
 For the Goldbach Conjecture, the stipulation maneuver seems feasible:
 
@@ -162,13 +168,15 @@ The stipulation maneuver fails for mathematics in general because *mathematics h
 
 If Goldbach Conjecture is provable, then the stipulation maneuver fails because the uncontroversial proof settles the dispute. So this is another reason why the maneuver fails for mathematics.
 
-## 1.4 Conclusion
+### 1.4 Conclusion
 
 The overall argument being:
 
 For any two parties $A$ and $B$ disputing a sentence $C$. Assume $A$ speaks $L_{A}$, and (falliably) claims that $\square (C \leftrightarrow U_{A})$ in $L_{A}$. $B$ speaks $L_{B}$, and (fallibly) claims that $\square(C \leftrightarrow U_{B})$ in $L_{B}$. $U_{A}$ and $U_{B}$ are uncontroversial sentences, in the sense that everyone agrees on the truth condition of it. And it is possible that $L_{A}$ and $L_{B}$ are the same language.
 
-Proof:
+**Claim**: "The kind of ontological controversies that have dominated much of the recent literature seem largely meaningless" (p.20)
+
+**Proof**:
 
 We can stipulate a language $S_A$ such that
 
@@ -176,18 +184,20 @@ We can stipulate a language $S_A$ such that
 
 And assume we can do this kind of stipulation further such that 
 
-2. For any sentence in $L_{A}$, relative to any context of utterance, there is a sentence in $S_{A}$ that has the same truth value.
+2. For any sentence in $L_{A}$, relative to any context of utterance, there is a sentence in $S_{A}$ that has the same truth condition. (This would include inferential indiscernability, according to Hirsch's latter paper "On ontology by stipulation")
 
 And assume we can also stipulate $S_{B}$ in the same way. Then the following argument holds:
 
 Assume $A$ is right about $\square (C \leftrightarrow U_{A})$ in $L_{A}$. 
 
 3. The sentence $C$ in $S_{A}$ and the sentence $C$ in $L_{A}$ refer to the same fact. (from 1,2,PSp)
-4. If I know whether truth condition of a sentence obstains, then I know whether the fact referd to by the sentence obstains.
+4. If I know whether truth condition of a sentence obstains, then I know whether the fact expressed by the sentence obstains.
 5. I know whether the truth condition of $U_{A}$ in $S_A$ obstains or not. (by stipulation)
 6. I know whether the truth condition of $C$ in $S_A$ obtains or not. (from 2,5)
 7. I know whether the fact expressed by $C$ in $S_A$ obtains or not. (from 4,6)
 8. I know whether the fact expressed by $C$ in $L_A$ obtains or not. (from 3,7)
+
+(Hirsch favor the formulation "to express the fact with risk of error" and "guarantee the possession of facts". I think this amounts to saying "to know the fact obstains")
 
 Similarly, if $B$ is right about $\square(C \leftrightarrow U_{B})$ in $L_{B}$, then I know the fact refered to by $C$ in $L_B$ obtains or not. 
 
@@ -200,4 +210,30 @@ Then we can draw the following table (A or B being right or wrong means to be ri
 | B is wrong | If $L_{A}=L_{B}$: Know the disputed fact through the uncontroversial $U_{A}$                | If $L_{A}=L_{B}$: Do not know what fact is expressed by the two parties.                         |
 |            | If $L_{A} \neq L_{B}$: Know the expressed by $A$, Do not know what fact is expressed by $B$ | If $L_{A} \neq L_{B}$: Do not know what fact is expressed by the two parties.                    |
 
+Therefore, either (1) some speaker made mistake about their own language so that we don't know what they are talking about, or (2) we can know what the disputed fact is through some trivial fact. (Hirsch left out 1 in his discussion, but the argument seems to suggest this)
+
+Either way, "it follows that ontological controversies are in some important sense empty and insignificant." (p.21)
+
+**Clarification**: The cognitive state of a speaker of $S_{A}$ and a speaker of $L_{A}$ may be different, so we do not need to agree that $S_{A}$ is $L_{A}$. However, the difference in cognitive state does not matter here, because we are talking about ontological disputes, not disputes about cognitive states.
+
+---
+
+## On Ontology by stipulation
+
+
+**Matti Eklund's objection**: 
+
+Consider again the following debate
+
+
+|                                                                                                        | Organist van Inwagen | Four-dimensionalist Lewis |
+| ------------------------------------------------------------------------------------------------------ | -------------------- | ------------------------- |
+| **Disputed sentence C**: "There is something composed of a set of table-wise interrelated simples"     | *false*              | *true*                    |
+| **Agreed sentence U1**: "There is a set of table-wise interrelated simples"                            | *true*               | *true*                    |
+| **Agreed sentence U2**: "There is a living thing composed of a set of table-wise interrelated simples" | *false*              | *false*                   |
+
+
+Assuming that van Inwagen and Lewis are speaking the same language, then debate is concerning the proposition expressed by $C$ is true or not. The stipulation maneuver fails to determine whether $C$ is true or not.
+
+**Hirsch's reply**: The stipulation maneuver does not intend to decide who is right in the dispute, but to show that the dispute has no ontological significance.
 
