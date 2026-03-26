@@ -1,3 +1,26 @@
+---
+title: 
+subtitle: 
+author: 
+abstract: 
+date: 
+institute: 
+numbersections: false
+toc: false
+toc-title: catalog
+reference-section-title: Biblio
+mainfont: FreeSerif
+CJKmainfont: Noto Serif CJK SC
+include-before:
+  - "`\\newpage{}`{=latex}"
+header-includes:
+  - \usepackage{enumitem}
+  - \setlist[description]{style=nextline}
+  - \usepackage{ulem}
+  - \renewcommand{\descriptionlabel}[1]{\hspace{\labelsep}\textbf{\uline{#1}}}
+---
+
+
 ## 1.1 Clarification of Terms
 
 Definition TCI(truth-conditionally indiscernable)
@@ -143,7 +166,7 @@ If Goldbach Conjecture is provable, then the stipulation maneuver fails because 
 
 The overall argument being:
 
-For any two parties $A$ and $B$ disputing a sentence $C$. Assume $A$ speaks $L_{A}$, and (falliably) claims that $\square (C \leftrightarrow U_{A})$ in $L_{A}$. $B$ speaks $L_{B}$, and (fallibly) claims that $\square(C \leftrightarrow U_{B})$ in $L_{B}$. $U_{A}$ and $U_{B}$ are uncontroversial sentences, in the sense that everyone agrees on the truth condition of it.
+For any two parties $A$ and $B$ disputing a sentence $C$. Assume $A$ speaks $L_{A}$, and (falliably) claims that $\square (C \leftrightarrow U_{A})$ in $L_{A}$. $B$ speaks $L_{B}$, and (fallibly) claims that $\square(C \leftrightarrow U_{B})$ in $L_{B}$. $U_{A}$ and $U_{B}$ are uncontroversial sentences, in the sense that everyone agrees on the truth condition of it. And 
 
 Proof:
 
@@ -168,6 +191,12 @@ Assume $A$ is right about $\square (C \leftrightarrow U_{A})$ in $L_{A}$.
 
 Similarly, if $B$ is right about $\square(C \leftrightarrow U_{B})$ in $L_{B}$, then I know the fact refered to by $C$ in $L_B$ obtains or not. 
 
-If $A$ and $B$ are both right, then $L_{A} \neq L_{B}$ because $C$ has different truth value in $L_{A}$ and $L_{B}$. But by stipulation, I can safely capture the fact expressed by both parties. Therefore, the disagreement is resolved.
+Then we can draw the following table (A or B being right or wrong means to be right or wrong about the equivalence that they claim)
 
-If one side is wrong about equivalence, and $L_{A} = L_{B}$, then the disagreement is also resolved because I know whether the fact refered to $C$ in $S_A$ obstains or not, and I know whether the fact refered to $C$ in $S_{B}$ obstains or not, and I know $A$ and $B$ are disputing about one of the two facts.
+|            | A is right                                                                                           | A is wrong                                                                                           |
+| ---------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| B is right | If $L_{A}=L_{B}$: Impossible, because $C$ has different truth value in $L_A$ and $L_B$<br>           | If $L_{A}=L_{B}$: know the disputed fact through the uncontroversial $U_{B}$                         |
+|            | If $L_{A} \neq L_{B}$: Know the fact referred to by both sides by stipulation                        | If $L_{A} \neq L_{B}$: know the fact referred to by $B$; Do not know what fact is referred to by $A$ |
+| B is wrong | If $L_{A}=L_{B}$: Know the disputed fact through the uncontroversial $U_{A}$                         | If $L_{A}=L_{B}$: Do not know what fact is referred to by the two parties.                           |
+|            | If $L_{A} \neq L_{B}$: know the fact referred to by $A$, do not know what fact is referred to by $B$ | If $L_{A} \neq L_{B}$: Do not know what fact is referred to by the two parties.                      |
+
