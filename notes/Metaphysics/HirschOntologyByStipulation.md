@@ -139,3 +139,35 @@ The stipulation maneuver fails for mathematics in general because *mathematics h
 
 If Goldbach Conjecture is provable, then the stipulation maneuver fails because the uncontroversial proof settles the dispute. So this is another reason why the maneuver fails for mathematics.
 
+## 1.4 Conclusion
+
+The overall argument being:
+
+For any two parties $A$ and $B$ disputing a sentence $C$. Assume $A$ speaks $L_{A}$, and (falliably) claims that $\square (C \leftrightarrow U_{A})$ in $L_{A}$. $B$ speaks $L_{B}$, and (fallibly) claims that $\square(C \leftrightarrow U_{B})$ in $L_{B}$. $U_{A}$ and $U_{B}$ are uncontroversial sentences, in the sense that everyone agrees on the truth condition of it.
+
+Proof:
+
+We can stipulate a language $S_A$ such that
+
+1. In the language $S_A$, the sentence $C$ is stipulated to have the same truth condition as the sentence $U_{A}$.
+
+And assume we can do this kind of stipulation further such that 
+
+2. For any sentence in $L_{A}$, relative to any context of utterance, there is a sentence in $S_{A}$ that has the same truth value.
+
+And assume we can also stipulate $S_{B}$ in the same way. Then the following argument holds:
+
+Assume $A$ is right about $\square (C \leftrightarrow U_{A})$ in $L_{A}$. 
+
+3. The sentence $C$ in $S_{A}$ and the sentence $C$ in $L_{A}$ refer to the same fact. (from 1,2,PSp)
+4. If I know whether truth condition of a sentence obstains, then I know whether the fact referd to by the sentence obstains.
+5. I know whether the truth condition of $U_{A}$ in $S_A$ obstains or not. (by stipulation)
+6. I know whether the truth condition of $C$ in $S_A$ obtains or not. (from 2,5)
+7. I know whether the fact refered to by $C$ in $S_A$ obtains or not. (from 4,6)
+8. I know whether the fact refered to by $C$ in $L_A$ obtains or not. (from 3,7)
+
+Similarly, if $B$ is right about $\square(C \leftrightarrow U_{B})$ in $L_{B}$, then I know the fact refered to by $C$ in $L_B$ obtains or not. 
+
+If $A$ and $B$ are both right, then $L_{A} \neq L_{B}$ because $C$ has different truth value in $L_{A}$ and $L_{B}$. But by stipulation, I can safely capture the fact expressed by both parties. Therefore, the disagreement is resolved.
+
+If one side is wrong about equivalence, and $L_{A} = L_{B}$, then the disagreement is also resolved because I know whether the fact refered to $C$ in $S_A$ obstains or not, and I know whether the fact refered to $C$ in $S_{B}$ obstains or not, and I know $A$ and $B$ are disputing about one of the two facts.
