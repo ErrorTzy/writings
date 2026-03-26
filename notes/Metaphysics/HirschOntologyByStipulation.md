@@ -134,5 +134,8 @@ The acceptance side can take it to be equivalent to any necessarily true sentenc
 
 The stipulation maneuver fails for mathematics in general because *mathematics has applications in contingencies in the world*; But ontology does not have such applications.
 
+> The "application" thing here seems to mean "empirical adequacy". To say that mathematical statements applies to contingent facts means that the mathematical statements are empirically defeatable.
 > Alternatively, I can deny that they agree on how math applies to contingencies in the world. The rejectors can be platonists who believe the platonic numbers work differently than "the numbers of stars". They can admit that the inference from the number of stars being even to the number of stars being the sum of two primes is valid, but deny that the platonic numbers are such that Goldbach's conjecture is true.
+
+If Goldbach Conjecture is provable, then the stipulation maneuver fails because the uncontroversial proof settles the dispute. So this is another reason why the maneuver fails for mathematics.
 
