@@ -191,13 +191,13 @@ And assume we can also stipulate $S_{B}$ in the same way. Then the following arg
 Assume $A$ is right about $\square (C \leftrightarrow U_{A})$ in $L_{A}$. 
 
 3. The sentence $C$ in $S_{A}$ and the sentence $C$ in $L_{A}$ refer to the same fact. (from 1,2,PSp)
-4. If I know whether truth condition of a sentence obstains, then I know whether the fact expressed by the sentence obstains.
+4. If I know whether truth condition of a sentence obstains, then I know whether the fact expressed by the sentence obstains. (This is basically analytic truth: if the truth condition obtains, then I know the proposition is true; If I know the proposition being true, then I know the fact expressed by the proposition obtains.)
 5. I know whether the truth condition of $U_{A}$ in $S_A$ obstains or not. (by stipulation)
 6. I know whether the truth condition of $C$ in $S_A$ obtains or not. (from 2,5)
 7. I know whether the fact expressed by $C$ in $S_A$ obtains or not. (from 4,6)
-8. I know whether the fact expressed by $C$ in $L_A$ obtains or not. (from 3,7)
+8. I know whether the fact expressed by $C$ in $L_A$ obtains or not. (from 7, and knowing 3)
 
-(Hirsch favor the formulation "to express the fact with risk of error" and "guarantee the possession of facts". I think this amounts to saying "to know the fact obstains")
+(Hirsch favor the formulation "to express the fact with risk of error" and "guarantee the possession of facts". I think this amounts to saying "to know the fact obstains". I formulated in this way to circumvant the problem that, I know that $C$ in $S_A$ does not amount to knowing that $C$ in $L_A$. In on ontology by stpulation, Hirsch actually switched to the knowledge talk. So I take it to be accetable to reconstruct Hirsch's argument in terms of knowing)
 
 Similarly, if $B$ is right about $\square(C \leftrightarrow U_{B})$ in $L_{B}$, then I know the fact refered to by $C$ in $L_B$ obtains or not. 
 

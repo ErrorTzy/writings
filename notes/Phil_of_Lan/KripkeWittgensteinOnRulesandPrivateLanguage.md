@@ -57,10 +57,7 @@ If I *mean* a function, then there is a unique thing that I *should* do regardle
 
 **Kripke's objection 2**: According to the dispositionalist account, how can we make sense of the possibility of *making mistakes*, given that our reply may always contain "noise"? In other words, if one agrees that we are disposed to make mistakes, then one should agree that we can be disposed to give answer other than the one accords with the function I meant.
 
-**Retraction Dispositionalism 2.1**: we can appeal to the disposition to correct oneself (p.32)There is then no problem - as far as the present
-consIderatIOns go - as to how the addition function (taken
-say, as a set oftriples)36 contains within it all its instances such
-as the triple (68, 57, 12 5). 
+**Retraction Dispositionalism 2.1**: we can appeal to the disposition to correct oneself (p.32)There is then no problem - as far as the present considerations go - as to how the addition function (taken say, as a set oftriples) contains within it all its instances such as the triple (68, 57, 12 5). 
 
 **Kripke's objection to 2.1**: 1. There might be stubborn people who persist in error; 2. what does it mean by 'retraction'? One may also retract right answers and give wrong ones.
 
