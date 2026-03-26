@@ -166,7 +166,7 @@ If Goldbach Conjecture is provable, then the stipulation maneuver fails because 
 
 The overall argument being:
 
-For any two parties $A$ and $B$ disputing a sentence $C$. Assume $A$ speaks $L_{A}$, and (falliably) claims that $\square (C \leftrightarrow U_{A})$ in $L_{A}$. $B$ speaks $L_{B}$, and (fallibly) claims that $\square(C \leftrightarrow U_{B})$ in $L_{B}$. $U_{A}$ and $U_{B}$ are uncontroversial sentences, in the sense that everyone agrees on the truth condition of it. And 
+For any two parties $A$ and $B$ disputing a sentence $C$. Assume $A$ speaks $L_{A}$, and (falliably) claims that $\square (C \leftrightarrow U_{A})$ in $L_{A}$. $B$ speaks $L_{B}$, and (fallibly) claims that $\square(C \leftrightarrow U_{B})$ in $L_{B}$. $U_{A}$ and $U_{B}$ are uncontroversial sentences, in the sense that everyone agrees on the truth condition of it. And it is possible that $L_{A}$ and $L_{B}$ are the same language.
 
 Proof:
 
@@ -186,17 +186,18 @@ Assume $A$ is right about $\square (C \leftrightarrow U_{A})$ in $L_{A}$.
 4. If I know whether truth condition of a sentence obstains, then I know whether the fact referd to by the sentence obstains.
 5. I know whether the truth condition of $U_{A}$ in $S_A$ obstains or not. (by stipulation)
 6. I know whether the truth condition of $C$ in $S_A$ obtains or not. (from 2,5)
-7. I know whether the fact refered to by $C$ in $S_A$ obtains or not. (from 4,6)
-8. I know whether the fact refered to by $C$ in $L_A$ obtains or not. (from 3,7)
+7. I know whether the fact expressed by $C$ in $S_A$ obtains or not. (from 4,6)
+8. I know whether the fact expressed by $C$ in $L_A$ obtains or not. (from 3,7)
 
 Similarly, if $B$ is right about $\square(C \leftrightarrow U_{B})$ in $L_{B}$, then I know the fact refered to by $C$ in $L_B$ obtains or not. 
 
 Then we can draw the following table (A or B being right or wrong means to be right or wrong about the equivalence that they claim)
 
-|            | A is right                                                                                           | A is wrong                                                                                           |
-| ---------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| B is right | If $L_{A}=L_{B}$: Impossible, because $C$ has different truth value in $L_A$ and $L_B$<br>           | If $L_{A}=L_{B}$: know the disputed fact through the uncontroversial $U_{B}$                         |
-|            | If $L_{A} \neq L_{B}$: Know the fact referred to by both sides by stipulation                        | If $L_{A} \neq L_{B}$: know the fact referred to by $B$; Do not know what fact is referred to by $A$ |
-| B is wrong | If $L_{A}=L_{B}$: Know the disputed fact through the uncontroversial $U_{A}$                         | If $L_{A}=L_{B}$: Do not know what fact is referred to by the two parties.                           |
-|            | If $L_{A} \neq L_{B}$: know the fact referred to by $A$, do not know what fact is referred to by $B$ | If $L_{A} \neq L_{B}$: Do not know what fact is referred to by the two parties.                      |
+|            | A is right                                                                                  | A is wrong                                                                                       |
+| ---------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| B is right | If $L_{A}=L_{B}$: Impossible, because $C$ has different truth value in $L_A$ and $L_B$<br>  | If $L_{A}=L_{B}$: Know the disputed fact through the uncontroversial $U_{B}$                     |
+|            | If $L_{A} \neq L_{B}$: Know the expressed by both sides by stipulation                      | If $L_{A} \neq L_{B}$: Know the fact expressed by $B$; Do not know what fact is expressed by $A$ |
+| B is wrong | If $L_{A}=L_{B}$: Know the disputed fact through the uncontroversial $U_{A}$                | If $L_{A}=L_{B}$: Do not know what fact is expressed by the two parties.                         |
+|            | If $L_{A} \neq L_{B}$: Know the expressed by $A$, Do not know what fact is expressed by $B$ | If $L_{A} \neq L_{B}$: Do not know what fact is expressed by the two parties.                    |
+
 
