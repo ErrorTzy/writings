@@ -184,7 +184,7 @@ We can stipulate a language $S_A$ such that
 
 And assume we can do this kind of stipulation further such that 
 
-2. For any sentence in $L_{A}$, relative to any context of utterance, there is a sentence in $S_{A}$ that has the same truth condition. (This would include inferential indiscernability, according to Hirsch's latter paper "On ontology by stipulation")
+2. For any sentence in $L_{A}$, relative to any context of utterance, there is a sentence in $S_{A}$ that has the same truth condition. (This would include inferential indiscernability, according to Hirsch's later appendix "On ontology by stipulation")
 
 And assume we can also stipulate $S_{B}$ in the same way. Then the following argument holds:
 
@@ -195,9 +195,9 @@ Assume $A$ is right about $\square (C \leftrightarrow U_{A})$ in $L_{A}$.
 5. I know whether the truth condition of $U_{A}$ in $S_A$ obstains or not. (by stipulation)
 6. I know whether the truth condition of $C$ in $S_A$ obtains or not. (from 2,5)
 7. I know whether the fact expressed by $C$ in $S_A$ obtains or not. (from 4,6)
-8. I know whether the fact expressed by $C$ in $L_A$ obtains or not. (from 7, and knowing 3)
+8. I know whether the fact expressed by $C$ in $L_A$ obtains or not. (from 3,7)
 
-(Hirsch favor the formulation "to express the fact with risk of error" and "guarantee the possession of facts". I think this amounts to saying "to know the fact obstains". I formulated in this way to circumvant the problem that, I know that $C$ in $S_A$ does not amount to knowing that $C$ in $L_A$. In on ontology by stpulation, Hirsch actually switched to the knowledge talk. So I take it to be accetable to reconstruct Hirsch's argument in terms of knowing)
+(Hirsch favor the formulation "to express the fact without risk of error" and "guarantee the possession of facts". This awkward phrasing is due to the fine-grainness of knowledge: If P entails Q, and I know P, it does not follow that I know Q. In order for my previous argument to be valid, what I mean by "know" should be "can know by simple inference from ...". But I will leave my formulation to be simply "know", and leave the inference required in the bracket to make the argument more comprehensible.)
 
 Similarly, if $B$ is right about $\square(C \leftrightarrow U_{B})$ in $L_{B}$, then I know the fact refered to by $C$ in $L_B$ obtains or not. 
 
@@ -210,7 +210,7 @@ Then we can draw the following table (A or B being right or wrong means to be ri
 | B is wrong | If $L_{A}=L_{B}$: Know the disputed fact through the uncontroversial $U_{A}$                | If $L_{A}=L_{B}$: Do not know what fact is expressed by the two parties.                         |
 |            | If $L_{A} \neq L_{B}$: Know the expressed by $A$, Do not know what fact is expressed by $B$ | If $L_{A} \neq L_{B}$: Do not know what fact is expressed by the two parties.                    |
 
-Therefore, either (1) some speaker made mistake about their own language so that we don't know what they are talking about, or (2) we can know what the disputed fact is through some trivial fact. (Hirsch left out 1 in his discussion, but the argument seems to suggest this)
+Therefore, either (1) some speaker made mistake about their own language so that we don't know what they are talking about, or (2) we can know what the disputed fact is through some trivial fact. (Hirsch left out case 1 in his discussion, but the argument seems to suggest this)
 
 Either way, "it follows that ontological controversies are in some important sense empty and insignificant." (p.21)
 
@@ -235,5 +235,11 @@ Consider again the following debate
 
 Assuming that van Inwagen and Lewis are speaking the same language, then debate is concerning the proposition expressed by $C$ is true or not. The stipulation maneuver fails to determine whether $C$ is true or not.
 
-**Hirsch's reply**: The stipulation maneuver does not intend to decide who is right in the dispute, but to show that the dispute has no ontological significance.
+**Hirsch's initial reply**: The stipulation maneuver does not intend to decide who is right in the dispute, but to show that the dispute has no ontological significance.
+
+**Objection**: However, the question remains. Assume van Inwagen utterred the proposition *Table*. is *Table* true or false? In the stipulated language, you know that *Table\**  is true. And you know that, if *Table\** is *Table*, then you know that *Table* is true. But you do not know whether *Table* is *Table\**
+
+**Reply**: I know the truth of the proposition *Table* under *Table\** guise.
+
+> I think this just means that I know there's a correspondence relation between how the world is and the proposition *Table* under, and I obtained the correspondence relation by *Table\* guise.
 
