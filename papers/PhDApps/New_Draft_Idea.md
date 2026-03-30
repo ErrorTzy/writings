@@ -315,3 +315,9 @@ If our thoughts are around propositions, and we project propositions as metaphys
 No language without perception
 
 skeptical solution as a guidance for life: ontological disputes are not solvable, but we can go on our lifes; when things goes very wrong, at least in our society we just throw them into psych ward, or philosophy phd programs, until they align with our normal practices
+
+---
+
+What does it mean to say "there's no fact of matter"? E.g. Unicorns are taller than cows: there's no fact of matter. Of course there's a proposition, but there's no such fact.
+
+Kripke does allow exclusion: you can say what you DID NOT mean by not doing that movement. So by infinite exclusion you can determine what you mean.
