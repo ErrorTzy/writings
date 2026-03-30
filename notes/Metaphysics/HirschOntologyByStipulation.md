@@ -237,13 +237,13 @@ Assuming that van Inwagen and Lewis are speaking the same language, then debate 
 
 **Hirsch's initial reply**: The stipulation maneuver does not intend to decide who is right in the dispute, but to show that the dispute has no ontological significance.
 
-**Objection**: However, the question remains. Assume van Inwagen utterred the proposition *Table*. is *Table* true or false? In the stipulated language, you know that *Table\**  is true. And you know that, if *Table\** is *Table*, then you know that *Table* is true. But you do not know whether *Table* is *Table\**
+**Objection**: However, the question remains. Assume van Inwagen utterred the proposition *Table*. is *Table* true or false? In the stipulated language, you know that *Table\**  is true. And you know that, if *Table\** is *Table*, then you know that *Table* is true. But you do not know whether *Table* is *Table\**, so you don't know the fact about *Table* being true or false.
 
-**Reply**: If van Inwagen is right to say that *Table* is true, then I know the truth of the proposition *Table* under *Table\** guise; And van Inwagen knows the truth of the proposition *Table* under the guise of *Table*. So if it is true, then I know its truth. But what if it's false? Do you know its falsity? 
+**Reply**: I can stipulate "schmtruth" to rigidly designate the truth value of *Table*. By doing so, I know a priori that *Table* is schmtrue (Let's call this proposition *schmTable*). Therefore, I know whether *Table* is true or false under the guise of *schmTable*.
 
-
+> To know if something is true is to say it cannot be false. Can I exclude the possibility that *Table* is false by knowing whether *schmTable* is true or not? Similarly, I cannot exclude the possibility that Superman is not Clark Kent, even if I know that Superman is Superman. It seems this kind of exclusion ability, according to Hirsch, is worthless:
 
 Hirsch: "I cannot see how van Inwagen's being hooked up to the Table-guise with respect to a certain proposition, whereas I am hooked up to the Table\*-guise with respect to that same proposition, constitutes van-Inwagen's knowing something about ''what the world is like'' that I do not know."
 
-> How? There's no difference between knowing H=H and knowing H=P? There's no difference between having a de re representation and a de dicto representation?
+> But is it really (ontologically) worthless to know Superman is Clark Kent, even if I already know Superman is Superman?
 
