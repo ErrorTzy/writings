@@ -239,7 +239,11 @@ Assuming that van Inwagen and Lewis are speaking the same language, then debate 
 
 **Objection**: However, the question remains. Assume van Inwagen utterred the proposition *Table*. is *Table* true or false? In the stipulated language, you know that *Table\**  is true. And you know that, if *Table\** is *Table*, then you know that *Table* is true. But you do not know whether *Table* is *Table\**
 
-**Reply**: I know the truth of the proposition *Table* under *Table\** guise.
+**Reply**: If van Inwagen is right to say that *Table* is true, then I know the truth of the proposition *Table* under *Table\** guise; And van Inwagen knows the truth of the proposition *Table* under the guise of *Table*. So if it is true, then I know its truth. But what if it's false? Do you know its falsity? 
 
-> I think this just means that I know there's a correspondence relation between how the world is and the proposition *Table* under, and I obtained the correspondence relation by *Table\* guise.
+
+
+Hirsch: "I cannot see how van Inwagen's being hooked up to the Table-guise with respect to a certain proposition, whereas I am hooked up to the Table\*-guise with respect to that same proposition, constitutes van-Inwagen's knowing something about ''what the world is like'' that I do not know."
+
+> How? There's no difference between knowing H=H and knowing H=P? There's no difference between having a de re representation and a de dicto representation?
 
