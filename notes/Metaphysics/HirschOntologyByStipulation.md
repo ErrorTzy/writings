@@ -24,10 +24,10 @@ header-includes:
 
 ### 1.1 Clarification of Terms
 
-Definition TCI(truth-conditionally indiscernable)
+Definition: TCI(truth-conditionally indiscernable)
 : If L1 and L2 have the same sentences and any sentence, relative to any context of utterance, has the same truth condition in L1 and L2, then L1 and L2 are *truth-conditionally indiscernable*.
 
-Definition RI(Referentially indiscernable)
+Definition: RI(Referentially indiscernable)
 : For any expression E in L1 and L2, if E have the same intention in L1 and L2 (i.e. the same referent in any possible world, relative to any context; Or the sameness of character), then L1 and L2 are *referentially indiscernable*.
 
 Proposition Referential Supervience, or RSp(TCI entails RI)
@@ -38,9 +38,24 @@ Proposition Referential Supervience, or RSp(TCI entails RI)
 > Case 1: Coarse Grained TC:
 > 
 > In earlier work, for Hirsch, truth condition is just a set of possible worlds. So assume that what Hirsch mean by truth condition here is fine-grained. Now, if truth condition is fine-grained, then this entailment is already implausible. According to this proposition, any language that are true or false necessarily have the same reference. For example, the language of geometry is truth-conditionally indiscernable with the language of arithmetic, because the truth condition of every true sentence of geometry and the truth condition of every true sentence of arthimetic are the set of all possible world, and the false sentence all empty set. It follows that the language of geometry and the language of arithmetic are referentially indiscernable. 
+> 
 > Hirsch might object that, the reason we can talk about geometry and arthimetic is because we learn these from experience. The intuitive force for my objection only comes from our understanding of geometry and arthimetic as something that applies to our world. For example, we say the number of the planet is 8. But we never say the number of planet is triangle. The case where there is a "purely formal language" for geometry or arthimetic will change the meaning of the words, and thus it is acceptable that for these purely formal language, they can be referentially indiscernable. In fact this is a feature of Hilbert's agenda that formal system should be topic neutral. So my objection, after debunking its force, doesn't stand.
+> 
 > But this objection seems to appeal to a claim that I have set down to be false: meaning comes from interpretation. Indeed if we think meaning comes from interpretation, then it seems there's no reason to interpret two languages that does not have any empirical applications differently. However, what we have settled down earlier is that meaning comes from intention. (and we will talk about the alternative view later) Is it metaphysically possible to intend numbers and shapes without having any experience? To the extent that we believe they are a priori, then by virtue of the meaning of "a priori", it means at least it is in principle possible to intend them without any experience. In other words, if we pull away all the empirical application of math, we can still maintain their origional meaning. Therefore, the objection still stand.
-> That said, Hirsch may back up and say, he is mainly talking about ordinary physical objects like tables and trees. Abstract objects might be confusing in their own right. Therefore, even if my objection stands for mathematical case, it does not undermine his point when applied to empirical realm.
+> 
+> That said, Hirsch may back up and say, he is mainly talking about ordinary physical objects like tables and trees. Abstract objects might cause problem in their own right. Therefore, even if my objection stands for mathematical case, it does not undermine his point when applied to the ordinary objects. Given that we are talking about ontology, of course a basic requirement for the language is that it accounts for tables and trees. In other words, we may modify RSp into the following:
+> 
+> - MRSp: It is necessarily the case that, for any L1 and L2 that are capable of describing the empirical world, if L1 and L2 are *truth-conditionally indiscernable*, then L1 and L2 are *referentially indiscernable*.
+> 
+> Alternatively, one may also choose to deny that arthimetic and geometry can really be grasped without having any empirical experience of their application. It is essential to the understanding of arthimetic and geometry that we have some experience about the empirical world. Either way, the new requirement is that, given that we are talking about ontological language, the language that concerns us must be able to decribe the empirical world.
+> 
+> There might be a risk for MRSp to be a hoc. But for now, I will grant MRSp to be a proper principle, if it is valid. Now, if we need to argue against MRSp, we need to give an example of two languages that is (a) capable of describe empirical world, (b) truth-conditionally indiscernable, and (c) referentially discernable. Can this be done? Let me try.
+> 
+> When we say hesperus is phosphorus, we say there is an object in the world such that it is self-identical. Formally, we tend to *symbolize* the model as D={🪐}, val(hesperus)=🪐, val(phosphorus)=🪐, and is={<🪐, 🪐>}. However, consider the following a deviant interpretor of our language. Call him Devi. Instead of thinking that there is just one venus in the world that is self-identical, Devi thinks there are two objects, hesperus and phosphorus. They turn out to overlap with each other physically, and have perfect correlation. Whatever property hesperus has, phosphorus also has it. In other words, we take hesperus and phosphorus to be numerically identical, but they take there to be two qualitative identitical objects. It would seem natural to *symbolize* their model theory to be D={🪐^1^,🪐^2^}, val(hesperus)=🪐^1^, val(phosphorus)=🪐^2^, and is={<🪐^1^, 🪐^2^>}. It seems, at least superficially, that Devi has a very different ontological view from ours.
+> 
+> However, the twist is that, Devi grew up in *our* community and learned to pick up *our* way of speaking. When Devi is asked "how many objects are there in front of him", he understands it as asking how many groups of qualitative identitcal objects are there in front of hiim. And he also picked up our way of talking possible worlds. He would also say it is necessary that hesperus is phosphrus. And he also learned how to formulate model theory in our way. When we ask what's the model of his language, he would symbolize it in our way. This kind of adaption goes on, and it turns out Devi's way of speaking is completely behaviorally indiscernable from ours. 
+> 
+> Now, I 
 > 
 > 
 > Case 2: Fine Grained TC:
