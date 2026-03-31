@@ -55,7 +55,9 @@ Proposition Referential Supervience, or RSp(TCI entails RI)
 > 
 > However, the twist is that, Devi grew up in *our* community and learned to pick up *our* way of speaking. When Devi is asked "how many objects are there in front of him", he understands it as asking how many groups of qualitative identitcal objects are there in front of hiim. And he also picked up our way of talking possible worlds. He would also say it is necessary that hesperus is phosphrus. And he also learned how to formulate model theory in our way. When we ask what's the model of his language, he would symbolize it in our way. This kind of adaption goes on, and it turns out Devi's way of speaking is completely behaviorally indiscernable from ours. 
 > 
-> Now, I 
+> Now, is Devi's semantics referentially discernible from ours? For now I will appeal to intuition that the answer is yes. It seems Devi refers to something that is different from what we refer to. I will defend this point later. Is Devi's truth-condition indiscernible from ours? Again, we are currently assuming that truth condition is coarse-grained, which are sets of possible worlds.
+> 
+> What would hirsch say? Hirsch would say that Devi is thinking in a language and speaking another. What would that mean?
 > 
 > 
 > Case 2: Fine Grained TC:
