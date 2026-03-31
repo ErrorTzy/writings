@@ -1,8 +1,8 @@
 {
   "settings": {
     "version": "1",
-    "enableAutocomplete": true,
-    "enableRefactor": true,
+    "enableAutocomplete": false,
+    "enableRefactor": false,
     "advancedMode": true,
     "apiProvider": "ollama",
     "azureOAIApiSettings": {
@@ -226,8 +226,8 @@
     "userMessageTemplate": "{{prefix}}<mask/>{{suffix}}",
     "chainOfThoughRemovalRegex": "(.|\\n)*ANSWER:",
     "dontIncludeDataviews": false,
-    "maxPrefixCharLimit": 2000,
-    "maxSuffixCharLimit": 2000,
+    "maxPrefixCharLimit": 10000,
+    "maxSuffixCharLimit": 10000,
     "removeDuplicateMathBlockIndicator": true,
     "removeDuplicateCodeBlockIndicator": true,
     "onlyInlineCompletion": true,

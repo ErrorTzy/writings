@@ -28,12 +28,23 @@ Definition TCI(truth-conditionally indiscernable)
 : If L1 and L2 have the same sentences and any sentence, relative to any context of utterance, has the same truth condition in L1 and L2, then L1 and L2 are *truth-conditionally indiscernable*.
 
 Definition RI(Referentially indiscernable)
-: For any expression E in L1 and L2, if E have the same intention in L1 and L2 (i.e. the same referent in any possible world), then L1 and L2 are *referentially indiscernable*.
+: For any expression E in L1 and L2, if E have the same intention in L1 and L2 (i.e. the same referent in any possible world, relative to any context; Or sameness of character), then L1 and L2 are *referentially indiscernable*.
 
 Proposition Referential Supervience, or RSp(TCI entails RI)
 : It is necessarily the case that if L1 and L2 are *truth-conditionally indiscernable*, then L1 and L2 are *referentially indiscernable*.
 
-> Notice that this entailment is already implausible. According to this proposition, any language that are true or false necessarily have the same reference. For example, the language of geometry is truth-conditionally indiscernable with the language of arithmetic. It follows that the language of geometry and the language of arithmetic refer to the same things. That's absurd.
+> It's not entirely clear what Hirsch means by "truth condition". Is truth condition fine-grained, or coarse-grained?
+>  
+> Case 1: Coarse Grained TC:
+> 
+> In earlier work, for Hirsch, truth condition is just a set of possible worlds. So assume that what Hirsch mean by truth condition here is fine-grained. Now, if truth condition is fine-grained, then this entailment is already implausible. According to this proposition, any language that are true or false necessarily have the same reference. For example, the language of geometry is truth-conditionally indiscernable with the language of arithmetic, because the truth condition of every true sentence of geometry and the truth condition of every true sentence of arthimetic are the set of all possible world, and the false sentence all empty set. It follows that the language of geometry and the language of arithmetic are referentially indiscernable. 
+> Hirsch might object that, the reason we can talk about geometry and arthimetic is because we learn these from experience. The intuitive force for my objection only comes from our understanding of geometry and arthimetic as something that applies to our world. For example, we say the number of the planet is 8. But we never say the number of planet is triangle. The case where there is a "purely formal language" for geometry or arthimetic will change the meaning of the words, and thus it is acceptable that for these purely formal language, they can be referentially indiscernable. In fact this is a feature of Hilbert's agenda that formal system should be topic neutral. So my objection, after debunking its force, doesn't stand.
+> But this objection seems to appeal to a claim that I have set down to be false: meaning comes from interpretation. Indeed if we think meaning comes from interpretation, then it seems there's no reason to interpret two languages that does not have any empirical applications differently. However, what we have settled down earlier is that meaning comes from intention. (and we will talk about the alternative view later) Is it metaphysically possible to intend numbers and shapes without having any experience? To the extent that we believe they are a priori, then by virtue of the meaning of "a priori", it means at least it is in principle possible to intend them without any experience. In other words, if we pull away all the empirical application of math, we can still maintain their origional meaning. Therefore, the objection still stand.
+> That said, if Hirsch is not satisfied by this, let me devise another empricial example that is (coarse) truth-conditionally indiscernable but referentially indiscernable. 
+> 
+> Case 2: Fine Grained TC:
+> 
+> Then S-Lewis and Lewis is NOT truth-conditionally indiscernible. The truthmaker are different. The truthmaker for "there being a table" and "there being a set of atoms arranged table-wise" is a table and a set, respectively. But Hirsch agrees that a table is not identical to a set of atoms arranged table-wise (citation? Maybe the book review?). If these two languages are not truth-conditionally indiscernible, then the entire stipulation move no longer works.
 
 Definition RS(Reference Scheme)
 : A reference scheme is a function that assigns objects to expressions in a way that generates the correct truth conditions of the sentences in the language.
@@ -237,13 +248,24 @@ Assuming that van Inwagen and Lewis are speaking the same language, then debate 
 
 **Hirsch's initial reply**: The stipulation maneuver does not intend to decide who is right in the dispute, but to show that the dispute has no ontological significance.
 
-**Objection**: However, the question remains. Assume van Inwagen utterred the proposition *Table*. is *Table* true or false? In the stipulated language, you know that *Table\**  is true. And you know that, if *Table\** is *Table*, then you know that *Table* is true. But you do not know whether *Table* is *Table\**, so you don't know the fact about *Table* being true or false.
+**Objection**: However, the question remains. Assume van Inwagen utterred the proposition *Table*. is *Table* true or false? In the stipulated language, you know that *Table\**  is true. But you do not know whether *Table* is *Table\**.
 
-**Reply**: I can stipulate "schmtruth" to rigidly designate the truth value of *Table*. By doing so, I know a priori that *Table* is schmtrue (Let's call this proposition *schmTable*). Therefore, I know whether *Table* is true or false under the guise of *schmTable*.
+**Reply**: *Table* is *Table\**, so I know *Table* by knowing *Table\**. 
 
-> To know if something is true is to say it cannot be false. Can I exclude the possibility that *Table* is false by knowing whether *schmTable* is true or not? Similarly, I cannot exclude the possibility that Superman is not Clark Kent, even if I know that Superman is Superman. It seems this kind of exclusion ability, according to Hirsch, is worthless:
+**Proof**:
 
-Hirsch: "I cannot see how van Inwagen's being hooked up to the Table-guise with respect to a certain proposition, whereas I am hooked up to the Table\*-guise with respect to that same proposition, constitutes van-Inwagen's knowing something about ''what the world is like'' that I do not know."
+Proposition Modified Propositional Individuation (MPI)
+: If sentence A and B have (1) the *same logical form*, and (2) corresponding words have the same character (i.e. the same intension relative to *any* context of utterance), then A and B, at any context of utterance, express the same proposition.
 
-> But is it really (ontologically) worthless to know Superman is Clark Kent, even if I already know Superman is Superman?
+> The "same logical form" clause is to block the problem that all mathematic propositions are all same proposition because they are true with respect to any context. But this very requirement seems to undermine the proof. Nothing can guarantee that Table and Table* have the same logical form. According to the stipulation, the logical form of Table* is the same as "There is a living thing composed of a set of table-wise interrelated simples", but this is not the logical form of Table. So the argument does not work, and we can't say that you know *Table* by *Table\**
+
+Given that van Inwagen's language and the S-Inwagen language are truth-conditionally indiscernable, if follows from RSp that these two languages are referentially indiscernible. And by the definition of referential indiscernibility, every expression in van Inwagen's language has a corresponding expression in the S-Inwagen language that has the same intension relative to any context of utterance. Therefore, given that Table* is the corresponding proposition for Table, they have the same intension relative to any context of utterance. Then it follows from MPI that they are the same proposiiton.
+
+**Hirsch's remark on MPI**: The "any context of utterance" is to rule out the possibility of knowing a posterori proposition. If we do not rule this out, then we would know any proposition by using the following "schmtruth" trick: let "schmtruth" refer to the truth value of a given proposition P. Then we know the proposition P* "the truth value of P is schmtruth". Assuming that P is true, and P* is the same as the proposition that P is true, then it would follow that I know that P is true. And knowing that P is true means that I know P. This move is blocked by MPI because we cannot derive I know that P is true from I know that P*, because P* is not the same proposition as "P is true" or "P is false" by MPI.
+
+> To know if something is true is to say it cannot be false. Can I exclude the possibility that *Table* is false by knowing whether *Table\** is true or not? It seems this kind of exclusion ability, according to Hirsch, is worthless:
+> 
+> Hirsch: "I cannot see how van Inwagen's being hooked up to the Table-guise with respect to a certain proposition, whereas I am hooked up to the Table\*-guise with respect to that same proposition, constitutes van-Inwagen's knowing something about ''what the world is like'' that I do not know."
+> 
+> But is it really (ontologically) worthless to know Table?
 
