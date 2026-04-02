@@ -33,7 +33,7 @@ Definition: RI(Referentially indiscernable)
 Proposition Referential Supervience, or RSp(TCI entails RI)
 : It is necessarily the case that if L1 and L2 are *truth-conditionally indiscernable*, then L1 and L2 are *referentially indiscernable*.
 
-> It's not entirely clear what Hirsch means by "truth condition". Is truth condition fine-grained, or coarse-grained?
+> It's not entirely clear what Hirsch means by "truth condition". Is truth condition fine-grained, or coarse-grained? 
 >  
 > Case 1: Coarse Grained TC:
 > 
