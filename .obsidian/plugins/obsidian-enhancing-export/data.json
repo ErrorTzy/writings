@@ -18,13 +18,13 @@
     },
     {
       "name": "PDF",
-      "customArguments": "--pdf-engine=xelatex",
+      "customArguments": "--pdf-engine=xelatex --citeproc --bibliography \"${attachmentFolderPath}/biblatex.bib\"",
       "arguments": "-f ${fromFormat}-smart --lua-filter=\"${luaDir}/CustomLabelList.lua\" --lua-filter=\"${luaDir}/diagram-generator.lua\" --lua-filter=\"${luaDir}/highlight.lua\" --resource-path=\"${currentDir}\" --resource-path=\"${attachmentFolderPath}\" --lua-filter=\"${luaDir}/pdf.lua\" ${ options.textemplate ? `--resource-path=\"${pluginDir}/textemplate\" --template=\"${options.textemplate}\"` : ` ` } -o \"${outputPath}\" -t pdf"
     },
     {
       "name": "Word (.docx)",
       "arguments": "-f ${fromFormat} --lua-filter=\"${luaDir}/CustomLabelList.lua\" --lua-filter=\"${luaDir}/diagram-generator.lua\"  --lua-filter=\"${luaDir}/highlight.lua\" --resource-path=\"${currentDir}\" --resource-path=\"${attachmentFolderPath}\" -o \"${outputPath}\" -t docx",
-      "customArguments": "--reference-doc=${vaultDir}/.resources/reference-times-new-roman.docx"
+      "customArguments": "--reference-doc=\"${attachmentFolderPath}/reference-times-new-roman.docx\" --citeproc --bibliography \"${attachmentFolderPath}/biblatex.bib\""
     },
     {
       "name": "OpenOffice"
@@ -62,6 +62,9 @@
         "textemplate": "preset:textemplate"
       },
       "extension": ".pdf"
+    },
+    {
+      "name": "PowerPoint (.pptx)"
     }
   ],
   "defaultExportDirectoryMode": "Auto",
@@ -73,5 +76,5 @@
     "linux": "/home/scott/Desktop"
   },
   "lastExportType": "PDF",
-  "lastEditName": "PDF"
+  "lastEditName": "Word (.docx)"
 }

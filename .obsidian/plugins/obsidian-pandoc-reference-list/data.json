@@ -5,13 +5,13 @@
     {
       "id": 1,
       "name": "My Library",
-      "lastUpdate": 1775323715942
+      "lastUpdate": 1775329213069
     }
   ],
   "renderCitations": true,
   "renderCitationsReadingMode": true,
   "renderLinkCitations": true,
-  "pathToBibliography": "/home/scott/Documents/WorkingFiles/writings/.resources/biblatex.bib",
+  "pathToBibliography": "/home/scott/Documents/writings/_resources/biblatex.bib",
   "pullFromZotero": true,
   "cslLang": "en-US",
   "showCitekeyTooltips": true,
