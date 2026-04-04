@@ -1,0 +1,1 @@
+In philosophy, when people are disagreeing with each other, it is highly likely that we are also disagreeing with words. For example, when Kantians and utilitarians are disagreeing on what is right or wrong, they are at the same time disagreeing on what the meaning of "right" and "wrong". However, the risk is whether they are *merely* disagreeing with each other about words.
