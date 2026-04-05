@@ -1,10 +1,10 @@
 ---
-title: 
-subtitle: 
-author: 
-abstract: 
-date: 
-institute: 
+title: Are ontological disputes merely verbal?
+subtitle:
+author:
+abstract:
+date:
+institute:
 numbersections: false
 toc: false
 toc-title: catalog
@@ -27,6 +27,10 @@ But what is a _mere_ verbal dispute? Any attempt to define it precisely risks le
 
 > Which party is right depends on what you practically mean by ‘going round’ the squirrel. If you mean passing from the north of him to the east, then to the south, then to the west, and then to the north of him again, obviously the man does go round him, for he occupies these successive positions. But if on the contrary you mean being first in front of him, then on the right of him then behind him, then on his left, and finally in front again, it is quite as obvious that the man fails to go round him... Make the distinction, and there is no occasion for any farther dispute. [@jamesPragmatismNewName{25}]
 
-@chalmersVerbalDisputes2011
+It seems clear that the dispute about whether the man is going around the squirrel is pointless or shallow in the following way: There is no need to publish papers, organize conferences, or ask the APA for funding in order to settle this issue. The reason we think so is that the disagreement seems to arise merely from a difference in language, rather than from a difference in how people understand the situation.
+
+Over the past 20 years, there has been a significant deflationary position in (meta)metaphysics, mainly purported by Hirsch and Thomasson. They claim that disputes in ontology are shallow and insignificant, in the same way the disagreement about whether the man is moving around the squirrel is shallow and insignificant. The basic claim of this deflationary position is that, when people dispute ontological theories, they are merely disagreeing about the meaning of the quantifier[^2].
+
 
 [^1]: A further analysis of different ways to define it, see @chalmersVerbalDisputes2011 . For what matters here, Chalmers' way of defining verbal disputes is even boarder than the kind of dispute that will be discussed in this paper.
+[^2]: @thomassonOntologyMadeEasy2015 [p. 70] herself thinks that her view does not assume that the meaning of the quantifier changes. But I believe this is wrong. Her position relies on the triviality of changing the extension of the predicate "exist" by stipulation. Yet denying that this involves a change in the meaning of the quantifier goes against the following uncontroversial principle: if two expressions differ in extension in the same context, then they also differ in meaning. There no evidence in Thomasson's writing that she rejects this principle. Therefore, if we change the extension of "exist," then, according to this principle, we also change its meaning.
