@@ -75,7 +75,7 @@ Then we have the following argument
 {::P3}  $X$ is speaking $L_{X}$ and $Y$ is speaking $L_{Y}$
 {::C}  Therefore, the dispute between $X$ and $Y$ is merely verbal
 
-
+Of course $X$ and $Y$ are not really disputing only one sentence $D$, but infinitely many sentences. For example, for any agreed sentence $S$, there will be a disagreement for $S \land D$. But as long as we can find equivalence for any disputed sentence, then 
 
 
 

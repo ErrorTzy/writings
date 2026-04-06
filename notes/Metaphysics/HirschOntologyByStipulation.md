@@ -232,7 +232,7 @@ Assume $A$ is right about $\square (C \leftrightarrow U_{A})$ in $L_{A}$.
 
 (Hirsch favor the formulation "to express the fact without risk of error" and "guarantee the possession of facts". This awkward phrasing is due to the fine-grainness of knowledge: If P entails Q, and I know P, it does not follow that I know Q. In order for my previous argument to be valid, what I mean by "know" should be "can know by simple inference from ...". But I will leave my formulation to be simply "know", and leave the inference required in the bracket to make the argument more comprehensible.)
 
-Similarly, if $B$ is right about $\square(C \leftrightarrow U_{B})$ in $L_{B}$, then I know the fact refered to by $C$ in $L_B$ obtains or not. 
+Similarly, if $B$ is right about $\square(C \leftrightarrow U_{B})$ in $L_{B}$, then I know the fact refered to by $C$ in $L_B$ obtains or not.
 
 Then we can draw the following table (A or B being right or wrong means to be right or wrong about the equivalence that they claim)
 
