@@ -1,8 +1,8 @@
 {
   "settings": {
     "version": "1",
-    "enableAutocomplete": false,
-    "enableRefactor": false,
+    "enableAutocomplete": true,
+    "enableRefactor": true,
     "advancedMode": true,
     "apiProvider": "ollama",
     "azureOAIApiSettings": {

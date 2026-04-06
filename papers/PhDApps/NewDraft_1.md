@@ -35,20 +35,46 @@ Dispite the position being utterly superising, the argument supporting the posit
 
 This paper intend to argue against Hirsch's defaltionary argument. Eventually, however, my conclusion might be in some sense more devastating than the deflationary conclusion that Hirsch drew. ==(placeholder: roadmap of the paper)==
 
-Now, what is Hirsch's argument for the claim that (many) ontological disputes are shallow and merely verbal? Let us consider a dispute between Organist van Inwagen and Four-dimensionalist Lewis. According to van Inwagen, only two kinds of things exist: mereological simples, and living things. An ordinary table is neither a living thing, nor is a simple. Therefore, according to van Inwagen, there is no such thing as a table. Four-dimensionalist Lewis, on the hand, believe that mereological simples exist, and any arbitrary composition of these simples exist. Now consider the following sentence:
+---
+
+What is Hirsch's argument for the claim that many ontological disputes are shallow and merely verbal? Consider a dispute between the Organist van Inwagen and the four-dimensionalist Lewis. According to van Inwagen, only two kinds of things exist: mereological simples and living things. An ordinary table is neither a living thing nor a simple. So, on van Inwagen's view, there is no such thing as a table. Lewis, by contrast, holds that mereological simples exist and that any arbitrary composition of those simples also exists. Now consider the following sentence:
 
 - **Disputed sentence D**: "There is something composed of a set of table-wise interrelated simples"
 
-Van Inwagen would deny D because only living things can be composed of simples. On the other hand, Lewis would accept D, because any arbitrary composition of simples exist. Therefore, Van Inwagen and Lewis are disputing whether D is true or false.
+Van Inwagen denies D, because on his view only living things can be composed of simples. Lewis accepts D, because on his view any arbitrary composition of simples exists. So van Inwagen and Lewis seem to disagree over whether D is true.
 
-The key move in Hirsch's argument is that we should take van Inwagen to be speaking a different language from Lewis. Why? The defense depends on the metasemantic principle of *interpretive charity*. Roughly speaking, it is a principle that says, when interpreting other people's utterance, we should not saddle them with obvious a priori mistakes if a more charitable interpretation is available. For example, suppose there are Martians as intelligent as we are, but they use "+" in a way that would make many of their claims false unless we interpret their '+' as quus. (say $a$ quus $b$ is 5 if $a=68,b=57$; $a$ quus $b$ is a plus b if otherwise). Then we should take their "+" to mean quus, not plus. Similarly, we should not saddle van Inwagen and Lewis with a priori mistake about whether composite non-living things exist. Instead, we should take them to speak truth in different languages.
+Hirsch's key move is to argue that we should understand van Inwagen and Lewis as speaking different languages. This claim relies on the metasemantic principle of *interpretive charity*. Roughly, interpretive charity says that, when interpreting other people's utterances, we should avoid attributing obvious a priori errors to them when a more charitable interpretation is available. For example, suppose there are Martians as intelligent as we are, but they use "+" in such a way that many of their claims would come out false unless we interpret their "+" as quus. (Suppose that $a$ quus $b$ = 5 if $a = 68$ and $b = 57$, and otherwise $a$ quus $b = a + b$.) In that case, charity requires us to interpret their "+" as meaning quus rather than plus.
 
+Hirsch proposes that the same sort of reasoning applies here. We should not interpret van Inwagen and Lewis in a way that saddles one or both of them with an obvious a priori mistake about whether composite non-living things exist. Instead, we should interpret them as speaking different languages, each of which makes their claims come out true on their own terms.
 
-|                                                                                                        | Organist van Inwagen | Four-dimensionalist Lewis |
-| ------------------------------------------------------------------------------------------------------ | -------------------- | ------------------------- |
-| **Disputed sentence C**: "There is something composed of a set of table-wise interrelated simples"     | *false*              | *true*                    |
-| **Agreed sentence U1**: "There is a set of table-wise interrelated simples"                            | *true*               | *true*                    |
-| **Agreed sentence U2**: "There is a living thing composed of a set of table-wise interrelated simples" | *false*              | *false*                   |
+But why does this show that their dispute is merely verbal? Hirsch's answer is that, despite their apparent disagreement over D, van Inwagen and Lewis agree about the truth values of other uncontroversial sentences. Consider, first:
+
+- **Agreed sentence $A_{1}$**: "There is a set of table-wise interrelated simples"
+
+Both van Inwagen and Lewis agree that $A_{1}$ is true. Now consider:
+
+- **Agreed sentence $A_{2}$**: "There is a living thing composed of a set of table-wise interrelated simples"
+
+Both van Inwagen and Lewis agree that $A_{2}$ is false.
+
+The crucial point is that each party takes $D$ to be necessarily equivalent to a different sentence. Van Inwagen holds that $D$ is necessarily equivalent to $A_{2}$. Lewis holds that $D$ is necessarily equivalent to $A_{1}$. According to interpretive charity, we should not take them to be making a priori mistakes. Instead, we should take these claims to be the semantic rules they are following. 
+
+Therefore, by intepretive charity, van Inwagen is speaking a language, $L_{Inwagen}$, in which the truth condition of $D$ is just the truth condition of $A_{2}$. Likewise, Lewis as speaking a language, $L_{Lewis}$, in which the truth condition of $D$ is just the truth condition of $A_{1}$. If that is right, then their apparent disagreement over $D$ does not reflect any disagreement about the underlying facts. After all, they already agree that $A_{1}$ is true and that $A_{2}$ is false. What differs is whether sentence $D$ express $A_{1}$ or $A_{2}$. But this is merely a matter linguistic choice. Therefore, Hirsch concludes, the dispute between van Inwage and Lewis is merely verbal.
+
+This argument can be generalized into the following form. Consider the following disagreement between $X$ and $Y$ over sentence $D$:
+
+|              | Agreement                     | Disagreement                        |
+|--------------|-------------------------------|-------------------------------------|
+| $X$          | $A_1$ is true, $A_{2}$ is false | $D$ is true, It is a priori that $\square(D \leftrightarrow A_{1})$ |
+| $Y$          | $A_{1}$ is true, $A_{2}$ is false | $D$ is false, It is a priori that $\square(D \leftrightarrow A_{2})$ |
+
+Then we have the following argument
+
+{::P1} There is a language $L_{X}$ in which $D$ has the same truth condition as $A_{1}$
+{::P2} There is a language $L_{Y}$ in which $D$ has the same truth condition as $A_{2}$
+{::P3}  $X$ is speaking $L_{X}$ and $Y$ is speaking $L_{Y}$
+{::C}  Therefore, the dispute between $X$ and $Y$ is merely verbal
+
 
 
 
