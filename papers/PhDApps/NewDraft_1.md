@@ -33,11 +33,26 @@ Over the past 20 years, there has been a significant deflationary position in (m
 
 Dispite the position being utterly superising, the argument supporting the position has been more powerful than expected. During the past 20 years, there are plenty of attempts to resist this deflationary argument. But I believe Hirsch has replied them well. Many people, it seems, eventually start to accept this defaltionary position about ontology and move on to something else, like fundamentality[^3].
 
-This paper intend to argue against Hirsch's defaltionary argument. Eventually, however, my conclusion might be in some sense more devastating than the deflationary conclusion that Hirsch drew. ==roadmap==
+This paper intend to argue against Hirsch's defaltionary argument. Eventually, however, my conclusion might be in some sense more devastating than the deflationary conclusion that Hirsch drew. ==(placeholder: roadmap of the paper)==
+
+Now, what is Hirsch's argument for the claim that (many) ontological disputes are shallow and merely verbal? Let us consider a dispute between Organist van Inwagen and Four-dimensionalist Lewis. According to van Inwagen, only two kinds of things exist: mereological simples, and living things. An ordinary table is neither a living thing, nor is a simple. Therefore, according to van Inwagen, there is no such thing as a table. Four-dimensionalist Lewis, on the hand, believe that mereological simples exist, and any arbitrary composition of these simples exist. Now consider the following sentence:
+
+- **Disputed sentence D**: "There is something composed of a set of table-wise interrelated simples"
+
+Van Inwagen would deny D because only living things can be composed of simples. On the other hand, Lewis would accept D, because any arbitrary composition of simples exist. Therefore, Van Inwagen and Lewis are disputing whether D is true or false.
+
+The key move in Hirsch's argument is that we should take van Inwagen to be speaking a different language from Lewis. Why? The defense depends on the metasemantic principle of *interpretive charity*. Roughly speaking, it is a principle that says, when interpreting other people's utterance, we should not saddle them with obvious a priori mistakes if a more charitable interpretation is available. For example, suppose there are Martians as intelligent as we are, but they use "+" in a way that would make many of their claims false unless we interpret their '+' as quus. (say $a$ quus $b$ is 5 if $a=68,b=57$; $a$ quus $b$ is a plus b if otherwise). Then we should take their "+" to mean quus, not plus. Similarly, we should not saddle van Inwagen and Lewis with a priori mistake about whether composite non-living things exist. Instead, we should take them to speak truth in different languages.
+
+
+|                                                                                                        | Organist van Inwagen | Four-dimensionalist Lewis |
+| ------------------------------------------------------------------------------------------------------ | -------------------- | ------------------------- |
+| **Disputed sentence C**: "There is something composed of a set of table-wise interrelated simples"     | *false*              | *true*                    |
+| **Agreed sentence U1**: "There is a set of table-wise interrelated simples"                            | *true*               | *true*                    |
+| **Agreed sentence U2**: "There is a living thing composed of a set of table-wise interrelated simples" | *false*              | *false*                   |
 
 
 
 
 [^1]: A further analysis of different ways to define it, see @chalmersVerbalDisputes2011 . For what matters here, Chalmers' way of defining verbal disputes is even boarder than the kind of dispute that will be discussed in this paper. Therefore, the conclusion that drawn from this paper applies to the definitions that Chalmers discussed in his paper.
 [^2]: @thomassonOntologyMadeEasy2015 [p. 70] herself thinks that her view does not assume that the meaning of the quantifier changes. But I believe this is wrong. Her position relies on the triviality of changing the extension of the predicate "exist" by stipulation. Yet consider the following uncontroversial principle: if two expressions differ in extension in the same context, then they also differ in meaning. There is no evidence in Thomasson's writing that she rejects this principle. But denying that her thesis does not assume a change in the meaning of the quantifier goes against this principle. Therefore, as long as we accept this principle, if we change the extension of "exist", then we also change its meaning.
-[^3]: For example, Schaffer seems to accept that ontology is shallow, and retarget metaphysics to the project of fundamentality. However, it is unclear why similar deflationary argument cannot be applied to fundamentality. For example, @hirschOntologyStipulation2021 argues that his argument also applies fundamentality. I also argued elsewhere that essence can also be deflated by the same kind of argument.
+[^3]: For example, Schaffer seems to accept that ontology is shallow, and retarget metaphysics to the project of fundamentality. However, it is unclear why similar deflationary argument cannot be applied to fundamentality. For example, @hirschOntologyStipulation2021 argues that his argument also applies fundamentality. I also argued elsewhere that essence, a central concept in the fundamentality project, can also be deflated by the same kind of argument.
