@@ -31,7 +31,13 @@ It seems clear that the dispute about whether the man is going around the squirr
 
 Over the past 20 years, there has been a significant deflationary position in (meta)metaphysics, mainly purported by Hirsch and Thomasson. They claim that disputes in ontology are shallow and insignificant, in the same way the disagreement about whether the man is moving around the squirrel is shallow and insignificant. The basic claim of this deflationary position is that, when people dispute about what exists, they are *merely* having a shallow disagreement about the meaning of the quantifier[^2].
 
-Dispite the position being utterly superising, the argument has been more powerful than expected. There are plenty of attempts to resist this deflationary argument, but I believe Hirsch has replied them well. At the e
+Dispite the position being utterly superising, the argument supporting the position has been more powerful than expected. During the past 20 years, there are plenty of attempts to resist this deflationary argument. But I believe Hirsch has replied them well. Many people, it seems, eventually start to accept this defaltionary position about ontology and move on to something else, like fundamentality[^3].
+
+This paper intend to argue against Hirsch's defaltionary argument. Eventually, however, my conclusion might be in some sense more devastating than the deflationary conclusion that Hirsch drew. ==roadmap==
+
+
+
 
 [^1]: A further analysis of different ways to define it, see @chalmersVerbalDisputes2011 . For what matters here, Chalmers' way of defining verbal disputes is even boarder than the kind of dispute that will be discussed in this paper. Therefore, the conclusion that drawn from this paper applies to the definitions that Chalmers discussed in his paper.
 [^2]: @thomassonOntologyMadeEasy2015 [p. 70] herself thinks that her view does not assume that the meaning of the quantifier changes. But I believe this is wrong. Her position relies on the triviality of changing the extension of the predicate "exist" by stipulation. Yet consider the following uncontroversial principle: if two expressions differ in extension in the same context, then they also differ in meaning. There is no evidence in Thomasson's writing that she rejects this principle. But denying that her thesis does not assume a change in the meaning of the quantifier goes against this principle. Therefore, as long as we accept this principle, if we change the extension of "exist", then we also change its meaning.
+[^3]: For example, Schaffer seems to accept that ontology is shallow, and retarget metaphysics to the project of fundamentality. However, it is unclear why similar deflationary argument cannot be applied to fundamentality. For example, @hirschOntologyStipulation2021 argues that his argument also applies fundamentality. I also argued elsewhere that essence can also be deflated by the same kind of argument.
