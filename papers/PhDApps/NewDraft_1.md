@@ -75,7 +75,10 @@ Then we have the following argument
 {::P3}  $X$ is speaking $L_{X}$ and $Y$ is speaking $L_{Y}$
 {::C}  Therefore, the dispute between $X$ and $Y$ is merely verbal
 
-Of course $X$ and $Y$ are not really disputing only one sentence $D$, but infinitely many sentences. For example, for any agreed sentence $S$, there will be a disagreement for $S \land D$. But as long as we can find equivalence for any disputed sentence, then 
+The basic idea is that $Y$ should translate $X$'s utterance of $D$ as expressing $A_1$, and vice versa. Of course the dispute between $X$ and $Y$ is not just over one sentence $D$, but many other sentences. For example, for any agreed sentence $S$, there will be a disagreement for $S \land D$. But as long as $X$ and $Y$ can translate any disputed sentence into agreed sentence, then $X$ and $Y$ only disagree on which expression should they use to express the agreed fact.
+
+There has been several resistance to this argument. Some tried to deny {::P1} or {::P2} by claiming that $L_{X}$ or $L_{Y}$ might not be possible languages because, either their expressions are not joint-carving (Sider), or their semantics may not be compositional (Eklund, Hawthrone). I will not discuss these objections here. I agree with Hirsch that if the term "joint-carving" mean anything at all, then $L_{X}$ and $L_{Y}$ are joint carving; And there is no reason to believe that semantics must be compositional, since in English we cannot figure out what some terms refer to. To understand the expression "for the sake of", one does not need to understand what is a "sake".
+
 
 
 
