@@ -18,7 +18,7 @@ header-includes:
   - \usepackage{ulem}
   - \renewcommand{\descriptionlabel}[1]{\hspace{\labelsep}\textbf{\uline{#1}}}
 ---
-
+## Intro
 
 In philosophy, when people disagree with each other, probably they are also disagreeing about the meanings of words. For example, when Kantians and utilitarians disagree about what is right or wrong, they are at the same time disagreeing about the meanings of "right" and "wrong". The harder question, however, is whether they are *merely* disagreeing about words, or there is something deeper in the dispute.
 
@@ -34,7 +34,7 @@ Dispite the position being utterly superising, the argument supporting the posit
 
 This paper intend to argue against Hirsch's defaltionary argument. Eventually, however, my conclusion might be in some sense more devastating than the deflationary conclusion that Hirsch drew. ==(placeholder: roadmap of the paper)==
 
----
+## The deflationary argument
 
 What is Hirsch's argument for the claim that many ontological disputes are shallow and merely verbal? Consider a dispute between the Organist van Inwagen and the four-dimensionalist Lewis. According to van Inwagen, only two kinds of things exist: mereological simples and living things. An ordinary table is neither a living thing nor a simple. So, on van Inwagen's view, there is no such thing as a table. Lewis, by contrast, holds that mereological simples exist and that any arbitrary composition of those simples also exists. Now consider the following sentence:
 
@@ -76,23 +76,75 @@ Then we have the following argument:
 
 The basic idea is that $Y$ should translate $X$'s utterance of $D$ as expressing $A_1$, and $X$ should translate $Y$'s utterance of $D$ as expressing $A_2$. Of course, the dispute between $X$ and $Y$ is not over just one sentence, $D$, but over many others. For example, for any agreed sentence $S$, there will also be a disagreement over $S \land D$. But as long as $X$ and $Y$ can translate any disputed sentence into some agreed sentence, they disagree only over which expressions they should use to express the agreed fact.
 
+This argument schema is topic neutral, but Hirsch mainly applied this argument to ontological debate. According to this argument, positions like mereological nihilism, organism, mereological essentialism, endurantism and perdurantism are all just some fancy ways of talking without any substantial difference.
+
 There have been several lines of resistance to this argument. Some have tried to deny {::P1} or {::P2} by claiming that $L_{X}$ or $L_{Y}$ might not be possible languages because either their expressions are not "joint-carving" [@siderFourDimensionalismOntologyPersistence2001], or their semantics may not be compositional [@eklundCarnapOntologicalPluralism2009;@hawthorneMetaphysicalEssays2006]. I will not discuss these objections in detail, since I believe Hirsch has sufficiently replied to them in a series of works [esp. in @hirschRevisionaryOntology2002; @hirschCommentsTheodoreSiders2004;@hirschOntologyAlternativeLanguages2009;@hirschQuantifierVarianceDemand2017]. In a nutshell, these demands on semantics are either unintelligible or unreasonable.
 
 My objection, however, targets {::P3}. Sider, following Lewis, also denied {::P3} by appealing to reference magnetism. According to reference magnetism, there are some metaphysically privileged things in the world such that, when we use language, our words somehow automatically hook up with these things through their "magnetic force". Therefore, a charitable interpretion may be defeated by the "magnetic force" of reference. I will also omit discussion of this objection because I believe Hirsch and Warren have sufficiently replied to it in a series of works [@hirschRevisionaryOntology2002; @hirschCommentsTheodoreSiders2004; @hirschLanguageOntologyStructure2008; @hirschSelvesDoubt2026{pp.111-128}; @warrenReferenceMagnetismDoes2024].
 
-I believe denying {::P3} is the correct move, but Sider's reason points in the wrong direction and has misguided the discussion. My problem with {::P3} is about the principle of *interpretive charity* itself. Recall that the motivation for {::P3} comes from the metasemantic principle of *interpretive charity*: when interpreting other people's linguistic behavior, we should interpret them in a way that makes their utterances come out true or reasonable. My question is the following: **Is interpretive charity a pragmatic principle of meaning, or a metaphysical principle of meaning?**
+I believe denying {::P3} is the correct move, but Sider's reason points in the wrong direction and has misdirected the discussion. My problem with {::P3} concerns the principle of *interpretive charity* itself. Recall that the motivation for {::P3} comes from the metasemantic principle of *interpretive charity*: when interpreting other people's linguistic behavior, we should interpret them in a way that makes their utterances come out true or reasonable. My question is this: **Is interpretive charity a pragmatic principle of meaning, or a metaphysical principle of meaning?**
 
-Let me explain what I mean. *Interpretive charity* tells us how to interpret other people's linguistic behavior. But how should we understand the interpretation that we get from it? When $X$ interprets $Y$'s utterance, is $X$'s interpretation of $Y$'s utterance just *is* what $Y$ meant? Or is the interpretation merely a pragmatic strategy to *approach* what $Y$ meant?
+Let me explain what I mean. *Interpretive charity* tells us how to interpret other people's linguistic behavior. But how should we understand the interpretation it yields? When $X$ interprets $Y$'s utterance, is $X$'s interpretation of $Y$'s utterance simply what $Y$ meant? Or is the interpretation merely a pragmatic strategy for approximating what $Y$ meant?
 
-This is the place where I believe the proponents of the deflationary argument would diverge. I suspect Warren would say $X$'s interpretation of $Y$'s utterance just *is* what $Y$ meant. On the other hand, Hirsch, in recent years, seems to start to accept that $X$'s interpretation does not determine what $Y$ meant.
+Here, I believe, proponents of the deflationary argument would diverge. I suspect Warren would say that $X$'s interpretation of $Y$'s utterance simply *is* what $Y$ meant. Hirsch, by contrast, seems in his recent teaching to accept that meaning comes from irreducible intentionality. If meaning comes from irreducible intentionality, then $X$'s charitable interpretation of $Y$ cannot determine what $Y$ meant. At best, a charitable interpretation is a rational guess about what $Y$ intends.
 
-I personally stand with Hirsch on this matter. To say I meant something is, first and foremost, to say I am in a mental state that is about something. It just seem absurd to say what I mean by a sentence depends on how other people would intepret it. 
+I personally stand with Hirsch on this matter. For me, to say that I meant something is, first and foremost, to say that I am in a mental state that is about something. It just seems absurd to say that I cannot control what I mean, and that what is in my mind depends on how other people interpret it. That said, because of this divergence, I will divide my discussion into two parts. In the first part, I will argue against a phantom Hirsch who accepts that meaning does not come from interpretation. In the second part, I will argue against a phantom Warren who accepts that meaning comes from interpretation.
 
-That said, due to the divergance, I will divid my discussion into two parts. In the first part, I will argue against a phantom Hirsch who accept that meaning comes from intentionality. In the second part, I will argue against a phantom Warren who accept that meaning comes from interpretation.
+## Against phantom Hirsch
 
-Now, assume that meaning depends on intentionality, and interpretation is merely a pragmatic strategy to approach what a speaker meant. Immediately, {::P3} is not valid. 
+Now assume that meaning depends on intentionality, and that interpretation is merely a pragmatic strategy for approximating what a speaker meant. If so, {::P3} could be false. In particular, philosophers who believe that ontology is substantial often insist that they are speaking either plain English or a special philosophical language. So {::P3} is usually denied by the very philosophers to whom Hirsch wants to apply it. If that is right, then disputes with those who deny {::P3} are not merely verbal.
+
+If I was born earlier, then the previous paragraph should suffice to dismiss Hirsch's argument. However, unfortunately, @hirschOntologyStipulation2021 published a paper "Ontology by Stipulation". In this paper, he upgraded his argument so that it neither rely on {::P3}, nor on interpretive charity!
+
+But let's see if this upgraded argument works. First, Hirsch introduced the thesis Propositional Supervience.
+
+Propositional Supervience
+: It is necessarily the case that if $L_1$ and $L_2$ are truth-conditionally indiscernable, then any corresponding sentence in $L_1$ and $L_2$ expresses the same proposition.
+
+We can stipulate a language $S_A$ such that
+
+1. In the language $S_A$, the sentence $C$ is stipulated to have the same truth condition as the sentence $U_{A}$.
+
+And assume we can do this kind of stipulation further such that 
+
+2. For any sentence in $L_{A}$, relative to any context of utterance, there is a sentence in $S_{A}$ that has the same truth condition. (This would include inferential indiscernability, according to Hirsch's later appendix "On ontology by stipulation")
+
+And assume we can also stipulate $S_{B}$ in the same way. Then the following argument holds:
+
+Assume $A$ is right about $\square (C \leftrightarrow U_{A})$ in $L_{A}$. 
+
+3. The sentence $C$ in $S_{A}$ and the sentence $C$ in $L_{A}$ refer to the same fact. (from 1,2,PSp)
+4. If I know whether truth condition of a sentence obstains, then I know whether the fact expressed by the sentence obstains. (This is basically analytic truth: if the truth condition obtains, then I know the proposition is true; If I know the proposition being true, then I know the fact expressed by the proposition obtains.)
+5. I know whether the truth condition of $U_{A}$ in $S_A$ obstains or not. (by stipulation)
+6. I know whether the truth condition of $C$ in $S_A$ obtains or not. (from 2,5)
+7. I know whether the fact expressed by $C$ in $S_A$ obtains or not. (from 4,6)
+8. I know whether the fact expressed by $C$ in $L_A$ obtains or not. (from 3,7)
+
+(Hirsch favor the formulation "to express the fact without risk of error" and "guarantee the possession of facts". This awkward phrasing is due to the fine-grainness of knowledge: If P entails Q, and I know P, it does not follow that I know Q. In order for my previous argument to be valid, what I mean by "know" should be "can know by simple inference from ...". But I will leave my formulation to be simply "know", and leave the inference required in the bracket to make the argument more comprehensible.)
+
+Similarly, if $B$ is right about $\square(C \leftrightarrow U_{B})$ in $L_{B}$, then I know the fact refered to by $C$ in $L_B$ obtains or not.
+
+Then we can draw the following table (A or B being right or wrong means to be right or wrong about the equivalence that they claim)
+
+|            | A is right                                                                                  | A is wrong                                                                                       |
+| ---------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| B is right | If $L_{A}=L_{B}$: Impossible, because $C$ has different truth value in $L_A$ and $L_B$<br>  | If $L_{A}=L_{B}$: Know the disputed fact through the uncontroversial $U_{B}$                     |
+|            | If $L_{A} \neq L_{B}$: Know the expressed by both sides by stipulation                      | If $L_{A} \neq L_{B}$: Know the fact expressed by $B$; Do not know what fact is expressed by $A$ |
+| B is wrong | If $L_{A}=L_{B}$: Know the disputed fact through the uncontroversial $U_{A}$                | If $L_{A}=L_{B}$: Do not know what fact is expressed by the two parties.                         |
+|            | If $L_{A} \neq L_{B}$: Know the expressed by $A$, Do not know what fact is expressed by $B$ | If $L_{A} \neq L_{B}$: Do not know what fact is expressed by the two parties.                    |
+
+Therefore, either (1) some speaker made mistake about their own language so that we don't know what they are talking about, or (2) we can know what the disputed fact is through some trivial fact. (Hirsch left out case 1 in his discussion, but the argument seems to suggest this)
+
+Either way, "it follows that ontological controversies are in some important sense empty and insignificant."
+
+{::P} There is a language $L_{X}$ in which $D$ has the same truth condition as $A_{1}$
+{::} There is a language $L_{Y}$ in which $D$ has the same truth condition as $A_{2}$
+{::P} $X$ is speaking $L_{X}$ and $Y$ is speaking $L_{Y}$
+{::C} Therefore, the dispute between $X$ and $Y$ is merely verbal
 
 
+
+## Against phantom Warren
 
 
 [^1]: A further analysis of different ways to define it, see @chalmersVerbalDisputes2011 . For what matters here, Chalmers' way of defining verbal disputes is even boarder than the kind of dispute that will be undermined in this paper. Therefore, my attack applies to Chalmers' view.
