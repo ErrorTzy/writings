@@ -80,14 +80,21 @@ There have been several lines of resistance to this argument. Some have tried to
 
 My objection, however, targets {::P3}. Sider, following Lewis, also denied {::P3} by appealing to reference magnetism. According to reference magnetism, there are some metaphysically privileged things in the world such that, when we use language, our words somehow automatically hook up with these things through their "magnetic force". Therefore, a charitable interpretion may be defeated by the "magnetic force" of reference. I will also omit discussion of this objection because I believe Hirsch and Warren have sufficiently replied to it in a series of works [@hirschRevisionaryOntology2002; @hirschCommentsTheodoreSiders2004; @hirschLanguageOntologyStructure2008; @hirschSelvesDoubt2026{pp.111-128}; @warrenReferenceMagnetismDoes2024].
 
-I believe denying {::P3} is the correct move, but Sider's reason points in the wrong direction and has misguided the discussion. What is my problem with {::P3}? Recall that the motivation for {::P3} comes from the metasemantic principle of *interpretive charity*: when interpreting other people's linguistic behavior, we should interpret them in a way that makes their utterances come out true or reasonable. My question is: Is this a pragmatic principle of meaning, or a principle for the metaphysics of meaning?
+I believe denying {::P3} is the correct move, but Sider's reason points in the wrong direction and has misguided the discussion. My problem with {::P3} is about the principle of *interpretive charity* itself. Recall that the motivation for {::P3} comes from the metasemantic principle of *interpretive charity*: when interpreting other people's linguistic behavior, we should interpret them in a way that makes their utterances come out true or reasonable. My question is the following: **Is interpretive charity a pragmatic principle of meaning, or a metaphysical principle of meaning?**
+
+Let me explain what I mean. *Interpretive charity* tells us how to interpret other people's linguistic behavior. But how should we understand the interpretation that we get from it? When $X$ interprets $Y$'s utterance, is $X$'s interpretation of $Y$'s utterance just *is* what $Y$ meant? Or is the interpretation merely a pragmatic strategy to *approach* what $Y$ meant?
+
+This is the place where I believe the proponents of the deflationary argument would diverge. I suspect Warren would say $X$'s interpretation of $Y$'s utterance just *is* what $Y$ meant. On the other hand, Hirsch, in recent years, seems to start to accept that $X$'s interpretation does not determine what $Y$ meant.
+
+I personally stand with Hirsch on this matter. To say I meant something is, first and foremost, to say I am in a mental state that is about something. It just seem absurd to say what I mean by a sentence depends on how other people would intepret it. 
+
+That said, due to the divergance, I will divid my discussion into two parts. In the first part, I will argue against a phantom Hirsch who accept that meaning comes from intentionality. In the second part, I will argue against a phantom Warren who accept that meaning comes from interpretation.
+
+Now, assume that meaning depends on intentionality, and interpretation is merely a pragmatic strategy to approach what a speaker meant. Immediately, {::P3} is not valid. 
 
 
 
 
-
-
-
-[^1]: A further analysis of different ways to define it, see @chalmersVerbalDisputes2011 . For what matters here, Chalmers' way of defining verbal disputes is even boarder than the kind of dispute that will be discussed in this paper. Therefore, the conclusion that drawn from this paper applies to the definitions that Chalmers discussed in his paper.
+[^1]: A further analysis of different ways to define it, see @chalmersVerbalDisputes2011 . For what matters here, Chalmers' way of defining verbal disputes is even boarder than the kind of dispute that will be undermined in this paper. Therefore, my attack applies to Chalmers' view.
 [^2]: @thomassonOntologyMadeEasy2015 [p. 70] herself thinks that her view does not assume that the meaning of the quantifier changes. But I believe this is wrong. Her position relies on the triviality of changing the extension of the predicate "exist" by stipulation. Yet consider the following uncontroversial principle: if two expressions differ in extension in the same context, then they also differ in meaning. There is no evidence in Thomasson's writing that she rejects this principle. But denying that her thesis does not assume a change in the meaning of the quantifier goes against this principle. Therefore, as long as we accept this principle, if we change the extension of "exist", then we also change its meaning.
 [^3]: For example, Schaffer seems to accept that ontology is shallow, and retarget metaphysics to the project of fundamentality. However, it is unclear why similar deflationary argument cannot be applied to fundamentality. For example, @hirschOntologyStipulation2021 argues that his argument also applies fundamentality. I also argued elsewhere that essence, a central concept in the fundamentality project, can also be deflated by the same kind of argument.
