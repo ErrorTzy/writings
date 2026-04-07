@@ -5,7 +5,7 @@
     {
       "id": 1,
       "name": "My Library",
-      "lastUpdate": 1775520024873
+      "lastUpdate": 1775524934340
     }
   ],
   "renderCitations": true,
@@ -17,6 +17,6 @@
   "showCitekeyTooltips": true,
   "enableCiteKeyCompletion": true,
   "cslStylePath": "",
-  "cslStyleURL": "https://raw.githubusercontent.com/citation-style-language/styles/master/chicago-author-date.csl",
+  "cslStyleURL": "https://raw.githubusercontent.com/citation-style-language/styles/master/apa.csl",
   "hideLinks": false
 }

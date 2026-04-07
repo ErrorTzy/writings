@@ -12,7 +12,6 @@ reference-section-title: References
 mainfont: FreeSerif
 CJKmainfont: Noto Serif CJK SC
 include-before:
-  - "`\\newpage{}`{=latex}"
 header-includes:
   - \usepackage{enumitem}
   - \setlist[description]{style=nextline}
@@ -63,21 +62,28 @@ Therefore, by intepretive charity, van Inwagen is speaking a language, $L_{Inwag
 
 This argument can be generalized into the following form. Consider the following disagreement between $X$ and $Y$ over sentence $D$:
 
-|              | Agreement                     | Disagreement                        |
-|--------------|-------------------------------|-------------------------------------|
-| $X$          | $A_1$ is true, $A_{2}$ is false | $D$ is true, It is a priori that $\square(D \leftrightarrow A_{1})$ |
-| $Y$          | $A_{1}$ is true, $A_{2}$ is false | $D$ is false, It is a priori that $\square(D \leftrightarrow A_{2})$ |
+|     | Agreement                         | Disagreement                                                             |
+| --- | --------------------------------- | ------------------------------------------------------------------------ |
+| $X$ | $A_1$ is true, $A_{2}$ is false   | $D$ is true, and it is a priori that $\square(D \leftrightarrow A_{1})$  |
+| $Y$ | $A_{1}$ is true, $A_{2}$ is false | $D$ is false, and it is a priori that $\square(D \leftrightarrow A_{2})$ |
 
-Then we have the following argument
+Then we have the following argument:
 
 {::P1} There is a language $L_{X}$ in which $D$ has the same truth condition as $A_{1}$
 {::P2} There is a language $L_{Y}$ in which $D$ has the same truth condition as $A_{2}$
-{::P3}  $X$ is speaking $L_{X}$ and $Y$ is speaking $L_{Y}$
-{::C}  Therefore, the dispute between $X$ and $Y$ is merely verbal
+{::P3} $X$ is speaking $L_{X}$ and $Y$ is speaking $L_{Y}$
+{::C} Therefore, the dispute between $X$ and $Y$ is merely verbal
 
-The basic idea is that $Y$ should translate $X$'s utterance of $D$ as expressing $A_1$, and vice versa. Of course the dispute between $X$ and $Y$ is not just over one sentence $D$, but many other sentences. For example, for any agreed sentence $S$, there will be a disagreement for $S \land D$. But as long as $X$ and $Y$ can translate any disputed sentence into some agreed sentence, then $X$ and $Y$ only disagree on which expression should they use to express the agreed fact.
+The basic idea is that $Y$ should translate $X$'s utterance of $D$ as expressing $A_1$, and $X$ should translate $Y$'s utterance of $D$ as expressing $A_2$. Of course, the dispute between $X$ and $Y$ is not over just one sentence, $D$, but over many others. For example, for any agreed sentence $S$, there will also be a disagreement over $S \land D$. But as long as $X$ and $Y$ can translate any disputed sentence into some agreed sentence, they disagree only over which expressions they should use to express the agreed fact.
 
-There has been several resistance to this argument. Some tried to deny {::P1} or {::P2} by claiming that $L_{X}$ or $L_{Y}$ might not be possible languages because, either their expressions are not joint-carving [@siderFourDimensionalismOntologyPersistence2001], or their semantics may not be compositional [@eklundCarnapOntologicalPluralism2009;@hawthorneMetaphysicalEssays2006]. This paper is not a literature review, therefore I will not discuss these objections in details, since I believe Hirsch has sufficiently replied to these objections in a seris of works [esp. in @hirschRevisionaryOntology2002; @hirschCommentsTheodoreSiders2004;@hirschOntologyAlternativeLanguages2009;@hirschQuantifierVarianceDemand2017].
+There have been several lines of resistance to this argument. Some have tried to deny {::P1} or {::P2} by claiming that $L_{X}$ or $L_{Y}$ might not be possible languages because either their expressions are not "joint-carving" [@siderFourDimensionalismOntologyPersistence2001], or their semantics may not be compositional [@eklundCarnapOntologicalPluralism2009;@hawthorneMetaphysicalEssays2006]. I will not discuss these objections in detail, since I believe Hirsch has sufficiently replied to them in a series of works [esp. in @hirschRevisionaryOntology2002; @hirschCommentsTheodoreSiders2004;@hirschOntologyAlternativeLanguages2009;@hirschQuantifierVarianceDemand2017]. In a nutshell, these demands on semantics are either unintelligible or unreasonable.
+
+My objection, however, targets {::P3}. Sider, following Lewis, also denied {::P3} by appealing to reference magnetism. According to reference magnetism, there are some metaphysically privileged things in the world such that, when we use language, our words somehow automatically hook up with these things through their "magnetic force". Therefore, a charitable interpretion may be defeated by the "magnetic force" of reference. I will also omit discussion of this objection because I believe Hirsch and Warren have sufficiently replied to it in a series of works [@hirschRevisionaryOntology2002; @hirschCommentsTheodoreSiders2004; @hirschLanguageOntologyStructure2008; @hirschSelvesDoubt2026{pp.111-128}; @warrenReferenceMagnetismDoes2024].
+
+I believe denying {::P3} is the correct move, but Sider's reason points in the wrong direction and has misguided the discussion. What is my problem with {::P3}? Recall that the motivation for {::P3} comes from the metasemantic principle of *interpretive charity*: when interpreting other people's linguistic behavior, we should interpret them in a way that makes their utterances come out true or reasonable. My question is: Is this a pragmatic principle of meaning, or a principle for the metaphysics of meaning?
+
+
+
 
 
 

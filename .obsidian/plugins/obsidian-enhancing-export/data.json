@@ -24,7 +24,7 @@
     {
       "name": "Word (.docx)",
       "arguments": "-f ${fromFormat} --lua-filter=\"${luaDir}/CustomLabelList.lua\" --lua-filter=\"${luaDir}/diagram-generator.lua\"  --lua-filter=\"${luaDir}/highlight.lua\" --resource-path=\"${currentDir}\" --resource-path=\"${attachmentFolderPath}\" -o \"${outputPath}\" -t docx",
-      "customArguments": "--reference-doc=\"${attachmentFolderPath}/reference-times-new-roman.docx\" --citeproc --bibliography \"${attachmentFolderPath}/biblatex.bib\""
+      "customArguments": "--reference-doc=\"${attachmentFolderPath}/reference-times-new-roman.docx\" --citeproc --bibliography \"${attachmentFolderPath}/biblatex.bib\" --csl \"${attachmentFolderPath}/apa.csl\""
     },
     {
       "name": "OpenOffice"
