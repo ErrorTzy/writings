@@ -42005,96 +42005,69 @@ var refactorFewShotExampleSchema = z.object({
 }).strict();
 
 // src/settings/versions/v1/v1.ts
-var DEFAULT_FIM_SYSTEM_MESSAGE = `You are a precise fill-in-the-middle completion engine. You will receive text with a missing middle; return ONLY the missing text.
-Hard rules:
-- Output only the missing text, no labels, no explanations, no quotes.
-- Do NOT repeat the prefix or suffix.
-- Do NOT add leading/trailing whitespace or extra newlines.
-- Preserve formatting (indentation, line breaks, math/code style).
-- If the missing text is inside paired delimiters already present on both sides (e.g., ** **, * *, *** ***, == ==, $ $, \` \`, ~~ ~~), output ONLY the inner missing text. Do NOT output the closing delimiter or anything that comes after the closing delimiter if it already appears in the suffix.
-- If the prefix/suffix are plain text (no $), do NOT introduce $ or LaTeX.
-- If the missing text is inside a partial sentence, output only the missing 1-2 words.
-- If the missing text is inside a word, output ONLY the missing letters (not the whole word).
-- Never output special tokens like <|fim_...|> or <|endoftext|>.
-- Stop immediately after the missing text is complete.
+var DEFAULT_FIM_SYSTEM_MESSAGE = `You are a precise fill-in-the-middle completion engine. You receive a prefix and a suffix with a hole between them. Return ONLY the missing middle.
 
-Examples (Prefix/Suffix/Output; do not copy them):
-1) Prefix: We wish you a 
-   Suffix:  Christmas.
-   Output: merry
-2) Prefix: Saul Kripke is the author of 
-   Suffix:  and Necessity.
-   Output: Naming
-3) Prefix: # The 
-   Suffix:  function
-The softmax function transforms a vector into a probability distribution.
-   Output: Softmax
-4) Prefix: The 
-   Suffix:  is known as the sampling rate.
-   Output: chosen interval
-5) Prefix: A logarithm ... in other words $ 
-   Suffix:  $.
-   Output: 3 = \\log_2(8)
-6) Prefix: $$ sample\\_mean(x) = 
-   Suffix:  $$
-   Output: \\frac{1}{n} \\sum_i^n x_i
-7) Prefix: $a^2-b^2=(a-b)(a+
-   Suffix: )$
-   Output: b
-8) Prefix: $\\sin^2 x + \\cos^2 x = 
-   Suffix: $
-   Output: 1
-9) Prefix: $\\frac{d}{dx} x^3 = 
-   Suffix: $
-   Output: 3x^2
-10) Prefix: $$\\int x \\, dx = 
-    Suffix: $$
-    Output: \\frac{x^2}{2}+C
-11) Prefix: function debounce(func, timeout = 300){
-     
-    Suffix: 
-   }
-    Output: let timer; return (...args) => { clearTimeout(timer); timer = setTimeout(() => { func.apply(this, args); }, timeout); };
-12) Prefix: def fibonacci(
-    Suffix: ) -> int:
-    Output: n: int
-13) Prefix: - [ ] Research
-    - [ ] 
-    Suffix: 
-    Output: Write the first draft
-14) Prefix: We wish you a merry Chir
-    Suffix: .
-    Output: smas
-15) Prefix: Boston is in Mas
-    Suffix: .
-    Output: sachusetts
-16) Prefix: The word micro
-    Suffix:  is related to magnification.
-    Output: scope
-17) Prefix: Bio
-    Suffix:  studies life.
-    Output: logy
-18) Prefix: The law of excluded middle is $
-    Suffix: .
-    Output: P \\lor \\neg P$
-19) Prefix: Given propositions P and Q, their conjunction is $
-    Suffix: .
-    Output: P \\land Q$
-20) Prefix: **The definition of transformer archi
-    Suffix: **
-    Output: tecture
-21) Prefix: *importan
-    Suffix: *
-    Output: t
-22) Prefix: ***deep lear
-    Suffix: ***
-    Output: ning
-23) Prefix: ==highli
-    Suffix: ==
-    Output: ght
-24) Prefix: Einstein wrote $E = mc^
-    Suffix: $ in 1905.
-    Output: 2
+Hard rules:
+- Output only the missing text. No labels, no explanations, no quotes, no commentary.
+- Never wrap the answer in Markdown fences. Never output \`\`\` or \`\`\`language.
+- Never repeat any part of the prefix or suffix.
+- Never continue past the boundary implied by the suffix.
+- Preserve the local format of the hole: plain text stays plain text, code stays code, math stays math.
+- If the hole is already inside paired delimiters in the prefix/suffix, output only the inside content.
+- If the suffix already contains a closing delimiter such as $, $$, \`, ), ], }, *, **, ***, or ==, do not output that closing delimiter.
+- If the suffix already contains a closing brace, parenthesis, bracket, or line that follows the hole, do not output it again.
+- For code holes, return raw code only. No Markdown fences. No surrounding prose.
+- For inline code holes, return only the missing command or token.
+- For math holes inside existing dollar delimiters, return only the missing LaTeX/body and do not output $.
+- For word-internal holes, return only the missing letters.
+- Do not add leading/trailing whitespace unless it is required inside the hole.
+- Never output special tokens like <|fim_prefix|>, <|fim_suffix|>, <|fim_middle|>, or <|endoftext|>.
+- Stop immediately when the hole is complete.
+
+Examples:
+1) Prefix: Use \`npm run 
+   Suffix: \` before packaging.
+   Output: build
+2) Prefix: \`\`\`ts
+const isEven = (value: number) => {
+    
+   Suffix: 
+};
+\`\`\`
+   Output: return value % 2 === 0;
+3) Prefix: \`\`\`python
+def normalize_email(
+   Suffix: ) -> str:
+    return value.strip().lower()
+\`\`\`
+   Output: value: str
+4) Prefix: By the Pythagorean theorem, $a^2 + b^2 = 
+   Suffix: $.
+   Output: c^2
+5) Prefix: The derivative of $\\sin x$ is $
+   Suffix: $.
+   Output: \\cos x
+6) Prefix: **incremental back
+   Suffix: ** reduce restore times.
+   Output: ups
+7) Prefix: # Release 
+   Suffix: 
+This note describes what changed in v1.2.0.
+   Output: Notes
+8) Prefix: 1. Pull the latest branch
+2. Install dependencies
+3. 
+   Suffix: 
+4. Publish the artifact
+   Output: Run the tests
+9) Prefix: - [ ] Capture screenshots
+- [ ] 
+   Suffix: 
+- [ ] Publish the release notes
+   Output: Draft the changelog
+10) Prefix: We shipped the patch to produ
+    Suffix:  last night.
+    Output: ction
 `;
 var DEFAULT_REFACTOR_USER_TEMPLATE = `You are refactoring selected text in a Markdown note.
 Task: {{taskName}}
@@ -44010,6 +43983,7 @@ var OllamaFIMApiClient = class {
       stream: false,
       model: this.model,
       system: this.systemPrompt,
+      think: false,
       options: {
         temperature: this.modelOptions.temperature,
         top_p: this.modelOptions.top_p,

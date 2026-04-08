@@ -104,7 +104,7 @@ Now assume that meaning depends on intentionality, and that interpretation is me
 
 If I were born earlier, then the previous paragraph should suffice and I can happily move on to the next section. However, unfortunately, @hirschOntologyStipulation2021 published a paper "Ontology by Stipulation". In this paper, he upgraded his argument so that it neither rely on {::P3}, nor on interpretive charity!
 
-Let me first introduce the basic idea of this upgraded argument. To keep my sentence short, I introduce the following notation:
+Let me first introduce the basic idea of this upgraded argument. To keep my sentences short, I introduce the following notation:
 
 - $L^{X}$: the language that $X$ actually speaks
 - $L^{Y}$: the language that $Y$ actually speaks 
@@ -124,9 +124,18 @@ Now, given these notations, Hirsch's basic idea is to replace {::P3} with {::P4}
 
 {::P4} $[L_{X}(D)]=[L^{X}(D)]$, and $[L_{Y}(D)]=[L^{Y}(D)]$
 
-According to Hirsch, {::C} still follows from {::P1}, {::P2} and {::P4}: Since in $L_{X}$, $D$ and $A_{1}$ are stipulated to have the same truth condition, $[L_{X}(D)]=[L_{X}(A_{1})]$. And from {::P4} we know that $[L_{X}(D)]=[L^{X}(D)]$. Therefore, $[L^{X}(D)]=[L_X(A_{1})]$. Similarly, $[L^{Y}(D)]=[L_Y(A_{2})]$. But, according to Hirsch, given that there is no disagreement on $A_{1}$ and $A_{2}$, it follows that there is no disagreement regarding facts. $X$ and $Y$ are just talking pass each other by using $D$ to express different facts that they agree on.[^7]
+According to Hirsch, {::C} still follows from {::P1}, {::P2} and {::P4}: Since $Y$ stipulates $D$ and $A_{1}$ to have the same truth condition in $L_{X}$, $[L_{X}(D)]=[L_{X}(A_{1})]$. And from {::P4} we know that $[L_{X}(D)]=[L^{X}(D)]$. Therefore, $[L^{X}(D)]=[L_X(A_{1})]$. Similarly, $[L^{Y}(D)]=[L_Y(A_{2})]$. But, according to Hirsch, given that there is no disagreement on $A_{1}$ and $A_{2}$, it follows that $X$ and $Y$ are just talking pass each other by using $D$ to express different facts that they agree on.[^7]
 
-However, given that we do not assume interpretive charity, we do not assume that X
+One issue is that, given that we do not assume interpretive charity, we do not assume that $X$ and $Y$ must be right about the equivalence between $D$ and $A_{1}$ or $A_{2}$. Therefore, we can draw the following table:
+
+|                                    | $X$ is right about the equivalence                                                                                           | $X$ is wrong about the equivalence                                                                                           |
+| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| $Y$ is right about the equivalence | If $L^{X}=L^{Y}$: Impossible. $D$ cannot have different truth value in the same language<br>                                 | If $L^{X}=L^{Y}$: Know whether the disputed fact obtains through  knowing $A_{2}$                                            |
+|                                    | If $L^{X} \neq L^{Y}$: Know whether $[L^{X}(D)]$ and $[L^{Y}(D)]$ obtains through knowing $A_{1}$ and $A_{2}$                | If $L^{X} \neq L^{Y}$: Know whether $[L^{Y}(D)]$ obstains through knowing $A_{2}$; Do not know what fact is expressed by $X$ |
+| $Y$ is wrong about the equivalence | If $L^{X}=L^{Y}$: Know whether the disputed fact obtains through  knowing $A_{2}$                                            | If $L^{X}=L^{Y}$: Do not know what fact is expressed by the two parties.                                                     |
+|                                    | If $L^{X} \neq L^{Y}$: Know whether $[L^{X}(D)]$ obstains through knowing $A_{1}$; Do not know what fact is expressed by $Y$ | If $L^{X} \neq L^{Y}$: Do not know what fact is expressed by the two parties.                                                |
+
+Roughly speaking, either (1) the disputed fact can be determined by appeal to some trivial fact (when Hirsch applies his argument, $A_{1}$ and $A_{2}$ are always trivial and uncontroversial), or (2) some speaker has made a mistake about their own language, in which case we do not know what they are talking about. Hirsch leaves out case (2) in his discussion, and Eklund (in @hirschOntologyStipulation2024) raises an related objection: Hirsch's argument does not determine which of these cases above the dispute between $X$ and $Y$ belongs to. Therefore, $X$ and $Y$ do not know whether they have made mistakes in their own language. My objection will eventually be related to this issue. However, Hirsch also has a reply: the aim of the argument is not to decide who is right in the dispute, but to show that the dispute has no ontological significance. I believe this reply is already sufficient to answer Eklund's question.
 
 
 
