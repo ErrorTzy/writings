@@ -1,7 +1,7 @@
 {
   "settings": {
     "version": "1",
-    "enableAutocomplete": false,
+    "enableAutocomplete": true,
     "enableRefactor": true,
     "advancedMode": true,
     "apiProvider": "ollama",
@@ -226,8 +226,8 @@
     "userMessageTemplate": "{{prefix}}<mask/>{{suffix}}",
     "chainOfThoughRemovalRegex": "(.|\\n)*ANSWER:",
     "dontIncludeDataviews": false,
-    "maxPrefixCharLimit": 900,
-    "maxSuffixCharLimit": 1100,
+    "maxPrefixCharLimit": 3500,
+    "maxSuffixCharLimit": 3400,
     "removeDuplicateMathBlockIndicator": true,
     "removeDuplicateCodeBlockIndicator": true,
     "onlyInlineCompletion": true,

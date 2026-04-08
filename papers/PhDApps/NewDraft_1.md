@@ -100,7 +100,7 @@ I personally stand with Hirsch on this matter. For me, to say that I meant somet
 
 ## Against phantom Hirsch
 
-Now assume that meaning depends on intentionality, and that interpretation is merely a pragmatic strategy for approximating what a speaker meant. If so, {::P3} could be false. In particular, philosophers who believe that ontology is substantial often insist that they are speaking either plain English or a special philosophical language like Ontologese. So {::P3} is usually denied by the very philosophers to whom Hirsch wants to apply it. If that is right, then disputes with those who deny {::P3} are not merely verbal.
+Now assume that meaning depends on intentionality, and that interpretation is merely a pragmatic strategy for approximating what a speaker meant. If so, {::P3} could be false. In particular, philosophers who believe that ontology is substantial often insist that they are speaking either plain English or a special philosophical language like Ontologese. So {::P3} is usually false for the very philosophers to whom Hirsch wants to apply it. If that is right, then disputes that Hirsch wants to deflate are not merely verbal.
 
 If I were born earlier, then the previous paragraph should suffice and I can happily move on to the next section. However, unfortunately, @hirschOntologyStipulation2021 published a paper "Ontology by Stipulation". In this paper, he upgraded his argument so that it neither rely on {::P3}, nor on interpretive charity!
 
@@ -124,7 +124,7 @@ Now, given these notations, Hirsch's basic idea is to replace {::P3} with {::P4}
 
 {::P4} $[L_{X}(D)]=[L^{X}(D)]$, and $[L_{Y}(D)]=[L^{Y}(D)]$
 
-According to Hirsch, {::C} still follows from {::P1}, {::P2} and {::P4}: Since $Y$ stipulates $D$ and $A_{1}$ to have the same truth condition in $L_{X}$, $[L_{X}(D)]=[L_{X}(A_{1})]$. And from {::P4} we know that $[L_{X}(D)]=[L^{X}(D)]$. Therefore, $[L^{X}(D)]=[L_X(A_{1})]$. Similarly, $[L^{Y}(D)]=[L_Y(A_{2})]$. But, according to Hirsch, given that there is no disagreement on $A_{1}$ and $A_{2}$, it follows that $X$ and $Y$ are just talking pass each other by using $D$ to express different facts that they agree on.[^7]
+According to Hirsch, {::C} still follows from {::P1}, {::P2} and {::P4}: Since $Y$ stipulates $D$ and $A_{1}$ to have the same truth condition in $L_{X}$, $[L_{X}(A_{1})]=[L_{X}(D)]$. And from {::P4} we know that $[L_{X}(D)]=[L^{X}(D)]$. In addition, since $L_{X}$ is stipulated by $Y$, then by stipulation $[L^{Y}(A_{1})]=[L_{X}(A_{1})]$. Therefore, $Y$ can know $[L^Y(A_{1})]=[L^{X}(D)]$. Similarly, $X$ can know that $[L^X(A_{2})]=[L^{Y}(D)]$. But given that there is no disagreement on $A_{1}$ and $A_{2}$, it follows that $X$ and $Y$ are just talking pass each other by using $D$ to express different facts that they agree on.[^6]
 
 One issue is that, given that we do not assume interpretive charity, we do not assume that $X$ and $Y$ must be right about the equivalence between $D$ and $A_{1}$ or $A_{2}$. Therefore, we can draw the following table:
 
@@ -137,8 +137,9 @@ One issue is that, given that we do not assume interpretive charity, we do not a
 
 Roughly speaking, either (1) the disputed fact can be determined by appeal to some trivial fact (when Hirsch applies his argument, $A_{1}$ and $A_{2}$ are always trivial and uncontroversial), or (2) some speaker has made a mistake about their own language, in which case we do not know what they are talking about. Hirsch leaves out case (2) in his discussion, and Eklund (in @hirschOntologyStipulation2024) raises an related objection: Hirsch's argument does not determine which of these cases above the dispute between $X$ and $Y$ belongs to. Therefore, $X$ and $Y$ do not know whether they have made mistakes in their own language. My objection will eventually be related to this issue. However, Hirsch also has a reply: the aim of the argument is not to decide who is right in the dispute, but to show that the dispute has no ontological significance. I believe this reply is already sufficient to answer Eklund's question.
 
+My problem, however, targets both on {::P4}, and the fact that {::C} does not follow from {::P1}, {::P2} and {::P4}. Let me start from the latter. I believe the following move is wrong:
 
-
+(@1) X
 
 ## Against phantom Warren
 
@@ -148,5 +149,4 @@ Roughly speaking, either (1) the disputed fact can be determined by appeal to so
 [^3]: For example, Schaffer seems to accept that ontology is shallow, and retarget metaphysics to the project of fundamentality. However, it is unclear why similar deflationary argument cannot be applied to fundamentality. For example, @hirschOntologyStipulation2021 argues that his argument also applies fundamentality. I also argued elsewhere that essence, a central concept in the fundamentality project, can also be deflated by the same kind of argument.
 [^4]: This basically amounts to saying $\square(S_{1} \leftrightarrow S_{2})$ being a priori necessary.
 [^5]: In model theoretic terms, it amounts to saying $L_{1}$ and $L_{2}$ are bi-interpretable structures
-[^6]: This reconstructed argument, strictly speaking, is not valid. Knowledge is fine-grained: If P entails Q, and I know P, it does not follow that I know Q. I believe it is due to this fact that Hirsch favor the awkward formulation "to express the fact without risk of error" and "guarantee the possession of facts". In order for my previous argument to be valid, what I mean by "know" should be "can know by simple inference from some premise". But I will leave my formulation to be simply "know", and leave the inference required in the bracket. I hope this will make the argument simpler and more comprehensible. 
-[^7]: This form of argument also works for any third party who agree with $A_{1}$ and $A_{2}$. In fact Hisch never formulates the argument in terms of $X$ and $Y$ at all. Instead, Hirsch said *he* can use the stipulation method to secure the fact expressed by both parties, and therefore the disagreement is trivial.
+[^6]: This form of argument also works for any third party who agree with $A_{1}$ and $A_{2}$. In fact Hisch never formulates the argument in terms of $X$ and $Y$ at all. Instead, Hirsch formulates his argument on a third party's perspective. He said *he* can use the stipulation method to secure the fact expressed by both parties, and therefore the disagreement has no ontological significance. However, I do not think there is a substantial difference between his third party's formulation and my reformulation in terms of $X$ and $Y$'s perspective.
