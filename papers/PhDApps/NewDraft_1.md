@@ -39,10 +39,10 @@ This paper intend to argue against Hirsch's defaltionary argument. Eventually, h
 What is Hirsch's argument for the claim that many ontological disputes are shallow and merely verbal? First, we need to introduce some terminology that Hirsch like to use:
 
 Definition: equivalent sentences
-: Two sentences $S_1$ and $S_2$ are *equivalent* if relative to any context of utterance, $S_1$ and $S_2$ has the same truth value with respect to the any possible worlds[^5]
+: Two sentences $S_1$ and $S_2$ are *equivalent* if relative to any context of utterance, $S_1$ and $S_2$ has the same truth value with respect to the any possible worlds[^4]
 
 Definition: equivalent languages
-: Two languages $L_1$ and $L_2$ are *equivalent* if there is a bijection function $f$ from the set of all sentences in $L_{1}$ to the set of all sentences in $L_{2}$ such that for any sentence $S$ in $L_{1}$, $S$ and $f(S)$ are equivalent[^6]
+: Two languages $L_1$ and $L_2$ are *equivalent* if there is a bijection function $f$ from the set of all sentences in $L_{1}$ to the set of all sentences in $L_{2}$ such that for any sentence $S$ in $L_{1}$, $S$ and $f(S)$ are equivalent[^5]
 
 Now consider a dispute between the Organist van Inwagen and the four-dimensionalist Lewis. According to van Inwagen, only two kinds of things exist: mereological simples and living things. An ordinary table is neither a living thing nor a simple. So, on van Inwagen's view, there is no such thing as a table. Lewis, by contrast, holds that mereological simples exist and that any arbitrary composition of those simples also exists. Now consider the following sentence:
 
@@ -102,7 +102,7 @@ I personally stand with Hirsch on this matter. For me, to say that I meant somet
 
 Now assume that meaning depends on intentionality, and that interpretation is merely a pragmatic strategy for approximating what a speaker meant. If so, {::P3} could be false. In particular, philosophers who believe that ontology is substantial often insist that they are speaking either plain English or a special philosophical language like Ontologese. So {::P3} is usually denied by the very philosophers to whom Hirsch wants to apply it. If that is right, then disputes with those who deny {::P3} are not merely verbal.
 
-If I was born earlier, then the previous paragraph should suffice to dismiss Hirsch's argument. However, unfortunately, @hirschOntologyStipulation2021 published a paper "Ontology by Stipulation". In this paper, he upgraded his argument so that it neither rely on {::P3}, nor on interpretive charity!
+If I were born earlier, then the previous paragraph should suffice and I can happily move on to the next section. However, unfortunately, @hirschOntologyStipulation2021 published a paper "Ontology by Stipulation". In this paper, he developed a more complicated defaltionary argument so that it neither rely on {::P3}, nor on interpretive charity!
 
 But let's see if this upgraded argument works. First, Hirsch introduced some new terminology
 
@@ -121,43 +121,44 @@ Now consider again the previous dispute between $X$ and $Y$:
 | $X$ | $A_1$ is true, $A_{2}$ is false   | $D$ is true and is equivalent to $A_{1}$ |
 | $Y$ | $A_{1}$ is true, $A_{2}$ is false | $D$ is false, and is equivalent to $A_2$ |
 
-Now, we do not make further claim about which language are they speaking. All we do is to refer to the language they actually speak as $L_X$ and $L_Y$. However, we can stipulate a language $S_X$ such that
+Now, we do not make further claim about which language are they speaking. All we do is to refer to the language they actually speak as $L_X$ and $L_Y$. However, $Y$ can stipulate a language $S_X$ such that
 
 (@1) In the stipulated language $S_X$, the disputed sentence $D$ is stipulated to have the same truth condition as the agreed sentence $A_1$.
 
-And assume we can do this kind of stipulation further such that 
-
-(@2) For any sentence in $L_{X}$, relative to any context of utterance, there is a sentence in $S_{X}$ that has the same truth condition.
-
-According to Hirsch's terminology, we know immediately know from (@a) that 
+And assume we can do this kind of stipulation further over any sentence that might be disputed, such that 
 
 (@3) $S_{X}$ is *truth-conditionally indiscernable* from $L_{X}$. 
 
-And assume we can also stipulate $S_{Y}$ to be *truth-conditionally indiscernable* from $L_{Y}$. Then the following argument holds:
-
-Assume $X$ is right that in $L_{X}$, $D$ is *equivalent* to $A_{1}$
+Now, suppose $X$ is right that $D$ is *equivalent* to $A_{1}$ in $L_{X}$, then $Y$ can run through the following argument:
 
 (@4) The sentence $D$ in $S_{X}$ and the sentence $D$ in $L_{X}$ express the same fact. (from (@3),Propositional Supervience)
-(@5) If I know whether truth condition of a sentence obstains, then I know whether the fact expressed by the sentence obstains.
-(@6) I know whether the truth condition of $A_{1}$ in $S_A$ obstains. (by stipulation)
-(@7) I know whether the truth condition of $D$ in $S_A$ obtains. (from 2,5)
-(@8) I know whether the fact expressed by $D$ in $S_A$ obtains. (from 4,6)
-(@9) I know whether the fact expressed by $D$ in $L_A$ obtains. (from 3,7)[^4]
+(@5) If one knows whether truth condition of a sentence obstains, then one knows whether the fact expressed by the sentence obstains.
+(@6) $Y$ knows whether the truth condition of $A_{1}$ in $S_X$ obstains. (by stipulation)
+(@7) $Y$ knows whether the truth condition of $D$ in $S_X$ obtains. (from (@1),(@6))
+(@8) $Y$ knows whether the fact expressed by $D$ in $S_X$ obtains. (from (@5),(@7))
+(@9) $Y$ knows whether the fact expressed by $D$ in $L_X$ obtains. (from (@4),(@8))[^6]
 
-Similarly, if $B$ is right about $\square(D \leftrightarrow A_{1})$ in $L_{B}$, then I know the fact refered to by $C$ in $L_B$ obtains or not.
+Similarly, if $Y$ is right about the equivalence in $L_Y$, then $X$ can run through some similar argument. Given that $X$ and $Y$ agree on whether $A_1$ and $A_2$ obstains or not, they can both secure knowledge about the dispute in the stipulated language. 
 
-Then we can draw the following table (A or B being right or wrong means to be right or wrong about the equivalence that they claim)
+In addition, recall the sentence $A_1$ and $A_2$ in the dispute between van Inwagen and Lewis:
 
-|            | A is right                                                                                  | A is wrong                                                                                       |
-| ---------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-| B is right | If $L_{A}=L_{B}$: Impossible, because $C$ has different truth value in $L_A$ and $L_B$<br>  | If $L_{A}=L_{B}$: Know the disputed fact through the uncontroversial $U_{B}$                     |
-|            | If $L_{A} \neq L_{B}$: Know the expressed by both sides by stipulation                      | If $L_{A} \neq L_{B}$: Know the fact expressed by $B$; Do not know what fact is expressed by $A$ |
-| B is wrong | If $L_{A}=L_{B}$: Know the disputed fact through the uncontroversial $U_{A}$                | If $L_{A}=L_{B}$: Do not know what fact is expressed by the two parties.                         |
-|            | If $L_{A} \neq L_{B}$: Know the expressed by $A$, Do not know what fact is expressed by $B$ | If $L_{A} \neq L_{B}$: Do not know what fact is expressed by the two parties.                    |
+- **Agreed sentence $A_{1}$**: "There is a set of table-wise interrelated simples"
+- **Agreed sentence $A_{2}$**: "There is a living thing composed of a set of table-wise interrelated simples"
 
-Therefore, either (1) some speaker made mistake about their own language so that we don't know what they are talking about, or (2) we can know what the disputed fact is through some trivial fact. (Hirsch left out case 1 in his discussion, but the argument seems to suggest this)
+These two sentences are uncontroversial whatsoever. In fact, when Hirsch applies his argument to ontological disputes, $A_{1}$ and $A_{2}$ are always uncontroversial. Therefore, this form of argument also works for any third party who agree with $A_{1}$ and $A_{2}$. Actually, Hisch did not formulate the argument in terms of $X$ and $Y$ at all. Instead, Hirsch said *he* can use the stipulation method to secure the fact expressed by both parties.
 
-Either way, "it follows that ontological controversies are in some important sense empty and insignificant."
+In the previous argument, we assume that $X$ and $Y$ are right about the equivalence between $D$ and $A_1$ or $A_2$ in their respective language. However, given that we do not assume whether $X$ and $Y$ must be speaking truth in their own language, we do not assume $X$ and $Y$ must be right about the equivalence. However, we can draw the following table:
+
+|                                    | $X$ is right about equivalence                                                                | A is wrong about the equivalence                                                             |
+| ---------------------------------- | --------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| $Y$ is right about the equivalence | If $L_X=L_Y$: Impossible. Disputed $D$ cannot have different truth value in the same language | If $L_X=L_Y$: Know the disputed fact through the uncontroversial $A_{2}$                     |
+|                                    | If $L_X \neq L_Y$: Know the fact expressed by both sides by stipulation                       | If $L_X \neq L_Y$: Know the fact expressed by $B$; Do not know what fact is expressed by $A$ |
+| $Y$ is wrong about the equivalence | If $L_X=L_Y$: Know the disputed fact through the uncontroversial $A_{1}$                      | If $L_X=L_Y$: Do not know what fact is expressed by the two parties.                         |
+|                                    | If $L_X \neq L_Y$: Know the expressed by $A$, Do not know what fact is expressed by $B$       | If $L_X \neq L_Y$: Do not know what fact is expressed by the two parties.                    |
+
+Therefore, either (a) we can know what the disputed fact is through some trivial equivalence, or (b) the speaker made mistake about their own language so that we don't know what they are talking about. Hirsch left out case b in his discussion, but I believe case b would not undermine the force of Hirsch's argument.
+
+
 
 
 ## Against phantom Warren
@@ -166,6 +167,6 @@ Either way, "it follows that ontological controversies are in some important sen
 [^1]: A further analysis of different ways to define it, see @chalmersVerbalDisputes2011 . For what matters here, Chalmers' way of defining verbal disputes is even boarder than the kind of dispute that will be undermined in this paper. Therefore, my attack applies to Chalmers' view.
 [^2]: @thomassonOntologyMadeEasy2015 [p. 70] herself thinks that her view does not assume that the meaning of the quantifier changes. But I believe this is wrong. Her position relies on the triviality of changing the extension of the predicate "exist" by stipulation. Yet consider the following uncontroversial principle: if two expressions differ in extension in the same context, then they also differ in meaning. There is no evidence in Thomasson's writing that she rejects this principle. But denying that her thesis does not assume a change in the meaning of the quantifier goes against this principle. Therefore, as long as we accept this principle, if we change the extension of "exist", then we also change its meaning.
 [^3]: For example, Schaffer seems to accept that ontology is shallow, and retarget metaphysics to the project of fundamentality. However, it is unclear why similar deflationary argument cannot be applied to fundamentality. For example, @hirschOntologyStipulation2021 argues that his argument also applies fundamentality. I also argued elsewhere that essence, a central concept in the fundamentality project, can also be deflated by the same kind of argument.
-[^4]: This reconstructed argument, strictly speaking, is not valid. Knowledge is fine-grained: If P entails Q, and I know P, it does not follow that I know Q. I believe it is due to this fact that Hirsch favor the awkward formulation "to express the fact without risk of error" and "guarantee the possession of facts". In order for my previous argument to be valid, what I mean by "know" should be "can know by simple inference from ...". But I will leave my formulation to be simply "know", and leave the inference required in the bracket. I hope this will make the argument simpler and more comprehensible. 
-[^5]: This basically amounts to saying $\square(S_{1} \leftrightarrow S_{2})$ being a priori necessary.
-[^6]: In model theoretic terms, it amounts to saying $L_{1}$ and $L_{2}$ are bi-interpretable structures
+[^4]: This basically amounts to saying $\square(S_{1} \leftrightarrow S_{2})$ being a priori necessary.
+[^5]: In model theoretic terms, it amounts to saying $L_{1}$ and $L_{2}$ are bi-interpretable structures
+[^6]: This reconstructed argument, strictly speaking, is not valid. Knowledge is fine-grained: If P entails Q, and I know P, it does not follow that I know Q. I believe it is due to this fact that Hirsch favor the awkward formulation "to express the fact without risk of error" and "guarantee the possession of facts". In order for my previous argument to be valid, what I mean by "know" should be "can know by simple inference from some premise". But I will leave my formulation to be simply "know", and leave the inference required in the bracket. I hope this will make the argument simpler and more comprehensible. 
