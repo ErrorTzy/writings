@@ -66,7 +66,7 @@ Both van Inwagen and Lewis agree that $A_{2}$ is false.
 
 The crucial point is that each party takes $D$ to be equivalent to different sentences. Van Inwagen holds that $D$ is equivalent to $A_{2}$. Lewis holds that $D$ is equivalent to $A_{1}$. According to interpretive charity, we should not take them to be making a priori mistakes. Instead, we should take these claims to be the semantic rules they are following. 
 
-Therefore, by intepretive charity, van Inwagen is speaking a language, $L_{Inwagen}$, in which the truth condition of $D$ is just the truth condition of $A_{2}$. Likewise, Lewis as speaking a language, $L_{Lewis}$, in which the truth condition of $D$ is just the truth condition of $A_{1}$. If that is right, then their apparent disagreement over $D$ does not reflect any disagreement about the underlying facts. After all, they already agree that $A_{1}$ is true and that $A_{2}$ is false. What differs is whether sentence $D$ express $A_{1}$ or $A_{2}$. But this is merely a matter linguistic choice. Therefore, Hirsch concludes, the dispute between van Inwage and Lewis is merely verbal.
+Therefore, by intepretive charity, van Inwagen is speaking a language, $L_{Inwagen}$, in which the truth condition of $D$ is just the truth condition of $A_{2}$. Likewise, Lewis as speaking a language, $L_{Lewis}$, in which the truth condition of $D$ is just the truth condition of $A_{1}$. If that is right, then their apparent disagreement over $D$ does not reflect any disagreement about the underlying facts. After all, they already agree that $A_{1}$ is true and that $A_{2}$ is false. What differs is whether sentence $D$ expresses the fact that $A_{1}$ or $A_{2}$ expresses. But this is merely a matter linguistic choice. Therefore, Hirsch concludes, the dispute between van Inwage and Lewis is merely verbal.
 
 This argument can be generalized into the following form. Consider the following disagreement between $X$ and $Y$ over sentence $D$:
 
@@ -102,7 +102,7 @@ I personally stand with Hirsch on this matter. For me, to say that I meant somet
 
 Now assume that meaning depends on intentionality, and that interpretation is merely a pragmatic strategy for approximating what a speaker meant. If so, {::P3} could be false. In particular, philosophers who believe that ontology is substantial often insist that they are speaking either plain English or a special philosophical language like Ontologese. So {::P3} is usually false for the very philosophers to whom Hirsch wants to apply it. If that is right, then disputes that Hirsch wants to deflate are not merely verbal.
 
-If I were born earlier, then the previous paragraph should suffice and I can happily move on to the next section. However, unfortunately, @hirschOntologyStipulation2021 published a paper "Ontology by Stipulation". In this paper, he upgraded his argument so that it neither rely on {::P3}, nor on interpretive charity!
+If I had been born earlier, the previous paragraph would have been enough, and I could happily move on to the next section. Unfortunately, @hirschOntologyStipulation2021 later published “Ontology by Stipulation”. In that paper, he upgraded his argument so that it relies neither on {::P3} nor on interpretive charity.
 
 Let me first introduce the basic idea of this upgraded argument. To keep my sentences short, I introduce the following notation:
 
@@ -110,7 +110,7 @@ Let me first introduce the basic idea of this upgraded argument. To keep my sent
 - $L^{Y}$: the language that $Y$ actually speaks 
 - $L(S)$: the *proposition* expressed by a sentence $S$ in language $L$  
 - $[L(S)]$: the *fact* expressed by a sentence $S$ in language $L$
-- $[L_1(S_1)]=[L_{2}(S_{2})]$: $[L_1(S_1)]$ is the same fact as $[L_{2}(S_{2})]$
+- $fact_{1}=fact_{2}$: $fact_1$ is the same fact as $fact_2$
 
 And recall the previous notation:
 
@@ -122,9 +122,9 @@ And recall the previous notation:
 
 Now, given these notations, Hirsch's basic idea is to replace {::P3} with {::P4}:
 
-{::P4} $[L_{X}(D)]=[L^{X}(D)]$, and $[L_{Y}(D)]=[L^{Y}(D)]$
+{::P4} $L_{X}(D)=L^{X}(D)$, and $L_{Y}(D)=L^{Y}(D)$
 
-According to Hirsch, {::C} still follows from {::P1}, {::P2} and {::P4}: Since $Y$ stipulates $D$ and $A_{1}$ to have the same truth condition in $L_{X}$, $[L_{X}(A_{1})]=[L_{X}(D)]$. And from {::P4} we know that $[L_{X}(D)]=[L^{X}(D)]$. In addition, since $L_{X}$ is stipulated by $Y$, then by stipulation $[L^{Y}(A_{1})]=[L_{X}(A_{1})]$. Therefore, $Y$ can know $[L^Y(A_{1})]=[L^{X}(D)]$. Similarly, $X$ can know that $[L^X(A_{2})]=[L^{Y}(D)]$. But given that there is no disagreement on $A_{1}$ and $A_{2}$, it follows that $X$ and $Y$ are just talking pass each other by using $D$ to express different facts that they agree on.[^6]
+I will return to Hirsch's defense for {::P4} later. The point is, given {::P1}, {::P2} and {::P4}, {::C} still follows: First, given that $L_{X}$ is a language stipulated by $Y$, $Y$ can stipulate that $L^{Y}(A_{1})=L_{X}(A_{1})$. Also by stipulation, $L_{X}(A_{1})=L_{X}(D)$. And from {::P4} we know that $L_{X}(D)=L^{X}(D)$. Therefore, $L^Y(A_{1})=L^{X}(D)$. Similarly, $[L^X(A_{2})]=[L^{Y}(D)]$. But there is no disagreement on whether $A_{1}$ and $A_{2}$ obstains, it follows that $X$ and $Y$ are just talking pass each other by using $D$ to express different facts that they agree on.[^6]
 
 One issue is that, given that we do not assume interpretive charity, we do not assume that $X$ and $Y$ must be right about the equivalence between $D$ and $A_{1}$ or $A_{2}$. Therefore, we can draw the following table:
 
@@ -135,11 +135,24 @@ One issue is that, given that we do not assume interpretive charity, we do not a
 | $Y$ is wrong about the equivalence | If $L^{X}=L^{Y}$: Know whether the disputed fact obtains through  knowing $A_{2}$                                            | If $L^{X}=L^{Y}$: Do not know what fact is expressed by the two parties.                                                     |
 |                                    | If $L^{X} \neq L^{Y}$: Know whether $[L^{X}(D)]$ obstains through knowing $A_{1}$; Do not know what fact is expressed by $Y$ | If $L^{X} \neq L^{Y}$: Do not know what fact is expressed by the two parties.                                                |
 
-Roughly speaking, either (1) the disputed fact can be determined by appeal to some trivial fact (when Hirsch applies his argument, $A_{1}$ and $A_{2}$ are always trivial and uncontroversial), or (2) some speaker has made a mistake about their own language, in which case we do not know what they are talking about. Hirsch leaves out case (2) in his discussion, and Eklund (in @hirschOntologyStipulation2024) raises an related objection: Hirsch's argument does not determine which of these cases above the dispute between $X$ and $Y$ belongs to. Therefore, $X$ and $Y$ do not know whether they have made mistakes in their own language. My objection will eventually be related to this issue. However, Hirsch also has a reply: the aim of the argument is not to decide who is right in the dispute, but to show that the dispute has no ontological significance. I believe this reply is already sufficient to answer Eklund's question.
+Roughly speaking, either (1) the disputed fact can be determined by appeal to some trivial fact (when Hirsch applies his argument, $A_{1}$ and $A_{2}$ are always trivial and uncontroversial), or (2) some speaker has made a mistake about their own language, in which case we do not know what they are talking about. Hirsch leaves out case (2) in his discussion, and Eklund (in @hirschOntologyStipulation2024) raises a related objection: Hirsch's argument does not determine which of these cases above the dispute between $X$ and $Y$ belongs to. Therefore, $X$ and $Y$ do not know whether they have made mistakes in their own language. My objection will eventually be related to this issue. However, Hirsch also has a reply: the aim of the argument is not to decide who is right in the dispute, but to show that the dispute has no ontological significance. I believe this reply is already sufficient to answer Eklund's question.
 
-My problem, however, targets both on {::P4}, and the fact that {::C} does not follow from {::P1}, {::P2} and {::P4}. Let me start from the latter. I believe the following move is wrong:
+My problem, without any suprise, targets at {::P4}. In order to defend {::P4}, Hirsch first introduced the following terminology:
 
-(@1) X
+Definition: truth-conditionally indiscernable
+: If $L_{1}$ and $L_{2}$ have the same sentences and any sentence, relative to any context of utterance, has the same truth condition in $L_{1}$ and $L_{2}$, then $L_{1}$ and $L_{2}$ are *truth-conditionally indiscernable*.
+
+Then, Hirsch proposes the following principle:
+
+Principle: Propositional Supervience
+: It is necessarily the case that if $L_{1}$ and $L_{2}$ are truth-conditionally indiscernable, then any sentence in $L_{1}$ and $L_{2}$ expresses the same proposition.[^7]
+
+According to Hirsch, $L_{X}$ and $L^{X}$ are *truth-conditionally indiscernable*. Then by *Propositional Supervience*, $L_{X}(D)=L^{X}(D)$.
+
+The key issue is why $L_{X}$ and $L^{X}$ are *truth-conditionally indiscernable*. In our previous argument, $Y$ stipulated $[L^{Y}(A_{1})]=[L_{X}(A_{1})]$ and $[L_{X}(A_{1})]=[L_{X}(D)]$. 
+
+What did Hirsch mean by "truth-condition", really?
+
 
 ## Against phantom Warren
 
@@ -150,3 +163,4 @@ My problem, however, targets both on {::P4}, and the fact that {::C} does not fo
 [^4]: This basically amounts to saying $\square(S_{1} \leftrightarrow S_{2})$ being a priori necessary.
 [^5]: In model theoretic terms, it amounts to saying $L_{1}$ and $L_{2}$ are bi-interpretable structures
 [^6]: This form of argument also works for any third party who agree with $A_{1}$ and $A_{2}$. In fact Hisch never formulates the argument in terms of $X$ and $Y$ at all. Instead, Hirsch formulates his argument on a third party's perspective. He said *he* can use the stipulation method to secure the fact expressed by both parties, and therefore the disagreement has no ontological significance. However, I do not think there is a substantial difference between his third party's formulation and my reformulation in terms of $X$ and $Y$'s perspective.
+[^7]: These are Hirsch's original definition and principle without any modification. However, the formulation "any sentence in $L_{1}$ and $L_{2}$ expresses the same proposition" is slippery. It is better to say "any sentence in $L_{1}$ expresses the same proposition as some corresponding sentence in $L_{2}$" where the correspondence can be defined through a bijection function $cor$ such that $S$ is truth-conditionally indiscernable with $cor(S)$.
