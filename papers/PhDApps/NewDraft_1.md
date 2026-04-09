@@ -174,7 +174,7 @@ Now I have shown that no matter what "truth condition" means, nothing guarantees
 
 ## Against phantom Warren
 
-
+I have shown that Hirsch's argument is incompatible with the view that meaning comes from irreducible intentionality. Now the remaining hope for Hirsch's deflationism is to adopt the principle of *interpretive charity* as a metaphysical principle of meaning, and thus accept {::P3}. 
 
 
 [^1]: A further analysis of different ways to define it, see @chalmersVerbalDisputes2011 . For what matters here, Chalmers' way of defining verbal disputes is even boarder than the kind of dispute that will be undermined in this paper. Therefore, my attack applies to Chalmers' view.
