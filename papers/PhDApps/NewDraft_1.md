@@ -66,7 +66,7 @@ Both van Inwagen and Lewis agree that $A_{2}$ is false.
 
 The crucial point is that each party takes $D$ to be equivalent to different sentences. Van Inwagen holds that $D$ is equivalent to $A_{2}$. Lewis holds that $D$ is equivalent to $A_{1}$. According to interpretive charity, we should not take them to be making a priori mistakes. Instead, we should take these claims to be the semantic rules they are following. 
 
-Therefore, by intepretive charity, van Inwagen is speaking a language, $L_{Inwagen}$, in which the truth condition of $D$ is just the truth condition of $A_{2}$. Likewise, Lewis as speaking a language, $L_{Lewis}$, in which the truth condition of $D$ is just the truth condition of $A_{1}$. If that is right, then their apparent disagreement over $D$ does not reflect any disagreement about the underlying facts. After all, they already agree that $A_{1}$ is true and that $A_{2}$ is false. What differs is whether sentence $D$ expresses the fact that $A_{1}$ or $A_{2}$ expresses. But this is merely a matter linguistic choice. Therefore, Hirsch concludes, the dispute between van Inwagen and Lewis is merely verbal.
+Therefore, by interpretive charity, van Inwagen is speaking a language, $L_{Inwagen}$, in which the truth condition of $D$ is just the truth condition of $A_{2}$. Likewise, Lewis as speaking a language, $L_{Lewis}$, in which the truth condition of $D$ is just the truth condition of $A_{1}$. If that is right, then their apparent disagreement over $D$ does not reflect any disagreement about the underlying facts. After all, they already agree that $A_{1}$ is true and that $A_{2}$ is false. What differs is whether sentence $D$ expresses the fact that $A_{1}$ or $A_{2}$ expresses. But this is merely a matter linguistic choice. Therefore, Hirsch concludes, the dispute between van Inwagen and Lewis is merely verbal.
 
 This argument can be generalized into the following form. Consider the following disagreement between $X$ and $Y$ over sentence $D$:
 
@@ -139,7 +139,7 @@ One issue is that, given that we do not assume interpretive charity, we do not a
 
 Roughly speaking, either (1) the disputed fact can be determined by appeal to some trivial fact (when Hirsch applies his argument, $A_{1}$ and $A_{2}$ are always trivial and uncontroversial), or (2) some speaker has made a mistake about their own language, in which case we do not know what they are talking about. Hirsch leaves out case (2) in his discussion, and Eklund (in @hirschOntologyStipulation2024) raises a related objection: Hirsch's argument does not determine which of these cases above the dispute between $X$ and $Y$ belongs to. Therefore, $X$ and $Y$ do not know whether they have made mistakes in their own language. My objection will eventually be related to this issue. However, Hirsch also has a reply: the aim of the argument is not to decide who is right in the dispute, but to show that the dispute has no ontological significance. I believe this reply is already sufficient to answer Eklund's question.
 
-My problem, without any suprise, targets at {::P4}. In order to defend {::P4}, Hirsch first introduced the following terminology:
+My problem, without any surprise, targets at {::P4}. In order to defend {::P4}, Hirsch first introduced the following terminology:
 
 Definition: truth-conditionally indiscernable
 : If $L_{1}$ and $L_{2}$ have the same sentences and any sentence, relative to any context of utterance, has the same truth condition in $L_{1}$ and $L_{2}$, then $L_{1}$ and $L_{2}$ are *truth-conditionally indiscernable*.
@@ -151,28 +151,30 @@ Principle: Propositional Supervience
 
 According to Hirsch, $L_{X}$ and $L^{X}$ are *truth-conditionally indiscernable*. Then by *Propositional Supervience*, $L_{X}(D)=L^{X}(D)$. Similarly, $L_{Y}(D)=L^{Y}(D)$. And therefore {::P4}.
 
-Let me for now grant that *Propositional Supervience* is valid. Then key issue is why $L_{X}$ and $L^{X}$ are *truth-conditionally indiscernable*. In our previous argument, $Y$ stipulated $L^{Y}(A_{1})=L_{X}(A_{1})$. Now assume $L_{X}$ and $L^{X}$ are *truth-conditionally indiscernable*, by *Propositional Supervience* we must also have $L^{X}(A_{1})=L_X(A_{1})$. Therefore, we must have $L^{X}(A_{1})=L^Y(A_{1})$. Similarly, we must have L_{X}(D)=L^{X}(D)
+Now, if $L_{X}$ and $L^{X}$ are not *truth-conditionally indiscernable*, then {::P4} could be false. Thus it is possible for the dispute between $X$ and $Y$ to be not verbal. So my aim is to show the possibility of $L_{X}$ and $L^{X}$ being not *truth-conditionally indiscernable*.
 
-Now, if it is possible that $L^{X}(A_{1}) \neq L^Y(A_{1})$, then it is possible that $L_{X}$ and $L^{X}$ are not *truth-conditionally indiscernable*. Then {::P4} could be false, and thus the dispute between $X$ and $Y$ could be not verbal. So my aim is to show the possibility of $L^{X}(A_{1}) \neq L^Y(A_{1})$.
+Let me grant that *Propositional Supervience* is valid. In our previous argument, $Y$ stipulated $L^{Y}(A_{1})=L_{X}(A_{1})$. Now assume $L_{X}$ and $L^{X}$ are *truth-conditionally indiscernable*, by *Propositional Supervience* we must also have $L^{X}(A_{1})=L_X(A_{1})$. Therefore, we must have $L^{X}(A_{1})=L^Y(A_{1})$.
 
-What a proposition is, however, is highly controverisial. However, it is uncontroversial that if $L^{X}(A_{1})=L^Y(A_{1})$, then $A_{1}$ has the same truth condition in $L^{X}$ and $L^{Y}$. But is it guaranteed that $A_{1}$ has the same truth condition in $L^{X}$ and $L^{Y}$? All we know from Hirsch's argument is that $X$ and $Y$ agree on $A_{1}$. Does this amount to the sameness of truth conditions?
+What a proposition is is highly controverisial. However, it is uncontroversial that if $L^{X}(A_{1})=L^Y(A_{1})$, then $A_{1}$ has the same truth condition in $L^{X}$ and $L^{Y}$. But is it guaranteed that $A_{1}$ has the same truth condition in $L^{X}$ and $L^{Y}$? All we know from Hirsch's argument is that $X$ and $Y$ agree on $A_{1}$. Does this amount to the sameness of truth conditions?
 
 It's time to make the argument less abstract. Consider again the previous dispute between Lewis and van Inwagen:
 
 - **Disputed sentence $D$**: "There is something composed of a set of table-wise interrelated simples"
 - **Agreed sentence $A_{1}$**: "There is a set of table-wise interrelated simples"
 
-Do van Inwagen and Lewis agree on the truth condition of $A_{1}$? That depends on what Hirsch means by “truth condition.”
+Do van Inwagen and Lewis share the same truth condition of $A_{1}$? That depends on what Hirsch means by “truth condition.”
 
 If “truth condition” is understood in a fine-grained way, for example in terms of truthmakers, then van Inwagen and Lewis do agree on the truth condition of $A_{1}$: $A_{1}$ is made true by a set of simples. However, Hirsch cannot mean “truth condition” in this fine-grained sense. The reason is that $D$ in $L_{Lewis}$ is stipulated to have the same truth condition as $A_{1}$ in $L_{Lewis}$. So $D$ in $L_{Lewis}$ would also be made true by a set of simples. But $D$ in $L^{Lewis}$ is not made true by a set of simples; it is made true by a table. And a table is not a set of simples, but something composed of a set of simples.[^10] So if Hirsch means “truth condition” in a fine-grained sense, then $L^{Lewis}$ and $L_{Lewis}$ are not truth-conditionally indiscernible.
 
-So Hirsch must mean “truth condition” in a more coarse-grained sense, such as in terms of sets of possible worlds. This reading is also supported by @hirschPhysicalObjectOntologyVerbal2005, where he says that "sentences have the same truth conditions if (relative to the same context of utterance) they hold true in the same possible worlds." But do Lewis and van Inwagen agree that $A_{1}$ is true in the same possible worlds? Lewis would say that in any world in which there is a set of table-wise interrelated simples, there is also a table. van Inwagen, by contrast, would deny this. So they do not agree on which possible worlds make $A_{1}$ true.
+So Hirsch must mean “truth condition” in a more coarse-grained sense, such as in terms of sets of possible worlds. This reading is also supported by @hirschPhysicalObjectOntologyVerbal2005, where he says that "sentences have the same truth conditions if (relative to the same context of utterance) they hold true in the same possible worlds." But do Lewis and van Inwagen agree that $A_{1}$ is true in the same possible worlds? Lewis would say that in the set of possible worlds that make $A_{1}$ true, there are worlds in which there are tables. van Inwagen, by contrast, would say there are no such worlds in the set. So they do not agree on the elements in the set of possible worlds that make $A_{1}$ true.
 
-I suspect Hirsch would reply that a world is just one big fact unstructured chunk, and that the way we divide it into objects is merely a matter of conceptual scheme. On this view, although Lewis and van Inwagen describe the relevant possible worlds differently, they are really talking about the same possible worlds. But this response simply presupposes the very conclusion at issue, namely, that the dispute is merely verbal.
+I suspect Hirsch would reply that a world is just one big fact unstructured chunk, and that the way we divide it into objects is merely a matter of conceptual scheme. On this view, although Lewis and van Inwagen describe the relevant possible worlds differently, they are really talking about the same possible worlds. But this response simply presupposes the very conclusion at issue, namely, that ontological disputes are merely verbal.
 
-Now I have shown that no matter what "truth condition" means, it is possible that $L^{X}(A_{1}) \neq L^Y(A_{1})$ unless Hirsch assumes his conclusion. Therefore, either Hirsch's argument is circular, or it is possible for the dispute between $X$ and $Y$ to be not verbal.
+Now I have shown that no matter what "truth condition" means, nothing guarantees that $L_{X}$ to be truth-conditionally indiscernible from $L^{X}$, unless Hirsch assumes his conclusion. Therefore, either Hirsch's argument is circular, or it is possible for the dispute between $X$ and $Y$ to be not verbal. And especially, the ontological disputes that Hirsch wants to deflate are not merely verbal.
 
 ## Against phantom Warren
+
+
 
 
 [^1]: A further analysis of different ways to define it, see @chalmersVerbalDisputes2011 . For what matters here, Chalmers' way of defining verbal disputes is even boarder than the kind of dispute that will be undermined in this paper. Therefore, my attack applies to Chalmers' view.
