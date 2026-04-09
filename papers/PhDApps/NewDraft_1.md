@@ -66,7 +66,7 @@ Both van Inwagen and Lewis agree that $A_{2}$ is false.
 
 The crucial point is that each party takes $D$ to be equivalent to different sentences. Van Inwagen holds that $D$ is equivalent to $A_{2}$. Lewis holds that $D$ is equivalent to $A_{1}$. According to interpretive charity, we should not take them to be making a priori mistakes. Instead, we should take these claims to be the semantic rules they are following. 
 
-Therefore, by intepretive charity, van Inwagen is speaking a language, $L_{Inwagen}$, in which the truth condition of $D$ is just the truth condition of $A_{2}$. Likewise, Lewis as speaking a language, $L_{Lewis}$, in which the truth condition of $D$ is just the truth condition of $A_{1}$. If that is right, then their apparent disagreement over $D$ does not reflect any disagreement about the underlying facts. After all, they already agree that $A_{1}$ is true and that $A_{2}$ is false. What differs is whether sentence $D$ expresses the fact that $A_{1}$ or $A_{2}$ expresses. But this is merely a matter linguistic choice. Therefore, Hirsch concludes, the dispute between van Inwage and Lewis is merely verbal.
+Therefore, by intepretive charity, van Inwagen is speaking a language, $L_{Inwagen}$, in which the truth condition of $D$ is just the truth condition of $A_{2}$. Likewise, Lewis as speaking a language, $L_{Lewis}$, in which the truth condition of $D$ is just the truth condition of $A_{1}$. If that is right, then their apparent disagreement over $D$ does not reflect any disagreement about the underlying facts. After all, they already agree that $A_{1}$ is true and that $A_{2}$ is false. What differs is whether sentence $D$ expresses the fact that $A_{1}$ or $A_{2}$ expresses. But this is merely a matter linguistic choice. Therefore, Hirsch concludes, the dispute between van Inwagen and Lewis is merely verbal.
 
 This argument can be generalized into the following form. Consider the following disagreement between $X$ and $Y$ over sentence $D$:
 
@@ -104,13 +104,13 @@ Now assume that meaning depends on intentionality, and that interpretation is me
 
 If I had been born earlier, the previous paragraph would have been enough, and I could happily move on to the next section. Unfortunately, @hirschOntologyStipulation2021 later published “Ontology by Stipulation”. In that paper, he upgraded his argument so that it relies neither on {::P3} nor on interpretive charity.
 
-Let me first introduce the basic idea of this upgraded argument. To keep my sentences short, I introduce the following notation:
+Let me first introduce the basic idea of this upgraded argument. To keep my sentences short, I introduce the following notation[^6]:
 
 - $L^{X}$: the language that $X$ actually speaks
 - $L^{Y}$: the language that $Y$ actually speaks 
 - $L(S)$: the *proposition* expressed by a sentence $S$ in language $L$  
 - $[L(S)]$: the *fact* expressed by a sentence $S$ in language $L$
-- $fact_{1}=fact_{2}$: $fact_1$ is the same fact as $fact_2$
+- $x = y$: $x$ is the same (proposition/fact/...) as $y$
 
 And recall the previous notation:
 
@@ -124,7 +124,9 @@ Now, given these notations, Hirsch's basic idea is to replace {::P3} with {::P4}
 
 {::P4} $L_{X}(D)=L^{X}(D)$, and $L_{Y}(D)=L^{Y}(D)$
 
-I will return to Hirsch's defense for {::P4} later. The point is, given {::P1}, {::P2} and {::P4}, {::C} still follows: First, given that $L_{X}$ is a language stipulated by $Y$, $Y$ can stipulate that $L^{Y}(A_{1})=L_{X}(A_{1})$. Also by stipulation, $L_{X}(A_{1})=L_{X}(D)$. And from {::P4} we know that $L_{X}(D)=L^{X}(D)$. Therefore, $L^Y(A_{1})=L^{X}(D)$. Similarly, $[L^X(A_{2})]=[L^{Y}(D)]$. But there is no disagreement on whether $A_{1}$ and $A_{2}$ obstains, it follows that $X$ and $Y$ are just talking pass each other by using $D$ to express different facts that they agree on.[^6]
+The idea behind {::P4} is to concede that the speakers may not literally be speaking the charitably interpreted languages, while insisting that those stipulated languages nonetheless express the very same propositions as the speakers’ actual languages do for the disputed sentences.
+
+I will return to Hirsch's defense for {::P4} later. The point is, given {::P1}, {::P2} and {::P4}, {::C} still follows: First, given that $L_{X}$ is a language stipulated by $Y$, $Y$ can stipulate that $L^{Y}(A_{1})=L_{X}(A_{1})$.[^7] Also by stipulation, $L_{X}(A_{1})=L_{X}(D)$. And from {::P4} we know that $L_{X}(D)=L^{X}(D)$. Therefore, $L^Y(A_{1})=L^{X}(D)$. Since it is uncontroverisal that the same proposition must expresses the same fact (with respect to a context), $[L^Y(A_{1})]=[L^{X}(D)]$. Similarly, $[L^X(A_{2})]=[L^{Y}(D)]$. But there is no disagreement on the facts that $A_{1}$ and $A_{2}$ express obtain. It follows that $X$ and $Y$ are just talking pass each other by using $D$ to express different facts that they agree on.[^8]
 
 One issue is that, given that we do not assume interpretive charity, we do not assume that $X$ and $Y$ must be right about the equivalence between $D$ and $A_{1}$ or $A_{2}$. Therefore, we can draw the following table:
 
@@ -145,14 +147,30 @@ Definition: truth-conditionally indiscernable
 Then, Hirsch proposes the following principle:
 
 Principle: Propositional Supervience
-: It is necessarily the case that if $L_{1}$ and $L_{2}$ are truth-conditionally indiscernable, then any sentence in $L_{1}$ and $L_{2}$ expresses the same proposition.[^7]
+: It is necessarily the case that if $L_{1}$ and $L_{2}$ are truth-conditionally indiscernable, then any sentence in $L_{1}$ and $L_{2}$ expresses the same proposition.[^9]
 
-According to Hirsch, $L_{X}$ and $L^{X}$ are *truth-conditionally indiscernable*. Then by *Propositional Supervience*, $L_{X}(D)=L^{X}(D)$.
+According to Hirsch, $L_{X}$ and $L^{X}$ are *truth-conditionally indiscernable*. Then by *Propositional Supervience*, $L_{X}(D)=L^{X}(D)$. Similarly, $L_{Y}(D)=L^{Y}(D)$. And therefore {::P4}.
 
-The key issue is why $L_{X}$ and $L^{X}$ are *truth-conditionally indiscernable*. In our previous argument, $Y$ stipulated $[L^{Y}(A_{1})]=[L_{X}(A_{1})]$ and $[L_{X}(A_{1})]=[L_{X}(D)]$. 
+Let me for now grant that *Propositional Supervience* is valid. Then key issue is why $L_{X}$ and $L^{X}$ are *truth-conditionally indiscernable*. In our previous argument, $Y$ stipulated $L^{Y}(A_{1})=L_{X}(A_{1})$. Now assume $L_{X}$ and $L^{X}$ are *truth-conditionally indiscernable*, by *Propositional Supervience* we must also have $L^{X}(A_{1})=L_X(A_{1})$. Therefore, we must have $L^{X}(A_{1})=L^Y(A_{1})$. Similarly, we must have L_{X}(D)=L^{X}(D)
 
-What did Hirsch mean by "truth-condition", really?
+Now, if it is possible that $L^{X}(A_{1}) \neq L^Y(A_{1})$, then it is possible that $L_{X}$ and $L^{X}$ are not *truth-conditionally indiscernable*. Then {::P4} could be false, and thus the dispute between $X$ and $Y$ could be not verbal. So my aim is to show the possibility of $L^{X}(A_{1}) \neq L^Y(A_{1})$.
 
+What a proposition is, however, is highly controverisial. However, it is uncontroversial that if $L^{X}(A_{1})=L^Y(A_{1})$, then $A_{1}$ has the same truth condition in $L^{X}$ and $L^{Y}$. But is it guaranteed that $A_{1}$ has the same truth condition in $L^{X}$ and $L^{Y}$? All we know from Hirsch's argument is that $X$ and $Y$ agree on $A_{1}$. Does this amount to the sameness of truth conditions?
+
+It's time to make the argument less abstract. Consider again the previous dispute between Lewis and van Inwagen:
+
+- **Disputed sentence $D$**: "There is something composed of a set of table-wise interrelated simples"
+- **Agreed sentence $A_{1}$**: "There is a set of table-wise interrelated simples"
+
+Do van Inwagen and Lewis agree on the truth condition of $A_{1}$? That depends on what Hirsch means by “truth condition.”
+
+If “truth condition” is understood in a fine-grained way, for example in terms of truthmakers, then van Inwagen and Lewis do agree on the truth condition of $A_{1}$: $A_{1}$ is made true by a set of simples. However, Hirsch cannot mean “truth condition” in this fine-grained sense. The reason is that $D$ in $L_{Lewis}$ is stipulated to have the same truth condition as $A_{1}$ in $L_{Lewis}$. So $D$ in $L_{Lewis}$ would also be made true by a set of simples. But $D$ in $L^{Lewis}$ is not made true by a set of simples; it is made true by a table. And a table is not a set of simples, but something composed of a set of simples.[^10] So if Hirsch means “truth condition” in a fine-grained sense, then $L^{Lewis}$ and $L_{Lewis}$ are not truth-conditionally indiscernible.
+
+So Hirsch must mean “truth condition” in a more coarse-grained sense, such as in terms of sets of possible worlds. This reading is also supported by @hirschPhysicalObjectOntologyVerbal2005, where he says that "sentences have the same truth conditions if (relative to the same context of utterance) they hold true in the same possible worlds." But do Lewis and van Inwagen agree that $A_{1}$ is true in the same possible worlds? Lewis would say that in any world in which there is a set of table-wise interrelated simples, there is also a table. van Inwagen, by contrast, would deny this. So they do not agree on which possible worlds make $A_{1}$ true.
+
+I suspect Hirsch would reply that a world is just one big fact unstructured chunk, and that the way we divide it into objects is merely a matter of conceptual scheme. On this view, although Lewis and van Inwagen describe the relevant possible worlds differently, they are really talking about the same possible worlds. But this response simply presupposes the very conclusion at issue, namely, that the dispute is merely verbal.
+
+Now I have shown that no matter what "truth condition" means, it is possible that $L^{X}(A_{1}) \neq L^Y(A_{1})$ unless Hirsch assumes his conclusion. Therefore, either Hirsch's argument is circular, or it is possible for the dispute between $X$ and $Y$ to be not verbal.
 
 ## Against phantom Warren
 
@@ -162,5 +180,8 @@ What did Hirsch mean by "truth-condition", really?
 [^3]: For example, Schaffer seems to accept that ontology is shallow, and retarget metaphysics to the project of fundamentality. However, it is unclear why similar deflationary argument cannot be applied to fundamentality. For example, @hirschOntologyStipulation2021 argues that his argument also applies fundamentality. I also argued elsewhere that essence, a central concept in the fundamentality project, can also be deflated by the same kind of argument.
 [^4]: This basically amounts to saying $\square(S_{1} \leftrightarrow S_{2})$ being a priori necessary.
 [^5]: In model theoretic terms, it amounts to saying $L_{1}$ and $L_{2}$ are bi-interpretable structures
-[^6]: This form of argument also works for any third party who agree with $A_{1}$ and $A_{2}$. In fact Hisch never formulates the argument in terms of $X$ and $Y$ at all. Instead, Hirsch formulates his argument on a third party's perspective. He said *he* can use the stipulation method to secure the fact expressed by both parties, and therefore the disagreement has no ontological significance. However, I do not think there is a substantial difference between his third party's formulation and my reformulation in terms of $X$ and $Y$'s perspective.
-[^7]: These are Hirsch's original definition and principle without any modification. However, the formulation "any sentence in $L_{1}$ and $L_{2}$ expresses the same proposition" is slippery. It is better to say "any sentence in $L_{1}$ expresses the same proposition as some corresponding sentence in $L_{2}$" where the correspondence can be defined through a bijection function $cor$ such that $S$ is truth-conditionally indiscernable with $cor(S)$.
+[^6]: This footnote is prepared for those who hate symbols (esp. for Hirsch): I tried to formulate the argument without symbols, but eventually I find it necessary to use them. Without them, my sentences will becomes incredibly long and ambiguous. I apologize for the inconvenience, but I beg you to accept the symbols.
+[^7]: This is done by stipulating the truth condition of $A_{1}$ in $L_{X}$ being the same as $A_{1}$ in $L^{Y}$. And later I will introduce Hirsch's principle called *Propositional Supervience*; Given that principle, $L^{Y}(A_{1})=L_{X}(A_{1})$. For now, how $Y$ stipulates $L^{Y}(A_{1})=L_{X}(A_{1})$ does not matter. However, my later argument will depend on this.
+[^8]: This form of argument also works for any third party who agree with $A_{1}$ and $A_{2}$. In fact Hisch never formulates the argument in terms of $X$ and $Y$ at all. Instead, Hirsch formulates his argument on a third party's perspective. He said *he* can use the stipulation method to secure the fact expressed by both parties, and therefore the disagreement has no ontological significance. However, I do not think there is a substantial difference between his third party's formulation and my reformulation in terms of $X$ and $Y$'s perspective.
+[^9]: These are Hirsch's original definition and principle without any modification. However, the formulation "any sentence in $L_{1}$ and $L_{2}$ expresses the same proposition" is slippery. It is better to say "any sentence in $L_{1}$ expresses the same proposition as some corresponding sentence in $L_{2}$" where the correspondence can be defined through a bijection function $cor$ such that $S$ is truth-conditionally indiscernable with $cor(S)$.
+[^10]: This is a point I anticipte Hirsch to accept, because a table is not a set.
