@@ -124,9 +124,9 @@ Now, given these notations, Hirsch's basic idea is to replace {::P3} with {::P4}
 
 {::P4} $L_{X}(D)=L^{X}(D)$, and $L_{Y}(D)=L^{Y}(D)$
 
-The idea behind {::P4} is to concede that the speakers may not literally be speaking the charitably interpreted languages, while insisting that those stipulated languages nonetheless express the very same propositions as the speakers’ actual languages do for the disputed sentences.
+The idea behind {::P4} is to concede that the speakers may not literally be speaking the charitably interpreted languages, while insisting that those interpretation, taken as stipulation, nonetheless express the very same propositions as the speakers’ actual languages do for the disputed sentences.
 
-I will return to Hirsch's defense for {::P4} later. The point is, given {::P1}, {::P2} and {::P4}, {::C} still follows: First, given that $L_{X}$ is a language stipulated by $Y$, $Y$ can stipulate that $L^{Y}(A_{1})=L_{X}(A_{1})$. Also by stipulation, $L_{X}(A_{1})=L_{X}(D)$. And from {::P4} we know that $L_{X}(D)=L^{X}(D)$. Therefore, $L^Y(A_{1})=L^{X}(D)$. Since it is uncontroverisal that the same proposition must expresses the same fact (with respect to a context), $[L^Y(A_{1})]=[L^{X}(D)]$. Similarly, $[L^X(A_{2})]=[L^{Y}(D)]$. But there is no disagreement on the facts that $A_{1}$ and $A_{2}$ express obtain. It follows that $X$ and $Y$ are just talking pass each other by using $D$ to express different facts that they agree on.[^7]
+I will return to Hirsch's defense for {::P4} later. The point is, given {::P1}, {::P2} and {::P4}, {::C} still follows: First, $Y$ can stipulate that $L^{Y}(A_{1})=L_{X}(A_{1})$. Also by stipulation, $L_{X}(A_{1})=L_{X}(D)$. And from {::P4} we know that $L_{X}(D)=L^{X}(D)$. Therefore, $L^Y(A_{1})=L^{X}(D)$. Since it is uncontroverisal that the same proposition must expresses the same fact (with respect to the same context), $[L^Y(A_{1})]=[L^{X}(D)]$. Similarly, $[L^X(A_{2})]=[L^{Y}(D)]$. But there is no disagreement on the facts that $A_{1}$ and $A_{2}$ express obtain. It follows that $X$ and $Y$ are just talking pass each other by using $D$ to express different facts that they agree on.[^7]
 
 One issue is that, given that we do not assume *interpretive charity*, we do not assume that $X$ and $Y$ must be right about the equivalence between $D$ and $A_{1}$ or $A_{2}$. Therefore, we can draw the following table:
 
@@ -157,7 +157,7 @@ Let me grant that *Propositional Supervience* is valid. In our previous argument
 
 What a proposition is is highly controverisial. However, it is uncontroversial that if $L^{X}(A_{1})=L^Y(A_{1})$, then $A_{1}$ has the same truth condition in $L^{X}$ and $L^{Y}$. But is it guaranteed that $A_{1}$ has the same truth condition in $L^{X}$ and $L^{Y}$? All we know from Hirsch's argument is that $X$ and $Y$ agree on $A_{1}$. Does this amount to the sameness of truth conditions?
 
-It's time to make the argument less abstract. Consider again the previous dispute between Lewis and van Inwagen:
+Consider again the previous dispute between Lewis and van Inwagen:
 
 - **Disputed sentence $D$**: "There is something composed of a set of table-wise interrelated simples"
 - **Agreed sentence $A_{1}$**: "There is a set of table-wise interrelated simples"
@@ -168,7 +168,7 @@ If “truth condition” is understood in a fine-grained way, for example in ter
 
 So Hirsch must mean “truth condition” in a more coarse-grained sense, such as in terms of sets of possible worlds. This reading is also supported by @hirschPhysicalObjectOntologyVerbal2005, where he says that "sentences have the same truth conditions if (relative to the same context of utterance) they hold true in the same possible worlds." But do Lewis and van Inwagen agree that $A_{1}$ is true in the same possible worlds? Lewis would say that in the set of possible worlds that make $A_{1}$ true, there are worlds in which there are tables. van Inwagen, by contrast, would say there are no such worlds in the set. So they do not agree on the elements in the set of possible worlds that make $A_{1}$ true.
 
-I anticipate that Hirsch would reply that Lewis and van Inwagen are once again engaged in a merely verbal disagreement, this time over which worlds belong to the set of possible worlds that make $A_{1}$ true. The disagreement would look like this:
+I anticipate that Hirsch would reply that Lewis and van Inwagen are once again engaged in a merely verbal disagreement, this time over a set of possible worlds. The disagreement would look like this:
 
 * **Disputed sentence $D'$**: "In the set of possible worlds where $A_{1}$ is true, there are worlds in that set where there are tables"
 * **Agreed sentence $A_{1}'$**: "In the set of possible worlds where $A_{1}$ is true, there are worlds in that set where there are table-wise interrelated simples"
@@ -176,7 +176,7 @@ I anticipate that Hirsch would reply that Lewis and van Inwagen are once again e
 
 He could then apply the same argument again to dissolve this dispute. But at this point, it seems that we have entered a loop. I can repeat my objection and say that they are still disagreeing about the truth conditions of $A_{1}'$ and $A_{2}'$. Hirsch may then introduce $D''$, $A_{1}''$, and $A_{2}''$ and run the argument again. In response, I can raise the same objection again, and so on without end.
 
-Is there any way to break this loop? At some point, I suspect Hirsch would rely on his broader view of ontology to persuade me: the world is just one large, fact, unstructured chunk. And the way we divide it into objects is merely a matter of conceptual scheme. On that picture, although Lewis and van Inwagen describe the relevant possible worlds differently, they are really talking about the same possible worlds.
+Is there any way to break this loop? At some point, I suspect Hirsch would rely on his view of ontology to persuade me: the world is just one large, fact, unstructured chunk. And the way we divide it into objects is merely a matter of conceptual scheme. On that picture, although Lewis and van Inwagen describe the relevant possible worlds differently, they are really talking about the same possible worlds.
 
 But this response simply assumes the very conclusion at issue, namely, that there are no ontological fact, and disputes about ontology are merely verbal. Someone who does not already accept that view will not be moved by Hirsch’s argument. So Hirsch’s argument cannot settle the dispute between $X$ and $Y$ by claiming that the dispute is merely verbal, unless $X$ and $Y$ already accept that there is no fact of matter on the thing they debate about.
 
