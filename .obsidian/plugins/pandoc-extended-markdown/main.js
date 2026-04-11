@@ -1610,7 +1610,7 @@ function setupLabelHoverPreview(element, fullLabel, abortSignal) {
   element.addEventListener("mouseleave", removePopover2, { signal: abortSignal });
   element.addEventListener("click", removePopover2, { signal: abortSignal });
 }
-function renderContentWithMath(element, truncatedContent, app, component, context) {
+function renderContentWithMath(element, truncatedContent, app, component, context, sourcePath = "") {
   let contentToRender = truncatedContent;
   if (context) {
     contentToRender = processContent(truncatedContent, context);
@@ -1619,7 +1619,7 @@ function renderContentWithMath(element, truncatedContent, app, component, contex
     app,
     contentToRender,
     element,
-    "",
+    sourcePath,
     component
   );
 }
@@ -1757,14 +1757,14 @@ function removeAsyncPopover(state) {
     state.hoverPopover = null;
   }
 }
-async function renderPopoverContent(popoverElement, content, app, component, context) {
+async function renderPopoverContent(popoverElement, content, app, component, context, sourcePath = FILE_CONSTANTS.EMPTY_STRING) {
   const processedContent = context ? processContent(content, context) : content;
   try {
     await import_obsidian3.MarkdownRenderer.render(
       app,
       processedContent,
       popoverElement,
-      FILE_CONSTANTS.EMPTY_STRING,
+      sourcePath,
       component
     );
   } catch (error) {
@@ -1772,7 +1772,7 @@ async function renderPopoverContent(popoverElement, content, app, component, con
     throw error;
   }
 }
-function setupRenderedHoverPreview(element, content, app, component, context, popoverClass = CSS_CLASSES.HOVER_POPOVER_CONTENT, abortSignal) {
+function setupRenderedHoverPreview(element, content, app, component, context, popoverClass = CSS_CLASSES.HOVER_POPOVER_CONTENT, abortSignal, sourcePath = FILE_CONSTANTS.EMPTY_STRING) {
   const state = createAsyncHoverState();
   const mouseEnterHandler = async () => {
     var _a;
@@ -1784,7 +1784,7 @@ function setupRenderedHoverPreview(element, content, app, component, context, po
     const hoverElement = document.createElement(DOM_ATTRIBUTES.ELEMENT_DIV);
     hoverElement.classList.add(CSS_CLASSES.HOVER_POPOVER, popoverClass);
     try {
-      await renderPopoverContent(hoverElement, content, app, component, context);
+      await renderPopoverContent(hoverElement, content, app, component, context, sourcePath);
     } catch (e) {
       if ((_a = state.renderAbortController) == null ? void 0 : _a.signal.aborted) {
         return;
@@ -2043,7 +2043,8 @@ var CustomLabelPanelModule = class extends BasePanelModule {
     }
   }
   renderLabelRow(tbody, label, activeView) {
-    var _a, _b, _c, _d;
+    var _a, _b, _c, _d, _e, _f;
+    const sourcePath = (_b = (_a = activeView.file) == null ? void 0 : _a.path) != null ? _b : "";
     const row = tbody.createEl("tr", {
       cls: CSS_CLASSES.CUSTOM_LABEL_VIEW_ROW
     });
@@ -2053,16 +2054,16 @@ var CustomLabelPanelModule = class extends BasePanelModule {
     const displayLabel = truncateLabel(label.label);
     labelEl.textContent = displayLabel;
     if (displayLabel !== label.label) {
-      setupLabelHoverPreview(labelEl, label.label, (_a = this.abortController) == null ? void 0 : _a.signal);
+      setupLabelHoverPreview(labelEl, label.label, (_c = this.abortController) == null ? void 0 : _c.signal);
     }
-    setupLabelClickHandler(labelEl, label.rawLabel, (_b = this.abortController) == null ? void 0 : _b.signal);
+    setupLabelClickHandler(labelEl, label.rawLabel, (_d = this.abortController) == null ? void 0 : _d.signal);
     const contentEl = row.createEl("td", {
       cls: CSS_CLASSES.CUSTOM_LABEL_VIEW_CONTENT
     });
     const contentToShow = label.renderedContent || label.content;
     const truncatedContent = truncateContentWithRendering(contentToShow);
-    renderContentWithMath(contentEl, truncatedContent, this.plugin.app, this.plugin, this.currentContext);
-    setupContentClickHandler(contentEl, label, this.lastActiveMarkdownView, this.plugin.app, (_c = this.abortController) == null ? void 0 : _c.signal);
+    renderContentWithMath(contentEl, truncatedContent, this.plugin.app, this.plugin, this.currentContext, sourcePath);
+    setupContentClickHandler(contentEl, label, this.lastActiveMarkdownView, this.plugin.app, (_e = this.abortController) == null ? void 0 : _e.signal);
     if (truncatedContent !== contentToShow) {
       setupRenderedHoverPreview(
         contentEl,
@@ -2071,7 +2072,8 @@ var CustomLabelPanelModule = class extends BasePanelModule {
         this.plugin,
         this.currentContext,
         CSS_CLASSES.HOVER_POPOVER_CONTENT,
-        (_d = this.abortController) == null ? void 0 : _d.signal
+        (_f = this.abortController) == null ? void 0 : _f.signal,
+        sourcePath
       );
     }
   }
@@ -2223,6 +2225,8 @@ var ExampleListPanelModule = class extends BasePanelModule {
     }
   }
   renderExampleRow(tbody, item, activeView) {
+    var _a, _b;
+    const sourcePath = (_b = (_a = activeView.file) == null ? void 0 : _a.path) != null ? _b : "";
     const row = tbody.createEl("tr", {
       cls: CSS_CLASSES.EXAMPLE_LIST_VIEW_ROW
     });
@@ -2247,10 +2251,10 @@ var ExampleListPanelModule = class extends BasePanelModule {
       cls: CSS_CLASSES.EXAMPLE_LIST_VIEW_CONTENT
     });
     const truncatedContent = truncateContentWithRendering(item.content);
-    renderContentWithMath(contentEl, truncatedContent, this.plugin.app, this.plugin, this.currentContext);
+    renderContentWithMath(contentEl, truncatedContent, this.plugin.app, this.plugin, this.currentContext, sourcePath);
     this.setupContentClickHandler(contentEl, item, activeView);
     if (truncatedContent !== item.content) {
-      this.setupContentHoverPreview(contentEl, item);
+      this.setupContentHoverPreview(contentEl, item, sourcePath);
     }
   }
   truncateNumber(number) {
@@ -2309,7 +2313,7 @@ var ExampleListPanelModule = class extends BasePanelModule {
     };
     element.addEventListener("click", clickHandler, { signal: (_a = this.abortController) == null ? void 0 : _a.signal });
   }
-  setupContentHoverPreview(element, item) {
+  setupContentHoverPreview(element, item, sourcePath) {
     var _a;
     setupRenderedHoverPreview(
       element,
@@ -2318,7 +2322,8 @@ var ExampleListPanelModule = class extends BasePanelModule {
       this.plugin,
       this.currentContext,
       CSS_CLASSES.HOVER_POPOVER_CONTENT,
-      (_a = this.abortController) == null ? void 0 : _a.signal
+      (_a = this.abortController) == null ? void 0 : _a.signal,
+      sourcePath
     );
   }
 };
@@ -2436,6 +2441,8 @@ var DefinitionListPanelModule = class extends BasePanelModule {
     }
   }
   renderDefinitionRow(tbody, item, activeView) {
+    var _a, _b;
+    const sourcePath = (_b = (_a = activeView.file) == null ? void 0 : _a.path) != null ? _b : "";
     const row = tbody.createEl("tr", {
       cls: CSS_CLASSES.DEFINITION_LIST_VIEW_ROW
     });
@@ -2443,27 +2450,27 @@ var DefinitionListPanelModule = class extends BasePanelModule {
       cls: CSS_CLASSES.DEFINITION_LIST_VIEW_TERM
     });
     const truncatedTerm = this.truncateTermWithRendering(item.term);
-    renderContentWithMath(termEl, truncatedTerm, this.plugin.app, this.plugin, this.currentContext);
+    renderContentWithMath(termEl, truncatedTerm, this.plugin.app, this.plugin, this.currentContext, sourcePath);
     if (truncatedTerm !== item.term) {
-      this.setupTermHoverPreview(termEl, item.term);
+      this.setupTermHoverPreview(termEl, item.term, sourcePath);
     }
     const definitionsEl = row.createEl("td", {
       cls: CSS_CLASSES.DEFINITION_LIST_VIEW_DEFINITIONS
     });
     if (item.definitions.length === 1) {
       const truncatedContent = truncateContentWithRendering(item.definitions[0], UI_CONSTANTS.DEFINITION_MAX_LENGTH);
-      renderContentWithMath(definitionsEl, truncatedContent, this.plugin.app, this.plugin, this.currentContext);
+      renderContentWithMath(definitionsEl, truncatedContent, this.plugin.app, this.plugin, this.currentContext, sourcePath);
       if (truncatedContent !== item.definitions[0]) {
-        this.setupContentHoverPreview(definitionsEl, item.definitions[0]);
+        this.setupContentHoverPreview(definitionsEl, item.definitions[0], sourcePath);
       }
     } else {
       const ul = definitionsEl.createEl("ul");
       for (const def of item.definitions) {
         const li = ul.createEl("li");
         const truncatedContent = truncateContentWithRendering(def, UI_CONSTANTS.DEFINITION_MAX_LENGTH);
-        renderContentWithMath(li, truncatedContent, this.plugin.app, this.plugin, this.currentContext);
+        renderContentWithMath(li, truncatedContent, this.plugin.app, this.plugin, this.currentContext, sourcePath);
         if (truncatedContent !== def) {
-          this.setupContentHoverPreview(li, def);
+          this.setupContentHoverPreview(li, def, sourcePath);
         }
       }
     }
@@ -2472,7 +2479,7 @@ var DefinitionListPanelModule = class extends BasePanelModule {
   truncateTermWithRendering(term) {
     return truncateContentWithRendering(term, UI_CONSTANTS.TERM_MAX_LENGTH);
   }
-  setupTermHoverPreview(element, fullTerm) {
+  setupTermHoverPreview(element, fullTerm, sourcePath) {
     var _a;
     setupRenderedHoverPreview(
       element,
@@ -2481,7 +2488,8 @@ var DefinitionListPanelModule = class extends BasePanelModule {
       this.plugin,
       this.currentContext,
       CSS_CLASSES.HOVER_POPOVER_CONTENT,
-      (_a = this.abortController) == null ? void 0 : _a.signal
+      (_a = this.abortController) == null ? void 0 : _a.signal,
+      sourcePath
     );
   }
   setupDefinitionClickHandler(element, item, activeView) {
@@ -2505,7 +2513,7 @@ var DefinitionListPanelModule = class extends BasePanelModule {
     };
     element.addEventListener("click", clickHandler, { signal: (_a = this.abortController) == null ? void 0 : _a.signal });
   }
-  setupContentHoverPreview(element, content) {
+  setupContentHoverPreview(element, content, sourcePath) {
     var _a;
     setupRenderedHoverPreview(
       element,
@@ -2514,7 +2522,8 @@ var DefinitionListPanelModule = class extends BasePanelModule {
       this.plugin,
       this.currentContext,
       CSS_CLASSES.HOVER_POPOVER_CONTENT,
-      (_a = this.abortController) == null ? void 0 : _a.signal
+      (_a = this.abortController) == null ? void 0 : _a.signal,
+      sourcePath
     );
   }
 };
@@ -2724,6 +2733,8 @@ var FootnotePanelModule = class extends BasePanelModule {
     }
   }
   renderFootnoteRow(tbody, footnote, activeView) {
+    var _a, _b;
+    const sourcePath = (_b = (_a = activeView.file) == null ? void 0 : _a.path) != null ? _b : "";
     const row = tbody.createEl("tr", {
       cls: CSS_CLASSES.FOOTNOTE_PANEL_ROW
     });
@@ -2739,7 +2750,8 @@ var FootnotePanelModule = class extends BasePanelModule {
       footnote.content,
       this.plugin.app,
       this.plugin,
-      this.currentContext
+      this.currentContext,
+      sourcePath
     );
     this.setupReferenceClick(indexCell, footnote, activeView);
     this.setupDefinitionClick(contentCell, footnote, activeView);
@@ -8529,5 +8541,3 @@ ${issueList}`, UI_CONSTANTS.NOTICE_DURATION_MS);
   }
 };
 var main_default = PandocExtendedMarkdownPlugin;
-
-/* nosourcemap */

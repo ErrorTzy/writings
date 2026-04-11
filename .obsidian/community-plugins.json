@@ -7,7 +7,6 @@
   "obsidian-git",
   "obsidian-latex-suite",
   "obsidian-minimal-settings",
-  "pandoc-extended-markdown",
   "obsidian-pandoc-reference-list",
   "obsidian-style-settings",
   "obsidian-tidy-footnotes",
@@ -15,5 +14,6 @@
   "better-word-count",
   "obsidian-smarter-md-hotkeys",
   "quick-latex",
-  "copilot-auto-completion"
+  "copilot-auto-completion",
+  "pandoc-extended-markdown"
 ]
