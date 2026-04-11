@@ -99,7 +99,7 @@ Here, I believe, proponents of the deflationary argument would diverge. I suspec
 
 I personally stand with Hirsch on this matter. For me, to say that I meant something is, first and foremost, to say that I am in a mental state that is about something. It just seems absurd to say that I cannot control what I mean, and that what is in my mind depends on how other people interpret it. That said, because of this divergence, I will divide my discussion into two parts. In the first part, I will argue against a phantom Hirsch who accepts that meaning does not come from interpretation. In the second part, I will argue against a phantom Warren who accepts that meaning comes from interpretation.
 
-## Against phantom Hirsch
+## Against intentionality-based deflationism
 
 Now assume that meaning depends on intentionality, and that interpretation is merely a pragmatic strategy for approximating what a speaker meant. If so, {::P3} could be false. In particular, philosophers who believe that ontology is substantial often insist that they intend to speak either plain English or a special philosophical language like Ontologese. So {::P3} is usually false for the very philosophers to whom Hirsch wants to apply it. If that is right, then disputes that Hirsch wants to deflate are not merely verbal.
 
@@ -148,14 +148,14 @@ Definition: truth-conditionally indiscernible
 
 Then, Hirsch proposes the following principle:
 
-Principle: Propositional Supervience  
+Principle: Propositional Supervenience  
 : It is necessarily the case that if $L_{1}$ and $L_{2}$ are truth-conditionally indiscernable, then any sentence in $L_{1}$ and $L_{2}$ expresses the same proposition.[^8]
 
-According to Hirsch, $L_{X}$ and $L^{X}$ are *truth-conditionally indiscernable*. Then by *Propositional Supervience*, $L_{X}(D)=L^{X}(D)$. Similarly, $L_{Y}(D)=L^{Y}(D)$. And therefore {::P4}.
+According to Hirsch, $L_{X}$ and $L^{X}$ are *truth-conditionally indiscernable*. Then by *Propositional supervenience*, $L_{X}(D)=L^{X}(D)$. Similarly, $L_{Y}(D)=L^{Y}(D)$. And therefore {::P4}.
 
 Now, if $L_{X}$ and $L^{X}$ are not *truth-conditionally indiscernable*, then {::P4} could be false. Thus, it is possible for the dispute between $X$ and $Y$ to be not verbal. So my aim is to show the possibility of $L_{X}$ and $L^{X}$ being not *truth-conditionally indiscernible*.[^9]
 
-Let me grant that *Propositional Supervience* is valid. In our previous argument, $Y$ stipulated $L^{Y}(A_{1})=L_{X}(A_{1})$. Now assume $L_{X}$ and $L^{X}$ are *truth-conditionally indiscernable*, by *Propositional Supervience* we must also have $L^{X}(A_{1})=L_X(A_{1})$. Therefore, we must have $L^{X}(A_{1})=L^Y(A_{1})$.
+Let me grant that *Propositional supervenience* is valid. In our previous argument, $Y$ stipulated $L^{Y}(A_{1})=L_{X}(A_{1})$. Now assume $L_{X}$ and $L^{X}$ are *truth-conditionally indiscernable*, by *Propositional supervenience* we must also have $L^{X}(A_{1})=L_X(A_{1})$. Therefore, we must have $L^{X}(A_{1})=L^Y(A_{1})$.
 
 What a proposition is is highly controversial. However, it is uncontroversial that if $L^{X}(A_{1})=L^Y(A_{1})$, then $A_{1}$ has the same truth condition in $L^{X}$ and $L^{Y}$. But is it guaranteed that $A_{1}$ has the same truth condition in $L^{X}$ and $L^{Y}$? All we know from Hirsch’s argument is that $X$ and $Y$ agree on $A_{1}$. Does this amount to the sameness of truth conditions?
 
@@ -182,7 +182,7 @@ Is there any way to break this loop? At some point, I suspect Hirsch would rely 
 
 I will return to my reasons for rejecting this view of ontology later. As for now, the problem is that this response simply assumes the very conclusion at issue, namely, that there is no relevant deep ontological fact, and these ontological disputes are merely verbal. Someone who does not already accept that view will not be moved by Hirsch’s argument. So Hirsch’s argument cannot settle the dispute between $X$ and $Y$ by claiming that the dispute is merely verbal, unless $X$ and $Y$ already accept that there is no fact of the matter on the thing they debate about.
 
-## Against phantom Warren
+## Against disposition-based deflationism
 
 I have argued that, if meaning comes from irreducible intentionality, then Hirsch’s deflationism is circular at best. The only remaining hope for Hirsch’s deflationism, then, is to treat the principle of *interpretive charity* as a metaphysical principle of meaning, and thus to accept {::P3}. Since I cannot attribute this position to Hirsch, I instead attribute it to another defender of Hirsch’s deflationism, Jared Warren. That said, Warren need not accept this position, so I treat my opponent here as a phantom.
 
@@ -194,7 +194,7 @@ There are tons of literature on the third option, so it may require careful trea
 
 Now that we have ruled out the first and third options, the only remaining option for Warren is *meaning dispositionalism* (or simply *dispositionalism*). This is, in fact, the position defended by @warrenKillingKripkensteinsMonster2020. According to Kripke, *dispositionalism* is the view that to mean something is to produce some specific *actual or possible behavior* when stimulated in a certain way.
 
-Let me emphasize the word "behavior" here. Warren himself accepts that dispositionalism "roots meaning in actual or merely possible linguistic behavior". One problem arises immediately, however, for Warren’s definition. Any dispositionalist account of meaning must at least distinguish between linguistic and non-linguistic dispositions. If that cannot be done, then dispositionalism cannot even get off the ground as a theory of meaning. Perhaps Warren begins with "linguistic behavior" in order to avoid this problem, but that already sounds like cheating. How can one distinguish linguistic from non-linguistic behavior without appealing to what the behavior is intended to mean?
+Let me emphasize the word "behavior" here. Warren himself accepts that dispositionalism "roots meaning in actual or merely possible linguistic behavior".[^12] One problem arises immediately, however, for Warren’s definition. Any dispositionalist account of meaning must at least distinguish between linguistic and non-linguistic dispositions. If that cannot be done, then dispositionalism cannot even get off the ground as a theory of meaning. Perhaps Warren begins with "linguistic behavior" in order to avoid this problem, but that already sounds like cheating. How can one distinguish linguistic from non-linguistic behavior without appealing to what the behavior is intended to mean?
 
 For example, I may wave my hand in the air simply to stretch my arm. Suppose, in addition, that for some deep neurological reason I have a stable disposition to stretch my arm when there is a table present. Maybe I am hypnotized into doing so. And it so happens that the way I stretch my arm is identical to the gesture for expressing "table" in sign language. According to dispositionalism, do I mean "table" when I stretch my arm?
 
@@ -208,7 +208,17 @@ One of Kripke’s objection can be stated roughly as follows: We can make mistak
 
 In response, Warren argues that the correct application of a rule of meaning can be identified in the following way: for a given class of situation $C$, the correct application is determined by the disposition that yields a *stable* answer in the *overwhelming majority* of specific situations in $C$, provided that the speaker’s general cognitive functioning is not *interfered*.
 
-Dispite patching up the theory with so many conditions, however, it still face counterexamples. 
+However, even after the theory is patched with so many qualifications, it still faces counterexamples. There are actual clinical reports, for example @deletterSpeakingNumbersTransitional2012, of aphasia patients who stably produce meaningless speech and only occasionally produce meaningful speech in conversation. At the same time, when such patients are unable to produce meaningful speech, they display "frustrated and agitated behaviour" and "used language switching or numerical speech as strategies to overcome his word-finding problems and to maintain his drive to keep the conversation going". This suggests that the patient does know what he wants to mean, even though he cannot express it correctly.
+
+To fit Warren’s criterion more precisely, we can add a fictional detail to the actual clinical report. When Warren adds the condition that the speaker’s general cognitive functioning is not *interfered with*, he seems to be excluding anomalies such as drug influence, fatigue, and similar disruptions. But suppose instead that the patient was born this way. In that case, this would count as his normal cognitive functioning rather than a case of abnormal interference. Suppose further that, when producing meaningless speech, he consistently produces just one meaningless sound. Given this setup, Warren’s criterion implies that the correct behavior, the one that determines what the patient means, is the production of meaningless speech, despite the patient’s “frustrated and agitated behaviour” and his attempts to overcome the problem.
+
+Perhaps it is controversial to take aphasia patients as a counterexample, since their linguistic ability is impaired. Let me even assume that all the other problems, which I do not have space to discuss here, can ultimately be solved, so that we arrive at a perfect dispositionalist account. Such a perfect dispositionalist account would make exactly the same behavioral predictions as an account based on irreducible intentionality. Even then, I still do not think this is the right story to tell about meaning. In short, since philosophical zombies could have dispositions indistinguishable from ours, perfect dispositionalism implies that unconscious zombies mean things in the same way that we do. That conclusion defies everything I understand about the meaning of "meaning". Therefore, I remain convinced that we should not accept dispositionalism, and thus Hirsch's deflationism cannot be saved.
+
+## What is a verbal dispute, then?
+
+All I have shown so far may be summerized as follows: if one wants to accept Hirsch's deflationism, either (1) one accepts interpretive charity as a pragamatic principle meaning and assume Hirsch's "lightweight" ontological view, which amounts to presuppose Hirsch's conclusion, or (2) one accepts interpretive charity as a metaphysical principle of meaning and accept the problematic view of dispositionalism.
+
+
 
 
 [^1]: A further analysis of different ways to define it, see @chalmersVerbalDisputes2011 . For what matters here, Chalmers’ way of defining verbal disputes is even broader than the kind of dispute that will be undermined in this paper. Therefore, my attack applies to Chalmers’ view.  
@@ -222,3 +232,4 @@ Dispite patching up the theory with so many conditions, however, it still face c
 [^9]: The reason I merely talk about "possibility" is that Hirsch is giving an argument schema, and I provide counterexamples to Hirsch’s argument schema. By doing so, I do not show that any argument instance that fits the schema will have a false conclusion. All I show is the schema being invalid.  
 [^10]: This question also aply to $A_{2}$. But since the problem is symmetric, I will only focus on $A_{1}$ here.  
 [^11]: This is a point I anticipate Hirsch to accept, because a table is not a set.
+[^12]: It might be uncharitable to Warren, however, to take him to be proposing a purely behavioral account. As in note 79, Warren admits that high-order disposition is implicit in his discussion of composite disposition. And I cannot see how high-order disposition can be defined only in terms of behavior. And it seems hard to say a complex disposition can be split into simpler parts without introspection. However, if we take Warren to depart from the original formulation of dispositionalism and introduce something mental, then it can no longer support interpretive charity, since we can only interpret behavior.
