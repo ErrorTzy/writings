@@ -1,1 +1,1 @@
-Aim: Shield every plausible version of dispositionalism from these attacks
+Aim: "Shield *every* plausible version of dispositionalism from these attacks"

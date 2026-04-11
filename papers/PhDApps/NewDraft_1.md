@@ -193,7 +193,13 @@ To the best of my knowledge, there are only three intelligible responses to the 
 
 There are tons of literature on the third option, so it may require careful treatment. Here, however, I set it aside without too much argument. One reason is that an ontological dispute is, at least, a dispute about whether certain facts obtain. But, following @wrightKripkesAccountArgument1984, if we adopt the third option, then we must “abandon the idea that it is *ever* the case that language has a fact-stating function”. If so, the very idea of ontological dispute vanishes into thin air. A second reason is that the position is simply so crazy that I doubt many philosophers genuinely accept it.
 
-Now, given that we have ruled out the first and third options, the only remaining option for Warren is dispositionalism about meaning. This, in fact, is indeed the position that @warrenKillingKripkensteinsMonster2020 defended.
+Now, given that we have ruled out the first and third options, the only remaining option for Warren is *meaning dispositionalism*. This, in fact, is indeed the position that @warrenKillingKripkensteinsMonster2020 defended. *Meaning dispositionalism* (dispositionalism for short) is the view that whether we mean something depends on our behavior, actual or possible. In @kripkeWittgensteinRulesPrivate2000, Kripke presented three arguments against dispositionalism, which can be roughly stated as follows:
+
+{::Finiteness} Rules of meaning applies to inifitely many cases. However, given that we are mortals, our actual behaviors are finite; And there is no way to determine which behavior is our possible behavior without presupposing an intended meaning.
+{::Error} We can make mistakes and fail to mean what we intend to mean. However, it seems impossible for dispositionism to account for mistakes.
+{::Justification} Whether we mean something justifies our linguistic behavior. However, the fact that we do behave or would behave in some way cannot justify our actually behaving in that way.
+
+In @warrenKillingKripkensteinsMonster2020, Warren discussed Kripke's argument against dispositionalism.
 
 
 
