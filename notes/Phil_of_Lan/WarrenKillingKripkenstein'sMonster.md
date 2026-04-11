@@ -19,4 +19,4 @@ But this may not solve the issue because we may not have a complex disposition w
 
 {::composite} $S$ has a composite disposition to $\phi$ in situation $C$ iff $\phi$ing is (or would be) the output of the iterated application of $S$'s linked simple dispositions in $C$
 
-> How is it even possible to give a behavioral account of "link" and "iteration"? Can one point to a "link"? When is a behavior linked to another behavior? To have a disposition is to bahave in the following manner: in situation A, behave in a certain way; in situation B, behave in a certain way; ... And the situation may not be actual, so the behavior may not be actual either. 
+> How is it even possible to give a behavioral account of "link" and "iteration"? Can one point to a "link"? When is a behavior linked to another behavior? To have a disposition is to bahave in the following manner: in situation A, behave in a certain way; in situation B, behave in a certain way; ... And the situation may not be actual, so the behavior may not be actual either. This would require high-order disposition

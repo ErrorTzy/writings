@@ -202,22 +202,13 @@ Perhaps a phantom Warren might reply that my arm-stretching does not mean anythi
 
 Since the actual Warren is an inferentialist, he might as well reply that linguistic behavior must be inferential. However, I cannot infer anything from the mere fact that I stretch my arm. Therefore, my arm-stretching is not linguistic. However, this reply does not work either. I can come to realize that I somehow have a habit of stretching my arm when I see a table. Therefore, I can infer from the fact that I stretch my arm to the fact that there is a table nearby. The fact that I can make such inference does not make my arm-stretching linguistic.
 
-That said, let us assume that dispositionalism can somehow get off the ground. Then we still have Kripke's argument against dispositionalism. Roughly, Kripke's argument can be roughly stated as follows:
+That said, let us assume that dispositionalism can somehow get off the ground. Then we still have Kripke's argument against dispositionalism. @warrenKillingKripkensteinsMonster2020 developed a complicated account that put various strategies together in order to "shield *every* plausible version of dispositionalism from these\[Kripke's\] attacks". I am running out of space here, so I cannot go through every strategy and complain about them one by one. Let me briefly mention the main strategy I find most problematic.
 
-{::Finitude} Addition applies to infinite cases. But we are mortals. Our actual behavior is finite. And our cognitive capacity is also finite. We cannot respond to arbitrarily huge numbers. And appealing to ideal possible behaviors rely on presupposing the meaning of addition. 
-{::Error} We can make mistakes and fail to use words in accordance with what we mean. However, dispositionalism seems unable to distinguish such mistakes from correct applications of the rules of meaning. 
-{::Justification} What we mean is supposed to justify our linguistic behavior. However, the fact that we do behave, or would behave, in a certain way cannot by itself justify our actually behaving in that way.
+One of Kripke’s objection can be stated roughly as follows: We can make mistakes and fail to use words in accordance with what we mean. Dispositionalism, however, seems unable to distinguish such mistakes from correct applications of the rules that govern meaning.
 
-@warrenKillingKripkensteinsMonster2020 developed a complicated account that put various strategies together in order to "shield *every* plausible version of dispositionalism from these\[Kripke's\] attacks". I am running out of space here, so I cannot go through every strategy and complain about them one by one. Let me briefly mention two main strategies I find most problematic.
+In response, Warren argues that the correct application of a rule of meaning can be identified in the following way: for a given class of situation $C$, the correct application is determined by the disposition that yields a *stable* answer in the *overwhelming majority* of specific situations in $C$, provided that the speaker’s general cognitive functioning is not *interfered*.
 
-In {::Finitude}, there is a problem that adding astronomical numbers may be too complicated to us. Therefore, it seems we do not have the disposition to apply addition to astronomical numbers. First, Warren made a distinction between simple and complex dispositions. According to Warren, some dispositions can be composed of different simple steps. For example, when we are adding, we may add digit by digit. However, this does not itself solve the problem. For even if we can break down the steps for adding astronomical numbers, there might be too many steps for us to perform. Therefore, Warren appeals to a further distinction between singular and composite dispositions:
-
-{::singular} $S$ has a singular disposition to $\phi$ in situation $C$ iff $S$ has a simple (or complex) disposition to $\phi$ in situation $C$
-{::composite} $S$ has a composite disposition to $\phi$ in situation $C$ iff $\phi$ing is (or would be) the output of the iterated application of $S$'s linked simple dispositions in $C$
-
-This solves the problem because even though we may not eventually give an output for adding two astronomical numbers, our disposition is such that, disposition 1 is linked to disposition 2, which is linked to disposition 3, and so on in a chain. It does not matter if someone stopped in the middle because 
-
-My problem with this strategy is how can dispositionism account for the concept of "iterated application of linked dispositions"?
+Dispite patching up the theory with so many conditions, however, it still face counterexamples. 
 
 
 [^1]: A further analysis of different ways to define it, see @chalmersVerbalDisputes2011 . For what matters here, Chalmers’ way of defining verbal disputes is even broader than the kind of dispute that will be undermined in this paper. Therefore, my attack applies to Chalmers’ view.  
