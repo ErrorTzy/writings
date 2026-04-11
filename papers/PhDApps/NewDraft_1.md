@@ -79,9 +79,9 @@ This argument can be generalized into the following form. Consider the following
 
 Then we have the following argument:
 
-{::P1} There is a language $L_{X}$ in which $D$ has the same truth condition as $A_{1}$  
-{::P2} There is a language $L_{Y}$ in which $D$ has the same truth condition as $A_{2}$  
-{::P3} $X$ is speaking $L_{X}$ and $Y$ is speaking $L_{Y}$  
+{::P1} There is a language $L_{X}$ in which $D$ has the same truth condition as $A_{1}$
+{::P2} There is a language $L_{Y}$ in which $D$ has the same truth condition as $A_{2}$
+{::P3} $X$ is speaking $L_{X}$ and $Y$ is speaking $L_{Y}$
 {::C} Therefore, the dispute between $X$ and $Y$ is merely verbal
 
 The intuitive idea behind this argument is that $Y$ should translate $X$'s utterance of $D$ as expressing $A_1$, and $X$ should translate $Y$'s utterance of $D$ as expressing $A_2$. Of course, the dispute between $X$ and $Y$ is not over just one sentence, $D$, but over many others. For example, for any agreed sentence $S$, there will also be a disagreement over $S \land D$. But as long as $X$ and $Y$ can translate any disputed sentence into some agreed sentence, they disagree only over which expressions they should use to express their agreed fact.
@@ -193,13 +193,13 @@ To the best of my knowledge, there are only three intelligible responses to the 
 
 There are tons of literature on the third option, so it may require careful treatment. Here, however, I set it aside without too much argument. One reason is that an ontological dispute is, at least, a dispute about whether certain facts obtain. But, following @wrightKripkesAccountArgument1984, if we adopt the third option, then we must “abandon the idea that it is *ever* the case that language has a fact-stating function”. If so, the very idea of ontological dispute vanishes into thin air. A second reason is that the position is simply so crazy that I doubt many philosophers genuinely accept it.
 
-Now, given that we have ruled out the first and third options, the only remaining option for Warren is *meaning dispositionalism*. This, in fact, is indeed the position that @warrenKillingKripkensteinsMonster2020 defended. *Meaning dispositionalism* (dispositionalism for short) is the view that whether we mean something depends on our behavior, actual or possible. In @kripkeWittgensteinRulesPrivate2000, Kripke presented three arguments against dispositionalism, which can be roughly stated as follows:
+Now that we have ruled out the first and third options, the only remaining option for Warren is *meaning dispositionalism*. This is, in fact, the position defended by @warrenKillingKripkensteinsMonster2020. *Meaning dispositionalism* (or simply dispositionalism) is the view that what we mean depends on our actual or possible behavior. In @kripkeWittgensteinRulesPrivate2000, Kripke presents three forceful objections against dispositionalism, which can be stated roughly as follows:
 
-{::Finiteness} Rules of meaning applies to inifitely many cases. However, given that we are mortals, our actual behaviors are finite; And there is no way to determine which behavior is our possible behavior without presupposing an intended meaning.
-{::Error} We can make mistakes and fail to mean what we intend to mean. However, it seems impossible for dispositionism to account for mistakes.
-{::Justification} Whether we mean something justifies our linguistic behavior. However, the fact that we do behave or would behave in some way cannot justify our actually behaving in that way.
+{::Finitude} Rules of meaning apply to infinitely many cases. By contrast, since we are mortals, our actual behavior is finite. And there is no way to determine which behaviors count as possible behavior without presupposing an intended meaning.
+{::Error} We can make mistakes and fail to use words in accordance with what we mean. However, dispositionalism seems unable to distinguish such mistakes from correct applications of the rules of meaning.
+{::Justification} What we mean is supposed to justify our linguistic behavior. However, the fact that we do behave, or would behave, in a certain way cannot by itself justify our actually behaving in that way.
 
-In @warrenKillingKripkensteinsMonster2020, Warren discussed Kripke's argument against dispositionalism.
+In @warrenKillingKripkensteinsMonster2020, Warren claims to "shield *every* plausible version of dispositionalism from these attacks".
 
 
 
