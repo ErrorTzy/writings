@@ -217,7 +217,7 @@ Perhaps it is controversial to take aphasia patients as a counterexample, since 
 
 ## What is a verbal dispute, then?
 
-All I have shown so far may be summerized as follows: if one wants to accept Hirsch’s deflationism, either (1) one accepts interpretive charity as a pragamatic principle meaning and assume Hirsch’s “lightweight” ontological view, which amounts to presuppose Hirsch’s conclusion, or (2) one accepts interpretive charity as a metaphysical principle of meaning and accept the problematic view of dispositionalism. Since I have a strong inclination to reject dispositionalism, I believe (1) might be the only option left.
+All I have shown so far may be summarized as follows: if one wants to accept Hirsch’s deflationism, either (1) one accepts interpretive charity as a pragamatic principle meaning and assume Hirsch’s “lightweight” ontological view, which amounts to presuppose Hirsch’s conclusion, or (2) one accepts interpretive charity as a metaphysical principle of meaning and accept the problematic view of dispositionalism. Since I have a strong inclination to reject dispositionalism, I believe (1) might be the only option left.
 
 To explain why I do not accept (1), it’s time to quickly sketch my positive account of verbal disputes. Let us go all the way back to the beginning of the paper, where I introduced William James’ example: Imagine a squirrel moving around a tree. A man also moves around the tree, always keeping his face turned toward the squirrel. The question is whether the man is going around the squirrel.
 
