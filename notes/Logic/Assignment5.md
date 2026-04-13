@@ -62,7 +62,7 @@ We first prove from left to right. Assume $\Gamma \vDash \forall x A$, i.e. $\fo
 
 To show $\forall M (M \vDash \Gamma \rightarrow M \vDash A[c/x])$, we pick an arbitrary $M$ and assume $M \vDash \Gamma$. Then we need to show $M \vDash A[c/x]$. 
 
-Given $M \vDash \Gamma$, we have $M \vDash \forall x A$, i.e. for any $s$ and any $m \in |M|$, $M,s[m/x] \vDash A$. Since $Val_s^{M}(c)=c^{M}\in |M|$, $M,s[Val_s^{M}(c)/x] \vDash A$. For we have proven **Problem 7.9**, we know that $M,s[Val_s^{M}(c)/x] \vDash A \leftrightarrow M,s \vDash A[c/x]$. Therefore, $M,s \vDash A[c/x]$. Given **Proposition 7.17**, we have $M \vDash A[c/x]$.
+Given $M \vDash \Gamma$, we have $M \vDash \forall x A$, i.e. for any $s$ and any $m \in |M|$, $M,s[m/x] \vDash A$. Since $Val_s^{M}(c)=c^{M}\in |M|$, $M,s[Val_s^{M}(c)/x] \vDash A$. For we have proven **Problem 7.9**, ==we know that $M,s[Val_s^{M}(c)/x] \vDash A \leftrightarrow M,s \vDash A[c/x]$==. Therefore, $M,s \vDash A[c/x]$. Given **Proposition 7.17**, we have $M \vDash A[c/x]$.
 
 We then prove from right to left. Assume $\Gamma \vDash A[c/x]$, i.e $\forall M (M \vDash \Gamma \rightarrow \forall s (M,s \vDash A[c/x]))$. We need to show that $\Gamma \vDash \forall x A$, i.e. $\forall M (M \vDash \Gamma \rightarrow \forall s(M,s \vDash \forall x A))$. 
 
