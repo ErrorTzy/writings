@@ -42,7 +42,8 @@
       "name": "Media Wiki"
     },
     {
-      "name": "reStructuredText"
+      "name": "reStructuredText",
+      "customArguments": " --citeproc --bibliography \"${attachmentFolderPath}/biblatex.bib\" --csl \"${attachmentFolderPath}/apa.csl\""
     },
     {
       "name": "Textile"
@@ -76,5 +77,5 @@
     "linux": "/home/scott/Desktop"
   },
   "lastExportType": "PDF",
-  "lastEditName": "Word (.docx)"
+  "lastEditName": "reStructuredText"
 }

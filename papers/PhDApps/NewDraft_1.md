@@ -29,7 +29,7 @@ It seems clear that the dispute about whether the man is going around the squirr
 
 Over the past 20 years, there has been a significant deflationary position in (meta)metaphysics, mainly purported by Hirsch and Thomasson. They claim that disputes in ontology are shallow and insignificant, in the same way the disagreement about whether the man is moving around the squirrel is shallow and insignificant. The basic claim of this deflationary position is that, when people dispute about what exists, they are *merely* having a shallow disagreement about the meaning of the quantifier[^2].
 
-Despite the position being utterly superising, the argument supporting the position has been more powerful than expected. During the past 20 years, there have been plenty of attempts to resist this deflationary argument. But I believe Hirsch has replied to them well. Many people, it seems, eventually start to accept this deflationary position about ontology and move on to something else, like fundamentality[^3].
+Despite the position being utterly surprising, the argument supporting the position has been more powerful than expected. During the past 20 years, there have been plenty of attempts to resist this deflationary argument. But I believe Hirsch has replied to them well. Many people, it seems, eventually start to accept this deflationary position about ontology and move on to something else, like fundamentality[^3].
 
 This paper intends to argue against Hirsch’s deflationary argument. First, I introduce Hirsch’s original deflationary argument, and point out a metasemantic divergence would lead to two different positions. Then I provide reasons to believe neither position can really deflate the dispute. Finally, I quickly sketch my positive view of verbal disputes.
 
@@ -122,12 +122,12 @@ And recall the previous notation:
 - $A_{2}$: A sentence agreed by $X$ and $Y$; $Y$ take $D$ and $A_{2}$ to be equivalent
 
 Now, given these notations, Hirsch’s basic idea is to replace {::P3} with {::P4}:
-
+n
 {::P4} $L_{X}(D)=L^{X}(D)$, and $L_{Y}(D)=L^{Y}(D)$
 
 The idea behind {::P4} is to concede that the speakers may not literally be speaking the charitably interpreted languages, while insisting that those interpretations, taken as stipulation, nonetheless express the very same propositions as the speakers’ actual languages do for the disputed sentences.
 
-I will return to Hirsch’s defense for {::P4} later. The current point is, given {::P1}, {::P2} and {::P4}, {::C} still follows: First, $Y$ can stipulate that $L^{Y}(A_{1})=L_{X}(A_{1})$. Also by stipulation, $L_{X}(A_{1})=L_{X}(D)$. And from {::P4} we know that $L_{X}(D)=L^{X}(D)$. Therefore, $L^Y(A_{1})=L^{X}(D)$. Since it is uncontroversial that the same proposition must express the same fact (with respect to the same context), $[L^Y(A_{1})]=[L^{X}(D)]$. Similarly, $[L^X(A_{2})]=[L^{Y}(D)]$. But there is no disagreement on the facts that $A_{1}$ and $A_{2}$ express obtain. It follows that $X$ and $Y$ are just talking pass each other by using $D$ to express different facts that they agree on.[^7]
+I will return to Hirsch’s defense for {::P4} later. The current point is, given {::P1}, {::P2} and {::P4}, {::C} still follows: First, $Y$ can stipulate that $L^{Y}(A_{1})=L_{X}(A_{1})$. Also by stipulation, $L_{X}(A_{1})=L_{X}(D)$. And from {::P4} we know that $L_{X}(D)=L^{X}(D)$. Therefore, $L^Y(A_{1})=L^{X}(D)$. Since it is uncontroversial that the same proposition must express the same fact (with respect to the same context), $[L^Y(A_{1})]=[L^{X}(D)]$. Similarly, $[L^X(A_{2})]=[L^{Y}(D)]$. But there is no disagreement on the facts that $A_{1}$ and $A_{2}$ express obtain. It follows that $X$ and $Y$ are just talking past each other by using $D$ to express different facts that they agree on.[^7]
 
 One issue is that, given that we do not assume *interpretive charity*, we do not assume that $X$ and $Y$ must be right about the equivalence between $D$ and $A_{1}$ or $A_{2}$. Therefore, we can draw the following table:
 
