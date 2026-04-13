@@ -69,9 +69,8 @@ Therefore, by interpretive charity, van Inwagen is speaking a language, $L_{Inwa
 
 This argument can be generalized into the following schema. Consider the following disagreement between $X$ and $Y$ over sentence $D$:
 
-| Column 1 | Column 2 | Column 3 |
-| --- | --- | --- |
 |  | Agreement | Disagreement |
+| --- | --- | --- |
 | $X$ | $A_1$ is true, $A_{2}$ is false | $D$ is true and is equivalent to $A_{1}$ |
 | $Y$ | $A_{1}$ is true, $A_{2}$ is false | $D$ is false, and is equivalent to $A_2$ |
 
@@ -131,13 +130,12 @@ I will return to Hirsch’s defense for {::P4} later. The current point is, give
 
 One issue is that, given that we do not assume *interpretive charity*, we do not assume that $X$ and $Y$ must be right about the equivalence between $D$ and $A_{1}$ or $A_{2}$. Therefore, we can draw the following table:
 
-| Column 1 | Column 2 | Column 3 |
-| --- | --- | --- |
-|  | $X$ is right about the equivalence | $X$ is wrong about the equivalence |
-| $Y$ is right about the equivalence | If $L^{X}=L^{Y}$: Impossible. $D$ cannot have different truth value in the same language | If $L^{X}=L^{Y}$: Know whether the disputed fact obtains through  knowing $A_{2}$ |
-|  | If $L^{X} \neq L^{Y}$: Know whether $[L^{X}(D)]$ and $[L^{Y}(D)]$ obtains through knowing $A_{1}$ and $A_{2}$ | If $L^{X} \neq L^{Y}$: Know whether $[L^{Y}(D)]$ obstains through knowing $A_{2}$; Do not know what fact is expressed by $X$ |
-| $Y$ is wrong about the equivalence | If $L^{X}=L^{Y}$: Know whether the disputed fact obtains through  knowing $A_{2}$ | If $L^{X}=L^{Y}$: Do not know what fact is expressed by the two parties. |
-|  | If $L^{X} \neq L^{Y}$: Know whether $[L^{X}(D)]$ obstains through knowing $A_{1}$; Do not know what fact is expressed by $Y$ | If $L^{X} \neq L^{Y}$: Do not know what fact is expressed by the two parties. |
+|                                    | $X$ is right about the equivalence                                                                                           | $X$ is wrong about the equivalence                                                                                           |
+| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| $Y$ is right about the equivalence | If $L^{X}=L^{Y}$: Impossible. $D$ cannot have different truth value in the same language                                     | If $L^{X}=L^{Y}$: Know whether the disputed fact obtains through  knowing $A_{2}$                                            |
+|                                    | If $L^{X} \neq L^{Y}$: Know whether $[L^{X}(D)]$ and $[L^{Y}(D)]$ obtains through knowing $A_{1}$ and $A_{2}$                | If $L^{X} \neq L^{Y}$: Know whether $[L^{Y}(D)]$ obstains through knowing $A_{2}$; Do not know what fact is expressed by $X$ |
+| $Y$ is wrong about the equivalence | If $L^{X}=L^{Y}$: Know whether the disputed fact obtains through  knowing $A_{2}$                                            | If $L^{X}=L^{Y}$: Do not know what fact is expressed by the two parties.                                                     |
+|                                    | If $L^{X} \neq L^{Y}$: Know whether $[L^{X}(D)]$ obstains through knowing $A_{1}$; Do not know what fact is expressed by $Y$ | If $L^{X} \neq L^{Y}$: Do not know what fact is expressed by the two parties.                                                |
 
 
 Roughly speaking, either (1) the disputed fact can be determined by appeal to some trivial fact (when Hirsch applies his argument, $A_{1}$ and $A_{2}$ are always trivial and uncontroversial), or (2) some speaker has made a mistake about their own language, in which case we do not know what they are talking about. Hirsch leaves out case (2) in his discussion, and Eklund (in @hirschOntologyStipulation2024) raises a related objection: Hirsch’s argument does not determine which of these cases above the dispute between $X$ and $Y$ belongs to. Therefore, $X$ and $Y$ do not know whether they have made mistakes in their own language. However, Hirsch also has a reply: the aim of the argument is not to decide who is right in the dispute, but to show that the dispute has no ontological significance. For now, I take this reply to be sufficient, although, according to my view of verbal disputes, the reply eventually falls short.
