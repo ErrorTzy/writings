@@ -17,7 +17,7 @@ mathfont: XITS Math
 
 First we show the condition from left to right. Assume $M,s \vDash A[t'/x]$. We need to show that $M,s[Val_{s}^{M}(t')/x]\vDash A$. 
 
-We know that $A[t'/x] \equiv R(t_{1}[t'/x],\dots,t_{n}[t'/x])$. Since $M,s \vDash A$, we know that $\langle Val^{M}_{s}(t_{1}[t'/x]),\dots,Val^{M}_{s}(t_{n}[t'/x]) \rangle \in R^{M}$. Given **Proposition 7.21** we know that $Val^{M}_{s}(\mathbb{t}[t'/x])=Val^{M}_{s[Val^{M}_{s}(t')/x]}(\mathbb{t})$ for any term $\mathbb{t}$. Therefore, $\langle Val^{M}_{s[Val_{s}^{M}(t')/x]}(t_{1}),\dots,Val^{M}_{s[Val_{s}^{M}(t')/x]}(t_{n}) \rangle \in R^{M}$. Then by definition $M,s[Val_{s}^{M}(t')/x]\vDash A$
+We know that $A[t'/x] \equiv R(t_{1}[t'/x],\dots,t_{n}[t'/x])$. Since $M,s \vDash A$, we know that $\langle Val^{M}_{s}(t_{1}[t'/x]),\dots,Val^{M}_{s}(t_{n}[t'/x]) \rangle \in R^{M}$. Given **Proposition 7.22** we know that $Val^{M}_{s}(\mathbb{t}[t'/x])=Val^{M}_{s[Val^{M}_{s}(t')/x]}(\mathbb{t})$ for any term $\mathbb{t}$. Therefore, $\langle Val^{M}_{s[Val_{s}^{M}(t')/x]}(t_{1}),\dots,Val^{M}_{s[Val_{s}^{M}(t')/x]}(t_{n}) \rangle \in R^{M}$. Then by definition $M,s[Val_{s}^{M}(t')/x]\vDash A$
 
 Then we show the condition from right to left. Assume $M,s[Val_{s}^{M}(t')/x]\vDash A$. We need to show that $M,s \vDash A[t'/x]$. But this is obvious, as long as you read the proof from left to right backwards.
 
