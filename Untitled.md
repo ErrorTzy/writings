@@ -15,3 +15,6 @@ The first reading requires us to throw away our moral intuitions, but do not thr
 On the second reading, it asks us to throw away our de se beliefs, but keep one's own moral intuitions. Given that my moral intuition is that slavery is undesirable (under the veil of ignorance), then I cannot believe that "everyone could rationally will" the principle of slavery. The consequence is that we may end up with subjectivism, if people can have different moral intuitions. (That said, it is not inconsistent with objectivism, because one can ad hoc define some wide view about "moral intuition" and rule out some intuition as being "immoral intuition".) Anyway, I think this second reading solves the problem you raised in class, relative to my moral intuitions.
 
 The difference between these two readings is that the second reading allows something to be rational and immoral at the same time. Maybe eventually it will become a verbal dispute between the meaning of "rational" and "moral". But according to my way of using these two words, it is possible for something to be rational and immoral at the same time.
+
+- aaa
+* aaa
