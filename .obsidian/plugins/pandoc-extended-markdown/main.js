@@ -28,12 +28,120 @@ __export(main_exports, {
   default: () => main_default
 });
 module.exports = __toCommonJS(main_exports);
-var import_obsidian15 = require("obsidian");
+var import_obsidian16 = require("obsidian");
 var import_state8 = require("@codemirror/state");
 var import_view14 = require("@codemirror/view");
 
 // src/core/settings.ts
-var import_obsidian7 = require("obsidian");
+var import_obsidian9 = require("obsidian");
+
+// src/shared/types/orderedListTypes.ts
+var ORDERED_LIST_MARKER_STYLES = [
+  {
+    id: "decimal-period",
+    displayName: "Decimal period",
+    marker: "1.",
+    description: "Arabic numerals such as 1., 2., 3."
+  },
+  {
+    id: "lower-alpha-period",
+    displayName: "Lowercase letters period",
+    marker: "a.",
+    description: "Lowercase alphabetic markers such as a., b., c."
+  },
+  {
+    id: "lower-roman-period",
+    displayName: "Lowercase roman numerals period",
+    marker: "i.",
+    description: "Lowercase roman numerals such as i., ii., iii."
+  },
+  {
+    id: "upper-alpha-period",
+    displayName: "Uppercase letters period",
+    marker: "A.",
+    description: "Uppercase alphabetic markers such as A., B., C."
+  },
+  {
+    id: "upper-roman-period",
+    displayName: "Uppercase roman numerals period",
+    marker: "I.",
+    description: "Uppercase roman numerals such as I., II., III."
+  },
+  {
+    id: "decimal-one-paren",
+    displayName: "Decimal parenthesis",
+    marker: "1)",
+    description: "Arabic numerals followed by a right parenthesis."
+  },
+  {
+    id: "lower-alpha-one-paren",
+    displayName: "Lowercase letters parenthesis",
+    marker: "a)",
+    description: "Lowercase alphabetic markers followed by a right parenthesis."
+  },
+  {
+    id: "lower-roman-one-paren",
+    displayName: "Lowercase roman numerals parenthesis",
+    marker: "i)",
+    description: "Lowercase roman numerals followed by a right parenthesis."
+  },
+  {
+    id: "upper-alpha-one-paren",
+    displayName: "Uppercase letters parenthesis",
+    marker: "A)",
+    description: "Uppercase alphabetic markers followed by a right parenthesis."
+  },
+  {
+    id: "upper-roman-one-paren",
+    displayName: "Uppercase roman numerals parenthesis",
+    marker: "I)",
+    description: "Uppercase roman numerals followed by a right parenthesis."
+  }
+];
+var DEFAULT_ORDERED_LIST_MARKER_ORDER = ORDERED_LIST_MARKER_STYLES.map((style) => style.id);
+var ORDERED_LIST_MARKER_STYLE_IDS = new Set(
+  DEFAULT_ORDERED_LIST_MARKER_ORDER
+);
+function normalizeOrderedListMarkerOrder(order) {
+  const sourceOrder = order != null ? order : DEFAULT_ORDERED_LIST_MARKER_ORDER;
+  const normalizedOrder = sourceOrder.filter(
+    (style) => ORDERED_LIST_MARKER_STYLE_IDS.has(style)
+  );
+  return normalizedOrder.length > 0 ? [...normalizedOrder] : [...DEFAULT_ORDERED_LIST_MARKER_ORDER];
+}
+
+// src/shared/types/unorderedListTypes.ts
+var UNORDERED_LIST_MARKERS = [
+  {
+    id: "-",
+    displayName: "Dash",
+    marker: "-",
+    description: "Dash unordered list marker."
+  },
+  {
+    id: "+",
+    displayName: "Plus",
+    marker: "+",
+    description: "Plus unordered list marker."
+  },
+  {
+    id: "*",
+    displayName: "Asterisk",
+    marker: "*",
+    description: "Asterisk unordered list marker."
+  }
+];
+var DEFAULT_UNORDERED_LIST_MARKER_ORDER = UNORDERED_LIST_MARKERS.map((marker) => marker.id);
+var UNORDERED_LIST_MARKER_IDS = new Set(
+  DEFAULT_UNORDERED_LIST_MARKER_ORDER
+);
+function normalizeUnorderedListMarkerOrder(order) {
+  const sourceOrder = order != null ? order : DEFAULT_UNORDERED_LIST_MARKER_ORDER;
+  const normalizedOrder = sourceOrder.filter(
+    (marker) => UNORDERED_LIST_MARKER_IDS.has(marker)
+  );
+  return normalizedOrder.length > 0 ? [...normalizedOrder] : [...DEFAULT_UNORDERED_LIST_MARKER_ORDER];
+}
 
 // src/shared/types/settingsTypes.ts
 var DEFAULT_SETTINGS = {
@@ -47,6 +155,11 @@ var DEFAULT_SETTINGS = {
   enableSuperscript: true,
   enableSubscript: true,
   enableCustomLabelLists: false,
+  enableUnorderedListMarkerCycling: true,
+  enableUnorderedListMarkerStyles: true,
+  unorderedListMarkerOrder: [...DEFAULT_UNORDERED_LIST_MARKER_ORDER],
+  enableOrderedListMarkerCycling: true,
+  orderedListMarkerOrder: [...DEFAULT_ORDERED_LIST_MARKER_ORDER],
   enableListPanel: true,
   panelOrder: ["custom-labels", "example-lists", "definition-lists", "footnotes"]
 };
@@ -73,6 +186,11 @@ function normalizeSettings(settings) {
   normalized.enableSuperscript = isSyntaxFeatureEnabled(sourceSettings, "enableSuperscript");
   normalized.enableSubscript = isSyntaxFeatureEnabled(sourceSettings, "enableSubscript");
   normalized.enableCustomLabelLists = isSyntaxFeatureEnabled(sourceSettings, "enableCustomLabelLists");
+  normalized.enableUnorderedListMarkerCycling = isSyntaxFeatureEnabled(sourceSettings, "enableUnorderedListMarkerCycling");
+  normalized.enableUnorderedListMarkerStyles = isSyntaxFeatureEnabled(sourceSettings, "enableUnorderedListMarkerStyles");
+  normalized.unorderedListMarkerOrder = normalizeUnorderedListMarkerOrder(sourceSettings.unorderedListMarkerOrder);
+  normalized.enableOrderedListMarkerCycling = isSyntaxFeatureEnabled(sourceSettings, "enableOrderedListMarkerCycling");
+  normalized.orderedListMarkerOrder = normalizeOrderedListMarkerOrder(sourceSettings.orderedListMarkerOrder);
   normalized.moreExtendedSyntax = normalized.enableCustomLabelLists;
   return normalized;
 }
@@ -160,6 +278,10 @@ var CSS_CLASSES = {
   PANDOC_LIST_MARKER: "pem-list-marker",
   PANDOC_LIST_LINE_INDENT: "pem-list-line-indent",
   PANDOC_LIST_LINE: "pem-list-line",
+  UNORDERED_LIST_MARKER: "pem-unordered-list-marker",
+  UNORDERED_LIST_MARKER_DASH: "pem-unordered-list-marker-dash",
+  UNORDERED_LIST_MARKER_PLUS: "pem-unordered-list-marker-plus",
+  UNORDERED_LIST_MARKER_STAR: "pem-unordered-list-marker-star",
   DEFINITION_MARKER_CURSOR: "cm-pem-definition-marker-cursor",
   LIST_CONTINUATION_WIDGET: "pem-list-continuation-widget",
   // Custom Label Classes
@@ -273,6 +395,14 @@ var SETTINGS_UI = {
     NAME: "Syntax features",
     DESCRIPTION: "Choose which Pandoc syntaxes the plugin should recognize and render."
   },
+  LIST_AUTOCOMPLETION: {
+    NAME: "List auto-completion",
+    DESCRIPTION: "Configure automatic list editing behavior."
+  },
+  PANEL_FEATURES: {
+    NAME: "Panel features",
+    DESCRIPTION: "Configure sidebar panel visibility and ordering."
+  },
   STRICT_MODE: {
     NAME: "Strict Pandoc mode",
     DESCRIPTION: "Enable strict pandoc formatting requirements. When enabled, lists must have empty lines before and after them, and capital letter lists require double spacing after markers."
@@ -308,6 +438,18 @@ var SETTINGS_UI = {
   CUSTOM_LABEL: {
     NAME: "Custom label lists",
     DESCRIPTION: "Enable `{::LABEL}` custom label lists and references. Use together with `CustomLabelList.lua` for Pandoc output. In strict mode, custom label lists must be surrounded by blank lines."
+  },
+  UNORDERED_LIST_MARKER_CYCLING: {
+    NAME: "Cycle unordered list markers",
+    DESCRIPTION: "When indenting or outdenting unordered list items, choose `-`, `+`, or `*` from the final nesting depth."
+  },
+  UNORDERED_LIST_MARKER_STYLES: {
+    NAME: "Distinct unordered list markers",
+    DESCRIPTION: "Render `+` unordered list markers as squares and `*` markers as hollow circles in Live Preview and Reading mode."
+  },
+  ORDERED_LIST_MARKER_CYCLING: {
+    NAME: "Cycle ordered list markers",
+    DESCRIPTION: "When indenting or outdenting ordered list items, choose the marker style from the final nesting depth."
   },
   LIST_PANEL: {
     NAME: "List panel",
@@ -488,6 +630,10 @@ var PANEL_SETTINGS = {
   UI_TEXT: {
     PANEL_ORDER_HEADING: "Panel Order",
     PANEL_ORDER_DESC: "Select a panel and use the buttons to change its order in the sidebar",
+    UNORDERED_LIST_ORDER_HEADING: "Unordered list marker order",
+    UNORDERED_LIST_ORDER_DESC: "Select an unordered list marker and use the buttons to change its nesting-depth order",
+    ORDERED_LIST_ORDER_HEADING: "Ordered list marker order",
+    ORDERED_LIST_ORDER_DESC: "Select an ordered list marker style and use the buttons to change its nesting-depth order",
     BTN_MOVE_UP: "Move up",
     BTN_MOVE_DOWN: "Move down",
     BTN_MOVE_TOP: "Move to top",
@@ -909,6 +1055,7 @@ ListPatterns.DEFINITION_MARKER_ONLY = /^[~:]$/;
 // Empty list item patterns
 ListPatterns.EMPTY_HASH_LIST = /^(\s*)(#\.)(\s*)$/;
 ListPatterns.EMPTY_FANCY_LIST = /^(\s*)([A-Za-z]+|[ivxlcdmIVXLCDM]+)([.)])(\s*)$/;
+ListPatterns.EMPTY_UNORDERED_LIST = /^(\s*)([-+*])(\s*)$/;
 ListPatterns.EMPTY_EXAMPLE_LIST = /^(\s*)\(@([a-zA-Z0-9_-]*)\)(\s*)$/;
 ListPatterns.EMPTY_EXAMPLE_LIST_NO_LABEL = /^(\s*)\(@\)(\s*)$/;
 ListPatterns.EMPTY_DEFINITION_LIST = /^(\s*)([~:])(\s*)$/;
@@ -918,6 +1065,10 @@ ListPatterns.EMPTY_CUSTOM_LABEL_LIST_NO_LABEL = /^(\s*)(\{::\})(\s*)$/;
 ListPatterns.ANY_LIST_MARKER = /^(\s*)(#\.|[A-Za-z]+[.)]|[ivxlcdmIVXLCDM]+[.)]|\(@[a-zA-Z0-9_-]*\)|[~:]|\{::[a-zA-Z][a-zA-Z0-9_']*\})/;
 ListPatterns.ANY_LIST_MARKER_WITH_SPACE = /^(\s*)(#\.|[A-Za-z]+[.)]|[ivxlcdmIVXLCDM]+[.)]|\(@[a-zA-Z0-9_-]*\)|[~:]|\{::[a-zA-Z][a-zA-Z0-9_']*\})(\s+)/;
 ListPatterns.ANY_LIST_MARKER_WITH_INDENT_AND_SPACE = /^(\s+)(#\.|[A-Za-z]+[.)]|[ivxlcdmIVXLCDM]+[.)]|\(@[a-zA-Z0-9_-]*\)|[~:]|\{::[a-zA-Z][a-zA-Z0-9_']*\})(\s+)/;
+ListPatterns.UNORDERED_LIST_MARKER_WITH_SPACE = /^(\s*)([-+*])(\s+)/;
+ListPatterns.UNORDERED_LIST_MARKER_WITH_INDENT_AND_SPACE = /^(\s+)([-+*])(\s+)/;
+ListPatterns.ORDERED_LIST_MARKER_WITH_SPACE = /^(\s*)(\d+[.)]|[A-Za-z]+[.)])(\s+)/;
+ListPatterns.ORDERED_LIST_MARKER_WITH_INDENT_AND_SPACE = /^(\s+)(\d+[.)]|[A-Za-z]+[.)])(\s+)/;
 // Indentation patterns
 ListPatterns.INDENT_ONLY = /^(\s*)/;
 // Text formatting patterns
@@ -1001,7 +1152,7 @@ var PlaceholderContext = class {
     if (this.processedLabels.has(rawLabel)) {
       return this.processedLabels.get(rawLabel);
     }
-    const processedLabel = rawLabel.replace(ListPatterns.PLACEHOLDER_PATTERN, (match, name) => {
+    const processedLabel = rawLabel.replace(ListPatterns.PLACEHOLDER_PATTERN, (_match, name) => {
       if (!this.placeholderMap.has(name)) {
         this.placeholderMap.set(name, this.nextNumber++);
       }
@@ -1144,13 +1295,14 @@ function extractCustomLabels(content, moreExtendedSyntax) {
         const processedLabel = rawToProcessed.get(rawLabel) || rawLabel;
         const renderedLabel = processedLabel;
         let renderedContent = restOfLine.trim();
-        renderedContent = renderedContent.replace(ListPatterns.CUSTOM_LABEL_REFERENCE, (match2, ref) => {
+        renderedContent = renderedContent.replace(ListPatterns.CUSTOM_LABEL_REFERENCE, (_match, ref) => {
           const processedRef = rawToProcessed.get(ref) || ref;
           return processedRef;
         });
         labels.push({
           label: renderedLabel,
           rawLabel: fullMarker,
+          processedLabel,
           content: restOfLine.trim(),
           renderedContent,
           lineNumber: i,
@@ -1536,7 +1688,7 @@ function findAndHighlightLine(editorDom, editor) {
     const editorRect = editorDom.getBoundingClientRect();
     const relativeTop = rect.top - editorRect.top;
     const distance = Math.abs(relativeTop - coords.top);
-    if (distance < minDistance && line instanceof HTMLElement) {
+    if (distance < minDistance && line.instanceOf(HTMLElement)) {
       minDistance = distance;
       targetLine = line;
     }
@@ -1610,7 +1762,7 @@ function setupLabelHoverPreview(element, fullLabel, abortSignal) {
   element.addEventListener("mouseleave", removePopover2, { signal: abortSignal });
   element.addEventListener("click", removePopover2, { signal: abortSignal });
 }
-function renderContentWithMath(element, truncatedContent, app, component, context, sourcePath = "") {
+function renderContentWithMath(element, truncatedContent, app, component, context) {
   let contentToRender = truncatedContent;
   if (context) {
     contentToRender = processContent(truncatedContent, context);
@@ -1619,7 +1771,7 @@ function renderContentWithMath(element, truncatedContent, app, component, contex
     app,
     contentToRender,
     element,
-    sourcePath,
+    "",
     component
   );
 }
@@ -1757,14 +1909,14 @@ function removeAsyncPopover(state) {
     state.hoverPopover = null;
   }
 }
-async function renderPopoverContent(popoverElement, content, app, component, context, sourcePath = FILE_CONSTANTS.EMPTY_STRING) {
+async function renderPopoverContent(popoverElement, content, app, component, context) {
   const processedContent = context ? processContent(content, context) : content;
   try {
     await import_obsidian3.MarkdownRenderer.render(
       app,
       processedContent,
       popoverElement,
-      sourcePath,
+      FILE_CONSTANTS.EMPTY_STRING,
       component
     );
   } catch (error) {
@@ -1772,7 +1924,7 @@ async function renderPopoverContent(popoverElement, content, app, component, con
     throw error;
   }
 }
-function setupRenderedHoverPreview(element, content, app, component, context, popoverClass = CSS_CLASSES.HOVER_POPOVER_CONTENT, abortSignal, sourcePath = FILE_CONSTANTS.EMPTY_STRING) {
+function setupRenderedHoverPreview(element, content, app, component, context, popoverClass = CSS_CLASSES.HOVER_POPOVER_CONTENT, abortSignal) {
   const state = createAsyncHoverState();
   const mouseEnterHandler = async () => {
     var _a;
@@ -1784,7 +1936,7 @@ function setupRenderedHoverPreview(element, content, app, component, context, po
     const hoverElement = document.createElement(DOM_ATTRIBUTES.ELEMENT_DIV);
     hoverElement.classList.add(CSS_CLASSES.HOVER_POPOVER, popoverClass);
     try {
-      await renderPopoverContent(hoverElement, content, app, component, context, sourcePath);
+      await renderPopoverContent(hoverElement, content, app, component, context);
     } catch (e) {
       if ((_a = state.renderAbortController) == null ? void 0 : _a.signal.aborted) {
         return;
@@ -1863,7 +2015,7 @@ function extractExampleLists(content) {
       }
     }
     return items;
-  }, "Extract example lists", []);
+  }, [], "ExampleListExtractor.extractExampleLists");
 }
 
 // src/views/panels/modules/BasePanelModule.ts
@@ -1932,8 +2084,7 @@ var BasePanelModule = class {
   showNoFileMessage() {
     if (!this.containerEl) return;
     this.containerEl.createEl("div", {
-      text: MESSAGES.NO_FILE,
-      cls: CSS_CLASSES.NO_FILE_MESSAGE
+      text: MESSAGES.NO_ACTIVE_FILE
     });
   }
   /**
@@ -1946,9 +2097,10 @@ var BasePanelModule = class {
     if (isSyntaxFeatureEnabled(this.plugin.settings, "enableExampleLists")) {
       const exampleItems = extractExampleLists(content);
       exampleItems.forEach((item) => {
-        if (item.label) {
-          exampleLabels.set(item.label, item.number);
-          exampleContent.set(item.label, item.content.trim());
+        const label = item.rawLabel.substring(1);
+        if (label) {
+          exampleLabels.set(label, item.renderedNumber);
+          exampleContent.set(label, item.content.trim());
         }
       });
     }
@@ -2043,8 +2195,7 @@ var CustomLabelPanelModule = class extends BasePanelModule {
     }
   }
   renderLabelRow(tbody, label, activeView) {
-    var _a, _b, _c, _d, _e, _f;
-    const sourcePath = (_b = (_a = activeView.file) == null ? void 0 : _a.path) != null ? _b : "";
+    var _a, _b, _c, _d;
     const row = tbody.createEl("tr", {
       cls: CSS_CLASSES.CUSTOM_LABEL_VIEW_ROW
     });
@@ -2054,16 +2205,16 @@ var CustomLabelPanelModule = class extends BasePanelModule {
     const displayLabel = truncateLabel(label.label);
     labelEl.textContent = displayLabel;
     if (displayLabel !== label.label) {
-      setupLabelHoverPreview(labelEl, label.label, (_c = this.abortController) == null ? void 0 : _c.signal);
+      setupLabelHoverPreview(labelEl, label.label, (_a = this.abortController) == null ? void 0 : _a.signal);
     }
-    setupLabelClickHandler(labelEl, label.rawLabel, (_d = this.abortController) == null ? void 0 : _d.signal);
+    setupLabelClickHandler(labelEl, label.rawLabel, (_b = this.abortController) == null ? void 0 : _b.signal);
     const contentEl = row.createEl("td", {
       cls: CSS_CLASSES.CUSTOM_LABEL_VIEW_CONTENT
     });
     const contentToShow = label.renderedContent || label.content;
     const truncatedContent = truncateContentWithRendering(contentToShow);
-    renderContentWithMath(contentEl, truncatedContent, this.plugin.app, this.plugin, this.currentContext, sourcePath);
-    setupContentClickHandler(contentEl, label, this.lastActiveMarkdownView, this.plugin.app, (_e = this.abortController) == null ? void 0 : _e.signal);
+    renderContentWithMath(contentEl, truncatedContent, this.plugin.app, this.plugin, this.currentContext);
+    setupContentClickHandler(contentEl, label, this.lastActiveMarkdownView, this.plugin.app, (_c = this.abortController) == null ? void 0 : _c.signal);
     if (truncatedContent !== contentToShow) {
       setupRenderedHoverPreview(
         contentEl,
@@ -2072,8 +2223,7 @@ var CustomLabelPanelModule = class extends BasePanelModule {
         this.plugin,
         this.currentContext,
         CSS_CLASSES.HOVER_POPOVER_CONTENT,
-        (_f = this.abortController) == null ? void 0 : _f.signal,
-        sourcePath
+        (_d = this.abortController) == null ? void 0 : _d.signal
       );
     }
   }
@@ -2136,7 +2286,7 @@ function findClosestLine(editorDom, editor) {
     const editorRect = editorDom.getBoundingClientRect();
     const relativeTop = rect.top - editorRect.top;
     const distance = Math.abs(relativeTop - coords.top);
-    if (distance < minDistance && line instanceof HTMLElement) {
+    if (distance < minDistance && line.instanceOf(HTMLElement)) {
       minDistance = distance;
       targetLine = line;
     }
@@ -2225,8 +2375,6 @@ var ExampleListPanelModule = class extends BasePanelModule {
     }
   }
   renderExampleRow(tbody, item, activeView) {
-    var _a, _b;
-    const sourcePath = (_b = (_a = activeView.file) == null ? void 0 : _a.path) != null ? _b : "";
     const row = tbody.createEl("tr", {
       cls: CSS_CLASSES.EXAMPLE_LIST_VIEW_ROW
     });
@@ -2251,10 +2399,10 @@ var ExampleListPanelModule = class extends BasePanelModule {
       cls: CSS_CLASSES.EXAMPLE_LIST_VIEW_CONTENT
     });
     const truncatedContent = truncateContentWithRendering(item.content);
-    renderContentWithMath(contentEl, truncatedContent, this.plugin.app, this.plugin, this.currentContext, sourcePath);
+    renderContentWithMath(contentEl, truncatedContent, this.plugin.app, this.plugin, this.currentContext);
     this.setupContentClickHandler(contentEl, item, activeView);
     if (truncatedContent !== item.content) {
-      this.setupContentHoverPreview(contentEl, item, sourcePath);
+      this.setupContentHoverPreview(contentEl, item);
     }
   }
   truncateNumber(number) {
@@ -2313,7 +2461,7 @@ var ExampleListPanelModule = class extends BasePanelModule {
     };
     element.addEventListener("click", clickHandler, { signal: (_a = this.abortController) == null ? void 0 : _a.signal });
   }
-  setupContentHoverPreview(element, item, sourcePath) {
+  setupContentHoverPreview(element, item) {
     var _a;
     setupRenderedHoverPreview(
       element,
@@ -2322,8 +2470,7 @@ var ExampleListPanelModule = class extends BasePanelModule {
       this.plugin,
       this.currentContext,
       CSS_CLASSES.HOVER_POPOVER_CONTENT,
-      (_a = this.abortController) == null ? void 0 : _a.signal,
-      sourcePath
+      (_a = this.abortController) == null ? void 0 : _a.signal
     );
   }
 };
@@ -2441,8 +2588,6 @@ var DefinitionListPanelModule = class extends BasePanelModule {
     }
   }
   renderDefinitionRow(tbody, item, activeView) {
-    var _a, _b;
-    const sourcePath = (_b = (_a = activeView.file) == null ? void 0 : _a.path) != null ? _b : "";
     const row = tbody.createEl("tr", {
       cls: CSS_CLASSES.DEFINITION_LIST_VIEW_ROW
     });
@@ -2450,27 +2595,27 @@ var DefinitionListPanelModule = class extends BasePanelModule {
       cls: CSS_CLASSES.DEFINITION_LIST_VIEW_TERM
     });
     const truncatedTerm = this.truncateTermWithRendering(item.term);
-    renderContentWithMath(termEl, truncatedTerm, this.plugin.app, this.plugin, this.currentContext, sourcePath);
+    renderContentWithMath(termEl, truncatedTerm, this.plugin.app, this.plugin, this.currentContext);
     if (truncatedTerm !== item.term) {
-      this.setupTermHoverPreview(termEl, item.term, sourcePath);
+      this.setupTermHoverPreview(termEl, item.term);
     }
     const definitionsEl = row.createEl("td", {
       cls: CSS_CLASSES.DEFINITION_LIST_VIEW_DEFINITIONS
     });
     if (item.definitions.length === 1) {
       const truncatedContent = truncateContentWithRendering(item.definitions[0], UI_CONSTANTS.DEFINITION_MAX_LENGTH);
-      renderContentWithMath(definitionsEl, truncatedContent, this.plugin.app, this.plugin, this.currentContext, sourcePath);
+      renderContentWithMath(definitionsEl, truncatedContent, this.plugin.app, this.plugin, this.currentContext);
       if (truncatedContent !== item.definitions[0]) {
-        this.setupContentHoverPreview(definitionsEl, item.definitions[0], sourcePath);
+        this.setupContentHoverPreview(definitionsEl, item.definitions[0]);
       }
     } else {
       const ul = definitionsEl.createEl("ul");
       for (const def of item.definitions) {
         const li = ul.createEl("li");
         const truncatedContent = truncateContentWithRendering(def, UI_CONSTANTS.DEFINITION_MAX_LENGTH);
-        renderContentWithMath(li, truncatedContent, this.plugin.app, this.plugin, this.currentContext, sourcePath);
+        renderContentWithMath(li, truncatedContent, this.plugin.app, this.plugin, this.currentContext);
         if (truncatedContent !== def) {
-          this.setupContentHoverPreview(li, def, sourcePath);
+          this.setupContentHoverPreview(li, def);
         }
       }
     }
@@ -2479,7 +2624,7 @@ var DefinitionListPanelModule = class extends BasePanelModule {
   truncateTermWithRendering(term) {
     return truncateContentWithRendering(term, UI_CONSTANTS.TERM_MAX_LENGTH);
   }
-  setupTermHoverPreview(element, fullTerm, sourcePath) {
+  setupTermHoverPreview(element, fullTerm) {
     var _a;
     setupRenderedHoverPreview(
       element,
@@ -2488,8 +2633,7 @@ var DefinitionListPanelModule = class extends BasePanelModule {
       this.plugin,
       this.currentContext,
       CSS_CLASSES.HOVER_POPOVER_CONTENT,
-      (_a = this.abortController) == null ? void 0 : _a.signal,
-      sourcePath
+      (_a = this.abortController) == null ? void 0 : _a.signal
     );
   }
   setupDefinitionClickHandler(element, item, activeView) {
@@ -2513,7 +2657,7 @@ var DefinitionListPanelModule = class extends BasePanelModule {
     };
     element.addEventListener("click", clickHandler, { signal: (_a = this.abortController) == null ? void 0 : _a.signal });
   }
-  setupContentHoverPreview(element, content, sourcePath) {
+  setupContentHoverPreview(element, content) {
     var _a;
     setupRenderedHoverPreview(
       element,
@@ -2522,8 +2666,7 @@ var DefinitionListPanelModule = class extends BasePanelModule {
       this.plugin,
       this.currentContext,
       CSS_CLASSES.HOVER_POPOVER_CONTENT,
-      (_a = this.abortController) == null ? void 0 : _a.signal,
-      sourcePath
+      (_a = this.abortController) == null ? void 0 : _a.signal
     );
   }
 };
@@ -2733,8 +2876,6 @@ var FootnotePanelModule = class extends BasePanelModule {
     }
   }
   renderFootnoteRow(tbody, footnote, activeView) {
-    var _a, _b;
-    const sourcePath = (_b = (_a = activeView.file) == null ? void 0 : _a.path) != null ? _b : "";
     const row = tbody.createEl("tr", {
       cls: CSS_CLASSES.FOOTNOTE_PANEL_ROW
     });
@@ -2750,8 +2891,7 @@ var FootnotePanelModule = class extends BasePanelModule {
       footnote.content,
       this.plugin.app,
       this.plugin,
-      this.currentContext,
-      sourcePath
+      this.currentContext
     );
     this.setupReferenceClick(indexCell, footnote, activeView);
     this.setupDefinitionClick(contentCell, footnote, activeView);
@@ -3060,8 +3200,350 @@ var ListPanelView = class extends import_obsidian6.ItemView {
   }
 };
 
+// src/core/settingsOrderedListOrder.ts
+var import_obsidian7 = require("obsidian");
+var OrderedListOrderControl = class {
+  constructor(config) {
+    this.config = config;
+  }
+  render() {
+    var _a;
+    this.selectedStyleId = this.config.selectedStyleId;
+    new import_obsidian7.Setting(this.config.containerEl).setName(PANEL_SETTINGS.UI_TEXT.ORDERED_LIST_ORDER_HEADING).setHeading();
+    const orderSetting = new import_obsidian7.Setting(this.config.containerEl).setDesc(PANEL_SETTINGS.UI_TEXT.ORDERED_LIST_ORDER_DESC);
+    (_a = orderSetting.infoEl) == null ? void 0 : _a.addClass("pem-panel-order-info");
+    const flexContainer = orderSetting.controlEl.createDiv({
+      cls: "pem-panel-order-container pem-ordered-list-order-container"
+    });
+    const listEl = flexContainer.createDiv({
+      cls: "pem-panel-order-list pem-ordered-list-order-list"
+    });
+    listEl.setAttribute("role", "listbox");
+    listEl.tabIndex = 0;
+    this.syncOrder();
+    const buttons = this.createButtons(flexContainer);
+    this.renderList(listEl, buttons);
+    this.updateButtonStates(buttons);
+    this.setupHandlers(listEl, buttons);
+  }
+  syncOrder() {
+    this.config.settings.orderedListMarkerOrder = normalizeOrderedListMarkerOrder(
+      this.config.settings.orderedListMarkerOrder
+    );
+  }
+  renderList(listEl, buttons) {
+    for (const styleId of this.config.settings.orderedListMarkerOrder) {
+      const style = ORDERED_LIST_MARKER_STYLES.find((item) => item.id === styleId);
+      if (!style) continue;
+      const itemEl = listEl.createDiv({
+        cls: "pem-panel-order-item pem-ordered-list-order-item"
+      });
+      itemEl.setAttribute("role", "option");
+      itemEl.dataset.id = styleId;
+      itemEl.tabIndex = 0;
+      itemEl.createSpan({
+        text: style.marker,
+        cls: "pem-ordered-list-order-marker"
+      });
+      itemEl.createSpan({
+        text: style.displayName,
+        cls: "pem-ordered-list-order-label"
+      });
+      if (styleId === this.selectedStyleId) {
+        itemEl.classList.add("is-selected");
+        itemEl.setAttribute("aria-selected", "true");
+      } else {
+        itemEl.setAttribute("aria-selected", "false");
+      }
+      itemEl.addEventListener("click", () => {
+        this.selectStyle(styleId, listEl, buttons);
+      });
+      itemEl.addEventListener("keydown", (evt) => {
+        if (evt.key === "Enter" || evt.key === " ") {
+          evt.preventDefault();
+          this.selectStyle(styleId, listEl, buttons);
+        }
+      });
+    }
+  }
+  selectStyle(styleId, listEl, buttons) {
+    this.selectedStyleId = styleId;
+    this.config.setSelectedStyleId(styleId);
+    for (const item of Array.from(listEl.children)) {
+      const itemEl = item;
+      const isSelected = itemEl.dataset.id === styleId;
+      itemEl.classList.toggle("is-selected", isSelected);
+      itemEl.setAttribute("aria-selected", String(isSelected));
+    }
+    this.updateButtonStates(buttons);
+  }
+  createButtons(container) {
+    const btnWrap = container.createDiv({ cls: "pem-panel-order-buttons" });
+    return {
+      moveUp: btnWrap.createEl("button", {
+        text: PANEL_SETTINGS.UI_TEXT.BTN_MOVE_UP,
+        cls: "pem-panel-order-button"
+      }),
+      moveDown: btnWrap.createEl("button", {
+        text: PANEL_SETTINGS.UI_TEXT.BTN_MOVE_DOWN,
+        cls: "pem-panel-order-button"
+      }),
+      moveTop: btnWrap.createEl("button", {
+        text: PANEL_SETTINGS.UI_TEXT.BTN_MOVE_TOP,
+        cls: "pem-panel-order-button"
+      }),
+      moveBottom: btnWrap.createEl("button", {
+        text: PANEL_SETTINGS.UI_TEXT.BTN_MOVE_BOTTOM,
+        cls: "pem-panel-order-button"
+      }),
+      reset: btnWrap.createEl("button", {
+        text: PANEL_SETTINGS.UI_TEXT.BTN_RESTORE_DEFAULT,
+        cls: "pem-panel-order-button"
+      })
+    };
+  }
+  updateButtonStates(buttons) {
+    const idx = this.getSelectedIndex();
+    const lastIndex = this.config.settings.orderedListMarkerOrder.length - 1;
+    buttons.moveUp.disabled = idx <= 0;
+    buttons.moveDown.disabled = idx < 0 || idx >= lastIndex;
+    buttons.moveTop.disabled = idx <= 0;
+    buttons.moveBottom.disabled = idx < 0 || idx >= lastIndex;
+  }
+  setupHandlers(listEl, buttons) {
+    buttons.moveUp.addEventListener("click", () => void this.moveSelected(-1, listEl, buttons));
+    buttons.moveDown.addEventListener("click", () => void this.moveSelected(1, listEl, buttons));
+    buttons.moveTop.addEventListener("click", () => void this.moveToEdge("top", listEl, buttons));
+    buttons.moveBottom.addEventListener("click", () => void this.moveToEdge("bottom", listEl, buttons));
+    buttons.reset.addEventListener("click", () => void this.resetOrder(listEl, buttons));
+    listEl.addEventListener("keydown", (evt) => {
+      if (!this.selectedStyleId) return;
+      if (evt.key === "ArrowUp") {
+        evt.preventDefault();
+        buttons.moveUp.click();
+      } else if (evt.key === "ArrowDown") {
+        evt.preventDefault();
+        buttons.moveDown.click();
+      }
+    });
+  }
+  async moveSelected(offset, listEl, buttons) {
+    const index = this.getSelectedIndex();
+    const nextIndex = index + offset;
+    const order = this.config.settings.orderedListMarkerOrder;
+    if (index < 0 || nextIndex < 0 || nextIndex >= order.length) {
+      return;
+    }
+    [order[index], order[nextIndex]] = [order[nextIndex], order[index]];
+    await this.config.saveSettings();
+    this.rerenderList(listEl, buttons);
+  }
+  async moveToEdge(edge, listEl, buttons) {
+    const index = this.getSelectedIndex();
+    const order = this.config.settings.orderedListMarkerOrder;
+    if (index < 0) return;
+    const [styleId] = order.splice(index, 1);
+    if (edge === "top") {
+      order.unshift(styleId);
+    } else {
+      order.push(styleId);
+    }
+    await this.config.saveSettings();
+    this.rerenderList(listEl, buttons);
+  }
+  async resetOrder(listEl, buttons) {
+    this.config.settings.orderedListMarkerOrder = [
+      ...DEFAULT_SETTINGS.orderedListMarkerOrder
+    ];
+    this.selectedStyleId = void 0;
+    this.config.setSelectedStyleId(void 0);
+    await this.config.saveSettings();
+    this.rerenderList(listEl, buttons);
+  }
+  rerenderList(listEl, buttons) {
+    listEl.empty();
+    this.renderList(listEl, buttons);
+    this.updateButtonStates(buttons);
+  }
+  getSelectedIndex() {
+    if (!this.selectedStyleId) return -1;
+    return this.config.settings.orderedListMarkerOrder.indexOf(this.selectedStyleId);
+  }
+};
+
+// src/core/settingsUnorderedListOrder.ts
+var import_obsidian8 = require("obsidian");
+var UnorderedListOrderControl = class {
+  constructor(config) {
+    this.config = config;
+  }
+  render() {
+    var _a;
+    this.selectedMarkerId = this.config.selectedMarkerId;
+    new import_obsidian8.Setting(this.config.containerEl).setName(PANEL_SETTINGS.UI_TEXT.UNORDERED_LIST_ORDER_HEADING).setHeading();
+    const orderSetting = new import_obsidian8.Setting(this.config.containerEl).setDesc(PANEL_SETTINGS.UI_TEXT.UNORDERED_LIST_ORDER_DESC);
+    (_a = orderSetting.infoEl) == null ? void 0 : _a.addClass("pem-panel-order-info");
+    const flexContainer = orderSetting.controlEl.createDiv({
+      cls: "pem-panel-order-container pem-unordered-list-order-container"
+    });
+    const listEl = flexContainer.createDiv({
+      cls: "pem-panel-order-list pem-unordered-list-order-list"
+    });
+    listEl.setAttribute("role", "listbox");
+    listEl.tabIndex = 0;
+    this.syncOrder();
+    const buttons = this.createButtons(flexContainer);
+    this.renderList(listEl, buttons);
+    this.updateButtonStates(buttons);
+    this.setupHandlers(listEl, buttons);
+  }
+  syncOrder() {
+    this.config.settings.unorderedListMarkerOrder = normalizeUnorderedListMarkerOrder(
+      this.config.settings.unorderedListMarkerOrder
+    );
+  }
+  renderList(listEl, buttons) {
+    for (const markerId of this.config.settings.unorderedListMarkerOrder) {
+      const marker = UNORDERED_LIST_MARKERS.find((item) => item.id === markerId);
+      if (!marker) continue;
+      const itemEl = listEl.createDiv({
+        cls: "pem-panel-order-item pem-unordered-list-order-item"
+      });
+      itemEl.setAttribute("role", "option");
+      itemEl.dataset.id = markerId;
+      itemEl.tabIndex = 0;
+      itemEl.createSpan({
+        text: marker.marker,
+        cls: "pem-unordered-list-order-marker"
+      });
+      itemEl.createSpan({
+        text: marker.displayName,
+        cls: "pem-unordered-list-order-label"
+      });
+      if (markerId === this.selectedMarkerId) {
+        itemEl.classList.add("is-selected");
+        itemEl.setAttribute("aria-selected", "true");
+      } else {
+        itemEl.setAttribute("aria-selected", "false");
+      }
+      itemEl.addEventListener("click", () => {
+        this.selectMarker(markerId, listEl, buttons);
+      });
+      itemEl.addEventListener("keydown", (evt) => {
+        if (evt.key === "Enter" || evt.key === " ") {
+          evt.preventDefault();
+          this.selectMarker(markerId, listEl, buttons);
+        }
+      });
+    }
+  }
+  selectMarker(markerId, listEl, buttons) {
+    this.selectedMarkerId = markerId;
+    this.config.setSelectedMarkerId(markerId);
+    for (const item of Array.from(listEl.children)) {
+      const itemEl = item;
+      const isSelected = itemEl.dataset.id === markerId;
+      itemEl.classList.toggle("is-selected", isSelected);
+      itemEl.setAttribute("aria-selected", String(isSelected));
+    }
+    this.updateButtonStates(buttons);
+  }
+  createButtons(container) {
+    const btnWrap = container.createDiv({ cls: "pem-panel-order-buttons" });
+    return {
+      moveUp: btnWrap.createEl("button", {
+        text: PANEL_SETTINGS.UI_TEXT.BTN_MOVE_UP,
+        cls: "pem-panel-order-button"
+      }),
+      moveDown: btnWrap.createEl("button", {
+        text: PANEL_SETTINGS.UI_TEXT.BTN_MOVE_DOWN,
+        cls: "pem-panel-order-button"
+      }),
+      moveTop: btnWrap.createEl("button", {
+        text: PANEL_SETTINGS.UI_TEXT.BTN_MOVE_TOP,
+        cls: "pem-panel-order-button"
+      }),
+      moveBottom: btnWrap.createEl("button", {
+        text: PANEL_SETTINGS.UI_TEXT.BTN_MOVE_BOTTOM,
+        cls: "pem-panel-order-button"
+      }),
+      reset: btnWrap.createEl("button", {
+        text: PANEL_SETTINGS.UI_TEXT.BTN_RESTORE_DEFAULT,
+        cls: "pem-panel-order-button"
+      })
+    };
+  }
+  updateButtonStates(buttons) {
+    const idx = this.getSelectedIndex();
+    const lastIndex = this.config.settings.unorderedListMarkerOrder.length - 1;
+    buttons.moveUp.disabled = idx <= 0;
+    buttons.moveDown.disabled = idx < 0 || idx >= lastIndex;
+    buttons.moveTop.disabled = idx <= 0;
+    buttons.moveBottom.disabled = idx < 0 || idx >= lastIndex;
+  }
+  setupHandlers(listEl, buttons) {
+    buttons.moveUp.addEventListener("click", () => void this.moveSelected(-1, listEl, buttons));
+    buttons.moveDown.addEventListener("click", () => void this.moveSelected(1, listEl, buttons));
+    buttons.moveTop.addEventListener("click", () => void this.moveToEdge("top", listEl, buttons));
+    buttons.moveBottom.addEventListener("click", () => void this.moveToEdge("bottom", listEl, buttons));
+    buttons.reset.addEventListener("click", () => void this.resetOrder(listEl, buttons));
+    listEl.addEventListener("keydown", (evt) => {
+      if (!this.selectedMarkerId) return;
+      if (evt.key === "ArrowUp") {
+        evt.preventDefault();
+        buttons.moveUp.click();
+      } else if (evt.key === "ArrowDown") {
+        evt.preventDefault();
+        buttons.moveDown.click();
+      }
+    });
+  }
+  async moveSelected(offset, listEl, buttons) {
+    const index = this.getSelectedIndex();
+    const nextIndex = index + offset;
+    const order = this.config.settings.unorderedListMarkerOrder;
+    if (index < 0 || nextIndex < 0 || nextIndex >= order.length) {
+      return;
+    }
+    [order[index], order[nextIndex]] = [order[nextIndex], order[index]];
+    await this.config.saveSettings();
+    this.rerenderList(listEl, buttons);
+  }
+  async moveToEdge(edge, listEl, buttons) {
+    const index = this.getSelectedIndex();
+    const order = this.config.settings.unorderedListMarkerOrder;
+    if (index < 0) return;
+    const [markerId] = order.splice(index, 1);
+    if (edge === "top") {
+      order.unshift(markerId);
+    } else {
+      order.push(markerId);
+    }
+    await this.config.saveSettings();
+    this.rerenderList(listEl, buttons);
+  }
+  async resetOrder(listEl, buttons) {
+    this.config.settings.unorderedListMarkerOrder = [
+      ...DEFAULT_SETTINGS.unorderedListMarkerOrder
+    ];
+    this.selectedMarkerId = void 0;
+    this.config.setSelectedMarkerId(void 0);
+    await this.config.saveSettings();
+    this.rerenderList(listEl, buttons);
+  }
+  rerenderList(listEl, buttons) {
+    listEl.empty();
+    this.renderList(listEl, buttons);
+    this.updateButtonStates(buttons);
+  }
+  getSelectedIndex() {
+    if (!this.selectedMarkerId) return -1;
+    return this.config.settings.unorderedListMarkerOrder.indexOf(this.selectedMarkerId);
+  }
+};
+
 // src/core/settings.ts
-var PandocExtendedMarkdownSettingTab = class extends import_obsidian7.PluginSettingTab {
+var PandocExtendedMarkdownSettingTab = class extends import_obsidian9.PluginSettingTab {
   constructor(app, plugin) {
     super(app, plugin);
     this.plugin = plugin;
@@ -3071,18 +3553,18 @@ var PandocExtendedMarkdownSettingTab = class extends import_obsidian7.PluginSett
     containerEl.empty();
     this.plugin.settings = normalizeSettings(this.plugin.settings);
     this.renderGeneralSettings(containerEl);
-    this.renderPanelOrderSettings(containerEl);
+    this.renderSyntaxFeatureSettings(containerEl);
+    this.renderListAutocompletionSettings(containerEl);
+    this.renderPanelFeatureSettings(containerEl);
   }
   renderGeneralSettings(containerEl) {
-    new import_obsidian7.Setting(containerEl).setName(SETTINGS_UI.STRICT_MODE.NAME).setDesc(SETTINGS_UI.STRICT_MODE.DESCRIPTION).addToggle((toggle) => toggle.setValue(this.plugin.settings.strictPandocMode).onChange(async (value) => {
+    new import_obsidian9.Setting(containerEl).setName(SETTINGS_UI.STRICT_MODE.NAME).setDesc(SETTINGS_UI.STRICT_MODE.DESCRIPTION).addToggle((toggle) => toggle.setValue(this.plugin.settings.strictPandocMode).onChange(async (value) => {
       this.plugin.settings.strictPandocMode = value;
       await this.plugin.saveSettings();
     }));
-    new import_obsidian7.Setting(containerEl).setName(SETTINGS_UI.AUTO_RENUMBER.NAME).setDesc(SETTINGS_UI.AUTO_RENUMBER.DESCRIPTION).addToggle((toggle) => toggle.setValue(this.plugin.settings.autoRenumberLists).onChange(async (value) => {
-      this.plugin.settings.autoRenumberLists = value;
-      await this.plugin.saveSettings();
-    }));
-    new import_obsidian7.Setting(containerEl).setName(SETTINGS_UI.SYNTAX_FEATURES.NAME).setDesc(SETTINGS_UI.SYNTAX_FEATURES.DESCRIPTION).setHeading();
+  }
+  renderSyntaxFeatureSettings(containerEl) {
+    new import_obsidian9.Setting(containerEl).setName(SETTINGS_UI.SYNTAX_FEATURES.NAME).setDesc(SETTINGS_UI.SYNTAX_FEATURES.DESCRIPTION).setHeading();
     this.createFeatureToggle(
       containerEl,
       SETTINGS_UI.HASH_AUTO_NUMBER.NAME,
@@ -3109,6 +3591,12 @@ var PandocExtendedMarkdownSettingTab = class extends import_obsidian7.PluginSett
     );
     this.createFeatureToggle(
       containerEl,
+      SETTINGS_UI.UNORDERED_LIST_MARKER_STYLES.NAME,
+      SETTINGS_UI.UNORDERED_LIST_MARKER_STYLES.DESCRIPTION,
+      "enableUnorderedListMarkerStyles"
+    );
+    this.createFeatureToggle(
+      containerEl,
       SETTINGS_UI.SUPERSCRIPT.NAME,
       SETTINGS_UI.SUPERSCRIPT.DESCRIPTION,
       "enableSuperscript"
@@ -3119,38 +3607,87 @@ var PandocExtendedMarkdownSettingTab = class extends import_obsidian7.PluginSett
       SETTINGS_UI.SUBSCRIPT.DESCRIPTION,
       "enableSubscript"
     );
-    new import_obsidian7.Setting(containerEl).setName(SETTINGS_UI.CUSTOM_LABEL.NAME).setDesc(SETTINGS_UI.CUSTOM_LABEL.DESCRIPTION).addToggle((toggle) => toggle.setValue(isSyntaxFeatureEnabled(this.plugin.settings, "enableCustomLabelLists")).onChange(async (value) => {
+    new import_obsidian9.Setting(containerEl).setName(SETTINGS_UI.CUSTOM_LABEL.NAME).setDesc(SETTINGS_UI.CUSTOM_LABEL.DESCRIPTION).addToggle((toggle) => toggle.setValue(isSyntaxFeatureEnabled(this.plugin.settings, "enableCustomLabelLists")).onChange(async (value) => {
       this.plugin.settings.enableCustomLabelLists = value;
       await this.plugin.saveSettings();
+      this.app.workspace.updateOptions();
       this.refreshListPanels();
-      this.display();
+      this.refreshPanelOrderList();
     }));
-    new import_obsidian7.Setting(containerEl).setName(SETTINGS_UI.LIST_PANEL.NAME).setDesc(SETTINGS_UI.LIST_PANEL.DESCRIPTION).addToggle((toggle) => toggle.setValue(this.plugin.settings.enableListPanel).onChange(async (value) => {
+  }
+  renderListAutocompletionSettings(containerEl) {
+    new import_obsidian9.Setting(containerEl).setName(SETTINGS_UI.LIST_AUTOCOMPLETION.NAME).setDesc(SETTINGS_UI.LIST_AUTOCOMPLETION.DESCRIPTION).setHeading();
+    new import_obsidian9.Setting(containerEl).setName(SETTINGS_UI.AUTO_RENUMBER.NAME).setDesc(SETTINGS_UI.AUTO_RENUMBER.DESCRIPTION).addToggle((toggle) => toggle.setValue(this.plugin.settings.autoRenumberLists).onChange(async (value) => {
+      this.plugin.settings.autoRenumberLists = value;
+      await this.plugin.saveSettings();
+    }));
+    this.createFeatureToggle(
+      containerEl,
+      SETTINGS_UI.UNORDERED_LIST_MARKER_CYCLING.NAME,
+      SETTINGS_UI.UNORDERED_LIST_MARKER_CYCLING.DESCRIPTION,
+      "enableUnorderedListMarkerCycling"
+    );
+    this.createFeatureToggle(
+      containerEl,
+      SETTINGS_UI.ORDERED_LIST_MARKER_CYCLING.NAME,
+      SETTINGS_UI.ORDERED_LIST_MARKER_CYCLING.DESCRIPTION,
+      "enableOrderedListMarkerCycling"
+    );
+    this.renderUnorderedListMarkerOrderSettings(containerEl);
+    this.renderOrderedListMarkerOrderSettings(containerEl);
+  }
+  renderPanelFeatureSettings(containerEl) {
+    new import_obsidian9.Setting(containerEl).setName(SETTINGS_UI.PANEL_FEATURES.NAME).setDesc(SETTINGS_UI.PANEL_FEATURES.DESCRIPTION).setHeading();
+    new import_obsidian9.Setting(containerEl).setName(SETTINGS_UI.LIST_PANEL.NAME).setDesc(SETTINGS_UI.LIST_PANEL.DESCRIPTION).addToggle((toggle) => toggle.setValue(this.plugin.settings.enableListPanel).onChange(async (value) => {
       this.plugin.settings.enableListPanel = value;
       await this.plugin.saveSettings();
       this.plugin.updateListPanelAvailability();
     }));
+    this.renderPanelOrderSettings(containerEl);
+  }
+  renderUnorderedListMarkerOrderSettings(containerEl) {
+    new UnorderedListOrderControl({
+      containerEl,
+      settings: this.plugin.settings,
+      saveSettings: () => this.plugin.saveSettings(),
+      selectedMarkerId: this.selectedUnorderedListMarkerId,
+      setSelectedMarkerId: (markerId) => {
+        this.selectedUnorderedListMarkerId = markerId;
+      }
+    }).render();
+  }
+  renderOrderedListMarkerOrderSettings(containerEl) {
+    new OrderedListOrderControl({
+      containerEl,
+      settings: this.plugin.settings,
+      saveSettings: () => this.plugin.saveSettings(),
+      selectedStyleId: this.selectedOrderedListStyleId,
+      setSelectedStyleId: (styleId) => {
+        this.selectedOrderedListStyleId = styleId;
+      }
+    }).render();
   }
   createFeatureToggle(containerEl, name, description, settingKey) {
-    new import_obsidian7.Setting(containerEl).setName(name).setDesc(description).addToggle((toggle) => toggle.setValue(isSyntaxFeatureEnabled(this.plugin.settings, settingKey)).onChange(async (value) => {
+    new import_obsidian9.Setting(containerEl).setName(name).setDesc(description).addToggle((toggle) => toggle.setValue(isSyntaxFeatureEnabled(this.plugin.settings, settingKey)).onChange(async (value) => {
       this.plugin.settings[settingKey] = value;
       await this.plugin.saveSettings();
+      this.app.workspace.updateOptions();
       this.refreshListPanels();
-      this.display();
+      this.refreshPanelOrderList();
     }));
   }
   renderPanelOrderSettings(containerEl) {
-    new import_obsidian7.Setting(containerEl).setName(PANEL_SETTINGS.UI_TEXT.PANEL_ORDER_HEADING).setHeading();
-    const panelOrderSetting = new import_obsidian7.Setting(containerEl).setDesc(PANEL_SETTINGS.UI_TEXT.PANEL_ORDER_DESC);
+    new import_obsidian9.Setting(containerEl).setName(PANEL_SETTINGS.UI_TEXT.PANEL_ORDER_HEADING).setHeading();
+    const panelOrderSetting = new import_obsidian9.Setting(containerEl).setDesc(PANEL_SETTINGS.UI_TEXT.PANEL_ORDER_DESC);
     const infoEl = panelOrderSetting.infoEl;
     if (infoEl) {
       infoEl.addClass("pem-panel-order-info");
     }
     const flexContainer = panelOrderSetting.controlEl.createDiv({
-      cls: "pem-panel-order-container"
+      cls: "pem-panel-order-container pem-list-panel-order-container"
     });
     const listEl = flexContainer.createDiv({
-      cls: "pem-panel-order-list"
+      cls: "pem-panel-order-list pem-list-panel-order-list"
     });
     listEl.setAttribute("role", "listbox");
     listEl.tabIndex = 0;
@@ -3247,6 +3784,38 @@ var PandocExtendedMarkdownSettingTab = class extends import_obsidian7.PluginSett
       moveBottom: btnBottom,
       reset: btnReset
     };
+  }
+  getPanelOrderButtons(container) {
+    const buttons = Array.from(
+      container.querySelectorAll(".pem-panel-order-buttons button")
+    );
+    if (buttons.length < 5) {
+      return null;
+    }
+    return {
+      moveUp: buttons[0],
+      moveDown: buttons[1],
+      moveTop: buttons[2],
+      moveBottom: buttons[3],
+      reset: buttons[4]
+    };
+  }
+  refreshPanelOrderList() {
+    const listEl = this.containerEl.querySelector(".pem-list-panel-order-list");
+    const container = this.containerEl.querySelector(".pem-list-panel-order-container");
+    if (!listEl || !container) {
+      return;
+    }
+    if (this.selectedPanelId && !this.isPanelVisible(this.selectedPanelId)) {
+      this.selectedPanelId = void 0;
+    }
+    this.syncPanelOrder();
+    listEl.empty();
+    this.renderPanelList(listEl);
+    const buttons = this.getPanelOrderButtons(container);
+    if (buttons) {
+      this.updateButtonStates(buttons);
+    }
   }
   updateButtonStates(buttons) {
     const visiblePanels = this.getVisiblePanels();
@@ -3380,14 +3949,15 @@ function createProcessorConfig(vaultConfig, pluginSettings) {
     enableSuperSubscripts: isSyntaxFeatureEnabled(pluginSettings, "enableSuperscript") || isSyntaxFeatureEnabled(pluginSettings, "enableSubscript"),
     enableSuperscript: isSyntaxFeatureEnabled(pluginSettings, "enableSuperscript"),
     enableSubscript: isSyntaxFeatureEnabled(pluginSettings, "enableSubscript"),
-    enableCustomLabelLists: isSyntaxFeatureEnabled(pluginSettings, "enableCustomLabelLists")
+    enableCustomLabelLists: isSyntaxFeatureEnabled(pluginSettings, "enableCustomLabelLists"),
+    enableUnorderedListMarkerStyles: isSyntaxFeatureEnabled(pluginSettings, "enableUnorderedListMarkerStyles")
   };
 }
 
 // src/live-preview/extension.ts
 var import_state2 = require("@codemirror/state");
 var import_view13 = require("@codemirror/view");
-var import_obsidian9 = require("obsidian");
+var import_obsidian11 = require("obsidian");
 
 // src/core/state/pluginStateManager.ts
 var PluginStateManager = class {
@@ -4303,7 +4873,7 @@ var ProcessingPipeline = class {
 
 // src/live-preview/widgets/BaseWidget.ts
 var import_view = require("@codemirror/view");
-var import_obsidian8 = require("obsidian");
+var import_obsidian10 = require("obsidian");
 var BaseWidget = class extends import_view.WidgetType {
   constructor(view, pos) {
     super();
@@ -4374,7 +4944,7 @@ var BaseWidget = class extends import_view.WidgetType {
    * Helper method to add a simple tooltip.
    */
   addSimpleTooltip(element, text) {
-    (0, import_obsidian8.setTooltip)(element, text, { delay: DECORATION_STYLES.TOOLTIP_DELAY_MS });
+    (0, import_obsidian10.setTooltip)(element, text, { delay: DECORATION_STYLES.TOOLTIP_DELAY_MS });
   }
   /**
    * Helper method to add a rendered hover preview.
@@ -5547,6 +6117,25 @@ var DefinitionProcessor = class {
 
 // src/live-preview/pipeline/structural/StandardListProcessor.ts
 var import_view7 = require("@codemirror/view");
+
+// src/shared/utils/unorderedListMarkers.ts
+var UNORDERED_MARKER_CLASSES = {
+  [LIST_MARKERS.UNORDERED_DASH]: CSS_CLASSES.UNORDERED_LIST_MARKER_DASH,
+  [LIST_MARKERS.UNORDERED_PLUS]: CSS_CLASSES.UNORDERED_LIST_MARKER_PLUS,
+  [LIST_MARKERS.UNORDERED_STAR]: CSS_CLASSES.UNORDERED_LIST_MARKER_STAR
+};
+function getUnorderedMarkerClass(marker) {
+  var _a;
+  return (_a = UNORDERED_MARKER_CLASSES[marker]) != null ? _a : null;
+}
+function getAllUnorderedMarkerClasses() {
+  return [
+    CSS_CLASSES.UNORDERED_LIST_MARKER,
+    ...Object.values(UNORDERED_MARKER_CLASSES)
+  ];
+}
+
+// src/live-preview/pipeline/structural/StandardListProcessor.ts
 var StandardListProcessor = class {
   constructor() {
     this.name = "standard-list";
@@ -5554,64 +6143,33 @@ var StandardListProcessor = class {
   }
   // Process after fancy lists but before definition lists
   canProcess(line, context) {
-    return false;
+    return isSyntaxFeatureEnabled(context.settings, "enableUnorderedListMarkerStyles") && ListPatterns.UNORDERED_LIST_MARKER_WITH_SPACE.test(line.text);
   }
   process(line, context) {
-    const lineText = line.text;
-    const match = lineText.match(ListPatterns.UNORDERED_LIST);
-    if (!match) {
+    var _a;
+    if (!isSyntaxFeatureEnabled(context.settings, "enableUnorderedListMarkerStyles")) {
       return { decorations: [] };
     }
     if (context.settings.strictPandocMode && context.invalidLines.has(line.number)) {
       return { decorations: [] };
     }
-    const indent = match[1];
-    const markerMatch = lineText.match(/^(\s*)([-*+])(\s+)/);
-    if (!markerMatch) {
+    const marker = (_a = line.text.match(ListPatterns.UNORDERED_LIST_MARKER_WITH_SPACE)) == null ? void 0 : _a[2];
+    const markerClass = marker ? getUnorderedMarkerClass(marker) : null;
+    if (!markerClass) {
       return { decorations: [] };
     }
-    const marker = markerMatch[2];
-    const space = markerMatch[3];
-    const markerStart = line.from + indent.length;
-    const markerEnd = line.from + indent.length + marker.length + space.length;
-    const contentStart = markerEnd;
-    const decorations = [];
-    const spacesPerTab = " ".repeat(TEXT_PROCESSING.TAB_EQUIVALENT_SPACES);
-    const indentLevel = Math.floor(indent.replace(/\t/g, spacesPerTab).length / TEXT_PROCESSING.TAB_EQUIVALENT_SPACES) + 1;
-    const listClass = indentLevel === 1 ? CSS_CLASSES.LIST_LINE_1 : indentLevel === 2 ? CSS_CLASSES.LIST_LINE_2 : indentLevel === 3 ? CSS_CLASSES.LIST_LINE_3 : CSS_CLASSES.LIST_LINE_4;
-    decorations.push({
-      from: line.from,
-      to: line.from,
-      decoration: import_view7.Decoration.line({
-        class: `${CSS_CLASSES.LIST_LINE} ${listClass} HyperMD-list-line HyperMD-list-line-${indentLevel}`
-      })
-    });
-    decorations.push({
-      from: markerStart,
-      to: markerEnd - space.length,
-      decoration: import_view7.Decoration.mark({
-        class: "cm-formatting-list cm-formatting-list-ul"
-      })
-    });
-    if (contentStart < line.to) {
-      decorations.push({
-        from: contentStart,
-        to: line.to,
-        decoration: import_view7.Decoration.mark({
-          class: `cm-list-${indentLevel}`
-        })
-      });
-    }
-    const contentRegion = {
-      from: contentStart,
-      to: line.to,
-      type: "list-content",
-      parentStructure: "standard-list"
-    };
     return {
-      decorations,
-      contentRegion,
-      skipFurtherProcessing: true
+      decorations: [{
+        from: line.from,
+        to: line.from,
+        decoration: import_view7.Decoration.line({
+          class: [
+            CSS_CLASSES.LIST_LINE,
+            CSS_CLASSES.UNORDERED_LIST_MARKER,
+            markerClass
+          ].join(" ")
+        })
+      }]
     };
   }
 };
@@ -5822,7 +6380,8 @@ var ExampleReferenceProcessor = class {
     return matches;
   }
   createDecoration(match, context) {
-    const { label, region } = match.data;
+    const label = typeof match.data.label === "string" ? match.data.label : "";
+    const region = match.data.region;
     const number = context.exampleLabels.get(label) || 0;
     const content = context.exampleContent.get(label) || "";
     const absolutePosition = match.from + ((region == null ? void 0 : region.from) || 0);
@@ -6055,15 +6614,15 @@ var pandocExtendedMarkdownPlugin = (getSettings, getDocPath, getApp, getComponen
       this.pipeline.registerInlineProcessor(new CustomLabelReferenceProcessor());
     }
     update(update) {
-      const prevLivePreview = update.startState.field(import_obsidian9.editorLivePreviewField);
-      const currLivePreview = update.state.field(import_obsidian9.editorLivePreviewField);
+      const prevLivePreview = update.startState.field(import_obsidian11.editorLivePreviewField);
+      const currLivePreview = update.state.field(import_obsidian11.editorLivePreviewField);
       const livePreviewChanged = prevLivePreview !== currLivePreview;
       if (update.docChanged || update.viewportChanged || update.selectionSet || livePreviewChanged) {
         this.decorations = this.buildDecorations(update.view);
       }
     }
     buildDecorations(view) {
-      const isLivePreview = view.state.field(import_obsidian9.editorLivePreviewField);
+      const isLivePreview = view.state.field(import_obsidian11.editorLivePreviewField);
       if (!isLivePreview || !this.pipeline) {
         return new import_state2.RangeSetBuilder().finish();
       }
@@ -6098,7 +6657,6 @@ function getSectionInfo(element) {
 }
 
 // src/reading-mode/utils/domUtils.ts
-var import_obsidian10 = require("obsidian");
 function createTextNodeWalker(element, filter) {
   return document.createTreeWalker(
     element,
@@ -6162,7 +6720,7 @@ function parseFancyListMarker(line) {
 }
 
 // src/reading-mode/parsers/exampleListParser.ts
-var import_obsidian11 = require("obsidian");
+var import_obsidian12 = require("obsidian");
 function parseExampleListMarker(line) {
   const match = ListPatterns.isExampleList(line);
   if (!match) {
@@ -6404,7 +6962,7 @@ var ReadingModeParser = class {
 };
 
 // src/reading-mode/renderer.ts
-var import_obsidian12 = require("obsidian");
+var import_obsidian13 = require("obsidian");
 var ReadingModeRenderer = class {
   /**
    * Render a parsed line to DOM elements
@@ -6540,7 +7098,7 @@ var ReadingModeRenderer = class {
         span.textContent = `(${exampleNumber})`;
         const tooltipText = (_b = context.getExampleContent) == null ? void 0 : _b.call(context, ref.label);
         if (tooltipText) {
-          (0, import_obsidian12.setTooltip)(span, tooltipText, { delay: DECORATION_STYLES.TOOLTIP_DELAY_MS });
+          (0, import_obsidian13.setTooltip)(span, tooltipText, { delay: DECORATION_STYLES.TOOLTIP_DELAY_MS });
         }
         elements.push(span);
       } else {
@@ -6597,7 +7155,7 @@ var ReadingModeRenderer = class {
         span.textContent = `(${exampleNumber})`;
         const tooltipText = (_b = context.getExampleContent) == null ? void 0 : _b.call(context, label);
         if (tooltipText) {
-          (0, import_obsidian12.setTooltip)(span, tooltipText, { delay: DECORATION_STYLES.TOOLTIP_DELAY_MS });
+          (0, import_obsidian13.setTooltip)(span, tooltipText, { delay: DECORATION_STYLES.TOOLTIP_DELAY_MS });
         }
         elements.push(span);
       } else {
@@ -6796,6 +7354,44 @@ function processElement(elem, placeholderContext) {
   }
 }
 
+// src/reading-mode/parsers/unorderedListMarkerParser.ts
+function getSourceMarkers(sectionText) {
+  return sectionText.split("\n").map((line) => {
+    var _a;
+    return (_a = line.match(ListPatterns.UNORDERED_LIST_MARKER_WITH_SPACE)) == null ? void 0 : _a[2];
+  }).filter((marker) => marker !== void 0);
+}
+function getUnorderedListItems(element) {
+  return Array.from(element.querySelectorAll("li")).filter((item) => {
+    var _a;
+    return ((_a = item.parentElement) == null ? void 0 : _a.tagName) === "UL";
+  });
+}
+function clearMarkerClasses(item) {
+  item.classList.remove(...getAllUnorderedMarkerClasses());
+}
+function clearUnorderedListMarkerClasses(element) {
+  getUnorderedListItems(element).forEach(clearMarkerClasses);
+}
+function applyUnorderedListMarkerClasses(element, context) {
+  var _a;
+  const section = element.closest(".markdown-preview-section");
+  const sectionInfo = (_a = context.getSectionInfo(element)) != null ? _a : section ? context.getSectionInfo(section) : null;
+  if (!(sectionInfo == null ? void 0 : sectionInfo.text)) {
+    return;
+  }
+  const markers = getSourceMarkers(sectionInfo.text);
+  const items = getUnorderedListItems(element);
+  items.forEach((item, index) => {
+    clearMarkerClasses(item);
+    const marker = markers[index];
+    const markerClass = marker ? getUnorderedMarkerClass(marker) : null;
+    if (markerClass) {
+      item.classList.add(CSS_CLASSES.UNORDERED_LIST_MARKER, markerClass);
+    }
+  });
+}
+
 // src/editor-extensions/pandocValidator.ts
 function isStrictPandocFormatting(context, strictMode) {
   if (!strictMode) {
@@ -6961,6 +7557,11 @@ function processReadingMode(element, context, config) {
       validationLines = sectionInfo.text.split("\n");
     }
   }
+  if (config.enableUnorderedListMarkerStyles !== false) {
+    applyUnorderedListMarkerClasses(element, context);
+  } else {
+    clearUnorderedListMarkerClasses(element);
+  }
   elementsToProcess.forEach((elem) => {
     if (elem.closest("h1, h2, h3, h4, h5, h6")) {
       return;
@@ -7074,8 +7675,8 @@ function validateListInStrictMode(line, documentLines, config) {
 }
 
 // src/editor-extensions/suggestions/exampleReferenceSuggest.ts
-var import_obsidian13 = require("obsidian");
-var ExampleReferenceSuggest = class extends import_obsidian13.EditorSuggest {
+var import_obsidian14 = require("obsidian");
+var ExampleReferenceSuggest = class extends import_obsidian14.EditorSuggest {
   constructor(plugin) {
     super(plugin.app);
     this.plugin = plugin;
@@ -7171,8 +7772,8 @@ var ExampleReferenceSuggest = class extends import_obsidian13.EditorSuggest {
 };
 
 // src/editor-extensions/suggestions/customLabelReferenceSuggest.ts
-var import_obsidian14 = require("obsidian");
-var CustomLabelReferenceSuggest = class extends import_obsidian14.EditorSuggest {
+var import_obsidian15 = require("obsidian");
+var CustomLabelReferenceSuggest = class extends import_obsidian15.EditorSuggest {
   constructor(plugin) {
     super(plugin.app);
     this.plugin = plugin;
@@ -7463,6 +8064,7 @@ function getNextRoman(roman) {
 function isEmptyListItem(line) {
   if (line.match(ListPatterns.EMPTY_HASH_LIST)) return true;
   if (line.match(ListPatterns.EMPTY_FANCY_LIST)) return true;
+  if (line.match(ListPatterns.EMPTY_UNORDERED_LIST)) return true;
   if (line.match(ListPatterns.EMPTY_CUSTOM_LABEL_LIST_NO_LABEL)) return true;
   if (line.match(ListPatterns.EMPTY_DEFINITION_LIST)) return true;
   return false;
@@ -7696,6 +8298,36 @@ function removeIndentLevel(currentIndent) {
   }
 }
 
+// src/editor-extensions/listAutocompletion/utils/unorderedMarkers.ts
+var UNORDERED_MARKER_CYCLE = [
+  LIST_MARKERS.UNORDERED_DASH,
+  LIST_MARKERS.UNORDERED_PLUS,
+  LIST_MARKERS.UNORDERED_STAR
+];
+var UNORDERED_MARKER_SET = new Set(UNORDERED_MARKER_CYCLE);
+function isUnorderedMarker(marker) {
+  return UNORDERED_MARKER_SET.has(marker);
+}
+function getIndentDepth(indent) {
+  const visualLength = Array.from(indent).reduce((length, character) => {
+    return length + (character === INDENTATION.TAB ? INDENTATION.TAB_SIZE : 1);
+  }, 0);
+  return Math.floor(visualLength / INDENTATION.TAB_SIZE);
+}
+function getConfiguredMarkerForIndent(indent, settings) {
+  const order = normalizeUnorderedListMarkerOrder(settings.unorderedListMarkerOrder);
+  return order[getIndentDepth(indent) % order.length];
+}
+function getMarkerForIndent(marker, indent, settings) {
+  if (!isUnorderedMarker(marker)) {
+    return marker;
+  }
+  if (!isSyntaxFeatureEnabled(settings, "enableUnorderedListMarkerCycling")) {
+    return marker;
+  }
+  return getConfiguredMarkerForIndent(indent, settings);
+}
+
 // src/editor-extensions/listAutocompletion/handlers/emptyListHandler.ts
 function handleEmptyListSpecialCases(config) {
   const { view, currentLine, beforeCursor, afterCursor } = config;
@@ -7744,6 +8376,23 @@ function handleEmptyListItem(config) {
   if (indentMatch && indentMatch[1].length >= INDENTATION.TAB_SIZE) {
     const currentIndent = indentMatch[1];
     const newIndent = calculateIndentation(currentIndent);
+    const unorderedMatch = lineText.match(ListPatterns.EMPTY_UNORDERED_LIST);
+    if (unorderedMatch) {
+      const marker = unorderedMatch[2];
+      const spaces = unorderedMatch[3] || " ";
+      const newLine = `${newIndent}${getMarkerForIndent(marker, newIndent, config.settings)}${spaces}`;
+      const changes2 = {
+        from: line.from,
+        to: line.to,
+        insert: newLine
+      };
+      const transaction2 = state.update({
+        changes: changes2,
+        selection: import_state3.EditorSelection.cursor(line.from + newLine.length)
+      });
+      view.dispatch(transaction2);
+      return true;
+    }
     let previousMarker = null;
     for (let i = line.number - 1; i >= 1; i--) {
       const prevLine = state.doc.line(i);
@@ -8083,11 +8732,17 @@ ${markerInfo.indent}${markerInfo.marker}${spaces}`;
   return true;
 }
 
+// src/editor-extensions/listAutocompletion/types.ts
+function resolveSettings(provider) {
+  return typeof provider === "function" ? provider() : provider;
+}
+
 // src/editor-extensions/listAutocompletion/handlers/enterHandler.ts
-function createEnterHandler(settings) {
+function createEnterHandler(settingsProvider) {
   return {
     key: "Enter",
     run: (view) => {
+      const settings = resolveSettings(settingsProvider);
       const currentLine = getCurrentLineInfo(view);
       const continuationConfig = {
         view,
@@ -8139,15 +8794,102 @@ function createEnterHandler(settings) {
 
 // src/editor-extensions/listAutocompletion/handlers/tabHandler.ts
 var import_state6 = require("@codemirror/state");
-function createTabHandler(settings) {
+
+// src/editor-extensions/listAutocompletion/utils/orderedMarkers.ts
+var ORDERED_MARKER_PATTERN = /^(?:\d+|[A-Za-z]+)[.)]$/;
+var DECIMAL_STYLES = /* @__PURE__ */ new Set([
+  "decimal-period",
+  "decimal-one-paren"
+]);
+function isOrderedMarker(marker) {
+  return ORDERED_MARKER_PATTERN.test(marker);
+}
+function getIndentDepth2(indent) {
+  const visualLength = Array.from(indent).reduce((length, character) => {
+    return length + (character === INDENTATION.TAB ? INDENTATION.TAB_SIZE : 1);
+  }, 0);
+  return Math.floor(visualLength / INDENTATION.TAB_SIZE);
+}
+function isStyleAvailable(style, settings) {
+  if (DECIMAL_STYLES.has(style)) {
+    return true;
+  }
+  return isSyntaxFeatureEnabled(settings, "enableFancyLists");
+}
+function getAvailableOrder(settings) {
+  return normalizeOrderedListMarkerOrder(settings.orderedListMarkerOrder).filter((style) => isStyleAvailable(style, settings));
+}
+function getOrderedMarkerForIndent(marker, indent, settings) {
+  if (!isOrderedMarker(marker)) {
+    return marker;
+  }
+  if (!isSyntaxFeatureEnabled(settings, "enableOrderedListMarkerCycling")) {
+    return marker;
+  }
+  const order = getAvailableOrder(settings);
+  if (order.length === 0) {
+    return marker;
+  }
+  return createMarker(order[getIndentDepth2(indent) % order.length]);
+}
+function createMarker(style) {
+  switch (style) {
+    case "decimal-period":
+      return "1.";
+    case "decimal-one-paren":
+      return "1)";
+    case "lower-alpha-period":
+      return "a.";
+    case "lower-alpha-one-paren":
+      return "a)";
+    case "lower-roman-period":
+      return "i.";
+    case "lower-roman-one-paren":
+      return "i)";
+    case "upper-alpha-period":
+      return "A.";
+    case "upper-alpha-one-paren":
+      return "A)";
+    case "upper-roman-period":
+      return "I.";
+    case "upper-roman-one-paren":
+      return "I)";
+  }
+}
+
+// src/editor-extensions/listAutocompletion/handlers/tabHandler.ts
+function getTabListMatch(lineText, settings) {
+  if (ListPatterns.UNORDERED_LIST_MARKER_WITH_SPACE.test(lineText)) {
+    return lineText.match(ListPatterns.UNORDERED_LIST_MARKER_WITH_SPACE);
+  }
+  if (ListPatterns.ORDERED_LIST_MARKER_WITH_SPACE.test(lineText)) {
+    return lineText.match(ListPatterns.ORDERED_LIST_MARKER_WITH_SPACE);
+  }
+  return isExtendedList(lineText, settings) ? lineText.match(ListPatterns.ANY_LIST_MARKER_WITH_SPACE) : null;
+}
+function getShiftTabListMatch(lineText, settings) {
+  if (ListPatterns.UNORDERED_LIST_MARKER_WITH_INDENT_AND_SPACE.test(lineText)) {
+    return lineText.match(ListPatterns.UNORDERED_LIST_MARKER_WITH_INDENT_AND_SPACE);
+  }
+  if (ListPatterns.ORDERED_LIST_MARKER_WITH_INDENT_AND_SPACE.test(lineText)) {
+    return lineText.match(ListPatterns.ORDERED_LIST_MARKER_WITH_INDENT_AND_SPACE);
+  }
+  return isExtendedList(lineText, settings) ? lineText.match(ListPatterns.ANY_LIST_MARKER_WITH_INDENT_AND_SPACE) : null;
+}
+function getMarkerForTargetIndent(marker, indent, settings) {
+  const unorderedMarker = getMarkerForIndent(marker, indent, settings);
+  return getOrderedMarkerForIndent(unorderedMarker, indent, settings);
+}
+function createTabHandler(settingsProvider) {
   return {
     key: "Tab",
     run: (view) => {
+      const settings = resolveSettings(settingsProvider);
       const state = view.state;
       const selection = state.selection.main;
       const line = state.doc.lineAt(selection.from);
       const lineText = line.text;
-      const listMatch = isExtendedList(lineText, settings) ? lineText.match(ListPatterns.ANY_LIST_MARKER_WITH_SPACE) : null;
+      const listMatch = getTabListMatch(lineText, settings);
       if (listMatch) {
         const currentIndent = listMatch[1];
         const marker = listMatch[2];
@@ -8155,7 +8897,8 @@ function createTabHandler(settings) {
         const markerEnd = currentIndent.length + marker.length + space.length;
         if (selection.from === line.from + markerEnd && selection.to === selection.from) {
           const newIndent = currentIndent + INDENTATION.FOUR_SPACES;
-          const newLine = newIndent + marker + space + lineText.substring(markerEnd);
+          const newMarker = getMarkerForTargetIndent(marker, newIndent, settings);
+          const newLine = newIndent + newMarker + space + lineText.substring(markerEnd);
           const changes = {
             from: line.from,
             to: line.to,
@@ -8163,7 +8906,7 @@ function createTabHandler(settings) {
           };
           const transaction = state.update({
             changes,
-            selection: import_state6.EditorSelection.cursor(line.from + newIndent.length + marker.length + space.length)
+            selection: import_state6.EditorSelection.cursor(line.from + newIndent.length + newMarker.length + space.length)
           });
           view.dispatch(transaction);
           return true;
@@ -8173,22 +8916,24 @@ function createTabHandler(settings) {
     }
   };
 }
-function createShiftTabHandler(settings) {
+function createShiftTabHandler(settingsProvider) {
   return {
     key: "Shift-Tab",
     run: (view) => {
+      const settings = resolveSettings(settingsProvider);
       const state = view.state;
       const selection = state.selection.main;
       const line = state.doc.lineAt(selection.from);
       const lineText = line.text;
-      const listMatch = isExtendedList(lineText, settings) ? lineText.match(ListPatterns.ANY_LIST_MARKER_WITH_INDENT_AND_SPACE) : null;
+      const listMatch = getShiftTabListMatch(lineText, settings);
       if (listMatch && listMatch[1].length > 0) {
         const currentIndent = listMatch[1];
         const marker = listMatch[2];
         const space = listMatch[3];
         const markerEnd = currentIndent.length + marker.length + space.length;
         const newIndent = removeIndentLevel(currentIndent);
-        const newLine = newIndent + marker + space + lineText.substring(markerEnd);
+        const newMarker = getMarkerForTargetIndent(marker, newIndent, settings);
+        const newLine = newIndent + newMarker + space + lineText.substring(markerEnd);
         const changes = {
           from: line.from,
           to: line.to,
@@ -8211,10 +8956,11 @@ function createShiftTabHandler(settings) {
 
 // src/editor-extensions/listAutocompletion/handlers/shiftHandlers.ts
 var import_state7 = require("@codemirror/state");
-function createShiftEnterHandler(settings) {
+function createShiftEnterHandler(settingsProvider) {
   return {
     key: "Shift-Enter",
     run: (view) => {
+      const settings = resolveSettings(settingsProvider);
       const state = view.state;
       const selection = state.selection.main;
       const line = state.doc.lineAt(selection.from);
@@ -8251,7 +8997,7 @@ function createListAutocompletionKeymap(settings) {
 }
 
 // src/core/main.ts
-var PandocExtendedMarkdownPlugin = class extends import_obsidian15.Plugin {
+var PandocExtendedMarkdownPlugin = class extends import_obsidian16.Plugin {
   constructor() {
     super(...arguments);
     this.listPanelRibbonIcon = null;
@@ -8278,28 +9024,28 @@ var PandocExtendedMarkdownPlugin = class extends import_obsidian15.Plugin {
     });
   }
   registerViewIcons() {
-    (0, import_obsidian15.addIcon)(ICONS.CUSTOM_LABEL_ID, ICONS.CUSTOM_LABEL_SVG);
-    (0, import_obsidian15.addIcon)(ICONS.LIST_PANEL_ID, ICONS.LIST_PANEL_SVG);
+    (0, import_obsidian16.addIcon)(ICONS.CUSTOM_LABEL_ID, ICONS.CUSTOM_LABEL_SVG);
+    (0, import_obsidian16.addIcon)(ICONS.LIST_PANEL_ID, ICONS.LIST_PANEL_SVG);
   }
   registerExtensions() {
     this.registerEditorExtension(pandocExtendedMarkdownExtension(
       () => this.settings,
       () => {
         var _a;
-        const activeView = this.app.workspace.getActiveViewOfType(import_obsidian15.MarkdownView);
+        const activeView = this.app.workspace.getActiveViewOfType(import_obsidian16.MarkdownView);
         return ((_a = activeView == null ? void 0 : activeView.file) == null ? void 0 : _a.path) || null;
       },
       () => this.app,
       () => this
     ));
-    this.registerEditorExtension(import_state8.Prec.highest(import_view14.keymap.of(createListAutocompletionKeymap(this.settings))));
+    this.registerEditorExtension(import_state8.Prec.highest(import_view14.keymap.of(createListAutocompletionKeymap(
+      () => this.settings
+    ))));
   }
   registerPostProcessor() {
     this.registerMarkdownPostProcessor((element, context) => {
-      const config = createProcessorConfig(
-        { strictLineBreaks: this.app.vault.getConfig("strictLineBreaks") },
-        this.settings
-      );
+      const vault = this.app.vault;
+      const config = createProcessorConfig({ strictLineBreaks: vault.getConfig("strictLineBreaks") }, this.settings);
       processReadingMode(element, context, config);
     });
   }
@@ -8329,12 +9075,12 @@ var PandocExtendedMarkdownPlugin = class extends import_obsidian15.Plugin {
           isSyntaxFeatureEnabled(this.settings, "enableCustomLabelLists")
         );
         if (issues.length === 0) {
-          new import_obsidian15.Notice(MESSAGES.PANDOC_COMPLIANT);
+          new import_obsidian16.Notice(MESSAGES.PANDOC_COMPLIANT);
         } else {
           const issueList = issues.map(
             (issue) => `Line ${issue.line}: ${issue.message}`
           ).join("\n");
-          new import_obsidian15.Notice(`${MESSAGES.FORMATTING_ISSUES(issues.length)}:
+          new import_obsidian16.Notice(`${MESSAGES.FORMATTING_ISSUES(issues.length)}:
 ${issueList}`, UI_CONSTANTS.NOTICE_DURATION_MS);
         }
       }
@@ -8350,9 +9096,9 @@ ${issueList}`, UI_CONSTANTS.NOTICE_DURATION_MS);
         );
         if (content !== formatted) {
           editor.setValue(formatted);
-          new import_obsidian15.Notice(MESSAGES.FORMAT_SUCCESS);
+          new import_obsidian16.Notice(MESSAGES.FORMAT_SUCCESS);
         } else {
-          new import_obsidian15.Notice(MESSAGES.FORMAT_ALREADY_COMPLIANT);
+          new import_obsidian16.Notice(MESSAGES.FORMAT_ALREADY_COMPLIANT);
         }
       }
     });
@@ -8364,9 +9110,9 @@ ${issueList}`, UI_CONSTANTS.NOTICE_DURATION_MS);
         const toggled = this.toggleDefinitionBoldStyle(content);
         if (content !== toggled) {
           editor.setValue(toggled);
-          new import_obsidian15.Notice(MESSAGES.TOGGLE_BOLD_SUCCESS);
+          new import_obsidian16.Notice(MESSAGES.TOGGLE_BOLD_SUCCESS);
         } else {
-          new import_obsidian15.Notice(MESSAGES.NO_DEFINITION_TERMS);
+          new import_obsidian16.Notice(MESSAGES.NO_DEFINITION_TERMS);
         }
       }
     });
@@ -8378,9 +9124,9 @@ ${issueList}`, UI_CONSTANTS.NOTICE_DURATION_MS);
         const toggled = this.toggleDefinitionUnderlineStyle(content);
         if (content !== toggled) {
           editor.setValue(toggled);
-          new import_obsidian15.Notice(MESSAGES.TOGGLE_UNDERLINE_SUCCESS);
+          new import_obsidian16.Notice(MESSAGES.TOGGLE_UNDERLINE_SUCCESS);
         } else {
-          new import_obsidian15.Notice(MESSAGES.NO_DEFINITION_TERMS);
+          new import_obsidian16.Notice(MESSAGES.NO_DEFINITION_TERMS);
         }
       }
     });
@@ -8397,7 +9143,7 @@ ${issueList}`, UI_CONSTANTS.NOTICE_DURATION_MS);
   }
   async activateListPanelView() {
     if (!this.settings.enableListPanel) {
-      new import_obsidian15.Notice(MESSAGES.LIST_PANEL_DISABLED);
+      new import_obsidian16.Notice(MESSAGES.LIST_PANEL_DISABLED);
       return;
     }
     const { workspace } = this.app;
@@ -8441,7 +9187,8 @@ ${issueList}`, UI_CONSTANTS.NOTICE_DURATION_MS);
     }
   }
   async loadSettings() {
-    this.settings = normalizeSettings(Object.assign({}, DEFAULT_SETTINGS, await this.loadData()));
+    const loadedSettings = await this.loadData();
+    this.settings = normalizeSettings({ ...DEFAULT_SETTINGS, ...loadedSettings });
   }
   async saveSettings() {
     this.settings = normalizeSettings(this.settings);
@@ -8541,3 +9288,5 @@ ${issueList}`, UI_CONSTANTS.NOTICE_DURATION_MS);
   }
 };
 var main_default = PandocExtendedMarkdownPlugin;
+
+/* nosourcemap */

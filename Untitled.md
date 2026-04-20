@@ -16,3 +16,12 @@ On the second reading, it asks us to throw away our de se beliefs, but keep one'
 
 The difference between these two readings is that the second reading allows something to be rational and immoral at the same time. Maybe eventually it will become a verbal dispute between the meaning of "rational" and "moral". But according to my way of using these two words, it is possible for something to be rational and immoral at the same time.
 
+
+1. aaaa
+    a. aaaa
+        i. aaa
+
+- aaaa
+    + aaaa
+        * aaa
+            - aaa
