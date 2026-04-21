@@ -45,7 +45,7 @@
 > 
 > These are separate questions because we can surely have a mental picture of fictional characters.
 > 
-> Putnum's argument only shows that the mental image of a tree does not give us justification of the existence of a tree, since we may get the mental image just by an accidental result of spilled paints. His argument does not show that the mental image of a tree is not a representation of a tree.
+> Putnum's argument only shows that the mental image of a tree does not give us a justification of the existence of a tree, since the mental image can be caused by an accidental result of spilled paints. His argument does not show that the mental image of a tree is not a representation of a tree.
 > 
 > Therefore I insist that mental image of a tree is a representation of a tree. It's just we may or may not attach ontological commitments to that representation.
 > 
@@ -73,10 +73,51 @@
 
 **Problem**: Is Turing Test for Reference a definitive test for shared reference?
 
-**Answer**: No, since it is logically possible for a person to pass the test without actually refering to anything. This is because "it seems evident that we cannot and should not attribute reference to such a device" because "none of these sentences is at all connected to the real world". 
+**Answer**: No, since it is logically possible for a person to pass the test without actually refering to anything. (I agree) This is because:
 
-We are able to refer because we have language introduction rules that can move from experience to language, and language elimination rules that moves from language to action. Syntactic play is not sufficient for reference.
+1. "it seems evident that we cannot and should not attribute reference to such a device" because "none of these sentences is at all connected to the real world". 
+2. We are able to refer because we have *language introduction rules* that can move from experience to language, and *language elimination rules* that moves from language to action. Syntactic play is not sufficient for reference.
+3. If the referent cease to exist, the machine would still discourse just as happily in the same way
 
+> For 1: Putnum says the indirect causal connection, namely the connection between the machine and external world, is too week for reference. But what count as the right kind of causal connection?
+> 
+> For 2: Putnum seems to suggest these are necessary conditions. But they are not. What about mathematics? There's no obvious way to connect mathematical sentences to the real world, except for basic geometry and arithmetic. Is putnum a fictionalist about mathematics? And maybe even worse, because even fictionalists can allow fictions to be meaningful, but it seems Putnum is saying mathematics is meaningless.
+> 
+> For 3: If you locked me in a room, and then destroy every single apple in the world, it does not make my use of the word "apple" meaningless.
 
+## Brain in a Vat (again)
 
- > While working on the structure, Kekulé described seeing atoms "gamboling" before his eyes, eventually forming a spinning snake-like structure that seized its own tail
+Given that the sensory input given by the machine does not represent tree, the language does not refer to trees. There is no connection between the representation of a tree and the actual tree.
+
+> This point is just the same point made by twin earth: we may have qualitatively identical representation, but they do not refer to the same underlying structure.
+
+## The premisses of the argument
+
+The brain is right, not wrong in thinking 'There is a tree in front of me.' Given what
+'tree' refers to in vat-English and what 'in front of' refers to.
+
+> But Putnum still owes us an account of how on earth can we determine what exactly is the referent of a word, given the causal chain
+>  
+> First, there are tremandous amount of things in the causal chain. Why do we not say that our words refer to neurons firing in our brain?
+> 
+> I agree that connection is essential, but it is not clear what this connection is. It is much more complicated than just saying it is causal connection.
+
+"We are brains in a vat" is false because the word "vat" refers to the vat-vat and the word "brain" refers to the vat-brain.
+
+> First, two years ago I said a double simulation will make that come our ture
+> Second, "brains" and "vats" are kinds. This presuppose that brains and vats are natural kind where the vat people rigidly refer to the underlying structure. Even that is true, I can still refer to the real brain by using the word "I am a brain-like thing in a vat-like thing", in the same way we can refer to XYZ on twin earth by using the word "watery stuff".
+
+Two essential premisses:
+
+1. The magical theory (the internalist theory of reference) is wrong
+2. reference is impossible without causation
+
+## The reasons for denying necessary connections between representations and their referents
+
+**Claim**: Concepts refer; Mental images don't
+
+> I don't know what a concept is. And putnum seems to just presuppose that image is not representational.
+
+Understanding is an ability to apply concept (inference?) but not a phenomenon. A man (a zombie?) understands the word even if nothing goes through his head; A man has mental image can have no understanding at all.
+
+> This seems to undermine the claim about turing machines because the machines can do inference. Syntax is sufficent for inference.
