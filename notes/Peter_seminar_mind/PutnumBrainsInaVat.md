@@ -128,3 +128,6 @@ Two essential premisses:
 Understanding is an ability to apply concept (inference?) but not a phenomenon. A man (a zombie?) understands the word even if nothing goes through his head; A man has mental image can have no understanding at all.
 
 > This seems to undermine the claim about turing machines because the machines can do inference. Syntax is sufficent for inference.
+
+
+> The takeaway for this paper might be, in order for something to count as a representation of x, one must be able to pick out x with sufficient information
