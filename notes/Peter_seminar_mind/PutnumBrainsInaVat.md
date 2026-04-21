@@ -112,6 +112,7 @@ The brain is right, not wrong in thinking 'There is a tree in front of me.' Give
 
 > First, two years ago I said a double simulation will make that come our ture
 > Second, "brains" and "vats" are kinds. This presuppose that brains and vats are natural kind where the vat people rigidly refer to the underlying structure. Even that is true, I can still refer to the real brain by using the word "I am a brain-like thing in a vat-like thing", in the same way we can refer to XYZ on twin earth by using the word "watery stuff".
+> Maybe he did not presuppose that they are natural kinds, but just saying that they lacked the capacity to represent real brains and real vats? Therefore, the sentence can be true but I cannot really represent it. I agree that maybe I cannot represent it in some specific way (de re way).
 
 Two essential premisses:
 
