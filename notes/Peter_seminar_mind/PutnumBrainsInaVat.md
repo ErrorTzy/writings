@@ -53,6 +53,13 @@
 > 
 > Assume that I learned the name from you when I heard you say "Donald Trump is the president of the United States." However, in fact you were saying "Joe Biden is the president of the United States." and I heard it wrong, due to my hearing problem. Now I picked up the name "Donald Trump" and start to use it. Does my use of "Donald Trump", learned from illusion, refer to the actual trump? 
 
+> Maybe another two problems:
+> 
+> 1. Whether we are having a representational state
+> 2. What exactly is the representational state representing/ability to determine the referent depends on causation
+> 
+> Causation is required for 2. This point is less trivial because it is not enough to have the represented and the representational state. Mental image is sufficient for 1, which is a weaker claim that mental images are representational in itself. I agree with externalism is true for 2.
+
 **Proposition 3**: The same thing is true of words: speaking without understanding does not amount to representation, even with the feeling of understanding.
 
 > I don't understand what Putnum is talking about when Putnum says one have the feeling of understanding and can fool a Japanese telepath, but does not actually understand the meaning of the words.
@@ -93,8 +100,7 @@ Given that the sensory input given by the machine does not represent tree, the l
 
 ## The premisses of the argument
 
-The brain is right, not wrong in thinking 'There is a tree in front of me.' Given what
-'tree' refers to in vat-English and what 'in front of' refers to.
+The brain is right, not wrong in thinking 'There is a tree in front of me.' Given what 'tree' refers to in vat-English and what 'in front of' refers to.
 
 > But Putnum still owes us an account of how on earth can we determine what exactly is the referent of a word, given the causal chain
 >  
