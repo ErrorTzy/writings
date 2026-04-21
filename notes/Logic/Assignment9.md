@@ -22,15 +22,15 @@ mathfont: XITS Math
 
 **Problem 14.9**. Subtraction: Design a Turing machine that when given an input of two non-empty strings of strokes of length $n$ and $m$, where $n > m$, computes the function $f(n,m) = n − m$.
 
-| State | Read 1 | Read $\sqcup$ | Read $\triangleright$ |
-| ----- | -------- | -------- | --------------------- |
-| q0    | $\sqcup$,q1,R   |          |                       |
-| q1    | 1,q1,R   | $\sqcup$,q2,R   |                       |
-| q2    | 1,q2,R   | $\sqcup$,q3,L   |                       |
-| q3    | $\sqcup$,q4,L   |          |                       |
-| q4    | 1,q5,L   |          |                       |
-| q5    | 1,q5,L   | $\sqcup$,q6,L   |                       |
-| q6    | 1,q6,L   | $\sqcup$,q0,R   |                       |
+| State | Read 1        | Read $\sqcup$ | Read $\triangleright$ |
+| ----- | ------------- | ------------- | --------------------- |
+| q0    | $\sqcup$,q1,R |               |                       |
+| q1    | 1,q1,R        | $\sqcup$,q2,R |                       |
+| q2    | 1,q2,R        | $\sqcup$,q3,L |                       |
+| q3    | $\sqcup$,q4,L |               |                       |
+| q4    | 1,q5,L        |               |                       |
+| q5    | 1,q5,L        | $\sqcup$,q6,L |                       |
+| q6    | 1,q6,L        | $\sqcup$,q0,R |                       |
 
 
 **Problem 14.12** Give a disciplined machine that computes $f (x) = x + 1$.

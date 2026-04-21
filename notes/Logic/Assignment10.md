@@ -26,7 +26,7 @@ mathfont: XITS Math
 
 **Problem 2**: It is computable. Let's call the universal machine $U$. We can easily design the following machines:
 
-1. Machine $A$ which one input into two duplicates
-0. Machine $B$ which, if there's no output then keep it so. If there is, replace it with 1
+1. Machine $A$ which turns one input into two duplicates
+2. Machine $B$ which, if there's no output then keep it so. If there is, replace it with 1
 
 Now we concatenate $A-U-B$. This computes $t(e)$.
