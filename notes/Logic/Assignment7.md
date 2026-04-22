@@ -75,7 +75,7 @@ The induction bases is where $step(T)=0$. The book says it's true. Then we prove
 \noLine\UIC{$\vdots$}
 \UIC{$\bot$}
 \end{prooftree}
-$$, then we have $\Gamma \cup A \vDash \bot$. 
+$$, then we have $\Gamma \cup \{\neg A\} \vDash \bot$. 
 
 We want to show that, there is some proof tree $T'$ that:
 
@@ -91,7 +91,7 @@ $$, then we have $\Gamma \vDash A$
 
 Pick some arbitrary $A, \Gamma$. Assuming $T'$ looks right. We want to show that $\Gamma \vDash A$. 
 
-Given that $T'$ looks right and $T$ is a sub-tree of $T'$, $T$ also looks right. Therefore given the inductive hypothesis we have $\Gamma \cup \{\neg A\} \vDash \bot$, i.e. $\forall M (M \vDash \Gamma \cup \{\neg A\} \rightarrow M \vDash \bot)$. Pick an arbitrary $M$, then we have $M \vDash \Gamma \cup \{\neg A\} \rightarrow M \vDash \bot$. Since we know all structure has the property of not satisfying absurdity, this arbitrary $M$ also has $M \nvDash \bot$. Then $M \nvDash \Gamma \cup \{\neg A\}$. For $M$ is arbitrary, $\Gamma \cup \{\neg A\}$ is unsatisfiable. Given **Proposition 7.27** we have $\Gamma \vDash A$
+Given that $T'$ looks right and $T$ is a sub-tree of $T'$, $T$ also looks right. Therefore given the inductive hypothesis we have $\Gamma \cup \{\neg A\} \vDash \bot$, i.e. $\forall M (M \vDash \Gamma \cup \{\neg A\} \rightarrow M \vDash \bot)$. Pick an arbitrary $M$, then we have $M \vDash \Gamma \cup \{\neg A\} \rightarrow M \vDash \bot$. Since we know all structure has the property of not satisfying absurdity, this arbitrary $M$ also has $M \nvDash \bot$. Then $M \nvDash \Gamma \cup \{\neg A\}$. For $M$ is arbitrary, $\Gamma \cup \{\neg A\}$ is unsatisfiable. Given **Proposition 7.28** we have $\Gamma \vDash A$
 
 *The last inference is $\lor E$*: The inductive hypothesis that, assume is a proof tree $T$ that: 
 
