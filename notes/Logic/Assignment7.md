@@ -77,7 +77,7 @@ The induction bases is where $step(T)=0$. The book says it's true. Then we prove
 \end{prooftree}
 $$, then we have $\Gamma \cup \{\neg A\} \vDash \bot$. 
 
-We want to show that, there is some proof tree $T'$ that:
+We want to show that, there is sowme proof tree $T'$ that:
 
 
 - For any $A,\Gamma$, if $T'$ looks like the following:$$
