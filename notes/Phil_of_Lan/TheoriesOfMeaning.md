@@ -54,4 +54,4 @@ The truth value of (@MiM) and (@EiM) could be different, but "the morning star" 
 
 > The talk of "difference in truth value" depends on our intuitive judgment of "difference in meaning". The context of belief uses truth value to reflect the difference in meaning.
 
-If reference is 
+If reference is
