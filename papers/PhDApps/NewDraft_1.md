@@ -33,6 +33,8 @@ Despite the position being utterly surprising, the argument supporting the posit
 
 This paper intends to argue against Hirsch’s deflationary argument. First, I introduce Hirsch’s original deflationary argument, and point out a metasemantic divergence would lead to two different positions. Then I provide reasons to believe neither position can really deflate the dispute. Finally, I quickly sketch my positive view of verbal disputes.
 
+This paper mainly focuses on ontological disputes, since Hirsch primarily applies his argument to ontology. However, Hirsch’s account of verbal disputes is topic-neutral, and my objection does not rely on any ontological assumptions. Given the scope of this paper, I will not discuss how its argument applies to other areas of philosophy. I leave that question as an exercise for those interested in applications beyond ontology.
+
 ## The deflationary argument
 
 What is Hirsch’s argument for the claim that many ontological disputes are shallow and merely verbal? First, we need to introduce some terminology that Hirsch likes to use:
@@ -128,7 +130,7 @@ Now, given these notations, Hirsch’s basic idea is to replace {::P3} with {::P
 
 The idea behind {::P4} is to concede that the speakers may not literally be speaking the charitably interpreted languages, while insisting that those interpretations, taken as stipulation, nonetheless express the very same propositions as the speakers’ actual languages do for the disputed sentences.
 
-I will return to Hirsch’s defense for {::P4} later. The current point is, given {::P1}, {::P2} and {::P4}, {::C} still follows: First, $Y$ can stipulate that $L^{Y}(A_{1})=L_{X}(A_{1})$. Also by stipulation, $L_{X}(A_{1})=L_{X}(D)$. And from {::P4} we know that $L_{X}(D)=L^{X}(D)$. Therefore, $L^Y(A_{1})=L^{X}(D)$. Since it is uncontroversial that the same proposition must express the same fact (with respect to the same context), $[L^Y(A_{1})]=[L^{X}(D)]$. Similarly, $[L^X(A_{2})]=[L^{Y}(D)]$. But there is no disagreement on the facts that $A_{1}$ and $A_{2}$ express obtain. It follows that $X$ and $Y$ are just talking past each other by using $D$ to express different facts that they agree on.[^7]
+I will return to Hirsch’s defense for {::P4} later. The current point is, given {::P1}, {::P2} and {::P4}, {::C} still follows: First, $Y$ can stipulate that $L^{Y}(A_{1})=L_{X}(A_{1})$. Also by stipulation, $L_{X}(A_{1})=L_{X}(D)$. And from {::P4} we know that $L_{X}(D)=L^{X}(D)$. Therefore, $L^Y(A_{1})=L^{X}(D)$. Since it is uncontroversial that the same proposition must express the same fact (with respect to the same context), $[L^Y(A_{1})]=[L^{X}(D)]$. Similarly, $[L^X(A_{2})]=[L^{Y}(D)]$. But there is no disagreement on whether the facts that $A_{1}$ and $A_{2}$ express obtain. It follows that $X$ and $Y$ are just talking past each other by using $D$ to express different facts that they agree on.[^7]
 
 One issue is that, given that we do not assume *interpretive charity*, we do not assume that $X$ and $Y$ must be right about the equivalence between $D$ and $A_{1}$ or $A_{2}$. Therefore, we can draw the following table:
 
