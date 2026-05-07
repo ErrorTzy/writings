@@ -1,18 +1,10 @@
 [
   "pandoc-lists",
+  "pandoc-extended-markdown",
+  "better-word-count",
   "obsidian-citation-plugin",
   "edit-history",
   "obsidian-enhancing-export",
   "obsidian-footnotes",
-  "obsidian-git",
-  "obsidian-latex-suite",
-  "obsidian-minimal-settings",
-  "obsidian-pandoc-reference-list",
-  "obsidian-style-settings",
-  "obsidian-tidy-footnotes",
-  "obsidian-zotero-desktop-connector",
-  "better-word-count",
-  "obsidian-smarter-md-hotkeys",
-  "quick-latex",
-  "pandoc-extended-markdown"
+  "obsidian-git"
 ]

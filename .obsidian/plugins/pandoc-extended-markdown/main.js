@@ -28,7 +28,7 @@ __export(main_exports, {
   default: () => main_default
 });
 module.exports = __toCommonJS(main_exports);
-var import_obsidian18 = require("obsidian");
+var import_obsidian20 = require("obsidian");
 var import_state10 = require("@codemirror/state");
 var import_view16 = require("@codemirror/view");
 
@@ -789,6 +789,9 @@ var ROMAN_NUMERALS = {
     [1, "i"]
   ]
 };
+function getFancyListClass(type) {
+  return `pem-list-${type}`;
+}
 
 // src/views/panels/ListPanelView.ts
 var import_obsidian6 = require("obsidian");
@@ -7648,6 +7651,245 @@ function pandocExtendedMarkdownExtension(getSettings, getDocPath, getApp, getCom
   return pandocExtendedMarkdownPlugin(getSettings, getDocPath, getApp, getComponent);
 }
 
+// src/reading-mode/pipeline/ReadingModePipeline.ts
+var ReadingModePipeline = class {
+  constructor() {
+    this.processors = [];
+  }
+  registerProcessor(processor) {
+    this.processors.push(processor);
+    this.processors.sort((a, b) => a.priority - b.priority);
+  }
+  process(context) {
+    this.processors.filter((processor) => {
+      var _a, _b;
+      return (_b = (_a = processor.isEnabled) == null ? void 0 : _a.call(processor, context)) != null ? _b : true;
+    }).forEach((processor) => processor.process(context));
+  }
+};
+
+// src/reading-mode/pipeline/inline/customLabelReferenceInlineProcessor.ts
+var CustomLabelReferenceInlineProcessor = class {
+  constructor() {
+    this.name = "custom-label-reference";
+    this.phase = "inline";
+    this.priority = 340;
+  }
+  isEnabled(context) {
+    return Boolean(context.config.enableCustomLabelLists);
+  }
+  findMatches(text, node, context) {
+    if (isAtCustomLabelListStart(text, node)) {
+      return [];
+    }
+    const placeholderContext = context.counters.placeholderContext;
+    return ListPatterns.findCustomLabelReferences(text).filter((match) => match.index !== void 0).filter((match) => placeholderContext.getProcessedLabel(match[1]) !== null).map((match) => ({
+      start: match.index,
+      end: match.index + match[0].length,
+      type: "custom-label-ref",
+      data: {
+        rawLabel: match[1],
+        processedLabel: placeholderContext.getProcessedLabel(match[1])
+      }
+    }));
+  }
+  createReplacement(match) {
+    const processedLabel = getStringData(match, "processedLabel");
+    const span = document.createElement("span");
+    span.className = CSS_CLASSES.CUSTOM_LABEL_REFERENCE_PROCESSED;
+    span.setAttribute("data-custom-label-ref", processedLabel);
+    span.textContent = `(${processedLabel})`;
+    return span;
+  }
+  process() {
+    return;
+  }
+};
+function isAtCustomLabelListStart(text, node) {
+  const parent = node.parentElement;
+  if (!parent || parent.firstChild !== node) {
+    return false;
+  }
+  return Boolean(text.match(ListPatterns.CUSTOM_LABEL_LIST_WITH_CONTENT));
+}
+function getStringData(match, key) {
+  var _a;
+  const value = (_a = match.data) == null ? void 0 : _a[key];
+  return typeof value === "string" ? value : "";
+}
+
+// src/reading-mode/pipeline/inline/exampleReferenceInlineProcessor.ts
+var import_obsidian12 = require("obsidian");
+var ExampleReferenceInlineProcessor = class {
+  constructor() {
+    this.name = "example-reference";
+    this.phase = "inline";
+    this.priority = 310;
+  }
+  isEnabled(context) {
+    return context.config.enableExampleLists !== false;
+  }
+  findMatches(text, _node, context) {
+    return ListPatterns.findExampleReferences(text).filter((match) => match.index !== void 0).filter((match) => {
+      var _a, _b;
+      return ((_b = (_a = context.renderContext).getExampleNumber) == null ? void 0 : _b.call(_a, match[1])) !== void 0;
+    }).map((match) => ({
+      start: match.index,
+      end: match.index + match[0].length,
+      type: "example-ref",
+      data: {
+        label: match[1]
+      }
+    }));
+  }
+  createReplacement(match, context) {
+    var _a, _b, _c, _d;
+    const label = getStringData2(match, "label");
+    const number = (_b = (_a = context.renderContext).getExampleNumber) == null ? void 0 : _b.call(_a, label);
+    const span = document.createElement("span");
+    span.className = CSS_CLASSES.EXAMPLE_REF;
+    span.textContent = number !== void 0 ? `(${number})` : `(@${label})`;
+    const tooltipText = (_d = (_c = context.renderContext).getExampleContent) == null ? void 0 : _d.call(_c, label);
+    if (tooltipText) {
+      (0, import_obsidian12.setTooltip)(span, tooltipText, { delay: DECORATION_STYLES.TOOLTIP_DELAY_MS });
+    }
+    return span;
+  }
+  process() {
+    return;
+  }
+};
+function getStringData2(match, key) {
+  var _a;
+  const value = (_a = match.data) == null ? void 0 : _a[key];
+  return typeof value === "string" ? value : "";
+}
+
+// src/reading-mode/pipeline/inline/fencedDivReferenceInlineProcessor.ts
+var import_obsidian13 = require("obsidian");
+var PANDOC_CITATION_REFERENCE3 = /@([^\s,;)\]}]+)/g;
+var TRAILING_REFERENCE_PUNCTUATION3 = /[.!?]+$/;
+var FencedDivReferenceInlineProcessor = class {
+  constructor() {
+    this.name = "fenced-div-reference";
+    this.phase = "inline";
+    this.priority = 315;
+  }
+  isEnabled(context) {
+    return context.config.enableFencedDivs !== false;
+  }
+  findMatches(text, _node, context) {
+    const matches = [];
+    let match;
+    const labels = context.counters.fencedDivLabels;
+    PANDOC_CITATION_REFERENCE3.lastIndex = 0;
+    while ((match = PANDOC_CITATION_REFERENCE3.exec(text)) !== null) {
+      const label = resolveLabel(match[1], labels);
+      if (!label) {
+        continue;
+      }
+      matches.push({
+        start: match.index,
+        end: match.index + label.length + 1,
+        type: "fenced-div-ref",
+        data: { label }
+      });
+    }
+    return matches;
+  }
+  createReplacement(match, context) {
+    const label = getStringData3(match, "label");
+    const reference = context.counters.fencedDivLabels.get(label);
+    const span = document.createElement("span");
+    span.className = CSS_CLASSES.FENCED_DIV_REFERENCE;
+    span.dataset.pandocDivRef = label;
+    span.textContent = (reference == null ? void 0 : reference.displayName) || "Div";
+    if (reference == null ? void 0 : reference.content) {
+      (0, import_obsidian13.setTooltip)(span, reference.content, { delay: DECORATION_STYLES.TOOLTIP_DELAY_MS });
+    }
+    return span;
+  }
+  process() {
+    return;
+  }
+};
+function resolveLabel(rawLabel, labels) {
+  if (!rawLabel) {
+    return void 0;
+  }
+  if (labels.has(rawLabel)) {
+    return rawLabel;
+  }
+  const trimmedLabel = rawLabel.replace(TRAILING_REFERENCE_PUNCTUATION3, "");
+  if (trimmedLabel !== rawLabel && labels.has(trimmedLabel)) {
+    return trimmedLabel;
+  }
+  return void 0;
+}
+function getStringData3(match, key) {
+  var _a;
+  const value = (_a = match.data) == null ? void 0 : _a[key];
+  return typeof value === "string" ? value : "";
+}
+
+// src/reading-mode/pipeline/inline/superSubInlineProcessors.ts
+var BaseSuperSubInlineProcessor = class {
+  constructor() {
+    this.phase = "inline";
+  }
+  findMatches(text) {
+    const matches = this.type === "superscript" ? ListPatterns.findSuperscripts(text) : ListPatterns.findSubscripts(text);
+    return matches.filter((match) => match.index !== void 0).map((match) => ({
+      start: match.index,
+      end: match.index + match[0].length,
+      type: this.type,
+      data: {
+        content: ListPatterns.unescapeSpaces(match[0].slice(1, -1))
+      }
+    }));
+  }
+  createReplacement(match) {
+    const element = document.createElement(this.tagName);
+    element.className = this.className;
+    element.textContent = getStringData4(match, "content");
+    return element;
+  }
+  process() {
+    return;
+  }
+};
+var SuperscriptInlineProcessor = class extends BaseSuperSubInlineProcessor {
+  constructor() {
+    super(...arguments);
+    this.name = "superscript";
+    this.priority = 320;
+    this.type = "superscript";
+    this.tagName = "sup";
+    this.className = CSS_CLASSES.SUPERSCRIPT;
+  }
+  isEnabled(context) {
+    return Boolean(context.config.enableSuperSubscripts) && context.config.enableSuperscript !== false;
+  }
+};
+var SubscriptInlineProcessor = class extends BaseSuperSubInlineProcessor {
+  constructor() {
+    super(...arguments);
+    this.name = "subscript";
+    this.priority = 330;
+    this.type = "subscript";
+    this.tagName = "sub";
+    this.className = CSS_CLASSES.SUBSCRIPT;
+  }
+  isEnabled(context) {
+    return Boolean(context.config.enableSuperSubscripts) && context.config.enableSubscript !== false;
+  }
+};
+function getStringData4(match, key) {
+  var _a;
+  const value = (_a = match.data) == null ? void 0 : _a[key];
+  return typeof value === "string" ? value : "";
+}
+
 // src/shared/types/obsidian-extended.ts
 function isMarkdownPreviewSection(element) {
   return element !== null && element.classList.contains("markdown-preview-section");
@@ -7676,315 +7918,278 @@ function createTextNodeWalker(element, filter) {
     }
   );
 }
-function createSmartTextNodeWalker(element) {
-  return createTextNodeWalker(element, (node) => {
+
+// src/reading-mode/parsers/customLabelDefinitionRenderer.ts
+function processCustomLabelDefinitionParagraph(elem, placeholderContext, appendReferences) {
+  const text = getTextWithLineBreaks(elem);
+  const lines = text.split("\n").filter((line) => line.trim().length > 0);
+  const matches = lines.map((line) => line.match(ListPatterns.CUSTOM_LABEL_LIST_WITH_CONTENT));
+  if (matches.length === 0 || matches.some((match) => match === null)) {
+    return false;
+  }
+  const paragraphs = matches.map((match) => match ? createCustomLabelParagraph(match, placeholderContext, appendReferences) : null).filter((paragraph) => paragraph !== null);
+  if (elem.parentNode || paragraphs.length !== 1) {
+    elem.replaceWith(...paragraphs);
+  } else {
+    elem.classList.add(CSS_CLASSES.CUSTOM_LABEL_ITEM);
+    elem.replaceChildren(...Array.from(paragraphs[0].childNodes));
+  }
+  return true;
+}
+function createCustomLabelParagraph(match, placeholderContext, appendReferences) {
+  const rawLabel = match[3];
+  const content = match[5];
+  const processedLabel = placeholderContext ? placeholderContext.processLabel(rawLabel) : rawLabel;
+  const paragraph = document.createElement("p");
+  const marker = document.createElement("span");
+  const strong = document.createElement("strong");
+  paragraph.className = CSS_CLASSES.CUSTOM_LABEL_ITEM;
+  marker.className = CSS_CLASSES.PANDOC_LIST_MARKER;
+  marker.textContent = `(${processedLabel})`;
+  strong.appendChild(marker);
+  paragraph.appendChild(strong);
+  paragraph.appendChild(document.createTextNode("	"));
+  appendReferences(content, paragraph, placeholderContext);
+  return paragraph;
+}
+function getTextWithLineBreaks(elem) {
+  const parts = [];
+  elem.childNodes.forEach((node) => appendNodeText(node, parts));
+  return parts.join("");
+}
+function appendNodeText(node, parts) {
+  if (node.nodeName === "BR") {
+    parts.push("\n");
+    return;
+  }
+  if (node.nodeType === Node.TEXT_NODE) {
+    parts.push(node.textContent || "");
+    return;
+  }
+  if (node.nodeType === Node.ELEMENT_NODE && !isCodeElement(node)) {
+    node.childNodes.forEach((child) => appendNodeText(child, parts));
+  }
+}
+function isCodeElement(element) {
+  return element.nodeName === "CODE" || element.nodeName === "PRE";
+}
+
+// src/reading-mode/parsers/customLabelListParser.ts
+function processCustomLabelLists(element, context, placeholderContext) {
+  if (!element.textContent || !element.textContent.includes("{::")) {
+    return;
+  }
+  if (placeholderContext) {
+    const allElements = getCandidateTextContainers(element);
+    allElements.forEach((elem) => {
+      const text = elem.textContent || "";
+      const lines = text.split("\n");
+      for (const line of lines) {
+        const listMatch = ListPatterns.CUSTOM_LABEL_LIST_WITH_CONTENT.exec(line);
+        if (listMatch) {
+          const labelPart = listMatch[3];
+          placeholderContext.processLabel(labelPart);
+        }
+      }
+    });
+  }
+  const paragraphs = getCandidateTextContainers(element).filter((candidate) => candidate.tagName === "P");
+  paragraphs.forEach((p) => {
+    if (processCustomLabelDefinitionParagraph(p, placeholderContext, processReferencesInText)) {
+      return;
+    }
+    processElement(p, placeholderContext);
+  });
+  const listItems = getCandidateTextContainers(element).filter((candidate) => candidate.tagName === "LI");
+  listItems.forEach((li) => {
+    processElement(li, placeholderContext);
+    if (li.querySelector(`.${CSS_CLASSES.PANDOC_LIST_MARKER}`)) {
+      li.classList.add("pem-custom-label-item");
+    }
+  });
+}
+function getCandidateTextContainers(element) {
+  const descendants = Array.from(element.querySelectorAll("p, li"));
+  if (element.matches("p, li")) {
+    return [element, ...descendants];
+  }
+  return descendants;
+}
+function processTextNode(node, container, placeholderContext) {
+  const text = node.textContent || "";
+  const listMatch = text.match(ListPatterns.CUSTOM_LABEL_LIST_WITH_CONTENT);
+  if (listMatch) {
+    const indent = listMatch[1];
+    const rawLabel = listMatch[3];
+    const space = listMatch[4];
+    const rest = listMatch[5];
+    const processedLabel = placeholderContext ? placeholderContext.processLabel(rawLabel) : rawLabel;
+    if (indent) {
+      container.appendChild(document.createTextNode(indent));
+    }
+    const markerSpan = document.createElement("span");
+    markerSpan.className = CSS_CLASSES.PANDOC_LIST_MARKER;
+    markerSpan.textContent = `(${processedLabel})`;
+    container.appendChild(markerSpan);
+    container.appendChild(document.createTextNode(space));
+    processReferencesInText(rest, container, placeholderContext);
+  } else {
+    processReferencesInText(text, container, placeholderContext);
+  }
+}
+function processReferencesInText(text, container, placeholderContext) {
+  const refPattern = ListPatterns.CUSTOM_LABEL_REFERENCE;
+  let lastIndex = 0;
+  let match;
+  while ((match = refPattern.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      container.appendChild(document.createTextNode(text.substring(lastIndex, match.index)));
+    }
+    const rawLabel = match[1];
+    const processedLabel = placeholderContext ? placeholderContext.getProcessedLabel(rawLabel) : rawLabel;
+    if (processedLabel === null) {
+      container.appendChild(document.createTextNode(match[0]));
+    } else {
+      const refSpan = document.createElement("span");
+      refSpan.className = CSS_CLASSES.CUSTOM_LABEL_REFERENCE_PROCESSED;
+      refSpan.setAttribute("data-custom-label-ref", processedLabel);
+      refSpan.textContent = `(${processedLabel})`;
+      container.appendChild(refSpan);
+    }
+    lastIndex = refPattern.lastIndex;
+  }
+  if (lastIndex < text.length) {
+    container.appendChild(document.createTextNode(text.substring(lastIndex)));
+  }
+}
+function processElementPreservingSpans(elem, placeholderContext) {
+  const walker = createTextNodeWalker(elem, (node) => {
     const parent = node.parentElement;
-    if (parent && (parent.matches("code, .cm-math, .math, mjx-container") || parent.closest("code, .cm-math, .math, mjx-container"))) {
-      return NodeFilter.FILTER_REJECT;
+    if (parent && (parent.className === CSS_CLASSES.EXAMPLE_REF || parent.className === CSS_CLASSES.PANDOC_LIST_MARKER || parent.className.includes("pem-list-fancy") || parent.className === CSS_CLASSES.EXAMPLE_LIST || parent.className === CSS_CLASSES.CUSTOM_LABEL_REFERENCE_PROCESSED || parent.tagName === "STRONG" || // Skip text inside strong tags that might contain processed content
+    parent.tagName === "EM")) {
+      return NodeFilter.FILTER_SKIP;
+    }
+    const grandParent = parent == null ? void 0 : parent.parentElement;
+    if (grandParent && (grandParent.className === CSS_CLASSES.EXAMPLE_REF || grandParent.className === CSS_CLASSES.EXAMPLE_LIST)) {
+      return NodeFilter.FILTER_SKIP;
     }
     return NodeFilter.FILTER_ACCEPT;
   });
-}
-
-// src/reading-mode/parsers/fancyListParser.ts
-function parseFancyListMarker(line) {
-  const hashMatch = ListPatterns.isHashList(line);
-  if (hashMatch) {
-    return {
-      indent: hashMatch[1],
-      marker: hashMatch[2],
-      type: "hash",
-      delimiter: ".",
-      value: void 0
-    };
-  }
-  const match = ListPatterns.isFancyList(line);
-  if (!match) {
-    return null;
-  }
-  const indent = match[1];
-  const marker = match[2];
-  const value = match[3];
-  const delimiter = match[4];
-  let type;
-  if (ListPatterns.DECIMAL.test(value)) {
-    return null;
-  } else if (ListPatterns.ROMAN_UPPER.test(value)) {
-    type = "upper-roman";
-  } else if (ListPatterns.ROMAN_LOWER.test(value)) {
-    type = "lower-roman";
-  } else if (ListPatterns.ALPHA_UPPER.test(value)) {
-    type = "upper-alpha";
-  } else if (ListPatterns.ALPHA_LOWER.test(value)) {
-    type = "lower-alpha";
-  } else {
-    return null;
-  }
-  return {
-    indent,
-    marker,
-    type,
-    delimiter,
-    value: value === "#" ? void 0 : value
-  };
-}
-
-// src/reading-mode/parsers/exampleListParser.ts
-var import_obsidian12 = require("obsidian");
-function parseExampleListMarker(line) {
-  const match = ListPatterns.isExampleList(line);
-  if (!match) {
-    return null;
-  }
-  return {
-    indent: match[1],
-    originalMarker: match[2],
-    label: match[3] || void 0
-  };
-}
-
-// src/reading-mode/parsers/superSubParser.ts
-function extractContent(match, delimiter) {
-  const content = match.slice(1, -1);
-  return ListPatterns.unescapeSpaces(content);
-}
-function findSuperSubInText(text, options) {
-  const matches = [];
-  if ((options == null ? void 0 : options.enableSuperscript) !== false) {
-    const superscripts = ListPatterns.findSuperscripts(text);
-    superscripts.forEach((match) => {
-      if (match.index !== void 0) {
-        matches.push({
-          index: match.index,
-          length: match[0].length,
-          content: extractContent(match[0], "^"),
-          type: "superscript"
-        });
-      }
-    });
-  }
-  if ((options == null ? void 0 : options.enableSubscript) !== false) {
-    const subscripts = ListPatterns.findSubscripts(text);
-    subscripts.forEach((match) => {
-      if (match.index !== void 0) {
-        matches.push({
-          index: match.index,
-          length: match[0].length,
-          content: extractContent(match[0], "~"),
-          type: "subscript"
-        });
-      }
-    });
-  }
-  matches.sort((a, b) => a.index - b.index);
-  return matches;
-}
-function processSuperSub(element, options) {
-  const walker = createSmartTextNodeWalker(element);
-  const nodesToReplace = [];
-  while (walker.nextNode()) {
-    const node = walker.currentNode;
-    const parent = node.parentElement;
-    if (parent && (parent.classList.contains(CSS_CLASSES.SUPERSCRIPT) || parent.classList.contains(CSS_CLASSES.SUBSCRIPT))) {
-      continue;
-    }
-    const text = node.textContent || "";
-    const matches = findSuperSubInText(text, options);
-    if (matches.length > 0) {
-      nodesToReplace.push({ node, matches });
+  const nodesToProcess = [];
+  let currentNode;
+  while (currentNode = walker.nextNode()) {
+    if (currentNode.textContent && currentNode.textContent.includes("{::")) {
+      nodesToProcess.push(currentNode);
     }
   }
-  nodesToReplace.forEach(({ node, matches }) => {
-    const parent = node.parentNode;
+  nodesToProcess.forEach((textNode) => {
+    const text = textNode.textContent || "";
+    const parent = textNode.parentNode;
     if (!parent) return;
-    const text = node.textContent || "";
-    let lastIndex = 0;
-    const fragments = [];
-    matches.forEach((match) => {
-      if (match.index > lastIndex) {
-        fragments.push(text.substring(lastIndex, match.index));
-      }
-      const elem = match.type === "superscript" ? document.createElement("sup") : document.createElement("sub");
-      elem.className = match.type === "superscript" ? CSS_CLASSES.SUPERSCRIPT : CSS_CLASSES.SUBSCRIPT;
-      elem.textContent = match.content;
-      fragments.push(elem);
-      lastIndex = match.index + match.length;
-    });
-    if (lastIndex < text.length) {
-      fragments.push(text.substring(lastIndex));
+    if (!text.includes("{::")) return;
+    const tempContainer = document.createElement("span");
+    processReferencesInText(text, tempContainer, placeholderContext);
+    while (tempContainer.firstChild) {
+      parent.insertBefore(tempContainer.firstChild, textNode);
     }
-    fragments.forEach((fragment) => {
-      if (typeof fragment === "string") {
-        parent.insertBefore(document.createTextNode(fragment), node);
-      } else {
-        parent.insertBefore(fragment, node);
-      }
-    });
-    parent.removeChild(node);
+    parent.removeChild(textNode);
   });
 }
-
-// src/reading-mode/parsers/definitionListParser.ts
-function parseDefinitionListMarker(line) {
-  const termMatch = line.match(ListPatterns.DEFINITION_TERM_PATTERN);
-  if (termMatch && !line.includes("*") && !line.includes("-") && !line.match(ListPatterns.NUMBERED_LIST)) {
-    const nextLineIndex = line.indexOf("\n");
-    if (nextLineIndex === -1 || nextLineIndex === line.length - 1) {
-      return {
-        type: "term",
-        indent: "",
-        marker: "",
-        content: termMatch[1].trim()
-      };
+function shouldSkipElement(elem) {
+  if (elem.querySelector("code, pre") || elem.closest("code, pre")) {
+    return true;
+  }
+  if (!elem.textContent || !elem.textContent.includes("{::")) {
+    return true;
+  }
+  return false;
+}
+function hasProcessedContent(elem) {
+  return !!(elem.querySelector("span") || elem.querySelector("strong") || elem.querySelector("em"));
+}
+function isProcessedSpan(elemNode) {
+  return elemNode.tagName === "SPAN" && (elemNode.className === CSS_CLASSES.EXAMPLE_REF || elemNode.className === CSS_CLASSES.PANDOC_LIST_MARKER || elemNode.className.includes("pem-list-fancy") || elemNode.className === CSS_CLASSES.EXAMPLE_LIST || elemNode.className === CSS_CLASSES.CUSTOM_LABEL_REFERENCE_PROCESSED);
+}
+function processTextNodeLines(node, container, placeholderContext) {
+  const text = node.textContent || "";
+  const lines = text.split("\n");
+  for (let i = 0; i < lines.length; i++) {
+    if (i > 0) {
+      container.appendChild(document.createTextNode("\n"));
+    }
+    if (lines[i]) {
+      processTextNode({ textContent: lines[i] }, container, placeholderContext);
     }
   }
-  const defMatch = ListPatterns.isDefinitionMarker(line);
-  if (defMatch) {
-    const content = line.substring(defMatch[0].length);
-    return {
-      type: "definition",
-      indent: defMatch[1],
-      marker: defMatch[2],
-      content
-    };
+}
+function processElementNode(node, container, placeholderContext) {
+  if (isProcessedSpan(node)) {
+    container.appendChild(node.cloneNode(true));
+  } else if (node.textContent && node.textContent.includes("{::")) {
+    const clonedElem = node.cloneNode(false);
+    const tempContainer = document.createElement("div");
+    Array.from(node.childNodes).forEach((child) => {
+      tempContainer.appendChild(child.cloneNode(true));
+    });
+    processElement(tempContainer, placeholderContext);
+    while (tempContainer.firstChild) {
+      clonedElem.appendChild(tempContainer.firstChild);
+    }
+    container.appendChild(clonedElem);
+  } else {
+    container.appendChild(node.cloneNode(true));
   }
-  return null;
+}
+function processElement(elem, placeholderContext) {
+  if (shouldSkipElement(elem)) {
+    return;
+  }
+  if (hasProcessedContent(elem)) {
+    return processElementPreservingSpans(elem, placeholderContext);
+  }
+  const newContainer = document.createElement("div");
+  const childNodes = Array.from(elem.childNodes);
+  for (const node of childNodes) {
+    if (node.nodeType === Node.TEXT_NODE) {
+      processTextNodeLines(node, newContainer, placeholderContext);
+    } else if (node.nodeType === Node.ELEMENT_NODE && node.tagName === "BR") {
+      newContainer.appendChild(document.createElement("br"));
+    } else if (node.nodeType === Node.ELEMENT_NODE) {
+      processElementNode(node, newContainer, placeholderContext);
+    } else {
+      newContainer.appendChild(node.cloneNode(true));
+    }
+  }
+  while (elem.firstChild) {
+    elem.removeChild(elem.firstChild);
+  }
+  while (newContainer.firstChild) {
+    elem.appendChild(newContainer.firstChild);
+  }
 }
 
-// src/reading-mode/parsers/parser.ts
-var ReadingModeParser = class {
-  /**
-   * Parse a single line and identify its type and data
-   */
-  parseLine(line, context, config) {
-    const hashMatch = (config == null ? void 0 : config.enableHashLists) !== false ? ListPatterns.isHashList(line) : null;
-    if (hashMatch) {
-      return {
-        type: "hash",
-        content: line,
-        metadata: {
-          indent: hashMatch[1],
-          marker: hashMatch[2],
-          spacing: hashMatch[3],
-          content: line.substring(hashMatch[1].length + hashMatch[2].length + hashMatch[3].length)
-        }
-      };
-    }
-    const fancyMarker = (config == null ? void 0 : config.enableFancyLists) !== false ? parseFancyListMarker(line) : null;
-    if (fancyMarker && fancyMarker.type !== "hash") {
-      return {
-        type: "fancy",
-        content: line,
-        metadata: {
-          type: fancyMarker.type,
-          marker: fancyMarker.marker,
-          indent: fancyMarker.indent,
-          content: line.substring(fancyMarker.indent.length + fancyMarker.marker.length + 1)
-        }
-      };
-    }
-    if ((config == null ? void 0 : config.enableExampleLists) !== false && (context == null ? void 0 : context.isInParagraph) && (context == null ? void 0 : context.isAtParagraphStart) !== false) {
-      const exampleMarker = parseExampleListMarker(line);
-      if (exampleMarker) {
-        const contentStart = exampleMarker.indent.length + exampleMarker.originalMarker.length + 1;
-        return {
-          type: "example",
-          content: line,
-          metadata: {
-            indent: exampleMarker.indent,
-            originalMarker: exampleMarker.originalMarker,
-            label: exampleMarker.label,
-            content: line.substring(contentStart)
-          }
-        };
-      }
-    }
-    const defMarker = (config == null ? void 0 : config.enableDefinitionLists) !== false ? parseDefinitionListMarker(line) : null;
-    if (defMarker && defMarker.type === "definition") {
-      return {
-        type: "definition-item",
-        content: line,
-        metadata: {
-          content: defMarker.content,
-          indent: defMarker.indent,
-          marker: defMarker.marker
-        }
-      };
-    }
-    if ((config == null ? void 0 : config.enableDefinitionLists) !== false && line.trim().length > 0 && (context == null ? void 0 : context.nextLine) && ListPatterns.isDefinitionMarker(context.nextLine)) {
-      return {
-        type: "definition-term",
-        content: line,
-        metadata: {
-          content: line.trim(),
-          indent: "",
-          marker: ""
-        }
-      };
-    }
-    const references = (config == null ? void 0 : config.enableExampleLists) !== false ? this.findExampleReferences(line) : [];
-    if (references.length > 0) {
-      return {
-        type: "reference",
-        content: line,
-        metadata: {
-          references
-        }
-      };
-    }
-    return {
-      type: "plain",
-      content: line
-    };
+// src/reading-mode/pipeline/processors/customLabelListProcessor.ts
+var CustomLabelListProcessor = class {
+  constructor() {
+    this.name = "custom-label-lists";
+    this.phase = "block";
+    this.priority = 130;
   }
-  /**
-   * Parse multiple lines with context
-   */
-  parseLines(lines, isInParagraph = false, isAtParagraphStart = true, config) {
-    return lines.map((line, index) => {
-      const nextLine = this.findNextNonBlankLine(lines, index + 1);
-      const isLineAtStart = index === 0 ? isAtParagraphStart : true;
-      return this.parseLine(line, { nextLine, isInParagraph, isAtParagraphStart: isLineAtStart }, config);
-    });
+  isEnabled(context) {
+    return Boolean(context.config.enableCustomLabelLists);
   }
-  findNextNonBlankLine(lines, startIndex) {
-    for (let index = startIndex; index < lines.length; index++) {
-      if (lines[index].trim().length > 0) {
-        return lines[index];
-      }
-    }
-    return void 0;
-  }
-  /**
-   * Find example references in text
-   */
-  findExampleReferences(text) {
-    const references = [];
-    const regex = ListPatterns.EXAMPLE_REFERENCE;
-    let match;
-    while ((match = regex.exec(text)) !== null) {
-      references.push({
-        fullMatch: match[0],
-        label: match[1],
-        startIndex: match.index,
-        endIndex: match.index + match[0].length
-      });
-    }
-    return references;
-  }
-  /**
-   * Check if strict validation should be applied
-   */
-  shouldValidateStrict(parsedLine, lines, currentLineIndex) {
-    if (parsedLine.type !== "fancy") {
-      return false;
-    }
-    return true;
+  process(context) {
+    const counters = pluginStateManager.getDocumentCounters(context.sourcePath);
+    processCustomLabelLists(
+      context.element,
+      context.postProcessorContext,
+      counters.placeholderContext
+    );
   }
 };
 
 // src/reading-mode/renderer.ts
-var import_obsidian13 = require("obsidian");
+var import_obsidian14 = require("obsidian");
 
 // src/reading-mode/definitionListRenderer.ts
 function renderDefinitionListAt(parsedLines, startIndex, context, appendContent) {
@@ -8285,7 +8490,7 @@ var ReadingModeRenderer = class {
         span.textContent = `(${exampleNumber})`;
         const tooltipText = (_b = context.getExampleContent) == null ? void 0 : _b.call(context, ref.label);
         if (tooltipText) {
-          (0, import_obsidian13.setTooltip)(span, tooltipText, { delay: DECORATION_STYLES.TOOLTIP_DELAY_MS });
+          (0, import_obsidian14.setTooltip)(span, tooltipText, { delay: DECORATION_STYLES.TOOLTIP_DELAY_MS });
         }
         elements.push(span);
       } else {
@@ -8342,7 +8547,7 @@ var ReadingModeRenderer = class {
         span.textContent = `(${exampleNumber})`;
         const tooltipText = (_b = context.getExampleContent) == null ? void 0 : _b.call(context, label);
         if (tooltipText) {
-          (0, import_obsidian13.setTooltip)(span, tooltipText, { delay: DECORATION_STYLES.TOOLTIP_DELAY_MS });
+          (0, import_obsidian14.setTooltip)(span, tooltipText, { delay: DECORATION_STYLES.TOOLTIP_DELAY_MS });
         }
         elements.push(span);
       } else {
@@ -8356,549 +8561,6 @@ var ReadingModeRenderer = class {
     return elements;
   }
 };
-
-// src/reading-mode/parsers/customLabelListParser.ts
-function processCustomLabelLists(element, context, placeholderContext) {
-  if (!element.textContent || !element.textContent.includes("{::")) {
-    return;
-  }
-  if (placeholderContext) {
-    const allElements = element.querySelectorAll("p, li");
-    allElements.forEach((elem) => {
-      const text = elem.textContent || "";
-      const lines = text.split("\n");
-      for (const line of lines) {
-        const listMatch = ListPatterns.CUSTOM_LABEL_LIST_WITH_CONTENT.exec(line);
-        if (listMatch) {
-          const labelPart = listMatch[3];
-          placeholderContext.processLabel(labelPart);
-        }
-      }
-    });
-  }
-  const paragraphs = element.querySelectorAll("p");
-  paragraphs.forEach((p) => {
-    processElement(p, placeholderContext);
-  });
-  const listItems = element.querySelectorAll("li");
-  listItems.forEach((li) => {
-    processElement(li, placeholderContext);
-    if (li.querySelector(`.${CSS_CLASSES.PANDOC_LIST_MARKER}`)) {
-      li.classList.add("pem-custom-label-item");
-    }
-  });
-}
-function processTextNode(node, container, placeholderContext) {
-  const text = node.textContent || "";
-  const listMatch = text.match(ListPatterns.CUSTOM_LABEL_LIST_WITH_CONTENT);
-  if (listMatch) {
-    const indent = listMatch[1];
-    const rawLabel = listMatch[3];
-    const space = listMatch[4];
-    const rest = listMatch[5];
-    const processedLabel = placeholderContext ? placeholderContext.processLabel(rawLabel) : rawLabel;
-    if (indent) {
-      container.appendChild(document.createTextNode(indent));
-    }
-    const markerSpan = document.createElement("span");
-    markerSpan.className = CSS_CLASSES.PANDOC_LIST_MARKER;
-    markerSpan.textContent = `(${processedLabel})`;
-    container.appendChild(markerSpan);
-    container.appendChild(document.createTextNode(space));
-    processReferencesInText(rest, container, placeholderContext);
-  } else {
-    processReferencesInText(text, container, placeholderContext);
-  }
-}
-function processReferencesInText(text, container, placeholderContext) {
-  const refPattern = ListPatterns.CUSTOM_LABEL_REFERENCE;
-  let lastIndex = 0;
-  let match;
-  while ((match = refPattern.exec(text)) !== null) {
-    if (match.index > lastIndex) {
-      container.appendChild(document.createTextNode(text.substring(lastIndex, match.index)));
-    }
-    const rawLabel = match[1];
-    const processedLabel = placeholderContext ? placeholderContext.getProcessedLabel(rawLabel) : rawLabel;
-    if (processedLabel === null) {
-      container.appendChild(document.createTextNode(match[0]));
-    } else {
-      const refSpan = document.createElement("span");
-      refSpan.className = CSS_CLASSES.CUSTOM_LABEL_REFERENCE_PROCESSED;
-      refSpan.setAttribute("data-custom-label-ref", processedLabel);
-      refSpan.textContent = `(${processedLabel})`;
-      container.appendChild(refSpan);
-    }
-    lastIndex = refPattern.lastIndex;
-  }
-  if (lastIndex < text.length) {
-    container.appendChild(document.createTextNode(text.substring(lastIndex)));
-  }
-}
-function processElementPreservingSpans(elem, placeholderContext) {
-  const walker = createTextNodeWalker(elem, (node) => {
-    const parent = node.parentElement;
-    if (parent && (parent.className === CSS_CLASSES.EXAMPLE_REF || parent.className === CSS_CLASSES.PANDOC_LIST_MARKER || parent.className.includes("pem-list-fancy") || parent.className === CSS_CLASSES.EXAMPLE_LIST || parent.className === CSS_CLASSES.CUSTOM_LABEL_REFERENCE_PROCESSED || parent.tagName === "STRONG" || // Skip text inside strong tags that might contain processed content
-    parent.tagName === "EM")) {
-      return NodeFilter.FILTER_SKIP;
-    }
-    const grandParent = parent == null ? void 0 : parent.parentElement;
-    if (grandParent && (grandParent.className === CSS_CLASSES.EXAMPLE_REF || grandParent.className === CSS_CLASSES.EXAMPLE_LIST)) {
-      return NodeFilter.FILTER_SKIP;
-    }
-    return NodeFilter.FILTER_ACCEPT;
-  });
-  const nodesToProcess = [];
-  let currentNode;
-  while (currentNode = walker.nextNode()) {
-    if (currentNode.textContent && currentNode.textContent.includes("{::")) {
-      nodesToProcess.push(currentNode);
-    }
-  }
-  nodesToProcess.forEach((textNode) => {
-    const text = textNode.textContent || "";
-    const parent = textNode.parentNode;
-    if (!parent) return;
-    if (!text.includes("{::")) return;
-    const tempContainer = document.createElement("span");
-    processReferencesInText(text, tempContainer, placeholderContext);
-    while (tempContainer.firstChild) {
-      parent.insertBefore(tempContainer.firstChild, textNode);
-    }
-    parent.removeChild(textNode);
-  });
-}
-function shouldSkipElement(elem) {
-  if (elem.querySelector("code, pre") || elem.closest("code, pre")) {
-    return true;
-  }
-  if (!elem.textContent || !elem.textContent.includes("{::")) {
-    return true;
-  }
-  return false;
-}
-function hasProcessedContent(elem) {
-  return !!(elem.querySelector("span") || elem.querySelector("strong") || elem.querySelector("em"));
-}
-function isProcessedSpan(elemNode) {
-  return elemNode.tagName === "SPAN" && (elemNode.className === CSS_CLASSES.EXAMPLE_REF || elemNode.className === CSS_CLASSES.PANDOC_LIST_MARKER || elemNode.className.includes("pem-list-fancy") || elemNode.className === CSS_CLASSES.EXAMPLE_LIST || elemNode.className === CSS_CLASSES.CUSTOM_LABEL_REFERENCE_PROCESSED);
-}
-function processTextNodeLines(node, container, placeholderContext) {
-  const text = node.textContent || "";
-  const lines = text.split("\n");
-  for (let i = 0; i < lines.length; i++) {
-    if (i > 0) {
-      container.appendChild(document.createTextNode("\n"));
-    }
-    if (lines[i]) {
-      processTextNode({ textContent: lines[i] }, container, placeholderContext);
-    }
-  }
-}
-function processElementNode(node, container, placeholderContext) {
-  if (isProcessedSpan(node)) {
-    container.appendChild(node.cloneNode(true));
-  } else if (node.textContent && node.textContent.includes("{::")) {
-    const clonedElem = node.cloneNode(false);
-    const tempContainer = document.createElement("div");
-    Array.from(node.childNodes).forEach((child) => {
-      tempContainer.appendChild(child.cloneNode(true));
-    });
-    processElement(tempContainer, placeholderContext);
-    while (tempContainer.firstChild) {
-      clonedElem.appendChild(tempContainer.firstChild);
-    }
-    container.appendChild(clonedElem);
-  } else {
-    container.appendChild(node.cloneNode(true));
-  }
-}
-function processElement(elem, placeholderContext) {
-  if (shouldSkipElement(elem)) {
-    return;
-  }
-  if (hasProcessedContent(elem)) {
-    return processElementPreservingSpans(elem, placeholderContext);
-  }
-  const newContainer = document.createElement("div");
-  const childNodes = Array.from(elem.childNodes);
-  for (const node of childNodes) {
-    if (node.nodeType === Node.TEXT_NODE) {
-      processTextNodeLines(node, newContainer, placeholderContext);
-    } else if (node.nodeType === Node.ELEMENT_NODE && node.tagName === "BR") {
-      newContainer.appendChild(document.createElement("br"));
-    } else if (node.nodeType === Node.ELEMENT_NODE) {
-      processElementNode(node, newContainer, placeholderContext);
-    } else {
-      newContainer.appendChild(node.cloneNode(true));
-    }
-  }
-  while (elem.firstChild) {
-    elem.removeChild(elem.firstChild);
-  }
-  while (newContainer.firstChild) {
-    elem.appendChild(newContainer.firstChild);
-  }
-}
-
-// src/reading-mode/parsers/unorderedListMarkerParser.ts
-function getSourceMarkers(sectionText) {
-  return sectionText.split("\n").map((line) => {
-    var _a;
-    return (_a = line.match(ListPatterns.UNORDERED_LIST_MARKER_WITH_SPACE)) == null ? void 0 : _a[2];
-  }).filter((marker) => marker !== void 0);
-}
-function getUnorderedListItems(element) {
-  return Array.from(element.querySelectorAll("li")).filter((item) => {
-    var _a;
-    return ((_a = item.parentElement) == null ? void 0 : _a.tagName) === "UL";
-  });
-}
-function clearMarkerClasses(item) {
-  item.classList.remove(...getAllUnorderedMarkerClasses());
-}
-function clearUnorderedListMarkerClasses(element) {
-  getUnorderedListItems(element).forEach(clearMarkerClasses);
-}
-function applyUnorderedListMarkerClasses(element, context) {
-  var _a;
-  const section = element.closest(".markdown-preview-section");
-  const sectionInfo = (_a = context.getSectionInfo(element)) != null ? _a : section ? context.getSectionInfo(section) : null;
-  if (!(sectionInfo == null ? void 0 : sectionInfo.text)) {
-    return;
-  }
-  const markers = getSourceMarkers(sectionInfo.text);
-  const items = getUnorderedListItems(element);
-  items.forEach((item, index) => {
-    clearMarkerClasses(item);
-    const marker = markers[index];
-    const markerClass = marker ? getUnorderedMarkerClass(marker) : null;
-    if (markerClass) {
-      item.classList.add(CSS_CLASSES.UNORDERED_LIST_MARKER, markerClass);
-    }
-  });
-}
-
-// src/reading-mode/parsers/fencedDivParser.ts
-var import_obsidian14 = require("obsidian");
-var PANDOC_CITATION_REFERENCE3 = /@([^\s,;)\]}]+)/g;
-var TRAILING_REFERENCE_PUNCTUATION3 = /[.!?]+$/;
-var MAX_DEPTH_CLASS = 6;
-var pendingSectionProcessing = /* @__PURE__ */ new WeakMap();
-var chunkStacks = /* @__PURE__ */ new Map();
-function scheduleFencedDivProcessing(element, docPath, config) {
-  if (config.enableFencedDivs === false) {
-    return;
-  }
-  const section = element.closest(".markdown-preview-section");
-  if (!section) {
-    processFencedDivs(element, docPath, config, true);
-    return;
-  }
-  const pending = pendingSectionProcessing.get(section);
-  if (pending !== void 0) {
-    window.clearTimeout(pending);
-  }
-  const timeout = window.setTimeout(() => {
-    pendingSectionProcessing.delete(section);
-    processFencedDivs(section, docPath, config);
-  }, 0);
-  pendingSectionProcessing.set(section, timeout);
-}
-function processFencedDivs(element, docPath, config, preserveStack = false) {
-  if (config.enableFencedDivs === false) {
-    return;
-  }
-  const labels = pluginStateManager.getDocumentCounters(docPath).fencedDivLabels;
-  const stack = preserveStack ? getChunkStack(docPath) : [];
-  const candidates = Array.from(element.querySelectorAll("p, li"));
-  for (const candidate of candidates) {
-    if (shouldSkipElement2(candidate)) {
-      continue;
-    }
-    const lineText = getTextWithLineBreaks(candidate);
-    if (processMultilineCandidate(candidate, lineText, stack, labels)) {
-      continue;
-    }
-    const opening = parseFencedDivOpening(lineText);
-    if (opening) {
-      const displayName = getFencedDivDisplayName(opening.classes);
-      const reference = {
-        label: opening.id || "",
-        displayName,
-        lineNumber: 0,
-        classes: opening.classes,
-        content: ""
-      };
-      const fencedDiv = createFencedDivElement(displayName, opening.id, opening.classes, stack.length + 1);
-      if (opening.id && !labels.has(opening.id)) {
-        labels.set(opening.id, reference);
-      }
-      insertFencedDiv(candidate, fencedDiv.block, stack);
-      stack.push({
-        contentElement: fencedDiv.content,
-        contentLines: [],
-        reference
-      });
-      continue;
-    }
-    if (isFencedDivClosing(lineText) && stack.length > 0) {
-      const closed = stack.pop();
-      if (closed) {
-        closed.reference.content = closed.contentLines.join("\n").trim();
-      }
-      candidate.remove();
-      continue;
-    }
-    if (stack.length > 0) {
-      for (const active of stack) {
-        active.contentLines.push(lineText);
-        active.reference.content = active.contentLines.join("\n").trim();
-      }
-      stack[stack.length - 1].contentElement.appendChild(candidate);
-    }
-  }
-  processFencedDivReferences(element, labels);
-  if (preserveStack && stack.length === 0) {
-    chunkStacks.delete(docPath);
-  }
-}
-function getChunkStack(docPath) {
-  let stack = chunkStacks.get(docPath);
-  if (!stack) {
-    stack = [];
-    chunkStacks.set(docPath, stack);
-  }
-  return stack;
-}
-function processMultilineCandidate(candidate, text, stack, labels) {
-  if (!text.includes("\n")) {
-    return false;
-  }
-  const lines = text.split("\n");
-  if (!lines.some((line) => parseFencedDivOpening(line) || isFencedDivClosing(line))) {
-    return false;
-  }
-  const fragments = [];
-  for (const line of lines) {
-    const opening = parseFencedDivOpening(line);
-    if (opening) {
-      const displayName = getFencedDivDisplayName(opening.classes);
-      const reference = {
-        label: opening.id || "",
-        displayName,
-        lineNumber: 0,
-        classes: opening.classes,
-        content: ""
-      };
-      const fencedDiv = createFencedDivElement(displayName, opening.id, opening.classes, stack.length + 1);
-      if (opening.id && !labels.has(opening.id)) {
-        labels.set(opening.id, reference);
-      }
-      appendRenderedLineNode(fencedDiv.block, fragments, stack);
-      stack.push({
-        contentElement: fencedDiv.content,
-        contentLines: [],
-        reference
-      });
-      continue;
-    }
-    if (isFencedDivClosing(line) && stack.length > 0) {
-      const closed = stack.pop();
-      if (closed) {
-        closed.reference.content = closed.contentLines.join("\n").trim();
-      }
-      continue;
-    }
-    appendContentLine(line, fragments, stack);
-  }
-  if (stack.length > 0) {
-    for (const active of stack) {
-      active.reference.content = active.contentLines.join("\n").trim();
-    }
-  }
-  replaceCandidateWithFragments(candidate, fragments);
-  return true;
-}
-function createFencedDivElement(displayName, label, classes, depth) {
-  const block = document.createElement("div");
-  const primaryClass = getFencedDivCssClass(classes);
-  const depthClass = Math.min(depth, MAX_DEPTH_CLASS);
-  block.className = [
-    "pem-fenced-div",
-    depth > 1 ? "pem-fenced-div-inner" : void 0,
-    depth > 1 ? `pem-fenced-div-depth-${depthClass}` : void 0,
-    primaryClass ? `pem-fenced-div-${primaryClass}` : void 0
-  ].filter(Boolean).join(" ");
-  if (label) {
-    block.dataset.pandocDivId = label;
-  }
-  const header = document.createElement("div");
-  header.className = CSS_CLASSES.FENCED_DIV_HEADER;
-  if (label) {
-    header.dataset.pandocDivId = label;
-    (0, import_obsidian14.setTooltip)(header, `#${label}`, { delay: DECORATION_STYLES.TOOLTIP_DELAY_MS });
-  }
-  const title = document.createElement("span");
-  title.className = "pem-fenced-div-title";
-  title.textContent = `${displayName}:`;
-  header.appendChild(title);
-  const content = document.createElement("div");
-  content.className = "pem-fenced-div-content";
-  block.appendChild(header);
-  block.appendChild(content);
-  return { block, content };
-}
-function appendContentLine(line, fragments, stack) {
-  const paragraph = document.createElement("p");
-  paragraph.textContent = line;
-  if (stack.length > 0) {
-    for (const active of stack) {
-      active.contentLines.push(line);
-      active.reference.content = active.contentLines.join("\n").trim();
-    }
-  }
-  appendRenderedLineNode(paragraph, fragments, stack);
-}
-function appendRenderedLineNode(node, fragments, stack) {
-  const active = stack[stack.length - 1];
-  if (active) {
-    active.contentElement.appendChild(node);
-    return;
-  }
-  fragments.push(node);
-}
-function replaceCandidateWithFragments(candidate, fragments) {
-  const parent = candidate.parentNode;
-  if (!parent) {
-    return;
-  }
-  if (fragments.length === 0) {
-    candidate.remove();
-    return;
-  }
-  for (const fragment of fragments) {
-    parent.insertBefore(fragment, candidate);
-  }
-  parent.removeChild(candidate);
-}
-function insertFencedDiv(sourceElement, fencedDiv, stack) {
-  var _a;
-  const active = stack[stack.length - 1];
-  if (active) {
-    active.contentElement.appendChild(fencedDiv);
-    sourceElement.remove();
-    return;
-  }
-  (_a = sourceElement.parentNode) == null ? void 0 : _a.insertBefore(fencedDiv, sourceElement);
-  sourceElement.remove();
-}
-function processFencedDivReferences(element, labels) {
-  const walker = document.createTreeWalker(
-    element,
-    NodeFilter.SHOW_TEXT,
-    {
-      acceptNode(node) {
-        var _a;
-        const parent = node.parentElement;
-        if (!parent || isCodeElement(parent) || parent.closest(`.${CSS_CLASSES.FENCED_DIV_REFERENCE}`)) {
-          return NodeFilter.FILTER_REJECT;
-        }
-        return ((_a = node.textContent) == null ? void 0 : _a.includes("@")) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
-      }
-    }
-  );
-  const nodes = [];
-  while (walker.nextNode()) {
-    nodes.push(walker.currentNode);
-  }
-  for (const node of nodes) {
-    replaceReferencesInTextNode(node, labels);
-  }
-}
-function replaceReferencesInTextNode(node, labels) {
-  const text = node.textContent || "";
-  const replacements = [];
-  let lastIndex = 0;
-  let match;
-  PANDOC_CITATION_REFERENCE3.lastIndex = 0;
-  while ((match = PANDOC_CITATION_REFERENCE3.exec(text)) !== null) {
-    const label = resolveLabel(match[1], labels);
-    if (!label) {
-      continue;
-    }
-    const startIndex = match.index;
-    const endIndex = startIndex + label.length + 1;
-    if (startIndex > lastIndex) {
-      replacements.push(document.createTextNode(text.substring(lastIndex, startIndex)));
-    }
-    replacements.push(createReferenceElement(label, labels.get(label)));
-    lastIndex = endIndex;
-  }
-  if (lastIndex === 0) {
-    return;
-  }
-  if (lastIndex < text.length) {
-    replacements.push(document.createTextNode(text.substring(lastIndex)));
-  }
-  const parent = node.parentNode;
-  if (!parent) {
-    return;
-  }
-  for (const replacement of replacements) {
-    parent.insertBefore(replacement, node);
-  }
-  parent.removeChild(node);
-}
-function createReferenceElement(label, reference) {
-  const span = document.createElement("span");
-  span.className = CSS_CLASSES.FENCED_DIV_REFERENCE;
-  span.dataset.pandocDivRef = label;
-  span.textContent = (reference == null ? void 0 : reference.displayName) || "Div";
-  if (reference == null ? void 0 : reference.content) {
-    (0, import_obsidian14.setTooltip)(span, reference.content, { delay: DECORATION_STYLES.TOOLTIP_DELAY_MS });
-  }
-  return span;
-}
-function resolveLabel(rawLabel, labels) {
-  if (!rawLabel) {
-    return void 0;
-  }
-  if (labels.has(rawLabel)) {
-    return rawLabel;
-  }
-  const trimmedLabel = rawLabel.replace(TRAILING_REFERENCE_PUNCTUATION3, "");
-  if (trimmedLabel !== rawLabel && labels.has(trimmedLabel)) {
-    return trimmedLabel;
-  }
-  return void 0;
-}
-function getTextWithLineBreaks(elem) {
-  const parts = [];
-  elem.childNodes.forEach((node) => appendNodeText(node, parts));
-  return parts.join("");
-}
-function appendNodeText(node, parts) {
-  if (node.nodeName === "BR") {
-    parts.push("\n");
-    return;
-  }
-  if (node.nodeType === Node.TEXT_NODE) {
-    parts.push(node.textContent || "");
-    return;
-  }
-  if (node.nodeType === Node.ELEMENT_NODE && !isCodeElement(node)) {
-    node.childNodes.forEach((child) => appendNodeText(child, parts));
-  }
-}
-function shouldSkipElement2(element) {
-  return Boolean(
-    element.closest("h1, h2, h3, h4, h5, h6") || element.closest("pre, code") || element.closest(".pem-fenced-div")
-  );
-}
-function isCodeElement(element) {
-  return element.nodeName === "CODE" || element.nodeName === "PRE";
-}
 
 // src/reading-mode/pandocDefinitionListParser.ts
 function findPandocDefinitionListBlocks(sourceText) {
@@ -9593,6 +9255,71 @@ function removeEmptyParagraphSibling(element) {
   }
 }
 
+// src/reading-mode/pipeline/processors/definitionListNormalizationProcessor.ts
+var DEFINITION_LIST_NORMALIZATION_DELAY_MS = 50;
+var DefinitionListNormalizationProcessor = class {
+  constructor() {
+    this.name = "definition-list-normalization";
+    this.phase = "block";
+    this.priority = 40;
+  }
+  isEnabled(context) {
+    return context.config.enableDefinitionLists !== false;
+  }
+  process(context) {
+    const definitionRoot = getDefinitionListNormalizationRoot(context.element);
+    window.setTimeout(() => {
+      if (context.app) {
+        void normalizeDefinitionListsWithFullSource(definitionRoot, context);
+        return;
+      }
+      normalizeExistingDefinitionLists(
+        definitionRoot,
+        context.postProcessorContext,
+        context.config,
+        context.renderContext
+      );
+    }, DEFINITION_LIST_NORMALIZATION_DELAY_MS);
+  }
+};
+function getDefinitionListNormalizationRoot(element) {
+  return element.closest(".markdown-preview-section") || element.closest(".el-p") || element;
+}
+async function normalizeDefinitionListsWithFullSource(definitionRoot, context) {
+  const fullSourceText = await readFullSourceText(context.sourcePath, context.app);
+  context.fullSource = fullSourceText;
+  normalizeExistingDefinitionLists(
+    definitionRoot,
+    context.postProcessorContext,
+    context.config,
+    context.renderContext,
+    fullSourceText
+  );
+}
+async function readFullSourceText(sourcePath, suppliedApp) {
+  var _a, _b;
+  const app = suppliedApp != null ? suppliedApp : getObsidianApp();
+  const vault = app == null ? void 0 : app.vault;
+  const activeFile = (_b = (_a = app == null ? void 0 : app.workspace) == null ? void 0 : _a.getActiveFile) == null ? void 0 : _b.call(_a);
+  const path = sourcePath != null ? sourcePath : activeFile == null ? void 0 : activeFile.path;
+  if (!path) {
+    return void 0;
+  }
+  const file = (activeFile == null ? void 0 : activeFile.path) === path ? activeFile : vault == null ? void 0 : vault.getAbstractFileByPath(path);
+  if (!file || typeof (vault == null ? void 0 : vault.cachedRead) !== "function") {
+    return void 0;
+  }
+  try {
+    return await vault.cachedRead(file);
+  } catch (e) {
+    return void 0;
+  }
+}
+function getObsidianApp() {
+  const globalWindow = window;
+  return globalWindow.app;
+}
+
 // src/editor-extensions/pandocValidator.ts
 function isStrictPandocFormatting(context, strictMode) {
   if (!strictMode) {
@@ -9744,129 +9471,467 @@ function checkPandocFormatting(content, enableCustomLabelLists = false) {
   return issues;
 }
 
-// src/reading-mode/processor.ts
-var DEFINITION_LIST_NORMALIZATION_DELAY_MS = 50;
-function processReadingMode(element, context, config, app) {
-  const docPath = context.sourcePath || "unknown";
-  const parser = new ReadingModeParser();
-  const renderer = new ReadingModeRenderer();
-  const renderContext = createRenderContext(config, docPath);
-  let validationLines = [];
-  if (config.strictPandocMode) {
-    const section = element.closest(".markdown-preview-section");
-    const sectionInfo = getSectionInfo(section);
-    if (sectionInfo == null ? void 0 : sectionInfo.text) {
-      validationLines = sectionInfo.text.split("\n");
-    }
+// src/reading-mode/parsers/fancyListParser.ts
+function parseFancyListMarker(line) {
+  const hashMatch = ListPatterns.isHashList(line);
+  if (hashMatch) {
+    return {
+      indent: hashMatch[1],
+      marker: hashMatch[2],
+      type: "hash",
+      delimiter: ".",
+      value: void 0
+    };
   }
-  if (config.enableUnorderedListMarkerStyles !== false) {
-    applyUnorderedListMarkerClasses(element, context);
+  const match = ListPatterns.isFancyList(line);
+  if (!match) {
+    return null;
+  }
+  const indent = match[1];
+  const marker = match[2];
+  const value = match[3];
+  const delimiter = match[4];
+  let type;
+  if (ListPatterns.DECIMAL.test(value)) {
+    return null;
+  } else if (ListPatterns.ROMAN_UPPER.test(value)) {
+    type = "upper-roman";
+  } else if (ListPatterns.ROMAN_LOWER.test(value)) {
+    type = "lower-roman";
+  } else if (ListPatterns.ALPHA_UPPER.test(value)) {
+    type = "upper-alpha";
+  } else if (ListPatterns.ALPHA_LOWER.test(value)) {
+    type = "lower-alpha";
   } else {
-    clearUnorderedListMarkerClasses(element);
+    return null;
   }
-  if (config.enableDefinitionLists !== false) {
-    const definitionRoot = getDefinitionListNormalizationRoot(element);
-    window.setTimeout(() => {
-      if (app) {
-        void normalizeDefinitionListsWithFullSource(definitionRoot, context, config, renderContext, app);
-      } else {
-        normalizeExistingDefinitionLists(definitionRoot, context, config, renderContext);
-      }
-    }, DEFINITION_LIST_NORMALIZATION_DELAY_MS);
-  }
-  scheduleFencedDivProcessing(element, docPath, config);
-  const elementsToProcess = element.querySelectorAll("p, li");
-  elementsToProcess.forEach((elem) => {
-    if (elem.closest("h1, h2, h3, h4, h5, h6")) {
-      return;
-    }
-    if (pluginStateManager.isElementProcessed(elem, "pem-processed", docPath)) {
-      return;
-    }
-    processElementTextNodes(elem, parser, renderer, config, docPath, validationLines, renderContext);
-    pluginStateManager.markElementProcessed(elem, "pem-processed", true);
-  });
-  if (config.enableSuperSubscripts) {
-    processSuperSub(element, {
-      enableSuperscript: config.enableSuperscript !== false,
-      enableSubscript: config.enableSubscript !== false
-    });
-  }
-  if (config.enableCustomLabelLists) {
-    const counters = pluginStateManager.getDocumentCounters(docPath);
-    processCustomLabelLists(element, context, counters.placeholderContext);
-  }
-}
-function getDefinitionListNormalizationRoot(element) {
-  return element.closest(".markdown-preview-section") || element.closest(".el-p") || element;
-}
-function createRenderContext(config, docPath) {
   return {
-    strictLineBreaks: config.strictLineBreaks,
-    getExampleNumber: (label) => pluginStateManager.getLabeledExampleNumber(docPath, label),
-    getExampleContent: (label) => pluginStateManager.getLabeledExampleContent(docPath, label)
+    indent,
+    marker,
+    type,
+    delimiter,
+    value: value === "#" ? void 0 : value
   };
 }
-async function normalizeDefinitionListsWithFullSource(definitionRoot, context, config, renderContext, app) {
-  const fullSourceText = await readFullSourceText(context.sourcePath, app);
-  normalizeExistingDefinitionLists(definitionRoot, context, config, renderContext, fullSourceText);
+
+// src/reading-mode/parsers/exampleListParser.ts
+var import_obsidian15 = require("obsidian");
+function parseExampleListMarker(line) {
+  const match = ListPatterns.isExampleList(line);
+  if (!match) {
+    return null;
+  }
+  return {
+    indent: match[1],
+    originalMarker: match[2],
+    label: match[3] || void 0
+  };
 }
-async function readFullSourceText(sourcePath, suppliedApp) {
-  var _a, _b;
-  const app = suppliedApp != null ? suppliedApp : getObsidianApp();
-  const vault = app == null ? void 0 : app.vault;
-  const activeFile = (_b = (_a = app == null ? void 0 : app.workspace) == null ? void 0 : _a.getActiveFile) == null ? void 0 : _b.call(_a);
-  const path = sourcePath != null ? sourcePath : activeFile == null ? void 0 : activeFile.path;
-  if (!path) {
+
+// src/reading-mode/parsers/definitionListParser.ts
+function parseDefinitionListMarker(line) {
+  const termMatch = line.match(ListPatterns.DEFINITION_TERM_PATTERN);
+  if (termMatch && !line.includes("*") && !line.includes("-") && !line.match(ListPatterns.NUMBERED_LIST)) {
+    const nextLineIndex = line.indexOf("\n");
+    if (nextLineIndex === -1 || nextLineIndex === line.length - 1) {
+      return {
+        type: "term",
+        indent: "",
+        marker: "",
+        content: termMatch[1].trim()
+      };
+    }
+  }
+  const defMatch = ListPatterns.isDefinitionMarker(line);
+  if (defMatch) {
+    const content = line.substring(defMatch[0].length);
+    return {
+      type: "definition",
+      indent: defMatch[1],
+      marker: defMatch[2],
+      content
+    };
+  }
+  return null;
+}
+
+// src/reading-mode/parsers/parser.ts
+var ReadingModeParser = class {
+  /**
+   * Parse a single line and identify its type and data
+   */
+  parseLine(line, context, config) {
+    const hashMatch = (config == null ? void 0 : config.enableHashLists) !== false ? ListPatterns.isHashList(line) : null;
+    if (hashMatch) {
+      return {
+        type: "hash",
+        content: line,
+        metadata: {
+          indent: hashMatch[1],
+          marker: hashMatch[2],
+          spacing: hashMatch[3],
+          content: line.substring(hashMatch[1].length + hashMatch[2].length + hashMatch[3].length)
+        }
+      };
+    }
+    const fancyMarker = (config == null ? void 0 : config.enableFancyLists) !== false ? parseFancyListMarker(line) : null;
+    if (fancyMarker && fancyMarker.type !== "hash") {
+      return {
+        type: "fancy",
+        content: line,
+        metadata: {
+          type: fancyMarker.type,
+          marker: fancyMarker.marker,
+          indent: fancyMarker.indent,
+          content: line.substring(fancyMarker.indent.length + fancyMarker.marker.length + 1)
+        }
+      };
+    }
+    if ((config == null ? void 0 : config.enableExampleLists) !== false && (context == null ? void 0 : context.isInParagraph) && (context == null ? void 0 : context.isAtParagraphStart) !== false) {
+      const exampleMarker = parseExampleListMarker(line);
+      if (exampleMarker) {
+        const contentStart = exampleMarker.indent.length + exampleMarker.originalMarker.length + 1;
+        return {
+          type: "example",
+          content: line,
+          metadata: {
+            indent: exampleMarker.indent,
+            originalMarker: exampleMarker.originalMarker,
+            label: exampleMarker.label,
+            content: line.substring(contentStart)
+          }
+        };
+      }
+    }
+    const defMarker = (config == null ? void 0 : config.enableDefinitionLists) !== false ? parseDefinitionListMarker(line) : null;
+    if (defMarker && defMarker.type === "definition") {
+      return {
+        type: "definition-item",
+        content: line,
+        metadata: {
+          content: defMarker.content,
+          indent: defMarker.indent,
+          marker: defMarker.marker
+        }
+      };
+    }
+    if ((config == null ? void 0 : config.enableDefinitionLists) !== false && line.trim().length > 0 && (context == null ? void 0 : context.nextLine) && ListPatterns.isDefinitionMarker(context.nextLine)) {
+      return {
+        type: "definition-term",
+        content: line,
+        metadata: {
+          content: line.trim(),
+          indent: "",
+          marker: ""
+        }
+      };
+    }
+    const references = (config == null ? void 0 : config.enableExampleLists) !== false ? this.findExampleReferences(line) : [];
+    if (references.length > 0) {
+      return {
+        type: "reference",
+        content: line,
+        metadata: {
+          references
+        }
+      };
+    }
+    return {
+      type: "plain",
+      content: line
+    };
+  }
+  /**
+   * Parse multiple lines with context
+   */
+  parseLines(lines, isInParagraph = false, isAtParagraphStart = true, config) {
+    return lines.map((line, index) => {
+      const nextLine = this.findNextNonBlankLine(lines, index + 1);
+      const isLineAtStart = index === 0 ? isAtParagraphStart : true;
+      return this.parseLine(line, { nextLine, isInParagraph, isAtParagraphStart: isLineAtStart }, config);
+    });
+  }
+  findNextNonBlankLine(lines, startIndex) {
+    for (let index = startIndex; index < lines.length; index++) {
+      if (lines[index].trim().length > 0) {
+        return lines[index];
+      }
+    }
     return void 0;
   }
-  const file = (activeFile == null ? void 0 : activeFile.path) === path ? activeFile : vault == null ? void 0 : vault.getAbstractFileByPath(path);
-  if (!file || typeof (vault == null ? void 0 : vault.cachedRead) !== "function") {
-    return void 0;
+  /**
+   * Find example references in text
+   */
+  findExampleReferences(text) {
+    const references = [];
+    const regex = ListPatterns.EXAMPLE_REFERENCE;
+    let match;
+    while ((match = regex.exec(text)) !== null) {
+      references.push({
+        fullMatch: match[0],
+        label: match[1],
+        startIndex: match.index,
+        endIndex: match.index + match[0].length
+      });
+    }
+    return references;
   }
-  try {
-    return await vault.cachedRead(file);
-  } catch (e) {
-    return void 0;
+  /**
+   * Check if strict validation should be applied
+   */
+  shouldValidateStrict(parsedLine, lines, currentLineIndex) {
+    if (parsedLine.type !== "fancy") {
+      return false;
+    }
+    return true;
   }
+};
+
+// src/reading-mode/pipeline/processors/semanticListBlockRenderer.ts
+function tryRenderSemanticListParagraph(elem, context, parser, renderer, text) {
+  const lines = text.split("\n").filter((line) => line.trim().length > 0);
+  const parsedLines = parser.parseLines(lines, true, true, context.config);
+  applyStrictFancyValidation(parsedLines, lines, context);
+  if (!isSemanticListBlock(parsedLines)) {
+    return false;
+  }
+  const rendered = groupListLines(parsedLines).map((group) => renderSemanticList(group, context, renderer));
+  if (elem.parentNode) {
+    elem.replaceWith(...rendered);
+  } else {
+    elem.replaceChildren(...rendered);
+  }
+  return true;
 }
-function getObsidianApp() {
-  const globalWindow = window;
-  return globalWindow.app;
-}
-function processElementTextNodes(elem, parser, renderer, config, docPath, validationLines, renderContext) {
-  if (config.enableDefinitionLists !== false && elem.nodeName === "P" && processDefinitionListParagraph(elem, renderer, config, renderContext)) {
+function applyStrictFancyValidation(parsedLines, lines, context) {
+  if (!context.config.strictPandocMode) {
     return;
   }
-  const walker = document.createTreeWalker(
-    elem,
-    NodeFilter.SHOW_TEXT,
-    null
-  );
-  const nodesToProcess = [];
-  while (walker.nextNode()) {
-    nodesToProcess.push(walker.currentNode);
+  parsedLines.forEach((parsedLine, index) => {
+    if (parsedLine.type === "fancy" && context.validationLines.length > 0 && !validateListInStrictMode(lines[index], context.validationLines, context.config)) {
+      parsedLine.type = "plain";
+    }
+  });
+}
+function renderSemanticList(parsedLines, context, renderer) {
+  const list = document.createElement("ol");
+  const firstLine = parsedLines[0];
+  configureListElement(list, firstLine);
+  parsedLines.forEach((parsedLine) => {
+    const item = document.createElement("li");
+    const content = getListItemContent(parsedLine);
+    updateCountersForListItem(item, parsedLine, context);
+    renderer.appendContent(item, content.trimStart(), context.renderContext);
+    list.appendChild(item);
+  });
+  return list;
+}
+function configureListElement(list, firstLine) {
+  if (firstLine.type === "example") {
+    list.classList.add("example", CSS_CLASSES.EXAMPLE_LIST);
+    list.setAttribute("type", "1");
+    return;
   }
-  nodesToProcess.forEach((node) => {
+  if (firstLine.type !== "fancy") {
+    return;
+  }
+  const data = firstLine.metadata;
+  list.classList.add(getFancyListClass(data.type));
+  const typeAttribute = getOrderedListTypeAttribute(data.type);
+  if (typeAttribute) {
+    list.setAttribute("type", typeAttribute);
+  }
+  const start = getFancyListStart(data);
+  if (start !== 1) {
+    list.setAttribute("start", String(start));
+  }
+  if (data.marker.endsWith(")")) {
+    list.classList.add(CSS_CLASSES.FANCY_LIST_PAREN);
+  }
+}
+function updateCountersForListItem(item, parsedLine, context) {
+  var _a;
+  if (parsedLine.type === "hash") {
+    pluginStateManager.incrementHashCounter(context.sourcePath);
+    return;
+  }
+  if (parsedLine.type !== "example") {
+    return;
+  }
+  const data = parsedLine.metadata;
+  const number = pluginStateManager.incrementExampleCounter(context.sourcePath);
+  item.classList.add(CSS_CLASSES.EXAMPLE_ITEM);
+  item.setAttribute("data-example-number", String(number));
+  if (data.label) {
+    pluginStateManager.setLabeledExample(
+      context.sourcePath,
+      data.label,
+      number,
+      (_a = data.content) == null ? void 0 : _a.trim()
+    );
+  }
+}
+function validateListInStrictMode(line, documentLines, config) {
+  let lineNum = -1;
+  for (let index = 0; index < documentLines.length; index++) {
+    if (documentLines[index].includes(line.trim())) {
+      lineNum = index;
+      break;
+    }
+  }
+  if (lineNum < 0) {
+    return true;
+  }
+  const validationContext = {
+    lines: documentLines,
+    currentLine: lineNum
+  };
+  return isStrictPandocFormatting(validationContext, config.strictPandocMode);
+}
+function isSemanticListBlock(parsedLines) {
+  return parsedLines.length > 0 && parsedLines.every((line) => line.content.trim().length > 0) && parsedLines.every((line) => isListLine(line));
+}
+function isListLine(parsedLine) {
+  return parsedLine.type === "hash" || parsedLine.type === "fancy" || parsedLine.type === "example";
+}
+function groupListLines(parsedLines) {
+  const groups = [];
+  parsedLines.forEach((parsedLine) => {
+    const current = groups[groups.length - 1];
+    if (current && getListGroupKey(current[0]) === getListGroupKey(parsedLine)) {
+      current.push(parsedLine);
+      return;
+    }
+    groups.push([parsedLine]);
+  });
+  return groups;
+}
+function getListGroupKey(parsedLine) {
+  if (parsedLine.type === "fancy") {
+    const data = parsedLine.metadata;
+    return `${parsedLine.type}:${data.type}`;
+  }
+  return parsedLine.type;
+}
+function getListItemContent(parsedLine) {
+  if (parsedLine.type === "hash") {
+    return parsedLine.metadata.content;
+  }
+  if (parsedLine.type === "fancy") {
+    return parsedLine.metadata.content;
+  }
+  if (parsedLine.type === "example") {
+    return parsedLine.metadata.content;
+  }
+  return parsedLine.content;
+}
+function getOrderedListTypeAttribute(type) {
+  switch (type) {
+    case "upper-alpha":
+      return "A";
+    case "lower-alpha":
+      return "a";
+    case "upper-roman":
+      return "I";
+    case "lower-roman":
+      return "i";
+    default:
+      return null;
+  }
+}
+function getFancyListStart(data) {
+  const value = data.marker.slice(0, -1);
+  if (data.type === "upper-alpha" || data.type === "lower-alpha") {
+    return alphaToDecimal(value);
+  }
+  if (data.type === "upper-roman" || data.type === "lower-roman") {
+    return romanToDecimal(value);
+  }
+  return 1;
+}
+function alphaToDecimal(value) {
+  return value.toLowerCase().split("").reduce(
+    (total, char) => total * 26 + char.charCodeAt(0) - "a".charCodeAt(0) + 1,
+    0
+  );
+}
+function romanToDecimal(value) {
+  const romanNumerals = {
+    i: 1,
+    v: 5,
+    x: 10,
+    l: 50,
+    c: 100,
+    d: 500,
+    m: 1e3
+  };
+  return value.toLowerCase().split("").reduce((total, char, index, chars) => {
+    var _a, _b;
+    const current = (_a = romanNumerals[char]) != null ? _a : 0;
+    const next = (_b = romanNumerals[chars[index + 1]]) != null ? _b : 0;
+    return current < next ? total - current : total + current;
+  }, 0);
+}
+
+// src/reading-mode/pipeline/processors/extendedListBlockProcessor.ts
+var ExtendedListBlockProcessor = class {
+  constructor() {
+    this.name = "extended-list-blocks";
+    this.phase = "block";
+    this.priority = 120;
+    this.parser = new ReadingModeParser();
+    this.renderer = new ReadingModeRenderer();
+  }
+  process(context) {
+    const elementsToProcess = getCandidateTextContainers2(context.element);
+    elementsToProcess.forEach((element) => {
+      if (shouldSkipElement2(element, context.sourcePath)) {
+        return;
+      }
+      this.processElementTextNodes(element, context);
+      pluginStateManager.markElementProcessed(element, "pem-processed", true);
+    });
+  }
+  processElementTextNodes(elem, context) {
+    if (context.config.enableDefinitionLists !== false && elem.nodeName === "P" && this.processDefinitionListParagraph(elem, context)) {
+      return;
+    }
+    if (elem.nodeName === "P" && this.processExtendedListParagraph(elem, context)) {
+      return;
+    }
+    const walker = document.createTreeWalker(
+      elem,
+      NodeFilter.SHOW_TEXT,
+      null
+    );
+    const nodesToProcess = [];
+    while (walker.nextNode()) {
+      nodesToProcess.push(walker.currentNode);
+    }
+    nodesToProcess.forEach((node) => this.processTextNode(node, context));
+  }
+  processTextNode(node, context) {
     const parent = node.parentNode;
-    if (!parent) return;
-    if (parent.nodeName === "CODE" || parent.nodeName === "PRE") {
+    if (!parent || parent.nodeName === "CODE" || parent.nodeName === "PRE") {
       return;
     }
     const text = node.textContent || "";
-    if (!containsPandocSyntax(text, config)) {
+    if (!containsPandocSyntax(text, context.config)) {
       return;
     }
     const isInParagraph = parent.nodeName === "P";
     const isAtParagraphStart = parent.firstChild === node;
     const lines = text.split("\n");
-    const parsedLines = parser.parseLines(lines, isInParagraph, isAtParagraphStart, config);
-    if (config.strictPandocMode) {
+    const parsedLines = this.parser.parseLines(
+      lines,
+      isInParagraph,
+      isAtParagraphStart,
+      context.config
+    );
+    if (context.config.strictPandocMode) {
       parsedLines.forEach((parsedLine, index) => {
-        if (parsedLine.type === "fancy" && validationLines.length > 0) {
-          if (!validateListInStrictMode(lines[index], validationLines, config)) {
-            parsedLine.type = "plain";
-          }
+        if (parsedLine.type === "fancy" && context.validationLines.length > 0 && !validateListInStrictMode2(lines[index], context.validationLines, context.config)) {
+          parsedLine.type = "plain";
         }
       });
     }
@@ -9874,14 +9939,14 @@ function processElementTextNodes(elem, parser, renderer, config, docPath, valida
       var _a;
       const parsedLine = parsedLines[index];
       if (type === "hash") {
-        return pluginStateManager.incrementHashCounter(docPath);
+        return pluginStateManager.incrementHashCounter(context.sourcePath);
       }
       if (type === "example" && parsedLine.type === "example") {
         const metadata = parsedLine.metadata;
-        const number = pluginStateManager.incrementExampleCounter(docPath);
+        const number = pluginStateManager.incrementExampleCounter(context.sourcePath);
         if (metadata.label) {
           pluginStateManager.setLabeledExample(
-            docPath,
+            context.sourcePath,
             metadata.label,
             number,
             (_a = metadata.content) == null ? void 0 : _a.trim()
@@ -9891,34 +9956,51 @@ function processElementTextNodes(elem, parser, renderer, config, docPath, valida
       }
       return 0;
     };
-    const newElements = renderer.renderLines(parsedLines, renderContext, numberProvider);
+    const newElements = this.renderer.renderLines(
+      parsedLines,
+      context.renderContext,
+      numberProvider
+    );
     if (newElements.length > 0) {
-      newElements.forEach((elem2) => {
-        parent.insertBefore(elem2, node);
-      });
+      newElements.forEach((element) => parent.insertBefore(element, node));
       parent.removeChild(node);
     }
-  });
+  }
+  processDefinitionListParagraph(elem, context) {
+    const text = getTextWithLineBreaks3(elem);
+    if (!text.includes("\n") || findPandocDefinitionListBlocks(text).length === 0) {
+      return false;
+    }
+    const rendered = renderPandocDefinitionSource(
+      text,
+      context.renderContext,
+      (target, content, renderContext) => {
+        this.renderer.appendContent(target, content, renderContext);
+      }
+    );
+    if (elem.parentNode) {
+      elem.replaceWith(...rendered);
+    } else {
+      elem.replaceChildren(...rendered);
+    }
+    return true;
+  }
+  processExtendedListParagraph(elem, context) {
+    const text = getTextWithLineBreaks3(elem);
+    return tryRenderSemanticListParagraph(elem, context, this.parser, this.renderer, text);
+  }
+};
+function getCandidateTextContainers2(element) {
+  const descendants = Array.from(element.querySelectorAll("p, li"));
+  if (element.matches("p, li")) {
+    return [element, ...descendants];
+  }
+  return descendants;
 }
-function processDefinitionListParagraph(elem, renderer, config, renderContext) {
-  const text = getTextWithLineBreaks3(elem);
-  if (!text.includes("\n")) {
-    return false;
-  }
-  if (findPandocDefinitionListBlocks(text).length === 0) {
-    return false;
-  }
-  const rendered = renderPandocDefinitionSource(
-    text,
-    renderContext,
-    (target, content, context) => renderer.appendContent(target, content, context)
+function shouldSkipElement2(element, sourcePath) {
+  return Boolean(
+    element.closest("h1, h2, h3, h4, h5, h6") || pluginStateManager.isElementProcessed(element, "pem-processed", sourcePath)
   );
-  if (elem.parentNode) {
-    elem.replaceWith(...rendered);
-  } else {
-    elem.replaceChildren(...rendered);
-  }
-  return true;
 }
 function getTextWithLineBreaks3(elem) {
   const parts = [];
@@ -9944,13 +10026,13 @@ function isCodeElement3(element) {
 function containsPandocSyntax(text, config) {
   const hasBasicSyntax = (config == null ? void 0 : config.enableHashLists) !== false && !!ListPatterns.isHashList(text) || (config == null ? void 0 : config.enableFancyLists) !== false && !!ListPatterns.isFancyList(text) || (config == null ? void 0 : config.enableExampleLists) !== false && !!ListPatterns.isExampleList(text) || (config == null ? void 0 : config.enableDefinitionLists) !== false && !!ListPatterns.isDefinitionMarker(text) || (config == null ? void 0 : config.enableExampleLists) !== false && ListPatterns.findExampleReferences(text).length > 0;
   const hasCustomLabelSyntax = (config == null ? void 0 : config.enableCustomLabelLists) && (ListPatterns.isCustomLabelList(text) || ListPatterns.findCustomLabelReferences(text).length > 0);
-  return hasBasicSyntax || hasCustomLabelSyntax;
+  return hasBasicSyntax || Boolean(hasCustomLabelSyntax);
 }
-function validateListInStrictMode(line, documentLines, config) {
+function validateListInStrictMode2(line, documentLines, config) {
   let lineNum = -1;
-  for (let i = 0; i < documentLines.length; i++) {
-    if (documentLines[i].includes(line.trim())) {
-      lineNum = i;
+  for (let index = 0; index < documentLines.length; index++) {
+    if (documentLines[index].includes(line.trim())) {
+      lineNum = index;
       break;
     }
   }
@@ -9964,9 +10046,565 @@ function validateListInStrictMode(line, documentLines, config) {
   return true;
 }
 
+// src/reading-mode/parsers/fencedDivParser.ts
+var import_obsidian16 = require("obsidian");
+var PANDOC_CITATION_REFERENCE4 = /@([^\s,;)\]}]+)/g;
+var TRAILING_REFERENCE_PUNCTUATION4 = /[.!?]+$/;
+var MAX_DEPTH_CLASS = 6;
+var pendingSectionProcessing = /* @__PURE__ */ new WeakMap();
+var chunkStacks = /* @__PURE__ */ new Map();
+function scheduleFencedDivProcessing(element, docPath, config) {
+  if (config.enableFencedDivs === false) {
+    return;
+  }
+  const section = element.closest(".markdown-preview-section");
+  if (!section) {
+    processFencedDivs(element, docPath, config, true);
+    return;
+  }
+  const pending = pendingSectionProcessing.get(section);
+  if (pending !== void 0) {
+    window.clearTimeout(pending);
+  }
+  const timeout = window.setTimeout(() => {
+    pendingSectionProcessing.delete(section);
+    processFencedDivs(section, docPath, config);
+  }, 0);
+  pendingSectionProcessing.set(section, timeout);
+}
+function processFencedDivs(element, docPath, config, preserveStack = false) {
+  if (config.enableFencedDivs === false) {
+    return;
+  }
+  const labels = pluginStateManager.getDocumentCounters(docPath).fencedDivLabels;
+  const stack = preserveStack ? getChunkStack(docPath) : [];
+  const candidates = Array.from(element.querySelectorAll("p, li"));
+  for (const candidate of candidates) {
+    if (shouldSkipElement3(candidate)) {
+      continue;
+    }
+    const lineText = getTextWithLineBreaks4(candidate);
+    if (processMultilineCandidate(candidate, lineText, stack, labels)) {
+      continue;
+    }
+    const opening = parseFencedDivOpening(lineText);
+    if (opening) {
+      const displayName = getFencedDivDisplayName(opening.classes);
+      const reference = {
+        label: opening.id || "",
+        displayName,
+        lineNumber: 0,
+        classes: opening.classes,
+        content: ""
+      };
+      const fencedDiv = createFencedDivElement(displayName, opening.id, opening.classes, stack.length + 1);
+      if (opening.id && !labels.has(opening.id)) {
+        labels.set(opening.id, reference);
+      }
+      insertFencedDiv(candidate, fencedDiv.block, stack);
+      stack.push({
+        contentElement: fencedDiv.content,
+        contentLines: [],
+        reference
+      });
+      continue;
+    }
+    if (isFencedDivClosing(lineText) && stack.length > 0) {
+      const closed = stack.pop();
+      if (closed) {
+        closed.reference.content = closed.contentLines.join("\n").trim();
+      }
+      candidate.remove();
+      continue;
+    }
+    if (stack.length > 0) {
+      for (const active of stack) {
+        active.contentLines.push(lineText);
+        active.reference.content = active.contentLines.join("\n").trim();
+      }
+      stack[stack.length - 1].contentElement.appendChild(candidate);
+    }
+  }
+  processFencedDivReferences(element, labels);
+  if (preserveStack && stack.length === 0) {
+    chunkStacks.delete(docPath);
+  }
+}
+function getChunkStack(docPath) {
+  let stack = chunkStacks.get(docPath);
+  if (!stack) {
+    stack = [];
+    chunkStacks.set(docPath, stack);
+  }
+  return stack;
+}
+function processMultilineCandidate(candidate, text, stack, labels) {
+  if (!text.includes("\n")) {
+    return false;
+  }
+  const lines = text.split("\n");
+  if (!lines.some((line) => parseFencedDivOpening(line) || isFencedDivClosing(line))) {
+    return false;
+  }
+  const fragments = [];
+  for (const line of lines) {
+    const opening = parseFencedDivOpening(line);
+    if (opening) {
+      const displayName = getFencedDivDisplayName(opening.classes);
+      const reference = {
+        label: opening.id || "",
+        displayName,
+        lineNumber: 0,
+        classes: opening.classes,
+        content: ""
+      };
+      const fencedDiv = createFencedDivElement(displayName, opening.id, opening.classes, stack.length + 1);
+      if (opening.id && !labels.has(opening.id)) {
+        labels.set(opening.id, reference);
+      }
+      appendRenderedLineNode(fencedDiv.block, fragments, stack);
+      stack.push({
+        contentElement: fencedDiv.content,
+        contentLines: [],
+        reference
+      });
+      continue;
+    }
+    if (isFencedDivClosing(line) && stack.length > 0) {
+      const closed = stack.pop();
+      if (closed) {
+        closed.reference.content = closed.contentLines.join("\n").trim();
+      }
+      continue;
+    }
+    appendContentLine(line, fragments, stack);
+  }
+  if (stack.length > 0) {
+    for (const active of stack) {
+      active.reference.content = active.contentLines.join("\n").trim();
+    }
+  }
+  replaceCandidateWithFragments(candidate, fragments);
+  return true;
+}
+function createFencedDivElement(displayName, label, classes, depth) {
+  const block = document.createElement("div");
+  const primaryClass = getFencedDivCssClass(classes);
+  const depthClass = Math.min(depth, MAX_DEPTH_CLASS);
+  block.className = [
+    "pem-fenced-div",
+    depth > 1 ? "pem-fenced-div-inner" : void 0,
+    depth > 1 ? `pem-fenced-div-depth-${depthClass}` : void 0,
+    primaryClass ? `pem-fenced-div-${primaryClass}` : void 0
+  ].filter(Boolean).join(" ");
+  if (label) {
+    block.dataset.pandocDivId = label;
+  }
+  const header = document.createElement("div");
+  header.className = CSS_CLASSES.FENCED_DIV_HEADER;
+  if (label) {
+    header.dataset.pandocDivId = label;
+    (0, import_obsidian16.setTooltip)(header, `#${label}`, { delay: DECORATION_STYLES.TOOLTIP_DELAY_MS });
+  }
+  const title = document.createElement("span");
+  title.className = "pem-fenced-div-title";
+  title.textContent = `${displayName}:`;
+  header.appendChild(title);
+  const content = document.createElement("div");
+  content.className = "pem-fenced-div-content";
+  block.appendChild(header);
+  block.appendChild(content);
+  return { block, content };
+}
+function appendContentLine(line, fragments, stack) {
+  const paragraph = document.createElement("p");
+  paragraph.textContent = line;
+  if (stack.length > 0) {
+    for (const active of stack) {
+      active.contentLines.push(line);
+      active.reference.content = active.contentLines.join("\n").trim();
+    }
+  }
+  appendRenderedLineNode(paragraph, fragments, stack);
+}
+function appendRenderedLineNode(node, fragments, stack) {
+  const active = stack[stack.length - 1];
+  if (active) {
+    active.contentElement.appendChild(node);
+    return;
+  }
+  fragments.push(node);
+}
+function replaceCandidateWithFragments(candidate, fragments) {
+  const parent = candidate.parentNode;
+  if (!parent) {
+    return;
+  }
+  if (fragments.length === 0) {
+    candidate.remove();
+    return;
+  }
+  for (const fragment of fragments) {
+    parent.insertBefore(fragment, candidate);
+  }
+  parent.removeChild(candidate);
+}
+function insertFencedDiv(sourceElement, fencedDiv, stack) {
+  var _a;
+  const active = stack[stack.length - 1];
+  if (active) {
+    active.contentElement.appendChild(fencedDiv);
+    sourceElement.remove();
+    return;
+  }
+  (_a = sourceElement.parentNode) == null ? void 0 : _a.insertBefore(fencedDiv, sourceElement);
+  sourceElement.remove();
+}
+function processFencedDivReferences(element, labels) {
+  const walker = document.createTreeWalker(
+    element,
+    NodeFilter.SHOW_TEXT,
+    {
+      acceptNode(node) {
+        var _a;
+        const parent = node.parentElement;
+        if (!parent || isCodeElement4(parent) || parent.closest(`.${CSS_CLASSES.FENCED_DIV_REFERENCE}`)) {
+          return NodeFilter.FILTER_REJECT;
+        }
+        return ((_a = node.textContent) == null ? void 0 : _a.includes("@")) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    }
+  );
+  const nodes = [];
+  while (walker.nextNode()) {
+    nodes.push(walker.currentNode);
+  }
+  for (const node of nodes) {
+    replaceReferencesInTextNode(node, labels);
+  }
+}
+function replaceReferencesInTextNode(node, labels) {
+  const text = node.textContent || "";
+  const replacements = [];
+  let lastIndex = 0;
+  let match;
+  PANDOC_CITATION_REFERENCE4.lastIndex = 0;
+  while ((match = PANDOC_CITATION_REFERENCE4.exec(text)) !== null) {
+    const label = resolveLabel2(match[1], labels);
+    if (!label) {
+      continue;
+    }
+    const startIndex = match.index;
+    const endIndex = startIndex + label.length + 1;
+    if (startIndex > lastIndex) {
+      replacements.push(document.createTextNode(text.substring(lastIndex, startIndex)));
+    }
+    replacements.push(createReferenceElement(label, labels.get(label)));
+    lastIndex = endIndex;
+  }
+  if (lastIndex === 0) {
+    return;
+  }
+  if (lastIndex < text.length) {
+    replacements.push(document.createTextNode(text.substring(lastIndex)));
+  }
+  const parent = node.parentNode;
+  if (!parent) {
+    return;
+  }
+  for (const replacement of replacements) {
+    parent.insertBefore(replacement, node);
+  }
+  parent.removeChild(node);
+}
+function createReferenceElement(label, reference) {
+  const span = document.createElement("span");
+  span.className = CSS_CLASSES.FENCED_DIV_REFERENCE;
+  span.dataset.pandocDivRef = label;
+  span.textContent = (reference == null ? void 0 : reference.displayName) || "Div";
+  if (reference == null ? void 0 : reference.content) {
+    (0, import_obsidian16.setTooltip)(span, reference.content, { delay: DECORATION_STYLES.TOOLTIP_DELAY_MS });
+  }
+  return span;
+}
+function resolveLabel2(rawLabel, labels) {
+  if (!rawLabel) {
+    return void 0;
+  }
+  if (labels.has(rawLabel)) {
+    return rawLabel;
+  }
+  const trimmedLabel = rawLabel.replace(TRAILING_REFERENCE_PUNCTUATION4, "");
+  if (trimmedLabel !== rawLabel && labels.has(trimmedLabel)) {
+    return trimmedLabel;
+  }
+  return void 0;
+}
+function getTextWithLineBreaks4(elem) {
+  const parts = [];
+  elem.childNodes.forEach((node) => appendNodeText4(node, parts));
+  return parts.join("");
+}
+function appendNodeText4(node, parts) {
+  if (node.nodeName === "BR") {
+    parts.push("\n");
+    return;
+  }
+  if (node.nodeType === Node.TEXT_NODE) {
+    parts.push(node.textContent || "");
+    return;
+  }
+  if (node.nodeType === Node.ELEMENT_NODE && !isCodeElement4(node)) {
+    node.childNodes.forEach((child) => appendNodeText4(child, parts));
+  }
+}
+function shouldSkipElement3(element) {
+  return Boolean(
+    element.closest("h1, h2, h3, h4, h5, h6") || element.closest("pre, code") || element.closest(".pem-fenced-div")
+  );
+}
+function isCodeElement4(element) {
+  return element.nodeName === "CODE" || element.nodeName === "PRE";
+}
+
+// src/reading-mode/pipeline/processors/fencedDivBlockProcessor.ts
+var FencedDivBlockProcessor = class {
+  constructor() {
+    this.name = "fenced-div-blocks";
+    this.phase = "block";
+    this.priority = 60;
+  }
+  isEnabled(context) {
+    return context.config.enableFencedDivs !== false;
+  }
+  process(context) {
+    scheduleFencedDivProcessing(context.element, context.sourcePath, context.config);
+  }
+};
+
+// src/reading-mode/pipeline/inline/textReplacementEngine.ts
+var SKIP_SELECTOR = [
+  "code",
+  "pre",
+  "h1",
+  "h2",
+  "h3",
+  "h4",
+  "h5",
+  "h6",
+  ".math",
+  ".cm-math",
+  "mjx-container",
+  `.${CSS_CLASSES.EXAMPLE_REF}`,
+  `.${CSS_CLASSES.EXAMPLE_LIST}`,
+  `.${CSS_CLASSES.PANDOC_LIST_MARKER}`,
+  `.${CSS_CLASSES.CUSTOM_LABEL_REFERENCE_PROCESSED}`,
+  `.${CSS_CLASSES.FENCED_DIV_REFERENCE}`,
+  `.${CSS_CLASSES.FENCED_DIV_HEADER}`,
+  `.${CSS_CLASSES.SUPERSCRIPT}`,
+  `.${CSS_CLASSES.SUBSCRIPT}`
+].join(", ");
+function processInlineTextNodes(element, context, processors) {
+  const activeProcessors = processors.filter((processor) => {
+    var _a, _b;
+    return (_b = (_a = processor.isEnabled) == null ? void 0 : _a.call(processor, context)) != null ? _b : true;
+  }).sort((a, b) => a.priority - b.priority);
+  if (activeProcessors.length === 0) {
+    return;
+  }
+  const nodes = collectTextNodes(element);
+  for (const node of nodes) {
+    replaceTextNodeMatches(node, context, activeProcessors);
+  }
+}
+function collectTextNodes(element) {
+  const walker = document.createTreeWalker(
+    element,
+    NodeFilter.SHOW_TEXT,
+    {
+      acceptNode(node) {
+        const parent = node.parentElement;
+        if (!parent || parent.closest(SKIP_SELECTOR)) {
+          return NodeFilter.FILTER_REJECT;
+        }
+        return node.textContent ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    }
+  );
+  const nodes = [];
+  while (walker.nextNode()) {
+    nodes.push(walker.currentNode);
+  }
+  return nodes;
+}
+function replaceTextNodeMatches(node, context, processors) {
+  const parent = node.parentNode;
+  const text = node.textContent || "";
+  if (!parent || text.length === 0) {
+    return;
+  }
+  const matches = collectMatches(text, node, context, processors);
+  if (matches.length === 0) {
+    return;
+  }
+  const replacements = [];
+  let lastIndex = 0;
+  for (const match of matches) {
+    if (match.start > lastIndex) {
+      replacements.push(document.createTextNode(text.substring(lastIndex, match.start)));
+    }
+    const replacement = match.processor.createReplacement(match, context);
+    replacements.push(...Array.isArray(replacement) ? replacement : [replacement]);
+    lastIndex = match.end;
+  }
+  if (lastIndex < text.length) {
+    replacements.push(document.createTextNode(text.substring(lastIndex)));
+  }
+  for (const replacement of replacements) {
+    parent.insertBefore(replacement, node);
+  }
+  parent.removeChild(node);
+}
+function collectMatches(text, node, context, processors) {
+  const candidates = processors.flatMap(
+    (processor) => processor.findMatches(text, node, context).filter((match) => isValidMatch(match, text)).map((match) => ({ ...match, processor }))
+  );
+  candidates.sort(
+    (a, b) => a.start - b.start || a.processor.priority - b.processor.priority || a.end - a.start - (b.end - b.start) || a.processor.name.localeCompare(b.processor.name)
+  );
+  const accepted = [];
+  let occupiedUntil = 0;
+  for (const match of candidates) {
+    if (match.start < occupiedUntil) {
+      continue;
+    }
+    accepted.push(match);
+    occupiedUntil = match.end;
+  }
+  return accepted;
+}
+function isValidMatch(match, text) {
+  return Number.isInteger(match.start) && Number.isInteger(match.end) && match.start >= 0 && match.end > match.start && match.end <= text.length;
+}
+
+// src/reading-mode/pipeline/processors/inlineTextProcessor.ts
+var InlineTextEngineProcessor = class {
+  constructor(processors) {
+    this.processors = processors;
+    this.name = "inline-text-engine";
+    this.phase = "inline";
+    this.priority = 300;
+  }
+  process(context) {
+    processInlineTextNodes(context.element, context, this.processors);
+  }
+};
+
+// src/reading-mode/parsers/unorderedListMarkerParser.ts
+function getSourceMarkers(sectionText) {
+  return sectionText.split("\n").map((line) => {
+    var _a;
+    return (_a = line.match(ListPatterns.UNORDERED_LIST_MARKER_WITH_SPACE)) == null ? void 0 : _a[2];
+  }).filter((marker) => marker !== void 0);
+}
+function getUnorderedListItems(element) {
+  return Array.from(element.querySelectorAll("li")).filter((item) => {
+    var _a;
+    return ((_a = item.parentElement) == null ? void 0 : _a.tagName) === "UL";
+  });
+}
+function clearMarkerClasses(item) {
+  item.classList.remove(...getAllUnorderedMarkerClasses());
+}
+function clearUnorderedListMarkerClasses(element) {
+  getUnorderedListItems(element).forEach(clearMarkerClasses);
+}
+function applyUnorderedListMarkerClasses(element, context) {
+  var _a;
+  const section = element.closest(".markdown-preview-section");
+  const sectionInfo = (_a = context.getSectionInfo(element)) != null ? _a : section ? context.getSectionInfo(section) : null;
+  if (!(sectionInfo == null ? void 0 : sectionInfo.text)) {
+    return;
+  }
+  const markers = getSourceMarkers(sectionInfo.text);
+  const items = getUnorderedListItems(element);
+  items.forEach((item, index) => {
+    clearMarkerClasses(item);
+    const marker = markers[index];
+    const markerClass = marker ? getUnorderedMarkerClass(marker) : null;
+    if (markerClass) {
+      item.classList.add(CSS_CLASSES.UNORDERED_LIST_MARKER, markerClass);
+    }
+  });
+}
+
+// src/reading-mode/pipeline/processors/unorderedListMarkerProcessor.ts
+var UnorderedListMarkerProcessor = class {
+  constructor() {
+    this.name = "unordered-list-marker-classes";
+    this.phase = "block";
+    this.priority = 20;
+  }
+  process(context) {
+    if (context.config.enableUnorderedListMarkerStyles !== false) {
+      applyUnorderedListMarkerClasses(context.element, context.postProcessorContext);
+      return;
+    }
+    clearUnorderedListMarkerClasses(context.element);
+  }
+};
+
+// src/reading-mode/pipeline/registry.ts
+function createDefaultReadingModePipeline() {
+  const pipeline = new ReadingModePipeline();
+  const inlineProcessors = [
+    new ExampleReferenceInlineProcessor(),
+    new FencedDivReferenceInlineProcessor(),
+    new SuperscriptInlineProcessor(),
+    new SubscriptInlineProcessor(),
+    new CustomLabelReferenceInlineProcessor()
+  ];
+  pipeline.registerProcessor(new UnorderedListMarkerProcessor());
+  pipeline.registerProcessor(new DefinitionListNormalizationProcessor());
+  pipeline.registerProcessor(new FencedDivBlockProcessor());
+  pipeline.registerProcessor(new ExtendedListBlockProcessor());
+  pipeline.registerProcessor(new InlineTextEngineProcessor(inlineProcessors));
+  pipeline.registerProcessor(new CustomLabelListProcessor());
+  return pipeline;
+}
+function createReadingModeContext(element, postProcessorContext, config, app) {
+  var _a, _b, _c, _d;
+  const sourcePath = postProcessorContext.sourcePath || "unknown";
+  const section = element.closest(".markdown-preview-section");
+  const sectionInfo = (_d = (_c = (_a = postProcessorContext.getSectionInfo) == null ? void 0 : _a.call(postProcessorContext, element)) != null ? _c : section ? (_b = postProcessorContext.getSectionInfo) == null ? void 0 : _b.call(postProcessorContext, section) : null) != null ? _d : null;
+  const counters = pluginStateManager.getDocumentCounters(sourcePath);
+  return {
+    element,
+    postProcessorContext,
+    section,
+    sectionInfo,
+    sourcePath,
+    config,
+    app,
+    counters,
+    validationLines: config.strictPandocMode && (sectionInfo == null ? void 0 : sectionInfo.text) ? sectionInfo.text.split("\n") : [],
+    renderContext: {
+      strictLineBreaks: config.strictLineBreaks,
+      getExampleNumber: (label) => pluginStateManager.getLabeledExampleNumber(sourcePath, label),
+      getExampleContent: (label) => pluginStateManager.getLabeledExampleContent(sourcePath, label)
+    }
+  };
+}
+
+// src/reading-mode/processor.ts
+function processReadingMode(element, context, config, app) {
+  const readingModeContext = createReadingModeContext(element, context, config, app);
+  createDefaultReadingModePipeline().process(readingModeContext);
+}
+
 // src/editor-extensions/suggestions/exampleReferenceSuggest.ts
-var import_obsidian15 = require("obsidian");
-var ExampleReferenceSuggest = class extends import_obsidian15.EditorSuggest {
+var import_obsidian17 = require("obsidian");
+var ExampleReferenceSuggest = class extends import_obsidian17.EditorSuggest {
   constructor(plugin) {
     super(plugin.app);
     this.plugin = plugin;
@@ -10062,8 +10700,8 @@ var ExampleReferenceSuggest = class extends import_obsidian15.EditorSuggest {
 };
 
 // src/editor-extensions/suggestions/customLabelReferenceSuggest.ts
-var import_obsidian16 = require("obsidian");
-var CustomLabelReferenceSuggest = class extends import_obsidian16.EditorSuggest {
+var import_obsidian18 = require("obsidian");
+var CustomLabelReferenceSuggest = class extends import_obsidian18.EditorSuggest {
   constructor(plugin) {
     super(plugin.app);
     this.plugin = plugin;
@@ -10238,10 +10876,10 @@ var CustomLabelReferenceSuggest = class extends import_obsidian16.EditorSuggest 
 
 // src/editor-extensions/suggestions/fencedDivReferenceSuggest.ts
 var import_state4 = require("@codemirror/state");
-var import_obsidian17 = require("obsidian");
+var import_obsidian19 = require("obsidian");
 var CITATION_QUERY_STOP = /[\s,;)\]}]/;
 var NO_PREVIEW_TEXT = "(no content)";
-var FencedDivReferenceSuggest = class extends import_obsidian17.EditorSuggest {
+var FencedDivReferenceSuggest = class extends import_obsidian19.EditorSuggest {
   constructor(plugin) {
     super(plugin.app);
     this.plugin = plugin;
@@ -11395,7 +12033,7 @@ function createListAutocompletionKeymap(settings) {
 }
 
 // src/core/main.ts
-var PandocExtendedMarkdownPlugin = class extends import_obsidian18.Plugin {
+var PandocExtendedMarkdownPlugin = class extends import_obsidian20.Plugin {
   constructor() {
     super(...arguments);
     this.listPanelRibbonIcon = null;
@@ -11424,15 +12062,15 @@ var PandocExtendedMarkdownPlugin = class extends import_obsidian18.Plugin {
     });
   }
   registerViewIcons() {
-    (0, import_obsidian18.addIcon)(ICONS.CUSTOM_LABEL_ID, ICONS.CUSTOM_LABEL_SVG);
-    (0, import_obsidian18.addIcon)(ICONS.LIST_PANEL_ID, ICONS.LIST_PANEL_SVG);
+    (0, import_obsidian20.addIcon)(ICONS.CUSTOM_LABEL_ID, ICONS.CUSTOM_LABEL_SVG);
+    (0, import_obsidian20.addIcon)(ICONS.LIST_PANEL_ID, ICONS.LIST_PANEL_SVG);
   }
   registerExtensions() {
     this.registerEditorExtension(pandocExtendedMarkdownExtension(
       () => this.settings,
       () => {
         var _a;
-        const activeView = this.app.workspace.getActiveViewOfType(import_obsidian18.MarkdownView);
+        const activeView = this.app.workspace.getActiveViewOfType(import_obsidian20.MarkdownView);
         return ((_a = activeView == null ? void 0 : activeView.file) == null ? void 0 : _a.path) || null;
       },
       () => this.app,
@@ -11475,12 +12113,12 @@ var PandocExtendedMarkdownPlugin = class extends import_obsidian18.Plugin {
           isSyntaxFeatureEnabled(this.settings, "enableCustomLabelLists")
         );
         if (issues.length === 0) {
-          new import_obsidian18.Notice(MESSAGES.PANDOC_COMPLIANT);
+          new import_obsidian20.Notice(MESSAGES.PANDOC_COMPLIANT);
         } else {
           const issueList = issues.map(
             (issue) => `Line ${issue.line}: ${issue.message}`
           ).join("\n");
-          new import_obsidian18.Notice(`${MESSAGES.FORMATTING_ISSUES(issues.length)}:
+          new import_obsidian20.Notice(`${MESSAGES.FORMATTING_ISSUES(issues.length)}:
 ${issueList}`, UI_CONSTANTS.NOTICE_DURATION_MS);
         }
       }
@@ -11496,9 +12134,9 @@ ${issueList}`, UI_CONSTANTS.NOTICE_DURATION_MS);
         );
         if (content !== formatted) {
           editor.setValue(formatted);
-          new import_obsidian18.Notice(MESSAGES.FORMAT_SUCCESS);
+          new import_obsidian20.Notice(MESSAGES.FORMAT_SUCCESS);
         } else {
-          new import_obsidian18.Notice(MESSAGES.FORMAT_ALREADY_COMPLIANT);
+          new import_obsidian20.Notice(MESSAGES.FORMAT_ALREADY_COMPLIANT);
         }
       }
     });
@@ -11510,9 +12148,9 @@ ${issueList}`, UI_CONSTANTS.NOTICE_DURATION_MS);
         const toggled = this.toggleDefinitionBoldStyle(content);
         if (content !== toggled) {
           editor.setValue(toggled);
-          new import_obsidian18.Notice(MESSAGES.TOGGLE_BOLD_SUCCESS);
+          new import_obsidian20.Notice(MESSAGES.TOGGLE_BOLD_SUCCESS);
         } else {
-          new import_obsidian18.Notice(MESSAGES.NO_DEFINITION_TERMS);
+          new import_obsidian20.Notice(MESSAGES.NO_DEFINITION_TERMS);
         }
       }
     });
@@ -11524,9 +12162,9 @@ ${issueList}`, UI_CONSTANTS.NOTICE_DURATION_MS);
         const toggled = this.toggleDefinitionUnderlineStyle(content);
         if (content !== toggled) {
           editor.setValue(toggled);
-          new import_obsidian18.Notice(MESSAGES.TOGGLE_UNDERLINE_SUCCESS);
+          new import_obsidian20.Notice(MESSAGES.TOGGLE_UNDERLINE_SUCCESS);
         } else {
-          new import_obsidian18.Notice(MESSAGES.NO_DEFINITION_TERMS);
+          new import_obsidian20.Notice(MESSAGES.NO_DEFINITION_TERMS);
         }
       }
     });
@@ -11543,7 +12181,7 @@ ${issueList}`, UI_CONSTANTS.NOTICE_DURATION_MS);
   }
   async activateListPanelView() {
     if (!this.settings.enableListPanel) {
-      new import_obsidian18.Notice(MESSAGES.LIST_PANEL_DISABLED);
+      new import_obsidian20.Notice(MESSAGES.LIST_PANEL_DISABLED);
       return;
     }
     const { workspace } = this.app;
