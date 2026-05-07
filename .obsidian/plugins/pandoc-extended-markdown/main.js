@@ -9077,8 +9077,27 @@ function replaceDefinitionListContent(root, replacementNodes, block, usedCandida
   }
   const [firstCandidate, ...extraCandidates] = candidates;
   candidates.forEach((candidate) => usedCandidates.add(candidate));
-  firstCandidate.replaceWith(...replacementNodes);
+  replaceDefinitionListCandidate(firstCandidate, replacementNodes);
   extraCandidates.forEach((candidate) => candidate.remove());
+}
+function replaceDefinitionListCandidate(candidate, replacementNodes) {
+  var _a;
+  if (candidate.classList.contains("el-p")) {
+    candidate.replaceChildren(...replacementNodes);
+    return;
+  }
+  (_a = firstLayoutWrapper(candidate)) == null ? void 0 : _a.replaceChildren(...replacementNodes);
+  if (!candidate.isConnected) {
+    return;
+  }
+  candidate.replaceWith(...replacementNodes);
+}
+function firstLayoutWrapper(candidate) {
+  const parent = candidate.parentElement;
+  if (!(parent == null ? void 0 : parent.classList.contains("el-p"))) {
+    return null;
+  }
+  return parent;
 }
 function getDefinitionListBlockCandidates(root, block, usedCandidates) {
   const candidates = getDefinitionCandidateElements(root, block).filter((candidate) => !usedCandidates.has(candidate));
@@ -9256,7 +9275,8 @@ function removeEmptyParagraphSibling(element) {
 }
 
 // src/reading-mode/pipeline/processors/definitionListNormalizationProcessor.ts
-var DEFINITION_LIST_NORMALIZATION_DELAY_MS = 50;
+var DOM_SETTLED_FRAME_COUNT = 2;
+var DOM_SETTLED_FALLBACK_MS = 500;
 var DefinitionListNormalizationProcessor = class {
   constructor() {
     this.name = "definition-list-normalization";
@@ -9267,9 +9287,15 @@ var DefinitionListNormalizationProcessor = class {
     return context.config.enableDefinitionLists !== false;
   }
   process(context) {
-    const definitionRoot = getDefinitionListNormalizationRoot(context.element);
-    window.setTimeout(() => {
+    runAfterDomSettles(context.element, () => {
+      const definitionRoot = getDefinitionListNormalizationRoot(context.element);
       if (context.app) {
+        normalizeExistingDefinitionLists(
+          definitionRoot,
+          context.postProcessorContext,
+          context.config,
+          context.renderContext
+        );
         void normalizeDefinitionListsWithFullSource(definitionRoot, context);
         return;
       }
@@ -9279,9 +9305,58 @@ var DefinitionListNormalizationProcessor = class {
         context.config,
         context.renderContext
       );
-    }, DEFINITION_LIST_NORMALIZATION_DELAY_MS);
+    });
   }
 };
+function runAfterDomSettles(root, callback) {
+  const canObserveDom = typeof MutationObserver !== "undefined" && typeof window.requestAnimationFrame === "function";
+  if (!canObserveDom) {
+    window.setTimeout(callback, 0);
+    return;
+  }
+  let settledFrames = 0;
+  let frameId = null;
+  let fallbackId = null;
+  let completed = false;
+  const complete = () => {
+    if (completed) {
+      return;
+    }
+    completed = true;
+    observer.disconnect();
+    if (frameId !== null) {
+      window.cancelAnimationFrame(frameId);
+    }
+    if (fallbackId !== null) {
+      window.clearTimeout(fallbackId);
+    }
+    callback();
+  };
+  const scheduleFrame = () => {
+    if (frameId !== null || completed) {
+      return;
+    }
+    frameId = window.requestAnimationFrame(() => {
+      frameId = null;
+      settledFrames++;
+      if (settledFrames >= DOM_SETTLED_FRAME_COUNT) {
+        complete();
+        return;
+      }
+      scheduleFrame();
+    });
+  };
+  const observer = new MutationObserver(() => {
+    settledFrames = 0;
+    scheduleFrame();
+  });
+  observer.observe(root, {
+    childList: true,
+    subtree: true
+  });
+  fallbackId = window.setTimeout(complete, DOM_SETTLED_FALLBACK_MS);
+  scheduleFrame();
+}
 function getDefinitionListNormalizationRoot(element) {
   return element.closest(".markdown-preview-section") || element.closest(".el-p") || element;
 }
@@ -9968,16 +10043,24 @@ var ExtendedListBlockProcessor = class {
   }
   processDefinitionListParagraph(elem, context) {
     const text = getTextWithLineBreaks3(elem);
-    if (!text.includes("\n") || findPandocDefinitionListBlocks(text).length === 0) {
+    const sourceText = getStandaloneDefinitionListSource(text, context);
+    if (!sourceText.includes("\n") || findPandocDefinitionListBlocks(sourceText).length === 0) {
       return false;
     }
     const rendered = renderPandocDefinitionSource(
-      text,
+      sourceText,
       context.renderContext,
       (target, content, renderContext) => {
         this.renderer.appendContent(target, content, renderContext);
       }
     );
+    if (sourceText !== text) {
+      const blockContainer = elem.closest(".el-p");
+      if (blockContainer) {
+        blockContainer.replaceChildren(...rendered);
+        return true;
+      }
+    }
     if (elem.parentNode) {
       elem.replaceWith(...rendered);
     } else {
@@ -9996,6 +10079,27 @@ function getCandidateTextContainers2(element) {
     return [element, ...descendants];
   }
   return descendants;
+}
+function getStandaloneDefinitionListSource(text, context) {
+  var _a;
+  const sectionText = (_a = context.sectionInfo) == null ? void 0 : _a.text;
+  if (!sectionText || sectionText === text) {
+    return text;
+  }
+  const blocks = findPandocDefinitionListBlocks(sectionText);
+  if (!isStandalonePandocDefinitionList(sectionText, blocks)) {
+    return text;
+  }
+  return matchesDefinitionListSection(text, blocks) ? sectionText : text;
+}
+function matchesDefinitionListSection(text, blocks) {
+  const normalizedText = normalizeCandidateText2(text);
+  return blocks.some(
+    (block) => block.termTexts.some((term) => normalizedText.includes(normalizeCandidateText2(term))) || block.definitionTexts.some((definition) => normalizedText.includes(normalizeCandidateText2(definition)))
+  );
+}
+function normalizeCandidateText2(text) {
+  return text.replace(/\s+/g, " ").trim();
 }
 function shouldSkipElement2(element, sourcePath) {
   return Boolean(
@@ -12326,5 +12430,3 @@ ${issueList}`, UI_CONSTANTS.NOTICE_DURATION_MS);
   }
 };
 var main_default = PandocExtendedMarkdownPlugin;
-
-/* nosourcemap */
