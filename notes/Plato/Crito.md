@@ -36,3 +36,4 @@ This is begging the question. Why reaction to injustice does not give justificat
 
 
 
+47a-48a: not the opinion of the many, but the opinion of the expert
