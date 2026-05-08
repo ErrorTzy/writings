@@ -40,3 +40,8 @@ Every compact metric space is complete.
 :::
 
 See @thm.
+
+::: {.theorem #thm:label} 
+content of theorem in 
+multiple lines
+:::
