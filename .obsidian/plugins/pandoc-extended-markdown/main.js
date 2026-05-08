@@ -243,6 +243,7 @@ var CSS_CLASSES = {
   // Fenced Div Classes
   FENCED_DIV_LINE: "cm-pem-fenced-div-line",
   FENCED_DIV_HEADER: "pem-fenced-div-header",
+  FENCED_DIV_TITLE: "pem-fenced-div-title",
   FENCED_DIV_CLOSING: "pem-fenced-div-closing",
   FENCED_DIV_REFERENCE: "pem-fenced-div-reference",
   FENCED_DIV_PANEL_CONTAINER: "pem-fenced-div-panel-container",
@@ -440,7 +441,7 @@ var SETTINGS_UI = {
   },
   FENCED_DIVS: {
     NAME: "Fenced divs",
-    DESCRIPTION: "Enable Pandoc fenced div blocks such as `::: {.theorem #thm:label}` and `@thm:label` references in Live Preview and Reading mode."
+    DESCRIPTION: "Enable Pandoc fenced div blocks such as `::: {.theorem #thm:label}` in Live Preview and Reading mode."
   },
   SUPERSCRIPT: {
     NAME: "Superscript",
@@ -1595,6 +1596,20 @@ var import_obsidian2 = require("obsidian");
 // src/shared/rendering/ContentProcessorRegistry.ts
 var PANDOC_CITATION_REFERENCE = /@([^\s,;)\]}]+)/g;
 var TRAILING_REFERENCE_PUNCTUATION = /[.!?]+$/;
+var fencedDivReferenceContentProcessor = {
+  id: "fenced-div-references",
+  process: (content, context) => {
+    if (!context.fencedDivLabels) return content;
+    return content.replace(
+      PANDOC_CITATION_REFERENCE,
+      (match, rawLabel) => {
+        const label = resolveFencedDivLabel(rawLabel, context.fencedDivLabels);
+        const reference = label ? context.fencedDivLabels.get(label) : void 0;
+        return reference ? reference.referenceText : match;
+      }
+    );
+  }
+};
 var ContentProcessorRegistry = class _ContentProcessorRegistry {
   constructor() {
     this.processors = /* @__PURE__ */ new Map();
@@ -1666,20 +1681,7 @@ var ContentProcessorRegistry = class _ContentProcessorRegistry {
         );
       }
     });
-    this.registerProcessor({
-      id: "fenced-div-references",
-      process: (content, context) => {
-        if (!context.fencedDivLabels) return content;
-        return content.replace(
-          PANDOC_CITATION_REFERENCE,
-          (match, rawLabel) => {
-            const label = resolveFencedDivLabel(rawLabel, context.fencedDivLabels);
-            const reference = label ? context.fencedDivLabels.get(label) : void 0;
-            return reference ? reference.displayName : match;
-          }
-        );
-      }
-    });
+    this.registerProcessor(fencedDivReferenceContentProcessor);
   }
   /**
    * Clear all processors (useful for testing)
@@ -2081,6 +2083,198 @@ function extractExampleLists(content) {
 // src/shared/extractors/fencedDivExtractor.ts
 var import_state = require("@codemirror/state");
 
+// src/shared/utils/fencedDivReferenceMetadata.ts
+var DEFAULT_TYPE_LABEL = "Div";
+var NUMBER_PLACEHOLDER = "&";
+var PLACEHOLDER_DOT_TOKEN = "PEMPLACEHOLDERDOT";
+var NUMBERING_ESCAPE_CLASSES = /* @__PURE__ */ new Set(["no-num", "unnumbered"]);
+function createFencedDivReference(label, title, classes, lineNumber, content, counters) {
+  const metadata = createFencedDivReferenceMetadata(title, classes, counters);
+  return createFencedDivReferenceFromMetadata(
+    label,
+    classes,
+    lineNumber,
+    content,
+    metadata
+  );
+}
+function createFencedDivReferenceFromMetadata(label, classes, lineNumber, content, metadata) {
+  return {
+    label,
+    title: metadata.title,
+    titleTemplate: metadata.titleTemplate,
+    displayName: metadata.referenceText,
+    typeLabel: metadata.typeLabel,
+    typeKey: metadata.typeKey,
+    number: metadata.number,
+    numberParts: metadata.numberParts,
+    numberingEnabled: metadata.numberingEnabled,
+    referenceText: metadata.referenceText,
+    blockTitleText: metadata.blockTitleText,
+    lineNumber,
+    classes,
+    content
+  };
+}
+function createFencedDivReferenceMetadata(title, classes, counters) {
+  var _a;
+  const normalizedTitle = normalizeTitle(title);
+  const titleTemplate = normalizedTitle;
+  const numberingEnabled = shouldNumberFencedDivTitle(titleTemplate, classes);
+  const typeLabel = numberingEnabled ? getFencedDivTypeLabel(getTitleStem(titleTemplate), classes) : getFencedDivTypeLabel(unescapeEscapedAmpersands(titleTemplate), classes);
+  const typeKey = getFencedDivTypeKey(typeLabel);
+  const numberParts = numberingEnabled ? advanceFencedDivCounter(counters, typeKey, ((_a = findFirstPlaceholderGroup(titleTemplate)) == null ? void 0 : _a.depth) || 1) : [];
+  const number = numberParts[numberParts.length - 1] || 0;
+  const referenceText = numberingEnabled ? renderNumberedTitle(titleTemplate, numberParts) : typeLabel;
+  const blockTitleText = shouldRenderFencedDivBlockTitle(normalizedTitle, classes) ? referenceText : "";
+  return {
+    title: normalizedTitle,
+    titleTemplate,
+    typeLabel,
+    typeKey,
+    number,
+    numberParts,
+    numberingEnabled,
+    referenceText,
+    blockTitleText
+  };
+}
+function getFencedDivTitle(attributes) {
+  return normalizeTitle(attributes.keyValues.get("title"));
+}
+function getFencedDivTypeLabel(title, classes) {
+  if (title) {
+    return title;
+  }
+  const firstClass = classes.find((className) => !isFencedDivControlClass(className));
+  if (!firstClass) {
+    return DEFAULT_TYPE_LABEL;
+  }
+  return humanizeClassName(firstClass) || DEFAULT_TYPE_LABEL;
+}
+function getFencedDivTitleClass(classes) {
+  return classes.find((className) => !isFencedDivControlClass(className));
+}
+function isFencedDivControlClass(className) {
+  return isNumberingEscapeClass(className) || isPlaceholderOnlyTitle(humanizeClassName(className));
+}
+function synthesizeFencedDivTitleFromClasses(classes) {
+  const titleClasses = classes.filter((className) => !isNumberingEscapeClass(className));
+  if (titleClasses.length === 0) {
+    return "";
+  }
+  const titleParts = titleClasses.map((className) => humanizeClassName(className));
+  const placeholderIndex = titleParts.findIndex((part) => Boolean(findFirstPlaceholderGroup(part)));
+  if (placeholderIndex < 0) {
+    return titleParts[0] || "";
+  }
+  if (!isPlaceholderOnlyTitle(titleParts[placeholderIndex] || "")) {
+    return titleParts[placeholderIndex] || "";
+  }
+  const titleIndex = titleParts.findIndex((part) => !isPlaceholderOnlyTitle(part));
+  if (titleIndex < 0) {
+    return titleParts[placeholderIndex] || "";
+  }
+  const placeholder = titleParts[placeholderIndex] || "";
+  const title = titleParts[titleIndex] || "";
+  return placeholderIndex < titleIndex ? `${placeholder} ${title}` : `${title} ${placeholder}`;
+}
+function getFencedDivTypeKey(typeLabel) {
+  return typeLabel.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "") || DEFAULT_TYPE_LABEL.toLowerCase();
+}
+function createFencedDivTypeCounters(references) {
+  const counters = /* @__PURE__ */ new Map();
+  for (const reference of references) {
+    const numberParts = reference.numberParts || [];
+    if (!reference.numberingEnabled || numberParts.length === 0) {
+      continue;
+    }
+    counters.set(reference.typeKey, [...numberParts]);
+  }
+  return counters;
+}
+function normalizeTitle(title) {
+  return (title || "").trim();
+}
+function shouldRenderFencedDivBlockTitle(title, classes) {
+  return Boolean(title || classes.some((className) => !isFencedDivControlClass(className)));
+}
+function humanizeClassName(className) {
+  return preservePlaceholderDots(className).replace(/[_:-]+/g, " ").replace(/\./g, " ").replace(/\s+/g, " ").trim().replace(new RegExp(PLACEHOLDER_DOT_TOKEN, "g"), ".").replace(/\b\w/g, (char) => char.toUpperCase());
+}
+function shouldNumberFencedDivTitle(title, classes) {
+  return Boolean(findFirstPlaceholderGroup(title)) && !classes.some((className) => isNumberingEscapeClass(className));
+}
+function isNumberingEscapeClass(className) {
+  return NUMBERING_ESCAPE_CLASSES.has(className.toLowerCase());
+}
+function getTitleStem(title) {
+  const placeholderGroup = findFirstPlaceholderGroup(title);
+  const stem = placeholderGroup ? `${title.slice(0, placeholderGroup.start)}${title.slice(placeholderGroup.end)}` : title;
+  return unescapeEscapedAmpersands(stem).replace(/[^\w\s]+/g, " ").replace(/\s+/g, " ").trim();
+}
+function advanceFencedDivCounter(counters, typeKey, depth) {
+  const currentParts = counters.get(typeKey) || [];
+  const nextParts = currentParts.slice(0, depth);
+  for (let index = 0; index < depth - 1; index++) {
+    nextParts[index] = nextParts[index] || 1;
+  }
+  nextParts[depth - 1] = (nextParts[depth - 1] || 0) + 1;
+  counters.set(typeKey, nextParts);
+  return [...nextParts];
+}
+function renderNumberedTitle(title, numberParts) {
+  const placeholderGroup = findFirstPlaceholderGroup(title);
+  if (!placeholderGroup) {
+    return unescapeEscapedAmpersands(title);
+  }
+  let index = 0;
+  const renderedGroup = title.slice(placeholderGroup.start, placeholderGroup.end).replace(/&/g, () => String(numberParts[index++] || 0));
+  return unescapeEscapedAmpersands(
+    `${title.slice(0, placeholderGroup.start)}${renderedGroup}${title.slice(placeholderGroup.end)}`
+  );
+}
+function preservePlaceholderDots(value) {
+  let result = "";
+  for (let index = 0; index < value.length; index++) {
+    const char = value[index];
+    result += char === "." && value[index - 1] === NUMBER_PLACEHOLDER && value[index + 1] === NUMBER_PLACEHOLDER ? PLACEHOLDER_DOT_TOKEN : char;
+  }
+  return result;
+}
+function isPlaceholderOnlyTitle(value) {
+  const placeholderGroup = findFirstPlaceholderGroup(value);
+  return Boolean(placeholderGroup && placeholderGroup.start === 0 && placeholderGroup.end === value.length);
+}
+function findFirstPlaceholderGroup(value) {
+  let escaped = false;
+  for (let index = 0; index < value.length; index++) {
+    const char = value[index];
+    if (escaped) {
+      escaped = false;
+      continue;
+    }
+    if (char === "\\") {
+      escaped = true;
+      continue;
+    }
+    if (char !== NUMBER_PLACEHOLDER) {
+      continue;
+    }
+    let end = index + 1;
+    let depth = 1;
+    while (value[end] === "." && value[end + 1] === NUMBER_PLACEHOLDER) {
+      depth++;
+      end += 2;
+    }
+    return { start: index, end, depth };
+  }
+  return void 0;
+}
+function unescapeEscapedAmpersands(value) {
+  return value.replace(/\\&/g, "&");
+}
+
 // src/live-preview/pipeline/structural/fencedDiv/parser.ts
 var OPENING_FENCE = /^(:{3,})(.*)$/;
 var CLOSING_FENCE = /^:{3,}[ \t]*$/;
@@ -2088,7 +2282,9 @@ var ATTRIBUTE_KEY = /^[A-Za-z:][A-Za-z0-9_:.-]*$/;
 var ATTRIBUTE_ID = /^#[^\s@,=]+$/;
 var ATTRIBUTE_CLASS = /^\.[\p{L}][\p{L}\p{N}_:.-]*$/u;
 var TRAILING_COLONS = /^[ \t]*:+[ \t]*$/;
+var TRAILING_VISUAL_COLONS = /[ \t]+:+[ \t]*$/;
 var UNBRACED_CLASS = /^(\S+)(?:[ \t]+:+)?$/;
+var READABLE_CLASS = /^[^\s#={},]+$/;
 var HTML_BLOCK_TAGS = /* @__PURE__ */ new Set([
   "address",
   "article",
@@ -2163,7 +2359,7 @@ function allowsFencedDivOpeningAfterLine(lineText) {
   }
   return isAtxHeading(trimmedLine) || isThematicBreak(trimmedLine) || isSingleLineHtmlBlock(trimmedLine);
 }
-function parseFencedDivOpening(lineText) {
+function parseFencedDivOpening(lineText, settings) {
   const openingMatch = lineText.match(OPENING_FENCE);
   if (!openingMatch) {
     return null;
@@ -2173,7 +2369,11 @@ function parseFencedDivOpening(lineText) {
   if (!rawAttributes) {
     return null;
   }
-  const parsedAttributes = rawAttributes.startsWith("{") ? parseBracedAttributes(rawAttributes) : parseUnbracedAttributes(rawAttributes);
+  const parsedAttributes = parseOpeningAttributes(
+    rawAttributes,
+    openingMatch[2] || "",
+    settings
+  );
   if (!parsedAttributes) {
     return null;
   }
@@ -2185,6 +2385,15 @@ function parseFencedDivOpening(lineText) {
     ...parsedAttributes
   };
 }
+function parseOpeningAttributes(rawAttributes, rawTextAfterFence, settings) {
+  if (rawAttributes.startsWith("{")) {
+    return parseBracedAttributes(rawAttributes) || parseReadableBracedTitleAfterAttributes(rawAttributes, rawTextAfterFence, settings);
+  }
+  if (!(settings == null ? void 0 : settings.strictPandocMode) && /^[ \t]+/.test(rawTextAfterFence)) {
+    return parseReadableBracedTitleBeforeAttributes(rawAttributes) || parseReadableShorthandAttributes(rawAttributes) || parseUnbracedAttributes(rawAttributes);
+  }
+  return parseUnbracedAttributes(rawAttributes);
+}
 function isAtxHeading(lineText) {
   return /^#{1,6}(?:[ \t]+|$)/.test(lineText);
 }
@@ -2195,12 +2404,8 @@ function isSingleLineHtmlBlock(lineText) {
   const match = lineText.match(/^<([A-Za-z][A-Za-z0-9-]*)(?:\s[^>]*)?>.*<\/\1>$/);
   return Boolean((match == null ? void 0 : match[1]) && HTML_BLOCK_TAGS.has(match[1].toLowerCase()));
 }
-function getFencedDivDisplayName(classes) {
-  const primaryClass = classes[0] || "div";
-  return primaryClass.replace(/[-_]+/g, " ").replace(/\b\w/g, (char) => char.toUpperCase());
-}
 function getFencedDivCssClass(classes) {
-  const primaryClass = classes[0];
+  const primaryClass = getFencedDivTitleClass(classes);
   if (!primaryClass) {
     return void 0;
   }
@@ -2227,18 +2432,117 @@ function parseBracedAttributes(rawAttributes) {
   }
   return tokens.length === 1 ? createUnbracedClass(bracedAttributeText) : null;
 }
+function parseReadableBracedTitleAfterAttributes(rawAttributes, rawTextAfterFence, settings) {
+  if ((settings == null ? void 0 : settings.strictPandocMode) || !/^[ \t]+/.test(rawTextAfterFence)) {
+    return null;
+  }
+  const closingBraceIndex = findClosingBrace(rawAttributes);
+  if (closingBraceIndex < 0) {
+    return null;
+  }
+  const title = stripTrailingVisualColons(rawAttributes.slice(closingBraceIndex + 1)).trim();
+  if (!title) {
+    return null;
+  }
+  const parsedAttributes = parseBracedAttributeSlice(rawAttributes, 0, closingBraceIndex);
+  return parsedAttributes ? withTitle(parsedAttributes, title) : null;
+}
+function parseReadableBracedTitleBeforeAttributes(rawAttributes) {
+  const attributeText = stripTrailingVisualColons(rawAttributes).trim();
+  const closingBraceIndex = attributeText.length - 1;
+  if (attributeText[closingBraceIndex] !== "}") {
+    return null;
+  }
+  for (let index = 0; index < attributeText.length; index++) {
+    if (attributeText[index] !== "{") {
+      continue;
+    }
+    const localClosingBraceIndex = findClosingBrace(attributeText.slice(index));
+    if (localClosingBraceIndex < 0 || index + localClosingBraceIndex !== closingBraceIndex) {
+      continue;
+    }
+    const title = attributeText.slice(0, index).trim();
+    if (!title) {
+      return null;
+    }
+    const parsedAttributes = parseBracedAttributeSlice(
+      attributeText,
+      index,
+      closingBraceIndex
+    );
+    return parsedAttributes ? withTitle(parsedAttributes, title) : null;
+  }
+  return null;
+}
+function parseBracedAttributeSlice(text, openingBraceIndex, closingBraceIndex) {
+  const content = text.slice(openingBraceIndex + 1, closingBraceIndex);
+  const tokens = splitAttributeTokens(content);
+  return tokens ? parseAttributeTokens(tokens) : null;
+}
+function withTitle(attributes, title) {
+  attributes.keyValues.set("title", title);
+  return attributes;
+}
 function parseUnbracedAttributes(rawAttributes) {
   const unbracedMatch = rawAttributes.match(UNBRACED_CLASS);
   if (!unbracedMatch) {
     return null;
   }
-  return createUnbracedClass(unbracedMatch[1] || "");
+  return createUnbracedClassWithTitle(unbracedMatch[1] || "");
 }
 function createUnbracedClass(className) {
   return {
     classes: [className],
     keyValues: /* @__PURE__ */ new Map()
   };
+}
+function createUnbracedClassWithTitle(className) {
+  const attributes = createUnbracedClass(className);
+  attributes.keyValues = withSynthesizedTitle(attributes.keyValues, attributes.classes);
+  return attributes;
+}
+function parseReadableShorthandAttributes(rawAttributes) {
+  const attributeText = rawAttributes.replace(TRAILING_VISUAL_COLONS, "").trim();
+  if (!attributeText) {
+    return null;
+  }
+  const tokens = splitAttributeTokens(attributeText);
+  if (!tokens || tokens.length === 0) {
+    return null;
+  }
+  const classes = [];
+  const keyValues = /* @__PURE__ */ new Map();
+  let id;
+  for (const token of tokens) {
+    if (ATTRIBUTE_ID.test(token)) {
+      id = token.slice(1);
+      continue;
+    }
+    if (token.includes("=")) {
+      const parsedKeyValue = parseKeyValueToken(token);
+      if (!parsedKeyValue) {
+        return null;
+      }
+      keyValues.set(parsedKeyValue.key, parsedKeyValue.value);
+      continue;
+    }
+    if (isReadableClassToken(token)) {
+      classes.push(token);
+      continue;
+    }
+    return null;
+  }
+  return {
+    id,
+    classes,
+    keyValues: withSynthesizedTitle(keyValues, classes)
+  };
+}
+function isReadableClassToken(token) {
+  return READABLE_CLASS.test(token) && !/^:+$/.test(token);
+}
+function stripTrailingVisualColons(text) {
+  return text.replace(TRAILING_VISUAL_COLONS, "");
 }
 function parseAttributeTokens(tokens) {
   const classes = [];
@@ -2280,7 +2584,7 @@ function parseAttributeTokens(tokens) {
   return {
     id,
     classes,
-    keyValues
+    keyValues: withSynthesizedTitle(keyValues, classes)
   };
 }
 function parseDashToken(token) {
@@ -2358,6 +2662,16 @@ function parseKeyValueToken(token) {
     value: stripQuotes(rawValue)
   };
 }
+function withSynthesizedTitle(keyValues, classes) {
+  if (keyValues.has("title")) {
+    return keyValues;
+  }
+  const title = synthesizeFencedDivTitleFromClasses(classes);
+  if (title) {
+    keyValues.set("title", title);
+  }
+  return keyValues;
+}
 function stripQuotes(value) {
   if (value.length < 2) {
     return value;
@@ -2370,7 +2684,7 @@ function stripQuotes(value) {
   let escaped = false;
   for (const char of value.slice(1, -1)) {
     if (escaped) {
-      unquoted += char;
+      unquoted += char === "&" ? `\\${char}` : char;
       escaped = false;
       continue;
     }
@@ -2588,6 +2902,7 @@ function extractFencedDivsFromDoc(doc, settings, codeRegions) {
   const stack = [];
   let canOpenAtCurrentLine = true;
   let fallbackCodeFenceMarker;
+  const typeCounters = /* @__PURE__ */ new Map();
   for (let lineNum = 1; lineNum <= doc.lines; lineNum++) {
     const line = doc.line(lineNum);
     if (codeRegions && isLineInCodeRegion(lineNum, doc, codeRegions)) {
@@ -2609,13 +2924,22 @@ function extractFencedDivsFromDoc(doc, settings, codeRegions) {
       canOpenAtCurrentLine = false;
       continue;
     }
-    const opening = canOpenAtCurrentLine ? parseFencedDivOpening(line.text) : null;
+    const opening = canOpenAtCurrentLine ? parseFencedDivOpening(line.text, settings) : null;
     if (opening) {
+      const title = getFencedDivTitle(opening);
+      const metadata = createFencedDivReferenceMetadata(title, opening.classes, typeCounters);
       const activeDiv = {
-        title: opening.classes.length > 0 ? getFencedDivDisplayName(opening.classes) : "",
+        title: metadata.title,
         label: opening.id || "",
         content: "",
         classes: opening.classes,
+        typeLabel: metadata.typeLabel,
+        typeKey: metadata.typeKey,
+        number: metadata.number,
+        numberParts: metadata.numberParts,
+        numberingEnabled: metadata.numberingEnabled,
+        referenceText: metadata.referenceText,
+        blockTitleText: metadata.blockTitleText,
         lineNumber: lineNum - 1,
         contentLineNumber: lineNum - 1,
         position: { line: lineNum - 1, ch: 0 },
@@ -2761,17 +3085,22 @@ var BasePanelModule = class {
     const fencedDivLabels = /* @__PURE__ */ new Map();
     if (isSyntaxFeatureEnabled(this.plugin.settings, "enableFencedDivs")) {
       const fencedDivs = extractFencedDivs(content, this.plugin.settings);
+      const typeCounters = /* @__PURE__ */ new Map();
       fencedDivs.forEach((item) => {
         if (!item.label || fencedDivLabels.has(item.label)) {
           return;
         }
-        fencedDivLabels.set(item.label, {
-          label: item.label,
-          displayName: item.title || "Div",
-          lineNumber: item.lineNumber + 1,
-          classes: item.classes,
-          content: item.content
-        });
+        fencedDivLabels.set(
+          item.label,
+          createFencedDivReference(
+            item.label,
+            item.title,
+            item.classes,
+            item.lineNumber + 1,
+            item.content,
+            typeCounters
+          )
+        );
       });
     }
     this.currentContext = {
@@ -3663,7 +3992,7 @@ var FencedDivPanelModule = class extends BasePanelModule {
     const titleEl = row.createEl("td", {
       cls: CSS_CLASSES.FENCED_DIV_PANEL_TITLE
     });
-    titleEl.textContent = item.title;
+    titleEl.textContent = item.blockTitleText;
     const labelEl = row.createEl("td", {
       cls: CSS_CLASSES.FENCED_DIV_PANEL_LABEL
     });
@@ -5129,7 +5458,16 @@ function scanFencedDivs(doc, settings, codeRegions) {
     }
     labels.set(item.label, {
       label: item.label,
-      displayName: item.title || "Div",
+      title: item.title,
+      titleTemplate: item.title,
+      displayName: item.referenceText,
+      typeLabel: item.typeLabel,
+      typeKey: item.typeKey,
+      number: item.number,
+      numberParts: item.numberParts,
+      numberingEnabled: item.numberingEnabled,
+      referenceText: item.referenceText,
+      blockTitleText: item.blockTitleText,
       lineNumber: item.lineNumber + 1,
       classes: item.classes,
       content: item.content
@@ -5362,6 +5700,7 @@ var ProcessingPipeline = class {
         pendingBlankLine: false
       },
       fencedDivStack: [],
+      fencedDivTypeCounters: /* @__PURE__ */ new Map(),
       fencedDivCanOpenAtCurrentLine: true
     };
   }
@@ -5784,20 +6123,22 @@ var DefinitionBulletWidget = class extends BaseWidget {
 
 // src/live-preview/widgets/fencedDivWidget.ts
 var FencedDivHeaderWidget = class extends BaseWidget {
-  constructor(displayName, label, view, pos) {
+  constructor(label, titleText = "", view, pos) {
     super(view, pos);
-    this.displayName = displayName;
     this.label = label;
+    this.titleText = titleText;
   }
   applyStyles(element) {
-    element.className = CSS_CLASSES.FENCED_DIV_HEADER;
+    element.className = [
+      CSS_CLASSES.FENCED_DIV_HEADER,
+      this.titleText ? CSS_CLASSES.FENCED_DIV_TITLE : void 0
+    ].filter(Boolean).join(" ");
     if (this.label) {
       element.dataset.pandocDivId = this.label;
     }
   }
   setContent(element) {
-    const titleElement = this.createElement("span", "pem-fenced-div-title", this.displayName);
-    element.appendChild(titleElement);
+    element.textContent = this.titleText;
   }
   setupTooltip(element) {
     if (this.label) {
@@ -5805,7 +6146,7 @@ var FencedDivHeaderWidget = class extends BaseWidget {
     }
   }
   eq(other) {
-    return other.displayName === this.displayName && other.label === this.label && other.pos === this.pos;
+    return other.label === this.label && other.titleText === this.titleText && other.pos === this.pos;
   }
 };
 var FencedDivClosingWidget = class extends BaseWidget {
@@ -6914,19 +7255,30 @@ var FencedDivProcessor = class extends BaseStructuralProcessor {
     if (!isSyntaxFeatureEnabled(context.settings, "enableFencedDivs")) {
       return false;
     }
-    if (this.canOpenAtCurrentLine(context) && parseFencedDivOpening(line.text)) {
+    if (this.canOpenAtCurrentLine(context) && parseFencedDivOpening(line.text, context.settings)) {
       return true;
     }
     const stack = context.fencedDivStack || [];
     return stack.length > 0;
   }
   process(line, context) {
-    const opening = this.canOpenAtCurrentLine(context) ? parseFencedDivOpening(line.text) : null;
+    var _a, _b;
+    const opening = this.canOpenAtCurrentLine(context) ? parseFencedDivOpening(line.text, context.settings) : null;
     if (opening) {
+      context.fencedDivTypeCounters = context.fencedDivTypeCounters || /* @__PURE__ */ new Map();
+      const renderExtendedTitle = !context.settings.strictPandocMode;
+      const title = renderExtendedTitle ? getFencedDivTitle(opening) : "";
+      const metadata = renderExtendedTitle && (opening.id || title || opening.classes.length > 0) ? createFencedDivReferenceMetadata(
+        title,
+        opening.classes,
+        context.fencedDivTypeCounters
+      ) : void 0;
+      const reference = opening.id ? (_a = context.fencedDivLabels) == null ? void 0 : _a.get(opening.id) : void 0;
       return this.processOpeningFence(line, context, {
         label: opening.id,
         classes: opening.classes,
-        openingLine: line.number
+        openingLine: line.number,
+        displayName: renderExtendedTitle ? (_b = reference == null ? void 0 : reference.blockTitleText) != null ? _b : metadata == null ? void 0 : metadata.blockTitleText : void 0
       });
     }
     if (isFencedDivClosing(line.text) && (context.fencedDivStack || []).length > 0) {
@@ -6935,18 +7287,13 @@ var FencedDivProcessor = class extends BaseStructuralProcessor {
     return this.processContentLine(line, context);
   }
   processOpeningFence(line, context, stackItem) {
-    const displayName = getFencedDivDisplayName(stackItem.classes);
-    const activeItem = {
-      ...stackItem,
-      displayName
-    };
     context.fencedDivStack = context.fencedDivStack || [];
-    context.fencedDivStack.push(activeItem);
+    context.fencedDivStack.push(stackItem);
     context.fencedDivBoundaryLine = line.number;
     const renderDepth = context.fencedDivStack.length;
     const decorations = [
       this.createFenceLineDecoration(line, "cm-pem-fenced-div-open", stackItem.classes, renderDepth),
-      this.createOpeningMarkerDecoration(line, context, displayName, stackItem.label)
+      this.createOpeningMarkerDecoration(line, context, stackItem.label, stackItem.displayName || "")
     ];
     return {
       decorations,
@@ -6979,7 +7326,7 @@ var FencedDivProcessor = class extends BaseStructuralProcessor {
       skipFurtherProcessing: false
     };
   }
-  createOpeningMarkerDecoration(line, context, displayName, label) {
+  createOpeningMarkerDecoration(line, context, label, titleText) {
     if (this.isCursorOnFenceLine(line, context)) {
       return {
         from: line.from,
@@ -6993,7 +7340,12 @@ var FencedDivProcessor = class extends BaseStructuralProcessor {
       from: line.from,
       to: line.to,
       decoration: import_view7.Decoration.replace({
-        widget: new FencedDivHeaderWidget(displayName, label, context.view, line.from),
+        widget: new FencedDivHeaderWidget(
+          label,
+          titleText,
+          context.view,
+          line.from
+        ),
         inclusive: false
       })
     };
@@ -7541,7 +7893,7 @@ var FencedDivReferenceProcessor = class {
   }
   findMatches(text, region, context) {
     const matches = [];
-    if (!isSyntaxFeatureEnabled(context.settings, "enableFencedDivs")) {
+    if (!isSyntaxFeatureEnabled(context.settings, "enableFencedDivs") || context.settings.strictPandocMode) {
       return matches;
     }
     const labels = context.fencedDivLabels || /* @__PURE__ */ new Map();
@@ -7578,7 +7930,7 @@ var FencedDivReferenceProcessor = class {
     const absolutePosition = match.from + ((region == null ? void 0 : region.from) || 0);
     return import_view14.Decoration.replace({
       widget: new FencedDivReferenceWidget(
-        (reference == null ? void 0 : reference.displayName) || "Div",
+        (reference == null ? void 0 : reference.referenceText) || "Div",
         label,
         reference == null ? void 0 : reference.content,
         context.view,
@@ -7776,7 +8128,7 @@ var FencedDivReferenceInlineProcessor = class {
     this.priority = 315;
   }
   isEnabled(context) {
-    return context.config.enableFencedDivs !== false;
+    return context.config.enableFencedDivs !== false && !context.config.strictPandocMode;
   }
   findMatches(text, _node, context) {
     const matches = [];
@@ -7803,7 +8155,7 @@ var FencedDivReferenceInlineProcessor = class {
     const span = document.createElement("span");
     span.className = CSS_CLASSES.FENCED_DIV_REFERENCE;
     span.dataset.pandocDivRef = label;
-    span.textContent = (reference == null ? void 0 : reference.displayName) || "Div";
+    span.textContent = (reference == null ? void 0 : reference.referenceText) || "Div";
     if (reference == null ? void 0 : reference.content) {
       (0, import_obsidian13.setTooltip)(span, reference.content, { delay: DECORATION_STYLES.TOOLTIP_DELAY_MS });
     }
@@ -10152,339 +10504,6 @@ function validateListInStrictMode2(line, documentLines, config) {
 
 // src/reading-mode/parsers/fencedDivParser.ts
 var import_obsidian16 = require("obsidian");
-var PANDOC_CITATION_REFERENCE4 = /@([^\s,;)\]}]+)/g;
-var TRAILING_REFERENCE_PUNCTUATION4 = /[.!?]+$/;
-var MAX_DEPTH_CLASS = 6;
-var pendingSectionProcessing = /* @__PURE__ */ new WeakMap();
-var chunkStacks = /* @__PURE__ */ new Map();
-function scheduleFencedDivProcessing(element, docPath, config) {
-  if (config.enableFencedDivs === false) {
-    return;
-  }
-  const section = element.closest(".markdown-preview-section");
-  if (!section) {
-    processFencedDivs(element, docPath, config, true);
-    return;
-  }
-  const pending = pendingSectionProcessing.get(section);
-  if (pending !== void 0) {
-    window.clearTimeout(pending);
-  }
-  const timeout = window.setTimeout(() => {
-    pendingSectionProcessing.delete(section);
-    processFencedDivs(section, docPath, config);
-  }, 0);
-  pendingSectionProcessing.set(section, timeout);
-}
-function processFencedDivs(element, docPath, config, preserveStack = false) {
-  if (config.enableFencedDivs === false) {
-    return;
-  }
-  const labels = pluginStateManager.getDocumentCounters(docPath).fencedDivLabels;
-  const stack = preserveStack ? getChunkStack(docPath) : [];
-  const candidates = Array.from(element.querySelectorAll("p, li"));
-  for (const candidate of candidates) {
-    if (shouldSkipElement3(candidate)) {
-      continue;
-    }
-    const lineText = getTextWithLineBreaks4(candidate);
-    if (processMultilineCandidate(candidate, lineText, stack, labels)) {
-      continue;
-    }
-    const opening = parseFencedDivOpening(lineText);
-    if (opening) {
-      const displayName = getFencedDivDisplayName(opening.classes);
-      const reference = {
-        label: opening.id || "",
-        displayName,
-        lineNumber: 0,
-        classes: opening.classes,
-        content: ""
-      };
-      const fencedDiv = createFencedDivElement(displayName, opening.id, opening.classes, stack.length + 1);
-      if (opening.id && !labels.has(opening.id)) {
-        labels.set(opening.id, reference);
-      }
-      insertFencedDiv(candidate, fencedDiv.block, stack);
-      stack.push({
-        contentElement: fencedDiv.content,
-        contentLines: [],
-        reference
-      });
-      continue;
-    }
-    if (isFencedDivClosing(lineText) && stack.length > 0) {
-      const closed = stack.pop();
-      if (closed) {
-        closed.reference.content = closed.contentLines.join("\n").trim();
-      }
-      candidate.remove();
-      continue;
-    }
-    if (stack.length > 0) {
-      for (const active of stack) {
-        active.contentLines.push(lineText);
-        active.reference.content = active.contentLines.join("\n").trim();
-      }
-      stack[stack.length - 1].contentElement.appendChild(candidate);
-    }
-  }
-  processFencedDivReferences(element, labels);
-  if (preserveStack && stack.length === 0) {
-    chunkStacks.delete(docPath);
-  }
-}
-function getChunkStack(docPath) {
-  let stack = chunkStacks.get(docPath);
-  if (!stack) {
-    stack = [];
-    chunkStacks.set(docPath, stack);
-  }
-  return stack;
-}
-function processMultilineCandidate(candidate, text, stack, labels) {
-  if (!text.includes("\n")) {
-    return false;
-  }
-  const lines = text.split("\n");
-  if (!lines.some((line) => parseFencedDivOpening(line) || isFencedDivClosing(line))) {
-    return false;
-  }
-  const fragments = [];
-  for (const line of lines) {
-    const opening = parseFencedDivOpening(line);
-    if (opening) {
-      const displayName = getFencedDivDisplayName(opening.classes);
-      const reference = {
-        label: opening.id || "",
-        displayName,
-        lineNumber: 0,
-        classes: opening.classes,
-        content: ""
-      };
-      const fencedDiv = createFencedDivElement(displayName, opening.id, opening.classes, stack.length + 1);
-      if (opening.id && !labels.has(opening.id)) {
-        labels.set(opening.id, reference);
-      }
-      appendRenderedLineNode(fencedDiv.block, fragments, stack);
-      stack.push({
-        contentElement: fencedDiv.content,
-        contentLines: [],
-        reference
-      });
-      continue;
-    }
-    if (isFencedDivClosing(line) && stack.length > 0) {
-      const closed = stack.pop();
-      if (closed) {
-        closed.reference.content = closed.contentLines.join("\n").trim();
-      }
-      continue;
-    }
-    appendContentLine(line, fragments, stack);
-  }
-  if (stack.length > 0) {
-    for (const active of stack) {
-      active.reference.content = active.contentLines.join("\n").trim();
-    }
-  }
-  replaceCandidateWithFragments(candidate, fragments);
-  return true;
-}
-function createFencedDivElement(displayName, label, classes, depth) {
-  const block = document.createElement("div");
-  const primaryClass = getFencedDivCssClass(classes);
-  const depthClass = Math.min(depth, MAX_DEPTH_CLASS);
-  block.className = [
-    "pem-fenced-div",
-    depth > 1 ? "pem-fenced-div-inner" : void 0,
-    depth > 1 ? `pem-fenced-div-depth-${depthClass}` : void 0,
-    primaryClass ? `pem-fenced-div-${primaryClass}` : void 0
-  ].filter(Boolean).join(" ");
-  if (label) {
-    block.dataset.pandocDivId = label;
-  }
-  const header = document.createElement("div");
-  header.className = CSS_CLASSES.FENCED_DIV_HEADER;
-  if (label) {
-    header.dataset.pandocDivId = label;
-    (0, import_obsidian16.setTooltip)(header, `#${label}`, { delay: DECORATION_STYLES.TOOLTIP_DELAY_MS });
-  }
-  const title = document.createElement("span");
-  title.className = "pem-fenced-div-title";
-  title.textContent = `${displayName}:`;
-  header.appendChild(title);
-  const content = document.createElement("div");
-  content.className = "pem-fenced-div-content";
-  block.appendChild(header);
-  block.appendChild(content);
-  return { block, content };
-}
-function appendContentLine(line, fragments, stack) {
-  const paragraph = document.createElement("p");
-  paragraph.textContent = line;
-  if (stack.length > 0) {
-    for (const active of stack) {
-      active.contentLines.push(line);
-      active.reference.content = active.contentLines.join("\n").trim();
-    }
-  }
-  appendRenderedLineNode(paragraph, fragments, stack);
-}
-function appendRenderedLineNode(node, fragments, stack) {
-  const active = stack[stack.length - 1];
-  if (active) {
-    active.contentElement.appendChild(node);
-    return;
-  }
-  fragments.push(node);
-}
-function replaceCandidateWithFragments(candidate, fragments) {
-  const parent = candidate.parentNode;
-  if (!parent) {
-    return;
-  }
-  if (fragments.length === 0) {
-    candidate.remove();
-    return;
-  }
-  for (const fragment of fragments) {
-    parent.insertBefore(fragment, candidate);
-  }
-  parent.removeChild(candidate);
-}
-function insertFencedDiv(sourceElement, fencedDiv, stack) {
-  var _a;
-  const active = stack[stack.length - 1];
-  if (active) {
-    active.contentElement.appendChild(fencedDiv);
-    sourceElement.remove();
-    return;
-  }
-  (_a = sourceElement.parentNode) == null ? void 0 : _a.insertBefore(fencedDiv, sourceElement);
-  sourceElement.remove();
-}
-function processFencedDivReferences(element, labels) {
-  const walker = document.createTreeWalker(
-    element,
-    NodeFilter.SHOW_TEXT,
-    {
-      acceptNode(node) {
-        var _a;
-        const parent = node.parentElement;
-        if (!parent || isCodeElement4(parent) || parent.closest(`.${CSS_CLASSES.FENCED_DIV_REFERENCE}`)) {
-          return NodeFilter.FILTER_REJECT;
-        }
-        return ((_a = node.textContent) == null ? void 0 : _a.includes("@")) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
-      }
-    }
-  );
-  const nodes = [];
-  while (walker.nextNode()) {
-    nodes.push(walker.currentNode);
-  }
-  for (const node of nodes) {
-    replaceReferencesInTextNode(node, labels);
-  }
-}
-function replaceReferencesInTextNode(node, labels) {
-  const text = node.textContent || "";
-  const replacements = [];
-  let lastIndex = 0;
-  let match;
-  PANDOC_CITATION_REFERENCE4.lastIndex = 0;
-  while ((match = PANDOC_CITATION_REFERENCE4.exec(text)) !== null) {
-    const label = resolveLabel2(match[1], labels);
-    if (!label) {
-      continue;
-    }
-    const startIndex = match.index;
-    const endIndex = startIndex + label.length + 1;
-    if (startIndex > lastIndex) {
-      replacements.push(document.createTextNode(text.substring(lastIndex, startIndex)));
-    }
-    replacements.push(createReferenceElement(label, labels.get(label)));
-    lastIndex = endIndex;
-  }
-  if (lastIndex === 0) {
-    return;
-  }
-  if (lastIndex < text.length) {
-    replacements.push(document.createTextNode(text.substring(lastIndex)));
-  }
-  const parent = node.parentNode;
-  if (!parent) {
-    return;
-  }
-  for (const replacement of replacements) {
-    parent.insertBefore(replacement, node);
-  }
-  parent.removeChild(node);
-}
-function createReferenceElement(label, reference) {
-  const span = document.createElement("span");
-  span.className = CSS_CLASSES.FENCED_DIV_REFERENCE;
-  span.dataset.pandocDivRef = label;
-  span.textContent = (reference == null ? void 0 : reference.displayName) || "Div";
-  if (reference == null ? void 0 : reference.content) {
-    (0, import_obsidian16.setTooltip)(span, reference.content, { delay: DECORATION_STYLES.TOOLTIP_DELAY_MS });
-  }
-  return span;
-}
-function resolveLabel2(rawLabel, labels) {
-  if (!rawLabel) {
-    return void 0;
-  }
-  if (labels.has(rawLabel)) {
-    return rawLabel;
-  }
-  const trimmedLabel = rawLabel.replace(TRAILING_REFERENCE_PUNCTUATION4, "");
-  if (trimmedLabel !== rawLabel && labels.has(trimmedLabel)) {
-    return trimmedLabel;
-  }
-  return void 0;
-}
-function getTextWithLineBreaks4(elem) {
-  const parts = [];
-  elem.childNodes.forEach((node) => appendNodeText4(node, parts));
-  return parts.join("");
-}
-function appendNodeText4(node, parts) {
-  if (node.nodeName === "BR") {
-    parts.push("\n");
-    return;
-  }
-  if (node.nodeType === Node.TEXT_NODE) {
-    parts.push(node.textContent || "");
-    return;
-  }
-  if (node.nodeType === Node.ELEMENT_NODE && !isCodeElement4(node)) {
-    node.childNodes.forEach((child) => appendNodeText4(child, parts));
-  }
-}
-function shouldSkipElement3(element) {
-  return Boolean(
-    element.closest("h1, h2, h3, h4, h5, h6") || element.closest("pre, code") || element.closest(".pem-fenced-div")
-  );
-}
-function isCodeElement4(element) {
-  return element.nodeName === "CODE" || element.nodeName === "PRE";
-}
-
-// src/reading-mode/pipeline/processors/fencedDivBlockProcessor.ts
-var FencedDivBlockProcessor = class {
-  constructor() {
-    this.name = "fenced-div-blocks";
-    this.phase = "block";
-    this.priority = 60;
-  }
-  isEnabled(context) {
-    return context.config.enableFencedDivs !== false;
-  }
-  process(context) {
-    scheduleFencedDivProcessing(context.element, context.sourcePath, context.config);
-  }
-};
 
 // src/reading-mode/pipeline/inline/textReplacementEngine.ts
 var SKIP_SELECTOR = [
@@ -10505,6 +10524,7 @@ var SKIP_SELECTOR = [
   `.${CSS_CLASSES.CUSTOM_LABEL_REFERENCE_PROCESSED}`,
   `.${CSS_CLASSES.FENCED_DIV_REFERENCE}`,
   `.${CSS_CLASSES.FENCED_DIV_HEADER}`,
+  `.${CSS_CLASSES.FENCED_DIV_TITLE}`,
   `.${CSS_CLASSES.SUPERSCRIPT}`,
   `.${CSS_CLASSES.SUBSCRIPT}`
 ].join(", ");
@@ -10590,6 +10610,386 @@ function collectMatches(text, node, context, processors) {
 function isValidMatch(match, text) {
   return Number.isInteger(match.start) && Number.isInteger(match.end) && match.start >= 0 && match.end > match.start && match.end <= text.length;
 }
+
+// src/reading-mode/parsers/fencedDivParser.ts
+var MAX_DEPTH_CLASS = 6;
+var pendingSectionProcessing = /* @__PURE__ */ new WeakMap();
+var chunkStacks = /* @__PURE__ */ new Map();
+var documentTypeCounters = /* @__PURE__ */ new Map();
+function scheduleFencedDivProcessing(element, docPath, config) {
+  if (config.enableFencedDivs === false) {
+    return;
+  }
+  const section = element.closest(".markdown-preview-section");
+  if (!section) {
+    processFencedDivs(element, docPath, config, true);
+    scheduleFencedDivLabelHydration(element, docPath, config);
+    return;
+  }
+  const pending = pendingSectionProcessing.get(section);
+  if (pending !== void 0) {
+    window.clearTimeout(pending);
+  }
+  const timeout = window.setTimeout(() => {
+    pendingSectionProcessing.delete(section);
+    processFencedDivs(section, docPath, config);
+    scheduleFencedDivLabelHydration(section, docPath, config);
+  }, 0);
+  pendingSectionProcessing.set(section, timeout);
+}
+function scheduleFencedDivLabelHydration(element, docPath, config) {
+  if (config.strictPandocMode) {
+    return;
+  }
+  window.setTimeout(() => {
+    const labels = pluginStateManager.getDocumentCounters(docPath).fencedDivLabels;
+    hydrateRenderedFencedDivLabels(element, labels);
+    processHydratedFencedDivReferences(element, docPath);
+  }, 0);
+}
+function processFencedDivs(element, docPath, config, preserveStack = false) {
+  if (config.enableFencedDivs === false) {
+    return;
+  }
+  const stack = preserveStack ? getChunkStack(docPath) : [];
+  const labels = pluginStateManager.getDocumentCounters(docPath).fencedDivLabels;
+  if (shouldResetDocumentCounters(element, preserveStack, stack)) {
+    labels.clear();
+    documentTypeCounters.set(docPath, /* @__PURE__ */ new Map());
+  }
+  const typeCounters = getDocumentTypeCounters(docPath);
+  const candidates = Array.from(element.querySelectorAll("p, li"));
+  for (const candidate of candidates) {
+    if (shouldSkipElement3(candidate)) {
+      continue;
+    }
+    const lineText = getTextWithLineBreaks4(candidate);
+    if (processMultilineCandidate(candidate, lineText, stack, labels, config, typeCounters)) {
+      continue;
+    }
+    const opening = parseFencedDivOpening(lineText, config);
+    if (opening) {
+      const fencedDiv = prepareFencedDivOpening(opening, stack, labels, typeCounters, config);
+      insertFencedDiv(candidate, fencedDiv.block, stack);
+      stack.push({
+        contentElement: fencedDiv.contentElement,
+        contentLines: [],
+        reference: fencedDiv.reference
+      });
+      continue;
+    }
+    if (isFencedDivClosing(lineText) && stack.length > 0) {
+      const closed = stack.pop();
+      if (closed) {
+        closed.reference.content = closed.contentLines.join("\n").trim();
+      }
+      candidate.remove();
+      continue;
+    }
+    if (stack.length > 0) {
+      for (const active of stack) {
+        active.contentLines.push(lineText);
+        active.reference.content = active.contentLines.join("\n").trim();
+      }
+      stack[stack.length - 1].contentElement.appendChild(candidate);
+    }
+  }
+  if (!config.strictPandocMode) {
+    hydrateRenderedFencedDivLabels(element, labels);
+  }
+  if (preserveStack && stack.length === 0) {
+    chunkStacks.delete(docPath);
+  }
+}
+function getChunkStack(docPath) {
+  let stack = chunkStacks.get(docPath);
+  if (!stack) {
+    stack = [];
+    chunkStacks.set(docPath, stack);
+  }
+  return stack;
+}
+function getDocumentTypeCounters(docPath) {
+  let counters = documentTypeCounters.get(docPath);
+  if (!counters) {
+    counters = /* @__PURE__ */ new Map();
+    documentTypeCounters.set(docPath, counters);
+  }
+  return counters;
+}
+function shouldResetDocumentCounters(element, preserveStack, stack) {
+  if (preserveStack || stack.length > 0) {
+    return false;
+  }
+  const section = element.classList.contains("markdown-preview-section") ? element : element.closest(".markdown-preview-section");
+  if (!section) {
+    return true;
+  }
+  const previousSection = section.previousElementSibling;
+  return !(previousSection == null ? void 0 : previousSection.classList.contains("markdown-preview-section"));
+}
+function processMultilineCandidate(candidate, text, stack, labels, config, typeCounters) {
+  if (!text.includes("\n")) {
+    return false;
+  }
+  const lines = text.split("\n");
+  if (!lines.some((line) => parseFencedDivOpening(line, config) || isFencedDivClosing(line))) {
+    return false;
+  }
+  const fragments = [];
+  for (const line of lines) {
+    const opening = parseFencedDivOpening(line, config);
+    if (opening) {
+      const fencedDiv = prepareFencedDivOpening(opening, stack, labels, typeCounters, config);
+      appendRenderedLineNode(fencedDiv.block, fragments, stack);
+      stack.push({
+        contentElement: fencedDiv.contentElement,
+        contentLines: [],
+        reference: fencedDiv.reference
+      });
+      continue;
+    }
+    if (isFencedDivClosing(line) && stack.length > 0) {
+      const closed = stack.pop();
+      if (closed) {
+        closed.reference.content = closed.contentLines.join("\n").trim();
+      }
+      continue;
+    }
+    appendContentLine(line, fragments, stack);
+  }
+  if (stack.length > 0) {
+    for (const active of stack) {
+      active.reference.content = active.contentLines.join("\n").trim();
+    }
+  }
+  replaceCandidateWithFragments(candidate, fragments);
+  return true;
+}
+function prepareFencedDivOpening(opening, stack, labels, typeCounters, config) {
+  const renderExtendedTitle = !config.strictPandocMode;
+  const title = getFencedDivTitle(opening);
+  const metadata = createFencedDivReferenceMetadata(
+    renderExtendedTitle ? title : "",
+    renderExtendedTitle ? opening.classes : [],
+    typeCounters
+  );
+  const existingReference = opening.id ? labels.get(opening.id) : void 0;
+  const reference = existingReference || createFencedDivReferenceFromMetadata(
+    opening.id || "",
+    opening.classes,
+    0,
+    "",
+    metadata
+  );
+  const fencedDiv = createFencedDivElement(
+    opening.id,
+    opening.classes,
+    stack.length + 1,
+    title,
+    renderExtendedTitle ? reference.blockTitleText : ""
+  );
+  if (opening.id && !existingReference) {
+    labels.set(opening.id, reference);
+  }
+  return {
+    block: fencedDiv.block,
+    contentElement: fencedDiv.content,
+    reference
+  };
+}
+function createFencedDivElement(label, classes, depth, title = "", blockTitleText = "") {
+  const block = document.createElement("div");
+  const primaryClass = getFencedDivCssClass(classes);
+  const depthClass = Math.min(depth, MAX_DEPTH_CLASS);
+  block.className = [
+    "pem-fenced-div",
+    depth > 1 ? "pem-fenced-div-inner" : void 0,
+    depth > 1 ? `pem-fenced-div-depth-${depthClass}` : void 0,
+    primaryClass ? `pem-fenced-div-${primaryClass}` : void 0
+  ].filter(Boolean).join(" ");
+  if (label) {
+    block.dataset.pandocDivId = label;
+  }
+  if (classes.length > 0) {
+    block.dataset.pandocDivClasses = classes.join(" ");
+  }
+  if (title) {
+    block.setAttribute("title", title);
+  }
+  if (blockTitleText) {
+    const titleElement = document.createElement("div");
+    titleElement.className = CSS_CLASSES.FENCED_DIV_TITLE;
+    titleElement.textContent = blockTitleText;
+    if (label) {
+      titleElement.dataset.pandocDivId = label;
+      (0, import_obsidian16.setTooltip)(titleElement, `#${label}`, { delay: DECORATION_STYLES.TOOLTIP_DELAY_MS });
+    }
+    block.appendChild(titleElement);
+  }
+  const content = document.createElement("div");
+  content.className = "pem-fenced-div-content";
+  block.appendChild(content);
+  return { block, content };
+}
+function appendContentLine(line, fragments, stack) {
+  const paragraph = document.createElement("p");
+  paragraph.textContent = line;
+  if (stack.length > 0) {
+    for (const active of stack) {
+      active.contentLines.push(line);
+      active.reference.content = active.contentLines.join("\n").trim();
+    }
+  }
+  appendRenderedLineNode(paragraph, fragments, stack);
+}
+function appendRenderedLineNode(node, fragments, stack) {
+  const active = stack[stack.length - 1];
+  if (active) {
+    active.contentElement.appendChild(node);
+    return;
+  }
+  fragments.push(node);
+}
+function replaceCandidateWithFragments(candidate, fragments) {
+  const parent = candidate.parentNode;
+  if (!parent) {
+    return;
+  }
+  if (fragments.length === 0) {
+    candidate.remove();
+    return;
+  }
+  for (const fragment of fragments) {
+    parent.insertBefore(fragment, candidate);
+  }
+  parent.removeChild(candidate);
+}
+function insertFencedDiv(sourceElement, fencedDiv, stack) {
+  var _a;
+  const active = stack[stack.length - 1];
+  if (active) {
+    active.contentElement.appendChild(fencedDiv);
+    sourceElement.remove();
+    return;
+  }
+  (_a = sourceElement.parentNode) == null ? void 0 : _a.insertBefore(fencedDiv, sourceElement);
+  sourceElement.remove();
+}
+function hydrateRenderedFencedDivLabels(element, labels) {
+  var _a, _b, _c;
+  const blocks = Array.from(element.querySelectorAll(".pem-fenced-div[data-pandoc-div-id]"));
+  const typeCounters = createFencedDivTypeCounters(labels.values());
+  for (const block of blocks) {
+    const label = block.dataset.pandocDivId;
+    if (!label) {
+      continue;
+    }
+    const existing = labels.get(label);
+    if (existing) {
+      ensureFencedDivTitleElement(block, existing);
+      continue;
+    }
+    const content = (_c = (_b = (_a = block.querySelector(".pem-fenced-div-content")) == null ? void 0 : _a.textContent) == null ? void 0 : _b.trim()) != null ? _c : "";
+    const reference = createFencedDivReference(
+      label,
+      block.getAttribute("title") || "",
+      getRenderedFencedDivClasses(block),
+      0,
+      content,
+      typeCounters
+    );
+    labels.set(label, reference);
+    ensureFencedDivTitleElement(block, reference);
+  }
+}
+function ensureFencedDivTitleElement(block, reference) {
+  if (!reference.blockTitleText) {
+    return;
+  }
+  let titleElement = block.querySelector(":scope > .pem-fenced-div-title");
+  if (!titleElement) {
+    titleElement = document.createElement("div");
+    titleElement.className = CSS_CLASSES.FENCED_DIV_TITLE;
+    const content = block.querySelector(":scope > .pem-fenced-div-content");
+    block.insertBefore(titleElement, content || block.firstChild);
+  }
+  titleElement.textContent = reference.blockTitleText;
+  titleElement.dataset.pandocDivId = reference.label;
+  (0, import_obsidian16.setTooltip)(titleElement, `#${reference.label}`, { delay: DECORATION_STYLES.TOOLTIP_DELAY_MS });
+}
+function processHydratedFencedDivReferences(element, docPath) {
+  const counters = pluginStateManager.getDocumentCounters(docPath);
+  if (counters.fencedDivLabels.size === 0) {
+    return;
+  }
+  processInlineTextNodes(
+    element,
+    {
+      element,
+      postProcessorContext: {},
+      section: element.closest(".markdown-preview-section"),
+      sectionInfo: null,
+      sourcePath: docPath,
+      config: { strictLineBreaks: false, strictPandocMode: false, enableFencedDivs: true },
+      renderContext: {},
+      counters,
+      validationLines: []
+    },
+    [new FencedDivReferenceInlineProcessor()]
+  );
+}
+function getRenderedFencedDivClasses(block) {
+  var _a;
+  const storedClasses = (_a = block.dataset.pandocDivClasses) == null ? void 0 : _a.split(/\s+/).filter(Boolean);
+  if (storedClasses == null ? void 0 : storedClasses.length) {
+    return storedClasses;
+  }
+  return Array.from(block.classList).filter(
+    (className) => className.startsWith("pem-fenced-div-") && className !== "pem-fenced-div-inner" && !className.startsWith("pem-fenced-div-depth-")
+  ).map((className) => className.replace("pem-fenced-div-", ""));
+}
+function getTextWithLineBreaks4(elem) {
+  const parts = [];
+  elem.childNodes.forEach((node) => appendNodeText4(node, parts));
+  return parts.join("");
+}
+function appendNodeText4(node, parts) {
+  if (node.nodeName === "BR") {
+    parts.push("\n");
+    return;
+  }
+  if (node.nodeType === Node.TEXT_NODE) {
+    parts.push(node.textContent || "");
+    return;
+  }
+  if (node.nodeType === Node.ELEMENT_NODE && !isCodeElement4(node)) {
+    node.childNodes.forEach((child) => appendNodeText4(child, parts));
+  }
+}
+function shouldSkipElement3(element) {
+  return Boolean(
+    element.closest("h1, h2, h3, h4, h5, h6") || element.closest("pre, code") || element.closest(".pem-fenced-div")
+  );
+}
+function isCodeElement4(element) {
+  return element.nodeName === "CODE" || element.nodeName === "PRE";
+}
+
+// src/reading-mode/pipeline/processors/fencedDivBlockProcessor.ts
+var FencedDivBlockProcessor = class {
+  constructor() {
+    this.name = "fenced-div-blocks";
+    this.phase = "block";
+    this.priority = 60;
+  }
+  isEnabled(context) {
+    return context.config.enableFencedDivs !== false;
+  }
+  process(context) {
+    scheduleFencedDivProcessing(context.element, context.sourcePath, context.config);
+  }
+};
 
 // src/reading-mode/pipeline/processors/inlineTextProcessor.ts
 var InlineTextEngineProcessor = class {
@@ -10682,6 +11082,7 @@ function createReadingModeContext(element, postProcessorContext, config, app) {
   const section = element.closest(".markdown-preview-section");
   const sectionInfo = (_d = (_c = (_a = postProcessorContext.getSectionInfo) == null ? void 0 : _a.call(postProcessorContext, element)) != null ? _c : section ? (_b = postProcessorContext.getSectionInfo) == null ? void 0 : _b.call(postProcessorContext, section) : null) != null ? _d : null;
   const counters = pluginStateManager.getDocumentCounters(sourcePath);
+  hydrateFencedDivLabelsFromSource((sectionInfo == null ? void 0 : sectionInfo.text) || "", config, counters.fencedDivLabels);
   return {
     element,
     postProcessorContext,
@@ -10698,6 +11099,33 @@ function createReadingModeContext(element, postProcessorContext, config, app) {
       getExampleContent: (label) => pluginStateManager.getLabeledExampleContent(sourcePath, label)
     }
   };
+}
+function hydrateFencedDivLabelsFromSource(source, config, labels) {
+  if (!source || !isSyntaxFeatureEnabled(config, "enableFencedDivs")) {
+    return;
+  }
+  const items = extractFencedDivs(source, config);
+  for (const item of items) {
+    if (!item.label || labels.has(item.label)) {
+      continue;
+    }
+    labels.set(item.label, {
+      label: item.label,
+      title: item.title,
+      titleTemplate: item.title,
+      displayName: item.referenceText,
+      typeLabel: item.typeLabel,
+      typeKey: item.typeKey,
+      number: item.number,
+      numberParts: item.numberParts,
+      numberingEnabled: item.numberingEnabled,
+      referenceText: item.referenceText,
+      blockTitleText: item.blockTitleText,
+      lineNumber: item.lineNumber + 1,
+      classes: item.classes,
+      content: item.content
+    });
+  }
 }
 
 // src/reading-mode/processor.ts

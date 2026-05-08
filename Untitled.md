@@ -35,17 +35,14 @@ Description Term
 
 ### Fenced divs
 
-:::{.theorem_1 #thm}
-Every compact metric space is complete.
+::: theorem & #tm1
+aaa
 :::
 
-See @thm.
+I think @tm1 is a good theorem.
 
-::: {.Theorem #thm:label} 
-content of theorem in 
-multiple lines
+::: theorem & #tm2
+bbb
 :::
 
-::: {.a .b} title
-content of theorem
-:::
+I think @tm2 is not good
