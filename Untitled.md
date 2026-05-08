@@ -46,6 +46,6 @@ content of theorem in
 multiple lines
 :::
 
-::: {.a .b}
+::: {.a .b} title
 content of theorem
 :::
