@@ -2681,20 +2681,17 @@ function stripQuotes(value) {
     return value;
   }
   let unquoted = "";
-  let escaped = false;
-  for (const char of value.slice(1, -1)) {
-    if (escaped) {
-      unquoted += char === "&" ? `\\${char}` : char;
-      escaped = false;
-      continue;
-    }
-    if (char === "\\") {
-      escaped = true;
+  const quotedValue = value.slice(1, -1);
+  for (let index = 0; index < quotedValue.length; index++) {
+    const char = quotedValue[index];
+    if (char === "\\" && index + 1 < quotedValue.length) {
+      unquoted += quotedValue[index + 1];
+      index++;
       continue;
     }
     unquoted += char;
   }
-  return escaped ? `${unquoted}\\` : unquoted;
+  return unquoted;
 }
 function findClosingBrace(value) {
   let quote;
@@ -2785,13 +2782,19 @@ function isInlineCodeNode(name) {
   return name.includes("inline-code") || name.includes("code_inline") || name.includes("inlinecode");
 }
 function isCodeBlockStartNode(name) {
+  if (name.includes("math")) {
+    return false;
+  }
   return name.includes("codeblock-begin");
 }
 function isCodeBlockEndNode(name) {
+  if (name.includes("math")) {
+    return false;
+  }
   return name.includes("codeblock-end");
 }
 function isCodeBlockNode(name) {
-  if (name.includes("inline-code")) {
+  if (name.includes("inline-code") || name.includes("math")) {
     return false;
   }
   return name.includes("codeblock") || name.includes("code-block") || name.includes("fenced") || name.includes("hmd-codeblock");
@@ -10616,13 +10619,13 @@ var MAX_DEPTH_CLASS = 6;
 var pendingSectionProcessing = /* @__PURE__ */ new WeakMap();
 var chunkStacks = /* @__PURE__ */ new Map();
 var documentTypeCounters = /* @__PURE__ */ new Map();
-function scheduleFencedDivProcessing(element, docPath, config) {
+function scheduleFencedDivProcessing(element, docPath, config, sourceText) {
   if (config.enableFencedDivs === false) {
     return;
   }
   const section = element.closest(".markdown-preview-section");
   if (!section) {
-    processFencedDivs(element, docPath, config, true);
+    processFencedDivs(element, docPath, config, true, sourceText);
     scheduleFencedDivLabelHydration(element, docPath, config);
     return;
   }
@@ -10632,7 +10635,7 @@ function scheduleFencedDivProcessing(element, docPath, config) {
   }
   const timeout = window.setTimeout(() => {
     pendingSectionProcessing.delete(section);
-    processFencedDivs(section, docPath, config);
+    processFencedDivs(section, docPath, config, false, sourceText);
     scheduleFencedDivLabelHydration(section, docPath, config);
   }, 0);
   pendingSectionProcessing.set(section, timeout);
@@ -10647,7 +10650,7 @@ function scheduleFencedDivLabelHydration(element, docPath, config) {
     processHydratedFencedDivReferences(element, docPath);
   }, 0);
 }
-function processFencedDivs(element, docPath, config, preserveStack = false) {
+function processFencedDivs(element, docPath, config, preserveStack = false, sourceText) {
   if (config.enableFencedDivs === false) {
     return;
   }
@@ -10659,15 +10662,33 @@ function processFencedDivs(element, docPath, config, preserveStack = false) {
   }
   const typeCounters = getDocumentTypeCounters(docPath);
   const candidates = Array.from(element.querySelectorAll("p, li"));
+  const sourceOpeningState = sourceText ? createSourceOpeningState(sourceText, config) : void 0;
+  let canOpenAtCurrentLine = true;
   for (const candidate of candidates) {
     if (shouldSkipElement3(candidate)) {
       continue;
     }
     const lineText = getTextWithLineBreaks4(candidate);
-    if (processMultilineCandidate(candidate, lineText, stack, labels, config, typeCounters)) {
+    const multilineResult = processMultilineCandidate(
+      candidate,
+      lineText,
+      stack,
+      labels,
+      config,
+      typeCounters,
+      canOpenAtCurrentLine,
+      sourceOpeningState
+    );
+    if (multilineResult.processed) {
+      canOpenAtCurrentLine = multilineResult.canOpenAtNextLine;
       continue;
     }
-    const opening = parseFencedDivOpening(lineText, config);
+    const opening = getAllowedFencedDivOpening(
+      lineText,
+      config,
+      canOpenAtCurrentLine,
+      sourceOpeningState
+    );
     if (opening) {
       const fencedDiv = prepareFencedDivOpening(opening, stack, labels, typeCounters, config);
       insertFencedDiv(candidate, fencedDiv.block, stack);
@@ -10676,6 +10697,7 @@ function processFencedDivs(element, docPath, config, preserveStack = false) {
         contentLines: [],
         reference: fencedDiv.reference
       });
+      canOpenAtCurrentLine = true;
       continue;
     }
     if (isFencedDivClosing(lineText) && stack.length > 0) {
@@ -10684,6 +10706,7 @@ function processFencedDivs(element, docPath, config, preserveStack = false) {
         closed.reference.content = closed.contentLines.join("\n").trim();
       }
       candidate.remove();
+      canOpenAtCurrentLine = true;
       continue;
     }
     if (stack.length > 0) {
@@ -10693,6 +10716,7 @@ function processFencedDivs(element, docPath, config, preserveStack = false) {
       }
       stack[stack.length - 1].contentElement.appendChild(candidate);
     }
+    canOpenAtCurrentLine = sourceOpeningState ? allowsFencedDivOpeningAfterLine(lineText) : true;
   }
   if (!config.strictPandocMode) {
     hydrateRenderedFencedDivLabels(element, labels);
@@ -10728,17 +10752,36 @@ function shouldResetDocumentCounters(element, preserveStack, stack) {
   const previousSection = section.previousElementSibling;
   return !(previousSection == null ? void 0 : previousSection.classList.contains("markdown-preview-section"));
 }
-function processMultilineCandidate(candidate, text, stack, labels, config, typeCounters) {
+function processMultilineCandidate(candidate, text, stack, labels, config, typeCounters, initialCanOpenAtCurrentLine, sourceOpeningState) {
   if (!text.includes("\n")) {
-    return false;
+    return {
+      processed: false,
+      canOpenAtNextLine: initialCanOpenAtCurrentLine
+    };
   }
-  const lines = text.split("\n");
-  if (!lines.some((line) => parseFencedDivOpening(line, config) || isFencedDivClosing(line))) {
-    return false;
+  const lines = splitCandidateIntoLines(candidate);
+  if (!multilineCandidateHasProcessableFence(
+    lines,
+    config,
+    initialCanOpenAtCurrentLine,
+    stack.length,
+    sourceOpeningState
+  )) {
+    return {
+      processed: false,
+      canOpenAtNextLine: initialCanOpenAtCurrentLine
+    };
   }
   const fragments = [];
+  let canOpenAtCurrentLine = initialCanOpenAtCurrentLine;
+  let processedFence = false;
   for (const line of lines) {
-    const opening = parseFencedDivOpening(line, config);
+    const opening = getAllowedFencedDivOpening(
+      line.text,
+      config,
+      canOpenAtCurrentLine,
+      sourceOpeningState
+    );
     if (opening) {
       const fencedDiv = prepareFencedDivOpening(opening, stack, labels, typeCounters, config);
       appendRenderedLineNode(fencedDiv.block, fragments, stack);
@@ -10747,16 +10790,27 @@ function processMultilineCandidate(candidate, text, stack, labels, config, typeC
         contentLines: [],
         reference: fencedDiv.reference
       });
+      canOpenAtCurrentLine = true;
+      processedFence = true;
       continue;
     }
-    if (isFencedDivClosing(line) && stack.length > 0) {
+    if (isFencedDivClosing(line.text) && stack.length > 0) {
       const closed = stack.pop();
       if (closed) {
         closed.reference.content = closed.contentLines.join("\n").trim();
       }
+      canOpenAtCurrentLine = true;
+      processedFence = true;
       continue;
     }
     appendContentLine(line, fragments, stack);
+    canOpenAtCurrentLine = sourceOpeningState ? allowsFencedDivOpeningAfterLine(line.text) : true;
+  }
+  if (!processedFence) {
+    return {
+      processed: false,
+      canOpenAtNextLine: canOpenAtCurrentLine
+    };
   }
   if (stack.length > 0) {
     for (const active of stack) {
@@ -10764,7 +10818,91 @@ function processMultilineCandidate(candidate, text, stack, labels, config, typeC
     }
   }
   replaceCandidateWithFragments(candidate, fragments);
-  return true;
+  return {
+    processed: true,
+    canOpenAtNextLine: canOpenAtCurrentLine
+  };
+}
+function multilineCandidateHasProcessableFence(lines, config, initialCanOpenAtCurrentLine, initialStackDepth, sourceOpeningState) {
+  let canOpenAtCurrentLine = initialCanOpenAtCurrentLine;
+  let stackDepth = initialStackDepth;
+  for (const line of lines) {
+    const opening = getAllowedFencedDivOpening(
+      line.text,
+      config,
+      canOpenAtCurrentLine,
+      sourceOpeningState,
+      false
+    );
+    if (opening) {
+      stackDepth++;
+      canOpenAtCurrentLine = true;
+      return true;
+    }
+    if (isFencedDivClosing(line.text) && stackDepth > 0) {
+      stackDepth--;
+      canOpenAtCurrentLine = true;
+      return true;
+    }
+    canOpenAtCurrentLine = sourceOpeningState ? allowsFencedDivOpeningAfterLine(line.text) : true;
+  }
+  return false;
+}
+function getAllowedFencedDivOpening(lineText, config, canOpenAtCurrentLine, sourceOpeningState, consumeSourceOpening = true) {
+  const opening = sourceOpeningState || canOpenAtCurrentLine ? parseFencedDivOpening(lineText, config) : null;
+  if (!opening) {
+    return null;
+  }
+  if (!sourceOpeningState) {
+    return opening;
+  }
+  return isOpeningAllowedBySource(lineText, sourceOpeningState, consumeSourceOpening) ? opening : null;
+}
+function createSourceOpeningState(sourceText, config) {
+  const openings = [];
+  const sourceLines = sourceText.split("\n");
+  let canOpenAtCurrentLine = true;
+  let stackDepth = 0;
+  for (const sourceLine of sourceLines) {
+    const syntacticOpening = parseFencedDivOpening(sourceLine, config);
+    const allowedOpening = canOpenAtCurrentLine ? syntacticOpening : null;
+    if (syntacticOpening) {
+      openings.push({
+        text: sourceLine.trim(),
+        allowed: Boolean(allowedOpening)
+      });
+    }
+    if (allowedOpening) {
+      stackDepth++;
+      canOpenAtCurrentLine = true;
+      continue;
+    }
+    if (isFencedDivClosing(sourceLine) && stackDepth > 0) {
+      stackDepth--;
+      canOpenAtCurrentLine = true;
+      continue;
+    }
+    canOpenAtCurrentLine = allowsFencedDivOpeningAfterLine(sourceLine);
+  }
+  return {
+    openings,
+    index: 0
+  };
+}
+function isOpeningAllowedBySource(lineText, sourceOpeningState, consume) {
+  const normalizedLine = lineText.trim();
+  const startIndex = sourceOpeningState.index;
+  for (let index = startIndex; index < sourceOpeningState.openings.length; index++) {
+    const opening = sourceOpeningState.openings[index];
+    if (opening.text !== normalizedLine) {
+      continue;
+    }
+    if (consume) {
+      sourceOpeningState.index = index + 1;
+    }
+    return opening.allowed;
+  }
+  return false;
 }
 function prepareFencedDivOpening(opening, stack, labels, typeCounters, config) {
   const renderExtendedTitle = !config.strictPandocMode;
@@ -10834,10 +10972,15 @@ function createFencedDivElement(label, classes, depth, title = "", blockTitleTex
 }
 function appendContentLine(line, fragments, stack) {
   const paragraph = document.createElement("p");
-  paragraph.textContent = line;
+  const text = typeof line === "string" ? line : line.text;
+  if (typeof line === "string") {
+    paragraph.textContent = line;
+  } else {
+    paragraph.append(...line.nodes);
+  }
   if (stack.length > 0) {
     for (const active of stack) {
-      active.contentLines.push(line);
+      active.contentLines.push(text);
       active.reference.content = active.contentLines.join("\n").trim();
     }
   }
@@ -10954,6 +11097,44 @@ function getTextWithLineBreaks4(elem) {
   elem.childNodes.forEach((node) => appendNodeText4(node, parts));
   return parts.join("");
 }
+function splitCandidateIntoLines(candidate) {
+  const lines = [createCandidateLine()];
+  Array.from(candidate.childNodes).forEach((node) => appendNodeToCandidateLines(node, lines));
+  return lines;
+}
+function appendNodeToCandidateLines(node, lines) {
+  if (node.nodeName === "BR") {
+    lines.push(createCandidateLine());
+    return;
+  }
+  if (node.nodeType === Node.TEXT_NODE) {
+    appendTextToCandidateLines(node.textContent || "", lines);
+    return;
+  }
+  const currentLine = lines[lines.length - 1];
+  currentLine.text += getTextWithLineBreaks4(node);
+  currentLine.nodes.push(node);
+}
+function appendTextToCandidateLines(text, lines) {
+  const parts = text.split("\n");
+  for (const [index, part] of parts.entries()) {
+    if (index > 0) {
+      lines.push(createCandidateLine());
+    }
+    if (!part) {
+      continue;
+    }
+    const currentLine = lines[lines.length - 1];
+    currentLine.text += part;
+    currentLine.nodes.push(document.createTextNode(part));
+  }
+}
+function createCandidateLine() {
+  return {
+    text: "",
+    nodes: []
+  };
+}
 function appendNodeText4(node, parts) {
   if (node.nodeName === "BR") {
     parts.push("\n");
@@ -10987,7 +11168,13 @@ var FencedDivBlockProcessor = class {
     return context.config.enableFencedDivs !== false;
   }
   process(context) {
-    scheduleFencedDivProcessing(context.element, context.sourcePath, context.config);
+    var _a;
+    scheduleFencedDivProcessing(
+      context.element,
+      context.sourcePath,
+      context.config,
+      (_a = context.sectionInfo) == null ? void 0 : _a.text
+    );
   }
 };
 
