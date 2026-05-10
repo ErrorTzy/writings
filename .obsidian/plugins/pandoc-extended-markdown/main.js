@@ -146,7 +146,7 @@ function normalizeUnorderedListMarkerOrder(order) {
 // src/shared/types/settingsTypes.ts
 var DEFAULT_SETTINGS = {
   strictPandocMode: false,
-  autoRenumberLists: false,
+  autoRenumberLists: true,
   enableHashAutoNumber: true,
   enableFancyLists: true,
   enableExampleLists: true,
@@ -154,7 +154,7 @@ var DEFAULT_SETTINGS = {
   enableFencedDivs: true,
   enableSuperscript: true,
   enableSubscript: true,
-  enableCustomLabelLists: false,
+  enableCustomLabelLists: true,
   enableUnorderedListMarkerCycling: true,
   enableUnorderedListMarkerStyles: true,
   unorderedListMarkerOrder: [...DEFAULT_UNORDERED_LIST_MARKER_ORDER],
@@ -166,6 +166,9 @@ var DEFAULT_SETTINGS = {
 function isSyntaxFeatureEnabled(settings, key) {
   var _a, _b;
   return (_b = (_a = settings[key]) != null ? _a : DEFAULT_SETTINGS[key]) != null ? _b : false;
+}
+function isCustomLabelListsEnabled(settings) {
+  return !settings.strictPandocMode && isSyntaxFeatureEnabled(settings, "enableCustomLabelLists");
 }
 function normalizeSettings(settings) {
   var _a, _b, _c, _d;
@@ -238,6 +241,8 @@ var CSS_CLASSES = {
   DEFINITION_LIST: "pem-definition-list",
   DEFINITION_TERM: "pem-definition-term",
   DEFINITION_DESC: "pem-list-definition-desc",
+  DEFINITION_DESC_LIST: "pem-definition-desc-list",
+  DEFINITION_DESC_ITEM: "pem-definition-desc-item",
   DEFINITION_ITEMS: "pem-definition-items",
   DEFINITION_CONTENT_TEXT: "pem-definition-content-text",
   // Fenced Div Classes
@@ -417,7 +422,7 @@ var SETTINGS_UI = {
   },
   STRICT_MODE: {
     NAME: "Strict Pandoc mode",
-    DESCRIPTION: "Enable strict pandoc formatting requirements. When enabled, lists must have empty lines before and after them, and capital letter lists require double spacing after markers."
+    DESCRIPTION: "Keep rendering closer to native Pandoc Markdown. When enabled, lists must have empty lines before and after them, capital letter lists require double spacing after markers, custom label lists are disabled completely, and extended fenced div syntax is disabled."
   },
   AUTO_RENUMBER: {
     NAME: "Auto-renumber lists",
@@ -453,7 +458,7 @@ var SETTINGS_UI = {
   },
   CUSTOM_LABEL: {
     NAME: "Custom label lists",
-    DESCRIPTION: "Enable `{::LABEL}` custom label lists and references. Use together with `CustomLabelList.lua` for Pandoc output. In strict mode, custom label lists must be surrounded by blank lines."
+    DESCRIPTION: "Enable `{::LABEL}` custom label lists and references. Use together with `CustomLabelList.lua` for Pandoc output. Strict Pandoc mode disables this feature completely."
   },
   UNORDERED_LIST_MARKER_CYCLING: {
     NAME: "Cycle unordered list markers",
@@ -2152,9 +2157,6 @@ function getFencedDivTypeLabel(title, classes) {
   }
   return humanizeClassName(firstClass) || DEFAULT_TYPE_LABEL;
 }
-function getFencedDivTitleClass(classes) {
-  return classes.find((className) => !isFencedDivControlClass(className));
-}
 function isFencedDivControlClass(className) {
   return isNumberingEscapeClass(className) || isPlaceholderOnlyTitle(humanizeClassName(className));
 }
@@ -2404,12 +2406,24 @@ function isSingleLineHtmlBlock(lineText) {
   const match = lineText.match(/^<([A-Za-z][A-Za-z0-9-]*)(?:\s[^>]*)?>.*<\/\1>$/);
   return Boolean((match == null ? void 0 : match[1]) && HTML_BLOCK_TAGS.has(match[1].toLowerCase()));
 }
-function getFencedDivCssClass(classes) {
-  const primaryClass = getFencedDivTitleClass(classes);
-  if (!primaryClass) {
-    return void 0;
+function getFencedDivCssClasses(classes) {
+  const cssClasses = [];
+  const seen = /* @__PURE__ */ new Set();
+  for (const className of classes) {
+    if (isFencedDivControlClass(className)) {
+      continue;
+    }
+    const cssClass = normalizeFencedDivCssClass(className);
+    if (!cssClass || seen.has(cssClass)) {
+      continue;
+    }
+    seen.add(cssClass);
+    cssClasses.push(cssClass);
   }
-  return primaryClass.toLowerCase().replace(/[^a-z0-9_-]+/g, "-").replace(/^-+|-+$/g, "") || void 0;
+  return cssClasses;
+}
+function normalizeFencedDivCssClass(className) {
+  return className.toLowerCase().replace(/[^a-z0-9_-]+/g, "-").replace(/^-+|-+$/g, "") || void 0;
 }
 function parseBracedAttributes(rawAttributes) {
   const closingBraceIndex = findClosingBrace(rawAttributes);
@@ -3076,7 +3090,7 @@ var BasePanelModule = class {
     }
     const customLabelMap = /* @__PURE__ */ new Map();
     const rawToProcessed = /* @__PURE__ */ new Map();
-    if (isSyntaxFeatureEnabled(this.plugin.settings, "enableCustomLabelLists")) {
+    if (isCustomLabelListsEnabled(this.plugin.settings)) {
       const customLabels = extractCustomLabels(content, true);
       customLabels.forEach((label) => {
         customLabelMap.set(label.rawLabel, label.content);
@@ -3137,7 +3151,7 @@ var CustomLabelPanelModule = class extends BasePanelModule {
   extractData(content) {
     this.labels = extractCustomLabels(
       content,
-      isSyntaxFeatureEnabled(this.plugin.settings, "enableCustomLabelLists")
+      isCustomLabelListsEnabled(this.plugin.settings)
     );
   }
   renderContent(activeView) {
@@ -3334,7 +3348,7 @@ var ExampleListPanelModule = class extends BasePanelModule {
       }
     });
     const rawToProcessed = /* @__PURE__ */ new Map();
-    if (isSyntaxFeatureEnabled(this.plugin.settings, "enableCustomLabelLists")) {
+    if (isCustomLabelListsEnabled(this.plugin.settings)) {
       const customLabels = extractCustomLabels(content, true);
       customLabels.forEach((label) => {
         const match = label.rawLabel.match(/\{::([^}]+)\}/);
@@ -4079,7 +4093,7 @@ var ListPanelView = class extends import_obsidian6.ItemView {
   }
   initializePanels() {
     const availablePanels = [];
-    if (isSyntaxFeatureEnabled(this.plugin.settings, "enableCustomLabelLists")) {
+    if (isCustomLabelListsEnabled(this.plugin.settings)) {
       const customLabelModule = new CustomLabelPanelModule(this.plugin);
       availablePanels.push({
         id: customLabelModule.id,
@@ -4680,6 +4694,9 @@ var PandocExtendedMarkdownSettingTab = class extends import_obsidian9.PluginSett
     new import_obsidian9.Setting(containerEl).setName(SETTINGS_UI.STRICT_MODE.NAME).setDesc(SETTINGS_UI.STRICT_MODE.DESCRIPTION).addToggle((toggle) => toggle.setValue(this.plugin.settings.strictPandocMode).onChange(async (value) => {
       this.plugin.settings.strictPandocMode = value;
       await this.plugin.saveSettings();
+      this.app.workspace.updateOptions();
+      this.refreshListPanels();
+      this.refreshPanelOrderList();
     }));
   }
   renderSyntaxFeatureSettings(containerEl) {
@@ -5034,7 +5051,7 @@ var PandocExtendedMarkdownSettingTab = class extends import_obsidian9.PluginSett
   }
   isPanelVisible(panelId) {
     if (panelId === "custom-labels") {
-      return isSyntaxFeatureEnabled(this.plugin.settings, "enableCustomLabelLists");
+      return isCustomLabelListsEnabled(this.plugin.settings);
     }
     if (panelId === "example-lists") {
       return isSyntaxFeatureEnabled(this.plugin.settings, "enableExampleLists");
@@ -5077,7 +5094,7 @@ function createProcessorConfig(vaultConfig, pluginSettings) {
     enableSuperSubscripts: isSyntaxFeatureEnabled(pluginSettings, "enableSuperscript") || isSyntaxFeatureEnabled(pluginSettings, "enableSubscript"),
     enableSuperscript: isSyntaxFeatureEnabled(pluginSettings, "enableSuperscript"),
     enableSubscript: isSyntaxFeatureEnabled(pluginSettings, "enableSubscript"),
-    enableCustomLabelLists: isSyntaxFeatureEnabled(pluginSettings, "enableCustomLabelLists"),
+    enableCustomLabelLists: isCustomLabelListsEnabled(pluginSettings),
     enableUnorderedListMarkerStyles: isSyntaxFeatureEnabled(pluginSettings, "enableUnorderedListMarkerStyles")
   };
 }
@@ -5406,7 +5423,7 @@ function scanCustomLabels(doc, settings, placeholderContext, codeRegions) {
   const duplicateLineInfo = /* @__PURE__ */ new Map();
   const seenLabels = /* @__PURE__ */ new Map();
   const context = placeholderContext || new PlaceholderContext();
-  if (!isSyntaxFeatureEnabled(settings, "enableCustomLabelLists")) {
+  if (!isCustomLabelListsEnabled(settings)) {
     return { customLabels, rawToProcessed, duplicateLabels, duplicateLineInfo, placeholderContext: context };
   }
   const placeholdersInOrder = collectPlaceholders(doc, codeRegions);
@@ -5663,7 +5680,7 @@ var ProcessingPipeline = class {
   }
   // Helper: Get custom scan result
   getCustomScanResult(doc, settings, placeholderContext, codeRegions) {
-    return isSyntaxFeatureEnabled(settings, "enableCustomLabelLists") ? scanCustomLabels(doc, settings, placeholderContext, codeRegions) : {
+    return isCustomLabelListsEnabled(settings) ? scanCustomLabels(doc, settings, placeholderContext, codeRegions) : {
       customLabels: /* @__PURE__ */ new Map(),
       rawToProcessed: /* @__PURE__ */ new Map(),
       duplicateLabels: /* @__PURE__ */ new Set(),
@@ -6114,7 +6131,7 @@ var DefinitionBulletWidget = class extends BaseWidget {
     super(view, pos);
   }
   applyStyles(element) {
-    element.className = "cm-formatting cm-formatting-list cm-list-1 pem-list-marker";
+    element.className = "cm-formatting cm-formatting-list cm-formatting-list-ul cm-list-1 pem-list-marker";
   }
   setContent(element) {
     element.textContent = "\u2022 ";
@@ -7035,7 +7052,7 @@ var CustomLabelProcessor = class {
   }
   // Process after basic lists
   canProcess(line, context) {
-    if (!isSyntaxFeatureEnabled(context.settings, "enableCustomLabelLists")) {
+    if (!isCustomLabelListsEnabled(context.settings)) {
       return false;
     }
     const lineText = context.document.sliceString(line.from, line.to);
@@ -7117,6 +7134,13 @@ var DefinitionProcessor = class {
     if (context.settings.strictPandocMode && context.invalidLines.has(lineNum - 1)) {
       return { decorations };
     }
+    decorations.push({
+      from: line.from,
+      to: line.from,
+      decoration: import_view6.Decoration.line({
+        class: CSS_CLASSES.DEFINITION_PARAGRAPH
+      })
+    });
     const indent = defItemMatch[1] || "";
     const marker = defItemMatch[2] || "";
     const space = defItemMatch[3] || "";
@@ -7181,6 +7205,13 @@ var DefinitionProcessor = class {
   }
   processDefinitionTerm(line, context) {
     const decorations = [];
+    decorations.push({
+      from: line.from,
+      to: line.from,
+      decoration: import_view6.Decoration.line({
+        class: CSS_CLASSES.DEFINITION_TERM_DECORATION
+      })
+    });
     decorations.push({
       from: line.from,
       to: line.to,
@@ -7373,14 +7404,14 @@ var FencedDivProcessor = class extends BaseStructuralProcessor {
     };
   }
   createFenceLineDecoration(line, stateClass, classes, renderDepth) {
-    const primaryClass = getFencedDivCssClass(classes);
+    const semanticClasses = getFencedDivCssClasses(classes).map((className2) => `cm-pem-fenced-div-${className2}`);
     const depthClass = Math.min(renderDepth, this.maxDepthClass);
     const className = [
       CSS_CLASSES.FENCED_DIV_LINE,
       stateClass,
       renderDepth > 1 ? "cm-pem-fenced-div-inner" : void 0,
       renderDepth > 1 ? `cm-pem-fenced-div-depth-${depthClass}` : void 0,
-      primaryClass ? `cm-pem-fenced-div-${primaryClass}` : void 0
+      ...semanticClasses
     ].filter(Boolean).join(" ");
     return {
       from: line.from,
@@ -7793,7 +7824,7 @@ var CustomLabelReferenceProcessor = class {
   }
   findMatches(text, region, context) {
     const matches = [];
-    if (!isSyntaxFeatureEnabled(context.settings, "enableCustomLabelLists")) {
+    if (!isCustomLabelListsEnabled(context.settings)) {
       return matches;
     }
     const regionCursorPos = getRegionCursorPosition(context, region);
@@ -8031,7 +8062,7 @@ var CustomLabelReferenceInlineProcessor = class {
     this.priority = 340;
   }
   isEnabled(context) {
-    return Boolean(context.config.enableCustomLabelLists);
+    return !context.config.strictPandocMode && Boolean(context.config.enableCustomLabelLists);
   }
   findMatches(text, node, context) {
     if (isAtCustomLabelListStart(text, node)) {
@@ -8531,7 +8562,7 @@ var CustomLabelListProcessor = class {
     this.priority = 130;
   }
   isEnabled(context) {
-    return Boolean(context.config.enableCustomLabelLists);
+    return !context.config.strictPandocMode && Boolean(context.config.enableCustomLabelLists);
   }
   process(context) {
     const counters = pluginStateManager.getDocumentCounters(context.sourcePath);
@@ -8583,7 +8614,7 @@ function renderDefinitionDescription(parsedLines, index, context, appendContent)
   const dd = createDefinitionDescription();
   const listItem = parseListItemContent(definition.content);
   if (!listItem) {
-    appendContent(dd, definition.content, context);
+    appendDefinitionDescriptionText(dd, definition.content, context, appendContent);
     return { element: dd, nextIndex: index + 1 };
   }
   const list = document.createElement(listItem.ordered ? "ol" : "ul");
@@ -8618,7 +8649,7 @@ function renderNestedDefinitionList(termContent, parsedLines, startIndex, parent
   while (hasIndentedDefinitionItem(parsedLines[index], parentIndent)) {
     const definition = parsedLines[index].metadata;
     const dd = createDefinitionDescription();
-    appendContent(dd, definition.content, context);
+    appendDefinitionDescriptionText(dd, definition.content, context, appendContent);
     dl.appendChild(dd);
     index++;
   }
@@ -8654,6 +8685,15 @@ function createDefinitionDescription() {
   const dd = document.createElement("dd");
   dd.className = CSS_CLASSES.DEFINITION_DESC;
   return dd;
+}
+function appendDefinitionDescriptionText(dd, content, context, appendContent) {
+  const list = document.createElement("ul");
+  const item = document.createElement("li");
+  list.className = CSS_CLASSES.DEFINITION_DESC_LIST;
+  item.className = CSS_CLASSES.DEFINITION_DESC_ITEM;
+  appendContent(item, content, context);
+  list.appendChild(item);
+  dd.appendChild(list);
 }
 function parseListItemContent(content) {
   const taskMatch = content.match(/^[-+*]\s+\[([ xX])\]\s+(.*)$/);
@@ -9191,12 +9231,11 @@ function appendDefinitionDescription(dd, definition, context, appendContent) {
   }
   const content = normalizePlainText(lines);
   if (definition.wrapParagraph) {
-    const paragraph = document.createElement("p");
+    const paragraph = createDefinitionDescriptionItem(dd);
     appendInlineContent(paragraph, content, context, appendContent);
-    dd.appendChild(paragraph);
     return;
   }
-  appendInlineContent(dd, content, context, appendContent);
+  appendInlineContent(createDefinitionDescriptionItem(dd), content, context, appendContent);
 }
 function appendParagraphs(nodes, lines, context, appendContent) {
   const paragraphs = [];
@@ -9301,6 +9340,15 @@ function appendInlineContent(element, content, context, appendContent) {
     appendContent(child, segment.content, context);
     element.appendChild(child);
   });
+}
+function createDefinitionDescriptionItem(dd) {
+  const list = document.createElement("ul");
+  const item = document.createElement("li");
+  list.className = CSS_CLASSES.DEFINITION_DESC_LIST;
+  item.className = CSS_CLASSES.DEFINITION_DESC_ITEM;
+  list.appendChild(item);
+  dd.appendChild(list);
+  return item;
 }
 function splitInlineMarkdown(content) {
   var _a, _b;
@@ -10484,7 +10532,7 @@ function isCodeElement3(element) {
 }
 function containsPandocSyntax(text, config) {
   const hasBasicSyntax = (config == null ? void 0 : config.enableHashLists) !== false && !!ListPatterns.isHashList(text) || (config == null ? void 0 : config.enableFancyLists) !== false && !!ListPatterns.isFancyList(text) || (config == null ? void 0 : config.enableExampleLists) !== false && !!ListPatterns.isExampleList(text) || (config == null ? void 0 : config.enableDefinitionLists) !== false && !!ListPatterns.isDefinitionMarker(text) || (config == null ? void 0 : config.enableExampleLists) !== false && ListPatterns.findExampleReferences(text).length > 0;
-  const hasCustomLabelSyntax = (config == null ? void 0 : config.enableCustomLabelLists) && (ListPatterns.isCustomLabelList(text) || ListPatterns.findCustomLabelReferences(text).length > 0);
+  const hasCustomLabelSyntax = !(config == null ? void 0 : config.strictPandocMode) && (config == null ? void 0 : config.enableCustomLabelLists) && (ListPatterns.isCustomLabelList(text) || ListPatterns.findCustomLabelReferences(text).length > 0);
   return hasBasicSyntax || Boolean(hasCustomLabelSyntax);
 }
 function validateListInStrictMode2(line, documentLines, config) {
@@ -10938,13 +10986,15 @@ function prepareFencedDivOpening(opening, stack, labels, typeCounters, config) {
 }
 function createFencedDivElement(label, classes, depth, title = "", blockTitleText = "") {
   const block = document.createElement("div");
-  const primaryClass = getFencedDivCssClass(classes);
+  const sourceClasses = getFencedDivSourceClasses(classes);
+  const semanticClasses = getFencedDivCssClasses(classes).map((className) => `pem-fenced-div-${className}`);
   const depthClass = Math.min(depth, MAX_DEPTH_CLASS);
   block.className = [
     "pem-fenced-div",
+    ...sourceClasses,
     depth > 1 ? "pem-fenced-div-inner" : void 0,
     depth > 1 ? `pem-fenced-div-depth-${depthClass}` : void 0,
-    primaryClass ? `pem-fenced-div-${primaryClass}` : void 0
+    ...semanticClasses
   ].filter(Boolean).join(" ");
   if (label) {
     block.dataset.pandocDivId = label;
@@ -10969,6 +11019,18 @@ function createFencedDivElement(label, classes, depth, title = "", blockTitleTex
   content.className = "pem-fenced-div-content";
   block.appendChild(content);
   return { block, content };
+}
+function getFencedDivSourceClasses(classes) {
+  const sourceClasses = [];
+  const seen = /* @__PURE__ */ new Set();
+  for (const className of classes) {
+    if (!className || /\s/.test(className) || seen.has(className)) {
+      continue;
+    }
+    seen.add(className);
+    sourceClasses.push(className);
+  }
+  return sourceClasses;
 }
 function appendContentLine(line, fragments, stack) {
   const paragraph = document.createElement("p");
@@ -11426,7 +11488,7 @@ var CustomLabelReferenceSuggest = class extends import_obsidian18.EditorSuggest 
     this.plugin = plugin;
   }
   onTrigger(cursor, editor, file) {
-    if (!isSyntaxFeatureEnabled(this.plugin.settings, "enableCustomLabelLists")) return null;
+    if (!isCustomLabelListsEnabled(this.plugin.settings)) return null;
     const line = editor.getLine(cursor.line).substring(0, cursor.ch);
     if (!line.includes("{::")) return null;
     const matches = ListPatterns.findCustomLabelRefStarts(line);
@@ -11735,7 +11797,7 @@ function detectListMarker(currentLine, view, settings) {
       };
     }
   }
-  const isEmptyCustomLabelList = isSyntaxFeatureEnabled(settings, "enableCustomLabelLists") ? lineText.match(ListPatterns.EMPTY_CUSTOM_LABEL_LIST_NO_LABEL) : null;
+  const isEmptyCustomLabelList = isCustomLabelListsEnabled(settings) ? lineText.match(ListPatterns.EMPTY_CUSTOM_LABEL_LIST_NO_LABEL) : null;
   if (isEmptyCustomLabelList) {
     const beforeCursor = state.doc.sliceString(line.from, selection.from);
     const afterCursor = state.doc.sliceString(selection.from, line.to);
@@ -11767,7 +11829,7 @@ function detectListMarker(currentLine, view, settings) {
   };
 }
 function isExtendedList(lineText, settings) {
-  return !!(isSyntaxFeatureEnabled(settings, "enableFancyLists") && ListPatterns.isFancyList(lineText) || isSyntaxFeatureEnabled(settings, "enableExampleLists") && ListPatterns.isExampleList(lineText) || isSyntaxFeatureEnabled(settings, "enableCustomLabelLists") && ListPatterns.isCustomLabelList(lineText) || isSyntaxFeatureEnabled(settings, "enableHashAutoNumber") && ListPatterns.isHashList(lineText) || isSyntaxFeatureEnabled(settings, "enableDefinitionLists") && ListPatterns.isDefinitionMarker(lineText));
+  return !!(isSyntaxFeatureEnabled(settings, "enableFancyLists") && ListPatterns.isFancyList(lineText) || isSyntaxFeatureEnabled(settings, "enableExampleLists") && ListPatterns.isExampleList(lineText) || isCustomLabelListsEnabled(settings) && ListPatterns.isCustomLabelList(lineText) || isSyntaxFeatureEnabled(settings, "enableHashAutoNumber") && ListPatterns.isHashList(lineText) || isSyntaxFeatureEnabled(settings, "enableDefinitionLists") && ListPatterns.isDefinitionMarker(lineText));
 }
 
 // src/editor-extensions/listAutocompletion/handlers/emptyListHandler.ts
@@ -11836,7 +11898,7 @@ function parseMarkerParts(line, settings) {
       spaces: hashMatch[3]
     };
   }
-  const customLabelMatch = isSyntaxFeatureEnabled(settings || {}, "enableCustomLabelLists") ? ListPatterns.isCustomLabelList(line) : null;
+  const customLabelMatch = isCustomLabelListsEnabled(settings || {}) ? ListPatterns.isCustomLabelList(line) : null;
   if (customLabelMatch) {
     return {
       type: "custom-label",
@@ -12829,7 +12891,7 @@ var PandocExtendedMarkdownPlugin = class extends import_obsidian20.Plugin {
         const content = editor.getValue();
         const issues = checkPandocFormatting(
           content,
-          isSyntaxFeatureEnabled(this.settings, "enableCustomLabelLists")
+          isCustomLabelListsEnabled(this.settings)
         );
         if (issues.length === 0) {
           new import_obsidian20.Notice(MESSAGES.PANDOC_COMPLIANT);
@@ -12849,7 +12911,7 @@ ${issueList}`, UI_CONSTANTS.NOTICE_DURATION_MS);
         const content = editor.getValue();
         const formatted = formatToPandocStandard(
           content,
-          isSyntaxFeatureEnabled(this.settings, "enableCustomLabelLists")
+          isCustomLabelListsEnabled(this.settings)
         );
         if (content !== formatted) {
           editor.setValue(formatted);
