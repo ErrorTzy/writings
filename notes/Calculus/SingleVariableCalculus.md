@@ -21,7 +21,7 @@ Right limit
 
 Overall Limit
 : $\lim_{x \to n} f(x) = k$ iff $\lim_{x \to 1^-} f(x) = \lim_{x \to 1^{+} f(x)} = k$
-: Formal definition that does not appeal to the concept of "limit": For every $\epsilon > 0$, there exists a $\delta > 0$ such that if $0 < |x - n| < \delta$, then $|f(x) - k| < \epsilon$. In game theoretic semantics: Player A shows an arbitrary number $\epsilon$. Player A challenges Player B, "Can you make sure $f(x)$ always falls in the range of $(k-\epsilon,k+\epsilon)$ when $x$ is around $n$?"; If Play B always has a winning strategy to show a $\delta$ such that for any $x \neq n$ in the range of $(n-\delta,n+\delta)$, $f(x)$ always falls in the range of $(k-\epsilon, k+\epsilon)$, then the limit of $f(x)$ at $n$ is $k$ because $\epsilon$ can be arbitrarily small.
+: Formal definition that does not appeal to the concept of "limit": For every $\epsilon > 0$, there exists a $\delta > 0$ such that if $0 < |x - n| < \delta$, then $|f(x) - k| < \epsilon$. In game theoretic semantics: Player A shows an arbitrarily small number $\epsilon$. Player A challenges Player B, "Can you make sure $f(x)$ always falls in the range of $(k-\epsilon,k+\epsilon)$ when $x$ is around $n$?"; If Play B always has a winning strategy to show a $\delta$ such that for any $x \neq n$ in the range of $(n-\delta,n+\delta)$, $f(x)$ always falls in the range of $(k-\epsilon, k+\epsilon)$, then the limit of $f(x)$ at $n$ is $k$ because $\epsilon$ can be arbitrarily small.
 
 ### Limit Laws
 
