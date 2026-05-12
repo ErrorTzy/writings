@@ -13,30 +13,31 @@ As $x$ moves closer to 1 *from the left*, we can have the following table
 
 It seems $f(x)$ approaches -2 when $x$ approaches 1 from the left. Similarly, when we approach it *from the right*, it also approaches -2 as well. The formal notation is as follows:
 
-Left limit
+**Left limit**
 : $\lim_{x \to n^-} f(x) = k$, meaning $f(x)$ approaches $k$ when $x$ approaches $n$ from the left;
 
-Right limit
+**Right limit**
 : $\lim_{x \to n^+} f(x) = k$, meaning $f(x)$ approaches $k$ when $x$ approaches $n$ from the right;
 
-Overall Limit
+**Overall Limit**
 : $\lim_{x \to n} f(x) = k$ iff $\lim_{x \to 1^-} f(x) = \lim_{x \to 1^{+} f(x)} = k$
-: Formal definition that does not appeal to the concept of "limit": For every $\epsilon > 0$, there exists a $\delta > 0$ such that if $0 < |x - n| < \delta$, then $|f(x) - k| < \epsilon$. In game theoretic semantics: Player A shows an arbitrarily small number $\epsilon$. Player A challenges Player B, "Can you make sure $f(x)$ always falls in the range of $(k-\epsilon,k+\epsilon)$ when $x$ is around $n$?"; If Play B always has a winning strategy to show a $\delta$ such that for any $x \neq n$ in the range of $(n-\delta,n+\delta)$, $f(x)$ always falls in the range of $(k-\epsilon, k+\epsilon)$, then the limit of $f(x)$ at $n$ is $k$ because $\epsilon$ can be arbitrarily small.
+: Formal definition that does not appeal to the concept of "limit": For every $\epsilon > 0$, there exists a $\delta > 0$ such that if $0 < |x - n| < \delta$, then $|f(x) - k| < \epsilon$.
+: In game theoretic semantics: Player A shows an arbitrarily small number $\epsilon$. Player A challenges Player B, "Can you make sure $f(x)$ always falls in the range of $(k-\epsilon,k+\epsilon)$ when $x$ is around $n$?"; If Play B always has a winning strategy to show a $\delta$ such that for any $x \neq n$ in the range of $(n-\delta,n+\delta)$, $f(x)$ always falls in the range of $(k-\epsilon, k+\epsilon)$, then the limit of $f(x)$ at $n$ is $k$ because $\epsilon$ can be arbitrarily small.
 
 ### Limit Laws
 
 Let $\lim_{x \to a}f(x)=m$ and $\lim_{x \to a} g(x) = n$.
 
-Addition law
+**Addition law**
 : $\lim_{x \to a} [f(x) + g(x)] = m + n$
 
-Subtraction law
+**Subtraction law**
 : $\lim_{x \to a} [f(x) - g(x)] = m - n$
 
-Multiplication law
+**Multiplication law**
 : $\lim_{x \to a} [f(x) \cdot g(x)] = m \cdot n$
 
-Division Law (incomplete)
+**Division Law (incomplete)**
 : when $n \neq 0$, $\lim_{x \to a} \frac{f(x)}{g(x)} = \frac{m}{n}$
 : when $n=0$, to be continued...
 
@@ -44,7 +45,7 @@ Division Law (incomplete)
 
 Given the definition of limits, we are now able to define continuity: 
 
-Continuous at a point
+**Continuous at a point**
 : $f$ is *continuous at a point* $x=a$ if $\lim_{x \to a} f(x) = f(a)$. 
 
 Similarly, we can also define *left-continuous at a point* and*right-continuous at a point* in the same spirit.
@@ -54,7 +55,7 @@ We can also classify *discontinuity*:
 - When left limit and right limit of $f(x)$ at $a$ both exists but they are not equal, then it is a *jump discontinuity*; 
 - When they are equal, i.e. there exists $\lim_{x \to a} f(x)$, but $f(a) ≠ lim_{x→a} f(x)$, then it is a *removable discontinuity*.
 
-Continuous everywhere
+**Continuous everywhere**
 : A function $f$ is continuous if it is continuous at every point in the domain of f.
 
 Some examples:
@@ -82,10 +83,10 @@ For $h(x)=f(g(x))$, $h(x)$ is also continuous. Proof: To show that $h(x)$ is con
 
 ### Intermediate Value Theorem
 
-Continuous on a closed interbal
+**Continuous on a closed interval**
 : f is continuous on the closed interval $[a, b]$ if it is right-continuous at $a$, leftcontinuous at $b$, and continuous on $(a, b)$. 
 
-Intermediate Value Theorem
+**Intermediate Value Theorem**
 : If $f$ is continuous on $[a,b]$, then for $f(a)<M<f(b)$, there exists a $c$ between $a$ and $b$ such that $f(c) =M$
 
 The continuity of IVT hangs on the completeness of real numbers. IVT does not hold in rational numbers.
@@ -118,7 +119,7 @@ There are many ways a limit does not exist: it doesn't exist because both left-h
 
 But we also want to express the instantaneous speed of a car at time $t_1$. We can let $t_2$ approach $t_1$. So the instantaneous speed at $t_1$ is $\lim_{t_2 \to t_1} \frac{f(t_2) - f(t_1)}{t_2 - t_1}$
 
-Derivitative at a point
+**Derivitative at a point**
 : The derivitative of $f(x)$ at $x=a$ is the instantaneous rate of change of $f(x)$ at $x=a$, i.e. $f'(a)=\lim_{b \to a} \frac{f(b) - f(a)}{b-a}$
 : Alternatively, we can define it in terms of change: $f'(a)=\lim_{h \to 0} \frac{f(a+h) - f(a)}{h}$
 : Derivatives measure how one value changes together with another.
@@ -144,10 +145,10 @@ f'(3) &= \lim_{h \to 0} \frac{f(3+h) - f(3)}{h} \\
 
 In order to define the notion of a *tagent line*, we need to first introduce the notion of a *secant line*:
 
-Secant Line
+**Secant Line**
 : A line passing through two points on a curve
 
-A tangent line
+**A tangent line**
 : A secant line where two points on the curve are approaching to each other.
 
 A tangent line exists *does not* entail the derivative exist. For example, for $f(x)=x^{1/3}$, when $x$ is approaching 0, the derivative tends to infinity, so it does not exist. But there is a tagent line $x=0$.
@@ -156,7 +157,8 @@ A tangent line exists *does not* entail the derivative exist. For example, for $
 
 The derivative of $f(x)=x^2$:
 
-Let $k$ be any arbitrary number, then: $$
+Let $k$ be any arbitrary number, then: 
+$$
 \begin{aligned}
 f'(k) &= \lim_{h \to 0} \frac{(k+h)^2 - k^2}{h} \\
 &= \lim_{h \to 0} \frac{2kh + h^2}{h} \\
@@ -166,12 +168,12 @@ f'(k) &= \lim_{h \to 0} \frac{(k+h)^2 - k^2}{h} \\
 $$
 Similarly, we can show that for $f(x)=mx+b$, $f'(x)=m$
  
-Derivatives of constant multiples
+**Derivatives of constant multiples**
 : let $g(x)=k \cdot f(x)$, then $g'(x) = k \cdot f'(x)$ 
 
 **Example**: Given this, we can now know when $g(x)=-5x^{2}$, $g'(x)= -10x$ because $g(x)= -5 \cdot f(x)$ and $f(x)=x^2$. Given that $f'(x)=2x$, then $g'(x) = -5 \cdot 2x=10x$.
 
-Derivatives of a sum
+**Derivatives of a sum**
 : if $h(x)= f(x) + g(x)$, then $h'(x) = f'(x) + g'(x)$
 : Similarly, if $h(x) = f(x) - g(x)$, then $h'(x) = f'(x) - g'(x)$
 
@@ -200,7 +202,7 @@ $$\begin{align*} f'(x) &= (-3x^2)' + (\frac{1}{x})' - (2)' \\
 &= -6x - \frac{1}{x^2}\end{align*}$$
 Then we have $f'(1)=-7$
 
-Power Rule
+**Power Rule**
 : If $f(x)=x^n$, then $f'(x) = nx^{n-1}$, for any $n \in \mathbb{R}$
 
 **Partial Proof**:
@@ -260,7 +262,7 @@ This argument can be rigorously proven by squeeze.
 
 Given this, we can know $sin'(x)=cos(x)$. By the same token, $cos'(x)=-sin(x)$
 
-Trigonometric functions' derivatives: 
+**Trigonometric functions' derivatives:**
 : $\sin'(x)=\cos x$
 : $\cos'(x)=-\sin x$
 
@@ -270,7 +272,7 @@ Derivatives are useful for LINEAR APPROXIMATION.
 
 **Example**: we want to approximate $\sqrt{104}$. We know that $\sqrt{100}=10$, and $\sqrt{104}$ is close to $\sqrt{100}$. Let $f(x)=\sqrt{x}$, then $f'(x)=\frac{1}{2\sqrt{x}}$. So $f'(100)=\frac{1}{20}$. Then we can approximate $\sqrt{104}$ by $f(100)+f'(100)(104-100)=10+\frac{1}{20}\cdot 4=10.2$.
 
-Product rule
+**Product rule**
 : $\frac{d}{dx}[f(x)g(x)] = f'(x)g(x) + f(x)g'(x)$
 
 Justificatin for $\frac{d}{dx}[f(x)g(x)]$ not being $f'(x)g'(x)$: Assume $x$ is time (s), and $g$ and $f$ are functions that maps time to distance (m). Then $f'(x)$ and $g'(x)$ measures speed in $m/s$. Then we can see $f(x)\cdot g(x)$ is distance times distance (m²). Therefore, $\frac{d}{dx}[f(x)g(x)]$ is measured in m²/s. But $f'(x)g'(x)$ is speed times speed (m²/s²). Since the units don't match, $f'(x)g'(x)$ cannot be the derivative of $f(x)g(x)$.

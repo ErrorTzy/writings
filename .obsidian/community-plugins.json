@@ -1,6 +1,5 @@
 [
   "pandoc-lists",
-  "pandoc-extended-markdown",
   "better-word-count",
   "obsidian-citation-plugin",
   "edit-history",
@@ -17,5 +16,6 @@
   "obsidian-style-settings",
   "obsidian-tidy-footnotes",
   "obsidian-zotero-desktop-connector",
-  "copilot-auto-completion"
+  "copilot-auto-completion",
+  "pandoc-extended-markdown"
 ]
