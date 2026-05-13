@@ -1,2 +1,11 @@
-- Blake's reputation for weakness is *specious*: almost all who have worked with him say he is a disciplined, intellectually formidable, and very tough politician.
-- 
+- [ ] Blake's reputation for weakness is *specious*: almost all who have worked with him say he is a disciplined, intellectually formidable, and very tough politician.
+- [ ] A tendency to write *confessional* reviews has risen, partly out of the mistaken belief that sharing personal details will help reviewers stand out of the pack.
+- [ ] She launched a *scathing* attack on the Prime Minister.
+- [ ] The administration wants to ensure the meetings appear *evenhanded*.
+- [ ] History is *replete* with examples of populations out of control.
+- [ ] I hear *encomiums* on all sides as to his conduct.
+- [ ] He was *indicted* for vehicular homicide in 1987.
+- [ ] After 20 years in official disgrace, she's been *rehabilitated*
+- [ ] the party will continue to *exalt* their hero.
+- [ ] the culture *valorizes* the individual.
+- [ ] They hope to *emulate* the success of other software companies.
