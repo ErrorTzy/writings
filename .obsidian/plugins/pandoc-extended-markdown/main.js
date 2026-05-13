@@ -152,6 +152,7 @@ var DEFAULT_SETTINGS = {
   enableExampleLists: true,
   enableDefinitionLists: true,
   enableFencedDivs: true,
+  enableFencedDivExtras: true,
   enableSuperscript: true,
   enableSubscript: true,
   enableCustomLabelLists: true,
@@ -168,7 +169,10 @@ function isSyntaxFeatureEnabled(settings, key) {
   return (_b = (_a = settings[key]) != null ? _a : DEFAULT_SETTINGS[key]) != null ? _b : false;
 }
 function isCustomLabelListsEnabled(settings) {
-  return !settings.strictPandocMode && isSyntaxFeatureEnabled(settings, "enableCustomLabelLists");
+  return isSyntaxFeatureEnabled(settings, "enableCustomLabelLists");
+}
+function isFencedDivExtrasEnabled(settings) {
+  return isSyntaxFeatureEnabled(settings, "enableFencedDivs") && isSyntaxFeatureEnabled(settings, "enableFencedDivExtras");
 }
 function normalizeSettings(settings) {
   var _a, _b, _c, _d;
@@ -181,6 +185,7 @@ function normalizeSettings(settings) {
     enableExampleLists: isSyntaxFeatureEnabled(sourceSettings, "enableExampleLists"),
     enableDefinitionLists: isSyntaxFeatureEnabled(sourceSettings, "enableDefinitionLists"),
     enableFencedDivs: isSyntaxFeatureEnabled(sourceSettings, "enableFencedDivs"),
+    enableFencedDivExtras: isSyntaxFeatureEnabled(sourceSettings, "enableFencedDivExtras"),
     enableSuperscript: isSyntaxFeatureEnabled(sourceSettings, "enableSuperscript"),
     enableSubscript: isSyntaxFeatureEnabled(sourceSettings, "enableSubscript"),
     enableCustomLabelLists: isSyntaxFeatureEnabled(sourceSettings, "enableCustomLabelLists"),
@@ -422,7 +427,7 @@ var SETTINGS_UI = {
   },
   STRICT_MODE: {
     NAME: "Strict Pandoc mode",
-    DESCRIPTION: "Keep rendering closer to native Pandoc Markdown. When enabled, lists must have empty lines before and after them, capital letter lists require double spacing after markers, custom label lists are disabled completely, and extended fenced div syntax is disabled."
+    DESCRIPTION: "Validate Pandoc-compatible list formatting. When enabled, lists must have empty lines before and after them, and capital letter lists require double spacing after markers."
   },
   AUTO_RENUMBER: {
     NAME: "Auto-renumber lists",
@@ -448,6 +453,14 @@ var SETTINGS_UI = {
     NAME: "Fenced divs",
     DESCRIPTION: "Enable Pandoc fenced div blocks such as `::: {.theorem #thm:label}` in Live Preview and Reading mode."
   },
+  NON_NATIVE_SYNTAX: {
+    NAME: "Non-native Pandoc syntax",
+    DESCRIPTION: "Configure plugin extensions that require bundled filters or generated preview behavior."
+  },
+  FENCED_DIV_EXTRAS: {
+    NAME: "Fenced div titles and references",
+    DESCRIPTION: "Generate fenced div titles, numbering, and `@id` reference rendering for fenced div blocks."
+  },
   SUPERSCRIPT: {
     NAME: "Superscript",
     DESCRIPTION: "Render inline superscript syntax like `2^10^`."
@@ -458,7 +471,7 @@ var SETTINGS_UI = {
   },
   CUSTOM_LABEL: {
     NAME: "Custom label lists",
-    DESCRIPTION: "Enable `{::LABEL}` custom label lists and references. Use together with `CustomLabelList.lua` for Pandoc output. Strict Pandoc mode disables this feature completely."
+    DESCRIPTION: "Enable `{::LABEL}` custom label lists and references. Use together with `CustomLabelList.lua` for Pandoc output."
   },
   UNORDERED_LIST_MARKER_CYCLING: {
     NAME: "Cycle unordered list markers",
@@ -2920,6 +2933,7 @@ function extractFencedDivsFromDoc(doc, settings, codeRegions) {
   let canOpenAtCurrentLine = true;
   let fallbackCodeFenceMarker;
   const typeCounters = /* @__PURE__ */ new Map();
+  const includeExtras = isFencedDivExtrasEnabled(settings);
   for (let lineNum = 1; lineNum <= doc.lines; lineNum++) {
     const line = doc.line(lineNum);
     if (codeRegions && isLineInCodeRegion(lineNum, doc, codeRegions)) {
@@ -2943,8 +2957,12 @@ function extractFencedDivsFromDoc(doc, settings, codeRegions) {
     }
     const opening = canOpenAtCurrentLine ? parseFencedDivOpening(line.text, settings) : null;
     if (opening) {
-      const title = getFencedDivTitle(opening);
-      const metadata = createFencedDivReferenceMetadata(title, opening.classes, typeCounters);
+      const title = includeExtras ? getFencedDivTitle(opening) : "";
+      const metadata = createFencedDivReferenceMetadata(
+        title,
+        includeExtras ? opening.classes : [],
+        typeCounters
+      );
       const activeDiv = {
         title: metadata.title,
         label: opening.id || "",
@@ -3100,7 +3118,7 @@ var BasePanelModule = class {
       });
     }
     const fencedDivLabels = /* @__PURE__ */ new Map();
-    if (isSyntaxFeatureEnabled(this.plugin.settings, "enableFencedDivs")) {
+    if (isFencedDivExtrasEnabled(this.plugin.settings)) {
       const fencedDivs = extractFencedDivs(content, this.plugin.settings);
       const typeCounters = /* @__PURE__ */ new Map();
       fencedDivs.forEach((item) => {
@@ -4687,6 +4705,7 @@ var PandocExtendedMarkdownSettingTab = class extends import_obsidian9.PluginSett
     this.plugin.settings = normalizeSettings(this.plugin.settings);
     this.renderGeneralSettings(containerEl);
     this.renderSyntaxFeatureSettings(containerEl);
+    this.renderNonNativeSyntaxSettings(containerEl);
     this.renderListAutocompletionSettings(containerEl);
     this.renderPanelFeatureSettings(containerEl);
   }
@@ -4748,6 +4767,15 @@ var PandocExtendedMarkdownSettingTab = class extends import_obsidian9.PluginSett
       SETTINGS_UI.SUBSCRIPT.NAME,
       SETTINGS_UI.SUBSCRIPT.DESCRIPTION,
       "enableSubscript"
+    );
+  }
+  renderNonNativeSyntaxSettings(containerEl) {
+    new import_obsidian9.Setting(containerEl).setName(SETTINGS_UI.NON_NATIVE_SYNTAX.NAME).setDesc(SETTINGS_UI.NON_NATIVE_SYNTAX.DESCRIPTION).setHeading();
+    this.createFeatureToggle(
+      containerEl,
+      SETTINGS_UI.FENCED_DIV_EXTRAS.NAME,
+      SETTINGS_UI.FENCED_DIV_EXTRAS.DESCRIPTION,
+      "enableFencedDivExtras"
     );
     new import_obsidian9.Setting(containerEl).setName(SETTINGS_UI.CUSTOM_LABEL.NAME).setDesc(SETTINGS_UI.CUSTOM_LABEL.DESCRIPTION).addToggle((toggle) => toggle.setValue(isSyntaxFeatureEnabled(this.plugin.settings, "enableCustomLabelLists")).onChange(async (value) => {
       this.plugin.settings.enableCustomLabelLists = value;
@@ -5091,6 +5119,7 @@ function createProcessorConfig(vaultConfig, pluginSettings) {
     enableExampleLists: isSyntaxFeatureEnabled(pluginSettings, "enableExampleLists"),
     enableDefinitionLists: isSyntaxFeatureEnabled(pluginSettings, "enableDefinitionLists"),
     enableFencedDivs: isSyntaxFeatureEnabled(pluginSettings, "enableFencedDivs"),
+    enableFencedDivExtras: isFencedDivExtrasEnabled(pluginSettings),
     enableSuperSubscripts: isSyntaxFeatureEnabled(pluginSettings, "enableSuperscript") || isSyntaxFeatureEnabled(pluginSettings, "enableSubscript"),
     enableSuperscript: isSyntaxFeatureEnabled(pluginSettings, "enableSuperscript"),
     enableSubscript: isSyntaxFeatureEnabled(pluginSettings, "enableSubscript"),
@@ -5471,6 +5500,9 @@ function scanCustomLabels(doc, settings, placeholderContext, codeRegions) {
 // src/live-preview/scanners/fencedDivScanner.ts
 function scanFencedDivs(doc, settings, codeRegions) {
   const labels = /* @__PURE__ */ new Map();
+  if (!isFencedDivExtrasEnabled(settings)) {
+    return labels;
+  }
   const items = extractFencedDivsFromDoc(doc, settings, codeRegions);
   for (const item of items) {
     if (!item.label || labels.has(item.label)) {
@@ -7300,7 +7332,7 @@ var FencedDivProcessor = class extends BaseStructuralProcessor {
     const opening = this.canOpenAtCurrentLine(context) ? parseFencedDivOpening(line.text, context.settings) : null;
     if (opening) {
       context.fencedDivTypeCounters = context.fencedDivTypeCounters || /* @__PURE__ */ new Map();
-      const renderExtendedTitle = !context.settings.strictPandocMode;
+      const renderExtendedTitle = isFencedDivExtrasEnabled(context.settings);
       const title = renderExtendedTitle ? getFencedDivTitle(opening) : "";
       const metadata = renderExtendedTitle && (opening.id || title || opening.classes.length > 0) ? createFencedDivReferenceMetadata(
         title,
@@ -7927,7 +7959,7 @@ var FencedDivReferenceProcessor = class {
   }
   findMatches(text, region, context) {
     const matches = [];
-    if (!isSyntaxFeatureEnabled(context.settings, "enableFencedDivs") || context.settings.strictPandocMode) {
+    if (!isFencedDivExtrasEnabled(context.settings)) {
       return matches;
     }
     const labels = context.fencedDivLabels || /* @__PURE__ */ new Map();
@@ -8062,7 +8094,7 @@ var CustomLabelReferenceInlineProcessor = class {
     this.priority = 340;
   }
   isEnabled(context) {
-    return !context.config.strictPandocMode && Boolean(context.config.enableCustomLabelLists);
+    return Boolean(context.config.enableCustomLabelLists);
   }
   findMatches(text, node, context) {
     if (isAtCustomLabelListStart(text, node)) {
@@ -8162,7 +8194,7 @@ var FencedDivReferenceInlineProcessor = class {
     this.priority = 315;
   }
   isEnabled(context) {
-    return context.config.enableFencedDivs !== false && !context.config.strictPandocMode;
+    return context.config.enableFencedDivs !== false && context.config.enableFencedDivExtras !== false;
   }
   findMatches(text, _node, context) {
     const matches = [];
@@ -8305,7 +8337,7 @@ function createTextNodeWalker(element, filter) {
   );
 }
 
-// src/reading-mode/parsers/customLabelDefinitionRenderer.ts
+// src/reading-mode/features/custom-labels/definitionParagraphRenderer.ts
 function processCustomLabelDefinitionParagraph(elem, placeholderContext, appendReferences) {
   const text = getTextWithLineBreaks(elem);
   const lines = text.split("\n").filter((line) => line.trim().length > 0);
@@ -8360,7 +8392,7 @@ function isCodeElement(element) {
   return element.nodeName === "CODE" || element.nodeName === "PRE";
 }
 
-// src/reading-mode/parsers/customLabelListParser.ts
+// src/reading-mode/features/custom-labels/listProcessor.ts
 function processCustomLabelLists(element, context, placeholderContext) {
   if (!element.textContent || !element.textContent.includes("{::")) {
     return;
@@ -8562,7 +8594,7 @@ var CustomLabelListProcessor = class {
     this.priority = 130;
   }
   isEnabled(context) {
-    return !context.config.strictPandocMode && Boolean(context.config.enableCustomLabelLists);
+    return Boolean(context.config.enableCustomLabelLists);
   }
   process(context) {
     const counters = pluginStateManager.getDocumentCounters(context.sourcePath);
@@ -8574,390 +8606,10 @@ var CustomLabelListProcessor = class {
   }
 };
 
-// src/reading-mode/renderer.ts
-var import_obsidian14 = require("obsidian");
+// src/reading-mode/features/extended-lists/lineRenderer.ts
+var import_obsidian15 = require("obsidian");
 
-// src/reading-mode/definitionListRenderer.ts
-function renderDefinitionListAt(parsedLines, startIndex, context, appendContent) {
-  var _a;
-  if (!canRenderDefinitionTerm(parsedLines, startIndex)) {
-    return null;
-  }
-  const dl = createDefinitionList();
-  let index = startIndex;
-  let renderedTerms = 0;
-  while (canRenderDefinitionTerm(parsedLines, index)) {
-    appendDefinitionTerm(dl, parsedLines[index], context, appendContent);
-    index = nextNonBlankIndex(parsedLines, index + 1);
-    while (((_a = parsedLines[index]) == null ? void 0 : _a.type) === "definition-item") {
-      const rendered = renderDefinitionDescription(parsedLines, index, context, appendContent);
-      dl.appendChild(rendered.element);
-      index = rendered.nextIndex;
-    }
-    renderedTerms++;
-    const nextTermIndex = nextNonBlankIndex(parsedLines, index);
-    if (nextTermIndex !== index && canRenderDefinitionTerm(parsedLines, nextTermIndex)) {
-      index = nextTermIndex;
-    }
-  }
-  return renderedTerms > 0 ? { element: dl, nextIndex: index } : null;
-}
-function appendDefinitionTerm(dl, parsedLine, context, appendContent) {
-  const term = parsedLine.metadata;
-  const dt = document.createElement("dt");
-  dt.className = CSS_CLASSES.DEFINITION_TERM;
-  appendContent(dt, term.content, context);
-  dl.appendChild(dt);
-}
-function renderDefinitionDescription(parsedLines, index, context, appendContent) {
-  const definition = parsedLines[index].metadata;
-  const dd = createDefinitionDescription();
-  const listItem = parseListItemContent(definition.content);
-  if (!listItem) {
-    appendDefinitionDescriptionText(dd, definition.content, context, appendContent);
-    return { element: dd, nextIndex: index + 1 };
-  }
-  const list = document.createElement(listItem.ordered ? "ol" : "ul");
-  const li = document.createElement("li");
-  appendTaskCheckbox(li, listItem);
-  if (hasIndentedDefinitionItem(parsedLines[index + 1], definition.indent)) {
-    const nested = renderNestedDefinitionList(
-      listItem.content,
-      parsedLines,
-      index + 1,
-      definition.indent,
-      context,
-      appendContent
-    );
-    li.appendChild(nested.element);
-    list.appendChild(li);
-    dd.appendChild(list);
-    return { element: dd, nextIndex: nested.nextIndex };
-  }
-  appendContent(li, listItem.content, context);
-  list.appendChild(li);
-  dd.appendChild(list);
-  return { element: dd, nextIndex: index + 1 };
-}
-function renderNestedDefinitionList(termContent, parsedLines, startIndex, parentIndent, context, appendContent) {
-  const dl = createDefinitionList();
-  const dt = document.createElement("dt");
-  dt.className = CSS_CLASSES.DEFINITION_TERM;
-  appendContent(dt, termContent, context);
-  dl.appendChild(dt);
-  let index = startIndex;
-  while (hasIndentedDefinitionItem(parsedLines[index], parentIndent)) {
-    const definition = parsedLines[index].metadata;
-    const dd = createDefinitionDescription();
-    appendDefinitionDescriptionText(dd, definition.content, context, appendContent);
-    dl.appendChild(dd);
-    index++;
-  }
-  return { element: dl, nextIndex: index };
-}
-function canRenderDefinitionTerm(parsedLines, index) {
-  var _a, _b;
-  if (((_a = parsedLines[index]) == null ? void 0 : _a.type) !== "definition-term") {
-    return false;
-  }
-  return ((_b = parsedLines[nextNonBlankIndex(parsedLines, index + 1)]) == null ? void 0 : _b.type) === "definition-item";
-}
-function hasIndentedDefinitionItem(parsedLine, parentIndent) {
-  if ((parsedLine == null ? void 0 : parsedLine.type) !== "definition-item") {
-    return false;
-  }
-  const definition = parsedLine.metadata;
-  return getIndentWidth(definition.indent) > getIndentWidth(parentIndent);
-}
-function nextNonBlankIndex(parsedLines, startIndex) {
-  let index = startIndex;
-  while (index < parsedLines.length && parsedLines[index].content.trim().length === 0) {
-    index++;
-  }
-  return index;
-}
-function createDefinitionList() {
-  const dl = document.createElement("dl");
-  dl.className = CSS_CLASSES.DEFINITION_LIST;
-  return dl;
-}
-function createDefinitionDescription() {
-  const dd = document.createElement("dd");
-  dd.className = CSS_CLASSES.DEFINITION_DESC;
-  return dd;
-}
-function appendDefinitionDescriptionText(dd, content, context, appendContent) {
-  const list = document.createElement("ul");
-  const item = document.createElement("li");
-  list.className = CSS_CLASSES.DEFINITION_DESC_LIST;
-  item.className = CSS_CLASSES.DEFINITION_DESC_ITEM;
-  appendContent(item, content, context);
-  list.appendChild(item);
-  dd.appendChild(list);
-}
-function parseListItemContent(content) {
-  const taskMatch = content.match(/^[-+*]\s+\[([ xX])\]\s+(.*)$/);
-  if (taskMatch) {
-    return {
-      ordered: false,
-      checked: taskMatch[1].toLowerCase() === "x",
-      content: taskMatch[2]
-    };
-  }
-  const bulletMatch = content.match(/^[-+*]\s+(.*)$/);
-  if (bulletMatch) {
-    return { ordered: false, content: bulletMatch[1] };
-  }
-  const orderedMatch = content.match(/^\d+[.)]\s+(.*)$/);
-  if (orderedMatch) {
-    return { ordered: true, content: orderedMatch[1] };
-  }
-  return null;
-}
-function appendTaskCheckbox(listItem, content) {
-  if (content.checked === void 0) {
-    return;
-  }
-  const checkbox = document.createElement("input");
-  checkbox.type = "checkbox";
-  checkbox.checked = content.checked;
-  checkbox.disabled = true;
-  listItem.appendChild(checkbox);
-  listItem.appendChild(document.createTextNode(" "));
-}
-function getIndentWidth(indent) {
-  return Array.from(indent).reduce((width, char) => width + (char === "	" ? 4 : 1), 0);
-}
-
-// src/reading-mode/renderer.ts
-var ReadingModeRenderer = class {
-  /**
-   * Render a parsed line to DOM elements
-   */
-  renderLine(parsedLine, context, lineNumber) {
-    switch (parsedLine.type) {
-      case "hash":
-        return this.renderHashList(parsedLine.metadata, lineNumber, context);
-      case "fancy":
-        return this.renderFancyList(parsedLine.metadata, context);
-      case "example":
-        return this.renderExampleList(parsedLine.metadata, lineNumber, context);
-      case "definition-term":
-        return this.renderDefinitionTerm(parsedLine.metadata);
-      case "definition-item":
-        return this.renderDefinitionItem(parsedLine.metadata, context);
-      case "reference":
-        return this.renderWithReferences(parsedLine.content, parsedLine.metadata, context);
-      default:
-        return [document.createTextNode(parsedLine.content)];
-    }
-  }
-  /**
-   * Render multiple parsed lines with line breaks
-   */
-  renderLines(parsedLines, context, numberProvider) {
-    const elements = [];
-    for (let index = 0; index < parsedLines.length; ) {
-      const definitionList = renderDefinitionListAt(
-        parsedLines,
-        index,
-        context,
-        (element, content, renderContext) => {
-          this.appendContent(element, content, renderContext);
-        }
-      );
-      if (index > 0) {
-        if (context.strictLineBreaks) {
-          elements.push(document.createElement("br"));
-        }
-        elements.push(document.createTextNode("\n"));
-      }
-      if (definitionList) {
-        elements.push(definitionList.element);
-        index = definitionList.nextIndex;
-        continue;
-      }
-      const parsedLine = parsedLines[index];
-      let lineNumber;
-      if (numberProvider) {
-        if (parsedLine.type === "hash") {
-          lineNumber = numberProvider("hash", index);
-        } else if (parsedLine.type === "example") {
-          lineNumber = numberProvider("example", index);
-        }
-      }
-      const lineElements = this.renderLine(parsedLine, context, lineNumber);
-      elements.push(...lineElements);
-      index++;
-    }
-    return elements;
-  }
-  /**
-   * Render hash auto-numbering list
-   */
-  renderHashList(data, number, context) {
-    const elements = [];
-    const span = document.createElement("span");
-    span.className = `${CSS_CLASSES.FANCY_LIST}-hash`;
-    span.textContent = `${number || "#"}. `;
-    elements.push(span);
-    if (data.content) {
-      const contentElements = this.processContentForReferences(data.content, context);
-      elements.push(...contentElements);
-    }
-    return elements;
-  }
-  /**
-   * Render fancy list marker
-   */
-  renderFancyList(data, context) {
-    const elements = [];
-    const span = document.createElement("span");
-    span.className = `${CSS_CLASSES.FANCY_LIST}-${data.type}`;
-    span.textContent = data.marker + " ";
-    elements.push(span);
-    if (data.content) {
-      const contentElements = this.processContentForReferences(data.content, context);
-      elements.push(...contentElements);
-    }
-    return elements;
-  }
-  /**
-   * Render example list
-   */
-  renderExampleList(data, number, context) {
-    const elements = [];
-    const span = document.createElement("span");
-    span.className = CSS_CLASSES.EXAMPLE_LIST;
-    span.textContent = `(${number || "@"}) `;
-    if (number) {
-      span.dataset.exampleNumber = String(number);
-    }
-    elements.push(span);
-    if (data.content) {
-      const contentElements = this.processContentForReferences(data.content, context);
-      elements.push(...contentElements);
-    }
-    return elements;
-  }
-  /**
-   * Render definition term
-   */
-  renderDefinitionTerm(data) {
-    const strong = document.createElement("strong");
-    const u = document.createElement("u");
-    u.textContent = data.content;
-    strong.appendChild(u);
-    return [strong];
-  }
-  /**
-   * Render definition item
-   */
-  renderDefinitionItem(data, context) {
-    const elements = [];
-    const span = document.createElement("span");
-    span.textContent = "\u2022 ";
-    elements.push(span);
-    const contentElements = this.processContentForReferences(data.content, context);
-    elements.push(...contentElements);
-    return elements;
-  }
-  appendContent(element, content, context) {
-    this.processContentForReferences(content, context).forEach((child) => {
-      element.appendChild(child);
-    });
-  }
-  /**
-   * Render text with example references
-   */
-  renderWithReferences(text, data, context) {
-    const elements = [];
-    let lastIndex = 0;
-    data.references.forEach((ref) => {
-      var _a, _b;
-      if (ref.startIndex > lastIndex) {
-        elements.push(document.createTextNode(text.substring(lastIndex, ref.startIndex)));
-      }
-      const exampleNumber = (_a = context.getExampleNumber) == null ? void 0 : _a.call(context, ref.label);
-      if (exampleNumber !== void 0) {
-        const span = document.createElement("span");
-        span.className = CSS_CLASSES.EXAMPLE_REF;
-        span.textContent = `(${exampleNumber})`;
-        const tooltipText = (_b = context.getExampleContent) == null ? void 0 : _b.call(context, ref.label);
-        if (tooltipText) {
-          (0, import_obsidian14.setTooltip)(span, tooltipText, { delay: DECORATION_STYLES.TOOLTIP_DELAY_MS });
-        }
-        elements.push(span);
-      } else {
-        elements.push(document.createTextNode(ref.fullMatch));
-      }
-      lastIndex = ref.endIndex;
-    });
-    if (lastIndex < text.length) {
-      elements.push(document.createTextNode(text.substring(lastIndex)));
-    }
-    return elements;
-  }
-  /**
-   * Create a line break element
-   */
-  createLineBreak() {
-    return document.createElement("br");
-  }
-  /**
-   * Create a newline text node
-   */
-  createNewline() {
-    return document.createTextNode("\n");
-  }
-  /**
-   * Process content text for references and return appropriate elements
-   */
-  processContentForReferences(content, context) {
-    if (!context) {
-      return [document.createTextNode(content)];
-    }
-    const references = ListPatterns.findExampleReferences(content);
-    if (references.length === 0) {
-      const customRefs = ListPatterns.findCustomLabelReferences(content);
-      if (customRefs.length === 0) {
-        return [document.createTextNode(content)];
-      }
-      return [document.createTextNode(content)];
-    }
-    const elements = [];
-    let lastIndex = 0;
-    references.forEach((match) => {
-      var _a, _b;
-      const startIndex = match.index;
-      const endIndex = startIndex + match[0].length;
-      const label = match[1];
-      if (startIndex > lastIndex) {
-        elements.push(document.createTextNode(content.substring(lastIndex, startIndex)));
-      }
-      const exampleNumber = (_a = context.getExampleNumber) == null ? void 0 : _a.call(context, label);
-      if (exampleNumber !== void 0) {
-        const span = document.createElement("span");
-        span.className = CSS_CLASSES.EXAMPLE_REF;
-        span.textContent = `(${exampleNumber})`;
-        const tooltipText = (_b = context.getExampleContent) == null ? void 0 : _b.call(context, label);
-        if (tooltipText) {
-          (0, import_obsidian14.setTooltip)(span, tooltipText, { delay: DECORATION_STYLES.TOOLTIP_DELAY_MS });
-        }
-        elements.push(span);
-      } else {
-        elements.push(document.createTextNode(match[0]));
-      }
-      lastIndex = endIndex;
-    });
-    if (lastIndex < content.length) {
-      elements.push(document.createTextNode(content.substring(lastIndex)));
-    }
-    return elements;
-  }
-};
-
-// src/reading-mode/pandocDefinitionListParser.ts
+// src/reading-mode/features/definition-lists/sourceParser.ts
 function findPandocDefinitionListBlocks(sourceText) {
   const lines = sourceText.split("\n");
   const blocks = [];
@@ -8988,7 +8640,7 @@ function isStandalonePandocDefinitionList(sourceText, blocks = findPandocDefinit
 function parseIndentedDefinitionMarker(line) {
   var _a;
   const match = line.match(/^([ \t]*)([:~])(?:([ \t]+)(.*)|[ \t]*)$/);
-  if (!match || getIndentWidth2(match[1]) < 4) {
+  if (!match || getIndentWidth(match[1]) < 4) {
     return null;
   }
   return {
@@ -9135,7 +8787,7 @@ function isBlankThenListTerminator(lines, index) {
   if (parseTopLevelDefinitionMarker(lines[index]) || canStartDefinitionListItem(lines, index)) {
     return false;
   }
-  return getIndentWidth2(getLeadingWhitespace(lines[index])) < 4;
+  return getIndentWidth(getLeadingWhitespace(lines[index])) < 4;
 }
 function isBlankBeforeSiblingDefinition(lines, index) {
   var _a;
@@ -9147,7 +8799,7 @@ function isBlankBeforeSiblingDefinition(lines, index) {
 function parseTopLevelDefinitionMarker(line) {
   var _a;
   const match = line.match(/^([ \t]*)([:~])(?:([ \t]+)(.*)|[ \t]*)$/);
-  if (!match || getIndentWidth2(match[1]) >= 4) {
+  if (!match || getIndentWidth(match[1]) >= 4) {
     return null;
   }
   if (!match[3] && line.trim().length > 1) {
@@ -9183,11 +8835,11 @@ function getLeadingWhitespace(line) {
   var _a, _b;
   return (_b = (_a = line.match(/^[ \t]*/)) == null ? void 0 : _a[0]) != null ? _b : "";
 }
-function getIndentWidth2(indent) {
+function getIndentWidth(indent) {
   return Array.from(indent).reduce((width, char) => width + (char === "	" ? 4 : 1), 0);
 }
 
-// src/reading-mode/pandocDefinitionListRenderer.ts
+// src/reading-mode/features/definition-lists/sourceRenderer.ts
 function renderPandocDefinitionListBlock(block, context, appendContent) {
   const dl = document.createElement("dl");
   dl.className = CSS_CLASSES.DEFINITION_LIST;
@@ -9198,7 +8850,7 @@ function renderPandocDefinitionListBlock(block, context, appendContent) {
     dl.appendChild(dt);
     item.definitions.forEach((definition) => {
       const dd = document.createElement("dd");
-      dd.className = CSS_CLASSES.DEFINITION_DESC;
+      dd.className = `${CSS_CLASSES.DEFINITION_DESC} ${CSS_CLASSES.DEFINITION_DESC_ITEM}`;
       appendDefinitionDescription(dd, definition, context, appendContent);
       dl.appendChild(dd);
     });
@@ -9231,11 +8883,12 @@ function appendDefinitionDescription(dd, definition, context, appendContent) {
   }
   const content = normalizePlainText(lines);
   if (definition.wrapParagraph) {
-    const paragraph = createDefinitionDescriptionItem(dd);
+    const paragraph = document.createElement("p");
     appendInlineContent(paragraph, content, context, appendContent);
+    dd.appendChild(paragraph);
     return;
   }
-  appendInlineContent(createDefinitionDescriptionItem(dd), content, context, appendContent);
+  appendInlineContent(dd, content, context, appendContent);
 }
 function appendParagraphs(nodes, lines, context, appendContent) {
   const paragraphs = [];
@@ -9341,15 +8994,6 @@ function appendInlineContent(element, content, context, appendContent) {
     element.appendChild(child);
   });
 }
-function createDefinitionDescriptionItem(dd) {
-  const list = document.createElement("ul");
-  const item = document.createElement("li");
-  list.className = CSS_CLASSES.DEFINITION_DESC_LIST;
-  item.className = CSS_CLASSES.DEFINITION_DESC_ITEM;
-  list.appendChild(item);
-  dd.appendChild(list);
-  return item;
-}
 function splitInlineMarkdown(content) {
   var _a, _b;
   const parts = [];
@@ -9375,7 +9019,367 @@ function splitInlineMarkdown(content) {
   return parts;
 }
 
-// src/reading-mode/utils/definitionListDom.ts
+// src/reading-mode/features/definition-lists/parsedLineAdapter.ts
+function renderDefinitionListAt(parsedLines, startIndex, context, appendContent) {
+  const sourceBlock = collectDefinitionListSource(parsedLines, startIndex);
+  if (!sourceBlock) {
+    return null;
+  }
+  const block = findPandocDefinitionListBlocks(sourceBlock.source)[0];
+  if (!block) {
+    return null;
+  }
+  return {
+    element: renderPandocDefinitionListBlock(block, context, appendContent),
+    nextIndex: sourceBlock.nextIndex
+  };
+}
+function collectDefinitionListSource(parsedLines, startIndex) {
+  var _a;
+  if (!canRenderDefinitionTerm(parsedLines, startIndex)) {
+    return null;
+  }
+  const sourceLines = [];
+  let index = startIndex;
+  while (canRenderDefinitionTerm(parsedLines, index)) {
+    sourceLines.push(definitionTermSourceLine(parsedLines[index]));
+    index = nextNonBlankIndex(parsedLines, index + 1);
+    while (((_a = parsedLines[index]) == null ? void 0 : _a.type) === "definition-item") {
+      sourceLines.push(definitionItemSourceLine(parsedLines[index]));
+      index++;
+    }
+    const nextTermIndex = nextNonBlankIndex(parsedLines, index);
+    if (nextTermIndex === index || !canRenderDefinitionTerm(parsedLines, nextTermIndex)) {
+      break;
+    }
+    sourceLines.push("");
+    index = nextTermIndex;
+  }
+  return {
+    source: sourceLines.join("\n"),
+    nextIndex: index
+  };
+}
+function canRenderDefinitionTerm(parsedLines, index) {
+  var _a, _b;
+  if (((_a = parsedLines[index]) == null ? void 0 : _a.type) !== "definition-term") {
+    return false;
+  }
+  return ((_b = parsedLines[nextNonBlankIndex(parsedLines, index + 1)]) == null ? void 0 : _b.type) === "definition-item";
+}
+function definitionTermSourceLine(parsedLine) {
+  const term = parsedLine.metadata;
+  return term.content;
+}
+function definitionItemSourceLine(parsedLine) {
+  const definition = parsedLine.metadata;
+  return `${definition.indent}${definition.marker} ${definition.content}`;
+}
+function nextNonBlankIndex(parsedLines, startIndex) {
+  let index = startIndex;
+  while (index < parsedLines.length && parsedLines[index].content.trim().length === 0) {
+    index++;
+  }
+  return index;
+}
+
+// src/reading-mode/features/extended-lists/mathContentRenderer.ts
+var import_obsidian14 = require("obsidian");
+function appendMathContent(element, content, appendText) {
+  if (!shouldRenderMathContent(element, content)) {
+    return false;
+  }
+  const segments = splitMathSegments(content);
+  if (!segments.some((segment) => segment.type === "math")) {
+    return false;
+  }
+  segments.forEach((segment) => {
+    if (segment.type === "text") {
+      appendText(segment.content);
+      return;
+    }
+    element.appendChild((0, import_obsidian14.renderMath)(segment.content, segment.display));
+  });
+  void (0, import_obsidian14.finishRenderMath)();
+  return true;
+}
+function shouldRenderMathContent(element, content) {
+  return element.nodeName !== "CODE" && content.includes("$");
+}
+function splitMathSegments(content) {
+  const segments = [];
+  let index = 0;
+  while (index < content.length) {
+    const start = content.indexOf("$", index);
+    if (start === -1) {
+      appendTextSegment(segments, content.slice(index));
+      break;
+    }
+    const display = content[start + 1] === "$";
+    const delimiterLength = display ? 2 : 1;
+    const end = content.indexOf(display ? "$$" : "$", start + delimiterLength);
+    if (end === -1) {
+      appendTextSegment(segments, content.slice(index));
+      break;
+    }
+    appendTextSegment(segments, content.slice(index, start));
+    segments.push({
+      type: "math",
+      content: content.slice(start + delimiterLength, end).trim(),
+      display
+    });
+    index = end + delimiterLength;
+  }
+  return segments;
+}
+function appendTextSegment(segments, content) {
+  if (content.length === 0) {
+    return;
+  }
+  segments.push({
+    type: "text",
+    content,
+    display: false
+  });
+}
+
+// src/reading-mode/features/extended-lists/lineRenderer.ts
+var ReadingModeRenderer = class {
+  /**
+   * Render a parsed line to DOM elements
+   */
+  renderLine(parsedLine, context, lineNumber) {
+    switch (parsedLine.type) {
+      case "hash":
+        return this.renderHashList(parsedLine.metadata, lineNumber, context);
+      case "fancy":
+        return this.renderFancyList(parsedLine.metadata, context);
+      case "example":
+        return this.renderExampleList(parsedLine.metadata, lineNumber, context);
+      case "definition-term":
+        return this.renderDefinitionTerm(parsedLine.metadata);
+      case "definition-item":
+        return this.renderDefinitionItem(parsedLine.metadata, context);
+      case "reference":
+        return this.renderWithReferences(parsedLine.content, parsedLine.metadata, context);
+      default:
+        return [document.createTextNode(parsedLine.content)];
+    }
+  }
+  /**
+   * Render multiple parsed lines with line breaks
+   */
+  renderLines(parsedLines, context, numberProvider) {
+    const elements = [];
+    for (let index = 0; index < parsedLines.length; ) {
+      const definitionList = renderDefinitionListAt(
+        parsedLines,
+        index,
+        context,
+        (element, content, renderContext) => {
+          this.appendContent(element, content, renderContext);
+        }
+      );
+      if (index > 0) {
+        if (context.strictLineBreaks) {
+          elements.push(document.createElement("br"));
+        }
+        elements.push(document.createTextNode("\n"));
+      }
+      if (definitionList) {
+        elements.push(definitionList.element);
+        index = definitionList.nextIndex;
+        continue;
+      }
+      const parsedLine = parsedLines[index];
+      let lineNumber;
+      if (numberProvider) {
+        if (parsedLine.type === "hash") {
+          lineNumber = numberProvider("hash", index);
+        } else if (parsedLine.type === "example") {
+          lineNumber = numberProvider("example", index);
+        }
+      }
+      const lineElements = this.renderLine(parsedLine, context, lineNumber);
+      elements.push(...lineElements);
+      index++;
+    }
+    return elements;
+  }
+  /**
+   * Render hash auto-numbering list
+   */
+  renderHashList(data, number, context) {
+    const elements = [];
+    const span = document.createElement("span");
+    span.className = `${CSS_CLASSES.FANCY_LIST}-hash`;
+    span.textContent = `${number || "#"}. `;
+    elements.push(span);
+    if (data.content) {
+      const contentElements = this.processContentForReferences(data.content, context);
+      elements.push(...contentElements);
+    }
+    return elements;
+  }
+  /**
+   * Render fancy list marker
+   */
+  renderFancyList(data, context) {
+    const elements = [];
+    const span = document.createElement("span");
+    span.className = `${CSS_CLASSES.FANCY_LIST}-${data.type}`;
+    span.textContent = data.marker + " ";
+    elements.push(span);
+    if (data.content) {
+      const contentElements = this.processContentForReferences(data.content, context);
+      elements.push(...contentElements);
+    }
+    return elements;
+  }
+  /**
+   * Render example list
+   */
+  renderExampleList(data, number, context) {
+    const elements = [];
+    const span = document.createElement("span");
+    span.className = CSS_CLASSES.EXAMPLE_LIST;
+    span.textContent = `(${number || "@"}) `;
+    if (number) {
+      span.dataset.exampleNumber = String(number);
+    }
+    elements.push(span);
+    if (data.content) {
+      const contentElements = this.processContentForReferences(data.content, context);
+      elements.push(...contentElements);
+    }
+    return elements;
+  }
+  /**
+   * Render definition term
+   */
+  renderDefinitionTerm(data) {
+    const strong = document.createElement("strong");
+    const u = document.createElement("u");
+    u.textContent = data.content;
+    strong.appendChild(u);
+    return [strong];
+  }
+  /**
+   * Render definition item
+   */
+  renderDefinitionItem(data, context) {
+    const elements = [];
+    const span = document.createElement("span");
+    span.textContent = "\u2022 ";
+    elements.push(span);
+    const contentElements = this.processContentForReferences(data.content, context);
+    elements.push(...contentElements);
+    return elements;
+  }
+  appendContent(element, content, context) {
+    if (appendMathContent(element, content, (text) => {
+      this.appendTextContent(element, text, context);
+    })) {
+      return;
+    }
+    this.appendTextContent(element, content, context);
+  }
+  appendTextContent(element, content, context) {
+    this.processContentForReferences(content, context).forEach((child) => {
+      element.appendChild(child);
+    });
+  }
+  /**
+   * Render text with example references
+   */
+  renderWithReferences(text, data, context) {
+    const elements = [];
+    let lastIndex = 0;
+    data.references.forEach((ref) => {
+      var _a, _b;
+      if (ref.startIndex > lastIndex) {
+        elements.push(document.createTextNode(text.substring(lastIndex, ref.startIndex)));
+      }
+      const exampleNumber = (_a = context.getExampleNumber) == null ? void 0 : _a.call(context, ref.label);
+      if (exampleNumber !== void 0) {
+        const span = document.createElement("span");
+        span.className = CSS_CLASSES.EXAMPLE_REF;
+        span.textContent = `(${exampleNumber})`;
+        const tooltipText = (_b = context.getExampleContent) == null ? void 0 : _b.call(context, ref.label);
+        if (tooltipText) {
+          (0, import_obsidian15.setTooltip)(span, tooltipText, { delay: DECORATION_STYLES.TOOLTIP_DELAY_MS });
+        }
+        elements.push(span);
+      } else {
+        elements.push(document.createTextNode(ref.fullMatch));
+      }
+      lastIndex = ref.endIndex;
+    });
+    if (lastIndex < text.length) {
+      elements.push(document.createTextNode(text.substring(lastIndex)));
+    }
+    return elements;
+  }
+  /**
+   * Create a line break element
+   */
+  createLineBreak() {
+    return document.createElement("br");
+  }
+  /**
+   * Create a newline text node
+   */
+  createNewline() {
+    return document.createTextNode("\n");
+  }
+  /**
+   * Process content text for references and return appropriate elements
+   */
+  processContentForReferences(content, context) {
+    if (!context) {
+      return [document.createTextNode(content)];
+    }
+    const references = ListPatterns.findExampleReferences(content);
+    if (references.length === 0) {
+      const customRefs = ListPatterns.findCustomLabelReferences(content);
+      if (customRefs.length === 0) {
+        return [document.createTextNode(content)];
+      }
+      return [document.createTextNode(content)];
+    }
+    const elements = [];
+    let lastIndex = 0;
+    references.forEach((match) => {
+      var _a, _b;
+      const startIndex = match.index;
+      const endIndex = startIndex + match[0].length;
+      const label = match[1];
+      if (startIndex > lastIndex) {
+        elements.push(document.createTextNode(content.substring(lastIndex, startIndex)));
+      }
+      const exampleNumber = (_a = context.getExampleNumber) == null ? void 0 : _a.call(context, label);
+      if (exampleNumber !== void 0) {
+        const span = document.createElement("span");
+        span.className = CSS_CLASSES.EXAMPLE_REF;
+        span.textContent = `(${exampleNumber})`;
+        const tooltipText = (_b = context.getExampleContent) == null ? void 0 : _b.call(context, label);
+        if (tooltipText) {
+          (0, import_obsidian15.setTooltip)(span, tooltipText, { delay: DECORATION_STYLES.TOOLTIP_DELAY_MS });
+        }
+        elements.push(span);
+      } else {
+        elements.push(document.createTextNode(match[0]));
+      }
+      lastIndex = endIndex;
+    });
+    if (lastIndex < content.length) {
+      elements.push(document.createTextNode(content.substring(lastIndex)));
+    }
+    return elements;
+  }
+};
+
+// src/reading-mode/features/definition-lists/normalizer.ts
 function normalizeExistingDefinitionLists(element, context, config, renderContext, fullSourceText) {
   if (context && config && normalizeDefinitionListsFromSource(element, context, config, renderContext, fullSourceText)) {
     return;
@@ -9949,7 +9953,7 @@ function checkPandocFormatting(content, enableCustomLabelLists = false) {
   return issues;
 }
 
-// src/reading-mode/parsers/fancyListParser.ts
+// src/reading-mode/features/extended-lists/fancyListMarker.ts
 function parseFancyListMarker(line) {
   const hashMatch = ListPatterns.isHashList(line);
   if (hashMatch) {
@@ -9992,8 +9996,7 @@ function parseFancyListMarker(line) {
   };
 }
 
-// src/reading-mode/parsers/exampleListParser.ts
-var import_obsidian15 = require("obsidian");
+// src/reading-mode/features/extended-lists/exampleListMarker.ts
 function parseExampleListMarker(line) {
   const match = ListPatterns.isExampleList(line);
   if (!match) {
@@ -10006,7 +10009,7 @@ function parseExampleListMarker(line) {
   };
 }
 
-// src/reading-mode/parsers/definitionListParser.ts
+// src/reading-mode/features/extended-lists/definitionListMarker.ts
 function parseDefinitionListMarker(line) {
   const termMatch = line.match(ListPatterns.DEFINITION_TERM_PATTERN);
   if (termMatch && !line.includes("*") && !line.includes("-") && !line.match(ListPatterns.NUMBERED_LIST)) {
@@ -10033,7 +10036,7 @@ function parseDefinitionListMarker(line) {
   return null;
 }
 
-// src/reading-mode/parsers/parser.ts
+// src/reading-mode/features/extended-lists/lineParser.ts
 var ReadingModeParser = class {
   /**
    * Parse a single line and identify its type and data
@@ -10082,7 +10085,7 @@ var ReadingModeParser = class {
       }
     }
     const defMarker = (config == null ? void 0 : config.enableDefinitionLists) !== false ? parseDefinitionListMarker(line) : null;
-    if (defMarker && defMarker.type === "definition") {
+    if (defMarker && defMarker.type === "definition" && (context == null ? void 0 : context.isAtParagraphStart) !== false) {
       return {
         type: "definition-item",
         content: line,
@@ -10165,7 +10168,7 @@ var ReadingModeParser = class {
   }
 };
 
-// src/reading-mode/pipeline/processors/semanticListBlockRenderer.ts
+// src/reading-mode/features/extended-lists/semanticBlockRenderer.ts
 function tryRenderSemanticListParagraph(elem, context, parser, renderer, text) {
   const lines = text.split("\n").filter((line) => line.trim().length > 0);
   const parsedLines = parser.parseLines(lines, true, true, context.config);
@@ -10532,7 +10535,7 @@ function isCodeElement3(element) {
 }
 function containsPandocSyntax(text, config) {
   const hasBasicSyntax = (config == null ? void 0 : config.enableHashLists) !== false && !!ListPatterns.isHashList(text) || (config == null ? void 0 : config.enableFancyLists) !== false && !!ListPatterns.isFancyList(text) || (config == null ? void 0 : config.enableExampleLists) !== false && !!ListPatterns.isExampleList(text) || (config == null ? void 0 : config.enableDefinitionLists) !== false && !!ListPatterns.isDefinitionMarker(text) || (config == null ? void 0 : config.enableExampleLists) !== false && ListPatterns.findExampleReferences(text).length > 0;
-  const hasCustomLabelSyntax = !(config == null ? void 0 : config.strictPandocMode) && (config == null ? void 0 : config.enableCustomLabelLists) && (ListPatterns.isCustomLabelList(text) || ListPatterns.findCustomLabelReferences(text).length > 0);
+  const hasCustomLabelSyntax = (config == null ? void 0 : config.enableCustomLabelLists) && (ListPatterns.isCustomLabelList(text) || ListPatterns.findCustomLabelReferences(text).length > 0);
   return hasBasicSyntax || Boolean(hasCustomLabelSyntax);
 }
 function validateListInStrictMode2(line, documentLines, config) {
@@ -10553,7 +10556,122 @@ function validateListInStrictMode2(line, documentLines, config) {
   return true;
 }
 
-// src/reading-mode/parsers/fencedDivParser.ts
+// src/reading-mode/features/fenced-divs/candidateDom.ts
+function getTextWithLineBreaks4(elem) {
+  const parts = [];
+  elem.childNodes.forEach((node) => appendNodeText4(node, parts));
+  return parts.join("");
+}
+function splitCandidateIntoLines(candidate) {
+  const lines = [createCandidateLine()];
+  Array.from(candidate.childNodes).forEach((node) => appendNodeToCandidateLines(node, lines));
+  return lines;
+}
+function appendContentLine(line, fragments, stack) {
+  const paragraph = document.createElement("p");
+  const text = typeof line === "string" ? line : line.text;
+  if (typeof line === "string") {
+    paragraph.textContent = line;
+  } else {
+    paragraph.append(...line.nodes);
+  }
+  if (stack.length > 0) {
+    for (const active of stack) {
+      active.contentLines.push(text);
+      active.reference.content = active.contentLines.join("\n").trim();
+    }
+  }
+  appendRenderedLineNode(paragraph, fragments, stack);
+}
+function appendRenderedLineNode(node, fragments, stack) {
+  const active = stack[stack.length - 1];
+  if (active) {
+    active.contentElement.appendChild(node);
+    return;
+  }
+  fragments.push(node);
+}
+function replaceCandidateWithFragments(candidate, fragments) {
+  const parent = candidate.parentNode;
+  if (!parent) {
+    return;
+  }
+  if (fragments.length === 0) {
+    candidate.remove();
+    return;
+  }
+  for (const fragment of fragments) {
+    parent.insertBefore(fragment, candidate);
+  }
+  parent.removeChild(candidate);
+}
+function insertFencedDiv(sourceElement, fencedDiv, stack) {
+  var _a;
+  const active = stack[stack.length - 1];
+  if (active) {
+    active.contentElement.appendChild(fencedDiv);
+    sourceElement.remove();
+    return;
+  }
+  (_a = sourceElement.parentNode) == null ? void 0 : _a.insertBefore(fencedDiv, sourceElement);
+  sourceElement.remove();
+}
+function shouldSkipElement3(element) {
+  return Boolean(
+    element.closest("h1, h2, h3, h4, h5, h6") || element.closest("pre, code") || element.closest(".pem-fenced-div")
+  );
+}
+function appendNodeToCandidateLines(node, lines) {
+  if (node.nodeName === "BR") {
+    lines.push(createCandidateLine());
+    return;
+  }
+  if (node.nodeType === Node.TEXT_NODE) {
+    appendTextToCandidateLines(node.textContent || "", lines);
+    return;
+  }
+  const currentLine = lines[lines.length - 1];
+  currentLine.text += getTextWithLineBreaks4(node);
+  currentLine.nodes.push(node);
+}
+function appendTextToCandidateLines(text, lines) {
+  const parts = text.split("\n");
+  for (const [index, part] of parts.entries()) {
+    if (index > 0) {
+      lines.push(createCandidateLine());
+    }
+    if (!part) {
+      continue;
+    }
+    const currentLine = lines[lines.length - 1];
+    currentLine.text += part;
+    currentLine.nodes.push(document.createTextNode(part));
+  }
+}
+function createCandidateLine() {
+  return {
+    text: "",
+    nodes: []
+  };
+}
+function appendNodeText4(node, parts) {
+  if (node.nodeName === "BR") {
+    parts.push("\n");
+    return;
+  }
+  if (node.nodeType === Node.TEXT_NODE) {
+    parts.push(node.textContent || "");
+    return;
+  }
+  if (node.nodeType === Node.ELEMENT_NODE && !isCodeElement4(node)) {
+    node.childNodes.forEach((child) => appendNodeText4(child, parts));
+  }
+}
+function isCodeElement4(element) {
+  return element.nodeName === "CODE" || element.nodeName === "PRE";
+}
+
+// src/reading-mode/features/fenced-divs/rendering.ts
 var import_obsidian16 = require("obsidian");
 
 // src/reading-mode/pipeline/inline/textReplacementEngine.ts
@@ -10662,8 +10780,199 @@ function isValidMatch(match, text) {
   return Number.isInteger(match.start) && Number.isInteger(match.end) && match.start >= 0 && match.end > match.start && match.end <= text.length;
 }
 
-// src/reading-mode/parsers/fencedDivParser.ts
+// src/reading-mode/features/fenced-divs/rendering.ts
 var MAX_DEPTH_CLASS = 6;
+function createFencedDivElement(label, classes, depth, title = "", blockTitleText = "") {
+  const block = document.createElement("div");
+  const sourceClasses = getFencedDivSourceClasses(classes);
+  const semanticClasses = getFencedDivCssClasses(classes).map((className) => `pem-fenced-div-${className}`);
+  const depthClass = Math.min(depth, MAX_DEPTH_CLASS);
+  block.className = [
+    "pem-fenced-div",
+    ...sourceClasses,
+    depth > 1 ? "pem-fenced-div-inner" : void 0,
+    depth > 1 ? `pem-fenced-div-depth-${depthClass}` : void 0,
+    ...semanticClasses
+  ].filter(Boolean).join(" ");
+  if (label) {
+    block.dataset.pandocDivId = label;
+  }
+  if (classes.length > 0) {
+    block.dataset.pandocDivClasses = classes.join(" ");
+  }
+  if (title) {
+    block.setAttribute("title", title);
+  }
+  if (blockTitleText) {
+    const titleElement = document.createElement("div");
+    titleElement.className = CSS_CLASSES.FENCED_DIV_TITLE;
+    titleElement.textContent = blockTitleText;
+    if (label) {
+      titleElement.dataset.pandocDivId = label;
+      (0, import_obsidian16.setTooltip)(titleElement, `#${label}`, { delay: DECORATION_STYLES.TOOLTIP_DELAY_MS });
+    }
+    block.appendChild(titleElement);
+  }
+  const content = document.createElement("div");
+  content.className = "pem-fenced-div-content";
+  block.appendChild(content);
+  return { block, content };
+}
+function hydrateRenderedFencedDivLabels(element, labels) {
+  var _a, _b, _c;
+  const blocks = Array.from(element.querySelectorAll(".pem-fenced-div[data-pandoc-div-id]"));
+  const typeCounters = createFencedDivTypeCounters(labels.values());
+  for (const block of blocks) {
+    const label = block.dataset.pandocDivId;
+    if (!label) {
+      continue;
+    }
+    const existing = labels.get(label);
+    if (existing) {
+      ensureFencedDivTitleElement(block, existing);
+      continue;
+    }
+    const content = (_c = (_b = (_a = block.querySelector(".pem-fenced-div-content")) == null ? void 0 : _a.textContent) == null ? void 0 : _b.trim()) != null ? _c : "";
+    const reference = createFencedDivReference(
+      label,
+      block.getAttribute("title") || "",
+      getRenderedFencedDivClasses(block),
+      0,
+      content,
+      typeCounters
+    );
+    labels.set(label, reference);
+    ensureFencedDivTitleElement(block, reference);
+  }
+}
+function processHydratedFencedDivReferences(element, docPath) {
+  const counters = pluginStateManager.getDocumentCounters(docPath);
+  if (counters.fencedDivLabels.size === 0) {
+    return;
+  }
+  processInlineTextNodes(
+    element,
+    {
+      element,
+      postProcessorContext: {},
+      section: element.closest(".markdown-preview-section"),
+      sectionInfo: null,
+      sourcePath: docPath,
+      config: {
+        strictLineBreaks: false,
+        strictPandocMode: false,
+        enableFencedDivs: true,
+        enableFencedDivExtras: true
+      },
+      renderContext: {},
+      counters,
+      validationLines: []
+    },
+    [new FencedDivReferenceInlineProcessor()]
+  );
+}
+function getFencedDivSourceClasses(classes) {
+  const sourceClasses = [];
+  const seen = /* @__PURE__ */ new Set();
+  for (const className of classes) {
+    if (!className || /\s/.test(className) || seen.has(className)) {
+      continue;
+    }
+    seen.add(className);
+    sourceClasses.push(className);
+  }
+  return sourceClasses;
+}
+function ensureFencedDivTitleElement(block, reference) {
+  if (!reference.blockTitleText) {
+    return;
+  }
+  let titleElement = block.querySelector(":scope > .pem-fenced-div-title");
+  if (!titleElement) {
+    titleElement = document.createElement("div");
+    titleElement.className = CSS_CLASSES.FENCED_DIV_TITLE;
+    const content = block.querySelector(":scope > .pem-fenced-div-content");
+    block.insertBefore(titleElement, content || block.firstChild);
+  }
+  titleElement.textContent = reference.blockTitleText;
+  titleElement.dataset.pandocDivId = reference.label;
+  (0, import_obsidian16.setTooltip)(titleElement, `#${reference.label}`, { delay: DECORATION_STYLES.TOOLTIP_DELAY_MS });
+}
+function getRenderedFencedDivClasses(block) {
+  var _a;
+  const storedClasses = (_a = block.dataset.pandocDivClasses) == null ? void 0 : _a.split(/\s+/).filter(Boolean);
+  if (storedClasses == null ? void 0 : storedClasses.length) {
+    return storedClasses;
+  }
+  return Array.from(block.classList).filter(
+    (className) => className.startsWith("pem-fenced-div-") && className !== "pem-fenced-div-inner" && !className.startsWith("pem-fenced-div-depth-")
+  ).map((className) => className.replace("pem-fenced-div-", ""));
+}
+
+// src/reading-mode/features/fenced-divs/sourceOpenings.ts
+function getAllowedFencedDivOpening(lineText, config, canOpenAtCurrentLine, sourceOpeningState, consumeSourceOpening = true, allowNonStrictNestedOpening = false) {
+  const opening = sourceOpeningState || canOpenAtCurrentLine ? parseFencedDivOpening(lineText, config) : null;
+  if (!opening) {
+    return null;
+  }
+  if (!sourceOpeningState) {
+    return opening;
+  }
+  return isOpeningAllowedBySource(
+    lineText,
+    sourceOpeningState,
+    consumeSourceOpening,
+    allowNonStrictNestedOpening && !config.strictPandocMode
+  ) ? opening : null;
+}
+function createSourceOpeningState(sourceText, config) {
+  const openings = [];
+  const sourceLines = sourceText.split("\n");
+  let canOpenAtCurrentLine = true;
+  let stackDepth = 0;
+  for (const sourceLine of sourceLines) {
+    const syntacticOpening = parseFencedDivOpening(sourceLine, config);
+    const allowedOpening = canOpenAtCurrentLine ? syntacticOpening : null;
+    if (syntacticOpening) {
+      openings.push({
+        text: sourceLine.trim(),
+        allowed: Boolean(allowedOpening)
+      });
+    }
+    if (allowedOpening) {
+      stackDepth++;
+      canOpenAtCurrentLine = true;
+      continue;
+    }
+    if (isFencedDivClosing(sourceLine) && stackDepth > 0) {
+      stackDepth--;
+      canOpenAtCurrentLine = true;
+      continue;
+    }
+    canOpenAtCurrentLine = allowsFencedDivOpeningAfterLine(sourceLine);
+  }
+  return {
+    openings,
+    index: 0
+  };
+}
+function isOpeningAllowedBySource(lineText, sourceOpeningState, consume, allowNonStrictNestedOpening = false) {
+  const normalizedLine = lineText.trim();
+  const startIndex = sourceOpeningState.index;
+  for (let index = startIndex; index < sourceOpeningState.openings.length; index++) {
+    const opening = sourceOpeningState.openings[index];
+    if (opening.text !== normalizedLine) {
+      continue;
+    }
+    if (consume) {
+      sourceOpeningState.index = index + 1;
+    }
+    return opening.allowed || allowNonStrictNestedOpening;
+  }
+  return false;
+}
+
+// src/reading-mode/features/fenced-divs/processor.ts
 var pendingSectionProcessing = /* @__PURE__ */ new WeakMap();
 var chunkStacks = /* @__PURE__ */ new Map();
 var documentTypeCounters = /* @__PURE__ */ new Map();
@@ -10689,7 +10998,7 @@ function scheduleFencedDivProcessing(element, docPath, config, sourceText) {
   pendingSectionProcessing.set(section, timeout);
 }
 function scheduleFencedDivLabelHydration(element, docPath, config) {
-  if (config.strictPandocMode) {
+  if (config.enableFencedDivExtras === false) {
     return;
   }
   window.setTimeout(() => {
@@ -10735,7 +11044,9 @@ function processFencedDivs(element, docPath, config, preserveStack = false, sour
       lineText,
       config,
       canOpenAtCurrentLine,
-      sourceOpeningState
+      sourceOpeningState,
+      true,
+      stack.length > 0
     );
     if (opening) {
       const fencedDiv = prepareFencedDivOpening(opening, stack, labels, typeCounters, config);
@@ -10764,9 +11075,9 @@ function processFencedDivs(element, docPath, config, preserveStack = false, sour
       }
       stack[stack.length - 1].contentElement.appendChild(candidate);
     }
-    canOpenAtCurrentLine = sourceOpeningState ? allowsFencedDivOpeningAfterLine(lineText) : true;
+    canOpenAtCurrentLine = nextOpeningEligibility(sourceOpeningState, lineText);
   }
-  if (!config.strictPandocMode) {
+  if (config.enableFencedDivExtras !== false) {
     hydrateRenderedFencedDivLabels(element, labels);
   }
   if (preserveStack && stack.length === 0) {
@@ -10828,7 +11139,9 @@ function processMultilineCandidate(candidate, text, stack, labels, config, typeC
       line.text,
       config,
       canOpenAtCurrentLine,
-      sourceOpeningState
+      sourceOpeningState,
+      true,
+      stack.length > 0
     );
     if (opening) {
       const fencedDiv = prepareFencedDivOpening(opening, stack, labels, typeCounters, config);
@@ -10852,7 +11165,7 @@ function processMultilineCandidate(candidate, text, stack, labels, config, typeC
       continue;
     }
     appendContentLine(line, fragments, stack);
-    canOpenAtCurrentLine = sourceOpeningState ? allowsFencedDivOpeningAfterLine(line.text) : true;
+    canOpenAtCurrentLine = nextOpeningEligibility(sourceOpeningState, line.text);
   }
   if (!processedFence) {
     return {
@@ -10880,7 +11193,8 @@ function multilineCandidateHasProcessableFence(lines, config, initialCanOpenAtCu
       config,
       canOpenAtCurrentLine,
       sourceOpeningState,
-      false
+      false,
+      stackDepth > 0
     );
     if (opening) {
       stackDepth++;
@@ -10892,68 +11206,15 @@ function multilineCandidateHasProcessableFence(lines, config, initialCanOpenAtCu
       canOpenAtCurrentLine = true;
       return true;
     }
-    canOpenAtCurrentLine = sourceOpeningState ? allowsFencedDivOpeningAfterLine(line.text) : true;
+    canOpenAtCurrentLine = nextOpeningEligibility(sourceOpeningState, line.text);
   }
   return false;
 }
-function getAllowedFencedDivOpening(lineText, config, canOpenAtCurrentLine, sourceOpeningState, consumeSourceOpening = true) {
-  const opening = sourceOpeningState || canOpenAtCurrentLine ? parseFencedDivOpening(lineText, config) : null;
-  if (!opening) {
-    return null;
-  }
-  if (!sourceOpeningState) {
-    return opening;
-  }
-  return isOpeningAllowedBySource(lineText, sourceOpeningState, consumeSourceOpening) ? opening : null;
-}
-function createSourceOpeningState(sourceText, config) {
-  const openings = [];
-  const sourceLines = sourceText.split("\n");
-  let canOpenAtCurrentLine = true;
-  let stackDepth = 0;
-  for (const sourceLine of sourceLines) {
-    const syntacticOpening = parseFencedDivOpening(sourceLine, config);
-    const allowedOpening = canOpenAtCurrentLine ? syntacticOpening : null;
-    if (syntacticOpening) {
-      openings.push({
-        text: sourceLine.trim(),
-        allowed: Boolean(allowedOpening)
-      });
-    }
-    if (allowedOpening) {
-      stackDepth++;
-      canOpenAtCurrentLine = true;
-      continue;
-    }
-    if (isFencedDivClosing(sourceLine) && stackDepth > 0) {
-      stackDepth--;
-      canOpenAtCurrentLine = true;
-      continue;
-    }
-    canOpenAtCurrentLine = allowsFencedDivOpeningAfterLine(sourceLine);
-  }
-  return {
-    openings,
-    index: 0
-  };
-}
-function isOpeningAllowedBySource(lineText, sourceOpeningState, consume) {
-  const normalizedLine = lineText.trim();
-  const startIndex = sourceOpeningState.index;
-  for (let index = startIndex; index < sourceOpeningState.openings.length; index++) {
-    const opening = sourceOpeningState.openings[index];
-    if (opening.text !== normalizedLine) {
-      continue;
-    }
-    if (consume) {
-      sourceOpeningState.index = index + 1;
-    }
-    return opening.allowed;
-  }
-  return false;
+function nextOpeningEligibility(sourceOpeningState, lineText) {
+  return sourceOpeningState ? allowsFencedDivOpeningAfterLine(lineText) : true;
 }
 function prepareFencedDivOpening(opening, stack, labels, typeCounters, config) {
-  const renderExtendedTitle = !config.strictPandocMode;
+  const renderExtendedTitle = config.enableFencedDivExtras !== false;
   const title = getFencedDivTitle(opening);
   const metadata = createFencedDivReferenceMetadata(
     renderExtendedTitle ? title : "",
@@ -10972,7 +11233,7 @@ function prepareFencedDivOpening(opening, stack, labels, typeCounters, config) {
     opening.id,
     opening.classes,
     stack.length + 1,
-    title,
+    renderExtendedTitle ? title : "",
     renderExtendedTitle ? reference.blockTitleText : ""
   );
   if (opening.id && !existingReference) {
@@ -10983,240 +11244,6 @@ function prepareFencedDivOpening(opening, stack, labels, typeCounters, config) {
     contentElement: fencedDiv.content,
     reference
   };
-}
-function createFencedDivElement(label, classes, depth, title = "", blockTitleText = "") {
-  const block = document.createElement("div");
-  const sourceClasses = getFencedDivSourceClasses(classes);
-  const semanticClasses = getFencedDivCssClasses(classes).map((className) => `pem-fenced-div-${className}`);
-  const depthClass = Math.min(depth, MAX_DEPTH_CLASS);
-  block.className = [
-    "pem-fenced-div",
-    ...sourceClasses,
-    depth > 1 ? "pem-fenced-div-inner" : void 0,
-    depth > 1 ? `pem-fenced-div-depth-${depthClass}` : void 0,
-    ...semanticClasses
-  ].filter(Boolean).join(" ");
-  if (label) {
-    block.dataset.pandocDivId = label;
-  }
-  if (classes.length > 0) {
-    block.dataset.pandocDivClasses = classes.join(" ");
-  }
-  if (title) {
-    block.setAttribute("title", title);
-  }
-  if (blockTitleText) {
-    const titleElement = document.createElement("div");
-    titleElement.className = CSS_CLASSES.FENCED_DIV_TITLE;
-    titleElement.textContent = blockTitleText;
-    if (label) {
-      titleElement.dataset.pandocDivId = label;
-      (0, import_obsidian16.setTooltip)(titleElement, `#${label}`, { delay: DECORATION_STYLES.TOOLTIP_DELAY_MS });
-    }
-    block.appendChild(titleElement);
-  }
-  const content = document.createElement("div");
-  content.className = "pem-fenced-div-content";
-  block.appendChild(content);
-  return { block, content };
-}
-function getFencedDivSourceClasses(classes) {
-  const sourceClasses = [];
-  const seen = /* @__PURE__ */ new Set();
-  for (const className of classes) {
-    if (!className || /\s/.test(className) || seen.has(className)) {
-      continue;
-    }
-    seen.add(className);
-    sourceClasses.push(className);
-  }
-  return sourceClasses;
-}
-function appendContentLine(line, fragments, stack) {
-  const paragraph = document.createElement("p");
-  const text = typeof line === "string" ? line : line.text;
-  if (typeof line === "string") {
-    paragraph.textContent = line;
-  } else {
-    paragraph.append(...line.nodes);
-  }
-  if (stack.length > 0) {
-    for (const active of stack) {
-      active.contentLines.push(text);
-      active.reference.content = active.contentLines.join("\n").trim();
-    }
-  }
-  appendRenderedLineNode(paragraph, fragments, stack);
-}
-function appendRenderedLineNode(node, fragments, stack) {
-  const active = stack[stack.length - 1];
-  if (active) {
-    active.contentElement.appendChild(node);
-    return;
-  }
-  fragments.push(node);
-}
-function replaceCandidateWithFragments(candidate, fragments) {
-  const parent = candidate.parentNode;
-  if (!parent) {
-    return;
-  }
-  if (fragments.length === 0) {
-    candidate.remove();
-    return;
-  }
-  for (const fragment of fragments) {
-    parent.insertBefore(fragment, candidate);
-  }
-  parent.removeChild(candidate);
-}
-function insertFencedDiv(sourceElement, fencedDiv, stack) {
-  var _a;
-  const active = stack[stack.length - 1];
-  if (active) {
-    active.contentElement.appendChild(fencedDiv);
-    sourceElement.remove();
-    return;
-  }
-  (_a = sourceElement.parentNode) == null ? void 0 : _a.insertBefore(fencedDiv, sourceElement);
-  sourceElement.remove();
-}
-function hydrateRenderedFencedDivLabels(element, labels) {
-  var _a, _b, _c;
-  const blocks = Array.from(element.querySelectorAll(".pem-fenced-div[data-pandoc-div-id]"));
-  const typeCounters = createFencedDivTypeCounters(labels.values());
-  for (const block of blocks) {
-    const label = block.dataset.pandocDivId;
-    if (!label) {
-      continue;
-    }
-    const existing = labels.get(label);
-    if (existing) {
-      ensureFencedDivTitleElement(block, existing);
-      continue;
-    }
-    const content = (_c = (_b = (_a = block.querySelector(".pem-fenced-div-content")) == null ? void 0 : _a.textContent) == null ? void 0 : _b.trim()) != null ? _c : "";
-    const reference = createFencedDivReference(
-      label,
-      block.getAttribute("title") || "",
-      getRenderedFencedDivClasses(block),
-      0,
-      content,
-      typeCounters
-    );
-    labels.set(label, reference);
-    ensureFencedDivTitleElement(block, reference);
-  }
-}
-function ensureFencedDivTitleElement(block, reference) {
-  if (!reference.blockTitleText) {
-    return;
-  }
-  let titleElement = block.querySelector(":scope > .pem-fenced-div-title");
-  if (!titleElement) {
-    titleElement = document.createElement("div");
-    titleElement.className = CSS_CLASSES.FENCED_DIV_TITLE;
-    const content = block.querySelector(":scope > .pem-fenced-div-content");
-    block.insertBefore(titleElement, content || block.firstChild);
-  }
-  titleElement.textContent = reference.blockTitleText;
-  titleElement.dataset.pandocDivId = reference.label;
-  (0, import_obsidian16.setTooltip)(titleElement, `#${reference.label}`, { delay: DECORATION_STYLES.TOOLTIP_DELAY_MS });
-}
-function processHydratedFencedDivReferences(element, docPath) {
-  const counters = pluginStateManager.getDocumentCounters(docPath);
-  if (counters.fencedDivLabels.size === 0) {
-    return;
-  }
-  processInlineTextNodes(
-    element,
-    {
-      element,
-      postProcessorContext: {},
-      section: element.closest(".markdown-preview-section"),
-      sectionInfo: null,
-      sourcePath: docPath,
-      config: { strictLineBreaks: false, strictPandocMode: false, enableFencedDivs: true },
-      renderContext: {},
-      counters,
-      validationLines: []
-    },
-    [new FencedDivReferenceInlineProcessor()]
-  );
-}
-function getRenderedFencedDivClasses(block) {
-  var _a;
-  const storedClasses = (_a = block.dataset.pandocDivClasses) == null ? void 0 : _a.split(/\s+/).filter(Boolean);
-  if (storedClasses == null ? void 0 : storedClasses.length) {
-    return storedClasses;
-  }
-  return Array.from(block.classList).filter(
-    (className) => className.startsWith("pem-fenced-div-") && className !== "pem-fenced-div-inner" && !className.startsWith("pem-fenced-div-depth-")
-  ).map((className) => className.replace("pem-fenced-div-", ""));
-}
-function getTextWithLineBreaks4(elem) {
-  const parts = [];
-  elem.childNodes.forEach((node) => appendNodeText4(node, parts));
-  return parts.join("");
-}
-function splitCandidateIntoLines(candidate) {
-  const lines = [createCandidateLine()];
-  Array.from(candidate.childNodes).forEach((node) => appendNodeToCandidateLines(node, lines));
-  return lines;
-}
-function appendNodeToCandidateLines(node, lines) {
-  if (node.nodeName === "BR") {
-    lines.push(createCandidateLine());
-    return;
-  }
-  if (node.nodeType === Node.TEXT_NODE) {
-    appendTextToCandidateLines(node.textContent || "", lines);
-    return;
-  }
-  const currentLine = lines[lines.length - 1];
-  currentLine.text += getTextWithLineBreaks4(node);
-  currentLine.nodes.push(node);
-}
-function appendTextToCandidateLines(text, lines) {
-  const parts = text.split("\n");
-  for (const [index, part] of parts.entries()) {
-    if (index > 0) {
-      lines.push(createCandidateLine());
-    }
-    if (!part) {
-      continue;
-    }
-    const currentLine = lines[lines.length - 1];
-    currentLine.text += part;
-    currentLine.nodes.push(document.createTextNode(part));
-  }
-}
-function createCandidateLine() {
-  return {
-    text: "",
-    nodes: []
-  };
-}
-function appendNodeText4(node, parts) {
-  if (node.nodeName === "BR") {
-    parts.push("\n");
-    return;
-  }
-  if (node.nodeType === Node.TEXT_NODE) {
-    parts.push(node.textContent || "");
-    return;
-  }
-  if (node.nodeType === Node.ELEMENT_NODE && !isCodeElement4(node)) {
-    node.childNodes.forEach((child) => appendNodeText4(child, parts));
-  }
-}
-function shouldSkipElement3(element) {
-  return Boolean(
-    element.closest("h1, h2, h3, h4, h5, h6") || element.closest("pre, code") || element.closest(".pem-fenced-div")
-  );
-}
-function isCodeElement4(element) {
-  return element.nodeName === "CODE" || element.nodeName === "PRE";
 }
 
 // src/reading-mode/pipeline/processors/fencedDivBlockProcessor.ts
@@ -11253,7 +11280,7 @@ var InlineTextEngineProcessor = class {
   }
 };
 
-// src/reading-mode/parsers/unorderedListMarkerParser.ts
+// src/reading-mode/features/unordered-lists/markerClasses.ts
 function getSourceMarkers(sectionText) {
   return sectionText.split("\n").map((line) => {
     var _a;
@@ -11350,7 +11377,7 @@ function createReadingModeContext(element, postProcessorContext, config, app) {
   };
 }
 function hydrateFencedDivLabelsFromSource(source, config, labels) {
-  if (!source || !isSyntaxFeatureEnabled(config, "enableFencedDivs")) {
+  if (!source || config.enableFencedDivs === false || config.enableFencedDivExtras === false) {
     return;
   }
   const items = extractFencedDivs(source, config);
@@ -11666,7 +11693,7 @@ var FencedDivReferenceSuggest = class extends import_obsidian19.EditorSuggest {
     this.plugin = plugin;
   }
   onTrigger(cursor, editor, file) {
-    if (!isSyntaxFeatureEnabled(this.plugin.settings, "enableFencedDivs")) {
+    if (!isFencedDivExtrasEnabled(this.plugin.settings)) {
       return null;
     }
     const line = editor.getLine(cursor.line).substring(0, cursor.ch);
@@ -11695,7 +11722,7 @@ var FencedDivReferenceSuggest = class extends import_obsidian19.EditorSuggest {
     );
   }
   getSuggestionsInternal(context) {
-    if (!isSyntaxFeatureEnabled(this.plugin.settings, "enableFencedDivs")) {
+    if (!isFencedDivExtrasEnabled(this.plugin.settings)) {
       return [];
     }
     const query = context.query.toLowerCase();
@@ -13107,5 +13134,3 @@ ${issueList}`, UI_CONSTANTS.NOTICE_DURATION_MS);
   }
 };
 var main_default = PandocExtendedMarkdownPlugin;
-
-/* nosourcemap */
