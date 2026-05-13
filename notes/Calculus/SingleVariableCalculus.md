@@ -29,6 +29,7 @@ Formal definition that does not appeal to the concept of "limit": For every $\ep
 
 In game theoretic semantics: Player A shows an arbitrarily small number $\epsilon$. Player A challenges Player B, "Can you make sure $f(x)$ always falls in the range of $(k-\epsilon,k+\epsilon)$ when $x$ is around $n$?"; If Play B always has a winning strategy to show a $\delta$ such that for any $x \neq n$ in the range of $(n-\delta,n+\delta)$, $f(x)$ always falls in the range of $(k-\epsilon, k+\epsilon)$, then the limit of $f(x)$ at $n$ is $k$ because $\epsilon$ can be arbitrarily small.
 :::
+
 ### Limit Laws
 
 Let $\lim_{x \to a}f(x)=m$ and $\lim_{x \to a} g(x) = n$.
@@ -163,8 +164,9 @@ In order to define the notion of a *tagent line*, we need to first introduce the
 A line passing through two points on a curve
 :::
 
-A tangent line
-: A secant line where two points on the curve are approaching to each other.
+::: Tangent line {}
+A secant line where two points on the curve are approaching to each other.
+:::
 
 A tangent line exists *does not* entail the derivative exist. For example, for $f(x)=x^{1/3}$, when $x$ is approaching 0, the derivative tends to infinity, so it does not exist. But there is a tagent line $x=0$.
 
@@ -183,14 +185,16 @@ f'(k) &= \lim_{h \to 0} \frac{(k+h)^2 - k^2}{h} \\
 $$
 Similarly, we can show that for $f(x)=mx+b$, $f'(x)=m$
  
-Derivatives of constant multiples
-: let $g(x)=k \cdot f(x)$, then $g'(x) = k \cdot f'(x)$ 
+::: Derivatives of constant multiples {}
+let $g(x)=k \cdot f(x)$, then $g'(x) = k \cdot f'(x)$ 
+:::
 
 **Example**: Given this, we can now know when $g(x)=-5x^{2}$, $g'(x)= -10x$ because $g(x)= -5 \cdot f(x)$ and $f(x)=x^2$. Given that $f'(x)=2x$, then $g'(x) = -5 \cdot 2x=10x$.
 
-Derivatives of a sum
-: if $h(x)= f(x) + g(x)$, then $h'(x) = f'(x) + g'(x)$
-: Similarly, if $h(x) = f(x) - g(x)$, then $h'(x) = f'(x) - g'(x)$
+::: Derivatives of a sum {}
+if $h(x)= f(x) + g(x)$, then $h'(x) = f'(x) + g'(x)$
+Similarly, if $h(x) = f(x) - g(x)$, then $h'(x) = f'(x) - g'(x)$
+:::
 
 *Proof*
 $$
@@ -217,8 +221,9 @@ $$\begin{align*} f'(x) &= (-3x^2)' + (\frac{1}{x})' - (2)' \\
 &= -6x - \frac{1}{x^2}\end{align*}$$
 Then we have $f'(1)=-7$
 
-Power Rule
-: If $f(x)=x^n$, then $f'(x) = nx^{n-1}$, for any $n \in \mathbb{R}$
+::: Power Rule {}
+If $f(x)=x^n$, then $f'(x) = nx^{n-1}$, for any $n \in \mathbb{R}$
+:::
 
 **Partial Proof**:
 
@@ -277,9 +282,10 @@ This argument can be rigorously proven by squeeze.
 
 Given this, we can know $sin'(x)=cos(x)$. By the same token, $cos'(x)=-sin(x)$
 
-Trigonometric functions' derivatives:
-: $\sin'(x)=\cos x$
-: $\cos'(x)=-\sin x$
+::: Trigonometric functions' derivatives {}
+$\sin'(x)=\cos x$
+$\cos'(x)=-\sin x$
+:::
 
 ## Differentiation
 
@@ -287,8 +293,9 @@ Derivatives are useful for LINEAR APPROXIMATION.
 
 **Example**: we want to approximate $\sqrt{104}$. We know that $\sqrt{100}=10$, and $\sqrt{104}$ is close to $\sqrt{100}$. Let $f(x)=\sqrt{x}$, then $f'(x)=\frac{1}{2\sqrt{x}}$. So $f'(100)=\frac{1}{20}$. Then we can approximate $\sqrt{104}$ by $f(100)+f'(100)(104-100)=10+\frac{1}{20}\cdot 4=10.2$.
 
-Product rule
-: $\frac{d}{dx}[f(x)g(x)] = f'(x)g(x) + f(x)g'(x)$
+::: Product rule {}
+$\frac{d}{dx}[f(x)g(x)] = f'(x)g(x) + f(x)g'(x)$
+:::
 
 Justificatin for $\frac{d}{dx}[f(x)g(x)]$ not being $f'(x)g'(x)$: Assume $x$ is time (s), and $g$ and $f$ are functions that maps time to distance (m). Then $f'(x)$ and $g'(x)$ measures speed in $m/s$. Then we can see $f(x)\cdot g(x)$ is distance times distance (m²). Therefore, $\frac{d}{dx}[f(x)g(x)]$ is measured in m²/s. But $f'(x)g'(x)$ is speed times speed (m²/s²). Since the units don't match, $f'(x)g'(x)$ cannot be the derivative of $f(x)g(x)$.
 
