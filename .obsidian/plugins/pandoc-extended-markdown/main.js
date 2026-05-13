@@ -10933,13 +10933,15 @@ function createSourceOpeningState(sourceText, config) {
   for (const sourceLine of sourceLines) {
     const syntacticOpening = parseFencedDivOpening(sourceLine, config);
     const allowedOpening = canOpenAtCurrentLine ? syntacticOpening : null;
+    const stackOpening = allowedOpening || (!config.strictPandocMode && stackDepth > 0 ? syntacticOpening : null);
     if (syntacticOpening) {
       openings.push({
         text: sourceLine.trim(),
-        allowed: Boolean(allowedOpening)
+        allowed: Boolean(allowedOpening),
+        depth: stackDepth
       });
     }
-    if (allowedOpening) {
+    if (stackOpening) {
       stackDepth++;
       canOpenAtCurrentLine = true;
       continue;
@@ -10966,6 +10968,7 @@ function isOpeningAllowedBySource(lineText, sourceOpeningState, consume, allowNo
     }
     if (consume) {
       sourceOpeningState.index = index + 1;
+      sourceOpeningState.currentOpeningDepth = opening.depth;
     }
     return opening.allowed || allowNonStrictNestedOpening;
   }
@@ -11021,6 +11024,7 @@ function processFencedDivs(element, docPath, config, preserveStack = false, sour
   const candidates = Array.from(element.querySelectorAll("p, li"));
   const sourceOpeningState = sourceText ? createSourceOpeningState(sourceText, config) : void 0;
   let canOpenAtCurrentLine = true;
+  let lastProcessedFenceWasClosing = false;
   for (const candidate of candidates) {
     if (shouldSkipElement3(candidate)) {
       continue;
@@ -11038,6 +11042,7 @@ function processFencedDivs(element, docPath, config, preserveStack = false, sour
     );
     if (multilineResult.processed) {
       canOpenAtCurrentLine = multilineResult.canOpenAtNextLine;
+      lastProcessedFenceWasClosing = multilineResult.lastProcessedFenceWasClosing;
       continue;
     }
     const opening = getAllowedFencedDivOpening(
@@ -11049,6 +11054,9 @@ function processFencedDivs(element, docPath, config, preserveStack = false, sour
       stack.length > 0
     );
     if (opening) {
+      if (!lastProcessedFenceWasClosing) {
+        synchronizeStackToSourceOpeningDepth(stack, sourceOpeningState);
+      }
       const fencedDiv = prepareFencedDivOpening(opening, stack, labels, typeCounters, config);
       insertFencedDiv(candidate, fencedDiv.block, stack);
       stack.push({
@@ -11057,6 +11065,7 @@ function processFencedDivs(element, docPath, config, preserveStack = false, sour
         reference: fencedDiv.reference
       });
       canOpenAtCurrentLine = true;
+      lastProcessedFenceWasClosing = false;
       continue;
     }
     if (isFencedDivClosing(lineText) && stack.length > 0) {
@@ -11066,6 +11075,7 @@ function processFencedDivs(element, docPath, config, preserveStack = false, sour
       }
       candidate.remove();
       canOpenAtCurrentLine = true;
+      lastProcessedFenceWasClosing = true;
       continue;
     }
     if (stack.length > 0) {
@@ -11074,6 +11084,9 @@ function processFencedDivs(element, docPath, config, preserveStack = false, sour
         active.reference.content = active.contentLines.join("\n").trim();
       }
       stack[stack.length - 1].contentElement.appendChild(candidate);
+    }
+    if (lineText.trim()) {
+      lastProcessedFenceWasClosing = false;
     }
     canOpenAtCurrentLine = nextOpeningEligibility(sourceOpeningState, lineText);
   }
@@ -11115,7 +11128,8 @@ function processMultilineCandidate(candidate, text, stack, labels, config, typeC
   if (!text.includes("\n")) {
     return {
       processed: false,
-      canOpenAtNextLine: initialCanOpenAtCurrentLine
+      canOpenAtNextLine: initialCanOpenAtCurrentLine,
+      lastProcessedFenceWasClosing: false
     };
   }
   const lines = splitCandidateIntoLines(candidate);
@@ -11128,12 +11142,14 @@ function processMultilineCandidate(candidate, text, stack, labels, config, typeC
   )) {
     return {
       processed: false,
-      canOpenAtNextLine: initialCanOpenAtCurrentLine
+      canOpenAtNextLine: initialCanOpenAtCurrentLine,
+      lastProcessedFenceWasClosing: false
     };
   }
   const fragments = [];
   let canOpenAtCurrentLine = initialCanOpenAtCurrentLine;
   let processedFence = false;
+  let lastProcessedFenceWasClosing = false;
   for (const line of lines) {
     const opening = getAllowedFencedDivOpening(
       line.text,
@@ -11144,6 +11160,9 @@ function processMultilineCandidate(candidate, text, stack, labels, config, typeC
       stack.length > 0
     );
     if (opening) {
+      if (!lastProcessedFenceWasClosing) {
+        synchronizeStackToSourceOpeningDepth(stack, sourceOpeningState);
+      }
       const fencedDiv = prepareFencedDivOpening(opening, stack, labels, typeCounters, config);
       appendRenderedLineNode(fencedDiv.block, fragments, stack);
       stack.push({
@@ -11153,6 +11172,7 @@ function processMultilineCandidate(candidate, text, stack, labels, config, typeC
       });
       canOpenAtCurrentLine = true;
       processedFence = true;
+      lastProcessedFenceWasClosing = false;
       continue;
     }
     if (isFencedDivClosing(line.text) && stack.length > 0) {
@@ -11162,15 +11182,20 @@ function processMultilineCandidate(candidate, text, stack, labels, config, typeC
       }
       canOpenAtCurrentLine = true;
       processedFence = true;
+      lastProcessedFenceWasClosing = true;
       continue;
     }
     appendContentLine(line, fragments, stack);
+    if (line.text.trim()) {
+      lastProcessedFenceWasClosing = false;
+    }
     canOpenAtCurrentLine = nextOpeningEligibility(sourceOpeningState, line.text);
   }
   if (!processedFence) {
     return {
       processed: false,
-      canOpenAtNextLine: canOpenAtCurrentLine
+      canOpenAtNextLine: canOpenAtCurrentLine,
+      lastProcessedFenceWasClosing
     };
   }
   if (stack.length > 0) {
@@ -11181,7 +11206,8 @@ function processMultilineCandidate(candidate, text, stack, labels, config, typeC
   replaceCandidateWithFragments(candidate, fragments);
   return {
     processed: true,
-    canOpenAtNextLine: canOpenAtCurrentLine
+    canOpenAtNextLine: canOpenAtCurrentLine,
+    lastProcessedFenceWasClosing
   };
 }
 function multilineCandidateHasProcessableFence(lines, config, initialCanOpenAtCurrentLine, initialStackDepth, sourceOpeningState) {
@@ -11212,6 +11238,18 @@ function multilineCandidateHasProcessableFence(lines, config, initialCanOpenAtCu
 }
 function nextOpeningEligibility(sourceOpeningState, lineText) {
   return sourceOpeningState ? allowsFencedDivOpeningAfterLine(lineText) : true;
+}
+function synchronizeStackToSourceOpeningDepth(stack, sourceOpeningState) {
+  const sourceDepth = sourceOpeningState == null ? void 0 : sourceOpeningState.currentOpeningDepth;
+  if (sourceDepth === void 0) {
+    return;
+  }
+  while (stack.length > sourceDepth) {
+    const closed = stack.pop();
+    if (closed) {
+      closed.reference.content = closed.contentLines.join("\n").trim();
+    }
+  }
 }
 function prepareFencedDivOpening(opening, stack, labels, typeCounters, config) {
   const renderExtendedTitle = config.enableFencedDivExtras !== false;
