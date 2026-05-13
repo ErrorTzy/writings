@@ -9,3 +9,8 @@
 - [ ] the party will continue to *exalt* their hero.
 - [ ] the culture *valorizes* the individual.
 - [ ] They hope to *emulate* the success of other software companies.
+- [ ] The President *excoriated* the Western press for their biased views
+- [ ] I don’t *relish* the thought of you walking home alone.
+- [ ] Kate was in a *quandary* over whether to go or not.
+- [ ] He only said he had a meeting as a *ploy* to get her to leave.
+- [ ] If he is nervous on stage, he does not *betray* it.
