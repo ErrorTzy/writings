@@ -96,11 +96,11 @@ For $h(x)=f(g(x))$, $h(x)$ is also continuous. Proof: To show that $h(x)$ is con
 ### Intermediate Value Theorem
 
 ::: Continuous on a closed interval {}
-: f is continuous on the closed interval $[a, b]$ if it is right-continuous at $a$, leftcontinuous at $b$, and continuous on $(a, b)$. 
+f is continuous on the closed interval $[a, b]$ if it is right-continuous at $a$, leftcontinuous at $b$, and continuous on $(a, b)$. 
 :::
 
 ::: Intermediate Value Theorem {}
-: If $f$ is continuous on $[a,b]$, then for $f(a)<M<f(b)$, there exists a $c$ between $a$ and $b$ such that $f(c) =M$
+If $f$ is continuous on $[a,b]$, then for $f(a)<M<f(b)$, there exists a $c$ between $a$ and $b$ such that $f(c) =M$
 :::
 
 The continuity of IVT hangs on the completeness of real numbers. IVT does not hold in rational numbers.
@@ -309,3 +309,6 @@ More rigorous proof: $$\begin{align*}
 &= f(x)g'(x) + f'(x)g(x)\\
 \end{align*}$$
 
+::: title
+: text
+:::

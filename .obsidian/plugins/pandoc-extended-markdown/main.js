@@ -9681,6 +9681,31 @@ function removeEmptyParagraphSibling(element) {
   }
 }
 
+// src/reading-mode/pipeline/sourceText.ts
+async function readFullSourceText(sourcePath, suppliedApp) {
+  var _a, _b;
+  const app = suppliedApp != null ? suppliedApp : getObsidianApp();
+  const vault = app == null ? void 0 : app.vault;
+  const activeFile = (_b = (_a = app == null ? void 0 : app.workspace) == null ? void 0 : _a.getActiveFile) == null ? void 0 : _b.call(_a);
+  const path = sourcePath != null ? sourcePath : activeFile == null ? void 0 : activeFile.path;
+  if (!path) {
+    return void 0;
+  }
+  const file = (activeFile == null ? void 0 : activeFile.path) === path ? activeFile : vault == null ? void 0 : vault.getAbstractFileByPath(path);
+  if (!file || typeof (vault == null ? void 0 : vault.cachedRead) !== "function") {
+    return void 0;
+  }
+  try {
+    return await vault.cachedRead(file);
+  } catch (e) {
+    return void 0;
+  }
+}
+function getObsidianApp() {
+  const globalWindow = window;
+  return globalWindow.app;
+}
+
 // src/reading-mode/pipeline/processors/definitionListNormalizationProcessor.ts
 var DOM_SETTLED_FRAME_COUNT = 2;
 var DOM_SETTLED_FALLBACK_MS = 500;
@@ -9777,29 +9802,6 @@ async function normalizeDefinitionListsWithFullSource(definitionRoot, context) {
     context.renderContext,
     fullSourceText
   );
-}
-async function readFullSourceText(sourcePath, suppliedApp) {
-  var _a, _b;
-  const app = suppliedApp != null ? suppliedApp : getObsidianApp();
-  const vault = app == null ? void 0 : app.vault;
-  const activeFile = (_b = (_a = app == null ? void 0 : app.workspace) == null ? void 0 : _a.getActiveFile) == null ? void 0 : _b.call(_a);
-  const path = sourcePath != null ? sourcePath : activeFile == null ? void 0 : activeFile.path;
-  if (!path) {
-    return void 0;
-  }
-  const file = (activeFile == null ? void 0 : activeFile.path) === path ? activeFile : vault == null ? void 0 : vault.getAbstractFileByPath(path);
-  if (!file || typeof (vault == null ? void 0 : vault.cachedRead) !== "function") {
-    return void 0;
-  }
-  try {
-    return await vault.cachedRead(file);
-  } catch (e) {
-    return void 0;
-  }
-}
-function getObsidianApp() {
-  const globalWindow = window;
-  return globalWindow.app;
 }
 
 // src/editor-extensions/pandocValidator.ts
@@ -10930,7 +10932,7 @@ function createSourceOpeningState(sourceText, config) {
   const sourceLines = sourceText.split("\n");
   let canOpenAtCurrentLine = true;
   let stackDepth = 0;
-  for (const sourceLine of sourceLines) {
+  for (const [lineIndex, sourceLine] of sourceLines.entries()) {
     const syntacticOpening = parseFencedDivOpening(sourceLine, config);
     const allowedOpening = canOpenAtCurrentLine ? syntacticOpening : null;
     const stackOpening = allowedOpening || (!config.strictPandocMode && stackDepth > 0 ? syntacticOpening : null);
@@ -10938,7 +10940,8 @@ function createSourceOpeningState(sourceText, config) {
       openings.push({
         text: sourceLine.trim(),
         allowed: Boolean(allowedOpening),
-        depth: stackDepth
+        depth: stackDepth,
+        lineIndex
       });
     }
     if (stackOpening) {
@@ -10955,7 +10958,10 @@ function createSourceOpeningState(sourceText, config) {
   }
   return {
     openings,
-    index: 0
+    index: 0,
+    sourceLines,
+    lineIndex: 0,
+    inObsidianComment: false
   };
 }
 function isOpeningAllowedBySource(lineText, sourceOpeningState, consume, allowNonStrictNestedOpening = false) {
@@ -10969,6 +10975,10 @@ function isOpeningAllowedBySource(lineText, sourceOpeningState, consume, allowNo
     if (consume) {
       sourceOpeningState.index = index + 1;
       sourceOpeningState.currentOpeningDepth = opening.depth;
+      sourceOpeningState.lineIndex = Math.max(
+        sourceOpeningState.lineIndex,
+        opening.lineIndex + 1
+      );
     }
     return opening.allowed || allowNonStrictNestedOpening;
   }
@@ -10978,6 +10988,7 @@ function isOpeningAllowedBySource(lineText, sourceOpeningState, consume, allowNo
 // src/reading-mode/features/fenced-divs/processor.ts
 var pendingSectionProcessing = /* @__PURE__ */ new WeakMap();
 var chunkStacks = /* @__PURE__ */ new Map();
+var chunkLastProcessedFenceWasClosing = /* @__PURE__ */ new Map();
 var documentTypeCounters = /* @__PURE__ */ new Map();
 function scheduleFencedDivProcessing(element, docPath, config, sourceText) {
   if (config.enableFencedDivs === false) {
@@ -10995,7 +11006,7 @@ function scheduleFencedDivProcessing(element, docPath, config, sourceText) {
   }
   const timeout = window.setTimeout(() => {
     pendingSectionProcessing.delete(section);
-    processFencedDivs(section, docPath, config, false, sourceText);
+    processFencedDivs(section, docPath, config, true, sourceText);
     scheduleFencedDivLabelHydration(section, docPath, config);
   }, 0);
   pendingSectionProcessing.set(section, timeout);
@@ -11011,6 +11022,7 @@ function scheduleFencedDivLabelHydration(element, docPath, config) {
   }, 0);
 }
 function processFencedDivs(element, docPath, config, preserveStack = false, sourceText) {
+  var _a;
   if (config.enableFencedDivs === false) {
     return;
   }
@@ -11024,12 +11036,20 @@ function processFencedDivs(element, docPath, config, preserveStack = false, sour
   const candidates = Array.from(element.querySelectorAll("p, li"));
   const sourceOpeningState = sourceText ? createSourceOpeningState(sourceText, config) : void 0;
   let canOpenAtCurrentLine = true;
-  let lastProcessedFenceWasClosing = false;
+  let lastProcessedFenceWasClosing = preserveStack ? (_a = chunkLastProcessedFenceWasClosing.get(docPath)) != null ? _a : false : false;
   for (const candidate of candidates) {
     if (shouldSkipElement3(candidate)) {
       continue;
     }
     const lineText = getTextWithLineBreaks4(candidate);
+    if (!lineText.includes("\n")) {
+      synchronizeSourceClosingsBeforeRenderedLine(
+        stack,
+        sourceOpeningState,
+        lineText,
+        lastProcessedFenceWasClosing || previousRenderedCandidateWasClosing(candidate)
+      );
+    }
     const multilineResult = processMultilineCandidate(
       candidate,
       lineText,
@@ -11074,6 +11094,7 @@ function processFencedDivs(element, docPath, config, preserveStack = false, sour
         closed.reference.content = closed.contentLines.join("\n").trim();
       }
       candidate.remove();
+      advanceSourcePastRenderedLine(sourceOpeningState, lineText);
       canOpenAtCurrentLine = true;
       lastProcessedFenceWasClosing = true;
       continue;
@@ -11088,13 +11109,19 @@ function processFencedDivs(element, docPath, config, preserveStack = false, sour
     if (lineText.trim()) {
       lastProcessedFenceWasClosing = false;
     }
+    advanceSourcePastRenderedLine(sourceOpeningState, lineText);
     canOpenAtCurrentLine = nextOpeningEligibility(sourceOpeningState, lineText);
   }
   if (config.enableFencedDivExtras !== false) {
     hydrateRenderedFencedDivLabels(element, labels);
   }
-  if (preserveStack && stack.length === 0) {
-    chunkStacks.delete(docPath);
+  if (preserveStack) {
+    if (stack.length === 0) {
+      chunkStacks.delete(docPath);
+      chunkLastProcessedFenceWasClosing.delete(docPath);
+    } else {
+      chunkLastProcessedFenceWasClosing.set(docPath, lastProcessedFenceWasClosing);
+    }
   }
 }
 function getChunkStack(docPath) {
@@ -11114,7 +11141,7 @@ function getDocumentTypeCounters(docPath) {
   return counters;
 }
 function shouldResetDocumentCounters(element, preserveStack, stack) {
-  if (preserveStack || stack.length > 0) {
+  if (stack.length > 0) {
     return false;
   }
   const section = element.classList.contains("markdown-preview-section") ? element : element.closest(".markdown-preview-section");
@@ -11122,6 +11149,9 @@ function shouldResetDocumentCounters(element, preserveStack, stack) {
     return true;
   }
   const previousSection = section.previousElementSibling;
+  if (preserveStack && (previousSection == null ? void 0 : previousSection.classList.contains("markdown-preview-section"))) {
+    return false;
+  }
   return !(previousSection == null ? void 0 : previousSection.classList.contains("markdown-preview-section"));
 }
 function processMultilineCandidate(candidate, text, stack, labels, config, typeCounters, initialCanOpenAtCurrentLine, sourceOpeningState) {
@@ -11151,6 +11181,12 @@ function processMultilineCandidate(candidate, text, stack, labels, config, typeC
   let processedFence = false;
   let lastProcessedFenceWasClosing = false;
   for (const line of lines) {
+    synchronizeSourceClosingsBeforeRenderedLine(
+      stack,
+      sourceOpeningState,
+      line.text,
+      lastProcessedFenceWasClosing
+    );
     const opening = getAllowedFencedDivOpening(
       line.text,
       config,
@@ -11180,6 +11216,7 @@ function processMultilineCandidate(candidate, text, stack, labels, config, typeC
       if (closed) {
         closed.reference.content = closed.contentLines.join("\n").trim();
       }
+      advanceSourcePastRenderedLine(sourceOpeningState, line.text);
       canOpenAtCurrentLine = true;
       processedFence = true;
       lastProcessedFenceWasClosing = true;
@@ -11189,6 +11226,7 @@ function processMultilineCandidate(candidate, text, stack, labels, config, typeC
     if (line.text.trim()) {
       lastProcessedFenceWasClosing = false;
     }
+    advanceSourcePastRenderedLine(sourceOpeningState, line.text);
     canOpenAtCurrentLine = nextOpeningEligibility(sourceOpeningState, line.text);
   }
   if (!processedFence) {
@@ -11238,6 +11276,97 @@ function multilineCandidateHasProcessableFence(lines, config, initialCanOpenAtCu
 }
 function nextOpeningEligibility(sourceOpeningState, lineText) {
   return sourceOpeningState ? allowsFencedDivOpeningAfterLine(lineText) : true;
+}
+function synchronizeSourceClosingsBeforeRenderedLine(stack, sourceOpeningState, renderedLine, lastProcessedFenceWasClosing) {
+  if (!sourceOpeningState || lastProcessedFenceWasClosing || isFencedDivClosing(renderedLine)) {
+    return;
+  }
+  while (sourceOpeningState.lineIndex < sourceOpeningState.sourceLines.length) {
+    const sourceLine = sourceOpeningState.sourceLines[sourceOpeningState.lineIndex];
+    const trimmedSourceLine = sourceLine.trim();
+    if (isObsidianCommentDelimiter(trimmedSourceLine)) {
+      sourceOpeningState.inObsidianComment = !sourceOpeningState.inObsidianComment;
+      sourceOpeningState.lineIndex++;
+      continue;
+    }
+    if (sourceOpeningState.inObsidianComment) {
+      closeSourceFence(stack, sourceOpeningState, sourceLine);
+      sourceOpeningState.lineIndex++;
+      continue;
+    }
+    if (!trimmedSourceLine) {
+      sourceOpeningState.lineIndex++;
+      continue;
+    }
+    if (sourceLineMatchesRenderedLine(sourceLine, renderedLine)) {
+      return;
+    }
+    return;
+  }
+}
+function closeSourceFence(stack, sourceOpeningState, sourceLine) {
+  if (!isFencedDivClosing(sourceLine) || stack.length === 0) {
+    return;
+  }
+  const closed = stack.pop();
+  if (closed) {
+    closed.reference.content = closed.contentLines.join("\n").trim();
+  }
+  sourceOpeningState.currentOpeningDepth = stack.length;
+}
+function advanceSourcePastRenderedLine(sourceOpeningState, renderedLine) {
+  if (!sourceOpeningState || !renderedLine.trim()) {
+    return;
+  }
+  while (sourceOpeningState.lineIndex < sourceOpeningState.sourceLines.length) {
+    const sourceLine = sourceOpeningState.sourceLines[sourceOpeningState.lineIndex];
+    const trimmedSourceLine = sourceLine.trim();
+    if (!trimmedSourceLine || isObsidianCommentDelimiter(trimmedSourceLine)) {
+      return;
+    }
+    if (isFencedDivClosing(sourceLine) || sourceLineMatchesRenderedLine(sourceLine, renderedLine)) {
+      sourceOpeningState.lineIndex++;
+    }
+    return;
+  }
+}
+function isObsidianCommentDelimiter(lineText) {
+  return lineText === "%%";
+}
+function previousRenderedCandidateWasClosing(candidate) {
+  const previous = findPreviousRenderedCandidate(candidate);
+  if (!previous) {
+    return false;
+  }
+  return isFencedDivClosing(getTextWithLineBreaks4(previous));
+}
+function findPreviousRenderedCandidate(candidate) {
+  var _a;
+  const previousSibling = candidate.previousElementSibling;
+  if (previousSibling) {
+    return findLastCandidate(previousSibling) || previousSibling;
+  }
+  const parentPreviousSibling = (_a = candidate.parentElement) == null ? void 0 : _a.previousElementSibling;
+  if (!parentPreviousSibling) {
+    return null;
+  }
+  return findLastCandidate(parentPreviousSibling) || parentPreviousSibling;
+}
+function findLastCandidate(element) {
+  var _a;
+  const candidates = element.querySelectorAll("p, li");
+  return (_a = candidates[candidates.length - 1]) != null ? _a : null;
+}
+function sourceLineMatchesRenderedLine(sourceLine, renderedLine) {
+  const sourceWords = getComparableWords(sourceLine);
+  const renderedWords = getComparableWords(renderedLine);
+  if (renderedWords.length === 0) {
+    return sourceWords.length === 0;
+  }
+  return renderedWords.every((word) => sourceWords.includes(word));
+}
+function getComparableWords(text) {
+  return text.toLowerCase().match(/[a-z0-9]+/g) || [];
 }
 function synchronizeStackToSourceOpeningDepth(stack, sourceOpeningState) {
   const sourceDepth = sourceOpeningState == null ? void 0 : sourceOpeningState.currentOpeningDepth;
@@ -11296,6 +11425,10 @@ var FencedDivBlockProcessor = class {
   }
   process(context) {
     var _a;
+    if (context.app) {
+      void scheduleFencedDivProcessingWithFullSource(context);
+      return;
+    }
     scheduleFencedDivProcessing(
       context.element,
       context.sourcePath,
@@ -11304,6 +11437,18 @@ var FencedDivBlockProcessor = class {
     );
   }
 };
+async function scheduleFencedDivProcessingWithFullSource(context) {
+  var _a, _b;
+  const fullSourceText = await readFullSourceText(context.sourcePath, context.app);
+  const processingRoot = fullSourceText ? (_a = context.element.closest(".markdown-preview-view")) != null ? _a : context.element : context.element;
+  const sourceText = fullSourceText != null ? fullSourceText : (_b = context.sectionInfo) == null ? void 0 : _b.text;
+  scheduleFencedDivProcessing(
+    processingRoot,
+    context.sourcePath,
+    context.config,
+    sourceText
+  );
+}
 
 // src/reading-mode/pipeline/processors/inlineTextProcessor.ts
 var InlineTextEngineProcessor = class {
@@ -13172,3 +13317,5 @@ ${issueList}`, UI_CONSTANTS.NOTICE_DURATION_MS);
   }
 };
 var main_default = PandocExtendedMarkdownPlugin;
+
+/* nosourcemap */
