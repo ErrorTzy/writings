@@ -1142,7 +1142,7 @@ ListPatterns.HEADING_WITH_CONTENT = /^(#{1,6})\s+(.*)$/;
 // Matches ^text^ for superscript and ~text~ for subscript
 // Text can contain escaped spaces (\ ) but not unescaped spaces
 ListPatterns.SUPERSCRIPT = /\^([^\s^\x60]|\\[ ])+?\^/g;
-ListPatterns.SUBSCRIPT = /~([^\s~\x60]|\\[ ])+?~/g;
+ListPatterns.SUBSCRIPT = /(?<!~)~([^\s~\x60]|\\[ ])+?~(?!~)/g;
 /**
  * Inline superscript pattern for inline processors.
  * Excludes $ character to prevent matching across LaTeX math boundaries,
@@ -1156,7 +1156,7 @@ ListPatterns.SUPERSCRIPT_INLINE = /\^([^^~\s$\x5B\x5D\x60]+(?:\s+[^^~\s$\x5B\x5D
  * ensuring math expressions remain properly formatted.
  * Excludes [ and ] to prevent matching patterns that might conflict with brackets.
  */
-ListPatterns.SUBSCRIPT_INLINE = /~([^~^\s$\x5B\x5D\x60]+(?:\s+[^~^\s$\x5B\x5D\x60]+)*)~/g;
+ListPatterns.SUBSCRIPT_INLINE = /(?<!~)~([^~^\s$\x5B\x5D\x60]+(?:\s+[^~^\s$\x5B\x5D\x60]+)*)~(?!~)/g;
 // Custom label list patterns for More Extended Syntax
 // Matches {::LABEL} at start of line with required space after
 // Now supports placeholders like {::P(#first)} or pure placeholders like {::(#name)}
@@ -7134,7 +7134,7 @@ var DefinitionProcessor = class {
       return false;
     }
     const lineText = context.document.sliceString(line.from, line.to);
-    if (ListPatterns.isDefinitionMarker(lineText)) {
+    if (ListPatterns.isDefinitionMarker(lineText) && this.canProcessDefinitionMarker(line, context)) {
       return true;
     }
     if (this.isPotentialDefinitionTerm(line, context)) {
@@ -7279,7 +7279,7 @@ var DefinitionProcessor = class {
   }
   isPotentialDefinitionTerm(line, context) {
     const lineText = context.document.sliceString(line.from, line.to);
-    if (!lineText.trim() || ListPatterns.isDefinitionMarker(lineText) || ListPatterns.isIndentedContent(lineText)) {
+    if (!this.isDefinitionTermLine(lineText, context)) {
       return false;
     }
     const lineNum = context.document.lineAt(line.from).number;
@@ -7298,6 +7298,39 @@ var DefinitionProcessor = class {
       }
     }
     return false;
+  }
+  canProcessDefinitionMarker(line, context) {
+    if (!this.isInsideFencedDiv(context)) {
+      return true;
+    }
+    if (context.definitionState.lastWasItem || context.definitionState.pendingBlankLine) {
+      return true;
+    }
+    return this.hasPrecedingDefinitionTerm(line, context);
+  }
+  hasPrecedingDefinitionTerm(line, context) {
+    let previousLineNumber = line.number - 1;
+    if (previousLineNumber < 1) {
+      return false;
+    }
+    let previousLine = context.document.line(previousLineNumber);
+    if (previousLine.text.trim() === "") {
+      previousLineNumber--;
+      if (previousLineNumber < 1) {
+        return false;
+      }
+      previousLine = context.document.line(previousLineNumber);
+    }
+    return this.isDefinitionTermLine(previousLine.text, context);
+  }
+  isDefinitionTermLine(lineText, context) {
+    return Boolean(
+      lineText.trim() && !ListPatterns.isDefinitionMarker(lineText) && !ListPatterns.isIndentedContent(lineText) && !parseFencedDivOpening(lineText, context.settings) && !isFencedDivClosing(lineText)
+    );
+  }
+  isInsideFencedDiv(context) {
+    var _a, _b;
+    return ((_b = (_a = context.fencedDivStack) == null ? void 0 : _a.length) != null ? _b : 0) > 0;
   }
   isIndentedDefinitionContent(line, context) {
     const lineText = context.document.sliceString(line.from, line.to);
@@ -7353,6 +7386,7 @@ var FencedDivProcessor = class extends BaseStructuralProcessor {
     return this.processContentLine(line, context);
   }
   processOpeningFence(line, context, stackItem) {
+    this.resetDefinitionState(context);
     context.fencedDivStack = context.fencedDivStack || [];
     context.fencedDivStack.push(stackItem);
     context.fencedDivBoundaryLine = line.number;
@@ -7367,6 +7401,7 @@ var FencedDivProcessor = class extends BaseStructuralProcessor {
     };
   }
   processClosingFence(line, context) {
+    this.resetDefinitionState(context);
     const stack = context.fencedDivStack || [];
     const renderDepth = stack.length;
     const closingItem = stack.pop();
@@ -7469,6 +7504,10 @@ var FencedDivProcessor = class extends BaseStructuralProcessor {
       return false;
     }
     return isFencedDivClosing(context.document.line(line.number + 1).text);
+  }
+  resetDefinitionState(context) {
+    context.definitionState.lastWasItem = false;
+    context.definitionState.pendingBlankLine = false;
   }
 };
 
@@ -7822,7 +7861,8 @@ var SubscriptProcessor = class {
       const subStart = match.index;
       const subEnd = match.index + match[0].length;
       const cursorInSub = regionCursorPos >= subStart && regionCursorPos <= subEnd;
-      if (!cursorInSub) {
+      const isPartOfDoubleTilde = this.isTouchingTilde(text, region, context, subStart, subEnd);
+      if (!cursorInSub && !isPartOfDoubleTilde) {
         matches.push({
           from: subStart,
           to: subEnd,
@@ -7836,6 +7876,23 @@ var SubscriptProcessor = class {
       }
     }
     return matches;
+  }
+  isTouchingTilde(text, region, context, subStart, subEnd) {
+    var _a, _b, _c;
+    const sourceDoc = (_c = (_b = (_a = context.view) == null ? void 0 : _a.state) == null ? void 0 : _b.doc) != null ? _c : context.document;
+    if (!(sourceDoc == null ? void 0 : sourceDoc.sliceString) || sourceDoc.sliceString(region.from, region.to) !== text) {
+      return this.isTouchingTildeInText(text, subStart, subEnd);
+    }
+    const absoluteFrom = region.from + subStart;
+    const absoluteTo = region.from + subEnd;
+    const charBefore = absoluteFrom > 0 ? sourceDoc.sliceString(absoluteFrom - 1, absoluteFrom) : "";
+    const charAfter = absoluteTo < sourceDoc.length ? sourceDoc.sliceString(absoluteTo, absoluteTo + 1) : "";
+    return charBefore === "~" || charAfter === "~";
+  }
+  isTouchingTildeInText(text, subStart, subEnd) {
+    const charBefore = subStart > 0 ? text.charAt(subStart - 1) : "";
+    const charAfter = subEnd < text.length ? text.charAt(subEnd) : "";
+    return charBefore === "~" || charAfter === "~";
   }
   createDecoration(match, context) {
     const { content, absoluteFrom } = match.data;
@@ -8726,6 +8783,9 @@ function readDefinitionDescription(lines, markerLine, hasBlankAfterTerm, definit
   let index = markerLine + 1;
   let sawBlank = false;
   while (index < lines.length) {
+    if (isDefinitionTermBoundary(lines[index])) {
+      break;
+    }
     if (parseTopLevelDefinitionMarker(lines[index])) {
       break;
     }
@@ -8754,11 +8814,14 @@ function readDefinitionDescription(lines, markerLine, hasBlankAfterTerm, definit
   };
 }
 function canStartDefinitionListItem(lines, index) {
-  if (index >= lines.length || lines[index].trim().length === 0 || parseTopLevelDefinitionMarker(lines[index])) {
+  if (index >= lines.length || lines[index].trim().length === 0 || parseTopLevelDefinitionMarker(lines[index]) || isDefinitionTermBoundary(lines[index])) {
     return false;
   }
   const markerIndex = findFirstDefinitionMarker(lines, index);
   return markerIndex === index + 1 || markerIndex === index + 2;
+}
+function isDefinitionTermBoundary(line) {
+  return Boolean(parseFencedDivOpening(line) || isFencedDivClosing(line));
 }
 function findFirstDefinitionMarker(lines, termLine) {
   var _a, _b;
@@ -9395,7 +9458,7 @@ function normalizeDefinitionListsFromSource(element, context, config, renderCont
   const sectionInfo = getSourceSectionInfo(element, context);
   const blocks = findPandocDefinitionListBlocks(sourceText);
   if (blocks.length === 0) {
-    return false;
+    return true;
   }
   const renderer = new ReadingModeRenderer();
   const replacement = getReplacementRoot(element);
@@ -10376,6 +10439,9 @@ var ExtendedListBlockProcessor = class {
     });
   }
   processElementTextNodes(elem, context) {
+    if (shouldKeepSourceBackedDefinitionMarkerPlain(elem, context)) {
+      return;
+    }
     if (context.config.enableDefinitionLists !== false && elem.nodeName === "P" && this.processDefinitionListParagraph(elem, context)) {
       return;
     }
@@ -10411,6 +10477,7 @@ var ExtendedListBlockProcessor = class {
       isAtParagraphStart,
       context.config
     );
+    applySourceDefinitionBoundaries(parsedLines, lines, context);
     if (context.config.strictPandocMode) {
       parsedLines.forEach((parsedLine, index) => {
         if (parsedLine.type === "fancy" && context.validationLines.length > 0 && !validateListInStrictMode2(lines[index], context.validationLines, context.config)) {
@@ -10512,6 +10579,51 @@ function normalizeCandidateText2(text) {
 function shouldSkipElement2(element, sourcePath) {
   return Boolean(
     element.closest("h1, h2, h3, h4, h5, h6") || pluginStateManager.isElementProcessed(element, "pem-processed", sourcePath)
+  );
+}
+function shouldKeepSourceBackedDefinitionMarkerPlain(element, context) {
+  var _a;
+  if (context.config.enableDefinitionLists === false || element.nodeName !== "P" || !((_a = context.sectionInfo) == null ? void 0 : _a.text)) {
+    return false;
+  }
+  const text = normalizeCandidateText2(getTextWithLineBreaks3(element));
+  if (!ListPatterns.isDefinitionMarker(text)) {
+    return false;
+  }
+  const sourceLines = context.sectionInfo.text.split("\n");
+  const matchingSourceLineIndexes = sourceLines.map((line, index) => ({ line: normalizeCandidateText2(line), index })).filter((item) => item.line === text).map((item) => item.index);
+  if (matchingSourceLineIndexes.length === 0) {
+    return false;
+  }
+  const blocks = findPandocDefinitionListBlocks(context.sectionInfo.text);
+  return matchingSourceLineIndexes.every(
+    (index) => !blocks.some((block) => index >= block.startLine && index <= block.endLine)
+  );
+}
+function applySourceDefinitionBoundaries(parsedLines, lines, context) {
+  var _a;
+  if (context.config.enableDefinitionLists === false || !((_a = context.sectionInfo) == null ? void 0 : _a.text)) {
+    return;
+  }
+  parsedLines.forEach((parsedLine, index) => {
+    var _a2, _b;
+    if (parsedLine.type !== "definition-item" || isSourceLineInDefinitionBlock(lines[index], (_b = (_a2 = context.sectionInfo) == null ? void 0 : _a2.text) != null ? _b : "")) {
+      return;
+    }
+    parsedLine.type = "plain";
+    parsedLine.metadata = void 0;
+  });
+}
+function isSourceLineInDefinitionBlock(line, sourceText) {
+  const normalizedLine = normalizeCandidateText2(line);
+  const sourceLines = sourceText.split("\n");
+  const matchingSourceLineIndexes = sourceLines.map((sourceLine, index) => ({ line: normalizeCandidateText2(sourceLine), index })).filter((item) => item.line === normalizedLine).map((item) => item.index);
+  if (matchingSourceLineIndexes.length === 0) {
+    return true;
+  }
+  const blocks = findPandocDefinitionListBlocks(sourceText);
+  return matchingSourceLineIndexes.some(
+    (index) => blocks.some((block) => index >= block.startLine && index <= block.endLine)
   );
 }
 function getTextWithLineBreaks3(elem) {

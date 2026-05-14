@@ -308,7 +308,3 @@ More rigorous proof: $$\begin{align*}
 &= \lim_{\Delta x \to 0} \frac{f(x+\Delta x) - f(x)}{\Delta x}g(x+\Delta x) + \lim_{\Delta x \to 0} \frac{g(x+\Delta x) - g(x)}{\Delta x}f(x) \\
 &= f(x)g'(x) + f'(x)g(x)\\
 \end{align*}$$
-
-::: title
-: text
-:::
