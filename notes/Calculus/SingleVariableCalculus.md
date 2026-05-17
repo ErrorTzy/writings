@@ -308,3 +308,13 @@ More rigorous proof: $$\begin{align*}
 &= \lim_{\Delta x \to 0} \frac{f(x+\Delta x) - f(x)}{\Delta x}g(x+\Delta x) + \lim_{\Delta x \to 0} \frac{g(x+\Delta x) - g(x)}{\Delta x}f(x) \\
 &= f(x)g'(x) + f'(x)g(x)\\
 \end{align*}$$
+
+Assume we have $h(t) = \frac{f(t)}{g(t)}$. 
+
+**Proposition**: $h'(t) \neq \frac{f'(t)}{g'(t)}$. 
+
+**Proof**: Assume the unit of $f$ and $g$ are both meters and the unit of $t$ is seconds. Then the unit of $h$ is $\frac{m}{m} = \text{no unit}$. Therefore, the unit of $h'(t)$ is $\frac{1}{s}$.But the unit of $\frac{f'(t)}{g'(t)}$ is $\frac{\text{m/s}}{\text{m/s}} = \text{no unit}$. So the units do not match.
+
+::: Quotient Rule {}
+
+:::
