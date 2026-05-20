@@ -1,21 +1,12 @@
 [
   "pandoc-lists",
+  "pandoc-extended-markdown",
   "better-word-count",
   "obsidian-citation-plugin",
+  "copilot-auto-completion",
   "edit-history",
   "enhanced-annotations",
-  "obsidian-footnotes",
   "obsidian-enhancing-export",
-  "obsidian-git",
-  "obsidian-latex-suite",
-  "obsidian-minimal-settings",
-  "obsidian-graphviz",
-  "obsidian-pandoc-reference-list",
-  "quick-latex",
-  "obsidian-smarter-md-hotkeys",
-  "obsidian-style-settings",
-  "obsidian-tidy-footnotes",
-  "obsidian-zotero-desktop-connector",
-  "copilot-auto-completion",
-  "pandoc-extended-markdown"
+  "obsidian-footnotes",
+  "obsidian-git"
 ]

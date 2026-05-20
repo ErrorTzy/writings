@@ -283,8 +283,10 @@ This argument can be rigorously proven by squeeze.
 Given this, we can know $sin'(x)=cos(x)$. By the same token, $cos'(x)=-sin(x)$
 
 ::: Trigonometric functions' derivatives {}
+
 - $\sin'(x)=\cos x$
-$\cos'(x)=-\sin x$
+- $\cos'(x)=-\sin x$
+
 :::
 
 ## Differentiation

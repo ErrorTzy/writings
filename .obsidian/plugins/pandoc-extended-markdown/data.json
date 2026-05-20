@@ -6,6 +6,7 @@
   "enableExampleLists": true,
   "enableDefinitionLists": true,
   "enableFencedDivs": true,
+  "enableFencedDivExtras": true,
   "enableSuperscript": true,
   "enableSubscript": true,
   "enableCustomLabelLists": true,

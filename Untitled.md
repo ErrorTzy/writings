@@ -1,6 +1,6 @@
-aaa
+::: Trigonometric functions' derivatives {}
 
-Term
-: aaa `aaa`
+- $\sin'(x)=\cos x$
+- $\cos'(x)=-\sin x$
 
-aaa
+:::
