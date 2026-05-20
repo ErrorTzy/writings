@@ -283,7 +283,7 @@ This argument can be rigorously proven by squeeze.
 Given this, we can know $sin'(x)=cos(x)$. By the same token, $cos'(x)=-sin(x)$
 
 ::: Trigonometric functions' derivatives {}
-$\sin'(x)=\cos x$
+- $\sin'(x)=\cos x$
 $\cos'(x)=-\sin x$
 :::
 
@@ -316,5 +316,16 @@ Assume we have $h(t) = \frac{f(t)}{g(t)}$.
 **Proof**: Assume the unit of $f$ and $g$ are both meters and the unit of $t$ is seconds. Then the unit of $h$ is $\frac{m}{m} = \text{no unit}$. Therefore, the unit of $h'(t)$ is $\frac{1}{s}$.But the unit of $\frac{f'(t)}{g'(t)}$ is $\frac{\text{m/s}}{\text{m/s}} = \text{no unit}$. So the units do not match.
 
 ::: Quotient Rule {}
-
+$$\frac{d}{dx} \frac{f(x)}{g(x)} = \frac{f'(x)g(x) - f(x)g'(x)}{g(x)^2}$$, whenever $f'(x)$ and $g'(x)$ exist and $g(x) \neq 0$
 :::
+
+::: Trigonometric functions' derivatives {}
+$\tan'(x) = \frac{1}{\cos^2(x)}$
+:::
+
+**Proof**: $$\begin{align*}
+\tan'(x) &= \frac{d}{dx} \frac{\sin(x)}{\cos(x)} \\
+&= \frac{\sin'(x)\cos(x) - \sin(x)\cos'(x)}{\cos^2(x)} \\
+&= \frac{\cos^2(x) + \sin^2(x)}{\cos^2(x)} \\
+&= \frac{1}{\cos^2(x)}
+\end{align*}$$
