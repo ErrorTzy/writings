@@ -8,5 +8,14 @@
   "enhanced-annotations",
   "obsidian-enhancing-export",
   "obsidian-footnotes",
-  "obsidian-git"
+  "obsidian-git",
+  "obsidian-latex-suite",
+  "obsidian-minimal-settings",
+  "obsidian-graphviz",
+  "obsidian-pandoc-reference-list",
+  "quick-latex",
+  "obsidian-smarter-md-hotkeys",
+  "obsidian-style-settings",
+  "obsidian-tidy-footnotes",
+  "obsidian-zotero-desktop-connector"
 ]
