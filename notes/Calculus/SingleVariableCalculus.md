@@ -321,13 +321,13 @@ Assume we have $h(t) = \frac{f(t)}{g(t)}$.
 $$\frac{d}{dx} \frac{f(x)}{g(x)} = \frac{f'(x)g(x) - f(x)g'(x)}{g(x)^2}$$, whenever $f'(x)$ and $g'(x)$ exist and $g(x) \neq 0$
 :::
 
-::: Trigonometric functions' derivatives {}
-$\tan'(x) = \frac{1}{\cos^2(x)}$
-:::
-
 **Proof**: $$\begin{align*}
 \tan'(x) &= \frac{d}{dx} \frac{\sin(x)}{\cos(x)} \\
 &= \frac{\sin'(x)\cos(x) - \sin(x)\cos'(x)}{\cos^2(x)} \\
 &= \frac{\cos^2(x) + \sin^2(x)}{\cos^2(x)} \\
 &= \frac{1}{\cos^2(x)}
 \end{align*}$$
+
+::: Trigonometric functions' derivatives {}
+$\tan'(x) = \frac{1}{\cos^2(x)}$
+:::
