@@ -334,3 +334,7 @@ $\tan'(x) = \frac{1}{\cos^2(x)}$
 &= \frac{\cos^2(x) + \sin^2(x)}{\cos^2(x)} \\
 &= \frac{1}{\cos^2(x)}
 \end{align*}$$
+
+::: Chain Rule {}
+a
+:::
