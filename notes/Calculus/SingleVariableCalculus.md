@@ -47,8 +47,9 @@ $\lim_{x \to a} [f(x) \cdot g(x)] = m \cdot n$
 :::
 
 ::: Division Law (incomplete) {}
-when $n \neq 0$, $\lim_{x \to a} \frac{f(x)}{g(x)} = \frac{m}{n}$
-when $n=0$, to be continued...
+
+- when $n \neq 0$, $\lim_{x \to a} \frac{f(x)}{g(x)} = \frac{m}{n}$
+- when $n=0$, to be continued...
 :::
 
 ### Continuity
@@ -321,13 +322,15 @@ Assume we have $h(t) = \frac{f(t)}{g(t)}$.
 $$\frac{d}{dx} \frac{f(x)}{g(x)} = \frac{f'(x)g(x) - f(x)g'(x)}{g(x)^2}$$, whenever $f'(x)$ and $g'(x)$ exist and $g(x) \neq 0$
 :::
 
+By using this quotient rule, we can prove power rule when $n$ is a negative integer.
+
+::: Trigonometric functions' derivatives {}
+$\tan'(x) = \frac{1}{\cos^2(x)}$
+:::
+
 **Proof**: $$\begin{align*}
 \tan'(x) &= \frac{d}{dx} \frac{\sin(x)}{\cos(x)} \\
 &= \frac{\sin'(x)\cos(x) - \sin(x)\cos'(x)}{\cos^2(x)} \\
 &= \frac{\cos^2(x) + \sin^2(x)}{\cos^2(x)} \\
 &= \frac{1}{\cos^2(x)}
 \end{align*}$$
-
-::: Trigonometric functions' derivatives {}
-$\tan'(x) = \frac{1}{\cos^2(x)}$
-:::
