@@ -336,5 +336,6 @@ $\tan'(x) = \frac{1}{\cos^2(x)}$
 \end{align*}$$
 
 ::: Chain Rule {}
-a
+$\frac{d}{dx} f(g(x)) = f'(x) \cdot g'(x)$ (or more intuitively, df cdot g/dx=df/dg ⋅ dg/dx, where )
 :::
+
