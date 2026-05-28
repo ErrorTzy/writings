@@ -1,3 +1,4 @@
 - [ ] Calculus
 - [ ] Analugue circuits
 - [ ] GRE English
+- [ ] pandoc plugin
