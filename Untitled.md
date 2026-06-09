@@ -1,6 +1,2 @@
-::: Trigonometric functions' derivatives {}
-
-- $\sin'(x)=\cos x$
-- $\cos'(x)=-\sin x$
-
-:::
+1. xxx
+    - xxx
