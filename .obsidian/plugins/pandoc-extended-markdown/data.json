@@ -36,12 +36,12 @@
     "custom-labels",
     "example-lists",
     "definition-lists",
-    "footnotes",
-    "fenced-divs"
+    "fenced-divs",
+    "footnotes"
   ],
   "pandocExport": {
-    "enabled": true,
-    "pandocPath": "C:\\Program Files\\Pandoc\\pandoc.exe",
+    "enabled": false,
+    "pandocPath": "",
     "defaultOutputFolderMode": "current",
     "customOutputFolder": "",
     "env": {},
@@ -387,7 +387,7 @@
     "showOverwriteConfirmation": true,
     "openOutputFile": true,
     "revealOutputFile": false,
-    "suggestRuntimeEnvVariables": true,
+    "suggestRuntimeEnvVariables": false,
     "preview": {
       "enabled": true,
       "debounceMs": 700,
