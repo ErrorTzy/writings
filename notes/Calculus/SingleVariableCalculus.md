@@ -345,3 +345,13 @@ $\frac{d}{dx} f(g(x)) = g'(x) \cdot f'(g(x))$
 
 Sometimes we need to differentiate equations that are not functions, like $x^2 + y^2 = 1$.
 
+Because this kind of equation's $y$ cannot be uniquely determined by $x$, the tangent line must be specified by a point $(x,y)$ instead of just $x$. Therefore, our derivative that computes the slope of the tangent line would take $(x,y)$ as input instead of just $x$.
+
+**Example**: The derivative of $x^2 + y^2  = 25$, namely the change of $y$ with respect to the a given $x$ and a given $y$
+
+We differentiate both sides: $$\begin{align*}
+(x^2+ y^2)' &= (25)' \\
+2x + 2y \cdot y' &= 0 \\
+y' &= -\frac{x}{y}
+\end{align*}$$
+
