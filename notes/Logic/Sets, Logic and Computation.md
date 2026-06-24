@@ -33,10 +33,7 @@ Definition 1.5 (Subset)
 
 **Definition 1.17 (Intersection)**
 
-~ The intersection of two sets A and B, written $A \cap B$, is the set of all things which are elements
-
-of both A and B.
-
+~ The intersection of two sets A and B, written $A \cap B$, is the set of all things which are elements of both A and B.
 ~ $A \cup B = \{x:x \in A \land x \in B\}$
 ~ Two sets are called *disjoint* if their intersection is empty
 
