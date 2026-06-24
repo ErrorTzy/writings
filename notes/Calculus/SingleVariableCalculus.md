@@ -336,6 +336,7 @@ $\tan'(x) = \frac{1}{\cos^2(x)}$
 \end{align*}$$
 
 ::: Chain Rule {}
-$\frac{d}{dx} f(g(x)) = f'(x) \cdot g'(x)$ (or more intuitively, df cdot g/dx=df/dg ⋅ dg/dx, where df/dg is the )
+$\frac{d}{dx} f(g(x)) = g'(x) \cdot f'(g(x))$
 :::
 
+**Comment**: A natural way to interpret this formula is to think of the derivative as a ratio of change between the input and output, the derivative of the composite function is the ratio between $x$ and the output of the composite function. And we know that the ratio between the change of the output of the composite function and its input is $f'(g(x))$. Now all we need to know it to know the ratio between the input of this composite function and $x$, which is $g'(x)$. Therefore, we multiply them together to get the ratio between the output of the composite function and $x$.
