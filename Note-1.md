@@ -1,9 +1,7 @@
 ## SubHeading1
 
 Term
-: Definition 1
-: Definition 2
-: Definition 3
+: 
 
 Top-Level Category
 : Sub-category 1
