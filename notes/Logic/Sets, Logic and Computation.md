@@ -6,7 +6,7 @@
 
 : If A and B are sets, then $A = B$ iff every element of A is also an element of B, and vice versa.
 
-Definition 1.5 (Subset)
+**Definition 1.5 (Subset)**
 
 ~ If $\forall x(x \in A \rightarrow x \in B)$ , then we say that A is a subset of B, and write $A \subseteq B$. 
 ~ If A is not a subset of B we write $A \not\subseteq B$. 
