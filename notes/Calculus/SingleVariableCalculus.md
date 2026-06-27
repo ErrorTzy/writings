@@ -355,3 +355,6 @@ We differentiate both sides: $$\begin{align*}
 y' &= -\frac{x}{y}
 \end{align*}$$
 
+### Inverse functions
+
+For $g=f^{-1}$, $g'(x)=1/f'(g(x))$ if $f'(g(x))$ exsits and $\neq 0$.
