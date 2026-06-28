@@ -357,7 +357,7 @@ y' &= -\frac{x}{y}
 
 ### Inverse functions
 
-::: Inverse rule {}
+::: Inverse rule {#inverse}
 For $g=f^{-1}$, $g'(x)=1/f'(g(x))$ if 
 
 - $f'(g(x))$ exsits, and
@@ -365,3 +365,14 @@ For $g=f^{-1}$, $g'(x)=1/f'(g(x))$ if
 :::
 
 **Proof**: $f(g(x)) = x$, and we do derivation on both sides.
+
+With the @inverse, we can do derivation on arcsin, arccos and arctan. Alternatively, we can use implicit deferentiation to deferentiate them.
+
+::: reverse trig function derivation {}
+
+- $arcsin'(x)=\frac{1}{\sqrt{1-x^2}}$
+- $arccos'(x)=\frac{-1}{\sqrt{1-x^2}}$
+- $arctan'(x)=\frac{1}{1+x^2}$
+
+:::
+
