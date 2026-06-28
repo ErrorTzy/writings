@@ -357,4 +357,11 @@ y' &= -\frac{x}{y}
 
 ### Inverse functions
 
-For $g=f^{-1}$, $g'(x)=1/f'(g(x))$ if $f'(g(x))$ exsits and $\neq 0$.
+::: Inverse rule {}
+For $g=f^{-1}$, $g'(x)=1/f'(g(x))$ if 
+
+- $f'(g(x))$ exsits, and
+- $f'(g(x)) \neq 0$. (cannot divide by 0)
+:::
+
+**Proof**: $f(g(x)) = x$, and we do derivation on both sides.
