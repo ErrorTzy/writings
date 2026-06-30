@@ -378,11 +378,11 @@ With the @inverse, we can do derivation on arcsin, arccos and arctan. Alternativ
 
 ### Exponentials
 
-We want to do derivation on $f(x)=a^x$, but by definition $f'(x)$ equals to $\lim_{\Delta x}\frac{a^{x+\Delta x}-a^x}{\Delta x}=a^{x}\lim_{\Delta x}{\frac{a^{\Delta x}-1}{\Delta x}}$. Now we want to know how to compute this $\lim_{\Delta x}{\frac{a^{\Delta x}-1}{\Delta x}}$.
+We want to do derivation on $f(x)=a^x$, but by definition $f'(x)$ equals to $\lim_{\Delta x \to 0} \frac{a^{x+\Delta x}-a^x}{\Delta x}=a^{x}\lim_{\Delta x \to 0} \frac{a^{\Delta x}-1}{\Delta x}$. Now we want to know how to compute this $\lim_{\Delta x \to 0} \frac{a^{\Delta x} - 1}{\Delta x}$.
 
 ::: Euler's number {}
 
-$e$ is the number such that $\lim_{\Delta x}{\frac{e^{\Delta x}-1}{\Delta x}}=1$. Therefore, $$\frac{d}{dx}e^x=e^x$$
+$e$ is the number such that $\lim_{\Delta x \to 0} \frac{e^{\Delta x} - 1}{\Delta x} = 1$. Therefore, $$\frac{d}{dx}e^x=e^x$$
 :::
 
 ::: Logrithm {}
@@ -411,3 +411,4 @@ e^{\ln(x)} \frac{d}{dx} \ln(x) &= 1 \\
 \frac{d}{dx} \ln(x) &= \frac{1}{e^{\ln(x)}} \\\\
 \frac{d}{dx} \ln(x) &= \frac{1}{x}
 \end{align*}$$
+
