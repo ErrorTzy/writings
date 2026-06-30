@@ -385,3 +385,29 @@ We want to do derivation on $f(x)=a^x$, but by definition $f'(x)$ equals to $\li
 $e$ is the number such that $\lim_{\Delta x}{\frac{e^{\Delta x}-1}{\Delta x}}=1$. Therefore, $$\frac{d}{dx}e^x=e^x$$
 :::
 
+::: Logrithm {}
+
+$log_{a(y)}=x$ s.t. $a^x=y$; In other words, let $f(x)=a^x$, then $f^{-1}(y)=log_{a}(y)$. We call $log_{a}(y)$ "log base a"
+
+- $log_{10}(x)$ is usually written as $\log(x)$ (but not always)
+- $log_{e}(x)$ is usually written as $ln(x)$, and is called "natural logarithm"
+
+Some useful properties of logrithm functions:
+$$\begin{align*}
+\log(a \cdot b) & = \log(a) + \log(b) \\
+\log(a^{n}) & = n \log(a)
+\end{align*}$$
+:::
+
+::: derivative of natural logarithm {}
+
+- $ln'(x)=\frac{1}{x}$
+
+:::
+
+**Proof**: We do implicit differentiation on $x = e^{ln(x)}$. $$\begin{align*}
+\frac{d}{dx} e^{\ln(x)} &= \frac{d}{dx} x \\
+e^{\ln(x)} \frac{d}{dx} \ln(x) &= 1 \\
+\frac{d}{dx} \ln(x) &= \frac{1}{e^{\ln(x)}} \\\\
+\frac{d}{dx} \ln(x) &= \frac{1}{x}
+\end{align*}$$
