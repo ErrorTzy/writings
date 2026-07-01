@@ -358,7 +358,7 @@ y' &= -\frac{x}{y}
 ### Inverse functions
 
 ::: Inverse rule {#inverse}
-For $g=f^{-1}$, $g'(x)=1/f'(g(x))$ if 
+For $g=f^{-1}$, $g'(x) \cdot f'(g(x)) = 1$ if 
 
 - $f'(g(x))$ exsits, and
 - $f'(g(x)) \neq 0$. (cannot divide by 0)
