@@ -413,8 +413,12 @@ e^{\ln(x)} \frac{d}{dx} \ln(x) &= 1 \\
 \end{align*}$$
 
 ::: derivation of any exponential function {}
+$$\frac{d}{dx}a^x=ln(a) \cdot a^x$$
+:::
+
+**Method 1**: Reduce $a^x$ to $e^x$
 
 for any $a>0$, we can express it in terms of $e^{ln(a)}$. Therefore, $$\frac{d}{dx}a^x=ln(a) \cdot e^{x \ln(a)}$$. Since $e^{x \ln(a)} = a$, then $$\frac{d}{dx}a^x=ln(a) \cdot a^x$$
 
-:::
+**Method 2**: 
 
