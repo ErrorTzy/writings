@@ -420,5 +420,6 @@ $$\frac{d}{dx}a^x=ln(a) \cdot a^x$$
 
 for any $a>0$, we can express it in terms of $e^{ln(a)}$. Therefore, $$\frac{d}{dx}a^x=ln(a) \cdot e^{x \ln(a)}$$. Since $e^{x \ln(a)} = a$, then $$\frac{d}{dx}a^x=ln(a) \cdot a^x$$
 
-**Method 2**: 
+**Method 2**: Logarithmic Differentiation
 
+Notice that 
