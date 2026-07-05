@@ -422,4 +422,16 @@ for any $a>0$, we can express it in terms of $e^{ln(a)}$. Therefore, $$\frac{d}{
 
 **Method 2**: Logarithmic Differentiation
 
-Notice that 
+::: Logarithmic Differentiation {}
+
+A useful technique to compute derivatives of complicated functions, especially functions that has variables in exponents, like $x^{x}$:
+$$g'(x) = \frac{d}{dx}\ln(g(x)) \cdot g(x)$$
+:::
+
+Notice that for any $f(g(x))$ where $f(x)=ln(x)$, $$\begin{align*}
+\frac{d}{dx}f(g(x)) &= \frac{d}{dg(x)} \ln(g(x)) \cdot \frac{d}{dx} g(x) \\
+&= \frac{1}{g(x)} \cdot g'(x)
+\end{align*}$$
+Therefore, whenever we want to do derivation on $g'(x)$, we can do it through $\frac{d}{dx}f(g(x)) \cdot g(x)$, i.e. $$g'(x) = \frac{d}{dx}\ln(g(x)) \cdot g(x)$$
+Now apply this to $g(x)=a^x$. $ln(a^{x}) =x \cdot \ln(a)$. Note that $ln(a)$ is a constant, so $\frac{d}{dx}\ln(a^{x})=\ln(a)$. Therefore, $$g'(x) = \ln(a) \cdot a^x$$
+
