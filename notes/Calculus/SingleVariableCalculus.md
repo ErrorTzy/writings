@@ -442,3 +442,9 @@ Now apply this to $g(x)=a^x$. $ln(a^{x}) =x \cdot \ln(a)$. Note that $ln(a)$ is 
 
 ## Approximations
 
+Assume we know what $f(a)$ is, and we want to know $f(b)$ such that $b \approx a$. Then wwe have
+
+::: Linear Approximation {}
+$f(b) \approx f(a) + \frac{d}{dx}f(a)(b-a)$
+:::
+
