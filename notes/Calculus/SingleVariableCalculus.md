@@ -434,3 +434,9 @@ Notice that for any $f(g(x))$ where $f(x)=ln(x)$, $$\begin{align*}
 \end{align*}$$
 Therefore, whenever we want to do derivation on $g'(x)$, we can do it through $\frac{d}{dx}f(g(x)) \cdot g(x)$, i.e. $$g'(x) = \frac{d}{dx}\ln(g(x)) \cdot g(x)$$
 Now apply this to $g(x)=a^x$. $ln(a^{x}) =x \cdot \ln(a)$. Note that $ln(a)$ is a constant, so $\frac{d}{dx}\ln(a^{x})=\ln(a)$. Therefore, $$g'(x) = \ln(a) \cdot a^x$$
+#### Approximating e
+
+**Proposition**: $\lim_{x \to \infty} \left(1 + \frac{1}{x}\right)^x = e$
+
+**Proof**: Since we are facing a complex limit $\left(1 + \frac{1}{x}\right)^x$, we can try to compress this expression by expressing it in terms of $e$: $e^{ln((1+ \frac{1}{x})^{x})}$. We know that $\ln\left(\left(1+\frac{1}{x}\right)^{x}\right)= x \ln\left(1+\frac{1}{x}\right)$. And also note that $ln(1)=0$. Therefore, $x \ln\left(1+\frac{1}{x}\right) = x (\ln\left(1+\frac{1}{x}\right)-\ln(1))$. Now we want to know its value when $x$ approches infinity. Now the trick is to substitute $x$ with $u= \frac{1}{x}$ so that we only need to know $\lim_{u \to 0} \frac{\ln(1+u)-\ln(1)}{u}$. Surprisingly, this happens to be the definition of $ln'(1)$! Since we know that $ln'(x)=\frac{1}{x}$, then $ln'(1)=1$. Therefore, $\lim_{x \to \infty} e^{ln((1+ \frac{1}{x})^{x})} = e^{1} = e$.
+
