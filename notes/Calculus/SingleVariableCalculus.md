@@ -324,7 +324,7 @@ $$\frac{d}{dx} \frac{f(x)}{g(x)} = \frac{f'(x)g(x) - f(x)g'(x)}{g(x)^2}$$, whene
 
 By using this quotient rule, we can prove power rule when $n$ is a negative integer.
 
-::: Trigonometric functions' derivatives {}
+::: Trigonometric functions' derivatives, cont {}
 $\tan'(x) = \frac{1}{\cos^2(x)}$
 :::
 
@@ -434,4 +434,3 @@ Notice that for any $f(g(x))$ where $f(x)=ln(x)$, $$\begin{align*}
 \end{align*}$$
 Therefore, whenever we want to do derivation on $g'(x)$, we can do it through $\frac{d}{dx}f(g(x)) \cdot g(x)$, i.e. $$g'(x) = \frac{d}{dx}\ln(g(x)) \cdot g(x)$$
 Now apply this to $g(x)=a^x$. $ln(a^{x}) =x \cdot \ln(a)$. Note that $ln(a)$ is a constant, so $\frac{d}{dx}\ln(a^{x})=\ln(a)$. Therefore, $$g'(x) = \ln(a) \cdot a^x$$
-
