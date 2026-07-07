@@ -457,6 +457,6 @@ some approximations when x near 0:
 - $\ln(1+x) \approx x$
 
 ::: Linear Approximation For products {}
-when $h(x)=f(x)g(x)$, and $F(x)$ is the linear approximation of $f(x)$ and $G(x)$ is the linear approximation of $g(x)$; Then $h(x)$ is approximated by $F(x)G(x)$ but dropping all the non-linear parts like $x^2$ or higher.
+when $h(x)=f(x)g(x)$, and $F(x)$ is the linear approximation of $f(x)$ and $G(x)$ is the linear approximation of $g(x)$; Then $h(x)$ is approximated by $F(x)G(x)$ but dropping all the non-linear parts like $(x-a)^2$ or higher when near $a$
 :::
 
