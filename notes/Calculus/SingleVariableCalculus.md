@@ -462,7 +462,15 @@ when $h(x)=f(x)g(x)$, and $F(x)$ is the linear approximation of $f(x)$ and $G(x)
 
 The problem with linear approximation is that it does not tells us whether the function is curving up or down, because the approximation of $f$, say $F$, is just a tangent line where $f(a)=F(a)$ and $f'(a)=F'(a)$, but $f''(a) \neq F''(a)$. To also fit second derivatives, we need to use quadratic approximation.
 
-::: Quadratic Approximation {}
-$f(b) \approx f(a) + \frac{d}{dx}f(a)(b-a) + \frac{1}{2}\frac{d}{dx}^2f(a)(b-a)^{2}$
-:::
+**Remark**: Given that we are using quadratic function, it must take the form of $F(x)=ax^{2}+bx+c$. And we know that:
+
+- $F(k)=f(k)$,
+- $F'(k)=f'(k)$, and
+- $F''(k)=f''(k)$
+
+when $F$ is approximating $f$ near $k$. And we can calculate that
+
+- $f(k)=F(k)=ak^{2}+bk+c$
+- $f'(k)=F'(k)= 2ak+b$
+- $f''(k)=F''(k)=2a$
 
