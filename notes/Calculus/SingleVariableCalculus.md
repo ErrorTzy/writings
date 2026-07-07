@@ -448,3 +448,11 @@ Assume we know what $f(a)$ is, and we want to know $f(b)$ such that $b \approx a
 $f(b) \approx f(a) + \frac{d}{dx}f(a)(b-a)$
 :::
 
+some approximations when x near 0:
+
+- $(1+x)^{r} \approx 1 + rx$
+- $\sin(x) \approx x$
+- $\cos(x) \approx 1$
+- $e^x \approx 1 + x$
+- $\ln(1+x) \approx x$
+
