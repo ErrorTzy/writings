@@ -22,10 +22,10 @@ The thought associated with one sentence $S$ as its sense must be different from
 
 @icd suggest one should always be in position to tell if two sense one has grasped are the same or not.
 
-**Comment**: So here are two lines:
-
-1. If two sentences have different meanings, then it is possible for someone to have different attitudes towards them
-2. If someone has knowledge of meaning, then one is certain whether it agrees with another word in meaning.
+> **Comment**: So here are two lines:
+> 
+> 1. If two sentences have different meanings, then it is possible for someone to have different attitudes towards them
+> 2. If someone has knowledge of meaning, then one is certain whether it agrees with another word in meaning.
 
 ### Russell
 
@@ -44,3 +44,15 @@ The thought associated with one sentence $S$ as its sense must be different from
 2. Everyone took it for granted without justification.
 
 **Comment**: It is a bit strange to define transparency in terms of comparison. We learn from quining qualia that the comparison between qualia can be problematic, but one can still maintain that one is aquianted with qualia, yet the obscure part is the comparison.
+
+The turn: Quine rejected analyticity, but if @st holds, then analyticity follows from it. 
+
+**Quine's argument**:
+
+1. Quine does not know whether "Everything green is extended" is analytic
+2. Quine knows the meaning of "green" and "extended"
+3. If someone knows the meaning of the terms in the sentence, then someone is able to tell whether it is a analytic truth
+
+Since 1, 2 and 3 are inconsistent, and 1 and 2 comes from introspection, then 3 must be false.
+
+> It's not clear why this argument shows Quine denies @st. It denies that if someone knows the meaning of two terms, then he is able to tell whether the meaning of a term is or is not included another term; It is not straightforwardly equivalent to: If someone knows the meaning of two terms, then he is able to tell if they have the same meaning.
