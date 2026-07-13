@@ -65,4 +65,4 @@ Since 1, 2 and 3 are inconsistent, and 1 and 2 comes from introspection, then 3 
 
 **Shaw**: Quine thinks if there is such a thing as meaning, then @st. Since @st doesn't hold, meaning is not a thing. If this was Quine's argument, then Quine accepts @st instead of denying it.
 
-But Quine 
+Shaw believes Kripke is the culprit.
