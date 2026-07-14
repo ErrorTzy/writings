@@ -65,4 +65,24 @@ Since 1, 2 and 3 are inconsistent, and 1 and 2 comes from introspection, then 3 
 
 **Shaw**: Quine thinks if there is such a thing as meaning, then @st. Since @st doesn't hold, meaning is not a thing. If this was Quine's argument, then Quine accepts @st instead of denying it.
 
-Shaw believes Kripke is the culprit.
+#### Kripke
+
+Shaw believes Kripke is the culprit because Kripke revived Millianism:
+
+The following 3 claims are jointly inconsistent:
+
+(@millianism) Meaning of a name is just its reference (Millianism)
+(@semtrans) @st is true
+(@corefer) It is possible to fully know the meaning of two terms without knowing they co-refer
+
+We can see that (@millianism) and (@semtrans) would imply *referential transparency*:
+
+::: Referential Transparency {#rt}
+If someone (fully) knows the meaning of two names, they are in a position to know whether they co-refer or not.
+:::
+
+It seems that (@corefer) is obviously true, so we must choose from (@millianism) and (@semtrans). Frege, Russell and Wittgenstein all deny Millianism, so they can accept @st. But for the new Millians, they must reject @st.
+
+The prominent Millianism is *Native Russellianism* where they tend to adopt *Guise Theory*: We know the meaning of a name through a guise.
+	
+> Rethinking the guise theory, I think this is probably wrong. This is because I believe that meaning is just mental representation, not the thing itself.
