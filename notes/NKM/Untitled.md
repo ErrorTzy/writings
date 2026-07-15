@@ -93,8 +93,12 @@ Shaw's route: reject (@corefer) while accepting (@semtrans) and (@millianism). T
 
 **Assumptions**:
 
-1. Asseting declarative *sentences* express *propositions*, where propositions are mind and language-independent entities that can have truth value and are objects of attitudes.
-2. The meaning of declarative sentences is determined by its parts
-3. There is a cognitive relation between the agent and a sentence such that, if $R(agent,sentence)$, then the agent know what proposition the sentence expresses.
+1. Asseting declarative *sentences* express *propositions*, where propositions are mind- and language-independent entities that can have truth value and are objects of attitudes.
+2. The meaning of declarative sentences is determined by its *parts*
+3. There is a cognitive relation (terminology: *apprehension*) between the agent and a sentence such that, if $Apprehension(agent,sentence)$, then the agent *know* what proposition the sentence expresses.
 
-Given 3, it is natural to 
+**Comment on 3**: 
+
+- Knowing the proposition expressed by a sentence is a reflection process, by the agent realizing the thought they are thinking is the proposition expressed by the sentence. This reflection can raise to the level of knowledge.
+- The cognitive relation might be propositional knowledge, or Russelian acquaintance.
+- Some might think it is not representational state.
