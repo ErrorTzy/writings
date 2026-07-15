@@ -91,9 +91,9 @@ Shaw's route: reject (@corefer) while accepting (@semtrans) and (@millianism). T
 
 ## Ch. 3 The Simple Case from Rigidity
 
-Assumptions:
+**Assumptions**:
 
-1.Asseting declarative sentences express propositions, where propositions are mind and language-independent entities that can have truth value and are objects of attitudes.
-2.The meaning of declarative sentences is determined by its parts
-3.
+1. Asseting declarative sentences express propositions, where propositions are mind and language-independent entities that can have truth value and are objects of attitudes.
+2. The meaning of declarative sentences is determined by its parts
+3. There is a cognitive relation between the agent and a sentence such that, if $R(agent,sentence)$, then the agent know what proposition the sentence expresses.
 
