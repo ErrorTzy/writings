@@ -86,3 +86,14 @@ It seems that (@corefer) is obviously true, so we must choose from (@millianism)
 The prominent Millianism is *Native Russellianism* where they tend to adopt *Guise Theory*: We know the meaning of a name through a guise.
 	
 > Rethinking the guise theory, I think this is probably wrong. This is because I believe that meaning is just mental representation, not the thing itself.
+
+Shaw's route: reject (@corefer) while accepting (@semtrans) and (@millianism). This would lead to the defense of @rt, which no one has argued before.
+
+## Ch. 3 The Simple Case from Rigidity
+
+Assumptions:
+
+1.Asseting declarative sentences express propositions, where propositions are mind and language-independent entities that can have truth value and are objects of attitudes.
+2.The meaning of declarative sentences is determined by its parts
+3.
+
