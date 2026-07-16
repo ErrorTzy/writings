@@ -93,17 +93,54 @@ Shaw's route: reject (@corefer) while accepting (@semtrans) and (@millianism). T
 
 **Assumptions**:
 
-1. Asseting declarative *sentences* express *propositions*, where propositions are mind- and language-independent entities that can have truth value and are objects of attitudes.
-2. The meaning of declarative sentences is determined by its *parts*
-3. There is a cognitive relation (terminology: *apprehension*) between the agent and a sentence such that, if $Apprehension(agent,sentence)$, then the agent *know* what proposition the sentence expresses.
+{::Propositions} Asseting declarative *sentences* express *propositions*, where propositions are mind- and language-independent entities that can have truth value and are objects of attitudes.
+{::Compositionality} The meaning of declarative sentences is determined by its *parts*
+{::Apprehension} There is a cognitive relation (terminology: *apprehension*) between the agent and a sentence such that, if $Apprehension(agent,sentence)$, then the agent *know* what proposition the sentence expresses.
 
-**Comment on 3**: 
+**Remark on {::Apprehension}**: 
 
 - Knowing the proposition expressed by a sentence is a reflection process, by the agent realizing the thought they are thinking is the proposition expressed by the sentence. This reflection can raise to the level of knowledge.
 - The cognitive relation might be propositional knowledge, or Russelian acquaintance.
 - Some might think it is not representational state.
 
-::: Apprehension
+::: Apprehension {.term}
 If one *apprehends* the meanings of the meaningful parts in a sentence $S$ that expresses a proposition $p$ and recognizes how they are put together, one is in a position to know that $S$ expresses $p$.
+:::
+
+::: Assertoric Rigidity {#ar}
+When we assert a sentence with an unembedded name like “N is F ”, we express a proposition \[whose *truth-conditions* at metaphysically possible worlds are *determined by* how things stand with one and the same object, *the actual referent of "N"*, at those worlds\].
+:::
+
+**Argument** from @ar to @rt.
+
+1. You can't tell if N and M co-refer (assumption)
+2. You can't know which proposition is expressed by "N is M" (from @ar)
+3. You do not fully know the meaning of either N or M (from {::Compositionality} and the assumption that you know the meaning of 'is')
+
+> **Comment on 2**: I immediately want to reject 2, or at least if meaning is just proposition. According to {::Compositionality}, meaning is compositonal. But it doesn't say propositions are compositional. I do know what I meant when I say "H is F", but what I meant is indexical and I only (vaguely) know how to pick them out.
+
+**Qualification of the argument**:
+
+1. The two proper names N and M both refer (to exclude empty names)
+2. It is in principle possible to know whether N and M co-refer (to exclude infinitary sentences)
+
+Some terminologies:
+
+::: being in a position to know from (a priori) reasoning {.term}
+If one exercised unbounded a priori capacities for reasoning and knowledge acquisition (and only those), one would come to know p.
+:::
+
+::: Evidence {.term}
+Everything that contributes to an agent’s knowledge that doesn’t belong to the sphere of a priori reasoning
+:::
+
+::: Source of Coreferential Ignorance {#si}
+If it is in-principle knowable that rigid designators “N ” and “M ” corefer (or that they don’t corefer), but one is not in a position to know this by reasoning, then this is because one’s evidence is compatible with at least one metaphysical possibility where "N" and "M" don’t corefer (or one where they do).
+:::
+
+**Remark**: @si specifies the way someone could fail to know a coreference fact: by evidence being compatible with metaphysical possibilities where the coreference fact fails to hold.
+
+::: Ignorance Begets Ignorance {#ibi}
+If one is not in a position to know $p$ by reasoning because in the evidence-compatible worlds where $p$ does not obtain, there are worlds where $q$ does not obtain, then one isn’t in a position to know $q$ by reasoning.
 :::
 
