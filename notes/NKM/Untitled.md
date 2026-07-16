@@ -102,3 +102,8 @@ Shaw's route: reject (@corefer) while accepting (@semtrans) and (@millianism). T
 - Knowing the proposition expressed by a sentence is a reflection process, by the agent realizing the thought they are thinking is the proposition expressed by the sentence. This reflection can raise to the level of knowledge.
 - The cognitive relation might be propositional knowledge, or Russelian acquaintance.
 - Some might think it is not representational state.
+
+::: Apprehension
+If one *apprehends* the meanings of the meaningful parts in a sentence $S$ that expresses a proposition $p$ and recognizes how they are put together, one is in a position to know that $S$ expresses $p$.
+:::
+
