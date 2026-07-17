@@ -146,4 +146,4 @@ If it is in-principle knowable that rigid designators “N ” and “M ” core
 If one is not in a position to know $p$ by reasoning because in the evidence-compatible worlds where $p$ does not obtain, there are worlds where $q$ does not obtain, then one isn’t in a position to know $q$ by reasoning.
 :::
 
-**Remark**: @ibi 
+**Remark**: @ibi specifies the conditions that blocks knowledge. 
