@@ -103,7 +103,7 @@ Shaw's route: reject (@corefer) while accepting (@semtrans) and (@millianism). T
 - The cognitive relation might be propositional knowledge, or Russelian acquaintance.
 - Some might think it is not representational state.
 
-::: Apprehension {.term}
+::: Apprehension {.term #apprehension}
 If one *apprehends* the meanings of the meaningful parts in a sentence $S$ that expresses a proposition $p$ and recognizes how they are put together, one is in a position to know that $S$ expresses $p$.
 :::
 
@@ -162,6 +162,15 @@ Extremely unusual compatibility (like external world skepticism) does not count 
 - Let $A$ be someone who fully understand the meaning of "=", but is not in a position to know whether N and M corefer.
 - Let  $s$ be the proposition "$N = M$" uttered at $w$, which is necessarily true
 - Let $s'$ be the proposition "$N = M$" uttered at $w'$, which is nececessarily false
+- Let $p$ be the proposition: "N" and "M" co-refer.
+- Let $q$ be the proposition: "N =  M" expresses $s$
 
 1. By @si, $A$'s evidence is compatible with both $w$ and $w'$
-2. 
+2. By @ar, $s$ and $s'$ has different truth-conditions
+3. From 2, $s$ and $s'$ are different propositions
+4. By @ibi, $A$ is not in a position to know $q$ by reasoning.
+5. By the definition of @apprehension and 4, $A$ either does not apprehend the meaningful parts of $q$, or does not apprehend how they are arranged together
+6. By assumption, $A$ apprehend how they are arranged together, and apprehend "is"
+7. From 5 and 6, $A$ does not apprehend the names "N" and "M"
+
+> why not say, one can apprehend every meaningful part of a proposition, and how they are arranged, but still do not apprehend the proposition itself (if taking propositions to be a structured external entity)? For example, I may apprehend the meaning of "here" perfectly well to confidently say "I am here", but without really knowing where exactly "here" refers to.
