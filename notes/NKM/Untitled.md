@@ -153,3 +153,4 @@ then one isn't in a position to know $q$ by reasoning.
 
 **Remark**: @ibi specifies the conditions that blocks knowledge: Since one cannot exclude the possibility of $\neg q$ by any prior knowledge (the antecedent says there are worlds where one cannot rule out, and $\neg q$), one cannot know $q$.
 
+Extremely unusual compatibility (like external world skepticism) does not count as evidence-compatible.
