@@ -111,7 +111,7 @@ If one *apprehends* the meanings of the meaningful parts in a sentence $S$ that 
 When we assert a sentence with an unembedded name like “N is F ”, we express a proposition \[whose *truth-conditions* at metaphysically possible worlds are *determined by* how things stand with one and the same object, *the actual referent of "N"*, at those worlds\].
 :::
 
-**Argument** from @ar to @rt.
+**Argument from @ar to @rt, informal**
 
 1. You can't tell if N and M co-refer (assumption)
 2. You can't know which proposition is expressed by "N is M" (from @ar)
@@ -153,4 +153,15 @@ then one isn't in a position to know $q$ by reasoning.
 
 **Remark**: @ibi specifies the conditions that blocks knowledge: Since one cannot exclude the possibility of $\neg q$ by any prior knowledge (the antecedent says there are worlds where one cannot rule out, and $\neg q$), one cannot know $q$.
 
-Extremely unusual compatibility (like external world skepticism) does not count as evidence-compatible.
+Extremely unusual compatibility (like external world skepticism) does not count as evidence-compatible: A piece of evidence for $P$ excludes $\neg P$ in the relavant  if the evidence is sufficient to grant the agent knowledge that $P$.
+
+**Argument from @ar to @rt, formal**
+
+- Let $w$ be a world where $val(\text{"N"},w)=val(\text{"M"},w)$; 
+- Let $w'$ be a world where $val(\text{"N"},w')\neq val(\text{"M"},w')$;
+- Let $A$ be someone who fully understand the meaning of "=", but is not in a position to know whether N and M corefer.
+- Let  $s$ be the proposition "$N = M$" uttered at $w$, which is necessarily true
+- Let $s'$ be the proposition "$N = M$" uttered at $w'$, which is nececessarily false
+
+1. By @si, $A$'s evidence is compatible with both $w$ and $w'$
+2. 
