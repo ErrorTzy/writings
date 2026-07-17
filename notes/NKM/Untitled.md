@@ -140,6 +140,8 @@ If it is in-principle knowable that rigid designators “N ” and “M ” core
 
 **Remark**: @si specifies the way someone could fail to know a coreference fact: by evidence being compatible with metaphysical possibilities where the coreference fact fails to hold.
 
+> Could there be any empirical evidence at all that can exclude co-reference?
+
 ::: Ignorance Begets Ignorance {#ibi}
 If one is not in a position to know $p$ by reasoning because in the evidence-compatible worlds where $p$ does not obtain, there are worlds where $q$ does not obtain, then one isn’t in a position to know $q$ by reasoning.
 :::
