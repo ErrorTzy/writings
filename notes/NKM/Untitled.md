@@ -143,7 +143,13 @@ If it is in-principle knowable that rigid designators “N ” and “M ” core
 > Could there be any empirical evidence at all that can exclude co-reference?
 
 ::: Ignorance Begets Ignorance {#ibi}
-If one is not in a position to know $p$ by reasoning because in the evidence-compatible worlds where $p$ does not obtain, there are worlds where $q$ does not obtain, then one isn’t in a position to know $q$ by reasoning.
+If one is not in a position to know $p$ by reasoning because 
+
+1. there are evidence-compatible worlds where $p$ does not obtain, and 
+2. among these $\neg p$ worlds, $\neg q$ is also possible (i.e. $\{\neg p\} \cup E \nvDash q$)
+
+then one isn't in a position to know $q$ by reasoning.
 :::
 
-**Remark**: @ibi specifies the conditions that blocks knowledge. 
+**Remark**: @ibi specifies the conditions that blocks knowledge: Since one cannot exclude the possibility of $\neg q$ by any prior knowledge (the antecedent says there are worlds where one cannot rule out, and $\neg q$), one cannot know $q$.
+
