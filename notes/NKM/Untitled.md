@@ -173,4 +173,5 @@ Extremely unusual compatibility (like external world skepticism) does not count 
 6. By assumption, $A$ apprehend how they are arranged together, and apprehend "is"
 7. From 5 and 6, $A$ does not apprehend the names "N" and "M"
 
-> why not say, one can apprehend every meaningful part of a proposition, and how they are arranged, but still do not apprehend the proposition itself (if taking propositions to be a structured external entity)? For example, I may apprehend the meaning of "here" perfectly well to confidently say "I am here", but without really knowing where exactly "here" refers to.
+> why not say, one can apprehend every meaningful part of a proposition, and how they are arranged, but still do not apprehend the proposition itself (if taking propositions to be a structured external entity)? For example, I may apprehend the meaning of "here" perfectly well to confidently say "I am here", but without really knowing where exactly "here" refers to. In otherwords, I would reject 3. 
+
