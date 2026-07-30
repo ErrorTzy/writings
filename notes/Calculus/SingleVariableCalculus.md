@@ -442,7 +442,7 @@ Now apply this to $g(x)=a^x$. $ln(a^{x}) =x \cdot \ln(a)$. Note that $ln(a)$ is 
 
 ## Approximations
 
-Assume we know what $f(a)$ is, and we want to know $f(b)$ such that $b \approx a$. Then wwe have
+Assume we know what $f(a)$ is, and we want to know $f(b)$ such that $b \approx a$. Then we have
 
 ::: Linear Approximation {}
 $f(b) \approx f(a) + \frac{d}{dx}f(a)(b-a)$
@@ -460,7 +460,7 @@ some approximations when x near 0:
 when $h(x)=f(x)g(x)$, and $F(x)$ is the linear approximation of $f(x)$ and $G(x)$ is the linear approximation of $g(x)$; Then $h(x)$ is approximated by $F(x)G(x)$ but dropping all the non-linear parts like $(x-a)^2$ or higher when near $a$
 :::
 
-The problem with linear approximation is that it does not tells us whether the function is curving up or down, because the approximation of $f$, say $F$, is just a tangent line where $f(a)=F(a)$ and $f'(a)=F'(a)$, but $f''(a) \neq F''(a)$. To also fit second derivatives, we need to use quadratic approximation.
+**Problem with linear approximation** It does not tells us whether the function is curving up or down, because the approximation of $f$, say $F$, is just a tangent line where $f(a)=F(a)$ and $f'(a)=F'(a)$, but $f''(a) \neq F''(a)$. To also fit second derivatives, we need to use quadratic approximation.
 
 **Remark**: Given that we are using quadratic function, it must take the form of $F(x)=ax^{2}+bx+c$. And we know that:
 
@@ -474,3 +474,11 @@ when $F$ is approximating $f$ near $k$. And we can calculate that
 - $f'(k)=F'(k)= 2ak+b$
 - $f''(k)=F''(k)=2a$
 
+Therefore, we can solve:
+
+
+::: Quadratic Approximation {}
+
+When $x$ near $a$:
+
+$f(x) \approx f(a) + f'(a)(x-a) + \frac{1}{2}f''(a)(x-a)^2$
