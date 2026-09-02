@@ -418,7 +418,7 @@ $$\frac{d}{dx}a^x=ln(a) \cdot a^x$$
 
 **Method 1**: Reduce $a^x$ to $e^x$
 
-for any $a>0$, we can express it in terms of $e^{ln(a)}$. Therefore, $$\frac{d}{dx}a^x=ln(a) \cdot e^{x \ln(a)}$$. Since $e^{x \ln(a)} = a$, then $$\frac{d}{dx}a^x=ln(a) \cdot a^x$$
+for any $a>0$, we can express it in terms of $e^{ln(a)}$. Therefore, $$\frac{d}{dx}a^x=ln(a) \cdot e^{x \ln(a)}$$. Since $e^{x \ln(a)} = a^{x}$, then $$\frac{d}{dx}a^x=ln(a) \cdot a^x$$
 
 **Method 2**: Logarithmic Differentiation
 
@@ -463,22 +463,39 @@ when $h(x)=f(x)g(x)$, and $F(x)$ is the linear approximation of $f(x)$ and $G(x)
 **Problem with linear approximation** It does not tells us whether the function is curving up or down, because the approximation of $f$, say $F$, is just a tangent line where $f(a)=F(a)$ and $f'(a)=F'(a)$, but $f''(a) \neq F''(a)$. To also fit second derivatives, we need to use quadratic approximation.
 
 **Remark**: Given that we are using quadratic function, it must take the form of $F(x)=ax^{2}+bx+c$. And we know that:
-
-- $F(k)=f(k)$,
-- $F'(k)=f'(k)$, and
-- $F''(k)=f''(k)$
+$$\begin{align*}
+F(k) &= f(k) \\
+F'(k) &= f'(k) \\
+F''(k) &= f''(k)
+\end{align*}$$
 
 when $F$ is approximating $f$ near $k$. And we can calculate that
 
-- $f(k)=F(k)=ak^{2}+bk+c$
-- $f'(k)=F'(k)= 2ak+b$
-- $f''(k)=F''(k)=2a$
+$$\begin{align*}
+f(k) &= F(k) = ak^{2} + bk + c \\
+f'(k) &= F'(k) = 2ak + b \\
+f''(k) &= F''(k) = 2a
+\end{align*}$$
 
-Therefore, we can solve:
+Therefore we can solve $a, b$ and $c$ in terms of $f$ and $k$:
+$$\begin{align*}
+a &= \frac{1}{2}f''(k) \\
+b &= f'(k) - f''(k) \cdot k \\
+c &= f(k) - \frac{1}{2}f''(k) k^2 - f'(k)k
+\end{align*}$$
+When $k=0$, we have
 
+$$\begin{align*}
+a &= \frac{1}{2}f''(0) \\
+b &= f'(0) \\
+c &= f(0)
+\end{align*}$$
 
-::: Quadratic Approximation {}
+::: Quadratic Approximation when x near 0{}
 
-When $x$ near $a$:
+When $x$ near $0$:
 
-$f(x) \approx f(a) + f'(a)(x-a) + \frac{1}{2}f''(a)(x-a)^2$
+$f(x) \approx f(0) + f'(0)x + \frac{1}{2}f''(0)x^2$
+:::
+
+z
