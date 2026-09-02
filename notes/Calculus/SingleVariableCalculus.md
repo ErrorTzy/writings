@@ -336,7 +336,7 @@ $\tan'(x) = \frac{1}{\cos^2(x)}$
 \end{align*}$$
 
 ::: Chain Rule {}
-$\frac{d}{dx} f(g(x)) = g'(x) \cdot f'(g(x))$
+$\frac{d}{dx} f(g(x)) = \frac{d}{dx} g(x)\cdot \frac{d}{d(g(x))}f(g(x))$
 :::
 
 **Comment**: A natural way to interpret this formula is to think of the derivative as a ratio of change between the input and output, the derivative of the composite function is the ratio between $x$ and the output of the composite function. And we know that the ratio between the change of the output of the composite function and its input is $f'(g(x))$. Now all we need to know it to know the ratio between the input of this composite function and $x$, which is $g'(x)$. Therefore, we multiply them together to get the ratio between the output of the composite function and $x$.
@@ -445,16 +445,22 @@ Now apply this to $g(x)=a^x$. $ln(a^{x}) =x \cdot \ln(a)$. Note that $ln(a)$ is 
 Assume we know what $f(a)$ is, and we want to know $f(b)$ such that $b \approx a$. Then we have
 
 ::: Linear Approximation {}
-$f(b) \approx f(a) + \frac{d}{dx}f(a)(b-a)$
+$f(x) \approx f(a) + \frac{d}{dx}f(a)(x-a)$
+
+when $x$ is near 0, then
+
+$f(x) \approx f(0) + f'(0)x$
 :::
 
-some approximations when x near 0:
+some approximations when the input near 0:
 
-- $(1+x)^{r} \approx 1 + rx$
-- $\sin(x) \approx x$
-- $\cos(x) \approx 1$
-- $e^x \approx 1 + x$
-- $\ln(1+x) \approx x$
+$$\begin{align*}
+(1+x)^{r} &\approx 1 + rx \\
+\sin(x) &\approx x \\
+\cos(x) &\approx 1 \\
+e^x &\approx 1 + x \\
+\ln(1+x) &\approx x
+\end{align*}$$
 
 ::: Linear Approximation For products {}
 when $h(x)=f(x)g(x)$, and $F(x)$ is the linear approximation of $f(x)$ and $G(x)$ is the linear approximation of $g(x)$; Then $h(x)$ is approximated by $F(x)G(x)$ but dropping all the non-linear parts like $(x-a)^2$ or higher when near $a$
@@ -496,6 +502,9 @@ c &= f(0)
 When $x$ near $0$:
 
 $f(x) \approx f(0) + f'(0)x + \frac{1}{2}f''(0)x^2$
+
+As we can see, the quadratic approximation when $x$ near 0 adds $\frac{1}{2}f''(0)x^2$ to the linear approximation.
 :::
 
-z
+
+wocha
