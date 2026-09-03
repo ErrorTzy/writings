@@ -328,7 +328,7 @@ By using this quotient rule, we can prove power rule when $n$ is a negative inte
 $\tan'(x) = \frac{1}{\cos^2(x)}$
 :::
 
-**Proof**: $$\begin{align*}
+0.**Proof**: $$\begin{align*}
 \tan'(x) &= \frac{d}{dx} \frac{\sin(x)}{\cos(x)} \\
 &= \frac{\sin'(x)\cos(x) - \sin(x)\cos'(x)}{\cos^2(x)} \\
 &= \frac{\cos^2(x) + \sin^2(x)}{\cos^2(x)} \\
@@ -504,3 +504,10 @@ When x is near $k$, $$f(x) \approx f(k)+f'(k)(x-k)+\frac{1}{2}f''(k)(x-k)^2$$Spe
 
 
 **Remark**: As we can see, the quadratic approximation adds $\frac{1}{2}f''(k)(x-k)^2$ to the linear approximation.
+
+::: Quadratic approximation of two products {}
+
+$Q(f(x) g(x)) = Q(F(x)G(x))$, where $F(x)$ and $G(x)$ are quadratic approximations of $f(x)$ and $g(x)$ respectively, and $Q(h(x))$ is the quadratic approximation of $h(x)$.
+
+:::
+
