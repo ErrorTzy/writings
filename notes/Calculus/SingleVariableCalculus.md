@@ -507,7 +507,7 @@ When x is near $k$, $$f(x) \approx f(k)+f'(k)(x-k)+\frac{1}{2}f''(k)(x-k)^2$$Spe
 
 ::: Quadratic approximation of two products {}
 
-$Q(f(x) g(x)) = Q(F(x)G(x))$, where $F(x)$ and $G(x)$ are quadratic approximations of $f(x)$ and $g(x)$ respectively, and $Q(h(x))$ is the quadratic approximation of $h(x)$.
+$Q(f(x) g(x)) = Q(Q(f(x))Q(g(x)))$, where $F(x)$ and $G(x)$ are quadratic approximations of $f(x)$ and $g(x)$ respectively, and $Q(h(x))$ is the quadratic approximation of $h(x)$.
 
 :::
 
