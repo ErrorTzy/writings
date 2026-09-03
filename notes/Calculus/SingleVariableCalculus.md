@@ -507,4 +507,6 @@ As we can see, the quadratic approximation when $x$ near 0 adds $\frac{1}{2}f''(
 :::
 
 
-wocha
+some approximations when the input near 0:
+
+wo
