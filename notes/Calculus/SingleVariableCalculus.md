@@ -487,7 +487,7 @@ Therefore we can solve $a, b$ and $c$ in terms of $f$ and $k$:
 $$\begin{align*}
 a &= \frac{1}{2}f''(k) \\
 b &= f'(k) - f''(k) \cdot k \\
-c &= f(k) - \frac{1}{2}f''(k) k^2 - f'(k)k
+c &= f(k) + \frac{1}{2}f''(k) k^2 - f'(k)k
 \end{align*}$$
 When $k=0$, we have
 
@@ -499,14 +499,8 @@ c &= f(0)
 
 ::: Quadratic Approximation when x near 0{}
 
-When $x$ near $0$:
-
-$f(x) \approx f(0) + f'(0)x + \frac{1}{2}f''(0)x^2$
-
-As we can see, the quadratic approximation when $x$ near 0 adds $\frac{1}{2}f''(0)x^2$ to the linear approximation.
+When x is near $k$, $$f(x) \approx f(k)+f'(k)(x-k)+\frac{1}{2}f''(k)(x-k)^2$$Specifically, when $x$ near $0$: $$f(x) \approx f(0) + f'(0)x + \frac{1}{2}f''(0)x^2$$
 :::
 
 
-some approximations when the input near 0:
-
-wo
+**Remark**: As we can see, the quadratic approximation adds $\frac{1}{2}f''(k)(x-k)^2$ to the linear approximation.
