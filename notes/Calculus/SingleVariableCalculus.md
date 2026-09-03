@@ -379,7 +379,7 @@ With the @inverse, we can do derivation on arcsin, arccos and arctan. Alternativ
 ### Exponentials
 
 We want to do derivation on $f(x)=a^x$, but by definition $f'(x)$ equals to $\lim_{\Delta x \to 0} \frac{a^{x+\Delta x}-a^x}{\Delta x}=a^{x}\lim_{\Delta x \to 0} \frac{a^{\Delta x}-1}{\Delta x}$. Now we want to know how to compute this $\lim_{\Delta x \to 0} \frac{a^{\Delta x} - 1}{\Delta x}$.
-
+k
 ::: Euler's number {}
 
 $e$ is the number such that $\lim_{\Delta x \to 0} \frac{e^{\Delta x} - 1}{\Delta x} = 1$. Therefore, $$\frac{d}{dx}e^x=e^x$$
@@ -508,6 +508,12 @@ When x is near $k$, $$f(x) \approx f(k)+f'(k)(x-k)+\frac{1}{2}f''(k)(x-k)^2$$Spe
 ::: Quadratic approximation of two products {}
 
 $Q(f(x) g(x)) = Q(Q(f(x))Q(g(x)))$, where $F(x)$ and $G(x)$ are quadratic approximations of $f(x)$ and $g(x)$ respectively, and $Q(h(x))$ is the quadratic approximation of $h(x)$.
+
+:::
+
+::: The big O notation {}
+
+$f(x) = O(x^{n})$ when x near 0 means that $|f(x)| \le kx^{n}$ for some constant $k$; It reveals the order of magnitude of the function.
 
 :::
 
