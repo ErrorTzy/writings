@@ -517,6 +517,17 @@ $f(x) = O(x^{n})$ when x near 0 means that $|f(x)| \le kx^{n}$ for some constant
 
 :::
 
-::: Newton's method
+::: Newton's method {}
+
+Given a function $f(x)$, we can find $x$ such that $f(x) = 0$. We start with 
+
+1. an initial guess $x_0$
+2. find the tangent slope at $x_0$, namely $f'(x_0)$
+3. get the tangent line equation $y = f'(x_{0})x+f'(x_{0})x_{0}-f(x_{0})$
+4. solve the equation for $y=0$, namely $x_{1}=x_{0}-\frac{f(x_{0})}{f'(x_{0})}$
+5. repeat the process with $x_{1}$
+
+The general formula is $x_{n+1}=x_{n}-\frac{f(x_{n})}{f'(x_{n})}$ for $n \in N$
 
 :::
+
