@@ -517,3 +517,6 @@ $f(x) = O(x^{n})$ when x near 0 means that $|f(x)| \le kx^{n}$ for some constant
 
 :::
 
+::: Newton's method
+
+:::
