@@ -1,27 +1,3 @@
-==aaaa==
-	==aaaa==
-	
-	aaaa
-
-```
-pandoc -f markdown -t html << EOF
-aaaa
-: aaa
-	aaa
-	
-	aaa
-: aaa
-EOF
-```
-aaaa
-	aaa
-	aaa
-	
-	aaa
-
-aaaa
-: aaa
-	aaa
-	
-	aaa
-: aaa
+a) ![0](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAEElEQVR4nGNgGAWjYBTAAAADEAABPywr7AAAAABJRU5ErkJggg==)  
+b) Second item  
+c) Third item
