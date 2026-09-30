@@ -8923,7 +8923,7 @@ async function removeOdtPreviewAddon(settings, fileSystem) {
   };
 }
 async function downloadBytes(url) {
-  const response = await (0, import_obsidian13.requestUrl)({ url });
+  const response = await (0, import_obsidian12.requestUrl)({ url });
   if (response.status < 200 || response.status >= 300) {
     throw new Error(`Download failed with status ${response.status}.`);
   }
@@ -8945,10 +8945,10 @@ function safeArchivePath(path6) {
   const parts = path6.split(/[\\/]/).map((part) => basename(part.trim())).filter((part) => part.length > 0 && part !== "." && part !== "..");
   return parts.length > 0 ? parts.join("/") : void 0;
 }
-var import_obsidian13, WEBODF_ADDON_VERSION, WEBODF_ADDON_URL, WEBODF_ADDON_SHA256;
+var import_obsidian12, WEBODF_ADDON_VERSION, WEBODF_ADDON_URL, WEBODF_ADDON_SHA256;
 var init_odtPreviewAddon = __esm({
   "src/pandoc/gui/obsidian/workspace/odtPreviewAddon.ts"() {
-    import_obsidian13 = require("obsidian");
+    import_obsidian12 = require("obsidian");
     init_browser();
     init_core();
     WEBODF_ADDON_VERSION = "0.5.9";
@@ -208251,12 +208251,12 @@ __export(main_exports, {
   default: () => main_default
 });
 module.exports = __toCommonJS(main_exports);
-var import_obsidian34 = require("obsidian");
+var import_obsidian42 = require("obsidian");
 var import_state12 = require("@codemirror/state");
 var import_view19 = require("@codemirror/view");
 
 // src/core/settings.ts
-var import_obsidian15 = require("obsidian");
+var import_obsidian14 = require("obsidian");
 
 // src/shared/types/orderedListTypes.ts
 var ORDERED_LIST_MARKER_STYLES = [
@@ -208369,7 +208369,7 @@ function normalizeUnorderedListMarkerOrder(order) {
 // src/shared/types/settingsTypes.ts
 init_settings();
 var DEFAULT_SETTINGS = {
-  enforcePandocListSpacing: false,
+  enableListsWithoutPrecedingBlankline: true,
   enableReadableFencedDivSyntax: true,
   autoRenumberLists: true,
   enableHashAutoNumber: true,
@@ -208402,12 +208402,12 @@ function isFencedDivExtrasEnabled(settings) {
   return isSyntaxFeatureEnabled(settings, "enableFencedDivs") && isSyntaxFeatureEnabled(settings, "enableFencedDivExtras");
 }
 function normalizeSettings(settings) {
-  var _a4, _b2, _c, _d, _e;
+  var _a4, _b2, _c, _d, _e, _f;
   const sourceSettings = settings != null ? settings : {};
   const normalized = {
-    enforcePandocListSpacing: (_a4 = sourceSettings.enforcePandocListSpacing) != null ? _a4 : DEFAULT_SETTINGS.enforcePandocListSpacing,
-    enableReadableFencedDivSyntax: (_b2 = sourceSettings.enableReadableFencedDivSyntax) != null ? _b2 : DEFAULT_SETTINGS.enableReadableFencedDivSyntax,
-    autoRenumberLists: (_c = sourceSettings.autoRenumberLists) != null ? _c : DEFAULT_SETTINGS.autoRenumberLists,
+    enableListsWithoutPrecedingBlankline: (_b2 = (_a4 = sourceSettings.enableListsWithoutPrecedingBlankline) != null ? _a4 : invertLegacyListSpacingSetting(sourceSettings.enforcePandocListSpacing)) != null ? _b2 : DEFAULT_SETTINGS.enableListsWithoutPrecedingBlankline,
+    enableReadableFencedDivSyntax: (_c = sourceSettings.enableReadableFencedDivSyntax) != null ? _c : DEFAULT_SETTINGS.enableReadableFencedDivSyntax,
+    autoRenumberLists: (_d = sourceSettings.autoRenumberLists) != null ? _d : DEFAULT_SETTINGS.autoRenumberLists,
     enableHashAutoNumber: isSyntaxFeatureEnabled(sourceSettings, "enableHashAutoNumber"),
     enableFancyLists: isSyntaxFeatureEnabled(sourceSettings, "enableFancyLists"),
     enableExampleLists: isSyntaxFeatureEnabled(sourceSettings, "enableExampleLists"),
@@ -208423,11 +208423,14 @@ function normalizeSettings(settings) {
     unorderedListMarkerOrder: normalizeUnorderedListMarkerOrder(sourceSettings.unorderedListMarkerOrder),
     enableOrderedListMarkerCycling: isSyntaxFeatureEnabled(sourceSettings, "enableOrderedListMarkerCycling"),
     orderedListMarkerOrder: normalizeOrderedListMarkerOrder(sourceSettings.orderedListMarkerOrder),
-    enableListPanel: (_d = sourceSettings.enableListPanel) != null ? _d : DEFAULT_SETTINGS.enableListPanel,
-    panelOrder: (_e = sourceSettings.panelOrder) != null ? _e : [...DEFAULT_SETTINGS.panelOrder],
+    enableListPanel: (_e = sourceSettings.enableListPanel) != null ? _e : DEFAULT_SETTINGS.enableListPanel,
+    panelOrder: (_f = sourceSettings.panelOrder) != null ? _f : [...DEFAULT_SETTINGS.panelOrder],
     pandocExport: normalizePandocExportSettings(sourceSettings.pandocExport)
   };
   return normalized;
+}
+function invertLegacyListSpacingSetting(value) {
+  return value === void 0 ? void 0 : !value;
 }
 
 // src/core/constants/listConstants.ts
@@ -208653,7 +208656,7 @@ var SETTINGS_UI = {
   },
   PANDOC_LIST_SPACING: {
     NAME: "Pandoc list lenient spacing",
-    DESCRIPTION: "Allow list enhancements to render with looser spacing. Turn this off to require Pandoc-compatible blank lines around list blocks and double spacing after capital letter markers."
+    DESCRIPTION: "Match Pandoc's lists_without_preceding_blankline extension. When enabled, a list may interrupt paragraph text without a preceding blank line, including inside containers such as block quotes and footnotes."
   },
   READABLE_FENCED_DIV_SYNTAX: {
     NAME: "Readable fenced div shorthand",
@@ -208767,51 +208770,6 @@ var DOM_ATTRIBUTES = {
   CONTENT_EDITABLE_FALSE: "false",
   ELEMENT_DIV: "div",
   OVERFLOW_AUTO: "auto"
-};
-var MATH_SYMBOLS = {
-  // LaTeX to Unicode mappings for math rendering
-  LATEX_TO_UNICODE: {
-    "\\therefore": "\u2234",
-    "\\because": "\u2235",
-    "\\alpha": "\u03B1",
-    "\\beta": "\u03B2",
-    "\\gamma": "\u03B3",
-    "\\delta": "\u03B4",
-    "\\epsilon": "\u03B5",
-    "\\theta": "\u03B8",
-    "\\lambda": "\u03BB",
-    "\\mu": "\u03BC",
-    "\\pi": "\u03C0",
-    "\\sigma": "\u03C3",
-    "\\phi": "\u03C6",
-    "\\psi": "\u03C8",
-    "\\omega": "\u03C9",
-    "\\infty": "\u221E",
-    "\\pm": "\xB1",
-    "\\times": "\xD7",
-    "\\div": "\xF7",
-    "\\neq": "\u2260",
-    "\\leq": "\u2264",
-    "\\geq": "\u2265",
-    "\\approx": "\u2248",
-    "\\subset": "\u2282",
-    "\\supset": "\u2283",
-    "\\cup": "\u222A",
-    "\\cap": "\u2229",
-    "\\in": "\u2208",
-    "\\notin": "\u2209",
-    "\\exists": "\u2203",
-    "\\forall": "\u2200",
-    "\\land": "\u2227",
-    "\\lor": "\u2228",
-    "\\neg": "\xAC",
-    "\\rightarrow": "\u2192",
-    "\\leftarrow": "\u2190",
-    "\\leftrightarrow": "\u2194",
-    "\\Rightarrow": "\u21D2",
-    "\\Leftarrow": "\u21D0",
-    "\\Leftrightarrow": "\u21D4"
-  }
 };
 var ICONS = {
   CUSTOM_LABEL_SVG: `<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
@@ -209023,7 +208981,7 @@ function getFancyListClass(type2) {
 }
 
 // src/views/panels/ListPanelView.ts
-var import_obsidian6 = require("obsidian");
+var import_obsidian5 = require("obsidian");
 
 // src/shared/utils/errorHandler.ts
 var import_obsidian = require("obsidian");
@@ -209038,14 +208996,6 @@ var PluginError = class extends Error {
 function withErrorBoundary(fn, fallback, context) {
   try {
     return fn();
-  } catch (error) {
-    handleError(error, context);
-    return fallback;
-  }
-}
-async function withAsyncErrorBoundary(fn, fallback, context) {
-  try {
-    return await fn();
   } catch (error) {
     handleError(error, context);
     return fallback;
@@ -209595,230 +209545,6 @@ function processLabels(lines) {
   return { processedLabels, rawToProcessed };
 }
 
-// src/shared/utils/mathSegments.ts
-function splitMathSegments(content) {
-  const segments = [];
-  let textStart = 0;
-  let index2 = 0;
-  while (index2 < content.length) {
-    const delimiter = getMathDelimiterAt(content, index2);
-    if (!delimiter) {
-      index2++;
-      continue;
-    }
-    appendTextSegment(segments, content, textStart, index2);
-    const contentStart = index2 + delimiter.length;
-    const closingIndex = findClosingMathDelimiter(content, contentStart, delimiter);
-    const contentEnd = closingIndex != null ? closingIndex : content.length;
-    const rawEnd = closingIndex === void 0 ? content.length : closingIndex + delimiter.length;
-    segments.push({
-      type: "math",
-      delimiter,
-      raw: content.slice(index2, rawEnd),
-      content: content.slice(contentStart, contentEnd).trimEnd(),
-      display: delimiter === "$$",
-      closed: closingIndex !== void 0
-    });
-    index2 = rawEnd;
-    textStart = index2;
-  }
-  appendTextSegment(segments, content, textStart, content.length);
-  return segments;
-}
-function appendTextSegment(segments, content, start, end) {
-  if (end > start) {
-    segments.push({ type: "text", content: content.slice(start, end) });
-  }
-}
-function getMathDelimiterAt(content, index2) {
-  if (content[index2] !== "$" || isEscaped(content, index2)) {
-    return null;
-  }
-  return content[index2 + 1] === "$" ? "$$" : "$";
-}
-function findClosingMathDelimiter(content, start, delimiter) {
-  for (let index2 = start; index2 < content.length; index2++) {
-    if (isEscaped(content, index2)) continue;
-    if (delimiter === "$$" && content.startsWith("$$", index2)) return index2;
-    if (delimiter === "$" && isSingleDollarDelimiter(content, index2)) return index2;
-  }
-  return void 0;
-}
-function isSingleDollarDelimiter(content, index2) {
-  return content[index2] === "$" && content[index2 - 1] !== "$" && content[index2 + 1] !== "$";
-}
-function isEscaped(content, index2) {
-  let slashCount = 0;
-  for (let current = index2 - 1; current >= 0 && content[current] === "\\"; current--) {
-    slashCount++;
-  }
-  return slashCount % 2 === 1;
-}
-
-// src/shared/utils/mathRenderer.ts
-function renderMathToText(mathContent) {
-  let rendered = mathContent;
-  for (const [latex, unicode] of Object.entries(MATH_SYMBOLS.LATEX_TO_UNICODE)) {
-    rendered = rendered.replace(new RegExp(latex.replace(ListPatterns.BACKSLASH_ESCAPE, "\\\\"), "g"), unicode);
-  }
-  rendered = ListPatterns.cleanMathExpression(rendered);
-  return rendered;
-}
-function tokenizeMath(mathContent) {
-  const tokens = [];
-  let current = "";
-  let i = 0;
-  while (i < mathContent.length) {
-    if (mathContent[i] === "\\") {
-      if (current) {
-        tokens.push(current);
-        current = "";
-      }
-      let command = "\\";
-      i++;
-      while (i < mathContent.length && /[a-zA-Z]/.test(mathContent[i])) {
-        command += mathContent[i];
-        i++;
-      }
-      if (i < mathContent.length && mathContent[i] === " ") {
-        if (command.length > 1) {
-          command += " ";
-          i++;
-        }
-      }
-      tokens.push(command);
-    } else {
-      current += mathContent[i];
-      i++;
-    }
-  }
-  if (current) {
-    tokens.push(current);
-  }
-  return tokens;
-}
-function truncateMathContent(mathContent, maxRenderedLength) {
-  const tokens = tokenizeMath(mathContent);
-  let result = "$";
-  let accumulatedTokens = [];
-  for (const token of tokens) {
-    const testTokens = [...accumulatedTokens, token];
-    const testLatex = testTokens.join("");
-    const testRendered = renderMathToText(testLatex);
-    if (testRendered.length <= maxRenderedLength) {
-      accumulatedTokens.push(token);
-    } else {
-      break;
-    }
-  }
-  let latexContent = accumulatedTokens.join("");
-  latexContent = latexContent.trimEnd();
-  result += latexContent;
-  if (!result.endsWith("$")) {
-    result += "$";
-  }
-  return result;
-}
-function truncateMathAtLimit(mathBuffer, currentResult, remainingSpace) {
-  if (remainingSpace > 1) {
-    const truncatedMath = truncateMathContent(mathBuffer, remainingSpace - 1);
-    return currentResult + truncatedMath.slice(1) + "\u2026";
-  } else if (currentResult.endsWith("$")) {
-    return currentResult.slice(0, -1) + "\u2026";
-  } else {
-    return currentResult + "\u2026";
-  }
-}
-function truncateContentPreservingMath(content, maxLength) {
-  const segments = splitMathSegments(content);
-  let result = "";
-  let renderedLength = 0;
-  for (const segment of segments) {
-    const remainingLength = maxLength - renderedLength;
-    if (segment.type === "text") {
-      const textResult = appendTextSegment2(result, renderedLength, segment.content, remainingLength);
-      result = textResult.result;
-      renderedLength = textResult.renderedLength;
-      if (textResult.truncated) return result;
-      continue;
-    }
-    const mathResult = appendMathSegment(result, renderedLength, segment, maxLength);
-    result = mathResult.result;
-    renderedLength = mathResult.renderedLength;
-    if (mathResult.truncated) return result;
-  }
-  return result;
-}
-function appendTextSegment2(currentResult, currentLength, text, remainingLength) {
-  if (text.length <= remainingLength) {
-    return {
-      result: currentResult + text,
-      renderedLength: currentLength + text.length,
-      truncated: false
-    };
-  }
-  return {
-    result: appendEllipsis(currentResult, text, remainingLength),
-    renderedLength: currentLength + Math.max(remainingLength, 0),
-    truncated: true
-  };
-}
-function appendMathSegment(currentResult, currentLength, segment, maxLength) {
-  const renderedMath = renderMathToText(segment.content);
-  const remainingLength = maxLength - currentLength;
-  if (renderedMath.length <= remainingLength) {
-    return {
-      result: currentResult + formatMathSegment(segment),
-      renderedLength: currentLength + renderedMath.length,
-      truncated: false
-    };
-  }
-  if (segment.delimiter === "$") {
-    return {
-      result: truncateMathAtLimit(segment.content, currentResult + "$", remainingLength),
-      renderedLength: maxLength,
-      truncated: true
-    };
-  }
-  return {
-    result: currentResult ? appendSafeOverflowEllipsis(currentResult) : "\u2026",
-    renderedLength: maxLength,
-    truncated: true
-  };
-}
-function formatMathSegment(segment) {
-  return `${segment.delimiter}${segment.content}${segment.delimiter}`;
-}
-function appendEllipsis(currentResult, text, remainingLength) {
-  if (remainingLength > 1) {
-    return currentResult + text.slice(0, remainingLength - 1) + "\u2026";
-  }
-  if (remainingLength === 1) {
-    return currentResult + "\u2026";
-  }
-  return replaceLastCharacterWithEllipsis(currentResult);
-}
-function appendSafeOverflowEllipsis(content) {
-  return content.endsWith("$") ? `${content}\u2026` : replaceLastCharacterWithEllipsis(content);
-}
-function replaceLastCharacterWithEllipsis(content) {
-  if (!content || content.endsWith("\u2026")) {
-    return content || "\u2026";
-  }
-  return content.slice(0, -1) + "\u2026";
-}
-
-// src/views/panels/utils/contentTruncator.ts
-function truncateLabel(label) {
-  if (label.length > UI_CONSTANTS.LABEL_MAX_LENGTH) {
-    return label.slice(0, UI_CONSTANTS.LABEL_TRUNCATION_LENGTH) + "\u2026";
-  }
-  return label;
-}
-function truncateContentWithRendering(content, maxLength = UI_CONSTANTS.CONTENT_MAX_LENGTH) {
-  return truncateContentPreservingMath(content, maxLength);
-}
-
 // src/views/panels/utils/viewInteractions.ts
 var import_obsidian2 = require("obsidian");
 
@@ -209941,95 +209667,12 @@ function resolveFencedDivLabel(rawLabel, labels) {
 }
 
 // src/views/panels/utils/viewInteractions.ts
-function highlightLine(view, lineNumber) {
-  withErrorBoundary(() => {
-    const editor = view.editor;
-    setCursorAndScroll(editor, lineNumber);
-    applyLineHighlight(editor, lineNumber);
-  }, void 0, "highlight line");
-}
-function setCursorAndScroll(editor, lineNumber) {
-  const lineStart = { line: lineNumber, ch: 0 };
-  editor.setCursor(lineStart);
-  editor.scrollIntoView({ from: lineStart, to: lineStart }, true);
-}
-function applyLineHighlight(editor, lineNumber) {
-  const cm = editor.cm;
-  if (!cm) return;
-  const editorDom = cm.dom || cm.contentDOM;
-  if (!editorDom) return;
-  window.setTimeout(() => {
-    findAndHighlightLine(editorDom, editor);
-  }, 50);
-}
-function findAndHighlightLine(editorDom, editor) {
-  var _a4;
-  const activeLine = editorDom.querySelector(".cm-line.cm-active");
-  if (activeLine instanceof HTMLElement) {
-    applyHighlight(activeLine);
-    return;
-  }
-  const allLines = editorDom.querySelectorAll(".cm-line");
-  const coords = (_a4 = editor.cursorCoords) == null ? void 0 : _a4.call(editor, true, "local");
-  if (!coords || allLines.length === 0) return;
-  let targetLine = null;
-  let minDistance = Infinity;
-  allLines.forEach((line) => {
-    const rect = line.getBoundingClientRect();
-    const editorRect = editorDom.getBoundingClientRect();
-    const relativeTop = rect.top - editorRect.top;
-    const distance = Math.abs(relativeTop - coords.top);
-    if (distance < minDistance && line.instanceOf(HTMLElement)) {
-      minDistance = distance;
-      targetLine = line;
-    }
-  });
-  if (targetLine) {
-    applyHighlight(targetLine);
-  }
-}
-function applyHighlight(lineElement) {
-  lineElement.classList.remove(CSS_CLASSES.CUSTOM_LABEL_HIGHLIGHT);
-  void lineElement.offsetWidth;
-  lineElement.classList.add(CSS_CLASSES.CUSTOM_LABEL_HIGHLIGHT);
-  window.setTimeout(() => {
-    lineElement.classList.remove(CSS_CLASSES.CUSTOM_LABEL_HIGHLIGHT);
-  }, UI_CONSTANTS.HIGHLIGHT_ANIMATION_DURATION_MS);
-}
-function setupLabelClickHandler(element, rawLabel, abortSignal) {
-  const clickHandler = () => {
-    void withAsyncErrorBoundary(async () => {
-      await navigator.clipboard.writeText(rawLabel);
-      new import_obsidian2.Notice(MESSAGES.LABEL_COPIED);
-    }, void 0, "copy label to clipboard");
-  };
-  element.addEventListener("click", clickHandler, { signal: abortSignal });
-}
-function setupContentClickHandler(element, label, lastActiveMarkdownView, app, abortSignal) {
-  const clickHandler = () => {
-    withErrorBoundary(() => {
-      const targetView = lastActiveMarkdownView;
-      if (targetView && targetView.editor) {
-        const editor = targetView.editor;
-        const leaves = app.workspace.getLeavesOfType("markdown");
-        const targetLeaf = leaves.find((leaf) => leaf.view === targetView);
-        if (targetLeaf) {
-          app.workspace.setActiveLeaf(targetLeaf, { focus: true });
-        }
-        editor.setCursor(label.position);
-        editor.scrollIntoView({ from: label.position, to: label.position }, true);
-        highlightLine(targetView, label.lineNumber);
-      }
-    }, void 0, "navigate to custom label");
-  };
-  element.addEventListener("click", clickHandler, { signal: abortSignal });
-}
 function renderContentWithMath(element, truncatedContent, app, component, context) {
   let contentToRender = truncatedContent;
   if (context) {
     contentToRender = processContent(truncatedContent, context);
   }
-  void import_obsidian2.MarkdownRenderer.render(
+  return import_obsidian2.MarkdownRenderer.render(
     app,
     contentToRender,
     element,
@@ -210038,199 +209681,8 @@ function renderContentWithMath(element, truncatedContent, app, component, contex
   );
 }
 
-// src/shared/utils/hoverPopovers.ts
+// src/views/panels/modules/BasePanelModule.ts
 var import_obsidian3 = require("obsidian");
-function createHoverState() {
-  return {
-    hoverPopover: null,
-    isMouseOverElement: false,
-    isMouseOverPopover: false,
-    cleanupTimeout: null,
-    popoverController: null
-  };
-}
-function clearCleanupTimeout(state) {
-  if (state.cleanupTimeout) {
-    window.clearTimeout(state.cleanupTimeout);
-    state.cleanupTimeout = null;
-  }
-}
-function removePopover(state) {
-  clearCleanupTimeout(state);
-  if (state.popoverController) {
-    state.popoverController.abort();
-    state.popoverController = null;
-  }
-  if (state.hoverPopover) {
-    state.hoverPopover.remove();
-    state.hoverPopover = null;
-  }
-}
-function scheduleRemoval(state, remove) {
-  clearCleanupTimeout(state);
-  state.cleanupTimeout = window.setTimeout(() => {
-    if (!state.isMouseOverElement && !state.isMouseOverPopover) {
-      remove();
-    }
-  }, UI_CONSTANTS.HOVER_CLEANUP_DELAY_MS);
-}
-function dismissPopover(state, remove) {
-  state.isMouseOverElement = false;
-  state.isMouseOverPopover = false;
-  remove();
-}
-function positionPopover(popoverElement, referenceElement) {
-  const elementRect = referenceElement.getBoundingClientRect();
-  popoverElement.style.left = `${elementRect.left}px`;
-  popoverElement.style.top = `${elementRect.bottom + UI_CONSTANTS.HOVER_OFFSET_BOTTOM}px`;
-  const popoverRect = popoverElement.getBoundingClientRect();
-  if (popoverRect.right > window.innerWidth) {
-    popoverElement.style.left = `${window.innerWidth - popoverRect.width - UI_CONSTANTS.HOVER_OFFSET_HORIZONTAL}px`;
-  }
-  if (popoverRect.bottom > window.innerHeight) {
-    popoverElement.style.top = `${elementRect.top - popoverRect.height - UI_CONSTANTS.HOVER_OFFSET_TOP}px`;
-  }
-}
-function attachPopoverListeners(popoverElement, state, remove) {
-  state.popoverController = new AbortController();
-  const { signal } = state.popoverController;
-  popoverElement.addEventListener("mouseenter", () => {
-    clearCleanupTimeout(state);
-    state.isMouseOverPopover = true;
-  }, { signal });
-  popoverElement.addEventListener("mouseleave", () => {
-    state.isMouseOverPopover = false;
-    scheduleRemoval(state, remove);
-  }, { signal });
-  popoverElement.addEventListener("click", () => {
-    dismissPopover(state, remove);
-  }, { signal });
-  document.addEventListener("pointerdown", (event) => {
-    const target = event.target;
-    if (target instanceof Node && popoverElement.contains(target)) {
-      return;
-    }
-    dismissPopover(state, remove);
-  }, { signal });
-  document.addEventListener("click", () => {
-    dismissPopover(state, remove);
-  }, { signal });
-}
-function setupSimpleHoverPreview(element, fullText, popoverClass = CSS_CLASSES.HOVER_POPOVER_LABEL, abortSignal) {
-  const state = createHoverState();
-  const remove = () => removePopover(state);
-  const mouseEnterHandler = () => {
-    clearCleanupTimeout(state);
-    state.isMouseOverElement = true;
-    removePopover(state);
-    const hoverElement = document.createElement(DOM_ATTRIBUTES.ELEMENT_DIV);
-    hoverElement.classList.add(CSS_CLASSES.HOVER_POPOVER, popoverClass);
-    hoverElement.textContent = fullText;
-    document.body.appendChild(hoverElement);
-    positionPopover(hoverElement, element);
-    state.hoverPopover = hoverElement;
-    attachPopoverListeners(hoverElement, state, remove);
-  };
-  const mouseLeaveHandler = () => {
-    state.isMouseOverElement = false;
-    scheduleRemoval(state, remove);
-  };
-  const clickHandler = () => {
-    dismissPopover(state, remove);
-  };
-  if (abortSignal) {
-    abortSignal.addEventListener("abort", remove, { once: true });
-  }
-  element.addEventListener("mouseenter", mouseEnterHandler, { signal: abortSignal });
-  element.addEventListener("mouseleave", mouseLeaveHandler, { signal: abortSignal });
-  element.addEventListener("click", clickHandler, { signal: abortSignal });
-}
-function createAsyncHoverState() {
-  return {
-    ...createHoverState(),
-    renderAbortController: null,
-    renderingGeneration: 0
-  };
-}
-function removeAsyncPopover(state) {
-  clearCleanupTimeout(state);
-  if (state.renderAbortController) {
-    state.renderAbortController.abort();
-    state.renderAbortController = null;
-  }
-  if (state.popoverController) {
-    state.popoverController.abort();
-    state.popoverController = null;
-  }
-  if (state.hoverPopover) {
-    state.hoverPopover.remove();
-    state.hoverPopover = null;
-  }
-}
-async function renderPopoverContent(popoverElement, content, app, component, context) {
-  const processedContent = context ? processContent(content, context) : content;
-  try {
-    await import_obsidian3.MarkdownRenderer.render(
-      app,
-      processedContent,
-      popoverElement,
-      FILE_CONSTANTS.EMPTY_STRING,
-      component
-    );
-  } catch (error) {
-    handleError(error, ERROR_MESSAGES.PLUGIN_PREFIX + ": Hover preview rendering");
-    throw error;
-  }
-}
-function setupRenderedHoverPreview(element, content, app, component, context, popoverClass = CSS_CLASSES.HOVER_POPOVER_CONTENT, abortSignal) {
-  const state = createAsyncHoverState();
-  const remove = () => removeAsyncPopover(state);
-  const mouseEnterHandler = async () => {
-    var _a4;
-    clearCleanupTimeout(state);
-    state.isMouseOverElement = true;
-    const currentGeneration = ++state.renderingGeneration;
-    removeAsyncPopover(state);
-    state.renderAbortController = new AbortController();
-    const hoverElement = document.createElement(DOM_ATTRIBUTES.ELEMENT_DIV);
-    hoverElement.classList.add(CSS_CLASSES.HOVER_POPOVER, popoverClass);
-    try {
-      await renderPopoverContent(hoverElement, content, app, component, context);
-    } catch (e) {
-      if ((_a4 = state.renderAbortController) == null ? void 0 : _a4.signal.aborted) {
-        return;
-      }
-      return;
-    }
-    if (currentGeneration !== state.renderingGeneration || !state.isMouseOverElement) {
-      return;
-    }
-    document.body.appendChild(hoverElement);
-    positionPopover(hoverElement, element);
-    if (currentGeneration === state.renderingGeneration && state.isMouseOverElement) {
-      state.hoverPopover = hoverElement;
-      attachPopoverListeners(hoverElement, state, remove);
-    } else {
-      hoverElement.remove();
-    }
-  };
-  const mouseLeaveHandler = () => {
-    state.isMouseOverElement = false;
-    scheduleRemoval(state, remove);
-  };
-  const clickHandler = () => {
-    dismissPopover(state, remove);
-  };
-  if (abortSignal) {
-    abortSignal.addEventListener("abort", remove, { once: true });
-  }
-  const enterListener = () => {
-    void mouseEnterHandler();
-  };
-  element.addEventListener("mouseenter", enterListener, { signal: abortSignal });
-  element.addEventListener("mouseleave", mouseLeaveHandler, { signal: abortSignal });
-  element.addEventListener("click", clickHandler, { signal: abortSignal });
-}
 
 // src/shared/utils/listContext.ts
 var STANDARD_LIST_ITEM = /^(\s*)((?:\d+|[A-Za-z]+)[.)]|[-+*])(\s*)(.*)$/;
@@ -210238,7 +209690,7 @@ var ORDERED_MARKER = /^(?:\d+|[A-Za-z]+)[.)]$/;
 var TASK_CHECKBOX_PREFIX = /^(\s+)\[([ xX])\](?:(\s+)(.*))?$/;
 function getListIndentColumns(indent) {
   return Array.from(indent).reduce((columns, character) => {
-    return columns + (character === INDENTATION.TAB ? INDENTATION.TAB_SIZE : 1);
+    return columns + (character === INDENTATION.TAB ? INDENTATION.TAB_SIZE - columns % INDENTATION.TAB_SIZE : 1);
   }, 0);
 }
 function parseStandardListItem(line) {
@@ -211003,7 +210455,7 @@ function detectInlineCodeAndMathRegionsInRange(doc, from2, to2) {
 function collectInlineCodeRegions(lineText, lineFrom, regions) {
   let index2 = 0;
   while (index2 < lineText.length) {
-    if (lineText[index2] !== "`" || isEscaped2(lineText, index2)) {
+    if (lineText[index2] !== "`" || isEscaped(lineText, index2)) {
       index2++;
       continue;
     }
@@ -211024,7 +210476,7 @@ function collectInlineCodeRegions(lineText, lineFrom, regions) {
 function collectMathRegions(text, offset, regions) {
   let index2 = 0;
   while (index2 < text.length) {
-    if (text[index2] !== "$" || isEscaped2(text, index2)) {
+    if (text[index2] !== "$" || isEscaped(text, index2)) {
       index2++;
       continue;
     }
@@ -211052,7 +210504,7 @@ function countRepeated(text, index2, character) {
 function findClosingBacktickRun(text, start, runLength) {
   let index2 = start;
   while (index2 < text.length) {
-    if (text[index2] !== "`" || isEscaped2(text, index2)) {
+    if (text[index2] !== "`" || isEscaped(text, index2)) {
       index2++;
       continue;
     }
@@ -211067,7 +210519,7 @@ function findClosingBacktickRun(text, start, runLength) {
 function findClosingDelimiter(text, delimiter, start) {
   let index2 = start;
   while (index2 < text.length) {
-    if (text[index2] !== "$" || isEscaped2(text, index2)) {
+    if (text[index2] !== "$" || isEscaped(text, index2)) {
       index2++;
       continue;
     }
@@ -211081,7 +210533,7 @@ function findClosingDelimiter(text, delimiter, start) {
   }
   return -1;
 }
-function isEscaped2(text, index2) {
+function isEscaped(text, index2) {
   let slashCount = 0;
   for (let cursor = index2 - 1; cursor >= 0 && text[cursor] === "\\"; cursor--) {
     slashCount++;
@@ -211421,6 +210873,296 @@ function isCodeRegionEndLine(line, codeRegions) {
   );
 }
 
+// src/views/editor/highlightUtils.ts
+function highlightLine(view, lineNumber, cursorPosition) {
+  try {
+    const editor = view.editor;
+    if (cursorPosition) {
+      editor.setCursor(cursorPosition);
+      editor.scrollIntoView({ from: cursorPosition, to: cursorPosition }, true);
+    } else {
+      moveCursorToLine(editor, lineNumber);
+    }
+    const cm = editor.cm;
+    if (cm) {
+      const editorDom = cm.dom || cm.contentDOM;
+      if (editorDom) {
+        window.setTimeout(() => {
+          highlightTargetLine(editorDom, editor);
+        }, 50);
+      }
+    }
+  } catch (error) {
+    handleError(error, "Highlight line");
+  }
+}
+function moveCursorToLine(editor, lineNumber) {
+  const lineStart = { line: lineNumber, ch: 0 };
+  editor.setCursor(lineStart);
+  editor.scrollIntoView({ from: lineStart, to: lineStart }, true);
+}
+function highlightTargetLine(editorDom, editor) {
+  const activeLine = editorDom.querySelector(".cm-line.cm-active");
+  if (activeLine instanceof HTMLElement) {
+    applyHighlight(activeLine);
+  } else {
+    const targetLine = findClosestLine(editorDom, editor);
+    if (targetLine instanceof HTMLElement) {
+      applyHighlight(targetLine);
+    }
+  }
+}
+function findClosestLine(editorDom, editor) {
+  var _a4;
+  const allLines = editorDom.querySelectorAll(".cm-line");
+  const coords = (_a4 = editor.cursorCoords) == null ? void 0 : _a4.call(editor, true, "local");
+  if (!coords || allLines.length === 0) return null;
+  let targetLine = null;
+  let minDistance = Infinity;
+  allLines.forEach((line) => {
+    const rect = line.getBoundingClientRect();
+    const editorRect = editorDom.getBoundingClientRect();
+    const relativeTop = rect.top - editorRect.top;
+    const distance = Math.abs(relativeTop - coords.top);
+    if (distance < minDistance && line.instanceOf(HTMLElement)) {
+      minDistance = distance;
+      targetLine = line;
+    }
+  });
+  return targetLine;
+}
+function applyHighlight(lineElement) {
+  lineElement.classList.remove(CSS_CLASSES.CUSTOM_LABEL_HIGHLIGHT);
+  void lineElement.offsetWidth;
+  lineElement.classList.add(CSS_CLASSES.CUSTOM_LABEL_HIGHLIGHT);
+  window.setTimeout(() => {
+    lineElement.classList.remove(CSS_CLASSES.CUSTOM_LABEL_HIGHLIGHT);
+  }, UI_CONSTANTS.HIGHLIGHT_DURATION_MS);
+}
+
+// src/views/panels/StructuredPanelCollection.ts
+var collectionId = 0;
+var StructuredPanelCollection = class {
+  constructor(host, options, abortSignal) {
+    this.host = host;
+    this.options = options;
+    this.abortSignal = abortSignal;
+    this.items = [];
+    this.observer = null;
+    this.bulkActions = null;
+    this.expandAllButton = null;
+    this.collapseAllButton = null;
+    this.id = ++collectionId;
+  }
+  render() {
+    this.pruneExpansionState();
+    const section2 = this.createElement("section", "pem-panel-collection");
+    if (this.options.containerClassName) {
+      section2.classList.add(this.options.containerClassName);
+    }
+    this.host.append(section2);
+    const headingId = `pem-panel-heading-${this.id}`;
+    section2.setAttribute("aria-labelledby", headingId);
+    this.renderHeader(section2, headingId);
+    if (this.options.items.length === 0) {
+      this.renderEmptyState(section2);
+      return;
+    }
+    const list = this.createElement("ol", "pem-panel-item-list");
+    section2.append(list);
+    const rendering = this.options.items.map((item, index2) => this.renderItem(list, item, index2));
+    void Promise.allSettled(rendering).then(() => {
+      if (!this.abortSignal.aborted) {
+        this.startOverflowTracking(section2);
+      }
+    });
+  }
+  renderHeader(section2, headingId) {
+    const header = this.createElement("header", "pem-panel-collection-header");
+    const heading = this.createElement("h2", "pem-panel-collection-heading");
+    heading.id = headingId;
+    heading.textContent = `${this.options.title} \xB7 ${this.options.items.length}`;
+    this.bulkActions = this.createElement("div", "pem-panel-bulk-actions");
+    this.bulkActions.hidden = true;
+    this.expandAllButton = this.createButton("Expand all", "pem-panel-expand-all", () => {
+      this.items.filter((item) => item.overflow).forEach((item) => this.options.expandedKeys.add(item.spec.key));
+      this.updateExpandedState();
+    });
+    this.collapseAllButton = this.createButton("Collapse all", "pem-panel-collapse-all", () => {
+      this.items.filter((item) => item.overflow).forEach((item) => this.options.expandedKeys.delete(item.spec.key));
+      this.updateExpandedState();
+    });
+    this.bulkActions.append(this.expandAllButton, this.collapseAllButton);
+    header.append(heading, this.bulkActions);
+    section2.append(header);
+  }
+  renderEmptyState(section2) {
+    var _a4;
+    if (!this.options.emptyMessage) {
+      return;
+    }
+    const empty = this.createElement("div", `pem-panel-empty ${(_a4 = this.options.emptyClassName) != null ? _a4 : ""}`);
+    empty.textContent = this.options.emptyMessage;
+    section2.append(empty);
+  }
+  async renderItem(list, spec, index2) {
+    const listItem = this.createElement("li", "pem-panel-list-item");
+    const article = this.createElement("article", "pem-panel-item");
+    if (spec.rowClassName) {
+      article.classList.add(spec.rowClassName);
+    }
+    const bodyId = `pem-panel-item-${this.id}-${index2}`;
+    article.dataset.panelItemKey = spec.key;
+    const identity = this.createElement("div", "pem-panel-item-identity");
+    const identityRendering = spec.identityParts.map((part) => this.renderIdentityPart(identity, part));
+    const body = this.createElement("div", "pem-panel-item-body");
+    const preview = this.createElement("div", "pem-panel-item-preview is-collapsed");
+    preview.id = bodyId;
+    if (spec.contentClassName) {
+      preview.classList.add(spec.contentClassName);
+    }
+    this.setupContentNavigation(preview, spec);
+    const toggle = this.createButton("Show more\u2304", "pem-panel-item-toggle", () => {
+      if (this.options.expandedKeys.has(spec.key)) {
+        this.options.expandedKeys.delete(spec.key);
+      } else {
+        this.options.expandedKeys.add(spec.key);
+      }
+      this.updateExpandedState();
+    });
+    toggle.setAttribute("aria-controls", bodyId);
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.hidden = true;
+    body.append(preview, toggle);
+    article.append(identity, body);
+    listItem.append(article);
+    list.append(listItem);
+    const renderedItem = { spec, article, preview, toggle, overflow: false };
+    this.items.push(renderedItem);
+    this.applyExpandedState(renderedItem);
+    await Promise.all([spec.renderContent(preview), ...identityRendering]);
+  }
+  async renderIdentityPart(container, part) {
+    var _a4;
+    const kind = (_a4 = part.kind) != null ? _a4 : "text";
+    const className = `pem-panel-identity-part pem-panel-identity-${kind}`;
+    const element = part.onActivate ? this.createButton(part.text, className, part.onActivate) : this.createElement("span", className);
+    if (!part.onActivate) {
+      element.textContent = part.text;
+    } else if (part.actionLabel) {
+      element.setAttribute("aria-label", part.actionLabel);
+    }
+    if (part.className) {
+      element.classList.add(part.className);
+    }
+    container.append(element);
+    if (part.render) {
+      element.textContent = "";
+      await part.render(element);
+    }
+  }
+  setupContentNavigation(preview, spec) {
+    var _a4;
+    if (!spec.onContentActivate) {
+      return;
+    }
+    preview.classList.add("pem-panel-item-navigable");
+    preview.tabIndex = 0;
+    preview.setAttribute("role", "link");
+    preview.setAttribute("aria-label", (_a4 = spec.navigationLabel) != null ? _a4 : "Go to source");
+    preview.addEventListener("click", spec.onContentActivate, { signal: this.abortSignal });
+    preview.addEventListener("keydown", (event) => {
+      var _a5;
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        (_a5 = spec.onContentActivate) == null ? void 0 : _a5.call(spec);
+      }
+    }, { signal: this.abortSignal });
+  }
+  startOverflowTracking(section2) {
+    if (typeof ResizeObserver === "undefined") {
+      this.items.forEach((item) => item.overflow = true);
+      this.updateOverflowControls();
+      return;
+    }
+    this.observer = new ResizeObserver(() => this.measureOverflow());
+    this.observer.observe(section2);
+    this.abortSignal.addEventListener("abort", () => this.disconnectObserver(), { once: true });
+    this.measureOverflow();
+  }
+  measureOverflow() {
+    this.items.forEach((item) => {
+      const expanded = this.options.expandedKeys.has(item.spec.key);
+      if (expanded) {
+        item.preview.classList.add("is-collapsed");
+      }
+      item.overflow = item.preview.scrollHeight > item.preview.clientHeight + 1;
+      if (expanded) {
+        item.preview.classList.remove("is-collapsed");
+      }
+    });
+    this.updateOverflowControls();
+  }
+  updateOverflowControls() {
+    this.items.forEach((item) => {
+      item.preview.classList.toggle("is-overflowing", item.overflow);
+      item.toggle.hidden = !item.overflow;
+    });
+    if (this.bulkActions) {
+      this.bulkActions.hidden = !this.items.some((item) => item.overflow);
+    }
+    this.updateExpandedState();
+  }
+  updateExpandedState() {
+    this.items.forEach((item) => this.applyExpandedState(item));
+    const overflowing = this.items.filter((item) => item.overflow);
+    const expandedCount = overflowing.filter((item) => this.options.expandedKeys.has(item.spec.key)).length;
+    if (this.expandAllButton) {
+      this.expandAllButton.disabled = overflowing.length === 0 || expandedCount === overflowing.length;
+    }
+    if (this.collapseAllButton) {
+      this.collapseAllButton.disabled = expandedCount === 0;
+    }
+  }
+  applyExpandedState(item) {
+    const expanded = this.options.expandedKeys.has(item.spec.key);
+    item.article.classList.toggle("is-expanded", expanded);
+    item.preview.classList.toggle("is-collapsed", !expanded);
+    item.toggle.setAttribute("aria-expanded", String(expanded));
+    item.toggle.textContent = expanded ? "Show less\u2303" : "Show more\u2304";
+    item.toggle.setAttribute("aria-label", `${expanded ? "Collapse" : "Expand"} item`);
+  }
+  pruneExpansionState() {
+    const currentKeys = new Set(this.options.items.map((item) => item.key));
+    for (const key of this.options.expandedKeys) {
+      if (!currentKeys.has(key)) {
+        this.options.expandedKeys.delete(key);
+      }
+    }
+  }
+  disconnectObserver() {
+    var _a4;
+    (_a4 = this.observer) == null ? void 0 : _a4.disconnect();
+    this.observer = null;
+  }
+  createButton(text, className, action) {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = `pem-panel-action ${className}`;
+    button.textContent = text;
+    button.addEventListener("click", (event) => {
+      event.stopPropagation();
+      action();
+    }, { signal: this.abortSignal });
+    return button;
+  }
+  createElement(tag, className) {
+    const element = document.createElement(tag);
+    element.className = className.trim();
+    return element;
+  }
+};
+
 // src/views/panels/modules/BasePanelModule.ts
 var BasePanelModule = class {
   constructor(plugin) {
@@ -211429,6 +211171,8 @@ var BasePanelModule = class {
     this.lastActiveMarkdownView = null;
     this.abortController = null;
     this.currentContext = {};
+    this.expandedItemKeys = /* @__PURE__ */ new Set();
+    this.activeNotePath = null;
     this.plugin = plugin;
   }
   onActivate(containerEl, activeView) {
@@ -211464,6 +211208,8 @@ var BasePanelModule = class {
   destroy() {
     this.onDeactivate();
     this.lastActiveMarkdownView = null;
+    this.activeNotePath = null;
+    this.expandedItemKeys.clear();
   }
   /**
    * Main update method that orchestrates content extraction and rendering.
@@ -211477,6 +211223,7 @@ var BasePanelModule = class {
       this.showNoFileMessage();
       return;
     }
+    this.resetStateForNoteChange(activeView.file.path);
     const content = activeView.editor.getValue();
     this.extractData(content);
     this.buildRenderingContext(content);
@@ -211554,6 +211301,38 @@ var BasePanelModule = class {
    */
   cleanupModuleData() {
   }
+  renderCollection(options) {
+    if (!this.containerEl || !this.abortController) {
+      return;
+    }
+    new StructuredPanelCollection(this.containerEl, {
+      ...options,
+      expandedKeys: this.expandedItemKeys
+    }, this.abortController.signal).render();
+  }
+  navigateToSource(activeView, position, lineNumber) {
+    if (!(activeView == null ? void 0 : activeView.editor)) {
+      return;
+    }
+    const leaves = this.plugin.app.workspace.getLeavesOfType("markdown");
+    const targetLeaf = leaves.find((leaf) => leaf.view === activeView);
+    if (targetLeaf) {
+      this.plugin.app.workspace.setActiveLeaf(targetLeaf, { focus: true });
+    }
+    const target = position != null ? position : { line: lineNumber != null ? lineNumber : 0, ch: 0 };
+    activeView.editor.setCursor(target);
+    activeView.editor.scrollIntoView({ from: target, to: target }, true);
+    highlightLine(activeView, lineNumber != null ? lineNumber : target.line);
+  }
+  copyText(text) {
+    void navigator.clipboard.writeText(text).then(() => new import_obsidian3.Notice(MESSAGES.LABEL_COPIED)).catch((error) => handleError(error, "Copy panel reference"));
+  }
+  resetStateForNoteChange(notePath) {
+    if (this.activeNotePath !== null && this.activeNotePath !== notePath) {
+      this.expandedItemKeys.clear();
+    }
+    this.activeNotePath = notePath;
+  }
   abortRenderCycle() {
     if (!this.abortController) {
       return;
@@ -211576,26 +211355,8 @@ var CustomLabelPanelModule = class extends BasePanelModule {
     this.labels = [];
   }
   extractData(content) {
-    this.labels = extractCustomLabels(
-      content,
-      isCustomLabelListsEnabled(this.plugin.settings)
-    );
+    this.labels = extractCustomLabels(content, isCustomLabelListsEnabled(this.plugin.settings));
   }
-  renderContent(activeView) {
-    this.renderLabels(activeView);
-  }
-  showNoFileMessage() {
-    if (!this.containerEl) return;
-    this.containerEl.createEl("div", {
-      text: MESSAGES.NO_ACTIVE_FILE,
-      cls: CSS_CLASSES.CUSTOM_LABEL_VIEW_EMPTY
-    });
-    this.labels = [];
-  }
-  /**
-   * Build the rendering context for processing content references
-   * @param content The document content to extract context from
-   */
   buildRenderingContext(content) {
     super.buildRenderingContext(content);
     const rawToProcessed = /* @__PURE__ */ new Map();
@@ -211605,135 +211366,58 @@ var CustomLabelPanelModule = class extends BasePanelModule {
         rawToProcessed.set(match[1], label.label);
       }
     });
-    this.currentContext = {
-      ...this.currentContext,
-      rawToProcessed
-    };
+    this.currentContext = { ...this.currentContext, rawToProcessed };
   }
-  renderLabels(activeView) {
+  renderContent(activeView) {
+    this.renderCollection({
+      title: this.displayName,
+      containerClassName: CSS_CLASSES.CUSTOM_LABEL_VIEW_CONTAINER,
+      emptyClassName: CSS_CLASSES.CUSTOM_LABEL_VIEW_EMPTY,
+      emptyMessage: MESSAGES.NO_CUSTOM_LABELS,
+      items: this.createItems(activeView)
+    });
+  }
+  showNoFileMessage() {
     if (!this.containerEl) return;
-    if (this.labels.length === 0) {
-      this.containerEl.createEl("div", {
-        text: MESSAGES.NO_CUSTOM_LABELS,
-        cls: CSS_CLASSES.CUSTOM_LABEL_VIEW_EMPTY
-      });
-      return;
-    }
-    const container = this.containerEl.createEl("table", {
-      cls: CSS_CLASSES.CUSTOM_LABEL_VIEW_CONTAINER
+    this.containerEl.createEl("div", {
+      text: MESSAGES.NO_ACTIVE_FILE,
+      cls: CSS_CLASSES.CUSTOM_LABEL_VIEW_EMPTY
     });
-    const tbody = container.createEl("tbody");
-    for (const label of this.labels) {
-      this.renderLabelRow(tbody, label, activeView);
-    }
-  }
-  renderLabelRow(tbody, label, activeView) {
-    var _a4, _b2, _c, _d;
-    const row = tbody.createEl("tr", {
-      cls: CSS_CLASSES.CUSTOM_LABEL_VIEW_ROW
-    });
-    const labelEl = row.createEl("td", {
-      cls: CSS_CLASSES.CUSTOM_LABEL_VIEW_LABEL
-    });
-    const displayLabel = truncateLabel(label.label);
-    labelEl.textContent = displayLabel;
-    if (displayLabel !== label.label) {
-      setupSimpleHoverPreview(labelEl, label.label, CSS_CLASSES.HOVER_POPOVER_LABEL, (_a4 = this.abortController) == null ? void 0 : _a4.signal);
-    }
-    setupLabelClickHandler(labelEl, label.rawLabel, (_b2 = this.abortController) == null ? void 0 : _b2.signal);
-    const contentEl = row.createEl("td", {
-      cls: CSS_CLASSES.CUSTOM_LABEL_VIEW_CONTENT
-    });
-    const contentToShow = label.renderedContent || label.content;
-    const truncatedContent = truncateContentWithRendering(contentToShow);
-    renderContentWithMath(contentEl, truncatedContent, this.plugin.app, this.plugin, this.currentContext);
-    setupContentClickHandler(contentEl, label, this.lastActiveMarkdownView, this.plugin.app, (_c = this.abortController) == null ? void 0 : _c.signal);
-    if (truncatedContent !== contentToShow) {
-      setupRenderedHoverPreview(
-        contentEl,
-        contentToShow,
-        this.plugin.app,
-        this.plugin,
-        this.currentContext,
-        CSS_CLASSES.HOVER_POPOVER_CONTENT,
-        (_d = this.abortController) == null ? void 0 : _d.signal
-      );
-    }
+    this.labels = [];
   }
   getCustomLabels() {
     return this.labels;
   }
+  createItems(activeView) {
+    const occurrences = /* @__PURE__ */ new Map();
+    return this.labels.map((label) => {
+      var _a4;
+      const occurrence = (_a4 = occurrences.get(label.rawLabel)) != null ? _a4 : 0;
+      occurrences.set(label.rawLabel, occurrence + 1);
+      return {
+        key: `custom-label:${label.rawLabel}:${occurrence}`,
+        rowClassName: CSS_CLASSES.CUSTOM_LABEL_VIEW_ROW,
+        contentClassName: CSS_CLASSES.CUSTOM_LABEL_VIEW_CONTENT,
+        identityParts: [{
+          text: label.label,
+          kind: "token",
+          className: CSS_CLASSES.CUSTOM_LABEL_VIEW_LABEL,
+          actionLabel: `Copy custom label ${label.rawLabel}`,
+          onActivate: () => this.copyText(label.rawLabel)
+        }],
+        renderContent: (element) => renderContentWithMath(
+          element,
+          label.renderedContent || label.content,
+          this.plugin.app,
+          this.plugin,
+          this.currentContext
+        ),
+        navigationLabel: `Go to custom label ${label.label} in source`,
+        onContentActivate: () => this.navigateToSource(activeView, label.position, label.lineNumber)
+      };
+    });
+  }
 };
-
-// src/views/panels/modules/ExampleListPanelModule.ts
-var import_obsidian4 = require("obsidian");
-
-// src/views/editor/highlightUtils.ts
-function highlightLine2(view, lineNumber, cursorPosition) {
-  try {
-    const editor = view.editor;
-    if (cursorPosition) {
-      editor.setCursor(cursorPosition);
-      editor.scrollIntoView({ from: cursorPosition, to: cursorPosition }, true);
-    } else {
-      moveCursorToLine(editor, lineNumber);
-    }
-    const cm = editor.cm;
-    if (cm) {
-      const editorDom = cm.dom || cm.contentDOM;
-      if (editorDom) {
-        window.setTimeout(() => {
-          highlightTargetLine(editorDom, editor);
-        }, 50);
-      }
-    }
-  } catch (error) {
-    handleError(error, "Highlight line");
-  }
-}
-function moveCursorToLine(editor, lineNumber) {
-  const lineStart = { line: lineNumber, ch: 0 };
-  editor.setCursor(lineStart);
-  editor.scrollIntoView({ from: lineStart, to: lineStart }, true);
-}
-function highlightTargetLine(editorDom, editor) {
-  const activeLine = editorDom.querySelector(".cm-line.cm-active");
-  if (activeLine instanceof HTMLElement) {
-    applyHighlight2(activeLine);
-  } else {
-    const targetLine = findClosestLine(editorDom, editor);
-    if (targetLine instanceof HTMLElement) {
-      applyHighlight2(targetLine);
-    }
-  }
-}
-function findClosestLine(editorDom, editor) {
-  var _a4;
-  const allLines = editorDom.querySelectorAll(".cm-line");
-  const coords = (_a4 = editor.cursorCoords) == null ? void 0 : _a4.call(editor, true, "local");
-  if (!coords || allLines.length === 0) return null;
-  let targetLine = null;
-  let minDistance = Infinity;
-  allLines.forEach((line) => {
-    const rect = line.getBoundingClientRect();
-    const editorRect = editorDom.getBoundingClientRect();
-    const relativeTop = rect.top - editorRect.top;
-    const distance = Math.abs(relativeTop - coords.top);
-    if (distance < minDistance && line.instanceOf(HTMLElement)) {
-      minDistance = distance;
-      targetLine = line;
-    }
-  });
-  return targetLine;
-}
-function applyHighlight2(lineElement) {
-  lineElement.classList.remove(CSS_CLASSES.CUSTOM_LABEL_HIGHLIGHT);
-  void lineElement.offsetWidth;
-  lineElement.classList.add(CSS_CLASSES.CUSTOM_LABEL_HIGHLIGHT);
-  window.setTimeout(() => {
-    lineElement.classList.remove(CSS_CLASSES.CUSTOM_LABEL_HIGHLIGHT);
-  }, UI_CONSTANTS.HIGHLIGHT_DURATION_MS);
-}
 
 // src/views/panels/modules/ExampleListPanelModule.ts
 var ExampleListPanelModule = class extends BasePanelModule {
@@ -211750,8 +211434,30 @@ var ExampleListPanelModule = class extends BasePanelModule {
   extractData(content) {
     this.exampleItems = extractExampleLists(content);
   }
+  buildRenderingContext(content) {
+    super.buildRenderingContext(content);
+    const exampleLabels = /* @__PURE__ */ new Map();
+    this.exampleItems.forEach((item) => {
+      const label = item.rawLabel.substring(1);
+      if (label) exampleLabels.set(label, item.renderedNumber);
+    });
+    const rawToProcessed = /* @__PURE__ */ new Map();
+    if (isCustomLabelListsEnabled(this.plugin.settings)) {
+      extractCustomLabels(content, true).forEach((label) => {
+        const match = label.rawLabel.match(/\{::([^}]+)\}/);
+        if (match) rawToProcessed.set(match[1], label.label);
+      });
+    }
+    this.currentContext = { ...this.currentContext, exampleLabels, rawToProcessed };
+  }
   renderContent(activeView) {
-    this.renderExampleItems(activeView);
+    this.renderCollection({
+      title: this.displayName,
+      containerClassName: CSS_CLASSES.EXAMPLE_LIST_VIEW_CONTAINER,
+      emptyClassName: CSS_CLASSES.EXAMPLE_LIST_VIEW_EMPTY,
+      emptyMessage: MESSAGES.NO_EXAMPLE_LISTS,
+      items: this.createItems(activeView)
+    });
   }
   showNoFileMessage() {
     if (!this.containerEl) return;
@@ -211761,151 +211467,43 @@ var ExampleListPanelModule = class extends BasePanelModule {
     });
     this.exampleItems = [];
   }
-  /**
-   * Build the rendering context for processing content references
-   * @param content The document content to extract context from
-   */
-  buildRenderingContext(content) {
-    super.buildRenderingContext(content);
-    const exampleLabels = /* @__PURE__ */ new Map();
-    this.exampleItems.forEach((item) => {
-      const label = item.rawLabel.substring(1);
-      if (label) {
-        exampleLabels.set(label, item.renderedNumber);
-      }
-    });
-    const rawToProcessed = /* @__PURE__ */ new Map();
-    if (isCustomLabelListsEnabled(this.plugin.settings)) {
-      const customLabels = extractCustomLabels(content, true);
-      customLabels.forEach((label) => {
-        const match = label.rawLabel.match(/\{::([^}]+)\}/);
-        if (match) {
-          rawToProcessed.set(match[1], label.label);
-        }
-      });
-    }
-    this.currentContext = {
-      ...this.currentContext,
-      exampleLabels,
-      rawToProcessed
-    };
-  }
-  renderExampleItems(activeView) {
-    if (!this.containerEl) return;
-    if (this.exampleItems.length === 0) {
-      this.containerEl.createEl("div", {
-        text: MESSAGES.NO_EXAMPLE_LISTS,
-        cls: CSS_CLASSES.EXAMPLE_LIST_VIEW_EMPTY
-      });
-      return;
-    }
-    const container = this.containerEl.createEl("table", {
-      cls: CSS_CLASSES.EXAMPLE_LIST_VIEW_CONTAINER
-    });
-    const tbody = container.createEl("tbody");
-    for (const item of this.exampleItems) {
-      this.renderExampleRow(tbody, item, activeView);
-    }
-  }
-  renderExampleRow(tbody, item, activeView) {
-    const row = tbody.createEl("tr", {
-      cls: CSS_CLASSES.EXAMPLE_LIST_VIEW_ROW
-    });
-    const numberEl = row.createEl("td", {
-      cls: CSS_CLASSES.EXAMPLE_LIST_VIEW_NUMBER
-    });
-    const displayNumber = this.truncateNumber(item.renderedNumber);
-    numberEl.textContent = displayNumber;
-    if (displayNumber !== String(item.renderedNumber)) {
-      this.setupNumberHoverPreview(numberEl, String(item.renderedNumber));
-    }
-    const labelEl = row.createEl("td", {
-      cls: CSS_CLASSES.EXAMPLE_LIST_VIEW_LABEL
-    });
-    const displayLabel = this.truncateRawLabel(item.rawLabel);
-    labelEl.textContent = displayLabel;
-    if (displayLabel !== item.rawLabel) {
-      this.setupLabelHoverPreview(labelEl, item.rawLabel);
-    }
-    this.setupLabelClickHandler(labelEl, `(@${item.rawLabel.substring(1)})`);
-    const contentEl = row.createEl("td", {
-      cls: CSS_CLASSES.EXAMPLE_LIST_VIEW_CONTENT
-    });
-    const truncatedContent = truncateContentWithRendering(item.content);
-    renderContentWithMath(contentEl, truncatedContent, this.plugin.app, this.plugin, this.currentContext);
-    this.setupContentClickHandler(contentEl, item, activeView);
-    if (truncatedContent !== item.content) {
-      this.setupContentHoverPreview(contentEl, item);
-    }
-  }
-  truncateNumber(number) {
-    const str = String(number);
-    if (str.length > 2) {
-      return str.substring(0, 2) + "\u2026";
-    }
-    return str;
-  }
-  truncateRawLabel(label) {
-    if (label.length > UI_CONSTANTS.LABEL_MAX_LENGTH) {
-      return label.slice(0, UI_CONSTANTS.LABEL_TRUNCATION_LENGTH) + "\u2026";
-    }
-    return label;
-  }
-  setupNumberHoverPreview(element, fullNumber) {
-    var _a4;
-    setupSimpleHoverPreview(element, fullNumber, CSS_CLASSES.HOVER_POPOVER_LABEL, (_a4 = this.abortController) == null ? void 0 : _a4.signal);
-  }
-  setupLabelHoverPreview(element, fullLabel) {
-    var _a4;
-    setupSimpleHoverPreview(element, fullLabel, CSS_CLASSES.HOVER_POPOVER_LABEL, (_a4 = this.abortController) == null ? void 0 : _a4.signal);
-  }
-  setupLabelClickHandler(element, rawLabelSyntax) {
-    var _a4;
-    const clickHandler = () => {
-      try {
-        navigator.clipboard.writeText(rawLabelSyntax).then(() => {
-          new import_obsidian4.Notice(MESSAGES.LABEL_COPIED);
-        }).catch((error) => {
-          handleError(error, "Copy label to clipboard");
-        });
-      } catch (error) {
-        handleError(error, "Label click handler");
-      }
-    };
-    element.addEventListener("click", clickHandler, { signal: (_a4 = this.abortController) == null ? void 0 : _a4.signal });
-  }
-  setupContentClickHandler(element, item, activeView) {
-    var _a4;
-    const clickHandler = () => {
-      try {
-        if (activeView && activeView.editor) {
-          const editor = activeView.editor;
-          const leaves = this.plugin.app.workspace.getLeavesOfType("markdown");
-          const targetLeaf = leaves.find((leaf) => leaf.view === activeView);
-          if (targetLeaf) {
-            this.plugin.app.workspace.setActiveLeaf(targetLeaf, { focus: true });
+  createItems(activeView) {
+    const occurrences = /* @__PURE__ */ new Map();
+    return this.exampleItems.map((item) => {
+      var _a4;
+      const identity = `${item.renderedNumber}:${item.rawLabel}`;
+      const occurrence = (_a4 = occurrences.get(identity)) != null ? _a4 : 0;
+      occurrences.set(identity, occurrence + 1);
+      const syntax = item.rawLabel === "@" ? "(@)" : `(@${item.rawLabel.substring(1)})`;
+      return {
+        key: `example:${identity}:${occurrence}`,
+        rowClassName: CSS_CLASSES.EXAMPLE_LIST_VIEW_ROW,
+        contentClassName: CSS_CLASSES.EXAMPLE_LIST_VIEW_CONTENT,
+        identityParts: [
+          {
+            text: String(item.renderedNumber),
+            kind: "token",
+            className: CSS_CLASSES.EXAMPLE_LIST_VIEW_NUMBER
+          },
+          {
+            text: item.rawLabel,
+            kind: "token",
+            className: CSS_CLASSES.EXAMPLE_LIST_VIEW_LABEL,
+            actionLabel: `Copy example label ${syntax}`,
+            onActivate: () => this.copyText(syntax)
           }
-          editor.setCursor(item.position);
-          editor.scrollIntoView({ from: item.position, to: item.position }, true);
-          highlightLine2(activeView, item.lineNumber);
-        }
-      } catch (error) {
-        handleError(error, "Scroll to example list");
-      }
-    };
-    element.addEventListener("click", clickHandler, { signal: (_a4 = this.abortController) == null ? void 0 : _a4.signal });
-  }
-  setupContentHoverPreview(element, item) {
-    var _a4;
-    setupRenderedHoverPreview(
-      element,
-      item.content,
-      this.plugin.app,
-      this.plugin,
-      this.currentContext,
-      CSS_CLASSES.HOVER_POPOVER_CONTENT,
-      (_a4 = this.abortController) == null ? void 0 : _a4.signal
-    );
+        ],
+        renderContent: (element) => renderContentWithMath(
+          element,
+          item.content,
+          this.plugin.app,
+          this.plugin,
+          this.currentContext
+        ),
+        navigationLabel: `Go to example ${item.renderedNumber} in source`,
+        onContentActivate: () => this.navigateToSource(activeView, item.position, item.lineNumber)
+      };
+    });
   }
 };
 
@@ -211994,7 +211592,13 @@ var DefinitionListPanelModule = class extends BasePanelModule {
     this.definitionItems = extractDefinitionLists(content);
   }
   renderContent(activeView) {
-    this.renderDefinitionItems(activeView);
+    this.renderCollection({
+      title: this.displayName,
+      containerClassName: CSS_CLASSES.DEFINITION_LIST_VIEW_CONTAINER,
+      emptyClassName: CSS_CLASSES.DEFINITION_LIST_VIEW_EMPTY,
+      emptyMessage: MESSAGES.NO_DEFINITION_LISTS,
+      items: this.createItems(activeView)
+    });
   }
   showNoFileMessage() {
     if (!this.containerEl) return;
@@ -212004,109 +211608,63 @@ var DefinitionListPanelModule = class extends BasePanelModule {
     });
     this.definitionItems = [];
   }
-  renderDefinitionItems(activeView) {
-    if (!this.containerEl) return;
-    if (this.definitionItems.length === 0) {
-      this.containerEl.createEl("div", {
-        text: MESSAGES.NO_DEFINITION_LISTS,
-        cls: CSS_CLASSES.DEFINITION_LIST_VIEW_EMPTY
-      });
-      return;
-    }
-    const container = this.containerEl.createEl("table", {
-      cls: CSS_CLASSES.DEFINITION_LIST_VIEW_CONTAINER
+  createItems(activeView) {
+    const occurrences = /* @__PURE__ */ new Map();
+    return this.definitionItems.map((item) => {
+      var _a4;
+      const occurrence = (_a4 = occurrences.get(item.term)) != null ? _a4 : 0;
+      occurrences.set(item.term, occurrence + 1);
+      return {
+        key: `definition:${item.term}:${occurrence}`,
+        rowClassName: CSS_CLASSES.DEFINITION_LIST_VIEW_ROW,
+        contentClassName: CSS_CLASSES.DEFINITION_LIST_VIEW_DEFINITIONS,
+        identityParts: [{
+          text: item.term,
+          kind: "title",
+          className: CSS_CLASSES.DEFINITION_LIST_VIEW_TERM,
+          render: (element) => renderContentWithMath(
+            element,
+            item.term,
+            this.plugin.app,
+            this.plugin,
+            this.currentContext
+          )
+        }],
+        renderContent: (element) => this.renderDefinitions(element, item.definitions),
+        navigationLabel: `Go to definition term ${item.term} in source`,
+        onContentActivate: () => this.navigateToSource(activeView, item.position, item.lineNumber)
+      };
     });
-    const tbody = container.createEl("tbody");
-    for (const item of this.definitionItems) {
-      this.renderDefinitionRow(tbody, item, activeView);
+  }
+  renderDefinitions(element, definitions) {
+    if (definitions.length === 1) {
+      return renderContentWithMath(
+        element,
+        definitions[0],
+        this.plugin.app,
+        this.plugin,
+        this.currentContext
+      );
     }
-  }
-  renderDefinitionRow(tbody, item, activeView) {
-    const row = tbody.createEl("tr", {
-      cls: CSS_CLASSES.DEFINITION_LIST_VIEW_ROW
+    const list = document.createElement("ul");
+    element.append(list);
+    const rendering = definitions.map((definition) => {
+      const item = document.createElement("li");
+      list.append(item);
+      return renderContentWithMath(
+        item,
+        definition,
+        this.plugin.app,
+        this.plugin,
+        this.currentContext
+      );
     });
-    const termEl = row.createEl("td", {
-      cls: CSS_CLASSES.DEFINITION_LIST_VIEW_TERM
-    });
-    const truncatedTerm = this.truncateTermWithRendering(item.term);
-    renderContentWithMath(termEl, truncatedTerm, this.plugin.app, this.plugin, this.currentContext);
-    if (truncatedTerm !== item.term) {
-      this.setupTermHoverPreview(termEl, item.term);
-    }
-    const definitionsEl = row.createEl("td", {
-      cls: CSS_CLASSES.DEFINITION_LIST_VIEW_DEFINITIONS
-    });
-    if (item.definitions.length === 1) {
-      const truncatedContent = truncateContentWithRendering(item.definitions[0], UI_CONSTANTS.DEFINITION_MAX_LENGTH);
-      renderContentWithMath(definitionsEl, truncatedContent, this.plugin.app, this.plugin, this.currentContext);
-      if (truncatedContent !== item.definitions[0]) {
-        this.setupContentHoverPreview(definitionsEl, item.definitions[0]);
-      }
-    } else {
-      const ul = definitionsEl.createEl("ul");
-      for (const def of item.definitions) {
-        const li = ul.createEl("li");
-        const truncatedContent = truncateContentWithRendering(def, UI_CONSTANTS.DEFINITION_MAX_LENGTH);
-        renderContentWithMath(li, truncatedContent, this.plugin.app, this.plugin, this.currentContext);
-        if (truncatedContent !== def) {
-          this.setupContentHoverPreview(li, def);
-        }
-      }
-    }
-    this.setupDefinitionClickHandler(definitionsEl, item, activeView);
-  }
-  truncateTermWithRendering(term) {
-    return truncateContentWithRendering(term, UI_CONSTANTS.TERM_MAX_LENGTH);
-  }
-  setupTermHoverPreview(element, fullTerm) {
-    var _a4;
-    setupRenderedHoverPreview(
-      element,
-      fullTerm,
-      this.plugin.app,
-      this.plugin,
-      this.currentContext,
-      CSS_CLASSES.HOVER_POPOVER_CONTENT,
-      (_a4 = this.abortController) == null ? void 0 : _a4.signal
-    );
-  }
-  setupDefinitionClickHandler(element, item, activeView) {
-    var _a4;
-    const clickHandler = () => {
-      try {
-        if (activeView && activeView.editor) {
-          const editor = activeView.editor;
-          const leaves = this.plugin.app.workspace.getLeavesOfType("markdown");
-          const targetLeaf = leaves.find((leaf) => leaf.view === activeView);
-          if (targetLeaf) {
-            this.plugin.app.workspace.setActiveLeaf(targetLeaf, { focus: true });
-          }
-          editor.setCursor(item.position);
-          editor.scrollIntoView({ from: item.position, to: item.position }, true);
-          highlightLine2(activeView, item.lineNumber);
-        }
-      } catch (error) {
-        handleError(error, "Scroll to definition term");
-      }
-    };
-    element.addEventListener("click", clickHandler, { signal: (_a4 = this.abortController) == null ? void 0 : _a4.signal });
-  }
-  setupContentHoverPreview(element, content) {
-    var _a4;
-    setupRenderedHoverPreview(
-      element,
-      content,
-      this.plugin.app,
-      this.plugin,
-      this.currentContext,
-      CSS_CLASSES.HOVER_POPOVER_CONTENT,
-      (_a4 = this.abortController) == null ? void 0 : _a4.signal
-    );
+    return Promise.all(rendering).then(() => void 0);
   }
 };
 
 // src/views/panels/modules/FootnotePanelModule.ts
-var import_obsidian5 = require("obsidian");
+var import_obsidian4 = require("obsidian");
 
 // src/shared/extractors/footnoteExtractor.ts
 function extractFootnotes(content) {
@@ -212275,8 +211833,8 @@ var FootnoteContentBuilder = class {
 
 // src/views/panels/modules/FootnotePanelModule.ts
 var FootnotePanelModule = class extends BasePanelModule {
-  constructor(plugin) {
-    super(plugin);
+  constructor() {
+    super(...arguments);
     this.id = "footnotes";
     this.displayName = MESSAGES.FOOTNOTE_VIEW_TITLE;
     this.icon = ICONS.FOOTNOTE_SVG;
@@ -212289,101 +211847,58 @@ var FootnotePanelModule = class extends BasePanelModule {
     this.footnotes = extractFootnotes(content);
   }
   renderContent(activeView) {
-    if (!this.containerEl) return;
-    if (this.footnotes.length === 0) {
-      this.containerEl.createEl("div", {
-        text: MESSAGES.NO_FOOTNOTES,
-        cls: CSS_CLASSES.FOOTNOTE_PANEL_EMPTY
-      });
-      return;
-    }
-    this.renderFootnoteTable(activeView);
+    this.renderCollection({
+      title: this.displayName,
+      containerClassName: CSS_CLASSES.FOOTNOTE_PANEL_CONTAINER,
+      emptyClassName: CSS_CLASSES.FOOTNOTE_PANEL_EMPTY,
+      emptyMessage: MESSAGES.NO_FOOTNOTES,
+      items: this.createItems(activeView)
+    });
   }
-  renderFootnoteTable(activeView) {
-    if (!this.containerEl) return;
-    const table2 = this.containerEl.createEl("table", {
-      cls: CSS_CLASSES.FOOTNOTE_PANEL_CONTAINER
+  createItems(activeView) {
+    const occurrences = /* @__PURE__ */ new Map();
+    return this.footnotes.map((footnote) => {
+      var _a4;
+      const occurrence = (_a4 = occurrences.get(footnote.label)) != null ? _a4 : 0;
+      occurrences.set(footnote.label, occurrence + 1);
+      return {
+        key: `footnote:${footnote.label}:${occurrence}`,
+        rowClassName: CSS_CLASSES.FOOTNOTE_PANEL_ROW,
+        contentClassName: CSS_CLASSES.FOOTNOTE_PANEL_CONTENT,
+        identityParts: [{
+          text: `[^${footnote.label}]`,
+          kind: "token",
+          className: CSS_CLASSES.FOOTNOTE_PANEL_INDEX,
+          actionLabel: `Go to footnote ${footnote.label} reference`,
+          onActivate: () => this.navigateToReference(activeView, footnote)
+        }],
+        renderContent: (element) => renderContentWithMath(
+          element,
+          footnote.content,
+          this.plugin.app,
+          this.plugin,
+          this.currentContext
+        ),
+        navigationLabel: `Go to footnote ${footnote.label} definition`,
+        onContentActivate: () => this.navigateToSource(
+          activeView,
+          footnote.definitionPosition,
+          footnote.definitionLine
+        )
+      };
     });
-    const tbody = table2.createEl("tbody");
-    for (const footnote of this.footnotes) {
-      this.renderFootnoteRow(tbody, footnote, activeView);
-    }
   }
-  renderFootnoteRow(tbody, footnote, activeView) {
-    const row = tbody.createEl("tr", {
-      cls: CSS_CLASSES.FOOTNOTE_PANEL_ROW
-    });
-    const indexCell = row.createEl("td", {
-      cls: CSS_CLASSES.FOOTNOTE_PANEL_INDEX,
-      text: footnote.label
-    });
-    const contentCell = row.createEl("td", {
-      cls: CSS_CLASSES.FOOTNOTE_PANEL_CONTENT
-    });
-    renderContentWithMath(
-      contentCell,
-      footnote.content,
-      this.plugin.app,
-      this.plugin,
-      this.currentContext
-    );
-    this.setupReferenceClick(indexCell, footnote, activeView);
-    this.setupDefinitionClick(contentCell, footnote, activeView);
-  }
-  setupReferenceClick(element, footnote, activeView) {
+  navigateToReference(activeView, footnote) {
     var _a4;
-    element.addEventListener("click", () => {
-      var _a5;
-      try {
-        if (!footnote.referencePosition) {
-          new import_obsidian5.Notice(MESSAGES.FOOTNOTE_REFERENCE_NOT_FOUND);
-          return;
-        }
-        this.focusEditor(activeView);
-        const offset = (_a5 = footnote.referenceLength) != null ? _a5 : 0;
-        const targetPosition = {
-          line: footnote.referencePosition.line,
-          ch: footnote.referencePosition.ch + offset
-        };
-        this.scrollToPosition(activeView, targetPosition, footnote.referencePosition.line);
-      } catch (error) {
-        handleError(error, "Scroll to footnote reference");
-      }
-    }, { signal: (_a4 = this.abortController) == null ? void 0 : _a4.signal });
-  }
-  setupDefinitionClick(element, footnote, activeView) {
-    var _a4;
-    element.addEventListener("click", () => {
-      try {
-        this.focusEditor(activeView);
-        this.scrollToPosition(activeView, footnote.definitionPosition, footnote.definitionLine);
-      } catch (error) {
-        handleError(error, "Scroll to footnote definition");
-      }
-    }, { signal: (_a4 = this.abortController) == null ? void 0 : _a4.signal });
-  }
-  focusEditor(activeView) {
-    if (!activeView) return;
-    const leaves = this.plugin.app.workspace.getLeavesOfType("markdown");
-    const targetLeaf = leaves.find((leaf) => leaf.view === activeView);
-    if (targetLeaf) {
-      this.plugin.app.workspace.setActiveLeaf(targetLeaf, { focus: true });
-    }
-  }
-  scrollToPosition(view, position, fallbackLine) {
-    if (!view || !view.editor) {
+    if (!footnote.referencePosition) {
+      new import_obsidian4.Notice(MESSAGES.FOOTNOTE_REFERENCE_NOT_FOUND);
       return;
     }
-    const editor = view.editor;
-    if (!position) {
-      if (typeof fallbackLine === "number") {
-        highlightLine2(view, fallbackLine);
-      }
-      return;
-    }
-    editor.setCursor(position);
-    editor.scrollIntoView({ from: position, to: position }, true);
-    highlightLine2(view, position.line, position);
+    const position = {
+      line: footnote.referencePosition.line,
+      ch: footnote.referencePosition.ch + ((_a4 = footnote.referenceLength) != null ? _a4 : 0)
+    };
+    this.navigateToSource(activeView, position, footnote.referencePosition.line);
   }
 };
 
@@ -212403,7 +211918,13 @@ var FencedDivPanelModule = class extends BasePanelModule {
     this.fencedDivItems = extractFencedDivs(content, this.plugin.settings);
   }
   renderContent(activeView) {
-    this.renderFencedDivItems(activeView);
+    this.renderCollection({
+      title: this.displayName,
+      containerClassName: CSS_CLASSES.FENCED_DIV_PANEL_CONTAINER,
+      emptyClassName: CSS_CLASSES.FENCED_DIV_PANEL_EMPTY,
+      emptyMessage: MESSAGES.NO_FENCED_DIVS,
+      items: this.createItems(activeView)
+    });
   }
   showNoFileMessage() {
     if (!this.containerEl) return;
@@ -212413,96 +211934,57 @@ var FencedDivPanelModule = class extends BasePanelModule {
     });
     this.fencedDivItems = [];
   }
-  renderFencedDivItems(activeView) {
-    if (!this.containerEl) return;
-    if (this.fencedDivItems.length === 0) {
-      this.containerEl.createEl("div", {
-        text: MESSAGES.NO_FENCED_DIVS,
-        cls: CSS_CLASSES.FENCED_DIV_PANEL_EMPTY
+  createItems(activeView) {
+    const occurrences = /* @__PURE__ */ new Map();
+    return this.fencedDivItems.map((item) => {
+      var _a4;
+      const identity = item.label || `${item.blockTitleText}:${item.classes.join(".")}`;
+      const occurrence = (_a4 = occurrences.get(identity)) != null ? _a4 : 0;
+      occurrences.set(identity, occurrence + 1);
+      return {
+        key: `fenced-div:${identity}:${occurrence}`,
+        rowClassName: CSS_CLASSES.FENCED_DIV_PANEL_ROW,
+        contentClassName: CSS_CLASSES.FENCED_DIV_PANEL_CONTENT,
+        identityParts: this.createIdentityParts(item),
+        renderContent: (element) => renderContentWithMath(
+          element,
+          item.content,
+          this.plugin.app,
+          this.plugin,
+          this.currentContext
+        ),
+        navigationLabel: `Go to ${item.blockTitleText || "fenced div"} content in source`,
+        onContentActivate: () => this.navigateToSource(
+          activeView,
+          item.contentPosition,
+          item.contentLineNumber
+        )
+      };
+    });
+  }
+  createIdentityParts(item) {
+    const parts = [{
+      text: item.blockTitleText,
+      kind: "title",
+      className: CSS_CLASSES.FENCED_DIV_PANEL_TITLE
+    }];
+    if (item.label) {
+      const reference = `@${item.label}`;
+      parts.push({
+        text: reference,
+        kind: "token",
+        className: CSS_CLASSES.FENCED_DIV_PANEL_LABEL,
+        actionLabel: `Copy fenced div reference ${reference}`,
+        onActivate: () => this.copyText(reference)
       });
-      return;
     }
-    const container = this.containerEl.createEl("table", {
-      cls: CSS_CLASSES.FENCED_DIV_PANEL_CONTAINER
-    });
-    const tbody = container.createEl("tbody");
-    for (const item of this.fencedDivItems) {
-      this.renderFencedDivRow(tbody, item, activeView);
-    }
-  }
-  renderFencedDivRow(tbody, item, activeView) {
-    const row = tbody.createEl("tr", {
-      cls: CSS_CLASSES.FENCED_DIV_PANEL_ROW
-    });
-    const titleEl = row.createEl("td", {
-      cls: CSS_CLASSES.FENCED_DIV_PANEL_TITLE
-    });
-    titleEl.textContent = item.blockTitleText;
-    const labelEl = row.createEl("td", {
-      cls: CSS_CLASSES.FENCED_DIV_PANEL_LABEL
-    });
-    this.renderLabel(labelEl, item);
-    const contentEl = row.createEl("td", {
-      cls: CSS_CLASSES.FENCED_DIV_PANEL_CONTENT
-    });
-    this.renderContentCell(contentEl, item);
-    this.setupContentClickHandler(contentEl, item, activeView);
-  }
-  renderLabel(labelEl, item) {
-    var _a4;
-    if (!item.label) {
-      labelEl.textContent = "";
-      return;
-    }
-    const referenceLabel = `@${item.label}`;
-    labelEl.textContent = referenceLabel;
-    setupLabelClickHandler(labelEl, referenceLabel, (_a4 = this.abortController) == null ? void 0 : _a4.signal);
-  }
-  renderContentCell(contentEl, item) {
-    var _a4;
-    const truncatedContent = truncateContentWithRendering(item.content);
-    renderContentWithMath(contentEl, truncatedContent, this.plugin.app, this.plugin, this.currentContext);
-    if (truncatedContent !== item.content) {
-      setupRenderedHoverPreview(
-        contentEl,
-        item.content,
-        this.plugin.app,
-        this.plugin,
-        this.currentContext,
-        CSS_CLASSES.HOVER_POPOVER_CONTENT,
-        (_a4 = this.abortController) == null ? void 0 : _a4.signal
-      );
-    }
-  }
-  setupContentClickHandler(element, item, activeView) {
-    var _a4;
-    const clickHandler = () => {
-      try {
-        if (!(activeView == null ? void 0 : activeView.editor)) {
-          return;
-        }
-        const leaves = this.plugin.app.workspace.getLeavesOfType("markdown");
-        const targetLeaf = leaves.find((leaf) => leaf.view === activeView);
-        if (targetLeaf) {
-          this.plugin.app.workspace.setActiveLeaf(targetLeaf, { focus: true });
-        }
-        activeView.editor.setCursor(item.contentPosition);
-        activeView.editor.scrollIntoView({
-          from: item.contentPosition,
-          to: item.contentPosition
-        }, true);
-        highlightLine2(activeView, item.contentLineNumber);
-      } catch (error) {
-        handleError(error, "Scroll to fenced div content");
-      }
-    };
-    element.addEventListener("click", clickHandler, { signal: (_a4 = this.abortController) == null ? void 0 : _a4.signal });
+    return parts;
   }
 };
 
 // src/views/panels/ListPanelView.ts
 var VIEW_TYPE_LIST_PANEL = "list-panel-view";
-var ListPanelView = class extends import_obsidian6.ItemView {
+var ListPanelView = class extends import_obsidian5.ItemView {
   constructor(leaf, plugin) {
     super(leaf);
     this.panels = [];
@@ -212633,13 +212115,22 @@ var ListPanelView = class extends import_obsidian6.ItemView {
       cls: CSS_CLASSES.LIST_PANEL_VIEW_CONTAINER
     });
     this.iconRowEl = viewContainer.createDiv({
-      cls: CSS_CLASSES.LIST_PANEL_ICON_ROW
+      cls: CSS_CLASSES.LIST_PANEL_ICON_ROW,
+      attr: {
+        role: "tablist",
+        "aria-label": "Structured content panels"
+      }
     });
     for (const panel of this.panels) {
-      const iconButton = this.iconRowEl.createDiv({
+      const panelId = `pem-panel-tabpanel-${panel.id}`;
+      const iconButton = this.iconRowEl.createEl("button", {
         cls: CSS_CLASSES.LIST_PANEL_ICON_BUTTON,
         attr: {
+          type: "button",
+          role: "tab",
           "aria-label": panel.displayName,
+          "aria-selected": "false",
+          "aria-controls": panelId,
           "data-panel-id": panel.id
         }
       });
@@ -212677,12 +212168,18 @@ var ListPanelView = class extends import_obsidian6.ItemView {
       iconButton.addEventListener("click", () => {
         this.switchToPanel(panel);
       });
+      iconButton.addEventListener("keydown", (event) => {
+        this.handleTabKeydown(event, panel);
+      });
     }
     viewContainer.createEl("hr", {
       cls: CSS_CLASSES.LIST_PANEL_SEPARATOR
     });
     this.contentContainerEl = viewContainer.createDiv({
-      cls: CSS_CLASSES.LIST_PANEL_CONTENT_CONTAINER
+      cls: CSS_CLASSES.LIST_PANEL_CONTENT_CONTAINER,
+      attr: {
+        role: "tabpanel"
+      }
     });
     if (this.panels.length > 0) {
       this.switchToPanel(this.panels[0]);
@@ -212697,14 +212194,48 @@ var ListPanelView = class extends import_obsidian6.ItemView {
       this.activePanel.onDeactivate();
     }
     const allButtons = (_a4 = this.iconRowEl) == null ? void 0 : _a4.querySelectorAll(`.${CSS_CLASSES.LIST_PANEL_ICON_BUTTON}`);
-    allButtons == null ? void 0 : allButtons.forEach((btn) => btn.removeClass(CSS_CLASSES.LIST_PANEL_ICON_ACTIVE));
+    allButtons == null ? void 0 : allButtons.forEach((btn) => {
+      btn.removeClass(CSS_CLASSES.LIST_PANEL_ICON_ACTIVE);
+      btn.setAttribute("aria-selected", "false");
+      btn.setAttribute("tabindex", "-1");
+    });
     const activeButton = (_b2 = this.iconRowEl) == null ? void 0 : _b2.querySelector(`[data-panel-id="${panelInfo.id}"]`);
     activeButton == null ? void 0 : activeButton.addClass(CSS_CLASSES.LIST_PANEL_ICON_ACTIVE);
+    activeButton == null ? void 0 : activeButton.setAttribute("aria-selected", "true");
+    activeButton == null ? void 0 : activeButton.setAttribute("tabindex", "0");
     this.activePanel = panelInfo.module;
     if (this.contentContainerEl) {
       this.contentContainerEl.empty();
+      this.contentContainerEl.id = `pem-panel-tabpanel-${panelInfo.id}`;
+      const activeButtonId = `pem-panel-tab-${panelInfo.id}`;
+      activeButton == null ? void 0 : activeButton.setAttribute("id", activeButtonId);
+      this.contentContainerEl.setAttribute("aria-labelledby", activeButtonId);
       this.activePanel.onActivate(this.contentContainerEl, this.lastActiveMarkdownView);
     }
+  }
+  handleTabKeydown(event, currentPanel) {
+    var _a4;
+    const currentIndex = this.panels.indexOf(currentPanel);
+    let targetIndex = null;
+    if (event.key === "ArrowRight") {
+      targetIndex = (currentIndex + 1) % this.panels.length;
+    } else if (event.key === "ArrowLeft") {
+      targetIndex = (currentIndex - 1 + this.panels.length) % this.panels.length;
+    } else if (event.key === "Home") {
+      targetIndex = 0;
+    } else if (event.key === "End") {
+      targetIndex = this.panels.length - 1;
+    }
+    if (targetIndex === null) {
+      return;
+    }
+    event.preventDefault();
+    const targetPanel = this.panels[targetIndex];
+    this.switchToPanel(targetPanel);
+    const targetButton = (_a4 = this.iconRowEl) == null ? void 0 : _a4.querySelector(
+      `[data-panel-id="${targetPanel.id}"]`
+    );
+    targetButton == null ? void 0 : targetButton.focus();
   }
   scheduleUpdate() {
     if (this.updateTimer) {
@@ -212717,7 +212248,7 @@ var ListPanelView = class extends import_obsidian6.ItemView {
   updateView() {
     return Promise.resolve().then(() => {
       try {
-        let markdownView = this.app.workspace.getActiveViewOfType(import_obsidian6.MarkdownView);
+        let markdownView = this.app.workspace.getActiveViewOfType(import_obsidian5.MarkdownView);
         if (markdownView && markdownView.file) {
           this.lastActiveMarkdownView = markdownView;
         }
@@ -212762,7 +212293,7 @@ var ListPanelView = class extends import_obsidian6.ItemView {
 };
 
 // src/core/settingsOrderedListOrder.ts
-var import_obsidian7 = require("obsidian");
+var import_obsidian6 = require("obsidian");
 var OrderedListOrderControl = class {
   constructor(config) {
     this.config = config;
@@ -212770,8 +212301,8 @@ var OrderedListOrderControl = class {
   render() {
     var _a4;
     this.selectedStyleId = this.config.selectedStyleId;
-    new import_obsidian7.Setting(this.config.containerEl).setName(PANEL_SETTINGS.UI_TEXT.ORDERED_LIST_ORDER_HEADING).setHeading();
-    const orderSetting = new import_obsidian7.Setting(this.config.containerEl).setDesc(PANEL_SETTINGS.UI_TEXT.ORDERED_LIST_ORDER_DESC);
+    new import_obsidian6.Setting(this.config.containerEl).setName(PANEL_SETTINGS.UI_TEXT.ORDERED_LIST_ORDER_HEADING).setHeading();
+    const orderSetting = new import_obsidian6.Setting(this.config.containerEl).setDesc(PANEL_SETTINGS.UI_TEXT.ORDERED_LIST_ORDER_DESC);
     (_a4 = orderSetting.infoEl) == null ? void 0 : _a4.addClass("pem-panel-order-info");
     const flexContainer = orderSetting.controlEl.createDiv({
       cls: "pem-panel-order-container pem-ordered-list-order-container"
@@ -212933,7 +212464,7 @@ var OrderedListOrderControl = class {
 };
 
 // src/core/settingsUnorderedListOrder.ts
-var import_obsidian8 = require("obsidian");
+var import_obsidian7 = require("obsidian");
 var UnorderedListOrderControl = class {
   constructor(config) {
     this.config = config;
@@ -212941,8 +212472,8 @@ var UnorderedListOrderControl = class {
   render() {
     var _a4;
     this.selectedMarkerId = this.config.selectedMarkerId;
-    new import_obsidian8.Setting(this.config.containerEl).setName(PANEL_SETTINGS.UI_TEXT.UNORDERED_LIST_ORDER_HEADING).setHeading();
-    const orderSetting = new import_obsidian8.Setting(this.config.containerEl).setDesc(PANEL_SETTINGS.UI_TEXT.UNORDERED_LIST_ORDER_DESC);
+    new import_obsidian7.Setting(this.config.containerEl).setName(PANEL_SETTINGS.UI_TEXT.UNORDERED_LIST_ORDER_HEADING).setHeading();
+    const orderSetting = new import_obsidian7.Setting(this.config.containerEl).setDesc(PANEL_SETTINGS.UI_TEXT.UNORDERED_LIST_ORDER_DESC);
     (_a4 = orderSetting.infoEl) == null ? void 0 : _a4.addClass("pem-panel-order-info");
     const flexContainer = orderSetting.controlEl.createDiv({
       cls: "pem-panel-order-container pem-unordered-list-order-container"
@@ -213104,10 +212635,10 @@ var UnorderedListOrderControl = class {
 };
 
 // src/pandoc/gui/obsidian/settings/pandocExportSettingsSection.ts
-var import_obsidian14 = require("obsidian");
+var import_obsidian13 = require("obsidian");
 
 // src/pandoc/gui/obsidian/settings/PandocExportAdvancedSettingsModal.ts
-var import_obsidian9 = require("obsidian");
+var import_obsidian8 = require("obsidian");
 init_core();
 
 // src/pandoc/gui/obsidian/modals/PandocTemplateDisplay.ts
@@ -213373,7 +212904,7 @@ function getPathDelimiter(request2) {
 }
 
 // src/pandoc/gui/obsidian/settings/PandocExportAdvancedSettingsModal.ts
-var PandocExportAdvancedSettingsModal = class extends import_obsidian9.Modal {
+var PandocExportAdvancedSettingsModal = class extends import_obsidian8.Modal {
   constructor(plugin, dependencies) {
     var _a4, _b2;
     super(plugin.app);
@@ -213403,7 +212934,7 @@ var PandocExportAdvancedSettingsModal = class extends import_obsidian9.Modal {
     this.renderActions();
   }
   renderPreviewDelaySetting() {
-    new import_obsidian9.Setting(this.contentEl).setName("Preview refresh delay").setDesc("Milliseconds to wait after command edits before refreshing.").addText((text) => text.setValue(String(this.draft.previewDebounceMs)).onChange((value) => {
+    new import_obsidian8.Setting(this.contentEl).setName("Preview refresh delay").setDesc("Milliseconds to wait after command edits before refreshing.").addText((text) => text.setValue(String(this.draft.previewDebounceMs)).onChange((value) => {
       const parsed = Number.parseInt(value, 10);
       if (Number.isFinite(parsed)) {
         this.draft.previewDebounceMs = Math.max(250, Math.min(5e3, parsed));
@@ -213411,7 +212942,7 @@ var PandocExportAdvancedSettingsModal = class extends import_obsidian9.Modal {
     }));
   }
   renderRuntimeEnvToggle() {
-    new import_obsidian9.Setting(this.contentEl).setName("Suggest runtime environment variables").setDesc([
+    new import_obsidian8.Setting(this.contentEl).setName("Suggest runtime environment variables").setDesc([
       "Includes current process environment variable names and resolved values in template suggestions.",
       "Only enable this when you are comfortable exposing sensitive paths, tokens, or account data in the editor UI."
     ].join(" ")).addToggle((toggle) => toggle.setValue(this.draft.suggestRuntimeEnvVariables).onChange((value) => {
@@ -213430,7 +212961,7 @@ var PandocExportAdvancedSettingsModal = class extends import_obsidian9.Modal {
     for (const row of this.draft.envRows) {
       this.renderEnvRow(table2, row);
     }
-    new import_obsidian9.Setting(section2).addButton((button) => button.setButtonText("Add variable").onClick(() => {
+    new import_obsidian8.Setting(section2).addButton((button) => button.setButtonText("Add variable").onClick(() => {
       this.draft.envRows.push({ key: "", value: "" });
       this.render();
     }));
@@ -213504,7 +213035,7 @@ var PandocExportAdvancedSettingsModal = class extends import_obsidian9.Modal {
     showDisplay();
   }
   renderActions() {
-    new import_obsidian9.Setting(this.contentEl).addButton((button) => button.setButtonText("Cancel changes").onClick(() => this.close())).addButton((button) => button.setButtonText("Save and close").setCta().onClick(async () => {
+    new import_obsidian8.Setting(this.contentEl).addButton((button) => button.setButtonText("Cancel changes").onClick(() => this.close())).addButton((button) => button.setButtonText("Save and close").setCta().onClick(async () => {
       await this.save();
     }));
   }
@@ -213563,15 +213094,15 @@ function validateEnvRows(rows) {
     const key = row.key.trim();
     if (!key && row.value === "") continue;
     if (!key) {
-      new import_obsidian9.Notice("Environment variable rows with values need a variable name.");
+      new import_obsidian8.Notice("Environment variable rows with values need a variable name.");
       return void 0;
     }
     if (!TEMPLATE_VARIABLE_NAME.test(key)) {
-      new import_obsidian9.Notice(`Invalid environment variable name: ${key}`);
+      new import_obsidian8.Notice(`Invalid environment variable name: ${key}`);
       return void 0;
     }
     if (seen.has(key)) {
-      new import_obsidian9.Notice(`Duplicate environment variable name: ${key}`);
+      new import_obsidian8.Notice(`Duplicate environment variable name: ${key}`);
       return void 0;
     }
     seen.add(key);
@@ -213632,7 +213163,7 @@ function insertVariable(input, row, name) {
 }
 
 // src/pandoc/gui/obsidian/modals/PandocProfileEditorModal.ts
-var import_obsidian12 = require("obsidian");
+var import_obsidian11 = require("obsidian");
 
 // src/pandoc/gui/obsidian/modals/PandocCommandRowSlots.ts
 function createPandocCommandRowSlots(container) {
@@ -214217,9 +213748,9 @@ function isProtectedCoreField(field) {
 }
 
 // src/pandoc/gui/obsidian/modals/PandocFormatEditor.ts
-var import_obsidian10 = require("obsidian");
+var import_obsidian9 = require("obsidian");
 init_core();
-var PandocFormatEditorModal = class extends import_obsidian10.Modal {
+var PandocFormatEditorModal = class extends import_obsidian9.Modal {
   constructor(app, config) {
     super(app);
     this.config = config;
@@ -214270,7 +213801,7 @@ var PandocFormatEditorModal = class extends import_obsidian10.Modal {
     const preview = column.createDiv({ cls: "pem-pandoc-format-preview" });
     preview.createEl("div", { cls: "pem-pandoc-command-label", text: "Preview" });
     this.previewEl = preview.createEl("code");
-    new import_obsidian10.Setting(column.createDiv({ cls: "pem-pandoc-format-footer" })).addButton((button) => button.setButtonText("Cancel").onClick(() => this.close())).addButton((button) => button.setButtonText("Confirm").setCta().onClick(() => {
+    new import_obsidian9.Setting(column.createDiv({ cls: "pem-pandoc-format-footer" })).addButton((button) => button.setButtonText("Cancel").onClick(() => this.close())).addButton((button) => button.setButtonText("Confirm").setCta().onClick(() => {
       this.config.onApply(this.rawValue());
       this.close();
     }));
@@ -214394,9 +213925,9 @@ function isEditableExtension(modifier, spec) {
 }
 
 // src/pandoc/gui/obsidian/modals/PandocOptionSearchModal.ts
-var import_obsidian11 = require("obsidian");
+var import_obsidian10 = require("obsidian");
 init_core();
-var PandocOptionSearchModal = class extends import_obsidian11.Modal {
+var PandocOptionSearchModal = class extends import_obsidian10.Modal {
   constructor(app, catalog, onChoose, optionFilter) {
     super(app);
     this.fuzzy = false;
@@ -214563,7 +214094,7 @@ function mergeRanges(ranges) {
 
 // src/pandoc/gui/obsidian/modals/PandocProfileEditorModal.ts
 init_core();
-var PandocProfileEditorModal = class extends import_obsidian12.Modal {
+var PandocProfileEditorModal = class extends import_obsidian11.Modal {
   constructor(plugin, dependencies) {
     var _a4, _b2;
     super(plugin.app);
@@ -214688,7 +214219,7 @@ var PandocProfileEditorModal = class extends import_obsidian12.Modal {
     });
     this.createButton(actions, "Delete current", () => {
       if (!this.presets.deleteSelected()) {
-        new import_obsidian12.Notice("At least one export preset is required.");
+        new import_obsidian11.Notice("At least one export preset is required.");
       }
       this.render();
     }).disabled = !this.presets.canDeleteSelected();
@@ -214704,11 +214235,11 @@ var PandocProfileEditorModal = class extends import_obsidian12.Modal {
     this.renderTextField(section2, "Output extension", draft.extension, (value) => {
       draft.extension = value;
     });
-    new import_obsidian12.Setting(section2).setName("Command template").addTextArea((text) => text.setValue(draft.customCommandTemplate).onChange((value) => {
+    new import_obsidian11.Setting(section2).setName("Command template").addTextArea((text) => text.setValue(draft.customCommandTemplate).onChange((value) => {
       draft.customCommandTemplate = value;
       this.updatePreview(draft);
     }));
-    new import_obsidian12.Setting(section2).setName("Enable shell command").addToggle((toggle) => toggle.setValue(draft.customShell).onChange((value) => {
+    new import_obsidian11.Setting(section2).setName("Enable shell command").addToggle((toggle) => toggle.setValue(draft.customShell).onChange((value) => {
       draft.customShell = value;
       this.updatePreview(draft);
     }));
@@ -214724,7 +214255,7 @@ var PandocProfileEditorModal = class extends import_obsidian12.Modal {
     }
   }
   renderFooter(container) {
-    new import_obsidian12.Setting(container.createDiv({ cls: "pem-pandoc-command-footer" })).addButton((button) => button.setButtonText("Cancel changes").onClick(() => this.close())).addButton((button) => button.setButtonText("Save and close").setCta().onClick(() => {
+    new import_obsidian11.Setting(container.createDiv({ cls: "pem-pandoc-command-footer" })).addButton((button) => button.setButtonText("Cancel changes").onClick(() => this.close())).addButton((button) => button.setButtonText("Save and close").setCta().onClick(() => {
       void this.saveAndClose();
     }));
   }
@@ -214741,7 +214272,7 @@ var PandocProfileEditorModal = class extends import_obsidian12.Modal {
     ].filter((issue) => issue.severity === "error");
     if (errors.length > 0) {
       this.render();
-      new import_obsidian12.Notice(`Fix ${errors.length} Pandoc preset error(s) before saving.`);
+      new import_obsidian11.Notice(`Fix ${errors.length} Pandoc preset error(s) before saving.`);
       return;
     }
     const settings = this.plugin.settings.pandocExport;
@@ -214749,7 +214280,7 @@ var PandocProfileEditorModal = class extends import_obsidian12.Modal {
     settings.profiles = this.presets.saveSelected(this.catalog);
     this.render();
     await this.plugin.saveSettings();
-    new import_obsidian12.Notice("Current pandoc preset saved.");
+    new import_obsidian11.Notice("Current pandoc preset saved.");
     this.render();
   }
   async saveAndClose() {
@@ -214757,7 +214288,7 @@ var PandocProfileEditorModal = class extends import_obsidian12.Modal {
     const errors = this.allValidationIssues().filter((issue) => issue.severity === "error");
     if (errors.length > 0) {
       this.render();
-      new import_obsidian12.Notice(`Fix ${errors.length} Pandoc preset error(s) before saving.`);
+      new import_obsidian11.Notice(`Fix ${errors.length} Pandoc preset error(s) before saving.`);
       return;
     }
     const settings = this.plugin.settings.pandocExport;
@@ -214870,8 +214401,8 @@ init_core();
 function renderPandocExportSettingsSection(plugin, containerEl, dependencies) {
   if (!plugin.settings.pandocExport) return;
   const saveSettings = createQueuedSettingsSave(plugin);
-  new import_obsidian14.Setting(containerEl).setName("Pandoc export (beta)").setDesc(import_obsidian14.Platform.isDesktop ? "Optional desktop-only export backend using Pandoc." : "Pandoc export is available on desktop only.").setHeading();
-  if (!import_obsidian14.Platform.isDesktop) {
+  new import_obsidian13.Setting(containerEl).setName("Pandoc export (beta)").setDesc(import_obsidian13.Platform.isDesktop ? "Optional desktop-only export backend using Pandoc." : "Pandoc export is available on desktop only.").setHeading();
+  if (!import_obsidian13.Platform.isDesktop) {
     return;
   }
   renderEnablePandocExportSetting(plugin, containerEl, saveSettings);
@@ -214882,7 +214413,7 @@ function renderPandocExportSettingsSection(plugin, containerEl, dependencies) {
   renderProfileSettings(plugin, containerEl, dependencies);
 }
 function renderEnablePandocExportSetting(plugin, containerEl, saveSettings) {
-  new import_obsidian14.Setting(containerEl).setName("Enable pandoc export").addToggle((toggle) => {
+  new import_obsidian13.Setting(containerEl).setName("Enable pandoc export").addToggle((toggle) => {
     var _a4, _b2;
     return toggle.setValue((_b2 = (_a4 = plugin.settings.pandocExport) == null ? void 0 : _a4.enabled) != null ? _b2 : false).onChange(async (value) => {
       updatePandocExportSettings(plugin, (settings) => {
@@ -214893,7 +214424,7 @@ function renderEnablePandocExportSetting(plugin, containerEl, saveSettings) {
   });
 }
 function renderPandocPathSetting(plugin, containerEl, dependencies, saveSettings) {
-  new import_obsidian14.Setting(containerEl).setName("Pandoc path").setDesc("Leave blank to use pandoc from path.").addText((text) => {
+  new import_obsidian13.Setting(containerEl).setName("Pandoc path").setDesc("Leave blank to use pandoc from path.").addText((text) => {
     var _a4, _b2;
     return text.setPlaceholder("Pandoc").setValue((_b2 = (_a4 = plugin.settings.pandocExport) == null ? void 0 : _a4.pandocPath) != null ? _b2 : "").onChange(async (value) => {
       updatePandocExportSettings(plugin, (settings) => {
@@ -214907,7 +214438,7 @@ function renderPandocPathSetting(plugin, containerEl, dependencies, saveSettings
     const version3 = await ((_b2 = dependencies.catalogProcess) == null ? void 0 : _b2.getVersion({
       pandocPath: (_a4 = settings == null ? void 0 : settings.pandocPath) != null ? _a4 : ""
     }));
-    new import_obsidian14.Notice((version3 == null ? void 0 : version3.available) ? `Pandoc ${version3.version} found` : "Pandoc was not found");
+    new import_obsidian13.Notice((version3 == null ? void 0 : version3.available) ? `Pandoc ${version3.version} found` : "Pandoc was not found");
   }));
 }
 function renderOutputFolderSettings(plugin, containerEl, dependencies, saveSettings) {
@@ -214921,7 +214452,7 @@ function renderOutputFolderSettings(plugin, containerEl, dependencies, saveSetti
       saveSettings
     );
   };
-  new import_obsidian14.Setting(containerEl).setName("Default output folder").addDropdown((dropdown) => {
+  new import_obsidian13.Setting(containerEl).setName("Default output folder").addDropdown((dropdown) => {
     var _a4, _b2;
     return dropdown.addOptions({
       current: "Current file folder",
@@ -214942,7 +214473,7 @@ function renderOutputFolderSettings(plugin, containerEl, dependencies, saveSetti
 function renderCustomOutputFolderSetting(plugin, containerEl, dependencies, saveSettings) {
   const settings = plugin.settings.pandocExport;
   if (!settings || settings.defaultOutputFolderMode !== "custom") return;
-  new import_obsidian14.Setting(containerEl).setName("Custom output folder").addText((text) => {
+  new import_obsidian13.Setting(containerEl).setName("Custom output folder").addText((text) => {
     var _a4;
     text.setValue(settings.customOutputFolder).onChange(async (value) => {
       updatePandocExportSettings(plugin, (currentSettings) => {
@@ -214998,7 +214529,7 @@ function renderOdtAddonSettings(plugin, containerEl, dependencies) {
   const render = () => {
     wrapper.innerHTML = "";
     const addon = settings.preview.odtAddon;
-    new import_obsidian14.Setting(wrapper).setName("ODT preview support").setDesc(odtAddonStatusText(addon)).addButton((button) => button.setButtonText("Install").setDisabled(addon.status === "installed").onClick(async () => {
+    new import_obsidian13.Setting(wrapper).setName("ODT preview support").setDesc(odtAddonStatusText(addon)).addButton((button) => button.setButtonText("Install").setDisabled(addon.status === "installed").onClick(async () => {
       var _a4;
       if (settings.preview.odtAddon.status === "installed") return;
       if (!confirmOdtAddonInstall()) return;
@@ -215008,14 +214539,14 @@ function renderOdtAddonSettings(plugin, containerEl, dependencies) {
       settings.preview.odtAddon = result;
       await plugin.saveSettings();
       render();
-      new import_obsidian14.Notice(result.status === "installed" ? "ODT preview support installed." : (_a4 = result.lastError) != null ? _a4 : "ODT preview support install failed.");
+      new import_obsidian13.Notice(result.status === "installed" ? "ODT preview support installed." : (_a4 = result.lastError) != null ? _a4 : "ODT preview support install failed.");
     })).addButton((button) => button.setButtonText("Remove").setDisabled(addon.status !== "installed").onClick(async () => {
       const currentAddon = settings.preview.odtAddon;
       if (currentAddon.status !== "installed") return;
       settings.preview.odtAddon = await dependencies.removeOdtPreviewAddon(currentAddon);
       await plugin.saveSettings();
       render();
-      new import_obsidian14.Notice("ODT preview support removed.");
+      new import_obsidian13.Notice("ODT preview support removed.");
     }));
   };
   render();
@@ -215049,10 +214580,10 @@ function getAddonInstallDir(plugin) {
   );
 }
 function renderAdvancedSettings(plugin, containerEl, dependencies) {
-  new import_obsidian14.Setting(containerEl).setName("Advanced Pandoc settings").setDesc("Edit process environment variables and template suggestion privacy options.").addButton((button) => button.setButtonText("Open advanced").onClick(() => new PandocExportAdvancedSettingsModal(plugin, dependencies).open()));
+  new import_obsidian13.Setting(containerEl).setName("Advanced Pandoc settings").setDesc("Edit process environment variables and template suggestion privacy options.").addButton((button) => button.setButtonText("Open advanced").onClick(() => new PandocExportAdvancedSettingsModal(plugin, dependencies).open()));
 }
 function renderProfileSettings(plugin, containerEl, dependencies) {
-  new import_obsidian14.Setting(containerEl).setName("Export profiles").setDesc("Open the structured pandoc profile editor.").addButton((button) => button.setButtonText("Edit pandoc export").onClick(() => new PandocProfileEditorModal(plugin, dependencies).open()));
+  new import_obsidian13.Setting(containerEl).setName("Export profiles").setDesc("Open the structured pandoc profile editor.").addButton((button) => button.setButtonText("Edit pandoc export").onClick(() => new PandocProfileEditorModal(plugin, dependencies).open()));
 }
 
 // src/pandoc/os/common/PandocService.ts
@@ -215674,7 +215205,7 @@ function createObsidianPandocOsDependencies(config = {}) {
 }
 
 // src/core/settings.ts
-var PandocExtendedMarkdownSettingTab = class extends import_obsidian15.PluginSettingTab {
+var PandocExtendedMarkdownSettingTab = class extends import_obsidian14.PluginSettingTab {
   constructor(app, plugin) {
     super(app, plugin);
     this.plugin = plugin;
@@ -215694,7 +215225,7 @@ var PandocExtendedMarkdownSettingTab = class extends import_obsidian15.PluginSet
     );
   }
   renderSyntaxFeatureSettings(containerEl) {
-    new import_obsidian15.Setting(containerEl).setName(SETTINGS_UI.SYNTAX_FEATURES.NAME).setDesc(SETTINGS_UI.SYNTAX_FEATURES.DESCRIPTION).setHeading();
+    new import_obsidian14.Setting(containerEl).setName(SETTINGS_UI.SYNTAX_FEATURES.NAME).setDesc(SETTINGS_UI.SYNTAX_FEATURES.DESCRIPTION).setHeading();
     this.createFeatureToggle(
       containerEl,
       SETTINGS_UI.HASH_AUTO_NUMBER.NAME,
@@ -215751,7 +215282,7 @@ var PandocExtendedMarkdownSettingTab = class extends import_obsidian15.PluginSet
     );
   }
   renderNonNativeSyntaxSettings(containerEl) {
-    new import_obsidian15.Setting(containerEl).setName(SETTINGS_UI.NON_NATIVE_SYNTAX.NAME).setDesc(SETTINGS_UI.NON_NATIVE_SYNTAX.DESCRIPTION).setHeading();
+    new import_obsidian14.Setting(containerEl).setName(SETTINGS_UI.NON_NATIVE_SYNTAX.NAME).setDesc(SETTINGS_UI.NON_NATIVE_SYNTAX.DESCRIPTION).setHeading();
     this.renderPandocListSpacingSetting(containerEl);
     this.renderReadableFencedDivSyntaxSetting(containerEl);
     this.createFeatureToggle(
@@ -215760,7 +215291,7 @@ var PandocExtendedMarkdownSettingTab = class extends import_obsidian15.PluginSet
       SETTINGS_UI.FENCED_DIV_EXTRAS.DESCRIPTION,
       "enableFencedDivExtras"
     );
-    new import_obsidian15.Setting(containerEl).setName(SETTINGS_UI.CUSTOM_LABEL.NAME).setDesc(SETTINGS_UI.CUSTOM_LABEL.DESCRIPTION).addToggle((toggle) => toggle.setValue(isSyntaxFeatureEnabled(this.plugin.settings, "enableCustomLabelLists")).onChange(async (value) => {
+    new import_obsidian14.Setting(containerEl).setName(SETTINGS_UI.CUSTOM_LABEL.NAME).setDesc(SETTINGS_UI.CUSTOM_LABEL.DESCRIPTION).addToggle((toggle) => toggle.setValue(isSyntaxFeatureEnabled(this.plugin.settings, "enableCustomLabelLists")).onChange(async (value) => {
       this.plugin.settings.enableCustomLabelLists = value;
       await this.plugin.saveSettings();
       this.app.workspace.updateOptions();
@@ -215769,16 +215300,24 @@ var PandocExtendedMarkdownSettingTab = class extends import_obsidian15.PluginSet
     }));
   }
   renderPandocListSpacingSetting(containerEl) {
-    new import_obsidian15.Setting(containerEl).setName(SETTINGS_UI.PANDOC_LIST_SPACING.NAME).setDesc(SETTINGS_UI.PANDOC_LIST_SPACING.DESCRIPTION).addToggle((toggle) => toggle.setValue(!this.plugin.settings.enforcePandocListSpacing).onChange(async (value) => {
-      this.plugin.settings.enforcePandocListSpacing = !value;
+    new import_obsidian14.Setting(containerEl).setName(SETTINGS_UI.PANDOC_LIST_SPACING.NAME).setDesc(SETTINGS_UI.PANDOC_LIST_SPACING.DESCRIPTION).addToggle((toggle) => toggle.setValue(this.plugin.settings.enableListsWithoutPrecedingBlankline).onChange(async (value) => {
+      this.plugin.settings.enableListsWithoutPrecedingBlankline = value;
       await this.plugin.saveSettings();
-      this.app.workspace.updateOptions();
+      this.refreshMarkdownRendering();
       this.refreshListPanels();
       this.refreshPanelOrderList();
     }));
   }
+  refreshMarkdownRendering() {
+    this.app.workspace.updateOptions();
+    this.app.workspace.getLeavesOfType("markdown").forEach((leaf) => {
+      var _a4, _b2;
+      const view = leaf.view;
+      (_b2 = (_a4 = view.previewMode) == null ? void 0 : _a4.rerender) == null ? void 0 : _b2.call(_a4, true);
+    });
+  }
   renderReadableFencedDivSyntaxSetting(containerEl) {
-    new import_obsidian15.Setting(containerEl).setName(SETTINGS_UI.READABLE_FENCED_DIV_SYNTAX.NAME).setDesc(SETTINGS_UI.READABLE_FENCED_DIV_SYNTAX.DESCRIPTION).addToggle((toggle) => toggle.setValue(this.plugin.settings.enableReadableFencedDivSyntax).onChange(async (value) => {
+    new import_obsidian14.Setting(containerEl).setName(SETTINGS_UI.READABLE_FENCED_DIV_SYNTAX.NAME).setDesc(SETTINGS_UI.READABLE_FENCED_DIV_SYNTAX.DESCRIPTION).addToggle((toggle) => toggle.setValue(this.plugin.settings.enableReadableFencedDivSyntax).onChange(async (value) => {
       this.plugin.settings.enableReadableFencedDivSyntax = value;
       await this.plugin.saveSettings();
       this.app.workspace.updateOptions();
@@ -215787,8 +215326,8 @@ var PandocExtendedMarkdownSettingTab = class extends import_obsidian15.PluginSet
     }));
   }
   renderListAutocompletionSettings(containerEl) {
-    new import_obsidian15.Setting(containerEl).setName(SETTINGS_UI.LIST_AUTOCOMPLETION.NAME).setDesc(SETTINGS_UI.LIST_AUTOCOMPLETION.DESCRIPTION).setHeading();
-    new import_obsidian15.Setting(containerEl).setName(SETTINGS_UI.AUTO_RENUMBER.NAME).setDesc(SETTINGS_UI.AUTO_RENUMBER.DESCRIPTION).addToggle((toggle) => toggle.setValue(this.plugin.settings.autoRenumberLists).onChange(async (value) => {
+    new import_obsidian14.Setting(containerEl).setName(SETTINGS_UI.LIST_AUTOCOMPLETION.NAME).setDesc(SETTINGS_UI.LIST_AUTOCOMPLETION.DESCRIPTION).setHeading();
+    new import_obsidian14.Setting(containerEl).setName(SETTINGS_UI.AUTO_RENUMBER.NAME).setDesc(SETTINGS_UI.AUTO_RENUMBER.DESCRIPTION).addToggle((toggle) => toggle.setValue(this.plugin.settings.autoRenumberLists).onChange(async (value) => {
       this.plugin.settings.autoRenumberLists = value;
       await this.plugin.saveSettings();
     }));
@@ -215808,8 +215347,8 @@ var PandocExtendedMarkdownSettingTab = class extends import_obsidian15.PluginSet
     this.renderOrderedListMarkerOrderSettings(containerEl);
   }
   renderPanelFeatureSettings(containerEl) {
-    new import_obsidian15.Setting(containerEl).setName(SETTINGS_UI.PANEL_FEATURES.NAME).setDesc(SETTINGS_UI.PANEL_FEATURES.DESCRIPTION).setHeading();
-    new import_obsidian15.Setting(containerEl).setName(SETTINGS_UI.LIST_PANEL.NAME).setDesc(SETTINGS_UI.LIST_PANEL.DESCRIPTION).addToggle((toggle) => toggle.setValue(this.plugin.settings.enableListPanel).onChange(async (value) => {
+    new import_obsidian14.Setting(containerEl).setName(SETTINGS_UI.PANEL_FEATURES.NAME).setDesc(SETTINGS_UI.PANEL_FEATURES.DESCRIPTION).setHeading();
+    new import_obsidian14.Setting(containerEl).setName(SETTINGS_UI.LIST_PANEL.NAME).setDesc(SETTINGS_UI.LIST_PANEL.DESCRIPTION).addToggle((toggle) => toggle.setValue(this.plugin.settings.enableListPanel).onChange(async (value) => {
       this.plugin.settings.enableListPanel = value;
       await this.plugin.saveSettings();
       this.plugin.updateListPanelAvailability();
@@ -215839,7 +215378,7 @@ var PandocExtendedMarkdownSettingTab = class extends import_obsidian15.PluginSet
     }).render();
   }
   createFeatureToggle(containerEl, name, description, settingKey) {
-    new import_obsidian15.Setting(containerEl).setName(name).setDesc(description).addToggle((toggle) => toggle.setValue(isSyntaxFeatureEnabled(this.plugin.settings, settingKey)).onChange(async (value) => {
+    new import_obsidian14.Setting(containerEl).setName(name).setDesc(description).addToggle((toggle) => toggle.setValue(isSyntaxFeatureEnabled(this.plugin.settings, settingKey)).onChange(async (value) => {
       this.plugin.settings[settingKey] = value;
       await this.plugin.saveSettings();
       this.app.workspace.updateOptions();
@@ -215848,8 +215387,8 @@ var PandocExtendedMarkdownSettingTab = class extends import_obsidian15.PluginSet
     }));
   }
   renderPanelOrderSettings(containerEl) {
-    new import_obsidian15.Setting(containerEl).setName(PANEL_SETTINGS.UI_TEXT.PANEL_ORDER_HEADING).setHeading();
-    const panelOrderSetting = new import_obsidian15.Setting(containerEl).setDesc(PANEL_SETTINGS.UI_TEXT.PANEL_ORDER_DESC);
+    new import_obsidian14.Setting(containerEl).setName(PANEL_SETTINGS.UI_TEXT.PANEL_ORDER_HEADING).setHeading();
+    const panelOrderSetting = new import_obsidian14.Setting(containerEl).setDesc(PANEL_SETTINGS.UI_TEXT.PANEL_ORDER_DESC);
     const infoEl = panelOrderSetting.infoEl;
     if (infoEl) {
       infoEl.addClass("pem-panel-order-info");
@@ -216114,7 +215653,7 @@ function createProcessorConfig(vaultConfig, pluginSettings) {
   var _a4, _b2, _c;
   return {
     strictLineBreaks: (_a4 = vaultConfig.strictLineBreaks) != null ? _a4 : false,
-    enforcePandocListSpacing: (_b2 = pluginSettings.enforcePandocListSpacing) != null ? _b2 : false,
+    enableListsWithoutPrecedingBlankline: (_b2 = pluginSettings.enableListsWithoutPrecedingBlankline) != null ? _b2 : true,
     enableReadableFencedDivSyntax: (_c = pluginSettings.enableReadableFencedDivSyntax) != null ? _c : true,
     enableHashLists: isSyntaxFeatureEnabled(pluginSettings, "enableHashAutoNumber"),
     enableFancyLists: isSyntaxFeatureEnabled(pluginSettings, "enableFancyLists"),
@@ -216532,313 +216071,6 @@ function scanFencedDivs(doc, settings, codeRegions) {
   return labels;
 }
 
-// src/shared/utils/listBlockValidator.ts
-var ListBlockValidator = class {
-  static isListItemForValidation(line) {
-    return !!(ListPatterns.isHashList(line) || ListPatterns.isFancyList(line) || ListPatterns.isExampleList(line) || ListPatterns.isCustomLabelList(line) || ListPatterns.isDefinitionMarker(line) || line.match(ListPatterns.UNORDERED_LIST) || line.match(ListPatterns.NUMBERED_LIST));
-  }
-  static isListContinuation(line, prevWasListItem) {
-    if (!prevWasListItem) return false;
-    if (this.isListItemForValidation(line)) return false;
-    const indentMatch = line.match(/^(\s+)/);
-    if (indentMatch) {
-      const indent = indentMatch[1];
-      return indent.length >= 2 || indent.includes("	");
-    }
-    return false;
-  }
-  static validateListBlocks(lines, settings) {
-    const invalidListBlocks = /* @__PURE__ */ new Set();
-    if (!settings.enforcePandocListSpacing) {
-      return invalidListBlocks;
-    }
-    let listBlockStart = -1;
-    let inListBlock = false;
-    for (let i = 0; i < lines.length; i++) {
-      const line = lines[i];
-      const isCurrentList = this.isListItemForValidation(line);
-      const isContinuation = this.isListContinuation(line, inListBlock);
-      const prevIsDefinitionTerm = i > 0 && lines[i - 1].trim() && !ListPatterns.isDefinitionMarker(lines[i - 1]) && !ListPatterns.isIndentedContent(lines[i - 1]) && ListPatterns.isDefinitionMarker(line);
-      if (isCurrentList && listBlockStart === -1) {
-        listBlockStart = i;
-        inListBlock = true;
-        if (i > 0 && lines[i - 1].trim() !== "" && !prevIsDefinitionTerm) {
-          for (let j = i; j < lines.length && (this.isListItemForValidation(lines[j]) || this.isListContinuation(lines[j], true)); j++) {
-            invalidListBlocks.add(j);
-          }
-        }
-      } else if (!isCurrentList && !isContinuation && listBlockStart !== -1) {
-        if (line.trim() !== "") {
-          for (let j = listBlockStart; j < i; j++) {
-            invalidListBlocks.add(j);
-          }
-        }
-        listBlockStart = -1;
-        inListBlock = false;
-      }
-      if (isCurrentList) {
-        const capitalLetterMatch = line.match(ListPatterns.CAPITAL_LETTER_LIST);
-        if (capitalLetterMatch && capitalLetterMatch[4].length < 2) {
-          for (let j = i; j >= 0 && this.isListItemForValidation(lines[j]); j--) {
-            invalidListBlocks.add(j);
-          }
-          for (let j = i + 1; j < lines.length && this.isListItemForValidation(lines[j]); j++) {
-            invalidListBlocks.add(j);
-          }
-        }
-      }
-    }
-    return invalidListBlocks;
-  }
-};
-function validateListBlocks(doc) {
-  const lines = doc.toString().split("\n");
-  const zeroBasedIndices = ListBlockValidator.validateListBlocks(
-    lines,
-    { enforcePandocListSpacing: true }
-  );
-  const oneBasedLineNumbers = /* @__PURE__ */ new Set();
-  for (const index2 of zeroBasedIndices) {
-    oneBasedLineNumbers.add(index2 + 1);
-  }
-  return oneBasedLineNumbers;
-}
-
-// src/live-preview/pipeline/context/exampleLabelScan.ts
-function createExampleScanResult() {
-  return {
-    exampleLabels: /* @__PURE__ */ new Map(),
-    exampleContent: /* @__PURE__ */ new Map(),
-    exampleLineNumbers: /* @__PURE__ */ new Map(),
-    duplicateLabels: /* @__PURE__ */ new Map(),
-    duplicateLabelContent: /* @__PURE__ */ new Map()
-  };
-}
-function scanExampleLabelsFromDoc(doc, settings, codeRegions) {
-  const result = createExampleScanResult();
-  if (!isSyntaxFeatureEnabled(settings, "enableExampleLists")) {
-    return { ...result, duplicateLineNumbers: /* @__PURE__ */ new Set() };
-  }
-  const counter = { value: 1 };
-  const lines = doc.toString().split("\n");
-  const invalidLines = settings.enforcePandocListSpacing ? validateListBlocks(doc) : /* @__PURE__ */ new Set();
-  const duplicateLineNumbers = /* @__PURE__ */ new Set();
-  for (let i = 0; i < lines.length; i++) {
-    if (codeRegions && isLineInCodeRegion(i + 1, doc, codeRegions)) {
-      continue;
-    }
-    if (!invalidLines.has(i + 1)) {
-      processExampleLine(lines[i], i + 1, counter, result, duplicateLineNumbers);
-    }
-  }
-  return { ...result, duplicateLineNumbers };
-}
-function processExampleLine(line, lineNum, counter, result, duplicateLineNumbers) {
-  var _a4, _b2, _c;
-  const exampleMatch = ListPatterns.isExampleList(line);
-  if (exampleMatch && exampleMatch.length >= 5) {
-    const indent = exampleMatch[1] || "";
-    const fullMarker = exampleMatch[2] || "";
-    const label = exampleMatch[3] || "";
-    const space = exampleMatch[4] || "";
-    const rawContent = line.substring(
-      indent.length + fullMarker.length + space.length
-    );
-    const content = (_b2 = (_a4 = parseTaskCheckboxPrefix(space, rawContent)) == null ? void 0 : _a4.content) != null ? _b2 : rawContent;
-    if (label && result.exampleLabels.has(label)) {
-      duplicateLineNumbers.add(lineNum);
-      if (!result.duplicateLabels.has(label)) {
-        const firstOccurrenceNumber = result.exampleLabels.get(label);
-        const firstLine = ((_c = Array.from(result.exampleLineNumbers.entries()).find(([, num]) => num === firstOccurrenceNumber)) == null ? void 0 : _c[0]) || 0;
-        result.duplicateLabels.set(label, firstLine);
-        result.duplicateLabelContent.set(label, result.exampleContent.get(label) || "");
-      }
-    } else if (label) {
-      result.exampleLabels.set(label, counter.value);
-      result.exampleContent.set(label, content);
-    }
-    result.exampleLineNumbers.set(lineNum, counter.value);
-    counter.value++;
-  }
-}
-
-// src/live-preview/pipeline/context/contextPriming.ts
-function primeContextBeforeRange(context, startLine, codeRegions) {
-  if (startLine <= 1) {
-    return;
-  }
-  primeContextBetweenLines(context, 1, startLine - 1, codeRegions);
-}
-function primeContextBetweenLines(context, startLine, endLine, codeRegions) {
-  var _a4;
-  if (startLine > endLine) {
-    return;
-  }
-  const doc = context.document;
-  const lines = context.documentLines || doc.toString().split("\n");
-  let fencedDivCanOpenAtCurrentLine = (_a4 = context.fencedDivCanOpenAtCurrentLine) != null ? _a4 : true;
-  let fallbackCodeFenceMarker;
-  for (let lineNum = startLine; lineNum <= endLine; lineNum++) {
-    const lineText = lines[lineNum - 1] || "";
-    const line = doc.line(lineNum);
-    if (context.invalidLines.has(lineNum)) {
-      fencedDivCanOpenAtCurrentLine = false;
-      continue;
-    }
-    if (isLineInCodeRegion(lineNum, doc, codeRegions)) {
-      fencedDivCanOpenAtCurrentLine = isCodeRegionEndLine2(line, codeRegions);
-      continue;
-    }
-    if (fallbackCodeFenceMarker) {
-      if (isMarkdownCodeFenceClosing(lineText, fallbackCodeFenceMarker)) {
-        fallbackCodeFenceMarker = void 0;
-        fencedDivCanOpenAtCurrentLine = true;
-      } else {
-        fencedDivCanOpenAtCurrentLine = false;
-      }
-      continue;
-    }
-    const openingCodeFenceMarker = getMarkdownCodeFenceMarker(lineText);
-    if (openingCodeFenceMarker) {
-      fallbackCodeFenceMarker = openingCodeFenceMarker;
-      fencedDivCanOpenAtCurrentLine = false;
-      continue;
-    }
-    if (lineText.trim() === "") {
-      context.listContext = void 0;
-    }
-    primeHashCounter(lineText, context);
-    primeFencedDivState(lineText, lineNum, fencedDivCanOpenAtCurrentLine, context);
-    fencedDivCanOpenAtCurrentLine = allowsFencedDivOpeningAfterLine(lineText) || context.fencedDivBoundaryLine === lineNum;
-  }
-  context.fencedDivCanOpenAtCurrentLine = fencedDivCanOpenAtCurrentLine;
-}
-function primeHashCounter(lineText, context) {
-  if (isSyntaxFeatureEnabled(context.settings, "enableHashAutoNumber") && ListPatterns.isHashList(lineText)) {
-    context.hashCounter.value++;
-  }
-}
-function primeFencedDivState(lineText, lineNumber, canOpenAtCurrentLine, context) {
-  var _a4, _b2;
-  if (!isSyntaxFeatureEnabled(context.settings, "enableFencedDivs")) {
-    return;
-  }
-  if (canOpenAtCurrentLine) {
-    const opening = parseFencedDivOpening(lineText, context.settings);
-    if (opening) {
-      const renderExtendedTitle = isFencedDivExtrasEnabled(context.settings);
-      const title = renderExtendedTitle ? getFencedDivTitle(opening) : "";
-      if (renderExtendedTitle && (opening.id || title || opening.classes.length > 0)) {
-        context.fencedDivTypeCounters = context.fencedDivTypeCounters || /* @__PURE__ */ new Map();
-        createFencedDivReferenceMetadata(
-          title,
-          opening.classes,
-          context.fencedDivTypeCounters
-        );
-      }
-      context.fencedDivStack = context.fencedDivStack || [];
-      context.fencedDivStack.push({
-        label: opening.id,
-        classes: opening.classes,
-        openingLine: lineNumber
-      });
-      context.fencedDivBoundaryLine = lineNumber;
-      return;
-    }
-  }
-  if (isFencedDivClosing(lineText) && (((_a4 = context.fencedDivStack) == null ? void 0 : _a4.length) || 0) > 0) {
-    (_b2 = context.fencedDivStack) == null ? void 0 : _b2.pop();
-    context.fencedDivBoundaryLine = lineNumber;
-  }
-}
-function isCodeRegionEndLine2(line, codeRegions) {
-  return codeRegions.some(
-    (region) => region.type === "codeblock" && line.from >= region.from && line.to === region.to
-  );
-}
-
-// src/live-preview/pipeline/context/processingRange.ts
-var VIEWPORT_CONTEXT_LINE_MARGIN = 40;
-var VIEWPORT_DECORATION_LINE_MARGIN = 20;
-function getProcessingRange(view) {
-  const doc = view.state.doc;
-  const viewportRange = getViewportRange(view);
-  const visibleLineRanges = getVisibleLineRanges(view, viewportRange);
-  const lineRanges = addOuterMargin(visibleLineRanges, doc.lines, VIEWPORT_CONTEXT_LINE_MARGIN);
-  const renderLineRanges = addOuterMargin(
-    visibleLineRanges,
-    doc.lines,
-    VIEWPORT_DECORATION_LINE_MARGIN
-  );
-  const renderRanges = renderLineRanges.map((range) => ({
-    from: doc.line(range.startLine).from,
-    to: doc.line(range.endLine).to
-  }));
-  return {
-    lineRanges,
-    renderRanges,
-    startLine: lineRanges[0].startLine,
-    endLine: lineRanges[lineRanges.length - 1].endLine,
-    renderFrom: renderRanges[0].from,
-    renderTo: renderRanges[renderRanges.length - 1].to
-  };
-}
-function getLineAt(doc, position) {
-  if (typeof doc.lineAt === "function") {
-    return doc.lineAt(position);
-  }
-  const safePosition = Math.max(0, Math.min(position, doc.length));
-  for (let lineNumber = 1; lineNumber <= doc.lines; lineNumber++) {
-    const line = doc.line(lineNumber);
-    if (safePosition <= line.to || lineNumber === doc.lines) {
-      return line;
-    }
-  }
-  return doc.line(1);
-}
-function getViewportRange(view) {
-  const doc = view.state.doc;
-  const viewport = view.viewport || { from: 0, to: doc.length };
-  const viewportFrom = Math.max(0, Math.min(viewport.from, doc.length));
-  const viewportTo = Math.max(viewportFrom, Math.min(viewport.to, doc.length));
-  return {
-    from: viewportFrom,
-    to: Math.max(viewportTo, viewportFrom + 1)
-  };
-}
-function getVisibleLineRanges(view, viewport) {
-  const doc = view.state.doc;
-  const visibleRanges = (view.visibleRanges || [viewport]).map((range) => ({
-    from: Math.max(viewport.from, range.from),
-    to: Math.min(viewport.to, range.to)
-  })).filter((range) => range.from <= range.to).map((range) => ({
-    startLine: getLineAt(doc, range.from).number,
-    endLine: getLineAt(doc, Math.max(range.from, range.to - 1)).number
-  }));
-  return mergeAdjacentLineRanges(visibleRanges.length > 0 ? visibleRanges : [{
-    startLine: getLineAt(doc, viewport.from).number,
-    endLine: getLineAt(doc, Math.max(viewport.from, viewport.to - 1)).number
-  }]);
-}
-function mergeAdjacentLineRanges(ranges) {
-  const merged = [];
-  for (const range of ranges) {
-    const previous = merged[merged.length - 1];
-    if (previous && range.startLine <= previous.endLine + 1) {
-      previous.endLine = Math.max(previous.endLine, range.endLine);
-    } else {
-      merged.push({ ...range });
-    }
-  }
-  return merged;
-}
-function addOuterMargin(ranges, documentLineCount, margin) {
-  return ranges.map((range, index2) => ({
-    startLine: index2 === 0 ? Math.max(1, range.startLine - margin) : range.startLine,
-    endLine: index2 === ranges.length - 1 ? Math.min(documentLineCount, range.endLine + margin) : range.endLine
-  }));
-}
-
 // src/shared/utils/listHelpers.ts
 function letterToNumber(letter) {
   const upperLetter = letter.toUpperCase();
@@ -216892,7 +216124,7 @@ var ROMAN_NUMERAL = /^M{0,3}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$/i;
 var ROMAN_CHARS = /^[ivxlcdm]+$/i;
 function getIndentColumns(indent) {
   return Array.from(indent).reduce((columns, character) => {
-    return columns + (character === INDENTATION.TAB ? INDENTATION.TAB_SIZE : 1);
+    return columns + (character === INDENTATION.TAB ? INDENTATION.TAB_SIZE - columns % INDENTATION.TAB_SIZE : 1);
   }, 0);
 }
 function parseOrderedListMarker(line, lines, lineIndex, cache) {
@@ -217119,6 +216351,1866 @@ function hasFollowingRomanEvidenceAtIndent(indent, delimiter, lines, lineIndex) 
   return false;
 }
 
+// src/shared/utils/pandocListMarkers.ts
+var UNORDERED_LIST_MARKER = /^([ \t]*)([-+*])(?:([ \t]+)|$)/;
+var ORDERED_LIST_MARKER = /^([ \t]*)(\((?:@[A-Za-z0-9_-]*|#|[A-Za-z0-9]+)\)|(?:@[A-Za-z0-9_-]*|#|[A-Za-z0-9]+)[.)])([ \t]+|$)/;
+var DEFINITION_LIST_MARKER = /^([ \t]*)[:~]([ \t]+|$)/;
+var PANDOC_ROMAN_NUMERAL = /^(M*)(CM)?(D)?(CD)?(C*)(XC)?(L)?(XL)?(X*)(IX)?(V)?(IV)?(I*)$/;
+var AMBIGUOUS_UPPER_ROMAN_VALUES = /* @__PURE__ */ new Set([1, 5, 10, 50, 100, 500, 1e3]);
+function parsePandocListMarker(line, allowNested) {
+  const { content, offset } = splitContainerPrefix(line);
+  const unordered = parseUnorderedMarker(content, offset, allowNested);
+  if (unordered) {
+    return unordered;
+  }
+  const ordered = parseOrderedMarker(content, offset, allowNested);
+  if (ordered) {
+    return ordered;
+  }
+  return parseDefinitionMarker(content, offset, allowNested);
+}
+function escapePandocListMarker(line) {
+  const marker = parsePandocListMarker(line, true);
+  if (!marker) {
+    return line;
+  }
+  const markerText = line.slice(marker.markerStart, marker.markerEnd);
+  const escapeOffset = /^[A-Za-z0-9]+[.)]$/.test(markerText) ? markerText.length - 1 : 0;
+  return line.slice(0, marker.markerStart + escapeOffset) + "\\" + line.slice(marker.markerStart + escapeOffset);
+}
+function getPandocContainerContent(line) {
+  return splitContainerPrefix(line).content;
+}
+function isPandocThematicBreak(content) {
+  const compact = content.replace(/^[ \t]+|[ \t]+$/g, "").replace(/[ \t]/g, "");
+  return compact.length >= 3 && (/^\*+$/.test(compact) || /^-+$/.test(compact) || /^_+$/.test(compact));
+}
+function parseUnorderedMarker(content, offset, allowNested) {
+  var _a4;
+  const match = content.match(UNORDERED_LIST_MARKER);
+  if (!match || isPandocThematicBreak(content)) {
+    return null;
+  }
+  const indentColumns = getIndentColumns(match[1]);
+  return allowNested || indentColumns <= 3 ? createMarker(
+    "bullet",
+    indentColumns,
+    offset,
+    match[1].length,
+    match[2].length,
+    (_a4 = match[3]) != null ? _a4 : "",
+    true
+  ) : null;
+}
+function parseOrderedMarker(content, offset, allowNested) {
+  var _a4, _b2;
+  const match = content.match(ORDERED_LIST_MARKER);
+  if (!match) {
+    return null;
+  }
+  const indentColumns = getIndentColumns(match[1]);
+  const result = allowNested || indentColumns <= 3 ? createMarker(
+    "ordered",
+    indentColumns,
+    offset,
+    match[1].length,
+    match[2].length,
+    (_a4 = match[3]) != null ? _a4 : "",
+    hasValidOrderedMarkerSpacing(match[2], (_b2 = match[3]) != null ? _b2 : "")
+  ) : null;
+  if (result) {
+    const ordered = parsePandocOrderedMarker(match[2]);
+    result.orderedStartNumber = ordered == null ? void 0 : ordered.number;
+    result.orderedGroup = ordered ? `${ordered.style}:${ordered.delimiter}` : void 0;
+  }
+  return result;
+}
+function parseDefinitionMarker(content, offset, allowNested) {
+  var _a4;
+  const match = content.match(DEFINITION_LIST_MARKER);
+  if (!match) {
+    return null;
+  }
+  const indentColumns = getIndentColumns(match[1]);
+  return allowNested || indentColumns <= 3 ? createMarker(
+    "definition",
+    indentColumns,
+    offset,
+    match[1].length,
+    1,
+    (_a4 = match[2]) != null ? _a4 : "",
+    true
+  ) : null;
+}
+function createMarker(kind, indentColumns, offset, indentLength, markerLength, spacing, hasValidMarkerSpacing) {
+  return {
+    kind,
+    indentColumns,
+    contentIndentColumns: getContentIndentColumns(indentColumns, markerLength, spacing),
+    markerStart: offset + indentLength,
+    markerEnd: offset + indentLength + markerLength,
+    hasValidMarkerSpacing
+  };
+}
+function splitContainerPrefix(line) {
+  let offset = 0;
+  let remaining = line;
+  while (true) {
+    const match = remaining.match(/^ {0,3}>[ \t]?/);
+    if (!match) {
+      return { content: remaining, offset };
+    }
+    offset += match[0].length;
+    remaining = remaining.slice(match[0].length);
+  }
+}
+function hasValidOrderedMarkerSpacing(marker, spacing) {
+  const parsed = parsePandocOrderedMarker(marker);
+  if (!parsed) {
+    return false;
+  }
+  return !isAmbiguousUppercasePeriodMarker(parsed) || spacing.length >= 2 || spacing.includes("	") || spacing.length === 0;
+}
+function getPandocOrderedMarkerSpacing(marker) {
+  const parsed = parsePandocOrderedMarker(marker);
+  return parsed && isAmbiguousUppercasePeriodMarker(parsed) ? "  " : " ";
+}
+function isAmbiguousUppercasePeriodMarker(marker) {
+  return marker.delimiter === "period" && (marker.style === "upper-alpha" || marker.style === "upper-roman" && AMBIGUOUS_UPPER_ROMAN_VALUES.has(marker.number));
+}
+function getContentIndentColumns(indentColumns, markerLength, spacing) {
+  let column = indentColumns + markerLength;
+  for (const character of spacing) {
+    column += character === "	" ? 4 - column % 4 : 1;
+  }
+  const markerEndColumn = indentColumns + markerLength;
+  return column - markerEndColumn <= 4 ? column : markerEndColumn + 1;
+}
+function parsePandocOrderedMarker(marker) {
+  const twoParens = marker.startsWith("(") && marker.endsWith(")");
+  const delimiter = twoParens ? "two-parens" : marker.endsWith(".") ? "period" : "one-paren";
+  const numeral = twoParens ? marker.slice(1, -1) : marker.slice(0, -1);
+  const simple = parseSimpleOrderedNumeral(numeral, delimiter);
+  if (simple) {
+    return simple;
+  }
+  const romanNumber = parsePandocRomanNumeral(numeral);
+  return romanNumber === null ? null : {
+    delimiter,
+    style: numeral === numeral.toUpperCase() ? "upper-roman" : "lower-roman",
+    number: romanNumber
+  };
+}
+function parseSimpleOrderedNumeral(numeral, delimiter) {
+  if (/^\d+$/.test(numeral)) {
+    return { delimiter, style: "decimal", number: Number(numeral) };
+  }
+  if (numeral === "#") {
+    return { delimiter, style: "default", number: 1 };
+  }
+  if (/^@(?:[A-Za-z0-9]+|[_-][A-Za-z0-9]+)*$/.test(numeral)) {
+    return { delimiter, style: "example", number: 1 };
+  }
+  if (numeral === "i" || numeral === "I") {
+    return {
+      delimiter,
+      style: numeral === "i" ? "lower-roman" : "upper-roman",
+      number: 1
+    };
+  }
+  if (/^[a-z]$/.test(numeral)) {
+    return { delimiter, style: "lower-alpha", number: numeral.charCodeAt(0) - 96 };
+  }
+  if (/^[A-Z]$/.test(numeral)) {
+    return { delimiter, style: "upper-alpha", number: numeral.charCodeAt(0) - 64 };
+  }
+  return null;
+}
+function parsePandocRomanNumeral(numeral) {
+  if (!numeral || numeral !== numeral.toUpperCase() && numeral !== numeral.toLowerCase()) {
+    return null;
+  }
+  const upper = numeral.toUpperCase();
+  if (!PANDOC_ROMAN_NUMERAL.test(upper)) {
+    return null;
+  }
+  const values2 = {
+    I: 1,
+    V: 5,
+    X: 10,
+    L: 50,
+    C: 100,
+    D: 500,
+    M: 1e3
+  };
+  return Array.from(upper).reduce((total, character, index2) => {
+    var _a4;
+    const value = values2[character];
+    const nextValue = (_a4 = values2[upper[index2 + 1]]) != null ? _a4 : 0;
+    return total + (value < nextValue ? -value : value);
+  }, 0);
+}
+
+// src/shared/utils/pandocTexCommandNames.ts
+var INLINE_TEX_COMMANDS = new Set(`
+AA AE Ac Acf Acfp Acl Aclp Acp Acrfull Acrlong Acrshort Acs Acsp Autocite Autocites
+Cite Cites Citeyear Citeyearpar Cref Footcite Footcites Footcitetext Footcitetexts
+G GLSdesc GLSdescplural Gls Glsdesc Glsdescplural Glspl H L LaTeX MakeLowercase
+MakeTextLowercase MakeTextUppercase MakeUppercase O OE P Parencite Parencites RN Rn
+S SI SIlist SIrange Smartcite Supercite Supercites TeX Textcite Textcites U Verb
+aa abstractname ac acf acfp acl aclp acp acrfull acrlong acrshort acs acsp
+addabbrvspace adddot adddotspace ae alert ang autocap autocite autocites autoref
+b backslash bar bf bfseries bibname bibstring bshyp c ccname chaptername cite
+citeal citealp citealt citeauthor citep cites citet citetext citeyear citeyearpar
+colonhyp colorbox contentsname copyright cref d dothyp dots dq em emph enclname
+enquote ensuremath eqref euro f faCheck faClose figurename flq flqq footcite
+footcites footcitetext footcitetexts footnote footnotemark footnotetext
+foreignlanguage foreignquote frq frqq fshyp glossaryname glq glqq gls glsdesc
+glsdescplural glspl grq grqq guillemetleft guillemetright guillemotleft
+guillemotright guilsinglleft guilsinglright h hbox headtoname hl href hyp hyperlink
+hyperref hypertarget hyphen hyphenquote i ifdim iftoggle includegraphics includesvg
+index indexname it itshape j k l label ldots lettrine listfigurename listtablename
+lowercase lq lstinline lstlistingname mbox mdots mintinline mkbibbold mkbibbrackets
+mkbibemph mkbibitalic mkbibparens mkbibquote newline newtie newtoggle nhttfamily
+nocite nohyphens noindent nolinkurl num numlist numrange o oe pagename pandocbounded
+parencite parencites partname passthrough pounds prefacename proofname ps qed qty
+qtylist qtyrange quotedblbase quotesinglbase r ref refname rm rq scshape seealsoname
+seename sep si sim sl slash slshape smartcite sout ss st supercite supercites t
+tablename texorpdfstring textafrikaans textalbanian textamharic textarabic
+textarmenian textasciicircum textasciitilde textassamese textasturian textbackslash
+textbaht textbasque textbengali textbf textbigcircle textblank textbreton
+textbrokenbar textbulgarian textbullet textcatalan textcentoldstyle textcircled
+textcite textcites textcolor textcoptic textcopyright textcroatian textczech
+textdagger textdanish textdegree textdivehi textdollar textdong textdutch
+textenglish textesperanto textestonian textethiopic textfarsi textfinnish
+textfrench textfriulan textgalician textgerman textgreater textgreek textgujarati
+texthebrew texthindi texticelandic textindonesian textinterlingua textirish textit
+textitalian textjapanese textkannada textkhmer textkorean textkurmanji textlao
+textlatin textlatvian textless textlira textlithuanian textlsorbian textmagyar
+textmalayalam textmarathi textmd textmongolian textmu textmusicalnote textnhtt
+textnko textnormal textnorsk textnynorsk textoccitan textogonekcentered textonehalf
+textonequarter textoriya textparagraph textpertenthousand textpeso textpiedmontese
+textpinyin textpolish textportuguese textpunjabi textquotedbl textquotedblleft
+textquotedblright textquoteleft textquoteright textquotesingle textregistered
+textrm textromanian textromansh textrussian textsamin textsanskrit textsc
+textscottish textsection textserbian textserbianc textsf textsl textslovak
+textslovenian textspanish textsterling textsubscript textsuperscript textswedish
+textsyriac texttamil texttelugu textthai textthreequarters textthreesuperior
+texttibetan texttt textturkish textturkmen texttwosuperior textukrainian textup
+texturdu textusorbian textvietnamese textwelsh textyen thanks today togglefalse
+toggletrue tt u ul uline underline unit uppercase url v vbox vdots verb vref
+`.trim().split(/\s+/));
+function isPandocInlineTexCommand(name) {
+  return INLINE_TEX_COMMANDS.has(name);
+}
+
+// src/shared/utils/pandocRawTexBlocks.ts
+function getRawTexCommandBlockEndIndex(lines, index2) {
+  var _a4, _b2, _c;
+  const firstLine = getPandocContainerContent((_a4 = lines[index2]) != null ? _a4 : "");
+  if (!/^\\[A-Za-z]/.test(firstLine)) {
+    return null;
+  }
+  const firstCommand = (_c = (_b2 = firstLine.match(/^\\([A-Za-z]+)/)) == null ? void 0 : _b2[1]) != null ? _c : "";
+  if (isPandocInlineTexCommand(firstCommand)) {
+    return null;
+  }
+  const firstLineEnd = commandSequenceEnd(firstLine);
+  if (firstLineEnd !== null) {
+    return index2;
+  }
+  if (!/[{[<]/.test(firstLine)) {
+    return null;
+  }
+  const source = lines.slice(index2).map(getPandocContainerContent).join("\n");
+  const end = commandSequenceEnd(source);
+  return end === null ? null : index2 + source.slice(0, end).split("\n").length - 1;
+}
+function commandSequenceEnd(source) {
+  let cursor = 0;
+  while (cursor < source.length) {
+    const command = source.slice(cursor).match(/^\\([A-Za-z]+)\*?/);
+    if (!command || isPandocInlineTexCommand(command[1]) || command[1] === "begin" || command[1] === "end" || command[1] === "and") {
+      return null;
+    }
+    cursor += command[0].length;
+    if (command[1] === "let") {
+      const assignment = source.slice(cursor).match(/^[ \t]*\\(?:[A-Za-z]+|.)[ \t]*=?[ \t]*(?:\\(?:[A-Za-z]+|.)|[^\s])/);
+      if (!assignment) {
+        return null;
+      }
+      cursor += assignment[0].length;
+    }
+    if (/^[egx]?def$/.test(command[1])) {
+      while (cursor < source.length && source[cursor] !== "{" && source[cursor] !== "\n") {
+        cursor++;
+      }
+    }
+    cursor = skipHorizontalSpace(source, cursor);
+    const dimension = source.slice(cursor).match(/^=?-?(?:\d+(?:\.\d*)?|\.\d+)(?:pt|pc|in|bp|cm|mm|dd|cc|sp|ex|em|mu|px)?(?=$|[^\w.])/);
+    if (dimension) {
+      cursor = skipHorizontalSpace(source, cursor + dimension[0].length);
+    }
+    while (source[cursor] === "[" || source[cursor] === "{" || source[cursor] === "<") {
+      const end = argumentEnd(source, cursor);
+      if (end === null) {
+        return null;
+      }
+      if (source[cursor] === "<" && /^[A-Za-z]+$/.test(source.slice(cursor + 1, end - 1)) && !/^(?:beamer|presentation|trans|handout|article|second)$/.test(source.slice(cursor + 1, end - 1))) {
+        return null;
+      }
+      cursor = skipHorizontalSpace(source, end);
+    }
+    if (cursor === source.length || source[cursor] === "\n") {
+      return cursor;
+    }
+    if (source[cursor] !== "\\") {
+      return null;
+    }
+  }
+  return null;
+}
+function argumentEnd(source, start) {
+  const opening = source[start];
+  const closing = opening === "[" ? "]" : opening === "<" ? ">" : "}";
+  let depth = 1;
+  for (let cursor = start + 1; cursor < source.length; cursor++) {
+    if (source[cursor] === "\\") {
+      cursor++;
+    } else if (source[cursor] === "%") {
+      const nextLine = source.indexOf("\n", cursor);
+      if (nextLine < 0) {
+        return null;
+      }
+      cursor = nextLine;
+    } else if (source[cursor] === opening) {
+      depth++;
+    } else if (source[cursor] === closing && --depth === 0) {
+      return cursor + 1;
+    }
+  }
+  return null;
+}
+function skipHorizontalSpace(source, start) {
+  let cursor = start;
+  while (source[cursor] === " " || source[cursor] === "	") {
+    cursor++;
+  }
+  return cursor;
+}
+
+// src/shared/utils/pandocBlockBoundaries.ts
+var ATX_HEADING = /^ {0,3}#{1,6}(?:[ \t]+|$)/;
+var SETEXT_UNDERLINE = /^ {0,3}(?:=+|-+)[ \t]*$/;
+var PIPE_TABLE_CELL_DELIMITER = /^\s*:?-{3,}:?\s*$/;
+var GRID_TABLE_BORDER = /^ {0,3}\+(?:[-=:]+\+)+[ \t]*$/;
+var FENCED_DIV_OPENING = /^ {0,3}:{3,}[ \t]*(?:\{[^}]*\}|[^ \t:{}][^ \t{}]*)[ \t]*$/;
+var LINE_BLOCK = /^ {0,3}\|(?:[ \t]|$)/;
+var RAW_TEX_ENVIRONMENT = /^ {0,3}\\begin\{([^}]+)\}/;
+var HTML_BLOCK_BOUNDARY = /^ {0,3}<\/?(?:address|article|aside|base|basefont|blockquote|body|caption|center|col|colgroup|dd|details|dialog|dir|div|dl|dt|fieldset|figcaption|figure|footer|form|frame|frameset|h[1-6]|head|header|hr|html|iframe|legend|li|link|main|menu|menuitem|nav|noframes|ol|optgroup|option|p|param|pre|script|search|section|style|summary|table|tbody|td|textarea|tfoot|th|thead|title|tr|track|ul)(?:[ \t]|\/?>|$)/i;
+function isSetextHeading(lines, paragraphStartIndex, index2) {
+  return paragraphStartIndex === index2 - 1 && SETEXT_UNDERLINE.test(getPandocContainerContent(lines[index2]));
+}
+function isStandaloneBlock(lines, index2, content) {
+  return ATX_HEADING.test(content) || isPandocThematicBreak(content) || FENCED_DIV_OPENING.test(content) || isLineBlock(content) || isHtmlBlockBoundary(content) || isPipeTableDelimiter(lines, index2, content) || /^ {4}|^\t/.test(content);
+}
+function isYamlMetadataStart(lines, index2, content) {
+  if (index2 !== 0 || !/^---[ \t]*$/.test(content)) {
+    return false;
+  }
+  const closingIndex = lines.findIndex(
+    (line, lineIndex) => lineIndex > index2 && /^(?:---|\.\.\.)[ \t]*$/.test(getPandocContainerContent(line))
+  );
+  return closingIndex > index2 + 1;
+}
+function getRawTexEnvironmentOpening(lines, index2, content) {
+  var _a4;
+  const environment = (_a4 = content.match(RAW_TEX_ENVIRONMENT)) == null ? void 0 : _a4[1];
+  if (!environment) {
+    return null;
+  }
+  const closingText = `\\end{${environment}}`;
+  return lines.slice(index2).some(
+    (line) => getPandocContainerContent(line).includes(closingText)
+  ) ? environment : null;
+}
+function isFencedDivOpening(content) {
+  return FENCED_DIV_OPENING.test(content);
+}
+function isFencedDivClosing2(content) {
+  return /^ {0,3}:{3,}[ \t]*$/.test(content);
+}
+function isLineBlock(content) {
+  return LINE_BLOCK.test(content);
+}
+function isLineBlockContinuation(content) {
+  return /^[ \t]+\S/.test(content);
+}
+function isPipeTableDelimiter(lines, index2, content) {
+  if (index2 === 0 || !getPandocContainerContent(lines[index2 - 1]).includes("|")) {
+    return false;
+  }
+  const row = content.trim().replace(/^\|/, "").replace(/\|$/, "");
+  const cells = row.split("|");
+  return cells.length > 0 && cells.every((cell) => PIPE_TABLE_CELL_DELIMITER.test(cell));
+}
+function getPipeTableEndIndex(lines, delimiterIndex) {
+  let endIndex = delimiterIndex;
+  for (let index2 = delimiterIndex + 1; index2 < lines.length; index2++) {
+    const content = getPandocContainerContent(lines[index2]);
+    if (isBlankContainerLine(content) || !content.includes("|")) {
+      break;
+    }
+    endIndex = index2;
+  }
+  return endIndex;
+}
+function getStandaloneOpaqueBlockEndIndex(lines, index2, content) {
+  var _a4, _b2;
+  return (_b2 = (_a4 = getRawHtmlBlockEndIndex(lines, index2, content)) != null ? _a4 : getRawTexCommandBlockEndIndex(lines, index2)) != null ? _b2 : getGridTableEndIndex(lines, index2, content);
+}
+function getGridTableEndIndex(lines, startIndex, content) {
+  if (!GRID_TABLE_BORDER.test(content)) {
+    return null;
+  }
+  let sawRow = false;
+  let lastBorderIndex = startIndex;
+  for (let index2 = startIndex + 1; index2 < lines.length; index2++) {
+    const candidate = getPandocContainerContent(lines[index2]);
+    if (/^ {0,3}\|/.test(candidate)) {
+      sawRow = true;
+      continue;
+    }
+    if (GRID_TABLE_BORDER.test(candidate)) {
+      lastBorderIndex = index2;
+      continue;
+    }
+    break;
+  }
+  return sawRow && lastBorderIndex > startIndex ? lastBorderIndex : null;
+}
+function getRawHtmlBlockEndIndex(lines, startIndex, content) {
+  var _a4;
+  if (/^ {0,3}<!--/.test(content)) {
+    return findClosingLine(lines, startIndex, "-->");
+  }
+  if (/^ {0,3}<\?/.test(content)) {
+    return findClosingLine(lines, startIndex, "?>");
+  }
+  const rawTag = (_a4 = content.match(/^ {0,3}<(script|pre|style|textarea)(?:[ \t]|>|$)/i)) == null ? void 0 : _a4[1];
+  return rawTag ? findClosingLine(lines, startIndex, `</${rawTag}>`, true) : null;
+}
+function findClosingLine(lines, startIndex, closingText, caseInsensitive = false) {
+  const expected = caseInsensitive ? closingText.toLowerCase() : closingText;
+  for (let index2 = startIndex; index2 < lines.length; index2++) {
+    const content = getPandocContainerContent(lines[index2]);
+    const candidate = caseInsensitive ? content.toLowerCase() : content;
+    if (candidate.includes(expected)) {
+      return index2;
+    }
+  }
+  return lines.length - 1;
+}
+function getBlockQuoteDepth(line) {
+  let depth = 0;
+  let content = line;
+  while (true) {
+    const match = content.match(/^ {0,3}>[ \t]?/);
+    if (!match) {
+      return depth;
+    }
+    depth++;
+    content = content.slice(match[0].length);
+  }
+}
+function stripBlockQuoteDepth(line, depth) {
+  var _a4;
+  let content = line;
+  for (let level = 0; level < depth; level++) {
+    const prefix = (_a4 = content.match(/^ {0,3}>[ \t]?/)) == null ? void 0 : _a4[0];
+    if (!prefix) {
+      break;
+    }
+    content = content.slice(prefix.length);
+  }
+  return content;
+}
+function isBlankContainerLine(content) {
+  return /^[ \t]*$/.test(content);
+}
+function isHtmlBlockBoundary(content) {
+  return HTML_BLOCK_BOUNDARY.test(content);
+}
+function getRawHtmlContainerOpening(lines, index2, content = getPandocContainerContent(((_a4) => (_a4 = lines[index2]) != null ? _a4 : "")())) {
+  var _a5, _b2, _c, _d;
+  const name = (_a5 = content.match(/^<([?]?[A-Za-z][\w:-]*)(?=[ \t\n/>?]|$)/)) == null ? void 0 : _a5[1];
+  if (!name || !name.startsWith("?") && !isHtmlBlockBoundary(content) || /^(?:div|pre|script|style|textarea)$/i.test(name)) {
+    return null;
+  }
+  const opening = findOpeningTagEnd(lines, index2, content);
+  if (!opening || /\bmarkdown\s*=\s*["']?0\b/.test(opening.source)) {
+    return null;
+  }
+  const nextContent = getPandocContainerContent((_b2 = lines[opening.endIndex + 1]) != null ? _b2 : "");
+  const indentation = (_d = (_c = nextContent.match(/^[ \t]*/)) == null ? void 0 : _c[0]) != null ? _d : "";
+  return {
+    tagName: name.toLowerCase(),
+    openingEndIndex: opening.endIndex,
+    bodyIndentColumns: getIndentColumns(indentation),
+    hasBody: !/\/>[ \t]*$/.test(opening.source) && !/^(?:area|base|br|col|embed|hr|img|input|link|meta|param|source|track|wbr)$/i.test(name)
+  };
+}
+function findOpeningTagEnd(lines, startIndex, firstLine) {
+  const sourceLines = [];
+  let quote = null;
+  for (let index2 = startIndex; index2 < lines.length; index2++) {
+    const content = index2 === startIndex ? firstLine : getPandocContainerContent(lines[index2]);
+    sourceLines.push(content);
+    for (let offset = 0; offset < content.length; offset++) {
+      const character = content[offset];
+      if (quote) {
+        if (character === quote) {
+          quote = null;
+        }
+      } else if (character === '"' || character === "'") {
+        quote = character;
+      } else if (character === ">") {
+        return content.slice(offset + 1).trim() === "" ? { endIndex: index2, source: sourceLines.join("\n") } : null;
+      }
+    }
+  }
+  return null;
+}
+function getFenceOpening(lines, index2, content) {
+  const match = content.match(/^( {0,3})(`{3,}|~{3,})(.*)$/);
+  if (!match || match[2][0] === "`" && match[3].includes("`")) {
+    return null;
+  }
+  const fence = {
+    character: match[2][0],
+    length: match[2].length,
+    indentColumns: match[1].length
+  };
+  return lines.slice(index2 + 1).some(
+    (line) => isFenceClosing(getPandocContainerContent(line), fence)
+  ) ? fence : null;
+}
+function getIndentedBacktickCodeSpan(lines, index2, content = getPandocContainerContent(((_a4) => (_a4 = lines[index2]) != null ? _a4 : "")())) {
+  const opening = content.match(/^ {1,3}(`{3,})(.*)$/);
+  if (!opening) {
+    return null;
+  }
+  const delimiterLength = opening[1].length;
+  const contentLines = [opening[2]];
+  for (let lineIndex = index2 + 1; lineIndex < lines.length; lineIndex++) {
+    const candidate = getPandocContainerContent(lines[lineIndex]);
+    if (isBlankContainerLine(candidate)) {
+      return null;
+    }
+    const closingOffset = findExactBacktickRun(candidate, delimiterLength);
+    if (closingOffset !== null) {
+      contentLines.push(candidate.slice(0, closingOffset));
+      return {
+        endIndex: lineIndex,
+        text: contentLines.join("\n").replace(/\r?\n/g, " ").trim()
+      };
+    }
+    contentLines.push(candidate);
+  }
+  return null;
+}
+function getMultilineBacktickCodeSpanEndIndex(lines, index2, content = getPandocContainerContent(((_a4) => (_a4 = lines[index2]) != null ? _a4 : "")())) {
+  let openingOffset = 0;
+  while (openingOffset < content.length) {
+    const opening = findNextBacktickRun(content, openingOffset);
+    if (!opening) {
+      return null;
+    }
+    const closing = findInlineCodeClosing(
+      lines,
+      index2,
+      opening.end,
+      opening.length
+    );
+    if ((closing == null ? void 0 : closing.lineIndex) === index2) {
+      openingOffset = closing.offset + opening.length;
+      continue;
+    }
+    if (closing) {
+      return closing.lineIndex;
+    }
+    openingOffset = opening.end;
+  }
+  return null;
+}
+function findNextBacktickRun(content, startOffset) {
+  for (let offset = startOffset; offset < content.length; offset++) {
+    if (content[offset] !== "`" || content[offset - 1] === "`" || isBackslashEscaped(content, offset)) {
+      continue;
+    }
+    let end = offset + 1;
+    while (content[end] === "`") {
+      end++;
+    }
+    return { end, length: end - offset };
+  }
+  return null;
+}
+function findInlineCodeClosing(lines, openingLineIndex, openingEndOffset, delimiterLength) {
+  for (let lineIndex = openingLineIndex; lineIndex < lines.length; lineIndex++) {
+    const candidate = getPandocContainerContent(lines[lineIndex]);
+    if (lineIndex > openingLineIndex && isBlankContainerLine(candidate)) {
+      return null;
+    }
+    const startOffset = lineIndex === openingLineIndex ? openingEndOffset : 0;
+    const relativeOffset = findExactBacktickRun(
+      candidate.slice(startOffset),
+      delimiterLength
+    );
+    if (relativeOffset !== null) {
+      return { lineIndex, offset: startOffset + relativeOffset };
+    }
+  }
+  return null;
+}
+function isBackslashEscaped(content, offset) {
+  let slashCount = 0;
+  for (let index2 = offset - 1; index2 >= 0 && content[index2] === "\\"; index2--) {
+    slashCount++;
+  }
+  return slashCount % 2 === 1;
+}
+function findExactBacktickRun(content, length) {
+  for (let index2 = 0; index2 <= content.length - length; index2++) {
+    if (content[index2] !== "`" || content[index2 - 1] === "`") {
+      continue;
+    }
+    if (content.slice(index2, index2 + length) === "`".repeat(length) && content[index2 + length] !== "`") {
+      return index2;
+    }
+  }
+  return null;
+}
+function isFenceClosing(content, fence) {
+  const match = content.match(fence.character === "`" ? /^ {0,3}(`+)([ \t]*)$/ : /^ {0,3}(~+)([ \t]*)$/);
+  return Boolean(match && match[1].length >= fence.length);
+}
+
+// src/shared/utils/pandocFootnoteBodies.ts
+var FOOTNOTE_DEFINITION = /^ {0,3}\[\^([^\]\s]+)\]:(.*)$/;
+function projectPandocFootnoteBodies(lines) {
+  var _a4;
+  const documentLines = [...lines];
+  const sourceLines = [...lines];
+  const footnoteBodies = [];
+  const openings = findFootnoteOpenings(lines);
+  for (let index2 = 0; index2 < lines.length; index2++) {
+    const opening = openings.get(index2);
+    if (!opening) {
+      continue;
+    }
+    const body = collectFootnoteBody(lines, index2, opening, openings);
+    footnoteBodies.push(body);
+    body.sourceIndices.forEach((sourceIndex, bodyIndex) => {
+      sourceLines[sourceIndex] = body.lines[bodyIndex];
+      if (sourceIndex !== index2) {
+        documentLines[sourceIndex] = "";
+      }
+    });
+    index2 = (_a4 = body.sourceIndices[body.sourceIndices.length - 1]) != null ? _a4 : index2;
+  }
+  return { documentLines, sourceLines, footnoteBodies };
+}
+function parseFootnoteOpening(line) {
+  const blockQuoteDepth = getBlockQuoteDepth(line);
+  const match = stripBlockQuoteDepth(line, blockQuoteDepth).match(FOOTNOTE_DEFINITION);
+  return match ? {
+    label: match[1],
+    body: stripFootnoteContinuationIndent(match[2]),
+    blockQuoteDepth
+  } : null;
+}
+function collectFootnoteBody(lines, startIndex, opening, openings) {
+  const bodyLines = [opening.body];
+  const sourceIndices = [startIndex];
+  let pendingBlankIndices = [];
+  for (let index2 = startIndex + 1; index2 < lines.length; index2++) {
+    const line = lines[index2];
+    if (openings.has(index2)) {
+      break;
+    }
+    const bodyLine = stripBlockQuoteDepth(line, opening.blockQuoteDepth);
+    if (!bodyLine.trim()) {
+      pendingBlankIndices.push(index2);
+      continue;
+    }
+    if (pendingBlankIndices.length > 0 && !isIndentedFootnoteContinuation(bodyLine)) {
+      break;
+    }
+    pendingBlankIndices.forEach((blankIndex) => {
+      bodyLines.push("");
+      sourceIndices.push(blankIndex);
+    });
+    pendingBlankIndices = [];
+    bodyLines.push(stripFootnoteContinuationIndent(bodyLine));
+    sourceIndices.push(index2);
+  }
+  return { label: opening.label, lines: bodyLines, sourceIndices };
+}
+function findFootnoteOpenings(lines) {
+  const openings = /* @__PURE__ */ new Map();
+  let fence = null;
+  let inYaml = false;
+  let opaqueEndIndex = null;
+  let rawTexEnvironment = null;
+  let inlineCodeEndIndex = null;
+  for (let index2 = 0; index2 < lines.length; index2++) {
+    const content = getPandocContainerContent(lines[index2]);
+    if (inlineCodeEndIndex !== null && index2 <= inlineCodeEndIndex) {
+      continue;
+    }
+    inlineCodeEndIndex = null;
+    if (opaqueEndIndex !== null && index2 <= opaqueEndIndex) {
+      continue;
+    }
+    opaqueEndIndex = null;
+    if (inYaml) {
+      inYaml = !/^(?:---|\.\.\.)[ \t]*$/.test(content);
+      continue;
+    }
+    if (rawTexEnvironment) {
+      if (content.includes(`\\end{${rawTexEnvironment}}`)) {
+        rawTexEnvironment = null;
+      }
+      continue;
+    }
+    if (fence) {
+      if (isFenceClosing(content, fence)) {
+        fence = null;
+      }
+      continue;
+    }
+    if (isYamlMetadataStart(lines, index2, content)) {
+      inYaml = true;
+      continue;
+    }
+    const openingFence = getFenceOpening(lines, index2, content);
+    if (openingFence) {
+      fence = openingFence;
+      continue;
+    }
+    const standaloneOpaqueEnd = getStandaloneOpaqueBlockEndIndex(lines, index2, content);
+    if (standaloneOpaqueEnd !== null) {
+      opaqueEndIndex = standaloneOpaqueEnd;
+      continue;
+    }
+    const rawTexOpening = getRawTexEnvironmentOpening(lines, index2, content);
+    if (rawTexOpening) {
+      rawTexEnvironment = content.includes(`\\end{${rawTexOpening}}`) ? null : rawTexOpening;
+      continue;
+    }
+    const footnote = parseFootnoteOpening(lines[index2]);
+    if (footnote) {
+      openings.set(index2, footnote);
+    }
+    inlineCodeEndIndex = getMultilineBacktickCodeSpanEndIndex(lines, index2, content);
+  }
+  return openings;
+}
+function isIndentedFootnoteContinuation(line) {
+  var _a4, _b2;
+  const indent = (_b2 = (_a4 = line.match(/^([ \t]*)/)) == null ? void 0 : _a4[1]) != null ? _b2 : "";
+  return getIndentColumns(indent) >= 4;
+}
+function stripFootnoteContinuationIndent(line) {
+  let offset = 0;
+  let columns = 0;
+  while (offset < line.length && columns < 4) {
+    if (line[offset] === " ") {
+      columns++;
+      offset++;
+      continue;
+    }
+    if (line[offset] === "	") {
+      columns += 4 - columns % 4;
+      offset++;
+      continue;
+    }
+    break;
+  }
+  return columns >= 4 ? line.slice(offset) : line;
+}
+
+// src/shared/utils/pandocReferenceDefinitions.ts
+function getReferenceDefinitionEndIndex(lines, startIndex) {
+  var _a4, _b2;
+  const firstLine = getPandocContainerContent((_a4 = lines[startIndex]) != null ? _a4 : "");
+  const labelStart = (_b2 = firstLine.match(/^ {0,3}(?=\[)/)) == null ? void 0 : _b2[0].length;
+  if (labelStart === void 0 || firstLine[labelStart + 1] === "^") {
+    return null;
+  }
+  const labelEnd = balancedEnd(firstLine, labelStart, "[", "]");
+  if (labelEnd === null || firstLine[labelEnd] !== ":") {
+    return null;
+  }
+  const source = collectReferenceSource(lines, startIndex);
+  let cursor = skipOptionalNewline(source, labelEnd + 1);
+  if (source[cursor] === "[") {
+    return null;
+  }
+  cursor = destinationEnd(source, cursor);
+  if (cursor < 0) {
+    return null;
+  }
+  const titleStart = skipOptionalNewline(source, cursor);
+  const titleEnd = referenceTitleEnd(source, titleStart);
+  if (titleEnd !== null) {
+    cursor = titleEnd;
+  }
+  const attributeStart = skipOptionalNewline(source, cursor);
+  if (source[attributeStart] === "{") {
+    const attributeEnd = balancedEnd(source, attributeStart, "{", "}");
+    if (attributeEnd !== null) {
+      cursor = attributeEnd;
+    }
+  }
+  cursor = skipHorizontalSpace2(source, cursor);
+  if (cursor < source.length && source[cursor] !== "\n") {
+    return null;
+  }
+  return startIndex + source.slice(0, cursor).split("\n").length - 1;
+}
+function collectReferenceSource(lines, startIndex) {
+  const candidates = [];
+  for (let index2 = startIndex; index2 < lines.length; index2++) {
+    const content = getPandocContainerContent(lines[index2]);
+    if (index2 > startIndex && /^[ \t]*$/.test(content)) {
+      break;
+    }
+    candidates.push(content);
+  }
+  return candidates.join("\n");
+}
+function destinationEnd(source, start) {
+  var _a4;
+  if (source[start] === "<") {
+    return (_a4 = balancedEnd(source, start, "<", ">")) != null ? _a4 : -1;
+  }
+  let cursor = start;
+  while (cursor < source.length && source[cursor] !== "\n") {
+    const tokenStart = skipHorizontalSpace2(source, cursor);
+    if (source[tokenStart] === "\n" || tokenStart === source.length) {
+      return cursor;
+    }
+    if (referenceTitleEnd(source, tokenStart) !== null || source[tokenStart] === "{" && balancedEnd(source, tokenStart, "{", "}") !== null || source[tokenStart] === "[") {
+      return cursor;
+    }
+    cursor = tokenStart;
+    while (cursor < source.length && !/[ \t\n]/.test(source[cursor])) {
+      cursor += source[cursor] === "\\" && cursor + 1 < source.length ? 2 : 1;
+    }
+  }
+  return cursor;
+}
+function referenceTitleEnd(source, start) {
+  var _a4;
+  const opening = source[start];
+  if (opening === "(") {
+    return balancedEnd(source, start, "(", ")");
+  }
+  if (opening !== '"' && opening !== "'") {
+    return null;
+  }
+  for (let cursor = start + 1; cursor < source.length; cursor++) {
+    if (source[cursor] === "\\") {
+      cursor++;
+    } else if (source[cursor] === opening && !/[\p{L}\p{N}]/u.test((_a4 = source[cursor + 1]) != null ? _a4 : "")) {
+      return cursor + 1;
+    }
+  }
+  return null;
+}
+function balancedEnd(source, start, opening, closing) {
+  let depth = 0;
+  for (let cursor = start; cursor < source.length; cursor++) {
+    if (source[cursor] === "\\") {
+      cursor++;
+    } else if (source[cursor] === opening) {
+      depth++;
+    } else if (source[cursor] === closing && --depth === 0) {
+      return cursor + 1;
+    }
+  }
+  return null;
+}
+function skipHorizontalSpace2(source, start) {
+  let cursor = start;
+  while (source[cursor] === " " || source[cursor] === "	") {
+    cursor++;
+  }
+  return cursor;
+}
+function skipOptionalNewline(source, start) {
+  const cursor = skipHorizontalSpace2(source, start);
+  return source[cursor] === "\n" ? skipHorizontalSpace2(source, cursor + 1) : cursor;
+}
+
+// src/shared/utils/pandocBlockEntryWhitespace.ts
+var PandocBlockEntryWhitespace = class {
+  constructor() {
+    this.htmlContainers = [];
+    this.immediateEntry = null;
+  }
+  normalize(line, index2, isBlockEntry) {
+    var _a4;
+    const immediate = this.immediateEntry;
+    if (immediate && index2 >= immediate.lineIndex) {
+      this.immediateEntry = null;
+    }
+    if (!isBlockEntry) {
+      return line;
+    }
+    const container = this.htmlContainers[this.htmlContainers.length - 1];
+    const columns = (immediate == null ? void 0 : immediate.lineIndex) === index2 ? immediate.columns : (_a4 = container == null ? void 0 : container.bodyIndentColumns) != null ? _a4 : 0;
+    const content = getPandocContainerContent(line);
+    return line.slice(0, line.length - content.length) + removeIndentColumns(content, columns);
+  }
+  openHtml(lines, index2, content) {
+    const opening = getRawHtmlContainerOpening(lines, index2, content);
+    if (!opening) {
+      return null;
+    }
+    if (opening.hasBody) {
+      this.htmlContainers.push(opening);
+    } else {
+      this.immediateEntry = {
+        lineIndex: opening.openingEndIndex + 1,
+        columns: opening.bodyIndentColumns
+      };
+    }
+    return opening.openingEndIndex;
+  }
+  closeHtml(content) {
+    var _a4, _b2;
+    const closingName = (_b2 = (_a4 = content.match(/^\s*<\/([\w:-]+)\s*>\s*$/)) == null ? void 0 : _a4[1]) == null ? void 0 : _b2.toLowerCase();
+    const matchingIndex = this.htmlContainers.findLastIndex((frame) => frame.tagName === closingName);
+    if (matchingIndex < 0) {
+      return false;
+    }
+    this.htmlContainers.splice(matchingIndex);
+    return true;
+  }
+  afterOpaqueBlock(lines, index2, endIndex) {
+    if (getRawTexCommandBlockEndIndex(lines, index2) === endIndex) {
+      this.immediateEntry = { lineIndex: endIndex + 1, columns: Infinity };
+    }
+  }
+};
+function removeIndentColumns(content, maximum) {
+  let offset = 0;
+  let columns = 0;
+  while (offset < content.length && columns < maximum) {
+    if (content[offset] === " ") {
+      columns++;
+    } else if (content[offset] === "	") {
+      columns += 4 - columns % 4;
+    } else {
+      break;
+    }
+    offset++;
+  }
+  return " ".repeat(Math.max(0, columns - maximum)) + content.slice(offset);
+}
+
+// src/shared/utils/pandocListItemContinuations.ts
+var PandocListItemContinuations = class {
+  constructor() {
+    this.ranges = [];
+    this.frames = [];
+    this.activeRange = null;
+  }
+  startRoot(line, index2, marker) {
+    this.activeRange = null;
+    this.frames = [createFrame(line, index2, marker)];
+  }
+  blank() {
+    this.activeRange = null;
+    this.frames.forEach((frame) => {
+      frame.paragraphOpen = false;
+    });
+  }
+  append(line, index2) {
+    var _a4, _b2;
+    const marker = parsePandocListMarker(line, true);
+    const current = this.frames[this.frames.length - 1];
+    if (!current || getBlockQuoteDepth(line) !== current.quoteDepth) {
+      this.activeRange = null;
+      return;
+    }
+    if (!marker || marker.kind === "definition" || !marker.hasValidMarkerSpacing) {
+      if (this.activeRange) {
+        this.activeRange.endIndex = index2;
+      }
+      const indentation = getIndentColumns((_b2 = (_a4 = getPandocContainerContent(line).match(/^[ \t]*/)) == null ? void 0 : _a4[0]) != null ? _b2 : "");
+      if (indentation < current.marker.contentIndentColumns + 4) {
+        current.paragraphOpen = true;
+      }
+      return;
+    }
+    let previousSibling;
+    while (this.frames.length > 0 && marker.indentColumns < this.frames[this.frames.length - 1].marker.contentIndentColumns) {
+      previousSibling = this.frames.pop();
+    }
+    const parent2 = this.frames[this.frames.length - 1];
+    if (!parent2) {
+      if (previousSibling && marker.indentColumns > 3) {
+        this.frames.push(previousSibling);
+        this.appendLiteral(previousSibling, index2, marker.indentColumns);
+      } else {
+        this.startRoot(line, index2, marker);
+      }
+      return;
+    }
+    const relativeIndent = marker.indentColumns - parent2.marker.contentIndentColumns;
+    const continuesOrderedList = (previousSibling == null ? void 0 : previousSibling.marker.kind) === "ordered" && previousSibling.marker.orderedGroup === marker.orderedGroup;
+    if (relativeIndent <= 3 && (marker.kind !== "ordered" || marker.orderedStartNumber === 1 || continuesOrderedList)) {
+      this.activeRange = null;
+      parent2.paragraphOpen = false;
+      this.frames.push(createFrame(line, index2, marker));
+      return;
+    }
+    this.appendLiteral(parent2, index2, relativeIndent);
+  }
+  appendLiteral(parent2, index2, relativeIndent) {
+    const kind = relativeIndent >= 4 && !parent2.paragraphOpen ? "code" : "paragraph";
+    if (!this.activeRange || this.activeRange.parentIndex !== parent2.index || this.activeRange.kind !== kind) {
+      this.activeRange = {
+        parentIndex: parent2.index,
+        startIndex: index2,
+        endIndex: index2,
+        markerIndices: [],
+        kind
+      };
+      this.ranges.push(this.activeRange);
+    }
+    this.activeRange.endIndex = index2;
+    this.activeRange.markerIndices.push(index2);
+    parent2.paragraphOpen = kind === "paragraph";
+  }
+};
+function createFrame(line, index2, marker) {
+  var _a4, _b2;
+  const trailing = line.slice(marker.markerEnd);
+  const whitespace = (_b2 = (_a4 = trailing.match(/^[ \t]*/)) == null ? void 0 : _a4[0]) != null ? _b2 : "";
+  const markerWidth = marker.markerEnd - marker.markerStart;
+  let contentColumn = marker.indentColumns + markerWidth;
+  for (const character of whitespace) {
+    contentColumn += character === "	" ? 4 - contentColumn % 4 : 1;
+  }
+  const content = " ".repeat(Math.max(0, contentColumn - marker.contentIndentColumns)) + trailing.trimStart();
+  return {
+    index: index2,
+    marker,
+    quoteDepth: getBlockQuoteDepth(line),
+    paragraphOpen: content.length > 0 && !isStandaloneBlock([content], 0, content)
+  };
+}
+
+// src/shared/utils/listBlockValidator.ts
+var ListBlockValidator = class {
+  static isListItemForValidation(line) {
+    return parsePandocListMarker(line, true) !== null;
+  }
+  static isListContinuation(line, prevWasListItem) {
+    var _a4;
+    if (!prevWasListItem || this.isListItemForValidation(line)) {
+      return false;
+    }
+    const indent = (_a4 = line.match(/^(\s+)/)) == null ? void 0 : _a4[1];
+    return Boolean(indent && (getIndentColumns(indent) >= 2 || indent.includes("	")));
+  }
+  static analyzeListBlocks(lines, settings, includeCandidateListLines = false) {
+    const projection = projectPandocFootnoteBodies(lines);
+    const documentAnalysis = this.analyzeFlatListBlocks(
+      projection.documentLines,
+      settings
+    );
+    projection.footnoteBodies.forEach((body) => mergeRegionAnalysis(
+      documentAnalysis,
+      this.analyzeFlatListBlocks(body.lines, settings),
+      body
+    ));
+    documentAnalysis.interruptedParagraphs.sort(
+      (left, right) => left.listStartIndex - right.listStartIndex
+    );
+    documentAnalysis.literalListContinuations.sort(
+      (left, right) => left.startIndex - right.startIndex
+    );
+    documentAnalysis.referenceDefinitionRanges.sort((left, right) => left.startIndex - right.startIndex);
+    documentAnalysis.normalizedLines.forEach((line, index2) => {
+      projection.sourceLines[index2] = line;
+    });
+    const analysis = {
+      invalidLines: documentAnalysis.invalidLines,
+      interruptedParagraphs: documentAnalysis.interruptedParagraphs,
+      literalListContinuations: documentAnalysis.literalListContinuations,
+      sourceLines: projection.sourceLines,
+      referenceDefinitionRanges: documentAnalysis.referenceDefinitionRanges
+    };
+    if (includeCandidateListLines) {
+      analysis.candidateListLines = documentAnalysis.candidateListLines;
+    }
+    return analysis;
+  }
+  static getListMarkerCandidateLines(lines, settings) {
+    var _a4;
+    return (_a4 = this.analyzeListBlocks(lines, settings, true).candidateListLines) != null ? _a4 : /* @__PURE__ */ new Set();
+  }
+  static analyzeFlatListBlocks(inputLines, settings) {
+    var _a4, _b2, _c, _d;
+    const invalidLines = /* @__PURE__ */ new Set();
+    const candidateListLines = /* @__PURE__ */ new Set();
+    const interruptedParagraphs = [];
+    const literalListContinuations = [];
+    const referenceDefinitionRanges = [];
+    const normalizedLines = /* @__PURE__ */ new Map();
+    const lines = [...inputLines];
+    const blockEntryWhitespace = new PandocBlockEntryWhitespace();
+    const listItems = new PandocListItemContinuations();
+    let paragraphStartIndex = null;
+    let interruptedParagraph = null;
+    let inListBlock = false;
+    let listPendingBlank = false;
+    let listContainerDepth = 0;
+    let listBlankContainerDepth = 0;
+    let listRootIndentColumns = 0;
+    let listContinuationIndentColumns = 0;
+    let listRootKind = "bullet";
+    let fence = null;
+    let fencedDivDepth = 0;
+    let rawTexEnvironment = null;
+    let inlineCodeSpanEndIndex = null;
+    let opaqueBlockEndIndex = null;
+    let inLineBlock = false;
+    let inYamlMetadata = false;
+    let inIndentedCodeBlock = false;
+    let definitionTermBeforeBlank = null;
+    let definitionTermContainerDepth = null;
+    let definitionBlankContainerDepth = null;
+    const stopListBlock = () => {
+      inListBlock = false;
+      listPendingBlank = false;
+    };
+    const startListBlock = (sourceLine, index2, marker, containerDepth = getBlockQuoteDepth(sourceLine)) => {
+      inListBlock = true;
+      listPendingBlank = false;
+      listContainerDepth = containerDepth;
+      listRootIndentColumns = marker.indentColumns;
+      listContinuationIndentColumns = marker.contentIndentColumns;
+      listRootKind = marker.kind;
+      listItems.startRoot(sourceLine, index2, marker);
+    };
+    const clearPendingDefinitionTerm = () => {
+      definitionTermBeforeBlank = null;
+      definitionTermContainerDepth = null;
+      definitionBlankContainerDepth = null;
+    };
+    const finishInterruptedParagraph = (endIndex) => {
+      if (!interruptedParagraph) {
+        return;
+      }
+      interruptedParagraph.endIndex = endIndex;
+      interruptedParagraphs.push(interruptedParagraph);
+      interruptedParagraph = null;
+      paragraphStartIndex = null;
+    };
+    const parseMarker = (candidateLine, allowNested, index2) => {
+      const marker = parsePandocListMarker(candidateLine, allowNested);
+      if (marker) {
+        candidateListLines.add(index2);
+      }
+      return marker;
+    };
+    for (let index2 = 0; index2 < lines.length; index2++) {
+      let line = lines[index2];
+      let content = getPandocContainerContent(line);
+      if (inlineCodeSpanEndIndex !== null && index2 <= inlineCodeSpanEndIndex) {
+        if (index2 === inlineCodeSpanEndIndex) {
+          inlineCodeSpanEndIndex = null;
+        }
+        continue;
+      }
+      if (opaqueBlockEndIndex !== null && index2 <= opaqueBlockEndIndex) {
+        continue;
+      }
+      opaqueBlockEndIndex = null;
+      if (inYamlMetadata) {
+        if (/^(?:---|\.\.\.)[ \t]*$/.test(content)) {
+          inYamlMetadata = false;
+        }
+        continue;
+      }
+      if (isYamlMetadataStart(lines, index2, content)) {
+        paragraphStartIndex = null;
+        stopListBlock();
+        inYamlMetadata = true;
+        continue;
+      }
+      if (rawTexEnvironment) {
+        if (content.includes(`\\end{${rawTexEnvironment}}`)) {
+          rawTexEnvironment = null;
+        }
+        continue;
+      }
+      if (inLineBlock) {
+        if (isLineBlock(content) || isLineBlockContinuation(content)) {
+          continue;
+        }
+        inLineBlock = false;
+      }
+      if (fence) {
+        if (isFenceClosing(content, fence)) {
+          fence = null;
+        }
+        continue;
+      }
+      if (inIndentedCodeBlock) {
+        if (/^(?: {4}|\t)/.test(content) || isBlankContainerLine(content)) {
+          continue;
+        }
+        inIndentedCodeBlock = false;
+      }
+      if (blockEntryWhitespace.closeHtml(content)) {
+        finishInterruptedParagraph(index2 - 1);
+        paragraphStartIndex = null;
+        stopListBlock();
+        continue;
+      }
+      const isBlockEntry = paragraphStartIndex === null && !interruptedParagraph && (!inListBlock || listPendingBlank && !continuesListAfterBlank(
+        line,
+        listRootIndentColumns,
+        listContinuationIndentColumns
+      ));
+      line = blockEntryWhitespace.normalize(line, index2, isBlockEntry);
+      if (line !== lines[index2]) {
+        lines[index2] = line;
+        normalizedLines.set(index2, line);
+        content = getPandocContainerContent(line);
+      }
+      if (fencedDivDepth > 0 && isFencedDivClosing2(content)) {
+        finishInterruptedParagraph(index2 - 1);
+        paragraphStartIndex = null;
+        stopListBlock();
+        fencedDivDepth--;
+        continue;
+      }
+      const activeParagraphStart = interruptedParagraph === null ? paragraphStartIndex : interruptedParagraph.paragraphStartIndex;
+      if (activeParagraphStart !== null && getBlockQuoteDepth(line) > getBlockQuoteDepth(lines[activeParagraphStart])) {
+        const deeperMarker = parseMarker(line, true, index2);
+        if (deeperMarker) {
+          invalidLines.add(index2);
+          if (!interruptedParagraph && deeperMarker.hasValidMarkerSpacing) {
+            interruptedParagraph = {
+              paragraphStartIndex: activeParagraphStart,
+              listStartIndex: index2,
+              endIndex: index2
+            };
+          }
+        }
+        if (interruptedParagraph) {
+          interruptedParagraph.endIndex = index2;
+        }
+        continue;
+      }
+      const openingFence = getFenceOpening(lines, index2, content);
+      const paragraphInterruptingFence = (openingFence == null ? void 0 : openingFence.character) === "`" && openingFence.indentColumns === 0 ? openingFence : null;
+      const inlineCodeSpan = getIndentedBacktickCodeSpan(lines, index2, content);
+      const multilineCodeSpanEndIndex = getMultilineBacktickCodeSpanEndIndex(
+        lines,
+        index2,
+        content
+      );
+      const rawTexOpening = getRawTexEnvironmentOpening(lines, index2, content);
+      if (interruptedParagraph && rawTexOpening) {
+        interruptedParagraph.endIndex = index2;
+        if (!content.includes(`\\end{${rawTexOpening}}`)) {
+          rawTexEnvironment = rawTexOpening;
+        }
+        continue;
+      }
+      if (interruptedParagraph && settings.enableListsWithoutPrecedingBlankline && getBlockQuoteDepth(line) <= getBlockQuoteDepth(
+        lines[interruptedParagraph.paragraphStartIndex]
+      )) {
+        const markerLeavingRejectedQuote = parseMarker(line, false, index2);
+        if ((markerLeavingRejectedQuote == null ? void 0 : markerLeavingRejectedQuote.kind) !== "definition" && (markerLeavingRejectedQuote == null ? void 0 : markerLeavingRejectedQuote.hasValidMarkerSpacing)) {
+          finishInterruptedParagraph(index2 - 1);
+        }
+      }
+      if (interruptedParagraph) {
+        if (inlineCodeSpan || multilineCodeSpanEndIndex !== null) {
+          interruptedParagraph.endIndex = index2;
+          inlineCodeSpanEndIndex = (_a4 = inlineCodeSpan == null ? void 0 : inlineCodeSpan.endIndex) != null ? _a4 : multilineCodeSpanEndIndex;
+          continue;
+        }
+        if (isBlankContainerLine(content) || paragraphInterruptingFence || isHtmlBlockBoundary(content)) {
+          finishInterruptedParagraph(index2 - 1);
+          if (paragraphInterruptingFence) {
+            fence = paragraphInterruptingFence;
+          } else if (isHtmlBlockBoundary(content)) {
+            opaqueBlockEndIndex = (_b2 = blockEntryWhitespace.openHtml(lines, index2, content)) != null ? _b2 : getRawHtmlBlockEndIndex(lines, index2, content);
+          }
+          continue;
+        }
+        if (parseMarker(line, true, index2)) {
+          invalidLines.add(index2);
+        }
+        interruptedParagraph.endIndex = index2;
+        continue;
+      }
+      if (isBlankContainerLine(content)) {
+        if (inListBlock && !listPendingBlank && getBlockQuoteDepth(line) > listContainerDepth) {
+          continue;
+        }
+        definitionTermBeforeBlank = paragraphStartIndex === index2 - 1 ? paragraphStartIndex : null;
+        definitionTermContainerDepth = definitionTermBeforeBlank !== null ? getBlockQuoteDepth(lines[definitionTermBeforeBlank]) : null;
+        definitionBlankContainerDepth = definitionTermBeforeBlank !== null ? getBlockQuoteDepth(line) : null;
+        paragraphStartIndex = null;
+        listPendingBlank = inListBlock;
+        if (inListBlock) {
+          listItems.blank();
+        }
+        listBlankContainerDepth = getBlockQuoteDepth(line);
+        continue;
+      }
+      if (openingFence && !inListBlock && (paragraphStartIndex === null || paragraphInterruptingFence)) {
+        paragraphStartIndex = null;
+        stopListBlock();
+        fence = openingFence;
+        continue;
+      }
+      const nestedMarker = parseMarker(line, true, index2);
+      if (nestedMarker && !nestedMarker.hasValidMarkerSpacing) {
+        invalidLines.add(index2);
+      }
+      if (inListBlock && listPendingBlank && listBlankContainerDepth < listContainerDepth && getBlockQuoteDepth(line) < listContainerDepth) {
+        stopListBlock();
+      }
+      if (inListBlock) {
+        const currentListMarker = parseMarker(line, true, index2);
+        if (openingFence) {
+          if (openingFence.indentColumns >= listContinuationIndentColumns) {
+            listPendingBlank = false;
+            fence = openingFence;
+            continue;
+          }
+          stopListBlock();
+          fence = openingFence;
+          continue;
+        }
+        if ((currentListMarker == null ? void 0 : currentListMarker.kind) === "definition" && listRootKind === "definition" && !isDefinitionMarkerInListContainer(
+          listContainerDepth,
+          line,
+          settings.enableListsWithoutPrecedingBlankline
+        )) {
+          stopListBlock();
+          invalidLines.add(index2);
+          paragraphStartIndex = index2;
+          continue;
+        }
+        if ((currentListMarker == null ? void 0 : currentListMarker.kind) === "definition" && currentListMarker.indentColumns < listContinuationIndentColumns && currentListMarker.indentColumns < 4 && listRootKind !== "definition") {
+          stopListBlock();
+          invalidLines.add(index2);
+          paragraphStartIndex = index2;
+          continue;
+        }
+        if (!listPendingBlank || continuesListAfterBlank(
+          line,
+          listRootIndentColumns,
+          listContinuationIndentColumns
+        )) {
+          listItems.append(line, index2);
+          listPendingBlank = false;
+          if ((currentListMarker == null ? void 0 : currentListMarker.indentColumns) === listRootIndentColumns) {
+            listContinuationIndentColumns = currentListMarker.contentIndentColumns;
+          }
+          if (rawTexOpening && !content.includes(`\\end{${rawTexOpening}}`)) {
+            rawTexEnvironment = rawTexOpening;
+          }
+          continue;
+        }
+        stopListBlock();
+      }
+      const isLazyQuoteContinuation = paragraphStartIndex !== null && getBlockQuoteDepth(lines[paragraphStartIndex]) > getBlockQuoteDepth(line);
+      const marker = parseMarker(line, isLazyQuoteContinuation, index2);
+      if (paragraphStartIndex !== null) {
+        if (inlineCodeSpan || multilineCodeSpanEndIndex !== null) {
+          inlineCodeSpanEndIndex = (_c = inlineCodeSpan == null ? void 0 : inlineCodeSpan.endIndex) != null ? _c : multilineCodeSpanEndIndex;
+          continue;
+        }
+        if (rawTexOpening) {
+          if (!content.includes(`\\end{${rawTexOpening}}`)) {
+            rawTexEnvironment = rawTexOpening;
+          }
+          continue;
+        }
+        if (isSetextHeading(lines, paragraphStartIndex, index2)) {
+          paragraphStartIndex = null;
+          continue;
+        }
+        if (paragraphStartIndex === index2 - 1 && isPipeTableDelimiter(lines, index2, content)) {
+          paragraphStartIndex = null;
+          opaqueBlockEndIndex = getPipeTableEndIndex(lines, index2);
+          continue;
+        }
+        if ((marker == null ? void 0 : marker.kind) === "definition") {
+          if (marker.hasValidMarkerSpacing && isDefinitionListStart(
+            lines,
+            paragraphStartIndex,
+            index2,
+            settings.enableListsWithoutPrecedingBlankline
+          )) {
+            paragraphStartIndex = null;
+            startListBlock(line, index2, marker);
+            clearPendingDefinitionTerm();
+          } else {
+            invalidLines.add(index2);
+            if (settings.enableListsWithoutPrecedingBlankline) {
+              paragraphStartIndex = index2;
+            }
+          }
+          continue;
+        }
+        if (marker && marker.hasValidMarkerSpacing) {
+          if (settings.enableListsWithoutPrecedingBlankline) {
+            paragraphStartIndex = null;
+            const containerDepth = isLazyQuoteContinuation && marker.indentColumns > 3 ? getBlockQuoteDepth(lines[activeParagraphStart != null ? activeParagraphStart : index2]) : getBlockQuoteDepth(line);
+            startListBlock(line, index2, marker, containerDepth);
+          } else {
+            invalidLines.add(index2);
+            interruptedParagraph = {
+              paragraphStartIndex,
+              listStartIndex: index2,
+              endIndex: index2
+            };
+          }
+          continue;
+        }
+        if (isHtmlBlockBoundary(content)) {
+          paragraphStartIndex = null;
+          opaqueBlockEndIndex = (_d = blockEntryWhitespace.openHtml(lines, index2, content)) != null ? _d : getRawHtmlBlockEndIndex(lines, index2, content);
+        }
+        continue;
+      }
+      if ((marker == null ? void 0 : marker.kind) === "definition" && marker.hasValidMarkerSpacing && definitionTermBeforeBlank === index2 - 2 && isDefinitionListContainerTransition(
+        lines[definitionTermBeforeBlank],
+        line,
+        settings.enableListsWithoutPrecedingBlankline
+      ) && definitionBlankContainerDepth !== null && definitionTermContainerDepth !== null && definitionBlankContainerDepth >= definitionTermContainerDepth) {
+        startListBlock(line, index2, marker);
+        clearPendingDefinitionTerm();
+        continue;
+      }
+      clearPendingDefinitionTerm();
+      const referenceEndIndex = getReferenceDefinitionEndIndex(lines, index2);
+      if (referenceEndIndex !== null) {
+        referenceDefinitionRanges.push({ startIndex: index2, endIndex: referenceEndIndex });
+        opaqueBlockEndIndex = referenceEndIndex;
+        continue;
+      }
+      if (rawTexOpening) {
+        paragraphStartIndex = index2;
+        if (!content.includes(`\\end{${rawTexOpening}}`)) {
+          rawTexEnvironment = rawTexOpening;
+        }
+        continue;
+      }
+      if ((marker == null ? void 0 : marker.kind) === "definition") {
+        invalidLines.add(index2);
+        paragraphStartIndex = index2;
+        continue;
+      }
+      const rawHtmlOpeningEnd = blockEntryWhitespace.openHtml(lines, index2, content);
+      if (rawHtmlOpeningEnd !== null) {
+        opaqueBlockEndIndex = rawHtmlOpeningEnd;
+        continue;
+      }
+      const standaloneOpaqueEndIndex = getStandaloneOpaqueBlockEndIndex(
+        lines,
+        index2,
+        content
+      );
+      if (standaloneOpaqueEndIndex !== null) {
+        opaqueBlockEndIndex = standaloneOpaqueEndIndex;
+        blockEntryWhitespace.afterOpaqueBlock(lines, index2, standaloneOpaqueEndIndex);
+        continue;
+      }
+      if (isStandaloneBlock(lines, index2, content)) {
+        inIndentedCodeBlock = /^(?: {4}|\t)/.test(content);
+        if (isFencedDivOpening(content)) {
+          fencedDivDepth++;
+        }
+        if (isLineBlock(content)) {
+          inLineBlock = true;
+        }
+        continue;
+      }
+      if (marker == null ? void 0 : marker.hasValidMarkerSpacing) {
+        startListBlock(line, index2, marker);
+        continue;
+      }
+      paragraphStartIndex = index2;
+      if (multilineCodeSpanEndIndex !== null) {
+        inlineCodeSpanEndIndex = multilineCodeSpanEndIndex;
+      }
+    }
+    finishInterruptedParagraph(lines.length - 1);
+    listItems.ranges.forEach((range) => {
+      literalListContinuations.push({
+        ...range,
+        markerIndices: [...range.markerIndices]
+      });
+      range.markerIndices.forEach((index2) => invalidLines.add(index2));
+    });
+    return {
+      invalidLines,
+      candidateListLines,
+      interruptedParagraphs,
+      literalListContinuations,
+      normalizedLines,
+      referenceDefinitionRanges
+    };
+  }
+  static validateListBlocks(lines, settings) {
+    return this.analyzeListBlocks(lines, settings).invalidLines;
+  }
+};
+function mergeRegionAnalysis(target, regionAnalysis, region) {
+  regionAnalysis.literalListContinuations.forEach((range) => {
+    const parentIndex = region.sourceIndices[range.parentIndex];
+    const startIndex = region.sourceIndices[range.startIndex];
+    const endIndex = region.sourceIndices[range.endIndex];
+    const markerIndices = range.markerIndices.map((index2) => region.sourceIndices[index2]);
+    if (parentIndex !== void 0 && startIndex !== void 0 && endIndex !== void 0 && markerIndices.every((index2) => index2 !== void 0)) {
+      target.literalListContinuations.push({
+        ...range,
+        parentIndex,
+        startIndex,
+        endIndex,
+        markerIndices
+      });
+    }
+  });
+  regionAnalysis.referenceDefinitionRanges.forEach((range) => {
+    const startIndex = region.sourceIndices[range.startIndex];
+    const endIndex = region.sourceIndices[range.endIndex];
+    if (startIndex !== void 0 && endIndex !== void 0) {
+      target.referenceDefinitionRanges.push({ startIndex, endIndex });
+    }
+  });
+  regionAnalysis.normalizedLines.forEach((line, index2) => {
+    const sourceIndex = region.sourceIndices[index2];
+    if (sourceIndex !== void 0) {
+      target.normalizedLines.set(sourceIndex, line);
+    }
+  });
+  regionAnalysis.invalidLines.forEach((index2) => {
+    const sourceIndex = region.sourceIndices[index2];
+    if (sourceIndex !== void 0) {
+      target.invalidLines.add(sourceIndex);
+    }
+  });
+  regionAnalysis.candidateListLines.forEach((index2) => {
+    const sourceIndex = region.sourceIndices[index2];
+    if (sourceIndex !== void 0) {
+      target.candidateListLines.add(sourceIndex);
+    }
+  });
+  regionAnalysis.interruptedParagraphs.forEach((paragraph) => {
+    const paragraphStartIndex = region.sourceIndices[paragraph.paragraphStartIndex];
+    const listStartIndex = region.sourceIndices[paragraph.listStartIndex];
+    const endIndex = region.sourceIndices[paragraph.endIndex];
+    if (paragraphStartIndex !== void 0 && listStartIndex !== void 0 && endIndex !== void 0) {
+      target.interruptedParagraphs.push({
+        paragraphStartIndex,
+        listStartIndex,
+        endIndex
+      });
+    }
+  });
+}
+function validateListBlocks(doc, settings = { enableListsWithoutPrecedingBlankline: false }) {
+  const lines = doc.toString().split("\n");
+  const zeroBasedIndices = ListBlockValidator.validateListBlocks(lines, settings);
+  return new Set(Array.from(zeroBasedIndices, (index2) => index2 + 1));
+}
+function isDefinitionListStart(lines, paragraphStartIndex, markerIndex, enableListsWithoutPrecedingBlankline) {
+  if (paragraphStartIndex !== markerIndex - 1) {
+    return false;
+  }
+  return isDefinitionListContainerTransition(
+    lines[paragraphStartIndex],
+    lines[markerIndex],
+    enableListsWithoutPrecedingBlankline
+  );
+}
+function isDefinitionListContainerTransition(termLine, markerLine, enableListsWithoutPrecedingBlankline) {
+  var _a4;
+  const termDepth = getBlockQuoteDepth(termLine);
+  const markerDepth = getBlockQuoteDepth(markerLine);
+  const marker = parsePandocListMarker(markerLine, true);
+  return termDepth === markerDepth || termDepth > markerDepth && (!enableListsWithoutPrecedingBlankline || ((_a4 = marker == null ? void 0 : marker.indentColumns) != null ? _a4 : 0) >= 4);
+}
+function isDefinitionMarkerInListContainer(listContainerDepth, markerLine, enableListsWithoutPrecedingBlankline) {
+  var _a4;
+  const marker = parsePandocListMarker(markerLine, true);
+  return getBlockQuoteDepth(markerLine) >= listContainerDepth || !enableListsWithoutPrecedingBlankline || ((_a4 = marker == null ? void 0 : marker.indentColumns) != null ? _a4 : 0) >= 4;
+}
+function continuesListAfterBlank(line, rootIndentColumns, continuationIndentColumns) {
+  var _a4, _b2;
+  const marker = parsePandocListMarker(line, true);
+  if (marker) {
+    return marker.indentColumns >= rootIndentColumns;
+  }
+  const content = getPandocContainerContent(line);
+  const indent = (_b2 = (_a4 = content.match(/^([ \t]*)/)) == null ? void 0 : _a4[1]) != null ? _b2 : "";
+  return getIndentColumns(indent) >= continuationIndentColumns;
+}
+
+// src/live-preview/pipeline/context/exampleLabelScan.ts
+function createExampleScanResult() {
+  return {
+    exampleLabels: /* @__PURE__ */ new Map(),
+    exampleContent: /* @__PURE__ */ new Map(),
+    exampleLineNumbers: /* @__PURE__ */ new Map(),
+    duplicateLabels: /* @__PURE__ */ new Map(),
+    duplicateLabelContent: /* @__PURE__ */ new Map()
+  };
+}
+function scanExampleLabelsFromDoc(doc, settings, codeRegions) {
+  const result = createExampleScanResult();
+  if (!isSyntaxFeatureEnabled(settings, "enableExampleLists")) {
+    return { ...result, duplicateLineNumbers: /* @__PURE__ */ new Set() };
+  }
+  const counter = { value: 1 };
+  const lines = doc.toString().split("\n");
+  const invalidLines = validateListBlocks(doc, settings);
+  const duplicateLineNumbers = /* @__PURE__ */ new Set();
+  for (let i = 0; i < lines.length; i++) {
+    if (codeRegions && isLineInCodeRegion(i + 1, doc, codeRegions)) {
+      continue;
+    }
+    if (!invalidLines.has(i + 1)) {
+      processExampleLine(lines[i], i + 1, counter, result, duplicateLineNumbers);
+    }
+  }
+  return { ...result, duplicateLineNumbers };
+}
+function processExampleLine(line, lineNum, counter, result, duplicateLineNumbers) {
+  var _a4, _b2, _c;
+  const exampleMatch = ListPatterns.isExampleList(line);
+  if (exampleMatch && exampleMatch.length >= 5) {
+    const indent = exampleMatch[1] || "";
+    const fullMarker = exampleMatch[2] || "";
+    const label = exampleMatch[3] || "";
+    const space = exampleMatch[4] || "";
+    const rawContent = line.substring(
+      indent.length + fullMarker.length + space.length
+    );
+    const content = (_b2 = (_a4 = parseTaskCheckboxPrefix(space, rawContent)) == null ? void 0 : _a4.content) != null ? _b2 : rawContent;
+    if (label && result.exampleLabels.has(label)) {
+      duplicateLineNumbers.add(lineNum);
+      if (!result.duplicateLabels.has(label)) {
+        const firstOccurrenceNumber = result.exampleLabels.get(label);
+        const firstLine = ((_c = Array.from(result.exampleLineNumbers.entries()).find(([, num]) => num === firstOccurrenceNumber)) == null ? void 0 : _c[0]) || 0;
+        result.duplicateLabels.set(label, firstLine);
+        result.duplicateLabelContent.set(label, result.exampleContent.get(label) || "");
+      }
+    } else if (label) {
+      result.exampleLabels.set(label, counter.value);
+      result.exampleContent.set(label, content);
+    }
+    result.exampleLineNumbers.set(lineNum, counter.value);
+    counter.value++;
+  }
+}
+
+// src/live-preview/pipeline/context/contextPriming.ts
+function primeContextBeforeRange(context, startLine, codeRegions) {
+  if (startLine <= 1) {
+    return;
+  }
+  primeContextBetweenLines(context, 1, startLine - 1, codeRegions);
+}
+function primeContextBetweenLines(context, startLine, endLine, codeRegions) {
+  var _a4;
+  if (startLine > endLine) {
+    return;
+  }
+  const doc = context.document;
+  const lines = context.documentLines || doc.toString().split("\n");
+  let fencedDivCanOpenAtCurrentLine = (_a4 = context.fencedDivCanOpenAtCurrentLine) != null ? _a4 : true;
+  let fallbackCodeFenceMarker;
+  for (let lineNum = startLine; lineNum <= endLine; lineNum++) {
+    const lineText = lines[lineNum - 1] || "";
+    const line = doc.line(lineNum);
+    if (context.invalidLines.has(lineNum)) {
+      fencedDivCanOpenAtCurrentLine = false;
+      continue;
+    }
+    if (isLineInCodeRegion(lineNum, doc, codeRegions)) {
+      fencedDivCanOpenAtCurrentLine = isCodeRegionEndLine2(line, codeRegions);
+      continue;
+    }
+    if (fallbackCodeFenceMarker) {
+      if (isMarkdownCodeFenceClosing(lineText, fallbackCodeFenceMarker)) {
+        fallbackCodeFenceMarker = void 0;
+        fencedDivCanOpenAtCurrentLine = true;
+      } else {
+        fencedDivCanOpenAtCurrentLine = false;
+      }
+      continue;
+    }
+    const openingCodeFenceMarker = getMarkdownCodeFenceMarker(lineText);
+    if (openingCodeFenceMarker) {
+      fallbackCodeFenceMarker = openingCodeFenceMarker;
+      fencedDivCanOpenAtCurrentLine = false;
+      continue;
+    }
+    if (lineText.trim() === "") {
+      context.listContext = void 0;
+    }
+    primeHashCounter(lineText, context);
+    primeFencedDivState(lineText, lineNum, fencedDivCanOpenAtCurrentLine, context);
+    fencedDivCanOpenAtCurrentLine = allowsFencedDivOpeningAfterLine(lineText) || context.fencedDivBoundaryLine === lineNum;
+  }
+  context.fencedDivCanOpenAtCurrentLine = fencedDivCanOpenAtCurrentLine;
+}
+function primeHashCounter(lineText, context) {
+  if (isSyntaxFeatureEnabled(context.settings, "enableHashAutoNumber") && ListPatterns.isHashList(lineText)) {
+    context.hashCounter.value++;
+  }
+}
+function primeFencedDivState(lineText, lineNumber, canOpenAtCurrentLine, context) {
+  var _a4, _b2;
+  if (!isSyntaxFeatureEnabled(context.settings, "enableFencedDivs")) {
+    return;
+  }
+  if (canOpenAtCurrentLine) {
+    const opening = parseFencedDivOpening(lineText, context.settings);
+    if (opening) {
+      const renderExtendedTitle = isFencedDivExtrasEnabled(context.settings);
+      const title = renderExtendedTitle ? getFencedDivTitle(opening) : "";
+      if (renderExtendedTitle && (opening.id || title || opening.classes.length > 0)) {
+        context.fencedDivTypeCounters = context.fencedDivTypeCounters || /* @__PURE__ */ new Map();
+        createFencedDivReferenceMetadata(
+          title,
+          opening.classes,
+          context.fencedDivTypeCounters
+        );
+      }
+      context.fencedDivStack = context.fencedDivStack || [];
+      context.fencedDivStack.push({
+        label: opening.id,
+        classes: opening.classes,
+        openingLine: lineNumber
+      });
+      context.fencedDivBoundaryLine = lineNumber;
+      return;
+    }
+  }
+  if (isFencedDivClosing(lineText) && (((_a4 = context.fencedDivStack) == null ? void 0 : _a4.length) || 0) > 0) {
+    (_b2 = context.fencedDivStack) == null ? void 0 : _b2.pop();
+    context.fencedDivBoundaryLine = lineNumber;
+  }
+}
+function isCodeRegionEndLine2(line, codeRegions) {
+  return codeRegions.some(
+    (region) => region.type === "codeblock" && line.from >= region.from && line.to === region.to
+  );
+}
+
+// src/live-preview/pipeline/context/processingRange.ts
+var VIEWPORT_CONTEXT_LINE_MARGIN = 40;
+var VIEWPORT_DECORATION_LINE_MARGIN = 20;
+function getProcessingRange(view) {
+  const doc = view.state.doc;
+  const viewportRange = getViewportRange(view);
+  const visibleLineRanges = getVisibleLineRanges(view, viewportRange);
+  const lineRanges = addOuterMargin(visibleLineRanges, doc.lines, VIEWPORT_CONTEXT_LINE_MARGIN);
+  const renderLineRanges = addOuterMargin(
+    visibleLineRanges,
+    doc.lines,
+    VIEWPORT_DECORATION_LINE_MARGIN
+  );
+  const renderRanges = renderLineRanges.map((range) => ({
+    from: doc.line(range.startLine).from,
+    to: doc.line(range.endLine).to
+  }));
+  return {
+    lineRanges,
+    renderRanges,
+    startLine: lineRanges[0].startLine,
+    endLine: lineRanges[lineRanges.length - 1].endLine,
+    renderFrom: renderRanges[0].from,
+    renderTo: renderRanges[renderRanges.length - 1].to
+  };
+}
+function getLineAt(doc, position) {
+  if (typeof doc.lineAt === "function") {
+    return doc.lineAt(position);
+  }
+  const safePosition = Math.max(0, Math.min(position, doc.length));
+  for (let lineNumber = 1; lineNumber <= doc.lines; lineNumber++) {
+    const line = doc.line(lineNumber);
+    if (safePosition <= line.to || lineNumber === doc.lines) {
+      return line;
+    }
+  }
+  return doc.line(1);
+}
+function getViewportRange(view) {
+  const doc = view.state.doc;
+  const viewport = view.viewport || { from: 0, to: doc.length };
+  const viewportFrom = Math.max(0, Math.min(viewport.from, doc.length));
+  const viewportTo = Math.max(viewportFrom, Math.min(viewport.to, doc.length));
+  return {
+    from: viewportFrom,
+    to: Math.max(viewportTo, viewportFrom + 1)
+  };
+}
+function getVisibleLineRanges(view, viewport) {
+  const doc = view.state.doc;
+  const visibleRanges = (view.visibleRanges || [viewport]).map((range) => ({
+    from: Math.max(viewport.from, range.from),
+    to: Math.min(viewport.to, range.to)
+  })).filter((range) => range.from <= range.to).map((range) => ({
+    startLine: getLineAt(doc, range.from).number,
+    endLine: getLineAt(doc, Math.max(range.from, range.to - 1)).number
+  }));
+  return mergeAdjacentLineRanges(visibleRanges.length > 0 ? visibleRanges : [{
+    startLine: getLineAt(doc, viewport.from).number,
+    endLine: getLineAt(doc, Math.max(viewport.from, viewport.to - 1)).number
+  }]);
+}
+function mergeAdjacentLineRanges(ranges) {
+  const merged = [];
+  for (const range of ranges) {
+    const previous = merged[merged.length - 1];
+    if (previous && range.startLine <= previous.endLine + 1) {
+      previous.endLine = Math.max(previous.endLine, range.endLine);
+    } else {
+      merged.push({ ...range });
+    }
+  }
+  return merged;
+}
+function addOuterMargin(ranges, documentLineCount, margin) {
+  return ranges.map((range, index2) => ({
+    startLine: index2 === 0 ? Math.max(1, range.startLine - margin) : range.startLine,
+    endLine: index2 === ranges.length - 1 ? Math.min(documentLineCount, range.endLine + margin) : range.endLine
+  }));
+}
+
 // src/live-preview/pipeline/context/orderedListContext.ts
 function resolveOrderedListItemsByLine(documentLines, settings, processingRange) {
   const itemsByLine = /* @__PURE__ */ new Map();
@@ -217206,7 +218298,7 @@ var ProcessingContextFactory = class {
       hasCustomLabelSyntax
     );
     const fencedDivLabels = hasFencedDivSyntax ? scanFencedDivs(doc, settings, fullCodeBlockRegions) : /* @__PURE__ */ new Map();
-    const invalidLines = settings.enforcePandocListSpacing ? validateListBlocks(doc) : /* @__PURE__ */ new Set();
+    const invalidLines = validateListBlocks(doc, settings);
     if (docPath && customScanResult.placeholderContext) {
       const counters = this.stateManager.getDocumentCounters(docPath);
       counters.placeholderContext = customScanResult.placeholderContext;
@@ -217383,8 +218475,6 @@ var ProcessingPipeline = class {
       context.fencedDivCanOpenAtCurrentLine = fencedDivCanOpenAtCurrentLine;
       if (context.invalidLines.has(lineNum)) {
         this.decorateInvalidNativeListLine(line, context);
-        fencedDivCanOpenAtCurrentLine = false;
-        continue;
       }
       if (isLineInCodeRegion(lineNum, doc, codeRegions)) {
         fencedDivCanOpenAtCurrentLine = isCodeRegionEndLine3(line, codeRegions);
@@ -217587,6 +218677,162 @@ var ProcessingPipeline = class {
 // src/live-preview/widgets/BaseWidget.ts
 var import_view2 = require("@codemirror/view");
 var import_obsidian16 = require("obsidian");
+
+// src/shared/utils/hoverPopovers.ts
+var import_obsidian15 = require("obsidian");
+function createHoverState() {
+  return {
+    hoverPopover: null,
+    isMouseOverElement: false,
+    isMouseOverPopover: false,
+    cleanupTimeout: null,
+    popoverController: null
+  };
+}
+function clearCleanupTimeout(state) {
+  if (state.cleanupTimeout) {
+    window.clearTimeout(state.cleanupTimeout);
+    state.cleanupTimeout = null;
+  }
+}
+function scheduleRemoval(state, remove) {
+  clearCleanupTimeout(state);
+  state.cleanupTimeout = window.setTimeout(() => {
+    if (!state.isMouseOverElement && !state.isMouseOverPopover) {
+      remove();
+    }
+  }, UI_CONSTANTS.HOVER_CLEANUP_DELAY_MS);
+}
+function dismissPopover(state, remove) {
+  state.isMouseOverElement = false;
+  state.isMouseOverPopover = false;
+  remove();
+}
+function positionPopover(popoverElement, referenceElement) {
+  const elementRect = referenceElement.getBoundingClientRect();
+  popoverElement.style.left = `${elementRect.left}px`;
+  popoverElement.style.top = `${elementRect.bottom + UI_CONSTANTS.HOVER_OFFSET_BOTTOM}px`;
+  const popoverRect = popoverElement.getBoundingClientRect();
+  if (popoverRect.right > window.innerWidth) {
+    popoverElement.style.left = `${window.innerWidth - popoverRect.width - UI_CONSTANTS.HOVER_OFFSET_HORIZONTAL}px`;
+  }
+  if (popoverRect.bottom > window.innerHeight) {
+    popoverElement.style.top = `${elementRect.top - popoverRect.height - UI_CONSTANTS.HOVER_OFFSET_TOP}px`;
+  }
+}
+function attachPopoverListeners(popoverElement, state, remove) {
+  state.popoverController = new AbortController();
+  const { signal } = state.popoverController;
+  popoverElement.addEventListener("mouseenter", () => {
+    clearCleanupTimeout(state);
+    state.isMouseOverPopover = true;
+  }, { signal });
+  popoverElement.addEventListener("mouseleave", () => {
+    state.isMouseOverPopover = false;
+    scheduleRemoval(state, remove);
+  }, { signal });
+  popoverElement.addEventListener("click", () => {
+    dismissPopover(state, remove);
+  }, { signal });
+  document.addEventListener("pointerdown", (event) => {
+    const target = event.target;
+    if (target instanceof Node && popoverElement.contains(target)) {
+      return;
+    }
+    dismissPopover(state, remove);
+  }, { signal });
+  document.addEventListener("click", () => {
+    dismissPopover(state, remove);
+  }, { signal });
+}
+function createAsyncHoverState() {
+  return {
+    ...createHoverState(),
+    renderAbortController: null,
+    renderingGeneration: 0
+  };
+}
+function removeAsyncPopover(state) {
+  clearCleanupTimeout(state);
+  if (state.renderAbortController) {
+    state.renderAbortController.abort();
+    state.renderAbortController = null;
+  }
+  if (state.popoverController) {
+    state.popoverController.abort();
+    state.popoverController = null;
+  }
+  if (state.hoverPopover) {
+    state.hoverPopover.remove();
+    state.hoverPopover = null;
+  }
+}
+async function renderPopoverContent(popoverElement, content, app, component, context) {
+  const processedContent = context ? processContent(content, context) : content;
+  try {
+    await import_obsidian15.MarkdownRenderer.render(
+      app,
+      processedContent,
+      popoverElement,
+      FILE_CONSTANTS.EMPTY_STRING,
+      component
+    );
+  } catch (error) {
+    handleError(error, ERROR_MESSAGES.PLUGIN_PREFIX + ": Hover preview rendering");
+    throw error;
+  }
+}
+function setupRenderedHoverPreview(element, content, app, component, context, popoverClass = CSS_CLASSES.HOVER_POPOVER_CONTENT, abortSignal) {
+  const state = createAsyncHoverState();
+  const remove = () => removeAsyncPopover(state);
+  const mouseEnterHandler = async () => {
+    var _a4;
+    clearCleanupTimeout(state);
+    state.isMouseOverElement = true;
+    const currentGeneration = ++state.renderingGeneration;
+    removeAsyncPopover(state);
+    state.renderAbortController = new AbortController();
+    const hoverElement = document.createElement(DOM_ATTRIBUTES.ELEMENT_DIV);
+    hoverElement.classList.add(CSS_CLASSES.HOVER_POPOVER, popoverClass);
+    try {
+      await renderPopoverContent(hoverElement, content, app, component, context);
+    } catch (e) {
+      if ((_a4 = state.renderAbortController) == null ? void 0 : _a4.signal.aborted) {
+        return;
+      }
+      return;
+    }
+    if (currentGeneration !== state.renderingGeneration || !state.isMouseOverElement) {
+      return;
+    }
+    document.body.appendChild(hoverElement);
+    positionPopover(hoverElement, element);
+    if (currentGeneration === state.renderingGeneration && state.isMouseOverElement) {
+      state.hoverPopover = hoverElement;
+      attachPopoverListeners(hoverElement, state, remove);
+    } else {
+      hoverElement.remove();
+    }
+  };
+  const mouseLeaveHandler = () => {
+    state.isMouseOverElement = false;
+    scheduleRemoval(state, remove);
+  };
+  const clickHandler = () => {
+    dismissPopover(state, remove);
+  };
+  if (abortSignal) {
+    abortSignal.addEventListener("abort", remove, { once: true });
+  }
+  const enterListener = () => {
+    void mouseEnterHandler();
+  };
+  element.addEventListener("mouseenter", enterListener, { signal: abortSignal });
+  element.addEventListener("mouseleave", mouseLeaveHandler, { signal: abortSignal });
+  element.addEventListener("click", clickHandler, { signal: abortSignal });
+}
+
+// src/live-preview/widgets/BaseWidget.ts
 var BaseWidget = class extends import_view2.WidgetType {
   constructor(view, pos) {
     super();
@@ -218254,11 +219500,9 @@ var BaseStructuralProcessor = class {
     const cursorPos = (_b2 = (_a4 = context.view.state.selection) == null ? void 0 : _a4.main) == null ? void 0 : _b2.head;
     return cursorPos !== void 0 && cursorPos >= markerStart && cursorPos < markerEnd;
   }
-  /**
-   * Check if Pandoc list spacing enforcement should block processing
-   */
-  isInvalidInStrictMode(line, context) {
-    return context.settings.enforcePandocListSpacing && context.invalidLines.has(line.number);
+  /** Check whether Pandoc would parse this marker as paragraph text. */
+  isInvalidPandocListLine(line, context) {
+    return context.invalidLines.has(line.number);
   }
   /**
    * Create standard line decoration for lists
@@ -218404,7 +219648,7 @@ var HashListProcessor = class extends BaseStructuralProcessor {
     if (!hashMatch) {
       return { decorations: [] };
     }
-    if (this.isInvalidInStrictMode(line, context)) {
+    if (this.isInvalidPandocListLine(line, context)) {
       return { decorations: [] };
     }
     const indent = hashMatch[1];
@@ -218456,7 +219700,7 @@ var FancyListProcessor = class extends BaseStructuralProcessor {
     if (!item || !isPluginOwnedOrderedListItem(item)) {
       return { decorations: [] };
     }
-    if (this.isInvalidInStrictMode(line, context)) {
+    if (this.isInvalidPandocListLine(line, context)) {
       return { decorations: [] };
     }
     const markerMatch = line.text.match(/^(\s*)(\d+|[A-Za-z]+)([.)])(\s*)/);
@@ -218534,7 +219778,7 @@ var ExampleListProcessor = class extends BaseStructuralProcessor {
     if (!exampleMatch) {
       return { decorations: [] };
     }
-    if (this.isInvalidInStrictMode(line, context)) {
+    if (this.isInvalidPandocListLine(line, context)) {
       return { decorations: [] };
     }
     const markerInfo = this.extractMarkerInfo(exampleMatch, line);
@@ -218655,12 +219899,8 @@ var ExampleListProcessor = class extends BaseStructuralProcessor {
 function parseCustomLabel(line, context) {
   var _a4, _b2;
   const lineText = context.document.sliceString(line.from, line.to);
-  const lineNum = context.document.lineAt(line.from).number;
   const customLabelMatch = ListPatterns.isCustomLabelList(lineText);
   if (!customLabelMatch) {
-    return null;
-  }
-  if (context.settings.enforcePandocListSpacing && context.invalidLines.has(lineNum)) {
     return null;
   }
   const indent = customLabelMatch[1];
@@ -218999,7 +220239,7 @@ var DefinitionProcessor = class {
   }
   processDefinitionItem(line, lineText, lineNum, context, defItemMatch) {
     const decorations = [];
-    if (context.settings.enforcePandocListSpacing && context.invalidLines.has(lineNum)) {
+    if (context.invalidLines.has(lineNum)) {
       return { decorations };
     }
     const indent = defItemMatch[1] || "";
@@ -219122,13 +220362,13 @@ var DefinitionProcessor = class {
     if (lineNum < context.document.lines) {
       const nextLine = context.document.line(lineNum + 1);
       const nextText = context.document.sliceString(nextLine.from, nextLine.to);
-      if (ListPatterns.isDefinitionMarker(nextText)) {
+      if (ListPatterns.isDefinitionMarker(nextText) && !context.invalidLines.has(nextLine.number)) {
         return true;
       }
       if (nextText.trim() === "" && lineNum + 1 < context.document.lines) {
         const lineAfterEmpty = context.document.line(lineNum + 2);
         const afterEmptyText = context.document.sliceString(lineAfterEmpty.from, lineAfterEmpty.to);
-        if (ListPatterns.isDefinitionMarker(afterEmptyText)) {
+        if (ListPatterns.isDefinitionMarker(afterEmptyText) && !context.invalidLines.has(lineAfterEmpty.number)) {
           return true;
         }
       }
@@ -219405,7 +220645,7 @@ var StandardListProcessor = class {
     if (!isSyntaxFeatureEnabled(context.settings, "enableUnorderedListMarkerStyles")) {
       return { decorations: [] };
     }
-    if (context.settings.enforcePandocListSpacing && context.invalidLines.has(line.number)) {
+    if (context.invalidLines.has(line.number)) {
       return { decorations: [] };
     }
     const match = line.text.match(ListPatterns.UNORDERED_LIST_MARKER_WITH_SPACE);
@@ -219633,7 +220873,7 @@ var ListContinuationProcessor = class {
         visualLength += INDENTATION.SINGLE_SPACE;
         textLength += 1;
       } else if (char === INDENTATION.TAB) {
-        visualLength += INDENTATION.TAB_SIZE;
+        visualLength += INDENTATION.TAB_SIZE - visualLength % INDENTATION.TAB_SIZE;
         textLength += 1;
       } else {
         break;
@@ -219861,7 +221101,7 @@ function findSmartDashMatches(text) {
   let match;
   DASH_RUN_PATTERN.lastIndex = 0;
   while ((match = DASH_RUN_PATTERN.exec(text)) !== null) {
-    if (isEscaped3(text, match.index)) {
+    if (isEscaped2(text, match.index)) {
       continue;
     }
     matches.push({
@@ -219887,7 +221127,7 @@ function renderPandocDashRun(dashRun) {
   }
   return rendered;
 }
-function isEscaped3(text, index2) {
+function isEscaped2(text, index2) {
   let slashCount = 0;
   for (let cursor = index2 - 1; cursor >= 0 && text[cursor] === "\\"; cursor--) {
     slashCount++;
@@ -221110,10 +222350,10 @@ function processCustomLabelLists(element, context, placeholderContext) {
 }
 function getCandidateTextContainers(element) {
   const descendants = Array.from(element.querySelectorAll("p, li"));
-  if (element.matches("p, li")) {
-    return [element, ...descendants];
-  }
-  return descendants;
+  const candidates = element.matches("p, li") ? [element, ...descendants] : descendants;
+  return candidates.filter(
+    (candidate) => !candidate.closest(`.${CSS_CLASSES.PANDOC_INVALID_NATIVE_LIST}`)
+  );
 }
 function processTextNode(node, container, placeholderContext) {
   const text = node.textContent || "";
@@ -221288,27 +222528,206 @@ var CustomLabelListProcessor = class {
   }
 };
 
+// src/reading-mode/pipeline/processors/definitionListNormalizationProcessor.ts
+var import_obsidian25 = require("obsidian");
+
 // src/reading-mode/features/extended-lists/lineRenderer.ts
 var import_obsidian22 = require("obsidian");
 
 // src/reading-mode/features/definition-lists/sourceParser.ts
-function findPandocDefinitionListBlocks(sourceText) {
-  const lines = sourceText.split("\n");
+function findPandocDefinitionListBlocks(sourceText, settings = {
+  enableListsWithoutPrecedingBlankline: true
+}) {
+  var _a4;
+  const sourceLines = sourceText.split("\n");
+  const analysis = ListBlockValidator.analyzeListBlocks(sourceLines, {
+    enableListsWithoutPrecedingBlankline: settings.enableListsWithoutPrecedingBlankline
+  });
+  const invalidLines = analysis.invalidLines;
+  const nativeListOwnedLines = getNativeListOwnedNonMarkerLines(
+    sourceLines,
+    invalidLines
+  );
+  const projections = /* @__PURE__ */ new Map();
   const blocks = [];
   let index2 = 0;
-  while (index2 < lines.length) {
-    if (!canStartDefinitionListItem(lines, index2)) {
+  while (index2 < sourceLines.length) {
+    const ownerContainerDepth = getBlockQuoteDepth(sourceLines[index2]);
+    const lines = getDefinitionContainerProjection(
+      analysis.sourceLines,
+      sourceLines,
+      invalidLines,
+      ownerContainerDepth,
+      projections
+    );
+    const nativeProjection = getNativeListDefinitionProjection(
+      lines,
+      sourceLines,
+      index2
+    );
+    const sourceMarker = parsePandocListMarker(sourceLines[index2], true);
+    if (nativeListOwnedLines.has(index2)) {
       index2++;
       continue;
     }
-    const block = readDefinitionListBlock(lines, index2);
+    if (sourceMarker && sourceMarker.kind !== "definition" && !nativeProjection) {
+      index2++;
+      continue;
+    }
+    const candidateLines = (_a4 = nativeProjection == null ? void 0 : nativeProjection.lines) != null ? _a4 : lines;
+    const allowLiteralMarkerTerm = isInvalidLiteralDefinitionTerm(
+      candidateLines,
+      invalidLines,
+      index2
+    );
+    const markerIndex = findFirstDefinitionMarker(candidateLines, index2);
+    if (!canStartDefinitionListItem(candidateLines, index2, allowLiteralMarkerTerm) || invalidLines.has(markerIndex)) {
+      index2++;
+      continue;
+    }
+    const block = readDefinitionListBlock(
+      candidateLines,
+      sourceLines,
+      index2,
+      markerIndex,
+      ownerContainerDepth,
+      settings.enableListsWithoutPrecedingBlankline,
+      nativeProjection ? index2 : void 0,
+      allowLiteralMarkerTerm
+    );
     blocks.push(block);
     index2 = block.endLine + 1;
   }
   return blocks;
 }
+function getNativeListOwnedNonMarkerLines(sourceLines, invalidLines) {
+  const ownedLines = /* @__PURE__ */ new Set();
+  sourceLines.forEach((line, parentIndex) => {
+    const parent2 = parsePandocListMarker(line, true);
+    if (!parent2 || parent2.kind === "definition" || invalidLines.has(parentIndex)) {
+      return;
+    }
+    const endIndex = findNativeListItemEnd(
+      sourceLines,
+      parentIndex,
+      parent2.indentColumns,
+      parent2.contentIndentColumns,
+      getBlockQuoteDepth(line)
+    );
+    for (let index2 = parentIndex + 1; index2 < endIndex; index2++) {
+      const marker = parsePandocListMarker(sourceLines[index2], true);
+      if (!marker || marker.kind === "definition") {
+        ownedLines.add(index2);
+      }
+    }
+  });
+  return ownedLines;
+}
+function getDefinitionContainerProjection(analyzedLines, sourceLines, invalidLines, ownerContainerDepth, projections) {
+  const existing = projections.get(ownerContainerDepth);
+  if (existing) {
+    return existing;
+  }
+  const projected = analyzedLines.map(
+    (line) => stripBlockQuoteDepth(line, ownerContainerDepth)
+  );
+  normalizeIndentedLazyDefinitionMarkers(projected, sourceLines, invalidLines);
+  projections.set(ownerContainerDepth, projected);
+  return projected;
+}
+function isInvalidLiteralDefinitionTerm(lines, invalidLines, index2) {
+  var _a4;
+  return invalidLines.has(index2) && parseTopLevelDefinitionMarker((_a4 = lines[index2]) != null ? _a4 : "") !== null;
+}
+function getNativeListDefinitionProjection(lines, sourceLines, index2) {
+  const parent2 = parsePandocListMarker(sourceLines[index2], true);
+  if (!parent2 || parent2.kind === "definition" || !sourceLines[index2].slice(parent2.markerEnd).trim()) {
+    return null;
+  }
+  const endIndex = findNativeListItemEnd(
+    sourceLines,
+    index2,
+    parent2.indentColumns,
+    parent2.contentIndentColumns,
+    getBlockQuoteDepth(sourceLines[index2])
+  );
+  const projected = lines.slice(0, endIndex);
+  projected[index2] = sourceLines[index2].slice(parent2.markerEnd).trimStart();
+  for (let lineIndex = index2 + 1; lineIndex < endIndex; lineIndex++) {
+    projected[lineIndex] = stripIndentColumns(
+      lines[lineIndex],
+      parent2.contentIndentColumns
+    );
+  }
+  const markerIndex = findFirstDefinitionMarker(projected, index2);
+  if (markerIndex < 0) {
+    return null;
+  }
+  const originalMarker = parsePandocListMarker(sourceLines[markerIndex], true);
+  if ((originalMarker == null ? void 0 : originalMarker.kind) !== "definition" || originalMarker.indentColumns < parent2.contentIndentColumns || originalMarker.indentColumns > parent2.contentIndentColumns + 3) {
+    return null;
+  }
+  return { lines: projected };
+}
+function findNativeListItemEnd(sourceLines, startIndex, parentIndentColumns, parentContentIndentColumns, parentContainerDepth) {
+  let followsBlank = false;
+  for (let index2 = startIndex + 1; index2 < sourceLines.length; index2++) {
+    const ownerContent = stripBlockQuoteDepth(
+      sourceLines[index2],
+      parentContainerDepth
+    );
+    if (ownerContent.trim().length === 0) {
+      followsBlank = true;
+      continue;
+    }
+    const marker = parsePandocListMarker(sourceLines[index2], true);
+    if (marker && marker.kind !== "definition" && marker.indentColumns <= parentIndentColumns) {
+      return index2;
+    }
+    if ((marker == null ? void 0 : marker.kind) === "definition" && marker.indentColumns < parentContentIndentColumns) {
+      return index2;
+    }
+    if (followsBlank && (getBlockQuoteDepth(sourceLines[index2]) < parentContainerDepth || getIndentWidth(getLeadingWhitespace(ownerContent)) < parentContentIndentColumns)) {
+      return index2;
+    }
+    followsBlank = false;
+  }
+  return sourceLines.length;
+}
+function stripIndentColumns(line, columnsToStrip) {
+  let offset = 0;
+  let columns = 0;
+  while (offset < line.length && columns < columnsToStrip) {
+    if (line[offset] === " ") {
+      columns++;
+      offset++;
+      continue;
+    }
+    if (line[offset] === "	") {
+      columns += 4 - columns % 4;
+      offset++;
+      continue;
+    }
+    break;
+  }
+  return columns >= columnsToStrip ? line.slice(offset) : line;
+}
+function normalizeIndentedLazyDefinitionMarkers(lines, sourceLines, invalidLines) {
+  for (let index2 = 1; index2 < lines.length; index2++) {
+    const marker = parsePandocListMarker(sourceLines[index2], true);
+    if (invalidLines.has(index2) || (marker == null ? void 0 : marker.kind) !== "definition" || marker.indentColumns < 4 || getBlockQuoteDepth(sourceLines[index2 - 1]) <= getBlockQuoteDepth(sourceLines[index2])) {
+      continue;
+    }
+    lines[index2] = lines[index2].trimStart();
+  }
+}
 function isStandalonePandocDefinitionList(sourceText, blocks = findPandocDefinitionListBlocks(sourceText)) {
   if (blocks.length === 0) {
+    return false;
+  }
+  if (blocks.some(
+    (block) => block.nativeListParentIndex !== void 0 || block.termContainerDepth !== 0 || block.definitionContainerDepth !== 0
+  )) {
     return false;
   }
   const lines = sourceText.split("\n");
@@ -221320,14 +222739,13 @@ function isStandalonePandocDefinitionList(sourceText, blocks = findPandocDefinit
   });
 }
 function parseIndentedDefinitionMarker(line) {
-  var _a4;
-  const match = line.match(/^([ \t]*)([:~])(?:([ \t]+)(.*)|[ \t]*)$/);
-  if (!match || getIndentWidth(match[1]) < 4) {
+  const parsed = parseDefinitionMarkerAtAnyIndent(line);
+  if (!parsed || parsed.indentColumns < 4) {
     return null;
   }
   return {
-    marker: match[2],
-    content: removePandocMarkerPadding((_a4 = match[4]) != null ? _a4 : "")
+    marker: parsed.marker,
+    content: parsed.content
   };
 }
 function parseMarkdownListItem(line) {
@@ -221363,12 +222781,17 @@ function trimOuterBlankLines(lines) {
 function normalizePlainText(lines) {
   return trimOuterBlankLines(lines).filter((line) => line.trim().length > 0).map((line) => line.trim()).join(" ");
 }
-function readDefinitionListBlock(lines, startLine) {
+function readDefinitionListBlock(lines, sourceLines, startLine, firstMarkerLine, ownerContainerDepth, enableListsWithoutPrecedingBlankline, nativeListParentIndex, allowLiteralMarkerTerm = false) {
   const items = [];
   const termTexts = [];
   const definitionTexts = [];
   let index2 = startLine;
-  while (canStartDefinitionListItem(lines, index2)) {
+  const definitionQuoteDepth = getBlockQuoteDepth(sourceLines[firstMarkerLine]);
+  while (canStartDefinitionListItem(
+    lines,
+    index2,
+    allowLiteralMarkerTerm && index2 === startLine
+  ) && getBlockQuoteDepth(sourceLines[index2]) >= ownerContainerDepth) {
     const itemStart = index2;
     const term = lines[index2].trim();
     const markerStart = findFirstDefinitionMarker(lines, itemStart);
@@ -221376,10 +222799,20 @@ function readDefinitionListBlock(lines, startLine) {
     index2 = markerStart;
     const definitions = [];
     while (index2 < lines.length) {
-      if (!parseTopLevelDefinitionMarker(lines[index2])) {
+      if (!isDefinitionMarkerInOwningContainer(
+        sourceLines[index2],
+        ownerContainerDepth,
+        enableListsWithoutPrecedingBlankline
+      ) || !parseTopLevelDefinitionMarker(lines[index2])) {
         break;
       }
-      const result = readDefinitionDescription(lines, index2, hasBlankAfterTerm, definitions.length);
+      const result = readDefinitionDescription(
+        lines,
+        index2,
+        hasBlankAfterTerm,
+        definitions.length,
+        enableListsWithoutPrecedingBlankline
+      );
       definitions.push(result.description);
       definitionTexts.push(result.description.plainText);
       index2 = result.nextIndex;
@@ -221389,8 +222822,15 @@ function readDefinitionListBlock(lines, startLine) {
     }
     items.push({ term, definitions });
     termTexts.push(term);
+    let crossedContainerBoundary = false;
     while (index2 < lines.length && lines[index2].trim().length === 0) {
+      if (getBlockQuoteDepth(sourceLines[index2]) < ownerContainerDepth) {
+        crossedContainerBoundary = true;
+      }
       index2++;
+    }
+    if (crossedContainerBoundary) {
+      break;
     }
   }
   return {
@@ -221398,20 +222838,28 @@ function readDefinitionListBlock(lines, startLine) {
     endLine: Math.max(startLine, index2 - 1),
     termTexts,
     definitionTexts,
-    items
+    items,
+    joinsLazyContainer: ownerContainerDepth > definitionQuoteDepth,
+    termContainerDepth: ownerContainerDepth,
+    definitionContainerDepth: definitionQuoteDepth,
+    nativeListParentIndex
   };
 }
-function readDefinitionDescription(lines, markerLine, hasBlankAfterTerm, definitionIndex) {
-  var _a4;
+function readDefinitionDescription(lines, markerLine, hasBlankAfterTerm, definitionIndex, enableListsWithoutPrecedingBlankline) {
+  var _a4, _b2, _c;
   const marker = parseTopLevelDefinitionMarker(lines[markerLine]);
+  const owner = parsePandocListMarker(lines[markerLine], true);
   const descriptionLines = [(_a4 = marker == null ? void 0 : marker.content) != null ? _a4 : ""];
   let index2 = markerLine + 1;
   let sawBlank = false;
   while (index2 < lines.length) {
+    if (isDefinitionDescriptionListBoundary(lines, markerLine, index2)) {
+      break;
+    }
     if (isDefinitionTermBoundary(lines[index2])) {
       break;
     }
-    if (parseTopLevelDefinitionMarker(lines[index2])) {
+    if (parseTopLevelDefinitionMarker(lines[index2]) && !isNestedDefinitionMarker(owner, lines[index2])) {
       break;
     }
     if (sawBlank && canStartDefinitionListItem(lines, index2)) {
@@ -221426,20 +222874,59 @@ function readDefinitionDescription(lines, markerLine, hasBlankAfterTerm, definit
       index2++;
       continue;
     }
-    descriptionLines.push(stripContinuationIndent(lines[index2]));
+    descriptionLines.push(normalizeDefinitionContinuation(
+      lines[index2],
+      (_b2 = owner == null ? void 0 : owner.contentIndentColumns) != null ? _b2 : 2,
+      descriptionLines[0]
+    ));
     index2++;
   }
+  const nestedDefinitionBlocks = findPandocDefinitionListBlocks(
+    descriptionLines.join("\n"),
+    { enableListsWithoutPrecedingBlankline }
+  ).filter((block) => block.termContainerDepth === 0);
   return {
     description: {
+      marker: (_c = marker == null ? void 0 : marker.marker) != null ? _c : ":",
       lines: trimTrailingBlankLines(descriptionLines),
       plainText: normalizePlainText(descriptionLines),
-      wrapParagraph: hasBlankAfterTerm && (definitionIndex > 0 || !hasInlineBlockContent(descriptionLines)) || sawBlank
+      wrapParagraph: hasBlankAfterTerm && (definitionIndex > 0 || !hasInlineBlockContent(descriptionLines)) || sawBlank,
+      nestedDefinitionBlocks
     },
     nextIndex: index2
   };
 }
-function canStartDefinitionListItem(lines, index2) {
-  if (index2 >= lines.length || lines[index2].trim().length === 0 || parseTopLevelDefinitionMarker(lines[index2]) || isDefinitionTermBoundary(lines[index2])) {
+function isNestedDefinitionMarker(owner, candidateLine) {
+  const candidate = parsePandocListMarker(candidateLine, true);
+  return (owner == null ? void 0 : owner.kind) === "definition" && (candidate == null ? void 0 : candidate.kind) === "definition" && candidate.indentColumns >= owner.contentIndentColumns && candidate.indentColumns <= owner.contentIndentColumns + 3;
+}
+function normalizeDefinitionContinuation(line, ownerContentIndent, firstLine) {
+  if (!parseMarkdownListItem(firstLine)) {
+    return stripIndentColumns(line, ownerContentIndent);
+  }
+  return stripContinuationIndent(line);
+}
+function isDefinitionMarkerInOwningContainer(sourceLine, ownerContainerDepth, enableListsWithoutPrecedingBlankline) {
+  const marker = parsePandocListMarker(sourceLine, true);
+  if ((marker == null ? void 0 : marker.kind) !== "definition") {
+    return false;
+  }
+  const markerContainerDepth = getBlockQuoteDepth(sourceLine);
+  return markerContainerDepth >= ownerContainerDepth || !enableListsWithoutPrecedingBlankline || marker.indentColumns >= 4;
+}
+function isDefinitionDescriptionListBoundary(lines, definitionMarkerLine, candidateLine) {
+  if (getBlockQuoteDepth(lines[candidateLine]) > 0) {
+    return false;
+  }
+  const candidate = parsePandocListMarker(lines[candidateLine], true);
+  if (!candidate || candidate.kind === "definition") {
+    return false;
+  }
+  const definition = parsePandocListMarker(lines[definitionMarkerLine], true);
+  return Boolean(definition && candidate.indentColumns < definition.contentIndentColumns);
+}
+function canStartDefinitionListItem(lines, index2, allowDefinitionMarkerTerm = false) {
+  if (index2 >= lines.length || lines[index2].trim().length === 0 || getIndentWidth(getLeadingWhitespace(lines[index2])) >= 4 || !allowDefinitionMarkerTerm && parseTopLevelDefinitionMarker(lines[index2]) || isDefinitionTermBoundary(lines[index2])) {
     return false;
   }
   const markerIndex = findFirstDefinitionMarker(lines, index2);
@@ -221485,17 +222972,30 @@ function isBlankBeforeSiblingDefinition(lines, index2) {
   return parseTopLevelDefinitionMarker((_a4 = lines[index2]) != null ? _a4 : "") !== null || canStartDefinitionListItem(lines, index2);
 }
 function parseTopLevelDefinitionMarker(line) {
-  var _a4;
-  const match = line.match(/^([ \t]*)([:~])(?:([ \t]+)(.*)|[ \t]*)$/);
-  if (!match || getIndentWidth(match[1]) >= 4) {
-    return null;
-  }
-  if (!match[3] && line.trim().length > 1) {
+  const parsed = parseDefinitionMarkerAtAnyIndent(line);
+  if (!parsed || parsed.indentColumns >= 4) {
     return null;
   }
   return {
-    marker: match[2],
-    content: removePandocMarkerPadding((_a4 = match[4]) != null ? _a4 : "")
+    marker: parsed.marker,
+    content: parsed.content
+  };
+}
+function parseDefinitionMarkerAtAnyIndent(line) {
+  const parsed = parsePandocListMarker(line, true);
+  if ((parsed == null ? void 0 : parsed.kind) !== "definition" || !/^[ \t]*$/.test(line.slice(0, parsed.markerStart))) {
+    return null;
+  }
+  const marker = line.slice(parsed.markerStart, parsed.markerEnd);
+  if (marker !== ":" && marker !== "~") {
+    return null;
+  }
+  const markerEndColumn = parsed.indentColumns + marker.length;
+  const paddingColumns = parsed.contentIndentColumns - markerEndColumn;
+  return {
+    marker,
+    content: stripIndentColumns(line.slice(parsed.markerEnd), paddingColumns),
+    indentColumns: parsed.indentColumns
   };
 }
 function stripContinuationIndent(line) {
@@ -221503,9 +223003,6 @@ function stripContinuationIndent(line) {
     return line;
   }
   return line.replace(/^ {0,2}/, "");
-}
-function removePandocMarkerPadding(content) {
-  return content.replace(/^ {0,3}/, "");
 }
 function trimTrailingBlankLines(lines) {
   let end = lines.length;
@@ -221524,11 +223021,11 @@ function getLeadingWhitespace(line) {
   return (_b2 = (_a4 = line.match(/^[ \t]*/)) == null ? void 0 : _a4[0]) != null ? _b2 : "";
 }
 function getIndentWidth(indent) {
-  return Array.from(indent).reduce((width, char) => width + (char === "	" ? 4 : 1), 0);
+  return Array.from(indent).reduce((width, char) => width + (char === "	" ? 4 - width % 4 : 1), 0);
 }
 
 // src/reading-mode/features/definition-lists/sourceRenderer.ts
-function renderPandocDefinitionListBlock(block, context, appendContent) {
+function renderPandocDefinitionListBlock(block, context, appendContent, appendBlockContent) {
   const dl = document.createElement("dl");
   dl.className = CSS_CLASSES.DEFINITION_LIST;
   block.items.forEach((item) => {
@@ -221539,15 +223036,21 @@ function renderPandocDefinitionListBlock(block, context, appendContent) {
     item.definitions.forEach((definition) => {
       const dd = document.createElement("dd");
       dd.className = `${CSS_CLASSES.DEFINITION_DESC} ${CSS_CLASSES.DEFINITION_DESC_ITEM}`;
-      appendDefinitionDescription(dd, definition, context, appendContent);
+      appendDefinitionDescription(
+        dd,
+        definition,
+        context,
+        appendContent,
+        appendBlockContent
+      );
       dl.appendChild(dd);
     });
   });
   return dl;
 }
-function renderPandocDefinitionSource(sourceText, context, appendContent) {
+function renderPandocDefinitionSource(sourceText, context, appendContent, settings) {
   const lines = sourceText.split("\n");
-  const blocks = findPandocDefinitionListBlocks(sourceText);
+  const blocks = findPandocDefinitionListBlocks(sourceText, settings);
   const nodes = [];
   let index2 = 0;
   blocks.forEach((block) => {
@@ -221558,9 +223061,93 @@ function renderPandocDefinitionSource(sourceText, context, appendContent) {
   appendParagraphs(nodes, lines.slice(index2), context, appendContent);
   return nodes;
 }
-function appendDefinitionDescription(dd, definition, context, appendContent) {
-  const lines = trimOuterBlankLines(definition.lines);
+function appendDefinitionDescription(dd, definition, context, appendContent, appendBlockContent) {
+  if (definition.nestedDefinitionBlocks.length > 0) {
+    appendDefinitionBodyWithNestedBlocks(
+      dd,
+      definition,
+      context,
+      appendContent,
+      appendBlockContent
+    );
+    return;
+  }
+  appendDefinitionBodyFragment(
+    dd,
+    definition.lines,
+    definition.wrapParagraph,
+    context,
+    appendContent,
+    appendBlockContent
+  );
+}
+function appendDefinitionBodyWithNestedBlocks(dd, definition, context, appendContent, appendBlockContent) {
+  let index2 = 0;
+  definition.nestedDefinitionBlocks.forEach((block) => {
+    var _a4;
+    if (block.endLine < index2) {
+      return;
+    }
+    const blockStart = (_a4 = block.nativeListParentIndex) != null ? _a4 : block.startLine;
+    appendDefinitionBodyFragment(
+      dd,
+      definition.lines.slice(index2, blockStart),
+      definition.wrapParagraph,
+      context,
+      appendContent,
+      appendBlockContent
+    );
+    if (block.nativeListParentIndex !== void 0) {
+      const renderedList = renderListBlock(
+        definition.lines.slice(blockStart),
+        context,
+        appendContent
+      );
+      if (renderedList) {
+        dd.appendChild(renderedList.element);
+        index2 = blockStart + renderedList.consumedLines;
+        return;
+      }
+      appendDefinitionBodyFragment(
+        dd,
+        definition.lines.slice(blockStart, block.endLine + 1),
+        definition.wrapParagraph,
+        context,
+        appendContent,
+        appendBlockContent
+      );
+      index2 = block.endLine + 1;
+      return;
+    }
+    dd.appendChild(renderPandocDefinitionListBlock(
+      block,
+      context,
+      appendContent,
+      appendBlockContent
+    ));
+    index2 = block.endLine + 1;
+  });
+  appendDefinitionBodyFragment(
+    dd,
+    definition.lines.slice(index2),
+    definition.wrapParagraph,
+    context,
+    appendContent,
+    appendBlockContent
+  );
+}
+function appendDefinitionBodyFragment(dd, sourceLines, wrapParagraph, context, appendContent, appendBlockContent) {
+  const lines = trimOuterBlankLines(sourceLines);
   if (lines.length === 0) {
+    return;
+  }
+  if (appendBlockContent) {
+    appendBlockContent(
+      dd,
+      lines.join("\n"),
+      context,
+      !wrapParagraph
+    );
     return;
   }
   if (appendListBlock(dd, lines, context, appendContent)) {
@@ -221570,7 +223157,7 @@ function appendDefinitionDescription(dd, definition, context, appendContent) {
     return;
   }
   const content = normalizePlainText(lines);
-  if (definition.wrapParagraph) {
+  if (wrapParagraph) {
     const paragraph = document.createElement("p");
     appendInlineContent(paragraph, content, context, appendContent);
     dd.appendChild(paragraph);
@@ -221601,10 +223188,18 @@ function appendParagraphs(nodes, lines, context, appendContent) {
   });
 }
 function appendListBlock(parent2, lines, context, appendContent) {
+  const rendered = renderListBlock(lines, context, appendContent);
+  if (!rendered || rendered.consumedLines !== lines.length) {
+    return false;
+  }
+  parent2.appendChild(rendered.element);
+  return true;
+}
+function renderListBlock(lines, context, appendContent) {
   var _a4;
   const firstItem = parseMarkdownListItem(lines[0]);
   if (!firstItem) {
-    return false;
+    return null;
   }
   const list = document.createElement(firstItem.ordered ? "ol" : "ul");
   if (firstItem.ordered) {
@@ -221636,8 +223231,7 @@ function appendListBlock(parent2, lines, context, appendContent) {
     }
     list.appendChild(li);
   }
-  parent2.appendChild(list);
-  return true;
+  return { element: list, consumedLines: index2 };
 }
 function appendNestedDefinitionList(li, term, definitionLines, context, appendContent) {
   const nestedSource = [term, ...definitionLines].join("\n");
@@ -221672,39 +223266,7 @@ function appendBlockQuote(parent2, lines, context, appendContent) {
   return true;
 }
 function appendInlineContent(element, content, context, appendContent) {
-  splitInlineMarkdown(content).forEach((segment) => {
-    if (segment.type === "text") {
-      appendContent(element, segment.content, context);
-      return;
-    }
-    const child = document.createElement(segment.type);
-    appendContent(child, segment.content, context);
-    element.appendChild(child);
-  });
-}
-function splitInlineMarkdown(content) {
-  var _a4, _b2;
-  const parts = [];
-  const regex = /(\*\*([^*]+)\*\*|__([^_]+)__|`([^`]+)`|\*([^*]+)\*|_([^_]+)_)/g;
-  let lastIndex = 0;
-  let match;
-  while ((match = regex.exec(content)) !== null) {
-    if (match.index > lastIndex) {
-      parts.push({ type: "text", content: content.slice(lastIndex, match.index) });
-    }
-    if (match[2] || match[3]) {
-      parts.push({ type: "strong", content: (_a4 = match[2]) != null ? _a4 : match[3] });
-    } else if (match[4]) {
-      parts.push({ type: "code", content: match[4] });
-    } else {
-      parts.push({ type: "em", content: (_b2 = match[5]) != null ? _b2 : match[6] });
-    }
-    lastIndex = match.index + match[0].length;
-  }
-  if (lastIndex < content.length) {
-    parts.push({ type: "text", content: content.slice(lastIndex) });
-  }
-  return parts;
+  appendContent(element, content, context);
 }
 
 // src/reading-mode/features/definition-lists/parsedLineAdapter.ts
@@ -221773,6 +223335,68 @@ function nextNonBlankIndex(parsedLines, startIndex) {
 
 // src/reading-mode/features/extended-lists/mathContentRenderer.ts
 var import_obsidian21 = require("obsidian");
+
+// src/shared/utils/mathSegments.ts
+function splitMathSegments(content) {
+  const segments = [];
+  let textStart = 0;
+  let index2 = 0;
+  while (index2 < content.length) {
+    const delimiter = getMathDelimiterAt(content, index2);
+    if (!delimiter) {
+      index2++;
+      continue;
+    }
+    appendTextSegment(segments, content, textStart, index2);
+    const contentStart = index2 + delimiter.length;
+    const closingIndex = findClosingMathDelimiter(content, contentStart, delimiter);
+    const contentEnd = closingIndex != null ? closingIndex : content.length;
+    const rawEnd = closingIndex === void 0 ? content.length : closingIndex + delimiter.length;
+    segments.push({
+      type: "math",
+      delimiter,
+      raw: content.slice(index2, rawEnd),
+      content: content.slice(contentStart, contentEnd).trimEnd(),
+      display: delimiter === "$$",
+      closed: closingIndex !== void 0
+    });
+    index2 = rawEnd;
+    textStart = index2;
+  }
+  appendTextSegment(segments, content, textStart, content.length);
+  return segments;
+}
+function appendTextSegment(segments, content, start, end) {
+  if (end > start) {
+    segments.push({ type: "text", content: content.slice(start, end) });
+  }
+}
+function getMathDelimiterAt(content, index2) {
+  if (content[index2] !== "$" || isEscaped3(content, index2)) {
+    return null;
+  }
+  return content[index2 + 1] === "$" ? "$$" : "$";
+}
+function findClosingMathDelimiter(content, start, delimiter) {
+  for (let index2 = start; index2 < content.length; index2++) {
+    if (isEscaped3(content, index2)) continue;
+    if (delimiter === "$$" && content.startsWith("$$", index2)) return index2;
+    if (delimiter === "$" && isSingleDollarDelimiter(content, index2)) return index2;
+  }
+  return void 0;
+}
+function isSingleDollarDelimiter(content, index2) {
+  return content[index2] === "$" && content[index2 - 1] !== "$" && content[index2 + 1] !== "$";
+}
+function isEscaped3(content, index2) {
+  let slashCount = 0;
+  for (let current = index2 - 1; current >= 0 && content[current] === "\\"; current--) {
+    slashCount++;
+  }
+  return slashCount % 2 === 1;
+}
+
+// src/reading-mode/features/extended-lists/mathContentRenderer.ts
 function appendMathContent(element, content, appendText) {
   if (!shouldRenderMathContent(element, content)) {
     return false;
@@ -222031,154 +223655,300 @@ var ReadingModeRenderer = class {
   }
 };
 
-// src/reading-mode/features/definition-lists/normalizer.ts
-function normalizeExistingDefinitionLists(element, context, config, renderContext, fullSourceText) {
-  if (context && config && normalizeDefinitionListsFromSource(element, context, config, renderContext, fullSourceText)) {
-    return;
-  }
-  normalizeDefinitionListsFromDom(element);
-}
-function normalizeDefinitionListsFromSource(element, context, config, renderContext, fullSourceText) {
-  const sectionInfo = fullSourceText ? null : getSourceSectionInfo(element, context);
-  const sourceText = fullSourceText != null ? fullSourceText : sectionInfo == null ? void 0 : sectionInfo.text;
-  if (!sourceText) {
-    return false;
-  }
-  const blocks = findPandocDefinitionListBlocks(sourceText);
-  if (blocks.length === 0) {
-    return true;
-  }
-  const renderer = new ReadingModeRenderer();
-  const replacement = getReplacementRoot(element);
-  const effectiveRenderContext = renderContext != null ? renderContext : {
-    strictLineBreaks: config.strictLineBreaks
+// src/reading-mode/features/definition-lists/definitionSignature.ts
+var BLOCK_CONTENT_TAGS = /* @__PURE__ */ new Set([
+  "ADDRESS",
+  "ARTICLE",
+  "ASIDE",
+  "BLOCKQUOTE",
+  "DETAILS",
+  "DIV",
+  "DL",
+  "FIELDSET",
+  "FIGCAPTION",
+  "FIGURE",
+  "FOOTER",
+  "FORM",
+  "H1",
+  "H2",
+  "H3",
+  "H4",
+  "H5",
+  "H6",
+  "HEADER",
+  "HGROUP",
+  "HR",
+  "LI",
+  "MAIN",
+  "MENU",
+  "NAV",
+  "OL",
+  "P",
+  "PRE",
+  "SECTION",
+  "TABLE",
+  "UL"
+]);
+function getDefinitionDomSignature(nodes, block) {
+  const list = nodes.find(
+    (node) => isHtmlElement(node) && node.matches(`dl.${CSS_CLASSES.DEFINITION_LIST}`)
+  );
+  const items = list ? getDefinitionListItemSignatures(list) : block.items.map((item) => ({
+    termText: normalizeCandidateText(item.term),
+    definitionTexts: item.definitions.map(
+      (definition) => normalizeCandidateText(definition.plainText)
+    )
+  }));
+  return {
+    termTexts: items.map((item) => item.termText),
+    definitionTexts: items.flatMap((item) => item.definitionTexts),
+    sequence: items.flatMap((item) => [item.termText, ...item.definitionTexts]),
+    items
   };
-  if (fullSourceText && isStandalonePandocDefinitionList(sourceText, blocks)) {
-    const rendered = blocks.map((block) => renderPandocDefinitionListBlock(
-      block,
-      effectiveRenderContext,
-      (target, content, context2) => renderer.appendContent(target, content, context2)
-    ));
-    replacement.replaceChildren(...rendered);
-    return true;
-  }
-  if (fullSourceText || (sectionInfo == null ? void 0 : sectionInfo.text)) {
-    const usedCandidates = /* @__PURE__ */ new Set();
-    blocks.forEach((block) => {
-      if (!containsCompleteDefinitionBlockText(replacement, block)) {
-        return;
-      }
-      const rendered = [renderPandocDefinitionListBlock(
-        block,
-        effectiveRenderContext,
-        (target, content, context2) => renderer.appendContent(target, content, context2)
-      )];
-      replaceDefinitionListContent(replacement, rendered, block, usedCandidates);
-    });
-  }
-  return true;
 }
-function containsCompleteDefinitionBlockText(element, block) {
-  var _a4;
-  return containsRequiredDefinitionBlockText((_a4 = element.textContent) != null ? _a4 : "", block);
-}
-function normalizeDefinitionListsFromDom(element) {
-  const lists = getDefinitionLists(element);
-  lists.forEach((list) => {
-    var _a4;
-    const firstTerm = list.querySelector("dt");
-    if (!firstTerm || ((_a4 = firstTerm.textContent) == null ? void 0 : _a4.trim())) {
+function getDefinitionListItemSignatures(list) {
+  const items = [];
+  Array.from(list.children).forEach((child) => {
+    if (child.tagName === "DT") {
+      items.push({
+        termText: normalizeCandidateText(getComparableElementText(child)),
+        definitionTexts: []
+      });
       return;
     }
-    const termText = extractDroppedDefinitionTerm(list);
-    if (termText) {
-      firstTerm.textContent = termText;
+    if (child.tagName === "DD" && items.length > 0) {
+      items[items.length - 1].definitionTexts.push(
+        normalizeCandidateText(getComparableElementText(child))
+      );
     }
   });
+  return items;
 }
-function getSourceSectionInfo(element, context) {
-  var _a4, _b2;
-  const section2 = getMarkdownSection(element);
-  return (_b2 = (_a4 = safeGetContextSectionInfo(context, element)) != null ? _a4 : safeGetContextSectionInfo(context, section2)) != null ? _b2 : safeGetDomSectionInfo(section2);
+function getDefinitionListSequence(list) {
+  return Array.from(list.children).filter((child) => child.tagName === "DT" || child.tagName === "DD").map((child) => normalizeCandidateText(getComparableElementText(child)));
 }
-function safeGetContextSectionInfo(context, element) {
-  if (!element || typeof context.getSectionInfo !== "function") {
-    return null;
-  }
-  try {
-    return context.getSectionInfo(element);
-  } catch (e) {
-    return null;
-  }
+function getDefinitionBlockSequence(block) {
+  return block.items.flatMap((item) => [
+    normalizeCandidateText(item.term),
+    ...item.definitions.map((definition) => normalizeCandidateText(definition.plainText))
+  ]);
 }
-function safeGetDomSectionInfo(section2) {
-  if (!section2 || typeof getSectionInfo !== "function") {
-    return null;
-  }
-  return getSectionInfo(section2);
+function isDefinitionBlockContentElement(element) {
+  return BLOCK_CONTENT_TAGS.has(element.tagName);
 }
-function getReplacementRoot(element) {
+function normalizeCandidateText(text) {
+  return text.replace(/\s+/g, " ").trim();
+}
+function getComparableElementText(element) {
+  const parts = [];
+  element.childNodes.forEach((node) => appendComparableNodeText(node, parts));
+  return parts.join("");
+}
+function appendComparableNodeText(node, parts) {
   var _a4;
-  return (_a4 = getMarkdownSection(element)) != null ? _a4 : element;
-}
-function getMarkdownSection(element) {
-  if (element.classList.contains("markdown-preview-section")) {
-    return element;
+  if (node.nodeName === "BR") {
+    parts.push(" ");
+    return;
   }
-  return element.closest(".markdown-preview-section");
+  if (node.nodeType === Node.TEXT_NODE) {
+    parts.push((_a4 = node.textContent) != null ? _a4 : "");
+    return;
+  }
+  if (!isHtmlElement(node)) {
+    return;
+  }
+  const separatesText = isDefinitionBlockContentElement(node);
+  if (separatesText) {
+    parts.push(" ");
+  }
+  node.childNodes.forEach((child) => appendComparableNodeText(child, parts));
+  if (separatesText) {
+    parts.push(" ");
+  }
 }
+function isHtmlElement(node) {
+  return node.instanceOf(HTMLElement);
+}
+
+// src/reading-mode/features/definition-lists/definitionTextMatcher.ts
+function matchesDefinitionBlockText(element, signature) {
+  var _a4;
+  const text = normalizeCandidateText((_a4 = element.textContent) != null ? _a4 : "");
+  return signature.termTexts.some((term) => text.includes(normalizeCandidateText(term))) || signature.definitionTexts.some((definition) => text.includes(normalizeCandidateText(definition)));
+}
+function matchesDefinitionMarkerText(text, definitionTexts) {
+  const markerMatch = normalizeCandidateText(text).match(/^[:~•]\s*(.*)$/);
+  if (!markerMatch) {
+    return false;
+  }
+  const content = normalizeCandidateText(markerMatch[1]);
+  return definitionTexts.some((definition) => content === normalizeCandidateText(definition));
+}
+function matchesLiteralMarkerTermText(text, termTexts) {
+  const normalizedText = normalizeCandidateText(text);
+  return /^[:~]\s+\S/.test(normalizedText) && termTexts.some(
+    (term) => normalizedText === normalizeCandidateText(term)
+  );
+}
+function matchesCompleteRawDefinitionText(text, signature) {
+  const lines = text.split("\n").map(normalizeCandidateText).filter((line) => line.length > 0);
+  return matchRawDefinitionItem(lines, 0, signature.items, 0) === lines.length;
+}
+function matchRawDefinitionItem(lines, lineIndex, items, itemIndex) {
+  const item = items[itemIndex];
+  if (!item || lines[lineIndex] !== normalizeCandidateText(item.termText)) {
+    return -1;
+  }
+  return matchRawDefinitionDescription(
+    lines,
+    lineIndex + 1,
+    items,
+    itemIndex,
+    0
+  );
+}
+function matchRawDefinitionDescription(lines, markerLine, items, itemIndex, definitionIndex) {
+  var _a4;
+  const item = items[itemIndex];
+  const expected = item == null ? void 0 : item.definitionTexts[definitionIndex];
+  const marker = (_a4 = lines[markerLine]) == null ? void 0 : _a4.match(/^[:~•]\s*(.*)$/);
+  if (expected === void 0 || !marker) {
+    return -1;
+  }
+  for (let end = markerLine + 1; end <= lines.length; end++) {
+    const content = normalizeCandidateText([
+      marker[1],
+      ...lines.slice(markerLine + 1, end).map(getRenderedBlockContent)
+    ].join(" "));
+    if (content !== normalizeCandidateText(expected)) {
+      continue;
+    }
+    const next = definitionIndex + 1 < item.definitionTexts.length ? matchRawDefinitionDescription(
+      lines,
+      end,
+      items,
+      itemIndex,
+      definitionIndex + 1
+    ) : itemIndex + 1 < items.length ? matchRawDefinitionItem(lines, end, items, itemIndex + 1) : end;
+    if (next >= 0) {
+      return next;
+    }
+  }
+  return -1;
+}
+function matchesRawDefinitionParagraphText(text, signature) {
+  const lines = text.split("\n").map(normalizeCandidateText).filter((line) => line.length > 0);
+  if (lines.length < 2) {
+    return false;
+  }
+  return signature.items.some(
+    (item) => lines[0] === normalizeCandidateText(item.termText) && matchesDefinitionDescriptions(
+      lines.slice(1).join("\n"),
+      item.definitionTexts
+    )
+  );
+}
+function matchesDefinitionDescriptions(text, expected) {
+  const definitions = getRawDefinitionDescriptions(text);
+  return definitions !== null && definitions.length === expected.length && definitions.every(
+    (definition, index2) => definition === normalizeCandidateText(expected[index2])
+  );
+}
+function getRawDefinitionDescriptions(text) {
+  const lines = text.split("\n").map(normalizeCandidateText).filter((line) => line.length > 0);
+  const definitions = [];
+  let current = null;
+  for (const line of lines) {
+    const marker = line.match(/^[:~•]\s*(.*)$/);
+    if (marker) {
+      if (current !== null) {
+        definitions.push(normalizeCandidateText(current));
+      }
+      current = marker[1];
+      continue;
+    }
+    if (current === null) {
+      return null;
+    }
+    current += ` ${getRenderedBlockContent(line)}`;
+  }
+  if (current !== null) {
+    definitions.push(normalizeCandidateText(current));
+  }
+  return definitions;
+}
+function getRenderedBlockContent(line) {
+  const listMarker = parsePandocListMarker(line, true);
+  if (listMarker && listMarker.kind !== "definition") {
+    return line.slice(listMarker.markerEnd).trimStart().replace(/^\[[ xX]\]\s*/, "");
+  }
+  let content = line;
+  while (/^ {0,3}>[ \t]?/.test(content)) {
+    content = content.replace(/^ {0,3}>[ \t]?/, "");
+  }
+  return content;
+}
+function getTextWithLineBreaks2(elem) {
+  const parts = [];
+  elem.childNodes.forEach((node) => appendNodeText2(node, parts));
+  return parts.join("");
+}
+function getTextFromNodes(nodes) {
+  const parts = [];
+  nodes.forEach((node) => appendNodeText2(node, parts));
+  return parts.join("");
+}
+function appendNodeText2(node, parts) {
+  var _a4;
+  if (node.nodeName === "BR") {
+    parts.push("\n");
+    return;
+  }
+  if (node.nodeType === Node.TEXT_NODE) {
+    parts.push(node.textContent || "");
+    return;
+  }
+  if (node.nodeType !== Node.ELEMENT_NODE) {
+    return;
+  }
+  const element = node;
+  if (element.nodeName === "PRE") {
+    return;
+  }
+  if (element.nodeName === "CODE") {
+    parts.push((_a4 = element.textContent) != null ? _a4 : "");
+    return;
+  }
+  node.childNodes.forEach((child) => appendNodeText2(child, parts));
+}
+
+// src/reading-mode/features/definition-lists/definitionCandidateMatcher.ts
 function getDefinitionLists(element) {
   const lists = Array.from(
     element.querySelectorAll(`dl.${CSS_CLASSES.DEFINITION_LIST}`)
   );
   if (element.matches(`dl.${CSS_CLASSES.DEFINITION_LIST}`)) {
-    return [element, ...lists];
+    lists.unshift(element);
   }
-  return lists;
+  return Array.from(new Set(lists));
 }
-function replaceDefinitionListContent(root, replacementNodes, block, usedCandidates) {
-  const candidates = getDefinitionListBlockCandidates(root, block, usedCandidates);
-  if (candidates.length === 0) {
-    return;
+function getDefinitionListBlockCandidates(root, block, usedCandidates, signature) {
+  if (block.joinsLazyContainer) {
+    const structuralCandidates = getLazyDefinitionListBlockCandidates(
+      root,
+      block,
+      usedCandidates,
+      signature
+    );
+    if (structuralCandidates.length > 0) {
+      return structuralCandidates;
+    }
+    const existingLists = sortCandidatesByDocumentOrder(
+      getDefinitionListCandidates(root, block, signature).filter((candidate) => !usedCandidates.has(candidate))
+    );
+    return existingLists.length > 0 ? [existingLists[0]] : [];
   }
-  if (!containsCompleteDefinitionBlockCandidateText(candidates, block)) {
-    return;
-  }
-  if (isCanonicalDefinitionBlockCandidate(candidates, block)) {
-    candidates.forEach((candidate) => usedCandidates.add(candidate));
-    return;
-  }
-  if (candidates[0] === root) {
-    candidates.forEach((candidate) => usedCandidates.add(candidate));
-    root.replaceChildren(...replacementNodes);
-    return;
-  }
-  const [firstCandidate, ...extraCandidates] = candidates;
-  candidates.forEach((candidate) => usedCandidates.add(candidate));
-  replaceDefinitionListCandidate(firstCandidate, replacementNodes);
-  extraCandidates.forEach((candidate) => candidate.remove());
-}
-function replaceDefinitionListCandidate(candidate, replacementNodes) {
-  var _a4;
-  if (candidate.classList.contains("el-p")) {
-    candidate.replaceChildren(...replacementNodes);
-    return;
-  }
-  (_a4 = firstLayoutWrapper(candidate)) == null ? void 0 : _a4.replaceChildren(...replacementNodes);
-  if (!candidate.isConnected) {
-    return;
-  }
-  candidate.replaceWith(...replacementNodes);
-}
-function firstLayoutWrapper(candidate) {
-  const parent2 = candidate.parentElement;
-  if (!(parent2 == null ? void 0 : parent2.classList.contains("el-p"))) {
-    return null;
-  }
-  return parent2;
-}
-function getDefinitionListBlockCandidates(root, block, usedCandidates) {
-  const candidates = getDefinitionCandidateElements(root, block).filter((candidate) => !usedCandidates.has(candidate));
+  const candidates = getDefinitionCandidateElements(root, block, signature).filter((candidate) => !usedCandidates.has(candidate));
   if (candidates.length === 0) {
     return [];
   }
@@ -222191,23 +223961,181 @@ function getDefinitionListBlockCandidates(root, block, usedCandidates) {
   }
   return group;
 }
-function containsCompleteDefinitionBlockCandidateText(candidates, block) {
-  return containsRequiredDefinitionBlockText(
+function getLazyDefinitionListBlockCandidates(root, block, usedCandidates, signature) {
+  const combinedCandidates = getCombinedLazyDefinitionCandidates(root, block, signature).filter((candidate) => !usedCandidates.has(candidate));
+  if (combinedCandidates.length > 0) {
+    return [sortCandidatesByDocumentOrder(combinedCandidates)[0]];
+  }
+  const markerCandidates = sortCandidatesByDocumentOrder(
+    getLazyDefinitionMarkerCandidates(root, block, signature).filter((candidate) => !usedCandidates.has(candidate))
+  );
+  for (const marker of markerCandidates) {
+    const markerContainer = getBlockQuoteContainer(
+      root,
+      marker,
+      block.definitionContainerDepth
+    );
+    const markerLayout = markerContainer ? getDirectLayoutChild(markerContainer, marker) : null;
+    const quoteLayout = markerLayout ? getPreviousNonEmptyLayoutSibling(markerLayout) : null;
+    if (!markerContainer || !markerLayout || !quoteLayout || !quoteLayout.matches("blockquote") && !quoteLayout.querySelector("blockquote")) {
+      continue;
+    }
+    const term = getUniqueLazyTermCandidate(root, quoteLayout, block, signature);
+    if (!term || usedCandidates.has(term)) {
+      continue;
+    }
+    const trailing = [marker];
+    let sibling = getNextNonEmptyLayoutSibling(markerLayout);
+    while (sibling) {
+      const nextMarker = markerCandidates.find(
+        (candidate) => getBlockQuoteContainer(root, candidate, block.definitionContainerDepth) === markerContainer && getDirectLayoutChild(markerContainer, candidate) === sibling
+      );
+      if (!nextMarker || trailing.includes(nextMarker)) {
+        break;
+      }
+      trailing.push(nextMarker);
+      sibling = getNextNonEmptyLayoutSibling(sibling);
+    }
+    const candidates = [term, ...trailing];
+    if (matchesLazyDefinitionCandidates(candidates, signature)) {
+      return candidates;
+    }
+  }
+  return [];
+}
+function getCombinedLazyDefinitionCandidates(root, block, signature) {
+  const candidates = [];
+  root.querySelectorAll("blockquote p, blockquote li").forEach((element) => {
+    if (getBlockQuoteDepthInRoot(root, element) !== block.termContainerDepth || !matchesRawDefinitionParagraphText(getTextWithLineBreaks2(element), signature)) {
+      return;
+    }
+    addUniqueCandidate(candidates, getDefinitionListBlockCandidate(element, root));
+  });
+  return candidates;
+}
+function getLazyDefinitionMarkerCandidates(root, block, signature) {
+  const candidates = [];
+  root.querySelectorAll(".el-p, p, li").forEach((element) => {
+    if (element.querySelector(`dl.${CSS_CLASSES.DEFINITION_LIST}`) || getBlockQuoteDepthInRoot(root, element) !== block.definitionContainerDepth) {
+      return;
+    }
+    const text = getTextWithLineBreaks2(element);
+    if (matchesDefinitionMarkerText(text, signature.definitionTexts) || matchesRawDefinitionParagraphText(text, signature)) {
+      addUniqueCandidate(candidates, getDefinitionListBlockCandidate(element, root));
+    }
+  });
+  return candidates;
+}
+function matchesLazyDefinitionCandidates(candidates, signature) {
+  var _a4;
+  if (candidates.length === 1) {
+    return matchesRawDefinitionParagraphText(
+      getTextWithLineBreaks2(candidates[0]),
+      signature
+    );
+  }
+  if (candidates.length < 2 || signature.termTexts.length !== 1) {
+    return false;
+  }
+  const term = normalizeCandidateText((_a4 = candidates[0].textContent) != null ? _a4 : "");
+  const definitions = candidates.slice(1).flatMap(
+    (candidate) => {
+      var _a5;
+      return (_a5 = getRawDefinitionDescriptions(getTextWithLineBreaks2(candidate))) != null ? _a5 : [];
+    }
+  );
+  return term === normalizeCandidateText(signature.termTexts[0]) && definitions.length === signature.definitionTexts.length && definitions.every(
+    (definition, index2) => definition === normalizeCandidateText(signature.definitionTexts[index2])
+  );
+}
+function getUniqueLazyTermCandidate(root, quoteLayout, block, signature) {
+  const terms = new Set(signature.termTexts.map(normalizeCandidateText));
+  const matches = Array.from(quoteLayout.querySelectorAll("p, li")).filter(
+    (element) => {
+      var _a4;
+      return !element.querySelector(`dl.${CSS_CLASSES.DEFINITION_LIST}`) && getBlockQuoteDepthInRoot(root, element) === block.termContainerDepth && terms.has(normalizeCandidateText((_a4 = element.textContent) != null ? _a4 : ""));
+    }
+  );
+  if (matches.length !== 1) {
+    return null;
+  }
+  return getDefinitionListBlockCandidate(matches[0], quoteLayout);
+}
+function getDirectLayoutChild(root, candidate) {
+  let current = candidate;
+  while ((current == null ? void 0 : current.parentElement) && current.parentElement !== root) {
+    current = current.parentElement;
+  }
+  return (current == null ? void 0 : current.parentElement) === root ? current : null;
+}
+function getBlockQuoteDepthInRoot(root, element) {
+  return getBlockQuoteAncestors(root, element).length;
+}
+function getBlockQuoteContainer(root, element, depth) {
+  var _a4;
+  if (depth === 0) {
+    return root;
+  }
+  return (_a4 = getBlockQuoteAncestors(root, element)[depth - 1]) != null ? _a4 : null;
+}
+function getBlockQuoteAncestors(root, element) {
+  const ancestors = [];
+  let current = element.parentElement;
+  while (current) {
+    if (current.tagName === "BLOCKQUOTE") {
+      ancestors.unshift(current);
+    }
+    if (current === root) {
+      break;
+    }
+    current = current.parentElement;
+  }
+  return ancestors;
+}
+function getPreviousNonEmptyLayoutSibling(element) {
+  var _a4;
+  let sibling = element.previousElementSibling;
+  while (sibling && ((_a4 = sibling.textContent) != null ? _a4 : "").trim().length === 0) {
+    sibling = sibling.previousElementSibling;
+  }
+  return sibling;
+}
+function getNextNonEmptyLayoutSibling(element) {
+  var _a4;
+  let sibling = element.nextElementSibling;
+  while (sibling && ((_a4 = sibling.textContent) != null ? _a4 : "").trim().length === 0) {
+    sibling = sibling.nextElementSibling;
+  }
+  return sibling;
+}
+function containsCompleteDefinitionBlockCandidateText(candidates, signature) {
+  if (candidates.length === 1 && matchesCompleteRawDefinitionText(
+    getTextWithLineBreaks2(candidates[0]),
+    signature
+  )) {
+    return true;
+  }
+  const normalizedText = normalizeCandidateText(
     candidates.map((candidate) => {
       var _a4;
       return (_a4 = candidate.textContent) != null ? _a4 : "";
-    }).join("\n"),
-    block
+    }).join("\n")
   );
-}
-function containsRequiredDefinitionBlockText(text, block) {
-  const normalizedText = normalizeCandidateText(text);
-  return getRequiredDefinitionBlockTexts(block).every((requiredText) => normalizedText.includes(requiredText));
+  let cursor = 0;
+  return signature.sequence.every((requiredText) => {
+    const normalizedRequired = normalizeCandidateText(requiredText);
+    const index2 = normalizedText.indexOf(normalizedRequired, cursor);
+    if (index2 < 0) {
+      return false;
+    }
+    cursor = index2 + normalizedRequired.length;
+    return true;
+  });
 }
 function getRequiredDefinitionBlockTexts(block) {
   return [...block.termTexts, ...block.definitionTexts].map(normalizeCandidateText).filter((text) => text.length > 0);
 }
-function isCanonicalDefinitionBlockCandidate(candidates, block) {
+function isCanonicalDefinitionBlockCandidate(candidates, signature) {
   if (candidates.length !== 1) {
     return false;
   }
@@ -222215,7 +224143,7 @@ function isCanonicalDefinitionBlockCandidate(candidates, block) {
   if (!list || hasRawDefinitionMarkerText(candidates[0])) {
     return false;
   }
-  return getDefinitionListSequence(list).join("\n") === getDefinitionBlockSequence(block).join("\n");
+  return getDefinitionListSequence(list).join("\n") === signature.sequence.join("\n");
 }
 function getSingleDefinitionList(candidate) {
   const lists = Array.from(candidate.querySelectorAll(`dl.${CSS_CLASSES.DEFINITION_LIST}`));
@@ -222228,46 +224156,30 @@ function getSingleDefinitionList(candidate) {
 function hasRawDefinitionMarkerText(candidate) {
   return Array.from(candidate.querySelectorAll("p, li")).some((element) => /^[:~]\s+\S/.test(normalizeCandidateText(getTextWithLineBreaks2(element))));
 }
-function getDefinitionListSequence(list) {
-  return Array.from(list.children).filter((child) => child.tagName === "DT" || child.tagName === "DD").map((child) => {
-    var _a4;
-    return normalizeCandidateText((_a4 = child.textContent) != null ? _a4 : "");
-  });
-}
-function getDefinitionBlockSequence(block) {
-  const sequence = [];
-  block.items.forEach((item) => {
-    sequence.push(normalizeCandidateText(item.term));
-    item.definitions.forEach((definition) => {
-      sequence.push(normalizeCandidateText(definition.plainText));
-    });
-  });
-  return sequence;
-}
-function getDefinitionCandidateElements(root, block) {
-  const candidates = getDefinitionListCandidates(root, block);
-  getDefinitionMarkerCandidates(root, block).forEach((candidate) => {
+function getDefinitionCandidateElements(root, block, signature) {
+  const candidates = getDefinitionListCandidates(root, block, signature);
+  getDefinitionMarkerCandidates(root, block, signature).forEach((candidate) => {
     addUniqueCandidate(candidates, candidate);
   });
   return sortCandidatesByDocumentOrder(candidates);
 }
-function getDefinitionListCandidates(root, block) {
+function getDefinitionListCandidates(root, block, signature) {
   const candidates = [];
   getDefinitionLists(root).forEach((list) => {
-    if (matchesDefinitionBlockText(list, block)) {
+    if (getBlockQuoteDepthInRoot(root, list) === block.termContainerDepth && matchesDefinitionBlockText(list, signature)) {
       addUniqueCandidate(candidates, getDefinitionListBlockCandidate(list, root));
     }
   });
   return candidates;
 }
-function getDefinitionMarkerCandidates(root, block) {
+function getDefinitionMarkerCandidates(root, block, signature) {
   const candidates = [];
   root.querySelectorAll(".el-p, p, li").forEach((element) => {
-    if (element.querySelector(`dl.${CSS_CLASSES.DEFINITION_LIST}`)) {
+    if (element.querySelector(`dl.${CSS_CLASSES.DEFINITION_LIST}`) || getBlockQuoteDepthInRoot(root, element) !== block.termContainerDepth) {
       return;
     }
     const text = getTextWithLineBreaks2(element);
-    if (matchesDefinitionMarkerText(text, block.definitionTexts) || matchesRawDefinitionParagraphText(text, block)) {
+    if (matchesDefinitionMarkerText(text, signature.definitionTexts) || matchesLiteralMarkerTermText(text, signature.termTexts) || matchesRawDefinitionParagraphText(text, signature)) {
       addUniqueCandidate(candidates, getDefinitionListBlockCandidate(element, root));
     }
   });
@@ -222300,36 +224212,10 @@ function sortCandidatesByDocumentOrder(candidates) {
     return a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_PRECEDING ? 1 : -1;
   });
 }
-function matchesDefinitionBlockText(element, block) {
-  var _a4;
-  const text = normalizeCandidateText((_a4 = element.textContent) != null ? _a4 : "");
-  return block.termTexts.some((term) => text.includes(normalizeCandidateText(term))) || block.definitionTexts.some((definition) => text.includes(normalizeCandidateText(definition)));
-}
-function matchesDefinitionMarkerText(text, definitionTexts) {
-  const markerMatch = normalizeCandidateText(text).match(/^[:~•]\s*(.*)$/);
-  if (!markerMatch) {
-    return false;
-  }
-  const content = normalizeCandidateText(markerMatch[1]);
-  return definitionTexts.some((definition) => content === normalizeCandidateText(definition));
-}
-function matchesRawDefinitionParagraphText(text, block) {
-  const lines = text.split("\n").map(normalizeCandidateText).filter((line) => line.length > 0);
-  const hasTerm = block.termTexts.some(
-    (term) => lines.includes(normalizeCandidateText(term))
-  );
-  const hasDefinition = lines.some(
-    (line) => matchesDefinitionMarkerText(line, block.definitionTexts)
-  );
-  return hasTerm && hasDefinition;
-}
-function normalizeCandidateText(text) {
-  return text.replace(/\s+/g, " ").trim();
-}
 function hasOnlyIgnorableContentBetween(previous, next) {
   var _a4;
   if (previous.parentElement !== next.parentElement) {
-    return true;
+    return false;
   }
   let sibling = previous.nextElementSibling;
   while (sibling && sibling !== next) {
@@ -222378,32 +224264,6 @@ function getPrecedingSiblingNodes(parent2, target) {
   }
   return nodes;
 }
-function getTextWithLineBreaks2(elem) {
-  const parts = [];
-  elem.childNodes.forEach((node) => appendNodeText2(node, parts));
-  return parts.join("");
-}
-function getTextFromNodes(nodes) {
-  const parts = [];
-  nodes.forEach((node) => appendNodeText2(node, parts));
-  return parts.join("");
-}
-function appendNodeText2(node, parts) {
-  if (node.nodeName === "BR") {
-    parts.push("\n");
-    return;
-  }
-  if (node.nodeType === Node.TEXT_NODE) {
-    parts.push(node.textContent || "");
-    return;
-  }
-  if (node.nodeType === Node.ELEMENT_NODE && !isCodeElement2(node)) {
-    node.childNodes.forEach((child) => appendNodeText2(child, parts));
-  }
-}
-function isCodeElement2(element) {
-  return element.nodeName === "CODE" || element.nodeName === "PRE";
-}
 function getLastNonEmptyLine(text) {
   const lines = text.split("\n").map((line) => line.trim()).filter((line) => line.length > 0);
   return lines.length > 0 ? lines[lines.length - 1] : null;
@@ -222414,6 +224274,12 @@ function removeEmptyParagraphSibling(element) {
     element.remove();
   }
 }
+
+// src/reading-mode/features/definition-lists/hostRenderer.ts
+var import_obsidian24 = require("obsidian");
+
+// src/reading-mode/utils/fragmentRenderer.ts
+var import_obsidian23 = require("obsidian");
 
 // src/reading-mode/pipeline/sourceText.ts
 async function readFullSourceText(sourcePath, suppliedApp) {
@@ -222438,6 +224304,1072 @@ async function readFullSourceText(sourcePath, suppliedApp) {
 function getObsidianApp() {
   const globalWindow = window;
   return globalWindow.app;
+}
+
+// src/reading-mode/utils/fragmentRenderer.ts
+var documentReferences = /* @__PURE__ */ new WeakMap();
+var INTERNAL_MARKDOWN_FRAGMENT_ATTRIBUTE = "data-pem-internal-markdown-fragment";
+function isInternalMarkdownFragment(element) {
+  return element.closest(`[${INTERNAL_MARKDOWN_FRAGMENT_ATTRIBUTE}]`) !== null;
+}
+async function renderMarkdownFragment(source, target, context, child) {
+  markInternalMarkdownFragment(target);
+  let references = documentReferences.get(context);
+  if (!references) {
+    references = prepareDocumentReferences(context);
+    documentReferences.set(context, references);
+  }
+  const definitions = await references;
+  const sourceWithContext = definitions ? `${definitions}
+
+${source}` : source;
+  await import_obsidian23.MarkdownRenderer.render(context.app, sourceWithContext, target, context.sourcePath, child);
+}
+async function prepareDocumentReferences(context) {
+  var _a4, _b2, _c, _d;
+  const source = (_d = (_c = (_a4 = context.fullSource) != null ? _a4 : await readFullSourceText(context.sourcePath, context.app)) != null ? _c : (_b2 = context.sectionInfo) == null ? void 0 : _b2.text) != null ? _d : context.validationLines.join("\n");
+  const analysis = ListBlockValidator.analyzeListBlocks(source.split("\n"), context.config);
+  const candidates = analysis.referenceDefinitionRanges.map((range) => analysis.sourceLines.slice(range.startIndex, range.endIndex + 1).map(getPandocContainerContent).join("\n"));
+  const accepted = [];
+  for (const candidate of candidates) {
+    if (await isNonRenderingDefinition(candidate, context)) {
+      accepted.push(candidate);
+    }
+  }
+  return accepted.join("\n\n");
+}
+async function isNonRenderingDefinition(source, context) {
+  var _a4;
+  const target = document.createElement("div");
+  markInternalMarkdownFragment(target);
+  const child = new import_obsidian23.MarkdownRenderChild(target);
+  child.load();
+  try {
+    await import_obsidian23.MarkdownRenderer.render(context.app, source, target, context.sourcePath, child);
+    return target.childElementCount === 0 && !((_a4 = target.textContent) == null ? void 0 : _a4.trim());
+  } catch (e) {
+    return false;
+  } finally {
+    child.unload();
+  }
+}
+function markInternalMarkdownFragment(element) {
+  element.setAttribute(INTERNAL_MARKDOWN_FRAGMENT_ATTRIBUTE, "");
+}
+
+// src/reading-mode/features/definition-lists/hostRenderer.ts
+var nextHardBreakToken = 0;
+async function renderDefinitionBlockWithHost(block, context) {
+  var _a4, _b2, _c;
+  if (!context.app || typeof ((_a4 = import_obsidian24.MarkdownRenderer) == null ? void 0 : _a4.render) !== "function") {
+    return null;
+  }
+  const pending = [];
+  const list = renderPandocDefinitionListBlock(
+    block,
+    context.renderContext,
+    (target, source) => queueFragment(target, source, true, pending),
+    (target, source, _renderContext, unwrapSingleParagraph) => queueDefinitionBodyFragment(
+      target,
+      source,
+      unwrapSingleParagraph,
+      pending
+    )
+  );
+  const child = new import_obsidian24.MarkdownRenderChild(list);
+  (_c = (_b2 = context.postProcessorContext).addChild) == null ? void 0 : _c.call(_b2, child);
+  try {
+    await Promise.all(pending.map(
+      (fragment) => renderInlineFragment(fragment, context, child)
+    ));
+    return list;
+  } catch (e) {
+    child.unload();
+    return null;
+  }
+}
+function queueFragment(target, source, unwrapSingleParagraph, pending) {
+  const anchor = target.ownerDocument.createComment("pem-inline-fragment");
+  target.appendChild(anchor);
+  pending.push({
+    anchor,
+    extractListItem: false,
+    normalizeLineBreaks: false,
+    source,
+    unwrapSingleParagraph
+  });
+}
+function queueDefinitionBodyFragment(target, source, unwrapSingleParagraph, pending) {
+  const prepared = preparePandocLineBreaks(source);
+  const lines = prepared.source.split("\n");
+  const wrappedSource = [
+    `- ${lines[0]}`,
+    ...lines.slice(1).map((line) => `  ${line}`)
+  ].join("\n");
+  const anchor = target.ownerDocument.createComment("pem-definition-body-fragment");
+  target.appendChild(anchor);
+  pending.push({
+    anchor,
+    extractListItem: true,
+    hardBreakToken: prepared.token,
+    normalizeLineBreaks: true,
+    source: wrappedSource,
+    unwrapSingleParagraph
+  });
+}
+async function renderInlineFragment(fragment, context, child) {
+  if (!fragment.source) {
+    fragment.anchor.remove();
+    return;
+  }
+  const target = document.createElement("div");
+  await renderMarkdownFragment(fragment.source, target, context, child);
+  const renderedNodes = fragment.extractListItem ? getRenderedListItemNodes(target, fragment.unwrapSingleParagraph) : getRenderedFragmentNodes(target, fragment.unwrapSingleParagraph);
+  const nodes = fragment.normalizeLineBreaks ? normalizeRenderedLineBreaks(renderedNodes, fragment.hardBreakToken) : renderedNodes;
+  if (nodes.length === 0 && fragment.source.trim()) {
+    throw new Error("MarkdownRenderer returned no inline definition content");
+  }
+  fragment.anchor.replaceWith(...nodes);
+}
+function preparePandocLineBreaks(source) {
+  const token = createHardBreakToken(source);
+  const lines = source.split("\n");
+  const output = [];
+  let fence = null;
+  let inlineCodeDelimiter = 0;
+  lines.forEach((sourceLine, index2) => {
+    const boundary = parseFenceBoundary(sourceLine);
+    if (fence) {
+      output.push(sourceLine);
+      if ((boundary == null ? void 0 : boundary.marker) === fence.marker && boundary.length >= fence.length && boundary.closing) {
+        fence = null;
+      }
+      return;
+    }
+    if (boundary) {
+      fence = { marker: boundary.marker, length: boundary.length };
+      output.push(sourceLine);
+      return;
+    }
+    const rawBreaks = replaceRawHtmlBreaks(
+      sourceLine,
+      token,
+      inlineCodeDelimiter
+    );
+    inlineCodeDelimiter = rawBreaks.inlineCodeDelimiter;
+    const hardBreak = index2 < lines.length - 1 && inlineCodeDelimiter === 0 ? stripMarkdownHardBreak(rawBreaks.line) : null;
+    output.push(hardBreak ? `${hardBreak}${token}` : rawBreaks.line);
+  });
+  return {
+    source: output.join("\n").split(`${token}
+`).join(token),
+    token
+  };
+}
+function createHardBreakToken(source) {
+  let token;
+  do {
+    token = `\uE000pem-hard-break-${nextHardBreakToken++}\uE001`;
+  } while (source.includes(token));
+  return token;
+}
+function parseFenceBoundary(line) {
+  const match = line.match(/^ {0,3}(`{3,}|~{3,})(.*)$/);
+  if (!match) {
+    return null;
+  }
+  return {
+    closing: match[2].trim().length === 0,
+    length: match[1].length,
+    marker: match[1][0]
+  };
+}
+function replaceRawHtmlBreaks(line, token, startingCodeDelimiter) {
+  var _a4;
+  let inlineCodeDelimiter = startingCodeDelimiter;
+  let result = "";
+  let index2 = 0;
+  while (index2 < line.length) {
+    if (line[index2] === "`") {
+      let end = index2 + 1;
+      while (line[end] === "`") {
+        end++;
+      }
+      const length = end - index2;
+      if (inlineCodeDelimiter === 0) {
+        inlineCodeDelimiter = length;
+      } else if (length === inlineCodeDelimiter) {
+        inlineCodeDelimiter = 0;
+      }
+      result += line.slice(index2, end);
+      index2 = end;
+      continue;
+    }
+    const rawBreak = inlineCodeDelimiter === 0 && !isEscaped4(line, index2) ? (_a4 = line.slice(index2).match(/^<br\b[^>]*>/i)) == null ? void 0 : _a4[0] : void 0;
+    if (rawBreak) {
+      result += token;
+      index2 += rawBreak.length;
+      continue;
+    }
+    result += line[index2];
+    index2++;
+  }
+  return { inlineCodeDelimiter, line: result };
+}
+function isEscaped4(source, index2) {
+  let backslashes = 0;
+  for (let offset = index2 - 1; offset >= 0 && source[offset] === "\\"; offset--) {
+    backslashes++;
+  }
+  return backslashes % 2 === 1;
+}
+function stripMarkdownHardBreak(line) {
+  var _a4, _b2;
+  if (/ {2,}$/.test(line)) {
+    return line.replace(/ +$/, "");
+  }
+  const trailingBackslashes = (_b2 = (_a4 = line.match(/\\+$/)) == null ? void 0 : _a4[0].length) != null ? _b2 : 0;
+  return trailingBackslashes % 2 === 1 ? line.slice(0, -1) : null;
+}
+function normalizeRenderedLineBreaks(nodes, hardBreakToken) {
+  const fragment = document.createDocumentFragment();
+  fragment.append(...nodes);
+  fragment.querySelectorAll("br").forEach((br) => br.replaceWith(" "));
+  fragment.normalize();
+  const walker = document.createTreeWalker(fragment, NodeFilter.SHOW_TEXT);
+  const textNodes = [];
+  while (walker.nextNode()) {
+    const node = walker.currentNode;
+    if (node.data.includes(hardBreakToken)) {
+      textNodes.push(node);
+    }
+  }
+  textNodes.forEach((node) => replaceHardBreakTokens(node, hardBreakToken));
+  normalizePandocListStructure(fragment);
+  return Array.from(fragment.childNodes);
+}
+function normalizePandocListStructure(fragment) {
+  fragment.querySelectorAll("ol").forEach((list) => {
+    if (!list.hasAttribute("type")) {
+      list.setAttribute("type", "1");
+    }
+  });
+  fragment.querySelectorAll("ul").forEach((list) => {
+    const taskItems = Array.from(list.children).filter((child) => child.tagName === "LI").filter((item) => findTaskCheckbox(item) !== null);
+    if (taskItems.length === 0) {
+      return;
+    }
+    list.classList.add("task-list");
+    taskItems.forEach(wrapTaskItemContentInLabel);
+  });
+}
+function findTaskCheckbox(item) {
+  return item.querySelector(
+    ':scope > input[type="checkbox"], :scope > label > input[type="checkbox"], :scope > p > input[type="checkbox"], :scope > p > label > input[type="checkbox"]'
+  );
+}
+function wrapTaskItemContentInLabel(item) {
+  const checkbox = findTaskCheckbox(item);
+  const container = checkbox == null ? void 0 : checkbox.parentElement;
+  if (!checkbox || !container || container.tagName === "LABEL") {
+    return;
+  }
+  const label = document.createElement("label");
+  container.insertBefore(label, checkbox);
+  let node = checkbox;
+  while (node) {
+    const nextNode = node.nextSibling;
+    if (node !== checkbox && isBlockElement(node)) {
+      break;
+    }
+    label.appendChild(node);
+    node = nextNode;
+  }
+}
+function replaceHardBreakTokens(node, token) {
+  const parts = node.data.split(token);
+  if (parts.length === 1) {
+    return;
+  }
+  const replacement = document.createDocumentFragment();
+  parts.forEach((part, index2) => {
+    if (index2 > 0) {
+      replacement.appendChild(document.createElement("br"));
+    }
+    if (part) {
+      replacement.appendChild(document.createTextNode(part));
+    }
+  });
+  node.replaceWith(replacement);
+}
+function getRenderedListItemNodes(target, unwrapSingleParagraph) {
+  const meaningful = getMeaningfulNodes(target);
+  const list = meaningful.length === 1 && isList(meaningful[0]) ? meaningful[0] : null;
+  const items = list ? Array.from(list.children).filter((child) => child.tagName === "LI") : [];
+  if (items.length !== 1) {
+    return [];
+  }
+  const nodes = getMeaningfulNodes(items[0]);
+  if (unwrapSingleParagraph) {
+    return unwrapOnlyParagraph(nodes);
+  }
+  if (nodes.some(isParagraph)) {
+    return nodes;
+  }
+  const firstBlockIndex = nodes.findIndex(isBlockElement);
+  const inlineEnd = firstBlockIndex < 0 ? nodes.length : firstBlockIndex;
+  if (inlineEnd === 0) {
+    return nodes;
+  }
+  const paragraph = document.createElement("p");
+  paragraph.append(...nodes.slice(0, inlineEnd));
+  return [paragraph, ...nodes.slice(inlineEnd)];
+}
+function getRenderedFragmentNodes(target, unwrapSingleParagraph) {
+  const meaningful = getMeaningfulNodes(target);
+  return unwrapSingleParagraph ? unwrapOnlyParagraph(meaningful) : meaningful;
+}
+function getMeaningfulNodes(target) {
+  return Array.from(target.childNodes).filter(
+    (node) => {
+      var _a4;
+      return node.nodeType !== Node.TEXT_NODE || Boolean((_a4 = node.textContent) == null ? void 0 : _a4.trim());
+    }
+  );
+}
+function unwrapOnlyParagraph(nodes) {
+  if (nodes.length === 1 && isParagraph(nodes[0])) {
+    return Array.from(nodes[0].childNodes);
+  }
+  return nodes;
+}
+function isParagraph(node) {
+  return node.nodeType === Node.ELEMENT_NODE && node.tagName === "P";
+}
+function isList(node) {
+  return node.nodeType === Node.ELEMENT_NODE && (node.tagName === "UL" || node.tagName === "OL");
+}
+function isBlockElement(node) {
+  return node.nodeType === Node.ELEMENT_NODE && [
+    "ADDRESS",
+    "ARTICLE",
+    "ASIDE",
+    "BLOCKQUOTE",
+    "DETAILS",
+    "DIV",
+    "DL",
+    "FIELDSET",
+    "FIGCAPTION",
+    "FIGURE",
+    "FOOTER",
+    "FORM",
+    "H1",
+    "H2",
+    "H3",
+    "H4",
+    "H5",
+    "H6",
+    "HEADER",
+    "HR",
+    "MAIN",
+    "NAV",
+    "OL",
+    "P",
+    "PRE",
+    "SECTION",
+    "TABLE",
+    "UL"
+  ].includes(node.tagName);
+}
+
+// src/reading-mode/features/definition-lists/inactiveLazyDefinitionDom.ts
+function createInactiveDefinitionMarkerPlan(renderedDefinition, sourceDefinition, definitionContainerDepth) {
+  var _a4, _b2;
+  const paragraph = renderedDefinition.ownerDocument.createElement("p");
+  paragraph.setAttribute("dir", "auto");
+  const inlineNodes = getInlineContentNodes(renderedDefinition, true);
+  const listItemPlan = inlineNodes ? null : getSourceOwnedListItemContent(renderedDefinition, sourceDefinition);
+  if (!inlineNodes && !listItemPlan) {
+    return null;
+  }
+  const movableNodes = (_a4 = inlineNodes != null ? inlineNodes : listItemPlan == null ? void 0 : listItemPlan.nodes) != null ? _a4 : [];
+  const hasContent = sourceDefinition.lines.some((line) => line.trim().length > 0);
+  const prefix = (_b2 = listItemPlan == null ? void 0 : listItemPlan.prefix) != null ? _b2 : hasContent ? `${sourceDefinition.marker} ` : sourceDefinition.marker;
+  paragraph.appendChild(renderedDefinition.ownerDocument.createTextNode(prefix));
+  if (definitionContainerDepth > 0) {
+    return { block: paragraph, paragraph, movableNodes };
+  }
+  const wrapper = renderedDefinition.ownerDocument.createElement("div");
+  wrapper.className = "el-p";
+  wrapper.appendChild(paragraph);
+  return { block: wrapper, paragraph, movableNodes };
+}
+function getSourceOwnedListItemContent(renderedDefinition, sourceDefinition) {
+  var _a4;
+  const lines = trimOuterBlankLines(sourceDefinition.lines);
+  if (lines.length !== 1) {
+    return null;
+  }
+  const sourceItem = parseMarkdownListItem(lines[0]);
+  const marker = (_a4 = lines[0].match(/^((?:[-+*]|\d+[.)])[ \t]+)/)) == null ? void 0 : _a4[1];
+  if (!sourceItem || sourceItem.checked !== void 0 || !marker) {
+    return null;
+  }
+  const list = getOnlyMeaningfulElementChild(
+    renderedDefinition,
+    sourceItem.ordered ? "OL" : "UL"
+  );
+  const item = list && list.children.length === 1 && list.children[0].tagName === "LI" ? list.children[0] : null;
+  const nodes = item ? getInlineContentNodes(item, false) : null;
+  if (!nodes) {
+    return null;
+  }
+  return {
+    prefix: `${sourceDefinition.marker} ${marker}`,
+    nodes
+  };
+}
+function getOnlyMeaningfulElementChild(parent2, tagName) {
+  const meaningful = Array.from(parent2.childNodes).filter(
+    (node) => {
+      var _a4;
+      return node.nodeType !== Node.TEXT_NODE || ((_a4 = node.textContent) != null ? _a4 : "").trim().length > 0;
+    }
+  );
+  return meaningful.length === 1 && isHtmlElement2(meaningful[0]) && meaningful[0].tagName === tagName ? meaningful[0] : null;
+}
+function getInlineContentNodes(element, unwrapParagraph) {
+  const children = Array.from(element.childNodes);
+  const meaningfulChildren = children.filter(
+    (node) => {
+      var _a4;
+      return node.nodeType !== Node.TEXT_NODE || ((_a4 = node.textContent) != null ? _a4 : "").trim().length > 0;
+    }
+  );
+  const contentNodes = unwrapParagraph && meaningfulChildren.length === 1 && isHtmlElement2(meaningfulChildren[0]) && meaningfulChildren[0].tagName === "P" ? Array.from(meaningfulChildren[0].childNodes) : children;
+  return contentNodes.every(isInlineContentNode) ? contentNodes : null;
+}
+function isInlineContentNode(node) {
+  if (!isHtmlElement2(node)) {
+    return true;
+  }
+  return !isDefinitionBlockContentElement(node) && Array.from(node.childNodes).every(isInlineContentNode);
+}
+function getColdListReplacementTarget(list) {
+  const parent2 = list.parentElement;
+  if (!parent2) {
+    return null;
+  }
+  if (parent2.tagName !== "P") {
+    return parent2.tagName === "BLOCKQUOTE" || parent2.tagName === "DIV" ? list : null;
+  }
+  return hasOnlyWhitespaceSiblings(parent2, list) ? parent2 : null;
+}
+function hasOnlyWhitespaceSiblings(parent2, child) {
+  return Array.from(parent2.childNodes).every(
+    (node) => {
+      var _a4;
+      return node === child || node.nodeType === Node.TEXT_NODE && ((_a4 = node.textContent) != null ? _a4 : "").trim().length === 0;
+    }
+  );
+}
+function hasNestedListContainer(list, layout) {
+  let current = list.parentElement;
+  while (current && current !== layout) {
+    if (current.matches("li, dt, dd, dl, ol, ul")) {
+      return true;
+    }
+    current = current.parentElement;
+  }
+  return !current;
+}
+function preflightInactiveDefinitionSplit(list, replacementTarget, markerContainer, layout, termNodes, definitions, markerPlans) {
+  if (!replacementTarget.parentNode || layout.parentNode !== markerContainer || !replacementTarget.contains(list) && replacementTarget !== list) {
+    return false;
+  }
+  if (termNodes.some((node) => !list.contains(node))) {
+    return false;
+  }
+  return markerPlans.every(
+    (plan, index2) => plan.movableNodes.every((node) => {
+      var _a4;
+      return (_a4 = definitions[index2]) == null ? void 0 : _a4.contains(node);
+    })
+  );
+}
+function isHtmlElement2(node) {
+  return node.nodeType === Node.ELEMENT_NODE;
+}
+function findParagraphSplitBoundary(nodes, signature) {
+  var _a4;
+  for (let nodeIndex = 0; nodeIndex < nodes.length; nodeIndex++) {
+    const node = nodes[nodeIndex];
+    if (node.nodeName === "BR" && matchesParagraphSplit(
+      getTextFromNodes(nodes.slice(0, nodeIndex)),
+      getTextFromNodes(nodes.slice(nodeIndex + 1)),
+      signature
+    )) {
+      return { nodeIndex };
+    }
+    if (node.nodeType !== Node.TEXT_NODE) {
+      continue;
+    }
+    const text = (_a4 = node.textContent) != null ? _a4 : "";
+    for (let textOffset = 0; textOffset < text.length; textOffset++) {
+      if (text[textOffset] !== "\n") {
+        continue;
+      }
+      const before = getTextFromNodes(nodes.slice(0, nodeIndex)) + text.slice(0, textOffset);
+      const after = text.slice(textOffset + 1) + getTextFromNodes(nodes.slice(nodeIndex + 1));
+      if (matchesParagraphSplit(before, after, signature)) {
+        return { nodeIndex, textOffset };
+      }
+    }
+  }
+  return null;
+}
+function matchesParagraphSplit(before, after, signature) {
+  return signature.termTexts.length === 1 && normalizeCandidateText(before) === normalizeCandidateText(signature.termTexts[0]) && matchesDefinitionDescriptions(after, signature.definitionTexts);
+}
+function detachMarkerNodes(nodes, boundary) {
+  var _a4;
+  const node = nodes[boundary.nodeIndex];
+  if (boundary.textOffset === void 0) {
+    (_a4 = node.parentNode) == null ? void 0 : _a4.removeChild(node);
+    return nodes.slice(boundary.nodeIndex + 1);
+  }
+  const text = node;
+  const markerText = text.splitText(boundary.textOffset + 1);
+  text.deleteData(boundary.textOffset, 1);
+  if (text.data.length === 0) {
+    text.remove();
+  }
+  return [markerText, ...nodes.slice(boundary.nodeIndex + 1)];
+}
+
+// src/reading-mode/features/definition-lists/inactiveLazyDefinitionNormalizer.ts
+var LAZY_CONTAINER_DEFINITION_CLASS = "pem-lazy-container-definition";
+var INACTIVE_LAZY_TERM_CLASS = "pem-inactive-lazy-definition-term";
+var lazyDefinitionRestorations = /* @__PURE__ */ new WeakMap();
+var inactiveLazySplits = /* @__PURE__ */ new WeakMap();
+function replaceLazyContainerDefinition(candidates, replacementNodes, block, signature, usedCandidates) {
+  const [term, ...trailing] = candidates;
+  const list = replacementNodes.length === 1 && isHtmlElement3(replacementNodes[0]) && replacementNodes[0].matches(`dl.${CSS_CLASSES.DEFINITION_LIST}`) ? replacementNodes[0] : null;
+  const isCombinedCandidate = term ? matchesRawDefinitionParagraphText(getTextWithLineBreaks2(term), signature) : false;
+  if (!(term == null ? void 0 : term.parentNode) || !list || !isCombinedCandidate && trailing.length === 0 || trailing.some((candidate) => !candidate.parentNode)) {
+    return false;
+  }
+  const restoration = {
+    blockKey: getDefinitionBlockKey(block),
+    requiredTexts: getRequiredDefinitionBlockTexts(block),
+    term,
+    trailing: trailing.map((node) => ({
+      node,
+      parent: node.parentNode,
+      nextSibling: node.nextSibling
+    }))
+  };
+  candidates.forEach((candidate) => usedCandidates.add(candidate));
+  list.classList.add(LAZY_CONTAINER_DEFINITION_CLASS);
+  term.replaceWith(list);
+  trailing.forEach((candidate) => candidate.remove());
+  lazyDefinitionRestorations.set(list, restoration);
+  return true;
+}
+function restoreInactiveLazyDefinitions(root, sourceText, inactiveBlocks) {
+  const normalizedSource = normalizeCandidateText(sourceText);
+  const inactiveBlockKeys = new Set(inactiveBlocks.map(getDefinitionBlockKey));
+  root.querySelectorAll(`dl.${LAZY_CONTAINER_DEFINITION_CLASS}`).forEach((list) => {
+    const restoration = lazyDefinitionRestorations.get(list);
+    if (!restoration || !list.parentNode || !inactiveBlockKeys.has(restoration.blockKey) || !restoration.requiredTexts.every((text) => normalizedSource.includes(text)) || restoration.trailing.some(
+      ({ parent: parent2 }) => !root.contains(parent2) && parent2 !== root
+    )) {
+      return;
+    }
+    list.replaceWith(restoration.term);
+    restoration.trailing.forEach(({ node, parent: parent2, nextSibling }) => {
+      parent2.insertBefore(
+        node,
+        (nextSibling == null ? void 0 : nextSibling.parentNode) === parent2 ? nextSibling : null
+      );
+    });
+    lazyDefinitionRestorations.delete(list);
+  });
+}
+function getDefinitionBlockKey(block) {
+  return [
+    block.startLine,
+    block.endLine,
+    ...getDefinitionBlockSequence(block)
+  ].join("\0");
+}
+function normalizeInactiveLazyDefinitions(root, blocks, renderBlock, usedCandidates) {
+  restoreInactiveLazySplitMarkers(root, blocks);
+  const usedParagraphs = /* @__PURE__ */ new Set();
+  blocks.forEach((block) => {
+    let signature = getDefinitionDomSignature([renderBlock(block)], block);
+    const paragraph = getCombinedLazyDefinitionParagraphs(root, block, signature).find((candidate) => !usedParagraphs.has(candidate));
+    if (!paragraph || !splitCombinedLazyDefinitionParagraph(
+      root,
+      paragraph,
+      block,
+      signature
+    )) {
+      let existingList = sortCandidatesByDocumentOrder(
+        getDefinitionListCandidates(root, block, signature).filter((candidate) => !usedCandidates.has(candidate))
+      )[0];
+      if (!existingList) {
+        existingList = getSourceOwnedColdDefinitionCandidate(
+          root,
+          block,
+          usedCandidates
+        );
+      }
+      const sourceOwnedList = existingList ? getSingleDefinitionList(existingList) : null;
+      if ((sourceOwnedList == null ? void 0 : sourceOwnedList.classList.contains(LAZY_CONTAINER_DEFINITION_CLASS)) && matchesDefinitionListCardinality(sourceOwnedList, block)) {
+        signature = getDefinitionDomSignature([sourceOwnedList], block);
+      }
+      if (existingList && splitInactiveLazyDefinitionList(
+        root,
+        existingList,
+        block,
+        signature
+      )) {
+        usedCandidates.add(existingList);
+      }
+      return;
+    }
+    usedParagraphs.add(paragraph);
+    usedCandidates.add(paragraph);
+  });
+}
+function getSourceOwnedColdDefinitionCandidate(root, block, usedCandidates) {
+  return sortCandidatesByDocumentOrder(getDefinitionLists(root).filter(
+    (list) => list.classList.contains(LAZY_CONTAINER_DEFINITION_CLASS) && getBlockQuoteDepthInRoot(root, list) === block.termContainerDepth && matchesDefinitionListCardinality(list, block)
+  ).map((list) => getDefinitionListBlockCandidate(list, root)).filter((candidate) => !usedCandidates.has(candidate)))[0];
+}
+function matchesDefinitionListCardinality(list, block) {
+  const renderedItems = getDefinitionListItemSignatures(list);
+  return renderedItems.length === block.items.length && renderedItems.every(
+    (item, index2) => {
+      var _a4;
+      return item.definitionTexts.length === ((_a4 = block.items[index2]) == null ? void 0 : _a4.definitions.length);
+    }
+  );
+}
+function getCombinedLazyDefinitionParagraphs(root, block, signature) {
+  return Array.from(root.querySelectorAll("blockquote p")).filter(
+    (paragraph) => getBlockQuoteDepthInRoot(root, paragraph) === block.termContainerDepth && matchesRawDefinitionParagraphText(getTextWithLineBreaks2(paragraph), signature)
+  );
+}
+function splitCombinedLazyDefinitionParagraph(root, paragraph, block, signature) {
+  var _a4;
+  const markerContainer = getBlockQuoteContainer(
+    root,
+    paragraph,
+    block.definitionContainerDepth
+  );
+  const layout = markerContainer ? getDirectLayoutChild(markerContainer, paragraph) : null;
+  if (!markerContainer || !layout || !layout.matches("blockquote") && !layout.querySelector("blockquote") || getBlockQuoteDepthInRoot(root, paragraph) !== block.termContainerDepth) {
+    return false;
+  }
+  const nodes = Array.from(paragraph.childNodes);
+  const boundary = findParagraphSplitBoundary(nodes, signature);
+  if (!boundary || !layout.parentNode) {
+    return false;
+  }
+  const markerNodes = detachMarkerNodes(nodes, boundary);
+  if (markerNodes.length === 0) {
+    return false;
+  }
+  const markerParagraph = paragraph.ownerDocument.createElement("p");
+  markerParagraph.setAttribute("dir", (_a4 = paragraph.getAttribute("dir")) != null ? _a4 : "auto");
+  const markerBlock = block.definitionContainerDepth === 0 ? paragraph.ownerDocument.createElement("div") : markerParagraph;
+  if (markerBlock !== markerParagraph) {
+    markerBlock.className = "el-p";
+    markerBlock.appendChild(markerParagraph);
+  }
+  markerNodes.forEach((node) => markerParagraph.appendChild(node));
+  paragraph.classList.add(INACTIVE_LAZY_TERM_CLASS);
+  inactiveLazySplits.set(paragraph, {
+    blockKey: getDefinitionBlockKey(block),
+    markerBlocks: [markerBlock]
+  });
+  markerContainer.insertBefore(markerBlock, layout.nextSibling);
+  return true;
+}
+function splitInactiveLazyDefinitionList(root, candidate, block, signature) {
+  var _a4, _b2;
+  const list = getSingleDefinitionList(candidate);
+  const terms = list ? Array.from(list.children).filter((child) => child.tagName === "DT") : [];
+  const definitions = list ? Array.from(list.children).filter((child) => child.tagName === "DD") : [];
+  const sourceDefinitions = (_b2 = (_a4 = block.items[0]) == null ? void 0 : _a4.definitions) != null ? _b2 : [];
+  const markerContainer = list ? getBlockQuoteContainer(root, list, block.definitionContainerDepth) : null;
+  const layout = list && markerContainer ? getDirectLayoutChild(markerContainer, list) : null;
+  const replacementTarget = list ? getColdListReplacementTarget(list) : null;
+  const termNodes = terms.length === 1 ? getInlineContentNodes(terms[0], false) : null;
+  if (!list || !(replacementTarget == null ? void 0 : replacementTarget.parentNode) || !termNodes || hasNestedListContainer(list, layout) || terms.length !== 1 || definitions.length !== sourceDefinitions.length || signature.termTexts.length !== 1 || getDefinitionListSequence(list).join("\n") !== signature.sequence.join("\n") || !markerContainer || !layout || layout.parentNode !== markerContainer || !layout.matches("blockquote") && !layout.querySelector("blockquote")) {
+    return false;
+  }
+  const term = list.ownerDocument.createElement("p");
+  term.setAttribute("dir", "auto");
+  const pendingMarkerPlans = definitions.map(
+    (definition, index2) => createInactiveDefinitionMarkerPlan(
+      definition,
+      sourceDefinitions[index2],
+      block.definitionContainerDepth
+    )
+  );
+  if (!pendingMarkerPlans.every(
+    (plan) => plan !== null
+  )) {
+    return false;
+  }
+  const markerPlans = pendingMarkerPlans;
+  if (!preflightInactiveDefinitionSplit(
+    list,
+    replacementTarget,
+    markerContainer,
+    layout,
+    termNodes,
+    definitions,
+    markerPlans
+  )) {
+    return false;
+  }
+  termNodes.forEach((node) => term.appendChild(node));
+  markerPlans.forEach((plan) => {
+    plan.movableNodes.forEach((node) => plan.paragraph.appendChild(node));
+  });
+  term.classList.add(INACTIVE_LAZY_TERM_CLASS);
+  const markerBlocks = markerPlans.map((plan) => plan.block);
+  inactiveLazySplits.set(term, {
+    blockKey: getDefinitionBlockKey(block),
+    markerBlocks
+  });
+  replacementTarget.replaceWith(term);
+  let anchor = layout;
+  markerBlocks.forEach((marker) => {
+    markerContainer.insertBefore(marker, anchor.nextSibling);
+    anchor = marker;
+  });
+  return true;
+}
+function restoreInactiveLazySplitMarkers(root, blocks) {
+  const activeBlocks = new Map(blocks.map((block) => [getDefinitionBlockKey(block), block]));
+  root.querySelectorAll(`.${INACTIVE_LAZY_TERM_CLASS}`).forEach((term) => {
+    const split = inactiveLazySplits.get(term);
+    const block = split ? activeBlocks.get(split.blockKey) : null;
+    const markerContainer = block ? getBlockQuoteContainer(root, term, block.definitionContainerDepth) : null;
+    const layout = markerContainer ? getDirectLayoutChild(markerContainer, term) : null;
+    if (!split || !block || !markerContainer || !layout) {
+      return;
+    }
+    if (split.markerBlocks.every(
+      (marker, index2) => marker.parentNode === markerContainer && marker.previousElementSibling === (index2 === 0 ? layout : split.markerBlocks[index2 - 1])
+    )) {
+      return;
+    }
+    let anchor = layout;
+    split.markerBlocks.forEach((marker) => {
+      markerContainer.insertBefore(marker, anchor.nextSibling);
+      anchor = marker;
+    });
+  });
+}
+function isHtmlElement3(node) {
+  return node.nodeType === Node.ELEMENT_NODE;
+}
+
+// src/reading-mode/features/definition-lists/nativeListReconciler.ts
+function reconcileNativeListDefinition(options) {
+  const plans = getOwnershipPlans(options);
+  const sourceMatched = plans.filter(
+    (plan2) => Number(plan2.item.dataset.line) === options.sourceLine
+  );
+  const plan = sourceMatched.length === 1 ? sourceMatched[0] : plans.length === 1 ? plans[0] : null;
+  if (!plan) {
+    return false;
+  }
+  if (plan.kind === "canonical") {
+    options.usedCandidates.add(plan.item);
+    return true;
+  }
+  if (!canApplyRawOwnershipPlan(plan, options.replacement)) {
+    return false;
+  }
+  plan.item.insertBefore(options.replacement, plan.ownedPrefix[0]);
+  plan.ownedPrefix.forEach((node) => plan.item.removeChild(node));
+  options.usedCandidates.add(plan.item);
+  return true;
+}
+function getOwnershipPlans(options) {
+  return getNativeListItems(options.root).filter((item) => !options.usedCandidates.has(item)).map((item) => getOwnershipPlan(item, options)).filter((plan) => plan !== null);
+}
+function getNativeListItems(root) {
+  const items = Array.from(root.querySelectorAll("li"));
+  if (root.matches("li")) {
+    items.unshift(root);
+  }
+  return items.filter((item) => {
+    var _a4;
+    return (_a4 = item.parentElement) == null ? void 0 : _a4.matches("ul, ol");
+  });
+}
+function getOwnershipPlan(item, options) {
+  const canonicalList = Array.from(item.children).find(
+    (child) => child.tagName === "DL" && options.matchesCanonicalList(child)
+  );
+  if (canonicalList) {
+    return { item, kind: "canonical", ownedPrefix: [] };
+  }
+  const nodes = Array.from(item.childNodes);
+  for (let end = 1; end <= nodes.length; end++) {
+    const ownedPrefix = nodes.slice(0, end);
+    if (options.matchesRawDefinition(
+      options.getTextWithLineBreaks(ownedPrefix)
+    )) {
+      return { item, kind: "raw", ownedPrefix };
+    }
+  }
+  return null;
+}
+function canApplyRawOwnershipPlan(plan, replacement) {
+  return plan.ownedPrefix.length > 0 && plan.ownedPrefix.every((node) => node.parentNode === plan.item) && !replacement.parentNode;
+}
+
+// src/reading-mode/features/definition-lists/normalizer.ts
+function normalizeExistingDefinitionLists(element, context, config, renderContext, fullSourceText) {
+  if (context && config && normalizeDefinitionListsFromSource(element, context, config, renderContext, fullSourceText)) {
+    return;
+  }
+  normalizeDefinitionListsFromDom(element);
+}
+async function normalizeExistingDefinitionListsWithHost(element, context, fullSourceText, isCurrent = () => true) {
+  const blocks = getDefinitionBlockSets(fullSourceText, context.config);
+  const rendered = await renderDefinitionBlocksWithHost(blocks, context, isCurrent);
+  if (!rendered || !isCurrent()) {
+    return;
+  }
+  normalizePreparedDefinitionLists(
+    getReplacementRoot(element),
+    fullSourceText,
+    true,
+    blocks,
+    (block) => rendered.get(block)
+  );
+}
+function normalizeDefinitionListsFromSource(element, context, config, renderContext, fullSourceText) {
+  const sectionInfo = fullSourceText ? null : getSourceSectionInfo(element, context);
+  const sourceText = fullSourceText != null ? fullSourceText : sectionInfo == null ? void 0 : sectionInfo.text;
+  if (!sourceText) {
+    return false;
+  }
+  const replacement = getReplacementRoot(element);
+  const blocks = getDefinitionBlockSets(sourceText, config);
+  const renderer = new ReadingModeRenderer();
+  const effectiveRenderContext = renderContext != null ? renderContext : {
+    strictLineBreaks: config.strictLineBreaks
+  };
+  const renderBlock = (block) => renderPandocDefinitionListBlock(
+    block,
+    effectiveRenderContext,
+    (target, content, context2) => renderer.appendContent(target, content, context2)
+  );
+  normalizePreparedDefinitionLists(
+    replacement,
+    sourceText,
+    Boolean(fullSourceText),
+    blocks,
+    renderBlock
+  );
+  return true;
+}
+function normalizePreparedDefinitionLists(replacement, sourceText, hasFullSource, blocks, renderBlock) {
+  const usedCandidates = /* @__PURE__ */ new Set();
+  restoreInactiveLazyDefinitions(replacement, sourceText, blocks.inactiveLazy);
+  normalizeInactiveLazyDefinitions(
+    replacement,
+    blocks.inactiveLazy,
+    renderBlock,
+    usedCandidates
+  );
+  if (blocks.active.length === 0) {
+    return;
+  }
+  if (hasFullSource && isStandalonePandocDefinitionList(sourceText, blocks.active) && blocks.active.every((block) => !block.joinsLazyContainer)) {
+    const rendered = blocks.active.map(renderBlock);
+    replacement.replaceChildren(...rendered);
+    return;
+  }
+  blocks.active.forEach((block) => {
+    const rendered = [renderBlock(block)];
+    replaceDefinitionListContent(replacement, rendered, block, usedCandidates);
+  });
+}
+function getDefinitionBlockSets(sourceText, config) {
+  return {
+    active: findPandocDefinitionListBlocks(sourceText, config),
+    inactiveLazy: config.enableListsWithoutPrecedingBlankline ? findPandocDefinitionListBlocks(sourceText, {
+      enableListsWithoutPrecedingBlankline: false
+    }).filter((block) => block.joinsLazyContainer) : []
+  };
+}
+async function renderDefinitionBlocksWithHost(blocks, context, isCurrent) {
+  const sourceBlocks = [...blocks.inactiveLazy, ...blocks.active];
+  if (!isCurrent()) {
+    return null;
+  }
+  const lists = await Promise.all(sourceBlocks.map(
+    (block) => renderDefinitionBlockWithHost(block, context)
+  ));
+  if (!isCurrent() || lists.some((list) => list === null)) {
+    return null;
+  }
+  return new Map(sourceBlocks.map((block, index2) => [
+    block,
+    lists[index2]
+  ]));
+}
+function normalizeDefinitionListsFromDom(element) {
+  const lists = getDefinitionLists(element);
+  lists.forEach((list) => {
+    var _a4;
+    const firstTerm = list.querySelector("dt");
+    if (!firstTerm || ((_a4 = firstTerm.textContent) == null ? void 0 : _a4.trim())) {
+      return;
+    }
+    const termText = extractDroppedDefinitionTerm(list);
+    if (termText) {
+      firstTerm.textContent = termText;
+    }
+  });
+}
+function getSourceSectionInfo(element, context) {
+  var _a4, _b2;
+  const section2 = getMarkdownSection(element);
+  return (_b2 = (_a4 = safeGetContextSectionInfo(context, element)) != null ? _a4 : safeGetContextSectionInfo(context, section2)) != null ? _b2 : safeGetDomSectionInfo(section2);
+}
+function safeGetContextSectionInfo(context, element) {
+  if (!element || typeof context.getSectionInfo !== "function") {
+    return null;
+  }
+  try {
+    return context.getSectionInfo(element);
+  } catch (e) {
+    return null;
+  }
+}
+function safeGetDomSectionInfo(section2) {
+  if (!section2 || typeof getSectionInfo !== "function") {
+    return null;
+  }
+  return getSectionInfo(section2);
+}
+function getReplacementRoot(element) {
+  var _a4;
+  return (_a4 = getMarkdownSection(element)) != null ? _a4 : element;
+}
+function getMarkdownSection(element) {
+  if (element.classList.contains("markdown-preview-section")) {
+    return element;
+  }
+  return element.closest(".markdown-preview-section");
+}
+function replaceDefinitionListContent(root, replacementNodes, block, usedCandidates) {
+  const signature = getDefinitionDomSignature(replacementNodes, block);
+  if (block.nativeListParentIndex !== void 0) {
+    replaceNativeListDefinition(
+      root,
+      replacementNodes,
+      block.nativeListParentIndex,
+      signature,
+      usedCandidates
+    );
+    markInsertedDefinitionCandidates(root, replacementNodes, usedCandidates);
+    return;
+  }
+  const candidates = getDefinitionListBlockCandidates(
+    root,
+    block,
+    usedCandidates,
+    signature
+  );
+  if (candidates.length === 0) {
+    return;
+  }
+  if (!block.joinsLazyContainer && !containsCompleteDefinitionBlockCandidateText(candidates, signature)) {
+    return;
+  }
+  if (block.joinsLazyContainer && replaceLazyContainerDefinition(
+    candidates,
+    replacementNodes,
+    block,
+    signature,
+    usedCandidates
+  )) {
+    markInsertedDefinitionCandidates(root, replacementNodes, usedCandidates);
+    return;
+  }
+  if (isCanonicalDefinitionBlockCandidate(candidates, signature)) {
+    candidates.forEach((candidate) => usedCandidates.add(candidate));
+    return;
+  }
+  if (candidates[0] === root) {
+    candidates.forEach((candidate) => usedCandidates.add(candidate));
+    root.replaceChildren(...replacementNodes);
+    markInsertedDefinitionCandidates(root, replacementNodes, usedCandidates);
+    return;
+  }
+  const [firstCandidate, ...extraCandidates] = candidates;
+  candidates.forEach((candidate) => usedCandidates.add(candidate));
+  replaceDefinitionListCandidate(firstCandidate, replacementNodes);
+  extraCandidates.forEach((candidate) => candidate.remove());
+  markInsertedDefinitionCandidates(root, replacementNodes, usedCandidates);
+}
+function markInsertedDefinitionCandidates(root, replacementNodes, usedCandidates) {
+  replacementNodes.forEach((node) => {
+    if (isHtmlElement4(node) && root.contains(node)) {
+      usedCandidates.add(getDefinitionListBlockCandidate(node, root));
+    }
+  });
+}
+function replaceNativeListDefinition(root, replacementNodes, sourceLine, signature, usedCandidates) {
+  const list = replacementNodes.length === 1 && isHtmlElement4(replacementNodes[0]) && replacementNodes[0].matches(`dl.${CSS_CLASSES.DEFINITION_LIST}`) ? replacementNodes[0] : null;
+  if (!list) {
+    return;
+  }
+  reconcileNativeListDefinition({
+    root,
+    replacement: list,
+    sourceLine,
+    usedCandidates,
+    getTextWithLineBreaks: getTextFromNodes,
+    matchesCanonicalList: (candidate) => getDefinitionListSequence(candidate).join("\n") === signature.sequence.join("\n"),
+    matchesRawDefinition: (text) => matchesCompleteRawDefinitionText(text, signature)
+  });
+}
+function replaceDefinitionListCandidate(candidate, replacementNodes) {
+  var _a4;
+  if (candidate.classList.contains("el-p")) {
+    candidate.replaceChildren(...replacementNodes);
+    return;
+  }
+  (_a4 = firstLayoutWrapper(candidate)) == null ? void 0 : _a4.replaceChildren(...replacementNodes);
+  if (!candidate.parentNode) {
+    return;
+  }
+  candidate.replaceWith(...replacementNodes);
+}
+function firstLayoutWrapper(candidate) {
+  const parent2 = candidate.parentElement;
+  if (!(parent2 == null ? void 0 : parent2.classList.contains("el-p"))) {
+    return null;
+  }
+  return parent2;
+}
+function isHtmlElement4(node) {
+  return node.instanceOf(HTMLElement);
 }
 
 // src/reading-mode/pipeline/processors/definitionListNormalizationProcessor.ts
@@ -222557,10 +225489,12 @@ var DefinitionListReconciliationController = class {
     this.scheduled = false;
     this.running = false;
     this.pending = false;
+    this.generation = 0;
     this.context = context;
   }
   updateContext(context) {
     this.context = context;
+    this.generation++;
   }
   start() {
     if (typeof MutationObserver === "undefined") {
@@ -222594,9 +225528,15 @@ var DefinitionListReconciliationController = class {
       return;
     }
     this.running = true;
+    const generation = this.generation;
+    const context = this.context;
     try {
       this.observeCurrentRoot();
-      await normalizeDefinitionRoot(this.root, this.context);
+      await normalizeDefinitionRoot(
+        this.root,
+        context,
+        () => this.generation === generation
+      );
       this.observeCurrentRoot();
       this.observeConnectionIfDetached();
     } finally {
@@ -222653,30 +225593,46 @@ var DefinitionListReconciliationController = class {
     return (_b2 = (_a4 = this.root.closest(".markdown-embed")) != null ? _a4 : this.root.closest(".markdown-preview-section")) != null ? _b2 : this.root;
   }
 };
-async function normalizeDefinitionRoot(definitionRoot, context) {
-  const roots = getCurrentDefinitionRoots(definitionRoot);
-  roots.forEach((root) => normalizeExistingDefinitionLists(
-    root,
-    context.postProcessorContext,
-    context.config,
-    context.renderContext
-  ));
-  releaseEmbeddedPreviewMinimumHeight(definitionRoot);
+async function normalizeDefinitionRoot(definitionRoot, context, isCurrent = () => true) {
+  if (!isCurrent()) {
+    return;
+  }
   if (!context.app) {
+    getCurrentDefinitionRoots(definitionRoot).forEach((root) => normalizeExistingDefinitionLists(
+      root,
+      context.postProcessorContext,
+      context.config,
+      context.renderContext
+    ));
+    releaseEmbeddedPreviewMinimumHeight(definitionRoot);
     return;
   }
   const fullSourceText = await readFullSourceText(context.sourcePath, context.app);
+  if (!isCurrent()) {
+    return;
+  }
   if (!fullSourceText) {
+    getCurrentDefinitionRoots(definitionRoot).forEach((root) => normalizeExistingDefinitionLists(
+      root,
+      context.postProcessorContext,
+      context.config,
+      context.renderContext
+    ));
+    releaseEmbeddedPreviewMinimumHeight(definitionRoot);
     return;
   }
   context.fullSource = fullSourceText;
-  getCurrentDefinitionRoots(definitionRoot).forEach((root) => normalizeExistingDefinitionLists(
-    root,
-    context.postProcessorContext,
-    context.config,
-    context.renderContext,
-    fullSourceText
-  ));
+  for (const root of getCurrentDefinitionRoots(definitionRoot)) {
+    if (!isCurrent()) {
+      break;
+    }
+    await normalizeExistingDefinitionListsWithHost(
+      root,
+      context,
+      fullSourceText,
+      isCurrent
+    );
+  }
   releaseEmbeddedPreviewMinimumHeight(definitionRoot);
 }
 function getCurrentDefinitionRoots(root) {
@@ -222712,165 +225668,17 @@ function releaseEmbeddedPreviewMinimumHeight(root) {
   });
 }
 function createObserverRenderChild(containerEl, onunload) {
-  return {
-    containerEl,
-    load: () => void 0,
-    onload: () => void 0,
-    unload: onunload,
-    onunload
-  };
+  return new DefinitionListObserverChild(containerEl, onunload);
 }
-
-// src/editor-extensions/pandocValidator.ts
-function isStrictPandocFormatting(context, strictMode) {
-  if (!strictMode) {
-    return true;
+var DefinitionListObserverChild = class extends import_obsidian25.MarkdownRenderChild {
+  constructor(containerEl, handleUnload) {
+    super(containerEl);
+    this.handleUnload = handleUnload;
   }
-  const { lines, currentLine } = context;
-  const line = lines[currentLine];
-  const isPartOfListBlock = currentLine > 0 && isListItem(lines[currentLine - 1], false);
-  if (currentLine > 0 && !isPartOfListBlock) {
-    const prevLine = lines[currentLine - 1];
-    if (prevLine.trim() !== "") {
-      return false;
-    }
+  onunload() {
+    this.handleUnload();
   }
-  const capitalLetterMatch = line.match(ListPatterns.CAPITAL_LETTER_LIST);
-  if (capitalLetterMatch && capitalLetterMatch[3] === ".") {
-    if (capitalLetterMatch[4].length < INDENTATION.DOUBLE_SPACE) {
-      return false;
-    }
-  }
-  if (currentLine < lines.length - 1) {
-    const nextLine = lines[currentLine + 1];
-    const nextIsListItem = isListItem(nextLine, false);
-    if (!nextIsListItem && nextLine.trim() !== "") {
-      return false;
-    }
-  }
-  return true;
-}
-function isListItem(line, includeCustomLabels = false) {
-  if (ListPatterns.FANCY_LIST_WITH_NUMBERS.test(line) || ListPatterns.STANDARD_ORDERED_LIST.test(line) || ListPatterns.UNORDERED_LIST.test(line) || ListPatterns.isExampleList(line) || ListPatterns.isDefinitionMarker(line)) {
-    return true;
-  }
-  if (includeCustomLabels && ListPatterns.isCustomLabelList(line)) {
-    return true;
-  }
-  return false;
-}
-function formatToPandocStandard(content, enableCustomLabelLists = false) {
-  const lines = content.split("\n");
-  const result = [];
-  let inListBlock = false;
-  let lastWasEmpty = false;
-  for (let i = 0; i < lines.length; i++) {
-    const line = lines[i];
-    const isCurrentLineList = isListItem(line, enableCustomLabelLists);
-    const isCurrentLineHeading = ListPatterns.isHeading(line);
-    const isEmpty = line.trim() === "";
-    if (isCurrentLineList && !inListBlock) {
-      if (result.length > 0 && !lastWasEmpty) {
-        result.push("");
-      }
-      inListBlock = true;
-    }
-    if (!isCurrentLineList && !isEmpty && inListBlock) {
-      if (!lastWasEmpty) {
-        result.push("");
-      }
-      inListBlock = false;
-    }
-    if (isCurrentLineHeading) {
-      if (result.length > 0 && !lastWasEmpty && i > 0) {
-        result.push("");
-      }
-      let formattedLine = line;
-      result.push(formattedLine);
-      if (i < lines.length - 1 && lines[i + 1].trim() !== "") {
-        result.push("");
-        lastWasEmpty = true;
-      } else {
-        lastWasEmpty = false;
-      }
-      continue;
-    }
-    const capitalLetterMatch = line.match(ListPatterns.CAPITAL_LETTER_LIST);
-    if (capitalLetterMatch && capitalLetterMatch[4].length < INDENTATION.DOUBLE_SPACE) {
-      const formattedLine = line.replace(ListPatterns.CAPITAL_LETTER_REPLACE, "$1$2  ");
-      result.push(formattedLine);
-    } else {
-      result.push(line);
-    }
-    lastWasEmpty = isEmpty;
-  }
-  const cleanedResult = [];
-  let prevWasEmpty = false;
-  for (const line of result) {
-    if (line.trim() === "") {
-      if (!prevWasEmpty) {
-        cleanedResult.push(line);
-        prevWasEmpty = true;
-      }
-    } else {
-      cleanedResult.push(line);
-      prevWasEmpty = false;
-    }
-  }
-  return cleanedResult.join("\n");
-}
-function checkPandocFormatting(content, enableCustomLabelLists = false) {
-  const lines = content.split("\n");
-  const issues = [];
-  let inListBlock = false;
-  for (let i = 0; i < lines.length; i++) {
-    const line = lines[i];
-    const isCurrentLineList = isListItem(line, enableCustomLabelLists);
-    const isCurrentLineHeading = ListPatterns.isHeading(line);
-    const isEmpty = line.trim() === "";
-    if (isCurrentLineList) {
-      if (!inListBlock && i > 0 && lines[i - 1].trim() !== "") {
-        issues.push({
-          line: i + 1,
-          message: "List should have an empty line before it"
-        });
-      }
-      const capitalLetterMatch = line.match(ListPatterns.CAPITAL_LETTER_LIST);
-      if (capitalLetterMatch && capitalLetterMatch[4].length < INDENTATION.DOUBLE_SPACE) {
-        issues.push({
-          line: i + 1,
-          message: "Capital letter list with period requires at least 2 spaces after marker"
-        });
-      }
-      inListBlock = true;
-    } else if (!isEmpty && inListBlock) {
-      if (i > 0 && isListItem(lines[i - 1])) {
-        issues.push({
-          line: i,
-          message: "List should have an empty line after it"
-        });
-      }
-      inListBlock = false;
-    } else if (isEmpty) {
-      inListBlock = false;
-    }
-    if (isCurrentLineHeading) {
-      if (i > 0 && lines[i - 1].trim() !== "") {
-        issues.push({
-          line: i + 1,
-          message: "Heading should have an empty line before it"
-        });
-      }
-      if (i < lines.length - 1 && lines[i + 1].trim() !== "") {
-        issues.push({
-          line: i + 1,
-          message: "Heading should have an empty line after it"
-        });
-      }
-    }
-  }
-  return issues;
-}
+};
 
 // src/reading-mode/features/extended-lists/fancyListMarker.ts
 function parseFancyListMarker(line) {
@@ -223108,15 +225916,6 @@ var ReadingModeParser = class {
     }
     return references;
   }
-  /**
-   * Check if strict validation should be applied
-   */
-  shouldValidateStrict(parsedLine, lines, currentLineIndex) {
-    if (parsedLine.type !== "fancy") {
-      return false;
-    }
-    return true;
-  }
 };
 function parseListContent(line, markerEnd) {
   var _a4, _b2, _c, _d;
@@ -223139,11 +225938,725 @@ function getFancyTypeFromStyle(style) {
   return `${caseName}-${family}`;
 }
 
+// src/reading-mode/features/native-lists/sourceLine.ts
+function parseNativeListLine(line) {
+  const content = stripBlockQuotePrefix(line);
+  const unorderedMatch = content.match(/^([ \t]*)([-+*])(?:[ \t]+|$)/);
+  if (unorderedMatch) {
+    return {
+      kind: "ul",
+      indentColumns: getIndentColumns(unorderedMatch[1]),
+      itemText: content.slice(unorderedMatch[0].length).trim()
+    };
+  }
+  const orderedMatch = content.match(/^([ \t]*)(\d+)[.)](?:([ \t]+)|$)/);
+  return orderedMatch ? {
+    kind: "ol",
+    indentColumns: getIndentColumns(orderedMatch[1]),
+    itemText: content.slice(orderedMatch[0].length).trim(),
+    startNumber: Number(orderedMatch[2])
+  } : null;
+}
+function findSourceItemSubtreeEnd(startIndex, parentIndent, sourceLines) {
+  var _a4, _b2, _c;
+  let endIndex = startIndex;
+  let sawBlankLine = false;
+  const parentQuoteDepth = getBlockQuoteDepth((_a4 = sourceLines[startIndex]) != null ? _a4 : "");
+  for (let index2 = startIndex + 1; index2 < sourceLines.length; index2++) {
+    const line = sourceLines[index2];
+    if (!line.trim()) {
+      sawBlankLine = true;
+      continue;
+    }
+    const content = stripBlockQuoteDepth(line, parentQuoteDepth);
+    const indent = (_c = (_b2 = content.match(/^([ \t]*)/)) == null ? void 0 : _b2[1]) != null ? _c : "";
+    const indentColumns = getIndentColumns(indent);
+    if (ListBlockValidator.isListItemForValidation(line) && indentColumns <= parentIndent) {
+      break;
+    }
+    if (sawBlankLine && indentColumns <= parentIndent) {
+      break;
+    }
+    endIndex = index2;
+    sawBlankLine = false;
+  }
+  return endIndex;
+}
+function findInterruptedSourceSubtreeEnd(startIndex, parentIndent, paragraphEndIndex, includeMaterializedTail, sourceLines) {
+  const subtreeEndIndex = findSourceItemSubtreeEnd(
+    startIndex,
+    parentIndent,
+    sourceLines
+  );
+  if (subtreeEndIndex <= paragraphEndIndex || !includeMaterializedTail) {
+    return paragraphEndIndex;
+  }
+  const firstOutsideLine = sourceLines[paragraphEndIndex + 1];
+  if (firstOutsideLine === void 0 || !/^[ \t]*$/.test(stripBlockQuotePrefix(firstOutsideLine))) {
+    return paragraphEndIndex;
+  }
+  return subtreeEndIndex;
+}
+function getNativeListSourceOccurrence(lines, target) {
+  return getNativeListSourceOccurrenceByComparison(lines, target, true);
+}
+function getNativeListSourceTextOccurrence(lines, target) {
+  return getNativeListSourceOccurrenceByComparison(lines, target, false);
+}
+function getRenderableNativeListLineIndices(lines) {
+  return new Set(Array.from(getRenderableSourceLineIndices(lines)).filter((index2) => parseNativeListLine(lines[index2]) !== null));
+}
+function getRenderableSourceLineIndices(lines) {
+  const indices = /* @__PURE__ */ new Set();
+  let fence = null;
+  let inYaml = false;
+  let fencedDivDepth = 0;
+  let opaqueBlockEndIndex = null;
+  let inLineBlock = false;
+  let rawTexEnvironment = null;
+  let inlineCodeSpanEndIndex = null;
+  for (let index2 = 0; index2 < lines.length; index2++) {
+    if (inlineCodeSpanEndIndex !== null && index2 <= inlineCodeSpanEndIndex) {
+      if (index2 === inlineCodeSpanEndIndex) {
+        inlineCodeSpanEndIndex = null;
+      }
+      continue;
+    }
+    const content = stripBlockQuotePrefix(lines[index2]);
+    const state = updateOpaqueBlockState(lines, index2, content, {
+      fence,
+      inYaml,
+      fencedDivDepth,
+      opaqueBlockEndIndex,
+      inLineBlock,
+      rawTexEnvironment
+    });
+    fence = state.fence;
+    inYaml = state.inYaml;
+    fencedDivDepth = state.fencedDivDepth;
+    opaqueBlockEndIndex = state.opaqueBlockEndIndex;
+    inLineBlock = state.inLineBlock;
+    rawTexEnvironment = state.rawTexEnvironment;
+    if (state.isOpaque) {
+      continue;
+    }
+    indices.add(index2);
+    inlineCodeSpanEndIndex = getMultilineBacktickCodeSpanEndIndex(
+      lines,
+      index2,
+      content
+    );
+  }
+  return indices;
+}
+function getNativeListSourceOccurrenceByComparison(lines, target, matchIndent) {
+  let occurrence = -1;
+  let fence = null;
+  let inYaml = false;
+  let fencedDivDepth = 0;
+  let opaqueBlockEndIndex = null;
+  let inLineBlock = false;
+  let rawTexEnvironment = null;
+  let inlineCodeSpanEndIndex = null;
+  for (let index2 = 0; index2 <= target.index; index2++) {
+    if (inlineCodeSpanEndIndex !== null && index2 <= inlineCodeSpanEndIndex) {
+      if (index2 === inlineCodeSpanEndIndex) {
+        inlineCodeSpanEndIndex = null;
+      }
+      continue;
+    }
+    const content = stripBlockQuotePrefix(lines[index2]);
+    const state = updateOpaqueBlockState(
+      lines,
+      index2,
+      content,
+      {
+        fence,
+        inYaml,
+        fencedDivDepth,
+        opaqueBlockEndIndex,
+        inLineBlock,
+        rawTexEnvironment
+      }
+    );
+    fence = state.fence;
+    inYaml = state.inYaml;
+    fencedDivDepth = state.fencedDivDepth;
+    opaqueBlockEndIndex = state.opaqueBlockEndIndex;
+    inLineBlock = state.inLineBlock;
+    rawTexEnvironment = state.rawTexEnvironment;
+    if (state.isOpaque) {
+      continue;
+    }
+    inlineCodeSpanEndIndex = getMultilineBacktickCodeSpanEndIndex(
+      lines,
+      index2,
+      content
+    );
+    const parsed = parseNativeListLine(lines[index2]);
+    if (isSameNativeListItem(parsed, target, matchIndent)) {
+      occurrence++;
+    }
+  }
+  return occurrence;
+}
+function getComparableNativeListText(sourceItemText) {
+  const protectedCode = [];
+  const protectedEscapes = [];
+  const withProtectedEscapes = sourceItemText.replace(
+    /\\([!"#$%&'()*+,\-./:;<=>?@[\]^_`{|}~])/g,
+    (_match, literal) => {
+      const token = `\uE100${protectedEscapes.length}\uE101`;
+      protectedEscapes.push(literal);
+      return token;
+    }
+  );
+  const withProtectedCode = withProtectedEscapes.replace(
+    /(`+)(?!`)([\s\S]*?)\1(?!`)/g,
+    (_match, _ticks, code) => {
+      const token = `\uE000${protectedCode.length}\uE001`;
+      protectedCode.push(code.replace(/^ | $/g, "").replace(/\s+/g, " "));
+      return token;
+    }
+  );
+  const comparable = stripMarkdownEmphasis(withProtectedCode).replace(/^\[[ xX]\]\s*/, "").replace(
+    /!?\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g,
+    (_match, target, alias) => alias != null ? alias : target
+  ).replace(/!\[([^\]]*)\]\([^)]*\)/g, "$1").replace(/\[([^\]]+)\]\([^)]*\)/g, "$1").replace(/\[([^\]]+)\]\[[^\]]*\]/g, "$1").replace(/<(https?:\/\/[^>]+|mailto:[^>]+)>/g, (_match, target) => target.replace(/^mailto:/, "")).replace(/<[^>]+>/g, "");
+  const restoredCode = comparable.replace(
+    /\uE000(\d+)\uE001/g,
+    (_match, index2) => {
+      var _a4;
+      return (_a4 = protectedCode[Number(index2)]) != null ? _a4 : "";
+    }
+  );
+  const restored = restoredCode.replace(
+    /\uE100(\d+)\uE101/g,
+    (_match, index2) => {
+      var _a4;
+      return (_a4 = protectedEscapes[Number(index2)]) != null ? _a4 : "";
+    }
+  );
+  return decodeHtmlEntities(restored);
+}
+function stripMarkdownEmphasis(text) {
+  return text.replace(/(\*{3}|_{3})(?=\S)([\s\S]*?\S)\1/g, "$2").replace(/(\*{2}|_{2}|~~)(?=\S)([\s\S]*?\S)\1/g, "$2").replace(/\*(?=\S)([\s\S]*?\S)\*/g, "$1").replace(/(^|[^A-Za-z0-9])_(?=\S)([\s\S]*?\S)_(?![A-Za-z0-9])/g, "$1$2");
+}
+function normalizeNativeListText(text) {
+  return text.replace(/\s+/g, " ").trim();
+}
+function rewriteIndentedBacktickCodeSpans(lines) {
+  const rewritten = [...lines];
+  for (let index2 = 0; index2 < lines.length; index2++) {
+    const span = getIndentedBacktickCodeSpan(lines, index2);
+    if (!span) {
+      continue;
+    }
+    const content = stripBlockQuotePrefix(lines[index2]);
+    const containerPrefix = lines[index2].slice(0, lines[index2].length - content.length);
+    rewritten[index2] = `${containerPrefix}<code>${escapeHtml(span.text)}</code>`;
+    for (let consumed = index2 + 1; consumed <= span.endIndex; consumed++) {
+      rewritten[consumed] = null;
+    }
+    index2 = span.endIndex;
+  }
+  return rewritten.filter((line) => line !== null);
+}
+function escapeExcessBlockQuoteMarkers(line, retainedDepth) {
+  var _a4;
+  let depth = 0;
+  let offset = 0;
+  let escaped = "";
+  while (offset < line.length) {
+    const prefix = (_a4 = line.slice(offset).match(/^ {0,3}>[ \t]?/)) == null ? void 0 : _a4[0];
+    if (!prefix) {
+      break;
+    }
+    escaped += depth < retainedDepth ? prefix : prefix.replace(">", "\\>");
+    offset += prefix.length;
+    depth++;
+  }
+  return escaped + line.slice(offset);
+}
+function stripBlockQuotePrefix(line) {
+  let content = line;
+  while (/^ {0,3}>[ \t]?/.test(content)) {
+    content = content.replace(/^ {0,3}>[ \t]?/, "");
+  }
+  return content;
+}
+function updateOpaqueBlockState(lines, index2, content, state) {
+  if (state.opaqueBlockEndIndex !== null && index2 <= state.opaqueBlockEndIndex) {
+    return {
+      ...state,
+      opaqueBlockEndIndex: index2 < state.opaqueBlockEndIndex ? state.opaqueBlockEndIndex : null,
+      isOpaque: true
+    };
+  }
+  if (state.inYaml) {
+    return {
+      ...state,
+      inYaml: !/^(?:---|\.\.\.)[ \t]*$/.test(content),
+      isOpaque: true
+    };
+  }
+  if (state.rawTexEnvironment) {
+    return {
+      ...state,
+      rawTexEnvironment: content.includes(`\\end{${state.rawTexEnvironment}}`) ? null : state.rawTexEnvironment,
+      isOpaque: true
+    };
+  }
+  if (state.inLineBlock && (isLineBlock(content) || isLineBlockContinuation(content))) {
+    return { ...state, isOpaque: true };
+  }
+  if (state.fence) {
+    return {
+      ...state,
+      fence: isFenceClosing(content, state.fence) ? null : state.fence,
+      isOpaque: true
+    };
+  }
+  const baseState = state.inLineBlock ? { ...state, inLineBlock: false } : state;
+  if (isYamlMetadataStart(lines, index2, content)) {
+    return { ...baseState, inYaml: true, isOpaque: true };
+  }
+  const openingFence = getFenceOpening(lines, index2, content);
+  if (openingFence) {
+    return { ...baseState, fence: openingFence, isOpaque: true };
+  }
+  if (isFencedDivClosing2(content) && baseState.fencedDivDepth > 0) {
+    return {
+      ...baseState,
+      fencedDivDepth: baseState.fencedDivDepth - 1,
+      isOpaque: true
+    };
+  }
+  if (isFencedDivOpening(content)) {
+    return {
+      ...baseState,
+      fencedDivDepth: baseState.fencedDivDepth + 1,
+      isOpaque: true
+    };
+  }
+  const opaqueBlockEndIndex = getStandaloneOpaqueBlockEndIndex(lines, index2, content);
+  if (opaqueBlockEndIndex !== null) {
+    return {
+      ...baseState,
+      opaqueBlockEndIndex: opaqueBlockEndIndex > index2 ? opaqueBlockEndIndex : null,
+      isOpaque: true
+    };
+  }
+  const rawTexEnvironment = getRawTexEnvironmentOpening(lines, index2, content);
+  if (rawTexEnvironment) {
+    return {
+      ...baseState,
+      rawTexEnvironment: content.includes(`\\end{${rawTexEnvironment}}`) ? null : rawTexEnvironment,
+      isOpaque: true
+    };
+  }
+  if (isLineBlock(content)) {
+    return { ...baseState, inLineBlock: true, isOpaque: true };
+  }
+  return { ...baseState, isOpaque: false };
+}
+function isSameNativeListItem(parsed, target, matchIndent = true) {
+  return Boolean(parsed && parsed.kind === target.kind && (!matchIndent || parsed.indentColumns === target.indentColumns) && normalizeNativeListText(getComparableNativeListText(parsed.itemText)) === normalizeNativeListText(getComparableNativeListText(target.itemText)));
+}
+function decodeHtmlEntities(text) {
+  var _a4;
+  if (typeof DOMParser === "undefined") {
+    return text;
+  }
+  const parsed = new DOMParser().parseFromString(text, "text/html");
+  return (_a4 = parsed.documentElement.textContent) != null ? _a4 : text;
+}
+function escapeHtml(text) {
+  return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+
+// src/reading-mode/features/extended-lists/sourceDataLineResolver.ts
+function resolveSourceDataLines(lines, context, element, minimumSourceLine = 0, knownCandidateListLines) {
+  if (context.validationLines.length === 0) {
+    return lines.map(() => void 0);
+  }
+  const sourceLines = context.validationLines;
+  const candidateListLines = knownCandidateListLines != null ? knownCandidateListLines : ListBlockValidator.getListMarkerCandidateLines(sourceLines, {
+    enableListsWithoutPrecedingBlankline: context.config.enableListsWithoutPrecedingBlankline
+  });
+  const bounds2 = getElementSourceBounds(element, context, sourceLines.length);
+  const startLine = Math.max(bounds2.startLine, minimumSourceLine);
+  const endLine = getCandidateSourceEndLine(
+    element,
+    sourceLines,
+    startLine,
+    bounds2.endLine
+  );
+  const dataLines = [];
+  let sourceIndex = startLine;
+  for (const line of lines) {
+    let matchIndex = sourceIndex;
+    while (matchIndex <= endLine && !sourceLinesCorrespond(
+      line,
+      sourceLines[matchIndex],
+      matchIndex,
+      candidateListLines
+    )) {
+      matchIndex++;
+    }
+    if (matchIndex > endLine) {
+      dataLines.push(void 0);
+      continue;
+    }
+    dataLines.push(matchIndex);
+    sourceIndex = matchIndex + 1;
+  }
+  return dataLines;
+}
+function getCandidateSourceEndLine(element, sourceLines, startLine, reportedEndLine) {
+  var _a4;
+  if (!(element == null ? void 0 : element.instanceOf(HTMLLIElement))) {
+    return reportedEndLine;
+  }
+  const owner = parseNativeListLine((_a4 = sourceLines[startLine]) != null ? _a4 : "");
+  if (!owner) {
+    return reportedEndLine >= startLine ? reportedEndLine : sourceLines.length - 1;
+  }
+  return Math.max(
+    reportedEndLine,
+    findSourceItemSubtreeEnd(startLine, owner.indentColumns, sourceLines)
+  );
+}
+function getElementSourceBounds(element, context, sourceLineCount) {
+  var _a4, _b2;
+  const fallback = { startLine: 0, endLine: sourceLineCount - 1 };
+  if (!element || !context.sectionInfo) {
+    return fallback;
+  }
+  const elementInfo = (_b2 = (_a4 = context.postProcessorContext).getSectionInfo) == null ? void 0 : _b2.call(_a4, element);
+  if (!elementInfo) {
+    return fallback;
+  }
+  const absoluteBounds = {
+    startLine: elementInfo.lineStart,
+    endLine: elementInfo.lineEnd
+  };
+  if (areValidSourceBounds(absoluteBounds, sourceLineCount)) {
+    return absoluteBounds;
+  }
+  const sectionRelativeBounds = {
+    startLine: elementInfo.lineStart - context.sectionInfo.lineStart,
+    endLine: elementInfo.lineEnd - context.sectionInfo.lineStart
+  };
+  return areValidSourceBounds(sectionRelativeBounds, sourceLineCount) ? sectionRelativeBounds : fallback;
+}
+function areValidSourceBounds(bounds2, sourceLineCount) {
+  return bounds2.startLine >= 0 && bounds2.endLine >= bounds2.startLine && bounds2.endLine < sourceLineCount;
+}
+function sourceLinesCorrespond(renderedLine, sourceLine, sourceIndex, candidateListLines) {
+  const renderedMarker = parsePandocListMarker(renderedLine, true);
+  const sourceMarker = parsePandocListMarker(sourceLine, true);
+  if (!renderedMarker && !sourceMarker) {
+    return renderedLine.trim() === sourceLine.trim();
+  }
+  if (!renderedMarker || !sourceMarker || renderedMarker.kind !== sourceMarker.kind) {
+    return false;
+  }
+  if (!candidateListLines.has(sourceIndex)) {
+    return false;
+  }
+  const renderedMarkerText = renderedLine.slice(
+    renderedMarker.markerStart,
+    renderedMarker.markerEnd
+  );
+  const sourceMarkerText = sourceLine.slice(sourceMarker.markerStart, sourceMarker.markerEnd);
+  return renderedMarkerText === sourceMarkerText && renderedMarker.orderedGroup === sourceMarker.orderedGroup;
+}
+
+// src/reading-mode/features/extended-lists/sourceBackedCandidate.ts
+function resolveCandidateSourceDataLines(elements2, context, candidateListLines) {
+  const result = /* @__PURE__ */ new Map();
+  let nextDisjointSourceLine = 0;
+  elements2.forEach((element) => {
+    var _a4;
+    const lines = getTextWithLineBreaks3(element).split("\n");
+    const isNestedCandidate = Boolean((_a4 = element.parentElement) == null ? void 0 : _a4.closest("p, li"));
+    const dataLines = resolveSourceDataLines(
+      lines,
+      context,
+      element,
+      isNestedCandidate ? 0 : nextDisjointSourceLine,
+      candidateListLines
+    );
+    result.set(element, dataLines);
+    if (!isNestedCandidate) {
+      const resolvedLines = dataLines.filter(
+        (line) => line !== void 0
+      );
+      if (resolvedLines.length > 0) {
+        nextDisjointSourceLine = Math.max(...resolvedLines) + 1;
+      }
+    }
+  });
+  return result;
+}
+function getTextNodeSourceDataLines(node, container, elementDataLines) {
+  var _a4, _b2, _c;
+  const lineCount = ((_c = (_b2 = (_a4 = node.textContent) == null ? void 0 : _a4.match(/\n/g)) == null ? void 0 : _b2.length) != null ? _c : 0) + 1;
+  if (!elementDataLines) {
+    return Array.from({ length: lineCount }, () => void 0);
+  }
+  const startLine = getTextNodeLineIndex(node, container);
+  return Array.from(
+    { length: lineCount },
+    (_, index2) => elementDataLines[startLine + index2]
+  );
+}
+function getTextNodeLineIndex(target, container) {
+  let lineIndex = 0;
+  let targetLineIndex = 0;
+  let found = false;
+  const visit = (node) => {
+    var _a4, _b2, _c;
+    if (found) {
+      return;
+    }
+    if (node === target) {
+      targetLineIndex = lineIndex;
+      found = true;
+      return;
+    }
+    if (node.nodeName === "BR") {
+      lineIndex++;
+      return;
+    }
+    if (node.nodeType === Node.TEXT_NODE) {
+      lineIndex += (_c = (_b2 = (_a4 = node.textContent) == null ? void 0 : _a4.match(/\n/g)) == null ? void 0 : _b2.length) != null ? _c : 0;
+      return;
+    }
+    node.childNodes.forEach(visit);
+  };
+  container.childNodes.forEach(visit);
+  return targetLineIndex;
+}
+function getStandaloneDefinitionListSource(text, context) {
+  var _a4;
+  const sectionText = (_a4 = context.sectionInfo) == null ? void 0 : _a4.text;
+  if (!sectionText || sectionText === text) {
+    return text;
+  }
+  const blocks = findPandocDefinitionListBlocks(sectionText, context.config);
+  if (!isStandalonePandocDefinitionList(sectionText, blocks)) {
+    return text;
+  }
+  return matchesCompleteDefinitionListSection(text, blocks) ? sectionText : text;
+}
+function matchesCompleteDefinitionListSection(text, blocks) {
+  const normalizedText = normalizeCandidateText2(text);
+  return blocks.every((block) => {
+    const requiredTexts = [...block.termTexts, ...block.definitionTexts].map(normalizeCandidateText2).filter((requiredText) => requiredText.length > 0);
+    return requiredTexts.every((requiredText) => normalizedText.includes(requiredText));
+  });
+}
+function shouldKeepSourceBackedDefinitionMarkerPlain(element, context) {
+  var _a4;
+  if (context.config.enableDefinitionLists === false || element.nodeName !== "P" || !((_a4 = context.sectionInfo) == null ? void 0 : _a4.text)) {
+    return false;
+  }
+  const markerTexts = getTextWithLineBreaks3(element).split("\n").map(normalizeCandidateText2).filter((line) => Boolean(ListPatterns.isDefinitionMarker(line)));
+  if (markerTexts.length === 0) {
+    return false;
+  }
+  if (context.app) {
+    return true;
+  }
+  const sourceLines = context.sectionInfo.text.split("\n");
+  const matchingSourceLineIndexes = sourceLines.map((line, index2) => ({ line: normalizeCandidateText2(line), index: index2 })).filter((item) => markerTexts.includes(item.line)).map((item) => item.index);
+  if (matchingSourceLineIndexes.length === 0) {
+    return false;
+  }
+  const blocks = findPandocDefinitionListBlocks(context.sectionInfo.text, context.config);
+  const isInBlock = (index2) => blocks.some(
+    (block) => index2 >= block.startLine && index2 <= block.endLine
+  );
+  const isInLazyContainerBlock = (index2) => blocks.some(
+    (block) => block.joinsLazyContainer && index2 >= block.startLine && index2 <= block.endLine
+  );
+  return matchingSourceLineIndexes.some(
+    (index2) => !isInBlock(index2) || isInLazyContainerBlock(index2)
+  );
+}
+function applySourceDefinitionBoundaries(parsedLines, lines, context) {
+  var _a4;
+  if (context.config.enableDefinitionLists === false || !((_a4 = context.sectionInfo) == null ? void 0 : _a4.text)) {
+    return;
+  }
+  parsedLines.forEach((parsedLine, index2) => {
+    var _a5, _b2;
+    if (parsedLine.type !== "definition-item" || isSourceLineInDefinitionBlock(
+      lines[index2],
+      (_b2 = (_a5 = context.sectionInfo) == null ? void 0 : _a5.text) != null ? _b2 : "",
+      context.config
+    )) {
+      return;
+    }
+    parsedLine.type = "plain";
+    parsedLine.metadata = void 0;
+  });
+}
+function isSourceLineInDefinitionBlock(line, sourceText, config) {
+  const normalizedLine = normalizeCandidateText2(line);
+  const sourceLines = sourceText.split("\n");
+  const matchingSourceLineIndexes = sourceLines.map((sourceLine, index2) => ({ line: normalizeCandidateText2(sourceLine), index: index2 })).filter((item) => item.line === normalizedLine).map((item) => item.index);
+  if (matchingSourceLineIndexes.length === 0) {
+    return true;
+  }
+  const blocks = findPandocDefinitionListBlocks(sourceText, config);
+  return matchingSourceLineIndexes.some(
+    (index2) => blocks.some((block) => index2 >= block.startLine && index2 <= block.endLine)
+  );
+}
+function normalizeCandidateText2(text) {
+  return text.replace(/\s+/g, " ").trim();
+}
+function getTextWithLineBreaks3(elem) {
+  const parts = [];
+  elem.childNodes.forEach((node) => appendNodeText3(node, parts));
+  return parts.join("");
+}
+function appendNodeText3(node, parts) {
+  if (node.nodeName === "BR") {
+    parts.push("\n");
+    return;
+  }
+  if (node.nodeType === Node.TEXT_NODE) {
+    parts.push(node.textContent || "");
+    return;
+  }
+  if (node.nodeType === Node.ELEMENT_NODE && !isCodeElement2(node)) {
+    node.childNodes.forEach((child) => appendNodeText3(child, parts));
+  }
+}
+function isCodeElement2(element) {
+  return element.nodeName === "CODE" || element.nodeName === "PRE";
+}
+
+// src/reading-mode/features/extended-lists/renderedLineProjection.ts
+function projectRenderedLines(element, entries, parsedLines, firstListLine) {
+  var _a4;
+  const boundaries = getRenderedLineBoundaries(element);
+  const projected = [];
+  for (let index2 = firstListLine; index2 < parsedLines.length; index2++) {
+    const entry = entries[index2];
+    const boundary = boundaries[entry.index];
+    if (!boundary) {
+      return null;
+    }
+    const line = parsedLines[index2];
+    const prefix = entry.line.slice(0, entry.line.length - getListItemContent(line).length);
+    const range = document.createRange();
+    range.setStart(boundary.start.container, boundary.start.offset);
+    range.setEnd(boundary.end.container, boundary.end.offset);
+    const preview = range.cloneContents();
+    const previewText = (_a4 = preview.textContent) != null ? _a4 : "";
+    if (!prefix || !previewText.startsWith(prefix) || !previewText.slice(prefix.length).trim() && !preview.querySelector("*:not(br)")) {
+      return null;
+    }
+    projected.push({ line, range, prefixLength: prefix.length });
+  }
+  return projected;
+}
+function getLogicalLineBoundary(element, lineIndex) {
+  var _a4, _b2;
+  if (lineIndex <= 0) {
+    return { container: element, offset: 0 };
+  }
+  return (_b2 = (_a4 = getRenderedLineBoundaries(element)[lineIndex - 1]) == null ? void 0 : _a4.end) != null ? _b2 : null;
+}
+function extractRenderedLineContent(projected) {
+  const contents = /* @__PURE__ */ new Map();
+  for (let index2 = projected.length - 1; index2 >= 0; index2--) {
+    const { line, range, prefixLength } = projected[index2];
+    const fragment = range.extractContents();
+    removeFirstTextPrefix(fragment, prefixLength);
+    renderUnprocessedMath(fragment);
+    contents.set(line, fragment);
+  }
+  return contents;
+}
+function getListItemContent(parsedLine) {
+  if (parsedLine.type === "hash") {
+    return parsedLine.metadata.content;
+  }
+  if (parsedLine.type === "fancy") {
+    return parsedLine.metadata.content;
+  }
+  if (parsedLine.type === "example") {
+    return parsedLine.metadata.content;
+  }
+  return parsedLine.content;
+}
+function getRenderedLineBoundaries(element) {
+  const lines = [];
+  let start = { container: element, offset: 0 };
+  const visit = (node) => {
+    var _a4;
+    if (node.nodeName === "BR" && node.parentNode) {
+      const offset = Array.from(node.parentNode.childNodes).indexOf(node);
+      lines.push({ start, end: { container: node.parentNode, offset } });
+      start = { container: node.parentNode, offset: offset + 1 };
+    } else if (node.nodeType === Node.TEXT_NODE) {
+      const value = (_a4 = node.textContent) != null ? _a4 : "";
+      for (let offset = 0; offset < value.length; offset++) {
+        if (value[offset] === "\n") {
+          lines.push({ start, end: { container: node, offset } });
+          start = { container: node, offset: offset + 1 };
+        }
+      }
+    } else if (node.nodeType === Node.ELEMENT_NODE && node.nodeName !== "CODE" && node.nodeName !== "PRE") {
+      node.childNodes.forEach(visit);
+    }
+  };
+  element.childNodes.forEach(visit);
+  lines.push({ start, end: { container: element, offset: element.childNodes.length } });
+  return lines;
+}
+function removeFirstTextPrefix(fragment, length) {
+  const walker = document.createTreeWalker(fragment, NodeFilter.SHOW_TEXT);
+  let remaining = length;
+  while (remaining > 0 && walker.nextNode()) {
+    const node = walker.currentNode;
+    const removed = Math.min(remaining, node.length);
+    node.deleteData(0, removed);
+    remaining -= removed;
+  }
+}
+function renderUnprocessedMath(fragment) {
+  var _a4, _b2;
+  const walker = document.createTreeWalker(fragment, NodeFilter.SHOW_TEXT);
+  const candidates = [];
+  while (walker.nextNode()) {
+    const node = walker.currentNode;
+    if (((_a4 = node.textContent) == null ? void 0 : _a4.includes("$")) && !((_b2 = node.parentElement) == null ? void 0 : _b2.closest("code, pre, .math, .cm-math, mjx-container"))) {
+      candidates.push(node);
+    }
+  }
+  candidates.forEach((node) => {
+    var _a5;
+    const container = document.createElement("span");
+    if (appendMathContent(container, (_a5 = node.textContent) != null ? _a5 : "", (text) => {
+      container.appendChild(document.createTextNode(text));
+    })) {
+      node.replaceWith(...Array.from(container.childNodes));
+    }
+  });
+}
+
 // src/reading-mode/features/extended-lists/taskListItem.ts
-function appendExtendedListItemContent(item, data, renderer, context) {
+function appendExtendedListItemContent(item, data, content) {
   var _a4;
   if (data.taskState === null) {
-    renderer.appendContent(item, data.content.trimStart(), context);
+    item.appendChild(content);
     return;
   }
   const taskCharacter = (_a4 = data.taskCharacter) != null ? _a4 : data.taskState === "checked" ? "x" : " ";
@@ -223164,20 +226677,38 @@ function appendExtendedListItemContent(item, data, renderer, context) {
     checkbox.dataset.line = dataLine;
   }
   label.appendChild(checkbox);
-  renderer.appendContent(label, data.content.trimStart(), context);
+  label.appendChild(content);
   item.appendChild(label);
 }
 
 // src/reading-mode/features/extended-lists/semanticBlockRenderer.ts
-function tryRenderSemanticListParagraph(elem, context, parser, renderer, text) {
-  const lines = text.split("\n").filter((line) => line.trim().length > 0);
-  const dataLines = resolveSourceDataLines(lines, context);
+function tryRenderSemanticListParagraph(elem, context, parser, text, sourceDataLines, invalidListLines) {
+  const sourceEntries = text.split("\n").map((line, index2) => ({ line, index: index2 })).filter((entry) => entry.line.trim().length > 0);
+  const lines = sourceEntries.map((entry) => entry.line);
+  const dataLines = sourceDataLines ? sourceEntries.map((entry) => sourceDataLines[entry.index]) : resolveSourceDataLines(lines, context, elem);
   const parsedLines = parser.parseLines(lines, true, true, context.config, dataLines);
-  applyStrictFancyValidation(parsedLines, lines, context);
-  if (!isSemanticListBlock(parsedLines)) {
+  applyPandocListValidation(parsedLines, context, invalidListLines);
+  makeRenderedDataLinesSectionRelative(parsedLines, elem, context);
+  const firstListLine = parsedLines.findIndex(isListLine);
+  if (firstListLine < 0 || !isSemanticListSuffix(parsedLines, firstListLine)) {
     return false;
   }
-  const rendered = groupListLines(parsedLines).flatMap((group) => renderSemanticList(group, context, renderer));
+  if (firstListLine > 0 && (!getLogicalLineBoundary(elem, sourceEntries[firstListLine].index) || !elem.instanceOf(HTMLLIElement) && !elem.parentNode)) {
+    return "unmapped";
+  }
+  const projected = projectRenderedLines(elem, sourceEntries, parsedLines, firstListLine);
+  if (!projected) {
+    return "unmapped";
+  }
+  const contents = extractRenderedLineContent(projected);
+  const rendered = groupListLines(parsedLines.slice(firstListLine)).flatMap((group) => renderSemanticList(group, context, contents));
+  if (firstListLine > 0) {
+    return replaceTrailingSourceLinesWithLists(
+      elem,
+      sourceEntries[firstListLine].index,
+      rendered
+    );
+  }
   if (elem.parentNode) {
     elem.replaceWith(...rendered);
   } else {
@@ -223185,19 +226716,31 @@ function tryRenderSemanticListParagraph(elem, context, parser, renderer, text) {
   }
   return true;
 }
-function applyStrictFancyValidation(parsedLines, lines, context) {
-  if (!context.config.enforcePandocListSpacing) {
+function makeRenderedDataLinesSectionRelative(parsedLines, element, context) {
+  var _a4, _b2, _c, _d, _e, _f;
+  const sectionStart = (_f = (_e = (_c = (_b2 = (_a4 = context.postProcessorContext).getSectionInfo) == null ? void 0 : _b2.call(_a4, element)) == null ? void 0 : _c.lineStart) != null ? _e : (_d = context.sectionInfo) == null ? void 0 : _d.lineStart) != null ? _f : 0;
+  if (sectionStart <= 0) {
     return;
   }
+  parsedLines.forEach((line) => {
+    if (line.dataLine !== void 0 && line.dataLine >= sectionStart) {
+      line.dataLine -= sectionStart;
+    }
+  });
+}
+function applyPandocListValidation(parsedLines, context, knownInvalidListLines) {
+  const invalidListLines = knownInvalidListLines != null ? knownInvalidListLines : ListBlockValidator.validateListBlocks(context.validationLines, {
+    enableListsWithoutPrecedingBlankline: context.config.enableListsWithoutPrecedingBlankline
+  });
   parsedLines.forEach((parsedLine, index2) => {
-    if (parsedLine.type === "fancy" && context.validationLines.length > 0 && !validateListInStrictMode(lines[index2], context.validationLines, context.config)) {
+    if (isListLine(parsedLine) && context.validationLines.length > 0 && (parsedLine.dataLine === void 0 || invalidListLines.has(parsedLine.dataLine))) {
       parsedLine.type = "plain";
     }
   });
 }
-function renderSemanticList(parsedLines, context, renderer) {
+function renderSemanticList(parsedLines, context, contents) {
   if (parsedLines.some((line) => line.type === "fancy") && hasNestedIndent(parsedLines)) {
-    return renderNestedFancyLists(parsedLines, context, renderer);
+    return renderNestedFancyLists(parsedLines, context, contents);
   }
   const list = document.createElement("ol");
   const firstLine = parsedLines[0];
@@ -223208,14 +226751,13 @@ function renderSemanticList(parsedLines, context, renderer) {
     appendExtendedListItemContent(
       item,
       getRenderedTaskItem(parsedLine),
-      renderer,
-      context.renderContext
+      getRenderedContent(contents, parsedLine)
     );
     list.appendChild(item);
   });
   return [list];
 }
-function renderNestedFancyLists(parsedLines, context, renderer) {
+function renderNestedFancyLists(parsedLines, context, contents) {
   const roots = [];
   const stack = [];
   parsedLines.forEach((parsedLine) => {
@@ -223242,8 +226784,7 @@ function renderNestedFancyLists(parsedLines, context, renderer) {
     appendExtendedListItemContent(
       item,
       getRenderedTaskItem(parsedLine),
-      renderer,
-      context.renderContext
+      getRenderedContent(contents, parsedLine)
     );
     frame.list.appendChild(item);
     frame.lastItem = item;
@@ -223311,28 +226852,30 @@ function updateCountersForListItem(item, parsedLine, context) {
     );
   }
 }
-function validateListInStrictMode(line, documentLines, config) {
-  let lineNum = -1;
-  for (let index2 = 0; index2 < documentLines.length; index2++) {
-    if (documentLines[index2].includes(line.trim())) {
-      lineNum = index2;
-      break;
-    }
-  }
-  if (lineNum < 0) {
-    return true;
-  }
-  const validationContext = {
-    lines: documentLines,
-    currentLine: lineNum
-  };
-  return isStrictPandocFormatting(validationContext, config.enforcePandocListSpacing);
-}
-function isSemanticListBlock(parsedLines) {
-  return parsedLines.length > 0 && parsedLines.every((line) => line.content.trim().length > 0) && parsedLines.every((line) => isListLine(line));
+function isSemanticListSuffix(parsedLines, startIndex) {
+  return parsedLines.slice(startIndex).every(isListLine);
 }
 function isListLine(parsedLine) {
   return parsedLine.type === "hash" || parsedLine.type === "fancy" || parsedLine.type === "example";
+}
+function replaceTrailingSourceLinesWithLists(element, firstListLine, lists) {
+  const boundary = getLogicalLineBoundary(element, firstListLine);
+  if (!boundary) {
+    return false;
+  }
+  if (!element.instanceOf(HTMLLIElement) && !element.parentNode) {
+    return false;
+  }
+  const range = document.createRange();
+  range.setStart(boundary.container, boundary.offset);
+  range.setEnd(element, element.childNodes.length);
+  range.deleteContents();
+  if (element.instanceOf(HTMLLIElement)) {
+    element.append(...lists);
+    return true;
+  }
+  element.after(...lists);
+  return true;
 }
 function groupListLines(parsedLines) {
   const groups = [];
@@ -223365,50 +226908,20 @@ function getNestedListFrameKey(parsedLine) {
   }
   return getListGroupKey(parsedLine);
 }
-function getListItemContent(parsedLine) {
-  if (parsedLine.type === "hash") {
-    return parsedLine.metadata.content;
-  }
-  if (parsedLine.type === "fancy") {
-    return parsedLine.metadata.content;
-  }
-  if (parsedLine.type === "example") {
-    return parsedLine.metadata.content;
-  }
-  return parsedLine.content;
-}
 function getRenderedTaskItem(parsedLine) {
   const data = parsedLine.metadata;
   return {
     taskState: data.taskState,
     taskCharacter: data.taskCharacter,
-    dataLine: parsedLine.dataLine,
-    content: getListItemContent(parsedLine)
+    dataLine: parsedLine.dataLine
   };
 }
-function resolveSourceDataLines(lines, context) {
-  const sectionInfo = context.sectionInfo;
-  if (!(sectionInfo == null ? void 0 : sectionInfo.text)) {
-    return lines.map(() => void 0);
+function getRenderedContent(contents, parsedLine) {
+  const fragment = contents.get(parsedLine);
+  if (!fragment) {
+    throw new Error("A validated list line has no rendered content");
   }
-  const sourceLines = sectionInfo.text.split("\n");
-  const startLine = Math.max(0, sectionInfo.lineStart);
-  const endLine = Math.min(sourceLines.length - 1, sectionInfo.lineEnd);
-  const dataLines = [];
-  let sourceIndex = startLine;
-  for (const line of lines) {
-    const normalizedLine = line.trim();
-    while (sourceIndex <= endLine && sourceLines[sourceIndex].trim() !== normalizedLine) {
-      sourceIndex++;
-    }
-    if (sourceIndex > endLine) {
-      dataLines.push(void 0);
-      continue;
-    }
-    dataLines.push(sourceIndex - startLine);
-    sourceIndex++;
-  }
-  return dataLines;
+  return fragment;
 }
 function getOrderedListTypeAttribute(type2) {
   switch (type2) {
@@ -223428,6 +226941,9 @@ function getOrderedListTypeAttribute(type2) {
 }
 function getFancyListStart(data) {
   const value = data.marker.slice(0, -1);
+  if (data.type === "decimal") {
+    return Number.parseInt(value, 10);
+  }
   if (data.type === "upper-alpha" || data.type === "lower-alpha") {
     return alphaToDecimal(value);
   }
@@ -223470,23 +226986,49 @@ var ExtendedListBlockProcessor = class {
     this.renderer = new ReadingModeRenderer();
   }
   process(context) {
+    var _a4;
     const elementsToProcess = getCandidateTextContainers2(context.element);
+    const validation = ListBlockValidator.analyzeListBlocks(
+      context.validationLines,
+      {
+        enableListsWithoutPrecedingBlankline: context.config.enableListsWithoutPrecedingBlankline
+      },
+      true
+    );
+    const sourceDataLines = resolveCandidateSourceDataLines(
+      elementsToProcess,
+      context,
+      (_a4 = validation.candidateListLines) != null ? _a4 : /* @__PURE__ */ new Set()
+    );
     elementsToProcess.forEach((element) => {
       if (shouldSkipElement2(element, context.sourcePath)) {
         return;
       }
-      this.processElementTextNodes(element, context);
-      pluginStateManager.markElementProcessed(element, "pem-processed", true);
+      const containsProcessableSyntax = getTextWithLineBreaks3(element).split("\n").some((line) => containsPandocSyntax(line, context.config));
+      this.processElementTextNodes(
+        element,
+        context,
+        sourceDataLines.get(element),
+        validation.invalidLines
+      );
+      if (containsProcessableSyntax) {
+        pluginStateManager.markElementProcessed(element, "pem-processed", true);
+      }
     });
   }
-  processElementTextNodes(elem, context) {
+  processElementTextNodes(elem, context, elementDataLines, invalidListLines) {
     if (shouldKeepSourceBackedDefinitionMarkerPlain(elem, context)) {
       return;
     }
     if (context.config.enableDefinitionLists !== false && elem.nodeName === "P" && this.processDefinitionListParagraph(elem, context)) {
       return;
     }
-    if (elem.nodeName === "P" && this.processExtendedListParagraph(elem, context)) {
+    if ((elem.nodeName === "P" || elem.nodeName === "LI") && this.processExtendedListParagraph(
+      elem,
+      context,
+      elementDataLines,
+      invalidListLines
+    )) {
       return;
     }
     const walker = document.createTreeWalker(
@@ -223496,11 +227038,20 @@ var ExtendedListBlockProcessor = class {
     );
     const nodesToProcess = [];
     while (walker.nextNode()) {
-      nodesToProcess.push(walker.currentNode);
+      const node = walker.currentNode;
+      nodesToProcess.push({
+        node,
+        dataLines: getTextNodeSourceDataLines(node, elem, elementDataLines)
+      });
     }
-    nodesToProcess.forEach((node) => this.processTextNode(node, context));
+    nodesToProcess.forEach((item) => this.processTextNode(
+      item.node,
+      context,
+      item.dataLines,
+      invalidListLines
+    ));
   }
-  processTextNode(node, context) {
+  processTextNode(node, context, dataLines, invalidListLines) {
     const parent2 = node.parentNode;
     if (!parent2 || parent2.nodeName === "CODE" || parent2.nodeName === "PRE") {
       return;
@@ -223516,16 +227067,15 @@ var ExtendedListBlockProcessor = class {
       lines,
       isInParagraph,
       isAtParagraphStart,
-      context.config
+      context.config,
+      dataLines
     );
     applySourceDefinitionBoundaries(parsedLines, lines, context);
-    if (context.config.enforcePandocListSpacing) {
-      parsedLines.forEach((parsedLine, index2) => {
-        if (parsedLine.type === "fancy" && context.validationLines.length > 0 && !validateListInStrictMode2(lines[index2], context.validationLines, context.config)) {
-          parsedLine.type = "plain";
-        }
-      });
-    }
+    parsedLines.forEach((parsedLine, index2) => {
+      if (isOrderedListSyntax(parsedLine.type) && context.validationLines.length > 0 && (parsedLine.dataLine === void 0 || invalidListLines.has(parsedLine.dataLine))) {
+        parsedLine.type = "plain";
+      }
+    });
     const numberProvider = (type2, index2) => {
       var _a4;
       const parsedLine = parsedLines[index2];
@@ -223560,7 +227110,7 @@ var ExtendedListBlockProcessor = class {
   processDefinitionListParagraph(elem, context) {
     const text = getTextWithLineBreaks3(elem);
     const sourceText = getStandaloneDefinitionListSource(text, context);
-    if (!sourceText.includes("\n") || findPandocDefinitionListBlocks(sourceText).length === 0) {
+    if (!sourceText.includes("\n") || findPandocDefinitionListBlocks(sourceText, context.config).length === 0) {
       return false;
     }
     const rendered = renderPandocDefinitionSource(
@@ -223568,7 +227118,8 @@ var ExtendedListBlockProcessor = class {
       context.renderContext,
       (target, content, renderContext) => {
         this.renderer.appendContent(target, content, renderContext);
-      }
+      },
+      context.config
     );
     if (sourceText !== text) {
       const section2 = elem.closest(".markdown-preview-section");
@@ -223589,9 +227140,19 @@ var ExtendedListBlockProcessor = class {
     }
     return true;
   }
-  processExtendedListParagraph(elem, context) {
+  processExtendedListParagraph(elem, context, sourceDataLines, invalidListLines) {
+    if (elem.nodeName === "LI" && !(sourceDataLines == null ? void 0 : sourceDataLines.some((line) => line !== void 0))) {
+      return false;
+    }
     const text = getTextWithLineBreaks3(elem);
-    return tryRenderSemanticListParagraph(elem, context, this.parser, this.renderer, text);
+    return tryRenderSemanticListParagraph(
+      elem,
+      context,
+      this.parser,
+      text,
+      sourceDataLines,
+      invalidListLines
+    ) !== false;
   }
 };
 function getCandidateTextContainers2(element) {
@@ -223601,120 +227162,18 @@ function getCandidateTextContainers2(element) {
   }
   return descendants;
 }
-function getStandaloneDefinitionListSource(text, context) {
-  var _a4;
-  const sectionText = (_a4 = context.sectionInfo) == null ? void 0 : _a4.text;
-  if (!sectionText || sectionText === text) {
-    return text;
-  }
-  const blocks = findPandocDefinitionListBlocks(sectionText);
-  if (!isStandalonePandocDefinitionList(sectionText, blocks)) {
-    return text;
-  }
-  return matchesCompleteDefinitionListSection(text, blocks) ? sectionText : text;
-}
-function matchesCompleteDefinitionListSection(text, blocks) {
-  const normalizedText = normalizeCandidateText2(text);
-  return blocks.every((block) => {
-    const requiredTexts = [...block.termTexts, ...block.definitionTexts].map(normalizeCandidateText2).filter((requiredText) => requiredText.length > 0);
-    return requiredTexts.every((requiredText) => normalizedText.includes(requiredText));
-  });
-}
-function normalizeCandidateText2(text) {
-  return text.replace(/\s+/g, " ").trim();
-}
 function shouldSkipElement2(element, sourcePath) {
   return Boolean(
-    element.closest("h1, h2, h3, h4, h5, h6") || pluginStateManager.isElementProcessed(element, "pem-processed", sourcePath)
+    element.closest("h1, h2, h3, h4, h5, h6") || element.closest(`.${CSS_CLASSES.PANDOC_INVALID_NATIVE_LIST}`) || pluginStateManager.isElementProcessed(element, "pem-processed", sourcePath)
   );
-}
-function shouldKeepSourceBackedDefinitionMarkerPlain(element, context) {
-  var _a4;
-  if (context.config.enableDefinitionLists === false || element.nodeName !== "P" || !((_a4 = context.sectionInfo) == null ? void 0 : _a4.text)) {
-    return false;
-  }
-  const text = normalizeCandidateText2(getTextWithLineBreaks3(element));
-  if (!ListPatterns.isDefinitionMarker(text)) {
-    return false;
-  }
-  const sourceLines = context.sectionInfo.text.split("\n");
-  const matchingSourceLineIndexes = sourceLines.map((line, index2) => ({ line: normalizeCandidateText2(line), index: index2 })).filter((item) => item.line === text).map((item) => item.index);
-  if (matchingSourceLineIndexes.length === 0) {
-    return false;
-  }
-  const blocks = findPandocDefinitionListBlocks(context.sectionInfo.text);
-  return matchingSourceLineIndexes.every(
-    (index2) => !blocks.some((block) => index2 >= block.startLine && index2 <= block.endLine)
-  );
-}
-function applySourceDefinitionBoundaries(parsedLines, lines, context) {
-  var _a4;
-  if (context.config.enableDefinitionLists === false || !((_a4 = context.sectionInfo) == null ? void 0 : _a4.text)) {
-    return;
-  }
-  parsedLines.forEach((parsedLine, index2) => {
-    var _a5, _b2;
-    if (parsedLine.type !== "definition-item" || isSourceLineInDefinitionBlock(lines[index2], (_b2 = (_a5 = context.sectionInfo) == null ? void 0 : _a5.text) != null ? _b2 : "")) {
-      return;
-    }
-    parsedLine.type = "plain";
-    parsedLine.metadata = void 0;
-  });
-}
-function isSourceLineInDefinitionBlock(line, sourceText) {
-  const normalizedLine = normalizeCandidateText2(line);
-  const sourceLines = sourceText.split("\n");
-  const matchingSourceLineIndexes = sourceLines.map((sourceLine, index2) => ({ line: normalizeCandidateText2(sourceLine), index: index2 })).filter((item) => item.line === normalizedLine).map((item) => item.index);
-  if (matchingSourceLineIndexes.length === 0) {
-    return true;
-  }
-  const blocks = findPandocDefinitionListBlocks(sourceText);
-  return matchingSourceLineIndexes.some(
-    (index2) => blocks.some((block) => index2 >= block.startLine && index2 <= block.endLine)
-  );
-}
-function getTextWithLineBreaks3(elem) {
-  const parts = [];
-  elem.childNodes.forEach((node) => appendNodeText3(node, parts));
-  return parts.join("");
-}
-function appendNodeText3(node, parts) {
-  if (node.nodeName === "BR") {
-    parts.push("\n");
-    return;
-  }
-  if (node.nodeType === Node.TEXT_NODE) {
-    parts.push(node.textContent || "");
-    return;
-  }
-  if (node.nodeType === Node.ELEMENT_NODE && !isCodeElement3(node)) {
-    node.childNodes.forEach((child) => appendNodeText3(child, parts));
-  }
-}
-function isCodeElement3(element) {
-  return element.nodeName === "CODE" || element.nodeName === "PRE";
 }
 function containsPandocSyntax(text, config) {
   const hasBasicSyntax = (config == null ? void 0 : config.enableHashLists) !== false && !!ListPatterns.isHashList(text) || (config == null ? void 0 : config.enableFancyLists) !== false && !!ListPatterns.isFancyList(text) || (config == null ? void 0 : config.enableExampleLists) !== false && !!ListPatterns.isExampleList(text) || (config == null ? void 0 : config.enableDefinitionLists) !== false && !!ListPatterns.isDefinitionMarker(text) || (config == null ? void 0 : config.enableExampleLists) !== false && ListPatterns.findExampleReferences(text).length > 0;
   const hasCustomLabelSyntax = (config == null ? void 0 : config.enableCustomLabelLists) && (ListPatterns.isCustomLabelList(text) || ListPatterns.findCustomLabelReferences(text).length > 0);
   return hasBasicSyntax || Boolean(hasCustomLabelSyntax);
 }
-function validateListInStrictMode2(line, documentLines, config) {
-  let lineNum = -1;
-  for (let index2 = 0; index2 < documentLines.length; index2++) {
-    if (documentLines[index2].includes(line.trim())) {
-      lineNum = index2;
-      break;
-    }
-  }
-  if (lineNum >= 0) {
-    const validationContext = {
-      lines: documentLines,
-      currentLine: lineNum
-    };
-    return isStrictPandocFormatting(validationContext, config.enforcePandocListSpacing);
-  }
-  return true;
+function isOrderedListSyntax(type2) {
+  return type2 === "hash" || type2 === "fancy" || type2 === "example";
 }
 
 // src/reading-mode/features/fenced-divs/candidateDom.ts
@@ -223782,6 +227241,32 @@ function shouldSkipElement3(element) {
     element.closest("h1, h2, h3, h4, h5, h6") || element.closest("pre, code") || element.closest(".pem-fenced-div")
   );
 }
+function getCandidateBlock(element) {
+  var _a4, _b2, _c;
+  if (!element.matches("li")) {
+    return element;
+  }
+  let list = ((_a4 = element.parentElement) == null ? void 0 : _a4.matches("ul, ol")) ? element.parentElement : null;
+  while ((_b2 = list == null ? void 0 : list.parentElement) == null ? void 0 : _b2.closest("ul, ol")) {
+    list = list.parentElement.closest("ul, ol");
+  }
+  if (!list) {
+    return element;
+  }
+  return ((_c = list.parentElement) == null ? void 0 : _c.matches(".el-ul, .el-ol")) ? list.parentElement : list;
+}
+function removeTrailingFencedDivClosing(element) {
+  const text = getTextWithLineBreaks4(element);
+  const closing = text.match(/(?:^|\n):{3,}[ \t]*(?:\n[ \t]*)*$/);
+  if (!closing || closing.index === void 0) {
+    return null;
+  }
+  const suffix = text.slice(closing.index);
+  if (!removeTextSuffix(element, suffix)) {
+    return null;
+  }
+  return text.slice(0, text.length - suffix.length);
+}
 function appendNodeToCandidateLines(node, lines) {
   if (node.nodeName === "BR") {
     lines.push(createCandidateLine());
@@ -223824,16 +227309,204 @@ function appendNodeText4(node, parts) {
     parts.push(node.textContent || "");
     return;
   }
-  if (node.nodeType === Node.ELEMENT_NODE && !isCodeElement4(node)) {
+  if (node.nodeType === Node.ELEMENT_NODE && !isCodeElement3(node)) {
     node.childNodes.forEach((child) => appendNodeText4(child, parts));
   }
 }
-function isCodeElement4(element) {
+function removeTextSuffix(element, suffix) {
+  var _a4, _b2;
+  const contributors = [];
+  collectTextContributors(element, contributors);
+  let remaining = suffix.length;
+  const removals = [];
+  for (let index2 = contributors.length - 1; index2 >= 0 && remaining > 0; index2--) {
+    const node = contributors[index2];
+    const contribution = node.nodeName === "BR" ? "\n" : (_a4 = node.textContent) != null ? _a4 : "";
+    const consumed = Math.min(remaining, contribution.length);
+    const expected = suffix.slice(remaining - consumed, remaining);
+    const actual = contribution.slice(contribution.length - consumed);
+    if (actual !== expected) {
+      return false;
+    }
+    removals.push({ node, consumed });
+    remaining -= consumed;
+  }
+  if (remaining !== 0) {
+    return false;
+  }
+  for (const { node, consumed } of removals) {
+    if (node.nodeName === "BR") {
+      (_b2 = node.parentNode) == null ? void 0 : _b2.removeChild(node);
+    } else if (node.nodeType === Node.TEXT_NODE) {
+      const textNode = node;
+      textNode.deleteData(textNode.length - consumed, consumed);
+      if (textNode.length === 0) {
+        textNode.remove();
+      }
+    }
+  }
+  return true;
+}
+function collectTextContributors(element, contributors) {
+  element.childNodes.forEach((node) => {
+    if (node.nodeName === "BR" || node.nodeType === Node.TEXT_NODE) {
+      contributors.push(node);
+      return;
+    }
+    if (node.nodeType === Node.ELEMENT_NODE && !isCodeElement3(node)) {
+      collectTextContributors(node, contributors);
+    }
+  });
+}
+function isCodeElement3(element) {
   return element.nodeName === "CODE" || element.nodeName === "PRE";
 }
 
+// src/reading-mode/features/fenced-divs/capturedListClosing.ts
+function processListWithCapturedClosing(candidate, stack, sourceState) {
+  if (!sourceState) {
+    return false;
+  }
+  const block = getCandidateBlock(candidate);
+  const list = block.matches("ul, ol") ? block : block.querySelector("ul, ol");
+  if (!list) {
+    return false;
+  }
+  const capture = inspectCapturedListClosing(list);
+  if (!capture) {
+    return false;
+  }
+  const closingIndex = findSourceClosing(capture, sourceState);
+  if (closingIndex === null || removeTrailingFencedDivClosing(capture.owner) === null) {
+    return false;
+  }
+  const contentBlock = splitListPrefix(block, list, capture.rootItem);
+  const contentText = getTextWithLineBreaks4(contentBlock);
+  for (const active of stack) {
+    active.contentLines.push(contentText);
+    active.reference.content = active.contentLines.join("\n").trim();
+  }
+  stack[stack.length - 1].contentElement.appendChild(contentBlock);
+  stack.pop();
+  sourceState.lineIndex = closingIndex + 1;
+  sourceState.currentOpeningDepth = stack.length;
+  return true;
+}
+function hasDirectClosing(item) {
+  const clone3 = item.cloneNode(true);
+  clone3.querySelectorAll("ul, ol").forEach((list) => list.remove());
+  return /(?:^|\n):{3,}[ \t]*(?:\n[ \t]*)*$/.test(getTextWithLineBreaks4(clone3));
+}
+function getRootItem(owner, list) {
+  var _a4;
+  let item = owner;
+  while (item.parentElement !== list) {
+    const parentItem = (_a4 = item.parentElement) == null ? void 0 : _a4.closest("li");
+    if (!parentItem) {
+      return null;
+    }
+    item = parentItem;
+  }
+  return item;
+}
+function endsSubtree(owner, rootItem) {
+  var _a4;
+  let node = owner;
+  while (node !== rootItem) {
+    for (let sibling = node.nextSibling; sibling; sibling = sibling.nextSibling) {
+      if (sibling.nodeType === Node.ELEMENT_NODE || ((_a4 = sibling.textContent) == null ? void 0 : _a4.trim())) {
+        return false;
+      }
+    }
+    if (!node.parentNode) {
+      return false;
+    }
+    node = node.parentNode;
+  }
+  return true;
+}
+function inspectCapturedListClosing(list) {
+  const owner = Array.from(list.querySelectorAll("li")).find(hasDirectClosing);
+  const rootItem = owner ? getRootItem(owner, list) : null;
+  if (!owner || !rootItem || !endsSubtree(owner, rootItem)) {
+    return null;
+  }
+  const range = document.createRange();
+  range.setStart(list, 0);
+  range.setEndAfter(owner);
+  const prefix = document.createElement("div");
+  prefix.appendChild(range.cloneContents());
+  separateBlockText(prefix);
+  const text = getTextWithLineBreaks4(prefix);
+  const closing = text.match(/(?:^|\n)(:{3,})[ \t]*(?:\n[ \t]*)*$/);
+  if (!closing || closing.index === void 0) {
+    return null;
+  }
+  return { owner, rootItem, marker: closing[1], signature: comparableWords(text.slice(0, closing.index)) };
+}
+function getRenderedListSignature(element) {
+  const clone3 = element.cloneNode(true);
+  separateBlockText(clone3);
+  return comparableWords(getTextWithLineBreaks4(clone3));
+}
+function separateBlockText(element) {
+  element.querySelectorAll("li, p, div, pre, blockquote").forEach((block) => block.prepend(document.createTextNode("\n")));
+}
+function findSourceClosing(capture, state) {
+  var _a4;
+  let startIndex = state.lineIndex;
+  while (startIndex < state.sourceLines.length && !state.sourceLines[startIndex].trim()) {
+    startIndex++;
+  }
+  for (let index2 = state.lineIndex; index2 < state.sourceLines.length; index2++) {
+    if (!isFencedDivClosing(state.sourceLines[index2])) {
+      continue;
+    }
+    const sourceSignature = state.capturedListClosingSignatures ? (_a4 = state.capturedListClosingSignatures.get(index2)) == null ? void 0 : _a4.get(startIndex) : comparableWords(state.sourceLines.slice(startIndex, index2).map((line) => {
+      const marker = parsePandocListMarker(line, true);
+      return marker ? line.slice(marker.markerEnd) : line;
+    }).join("\n"));
+    return state.sourceLines[index2].trim() === capture.marker && capture.signature.length > 0 && sourceSignature === capture.signature ? index2 : null;
+  }
+  return null;
+}
+function comparableWords(text) {
+  var _a4;
+  return ((_a4 = text.normalize("NFC").match(/[\p{L}\p{N}_]+/gu)) != null ? _a4 : []).join("\n");
+}
+function splitListPrefix(block, list, lastItem) {
+  if (!lastItem.nextElementSibling) {
+    return block;
+  }
+  const prefix = list.cloneNode(false);
+  const children = Array.from(list.childNodes);
+  const lastIndex = children.indexOf(lastItem);
+  const firstRemainingItem = lastItem.nextElementSibling;
+  if (list.instanceOf(HTMLOListElement)) {
+    const items = Array.from(list.children);
+    let nextNumber = list.start;
+    for (const item of items) {
+      if (item.hasAttribute("value")) {
+        nextNumber = Number(item.getAttribute("value"));
+      }
+      if (item === firstRemainingItem) {
+        break;
+      }
+      nextNumber++;
+    }
+    list.start = nextNumber;
+  }
+  children.slice(0, lastIndex + 1).forEach((node) => prefix.appendChild(node));
+  if (block === list) {
+    return prefix;
+  }
+  const prefixBlock = block.cloneNode(false);
+  prefixBlock.appendChild(prefix);
+  return prefixBlock;
+}
+
 // src/reading-mode/features/fenced-divs/rendering.ts
-var import_obsidian23 = require("obsidian");
+var import_obsidian26 = require("obsidian");
 
 // src/reading-mode/pipeline/inline/textReplacementEngine.ts
 var SKIP_SELECTOR = [
@@ -223849,12 +227522,13 @@ var SKIP_SELECTOR = [
   ".cm-math",
   "mjx-container",
   `.${CSS_CLASSES.EXAMPLE_REF}`,
-  `.${CSS_CLASSES.EXAMPLE_LIST}`,
+  `span.${CSS_CLASSES.EXAMPLE_LIST}`,
   `.${CSS_CLASSES.PANDOC_LIST_MARKER}`,
   `.${CSS_CLASSES.CUSTOM_LABEL_REFERENCE_PROCESSED}`,
   `.${CSS_CLASSES.FENCED_DIV_REFERENCE}`,
   `.${CSS_CLASSES.FENCED_DIV_HEADER}`,
   `.${CSS_CLASSES.FENCED_DIV_TITLE}`,
+  `.${CSS_CLASSES.PANDOC_INVALID_NATIVE_LIST}`,
   `.${CSS_CLASSES.SUPERSCRIPT}`,
   `.${CSS_CLASSES.SUBSCRIPT}`,
   `.${CSS_CLASSES.SMART_DASH}`
@@ -223971,7 +227645,7 @@ function createFencedDivElement(label, classes, depth, title = "", blockTitleTex
     titleElement.textContent = blockTitleText;
     if (label) {
       titleElement.dataset.pandocDivId = label;
-      (0, import_obsidian23.setTooltip)(titleElement, `#${label}`, { delay: DECORATION_STYLES.TOOLTIP_DELAY_MS });
+      (0, import_obsidian26.setTooltip)(titleElement, `#${label}`, { delay: DECORATION_STYLES.TOOLTIP_DELAY_MS });
     }
     block.appendChild(titleElement);
   }
@@ -224007,7 +227681,7 @@ function hydrateRenderedFencedDivLabels(element, labels) {
     ensureFencedDivTitleElement(block, reference);
   }
 }
-function processHydratedFencedDivReferences(element, docPath) {
+function processHydratedFencedDivReferences(element, docPath, config) {
   const counters = pluginStateManager.getDocumentCounters(docPath);
   if (counters.fencedDivLabels.size === 0) {
     return;
@@ -224020,13 +227694,7 @@ function processHydratedFencedDivReferences(element, docPath) {
       section: element.closest(".markdown-preview-section"),
       sectionInfo: null,
       sourcePath: docPath,
-      config: {
-        strictLineBreaks: false,
-        enforcePandocListSpacing: false,
-        enableReadableFencedDivSyntax: true,
-        enableFencedDivs: true,
-        enableFencedDivExtras: true
-      },
+      config,
       renderContext: {},
       counters,
       validationLines: []
@@ -224059,7 +227727,7 @@ function ensureFencedDivTitleElement(block, reference) {
   }
   titleElement.textContent = reference.blockTitleText;
   titleElement.dataset.pandocDivId = reference.label;
-  (0, import_obsidian23.setTooltip)(titleElement, `#${reference.label}`, { delay: DECORATION_STYLES.TOOLTIP_DELAY_MS });
+  (0, import_obsidian26.setTooltip)(titleElement, `#${reference.label}`, { delay: DECORATION_STYLES.TOOLTIP_DELAY_MS });
 }
 function getRenderedFencedDivClasses(block) {
   var _a4;
@@ -224088,7 +227756,7 @@ function getAllowedFencedDivOpening(lineText, config, canOpenAtCurrentLine, sour
     allowNonStrictNestedOpening && config.enableReadableFencedDivSyntax !== false
   ) ? opening : null;
 }
-function createSourceOpeningState(sourceText, config) {
+function createSourceOpeningState(sourceText, config, capturedListClosingSignatures) {
   const openings = [];
   const sourceLines = sourceText.split("\n");
   let canOpenAtCurrentLine = true;
@@ -224122,7 +227790,8 @@ function createSourceOpeningState(sourceText, config) {
     index: 0,
     sourceLines,
     lineIndex: 0,
-    inObsidianComment: false
+    inObsidianComment: false,
+    capturedListClosingSignatures
   };
 }
 function isOpeningAllowedBySource(lineText, sourceOpeningState, consume, allowNonStrictNestedOpening = false) {
@@ -224151,26 +227820,40 @@ var pendingSectionProcessing = /* @__PURE__ */ new WeakMap();
 var chunkStacks = /* @__PURE__ */ new Map();
 var chunkLastProcessedFenceWasClosing = /* @__PURE__ */ new Map();
 var documentTypeCounters = /* @__PURE__ */ new Map();
-function scheduleFencedDivProcessing(element, docPath, config, sourceText) {
+function scheduleFencedDivProcessing(element, docPath, config, sourceText, options = {}) {
   if (config.enableFencedDivs === false) {
-    return;
+    return Promise.resolve();
   }
   const section2 = element.closest(".markdown-preview-section");
+  const process2 = (root) => {
+    var _a4;
+    if (((_a4 = options.isCurrent) == null ? void 0 : _a4.call(options)) === false) {
+      return;
+    }
+    processFencedDivs(root, docPath, config, true, sourceText, options.capturedListClosingSignatures);
+    scheduleFencedDivLabelHydration(root, docPath, config);
+  };
   if (!section2) {
-    processFencedDivs(element, docPath, config, true, sourceText);
-    scheduleFencedDivLabelHydration(element, docPath, config);
-    return;
+    process2(element);
+    return Promise.resolve();
   }
   const pending = pendingSectionProcessing.get(section2);
   if (pending !== void 0) {
-    window.clearTimeout(pending);
+    window.clearTimeout(pending.timeout);
+    pending.complete();
   }
-  const timeout = window.setTimeout(() => {
-    pendingSectionProcessing.delete(section2);
-    processFencedDivs(section2, docPath, config, true, sourceText);
-    scheduleFencedDivLabelHydration(section2, docPath, config);
-  }, 0);
-  pendingSectionProcessing.set(section2, timeout);
+  return new Promise((resolve2, reject) => {
+    const timeout = window.setTimeout(() => {
+      pendingSectionProcessing.delete(section2);
+      try {
+        process2(section2);
+        resolve2();
+      } catch (error) {
+        reject(error instanceof Error ? error : new Error(String(error)));
+      }
+    }, 0);
+    pendingSectionProcessing.set(section2, { timeout, complete: resolve2 });
+  });
 }
 function scheduleFencedDivLabelHydration(element, docPath, config) {
   if (config.enableFencedDivExtras === false) {
@@ -224179,10 +227862,10 @@ function scheduleFencedDivLabelHydration(element, docPath, config) {
   window.setTimeout(() => {
     const labels = pluginStateManager.getDocumentCounters(docPath).fencedDivLabels;
     hydrateRenderedFencedDivLabels(element, labels);
-    processHydratedFencedDivReferences(element, docPath);
+    processHydratedFencedDivReferences(element, docPath, config);
   }, 0);
 }
-function processFencedDivs(element, docPath, config, preserveStack = false, sourceText) {
+function processFencedDivs(element, docPath, config, preserveStack = false, sourceText, capturedListClosingSignatures) {
   var _a4;
   if (config.enableFencedDivs === false) {
     return;
@@ -224195,7 +227878,7 @@ function processFencedDivs(element, docPath, config, preserveStack = false, sour
   }
   const typeCounters = getDocumentTypeCounters(docPath);
   const candidates = Array.from(element.querySelectorAll("p, li"));
-  const sourceOpeningState = sourceText ? createSourceOpeningState(sourceText, config) : void 0;
+  const sourceOpeningState = sourceText ? createSourceOpeningState(sourceText, config, capturedListClosingSignatures) : void 0;
   let canOpenAtCurrentLine = true;
   let lastProcessedFenceWasClosing = preserveStack ? (_a4 = chunkLastProcessedFenceWasClosing.get(docPath)) != null ? _a4 : false : false;
   for (const candidate of candidates) {
@@ -224203,6 +227886,15 @@ function processFencedDivs(element, docPath, config, preserveStack = false, sour
       continue;
     }
     const lineText = getTextWithLineBreaks4(candidate);
+    if (candidate.matches("li") && stack.length > 0 && processListWithCapturedClosing(
+      candidate,
+      stack,
+      sourceOpeningState
+    )) {
+      canOpenAtCurrentLine = true;
+      lastProcessedFenceWasClosing = true;
+      continue;
+    }
     if (!lineText.includes("\n")) {
       synchronizeSourceClosingsBeforeRenderedLine(
         stack,
@@ -224265,7 +227957,7 @@ function processFencedDivs(element, docPath, config, preserveStack = false, sour
         active.contentLines.push(lineText);
         active.reference.content = active.contentLines.join("\n").trim();
       }
-      stack[stack.length - 1].contentElement.appendChild(candidate);
+      stack[stack.length - 1].contentElement.appendChild(getCandidateBlock(candidate));
     }
     if (lineText.trim()) {
       lastProcessedFenceWasClosing = false;
@@ -224316,7 +228008,7 @@ function shouldResetDocumentCounters(element, preserveStack, stack) {
   return !(previousSection == null ? void 0 : previousSection.classList.contains("markdown-preview-section"));
 }
 function processMultilineCandidate(candidate, text, stack, labels, config, typeCounters, initialCanOpenAtCurrentLine, sourceOpeningState) {
-  if (!text.includes("\n")) {
+  if (candidate.matches("li") || !text.includes("\n")) {
     return {
       processed: false,
       canOpenAtNextLine: initialCanOpenAtCurrentLine,
@@ -224574,6 +228266,109 @@ function prepareFencedDivOpening(opening, stack, labels, typeCounters, config) {
   };
 }
 
+// src/reading-mode/features/fenced-divs/capturedListSignatures.ts
+var import_obsidian27 = require("obsidian");
+async function prepareCapturedListClosingSignatures(root, sourceText, context, isCurrent) {
+  var _a4;
+  const signatures = /* @__PURE__ */ new Map();
+  const captures = Array.from(root.querySelectorAll("ul, ol")).filter((list) => {
+    var _a5;
+    return !((_a5 = list.parentElement) == null ? void 0 : _a5.closest("ul, ol"));
+  }).flatMap((list) => {
+    const capture = inspectCapturedListClosing(list);
+    return capture ? [capture] : [];
+  });
+  if (!captures.length || !context.app || typeof ((_a4 = import_obsidian27.MarkdownRenderer) == null ? void 0 : _a4.render) !== "function") {
+    return signatures;
+  }
+  const sourceLines = sourceText.split("\n");
+  const renderCache = /* @__PURE__ */ new Map();
+  let candidateStarts = [];
+  for (let index2 = 0; index2 < sourceLines.length && isCurrent(); index2++) {
+    const line = sourceLines[index2];
+    if (isFencedDivClosing(line)) {
+      const targets = new Set(captures.filter((capture) => capture.marker === line.trim()).map((capture) => capture.signature));
+      const matches = /* @__PURE__ */ new Map();
+      for (const startIndex of candidateStarts) {
+        if (!targets.size || !isCurrent()) {
+          break;
+        }
+        const source = sourceLines.slice(startIndex, index2).join("\n");
+        let rendered = renderCache.get(source);
+        if (!rendered) {
+          rendered = renderSourceSignature(source, context);
+          renderCache.set(source, rendered);
+        }
+        const signature = await rendered;
+        if (signature && targets.has(signature)) {
+          matches.set(startIndex, signature);
+          targets.delete(signature);
+        }
+      }
+      signatures.set(index2, matches);
+      candidateStarts = [];
+    } else if (parseFencedDivOpening(line, context.config)) {
+      candidateStarts = [];
+    } else if (parsePandocListMarker(line, true)) {
+      candidateStarts.push(index2);
+    }
+  }
+  return signatures;
+}
+async function renderSourceSignature(source, context) {
+  const target = document.createElement("div");
+  const child = new import_obsidian27.MarkdownRenderChild(target);
+  child.load();
+  try {
+    await renderMarkdownFragment(source, target, context, child);
+    return getRenderedListSignature(target);
+  } catch (e) {
+    return null;
+  } finally {
+    child.unload();
+  }
+}
+
+// src/reading-mode/features/fenced-divs/processingCoordinator.ts
+var pendingRuns = /* @__PURE__ */ new WeakMap();
+var generations = /* @__PURE__ */ new WeakMap();
+function scheduleCoordinatedFencedDivRun(element, run) {
+  var _a4;
+  const root = getCoordinationRoot(element);
+  const generation = ((_a4 = generations.get(root)) != null ? _a4 : 0) + 1;
+  generations.set(root, generation);
+  const isCurrent = () => generations.get(root) === generation;
+  const promise = run(isCurrent);
+  const state = { generation, promise };
+  pendingRuns.set(root, state);
+  void promise.finally(() => {
+    if (pendingRuns.get(root) === state) {
+      pendingRuns.delete(root);
+    }
+  }).catch(() => void 0);
+}
+async function waitForFencedDivRun(element) {
+  const root = getCoordinationRoot(element);
+  while (true) {
+    const pending = pendingRuns.get(root);
+    if (!pending) {
+      return;
+    }
+    try {
+      await pending.promise;
+    } catch (e) {
+      return;
+    }
+    if (pendingRuns.get(root) === pending || !pendingRuns.has(root)) {
+      return;
+    }
+  }
+}
+function getCoordinationRoot(element) {
+  var _a4, _b2;
+  return (_b2 = (_a4 = element.closest(".markdown-preview-view")) != null ? _a4 : element.closest(".markdown-preview-section")) != null ? _b2 : element;
+}
+
 // src/reading-mode/pipeline/processors/fencedDivBlockProcessor.ts
 var FencedDivBlockProcessor = class {
   constructor() {
@@ -224587,10 +228382,13 @@ var FencedDivBlockProcessor = class {
   process(context) {
     var _a4;
     if (context.app) {
-      void scheduleFencedDivProcessingWithFullSource(context);
+      scheduleCoordinatedFencedDivRun(
+        context.element,
+        (isCurrent) => scheduleFencedDivProcessingWithFullSource(context, isCurrent)
+      );
       return;
     }
-    scheduleFencedDivProcessing(
+    void scheduleFencedDivProcessing(
       context.element,
       context.sourcePath,
       context.config,
@@ -224598,17 +228396,36 @@ var FencedDivBlockProcessor = class {
     );
   }
 };
-async function scheduleFencedDivProcessingWithFullSource(context) {
+async function scheduleFencedDivProcessingWithFullSource(context, isCurrent) {
   var _a4, _b2;
-  const fullSourceText = await readFullSourceText(context.sourcePath, context.app);
+  const fullSourcePromise = readFullSourceText(context.sourcePath, context.app);
+  await waitForPreviewDomToSettle();
+  const fullSourceText = await fullSourcePromise;
+  if (!isCurrent()) {
+    return;
+  }
   const processingRoot = fullSourceText ? (_a4 = context.element.closest(".markdown-preview-view")) != null ? _a4 : context.element : context.element;
   const sourceText = fullSourceText != null ? fullSourceText : (_b2 = context.sectionInfo) == null ? void 0 : _b2.text;
-  scheduleFencedDivProcessing(
+  const capturedListClosingSignatures = sourceText === void 0 ? void 0 : await prepareCapturedListClosingSignatures(processingRoot, sourceText, context, isCurrent);
+  if (!isCurrent()) {
+    return;
+  }
+  await scheduleFencedDivProcessing(
     processingRoot,
     context.sourcePath,
     context.config,
-    sourceText
+    sourceText,
+    { capturedListClosingSignatures, isCurrent }
   );
+}
+function waitForPreviewDomToSettle() {
+  return new Promise((resolve2) => {
+    if (typeof window.requestAnimationFrame !== "function") {
+      window.setTimeout(resolve2, 0);
+      return;
+    }
+    window.requestAnimationFrame(() => window.requestAnimationFrame(() => resolve2()));
+  });
 }
 
 // src/reading-mode/pipeline/processors/inlineTextProcessor.ts
@@ -224624,232 +228441,2126 @@ var InlineTextEngineProcessor = class {
   }
 };
 
-// src/reading-mode/pipeline/processors/nativeListSpacingProcessor.ts
-var NativeListSpacingProcessor = class {
-  constructor() {
-    this.name = "native-list-spacing";
-    this.phase = "block";
-    this.priority = 30;
-  }
-  isEnabled(context) {
+// src/reading-mode/features/native-lists/lazyBlockQuoteContent.ts
+var import_obsidian29 = require("obsidian");
+
+// src/reading-mode/features/native-lists/sourceSignature.ts
+var import_obsidian28 = require("obsidian");
+async function renderNativeListLeadText(sourceLine, context) {
+  return inspectRenderedMarkdown(sourceLine, context, (target) => {
+    const list = target.querySelector("ul, ol");
+    const item = list ? Array.from(list.children).find(
+      (child) => child.tagName === "LI"
+    ) : null;
+    return item ? normalizeNativeListText(getNativeListItemLeadText(item)) : null;
+  });
+}
+async function renderParagraphText(source, context) {
+  return inspectRenderedMarkdown(source, context, (target) => {
     var _a4;
-    return Boolean(context.config.enforcePandocListSpacing && ((_a4 = context.sectionInfo) == null ? void 0 : _a4.text));
-  }
-  process(context) {
-    this.processWithSourceResolver(context, (list) => getSourceTextForList(list, context));
-    if (context.app) {
-      runAfterPreviewSettles(() => {
-        void this.processWithFullSource(context);
-      });
+    const paragraphs = target.querySelectorAll("p");
+    const paragraph = paragraphs.item(paragraphs.length - 1);
+    return paragraph ? normalizeNativeListText((_a4 = paragraph.textContent) != null ? _a4 : "") : null;
+  });
+}
+async function renderBlockQuoteLeadText(source, context) {
+  return inspectRenderedMarkdown(source, context, (target) => {
+    var _a4;
+    const paragraph = target.querySelector("blockquote > p");
+    return paragraph ? normalizeNativeListText((_a4 = paragraph.textContent) != null ? _a4 : "") : null;
+  });
+}
+function getNativeListItemLeadText(item) {
+  var _a4, _b2;
+  const parts = [];
+  for (const node of Array.from(item.childNodes)) {
+    if (node.nodeType === Node.TEXT_NODE) {
+      parts.push((_a4 = node.textContent) != null ? _a4 : "");
+      continue;
     }
-  }
-  async processWithFullSource(context) {
-    const fullSourceText = await readFullSourceText(context.sourcePath, context.app);
-    if (!fullSourceText) {
-      return;
+    if (node.nodeType !== Node.ELEMENT_NODE) {
+      continue;
     }
-    this.processWithSourceResolver(context, () => fullSourceText);
+    const element = node;
+    if (element.matches("input")) {
+      continue;
+    }
+    if (element.matches("br, ul, ol")) {
+      break;
+    }
+    if (isBlockContainer(element)) {
+      parts.push(getTextBeforeBreak(element));
+      break;
+    }
+    parts.push((_b2 = element.textContent) != null ? _b2 : "");
   }
-  processWithSourceResolver(context, getSourceText) {
-    const consumedSourceLines = /* @__PURE__ */ new Set();
-    getNativeListElements(context).forEach((list) => {
-      const sourceText = getSourceText(list);
-      const sourceLines = sourceText.split("\n");
-      const invalidLines = ListBlockValidator.validateListBlocks(sourceLines, context.config);
-      const candidates = getInvalidNativeListLines(sourceLines, invalidLines);
-      const match = findMatchingSourceLines(list, candidates, consumedSourceLines, sourceText);
-      if (!match) {
-        return;
-      }
-      match.lines.forEach(
-        (line) => consumedSourceLines.add(getSourceLineKey(sourceText, line.sourceLine.index))
-      );
-      replaceListSegmentWithPlainText(list, match);
-    });
-  }
-};
-function getSourceTextForList(list, context) {
-  var _a4, _b2, _c, _d, _e, _f, _g, _h, _i, _j;
-  return (_j = (_i = (_g = context.section ? (_c = (_b2 = (_a4 = context.postProcessorContext).getSectionInfo) == null ? void 0 : _b2.call(_a4, context.section)) == null ? void 0 : _c.text : null) != null ? _g : (_f = (_e = (_d = context.postProcessorContext).getSectionInfo) == null ? void 0 : _e.call(_d, list)) == null ? void 0 : _f.text) != null ? _i : (_h = context.sectionInfo) == null ? void 0 : _h.text) != null ? _j : "";
+  return parts.join("");
 }
-function getInvalidNativeListLines(sourceLines, invalidLines) {
-  return sourceLines.map((source, index2) => ({ source, index: index2, parsed: parseNativeListLine(source) })).filter(
-    (line) => invalidLines.has(line.index) && line.parsed !== null
-  ).map((line) => ({ ...line.parsed, source: line.source, index: line.index }));
-}
-function parseNativeListLine(line) {
-  const unorderedMatch = line.match(ListPatterns.UNORDERED_LIST_MARKER_WITH_SPACE);
-  if (unorderedMatch) {
-    return {
-      kind: "ul",
-      itemText: line.slice(unorderedMatch[0].length).trim()
-    };
-  }
-  const orderedMatch = line.match(/^(\s*)(\d+[.)])(\s+)/);
-  if (!orderedMatch) {
-    return null;
-  }
-  return {
-    kind: "ol",
-    itemText: line.slice(orderedMatch[0].length).trim()
-  };
-}
-function getNativeListElements(context) {
+async function inspectRenderedMarkdown(source, context, inspect) {
   var _a4;
-  const root = (_a4 = context.section) != null ? _a4 : context.element;
-  const lists = Array.from(root.querySelectorAll("ul, ol"));
-  if (context.element.matches("ul, ol")) {
-    lists.unshift(context.element);
+  const target = document.createElement("div");
+  if (!context.app || typeof ((_a4 = import_obsidian28.MarkdownRenderer) == null ? void 0 : _a4.render) !== "function") {
+    return inspect(target);
   }
-  return lists.filter((list) => !list.closest(".pem-fenced-div"));
-}
-function findMatchingSourceLines(list, candidates, consumedSourceLines, sourceText) {
-  const kind = list.tagName.toLowerCase();
-  const itemTexts = getDirectListItemTexts(list);
-  if (itemTexts.length === 0) {
-    return null;
-  }
-  for (let i = 0; i <= candidates.length - itemTexts.length; i++) {
-    const fullListMatch = getReplacementLinesForSlice(
-      candidates.slice(i, i + itemTexts.length),
-      itemTexts,
-      kind,
-      consumedSourceLines,
-      sourceText
+  const renderChild = new import_obsidian28.MarkdownRenderChild(target);
+  renderChild.load();
+  try {
+    await renderMarkdownFragment(
+      source,
+      target,
+      context,
+      renderChild
     );
-    if (fullListMatch.length > 0) {
-      return {
-        itemStartIndex: 0,
-        lines: fullListMatch
-      };
+    return inspect(target);
+  } finally {
+    renderChild.unload();
+  }
+}
+function getTextBeforeBreak(element) {
+  var _a4;
+  const parts = [];
+  for (const node of Array.from(element.childNodes)) {
+    if (node.nodeType === Node.ELEMENT_NODE && node.matches("br, ul, ol")) {
+      break;
+    }
+    parts.push((_a4 = node.textContent) != null ? _a4 : "");
+  }
+  return parts.join("");
+}
+function isBlockContainer(element) {
+  return element.matches("p, div, pre, blockquote, table");
+}
+
+// src/reading-mode/features/native-lists/nativeListDom.ts
+function getNativeListBlock(list) {
+  const parent2 = list.parentElement;
+  return (parent2 == null ? void 0 : parent2.matches(".el-ul, .el-ol")) ? parent2 : list;
+}
+function getDirectListItems(list) {
+  return Array.from(list.children).filter((child) => child.tagName === "LI");
+}
+function getOrderedListItemNumber(list, items, itemIndex) {
+  let number = list.start;
+  for (let index2 = 0; index2 <= itemIndex; index2++) {
+    const item = items[index2];
+    if (!item) {
+      break;
+    }
+    const explicitValue = Number(item.getAttribute("value"));
+    if (item.hasAttribute("value") && Number.isFinite(explicitValue)) {
+      number = explicitValue;
+    }
+    if (index2 < itemIndex) {
+      number++;
     }
   }
-  for (let itemStartIndex = 0; itemStartIndex < itemTexts.length; itemStartIndex++) {
-    for (let candidateStartIndex = 0; candidateStartIndex < candidates.length; candidateStartIndex++) {
-      const maxLength = Math.min(
-        itemTexts.length - itemStartIndex,
-        candidates.length - candidateStartIndex
-      );
-      for (let length = maxLength; length > 0; length--) {
-        const sourceSlice = candidates.slice(candidateStartIndex, candidateStartIndex + length);
-        if (!isContiguousSourceSlice(sourceSlice)) {
-          continue;
-        }
-        const itemSlice = itemTexts.slice(itemStartIndex, itemStartIndex + length);
-        const partialMatch = getReplacementLinesForSlice(
-          sourceSlice,
-          itemSlice,
-          kind,
-          consumedSourceLines,
-          sourceText
-        );
-        if (partialMatch.length > 0) {
-          return {
-            itemStartIndex,
-            lines: partialMatch
-          };
+  return number;
+}
+function removeEmptyNativeListBlock(list) {
+  var _a4, _b2;
+  if (getDirectListItems(list).length > 0 || ((_a4 = list.textContent) == null ? void 0 : _a4.trim())) {
+    return;
+  }
+  const block = getNativeListBlock(list);
+  list.remove();
+  if (block !== list && block.childElementCount === 0 && !((_b2 = block.textContent) == null ? void 0 : _b2.trim())) {
+    block.remove();
+  }
+}
+
+// src/reading-mode/features/native-lists/sourceDomMatcher.ts
+var scheduledLists = /* @__PURE__ */ new WeakMap();
+function getRootNativeListElements(root, contextElement) {
+  const lists = Array.from(root.querySelectorAll("ul, ol"));
+  if (contextElement.matches("ul, ol") && root.contains(contextElement)) {
+    lists.unshift(contextElement);
+  }
+  return Array.from(new Set(lists)).filter(isRootContentList);
+}
+function isRootContentList(list) {
+  var _a4;
+  const parentList = (_a4 = list.parentElement) == null ? void 0 : _a4.closest("ul, ol");
+  if (!parentList) {
+    return !isFootnoteIndexList(list);
+  }
+  return isFootnoteIndexList(parentList);
+}
+function isFootnoteIndexList(list) {
+  var _a4;
+  return Boolean(list.closest(".footnotes") && !((_a4 = list.parentElement) == null ? void 0 : _a4.closest("li")));
+}
+function findNativeListGroup(lists, sourceLines, documentLines, paragraphText, root, preferredList) {
+  if (sourceLines.length === 0) {
+    return null;
+  }
+  if (preferredList) {
+    return findPreferredListGroup(
+      lists,
+      preferredList,
+      sourceLines,
+      paragraphText,
+      root
+    );
+  }
+  const sourceOccurrence = getNativeListSourceOccurrence(
+    documentLines,
+    sourceLines[0].sourceLine
+  );
+  let domOccurrence = -1;
+  for (let startIndex = 0; startIndex < lists.length; startIndex++) {
+    let firstItemOccurrence = null;
+    getDirectListItems(lists[startIndex]).forEach((item, itemIndex) => {
+      if (matchesSourceItem(lists[startIndex], item, sourceLines[0])) {
+        domOccurrence++;
+        if (itemIndex === 0) {
+          firstItemOccurrence = domOccurrence;
         }
       }
+    });
+    if (firstItemOccurrence !== sourceOccurrence) {
+      continue;
+    }
+    if (getPrecedingParagraphText(lists[startIndex], root) !== paragraphText) {
+      return null;
+    }
+    const match = matchNativeListGroup(lists, startIndex, sourceLines);
+    if (match) {
+      return match;
     }
   }
   return null;
 }
-function isContiguousSourceSlice(sourceSlice) {
-  return sourceSlice.every(
-    (line, index2) => index2 === 0 || line.index === sourceSlice[index2 - 1].index + 1
-  );
-}
-function getReplacementLinesForSlice(sourceSlice, itemTexts, kind, consumedSourceLines, sourceText) {
-  if (sourceSlice.length !== itemTexts.length) {
-    return [];
-  }
-  const replacementLines = [];
-  for (let index2 = 0; index2 < sourceSlice.length; index2++) {
-    const line = sourceSlice[index2];
-    const trailingText = getTrailingListItemText(itemTexts[index2], line.itemText);
-    if (line.kind !== kind || consumedSourceLines.has(getSourceLineKey(sourceText, line.index)) || trailingText === null) {
-      return [];
-    }
-    replacementLines.push({ sourceLine: line, trailingText });
-  }
-  return replacementLines;
-}
-function getSourceLineKey(sourceText, index2) {
-  return `${index2}:${sourceText}`;
-}
-function getTrailingListItemText(renderedItemText, sourceItemText) {
-  if (renderedItemText === sourceItemText) {
-    return "";
-  }
-  if (!renderedItemText.startsWith(sourceItemText)) {
+function findPreferredListGroup(lists, preferredList, sourceLines, paragraphText, root) {
+  const startIndex = lists.indexOf(preferredList);
+  if (startIndex < 0 || isListScheduled(preferredList) || getPrecedingParagraphText(preferredList, root) !== paragraphText) {
     return null;
   }
-  const trailingText = renderedItemText.slice(sourceItemText.length).trim();
-  return trailingText.length > 0 ? trailingText : null;
+  return matchNativeListGroup(lists, startIndex, sourceLines);
 }
-function getDirectListItemTexts(list) {
-  return Array.from(list.children).filter((child) => child.tagName === "LI").map((item) => getListItemOwnText(item)).map((text) => text.trim()).filter(Boolean);
+function findNativeListDomAnchor(list, root) {
+  let replacementBlock = getNativeListBlock(list);
+  while (replacementBlock !== root) {
+    const precedingBlock = replacementBlock.previousElementSibling;
+    if (precedingBlock == null ? void 0 : precedingBlock.instanceOf(HTMLElement)) {
+      const precedingParagraph = findFinalParagraph(precedingBlock);
+      return precedingParagraph ? { precedingBlock, precedingParagraph, replacementBlock } : null;
+    }
+    const parent2 = replacementBlock.parentElement;
+    if (!parent2 || parent2 === root || !isExclusiveQuoteContainer(
+      parent2,
+      replacementBlock
+    )) {
+      return null;
+    }
+    replacementBlock = parent2;
+  }
+  return null;
 }
-function getListItemOwnText(item) {
-  const parts = [];
-  item.childNodes.forEach((node) => {
-    var _a4, _b2;
-    if (node.nodeType === Node.TEXT_NODE) {
-      parts.push((_a4 = node.textContent) != null ? _a4 : "");
-    } else if (node.nodeType === Node.ELEMENT_NODE && node.tagName !== "UL" && node.tagName !== "OL") {
-      parts.push((_b2 = node.textContent) != null ? _b2 : "");
+function markNativeListGroupScheduled(match, isCurrent) {
+  match.segments.forEach((segment) => scheduledLists.set(segment.list, isCurrent));
+}
+function findNativeListItem(root, sourceLine, documentLines) {
+  const sourceOccurrence = getNativeListSourceTextOccurrence(
+    documentLines,
+    sourceLine.sourceLine
+  );
+  let domOccurrence = -1;
+  for (const item of Array.from(root.querySelectorAll("li"))) {
+    const list = item.parentElement;
+    if (!(list == null ? void 0 : list.matches("ul, ol")) || !matchesSourceItem(list, item, sourceLine)) {
+      continue;
+    }
+    domOccurrence++;
+    if (domOccurrence === sourceOccurrence) {
+      return { item, list };
+    }
+  }
+  return null;
+}
+function hasMaterializedTailInsideMatchedItem(match) {
+  const finalSegment = match.segments[match.segments.length - 1];
+  const finalItem = finalSegment ? getDirectListItems(finalSegment.list)[finalSegment.itemCount - 1] : null;
+  if (!finalItem) {
+    return false;
+  }
+  if (finalItem.querySelector("ul, ol, pre, blockquote, table, dl, hr, div")) {
+    return true;
+  }
+  const directParagraphs = Array.from(finalItem.children).filter((child) => child.tagName === "P");
+  if (directParagraphs.length > 1) {
+    return true;
+  }
+  if (directParagraphs.length === 0) {
+    return false;
+  }
+  return Array.from(finalItem.childNodes).some(
+    (node) => node !== directParagraphs[0] && hasVisibleNodeContent(node)
+  );
+}
+function hasVisibleNodeContent(node) {
+  var _a4, _b2;
+  if (node.nodeType === Node.TEXT_NODE) {
+    return Boolean((_a4 = node.textContent) == null ? void 0 : _a4.trim());
+  }
+  return node.nodeType === Node.ELEMENT_NODE && !node.matches("input, p") && Boolean((_b2 = node.textContent) == null ? void 0 : _b2.trim());
+}
+function matchesSourceItem(list, item, sourceLine) {
+  if (!item || list.tagName.toLowerCase() !== sourceLine.sourceLine.kind) {
+    return false;
+  }
+  return normalizeNativeListText(getNativeListItemLeadText(item)) === sourceLine.expectedLeadText;
+}
+function matchNativeListGroup(lists, startIndex, sourceLines) {
+  const segments = [];
+  const lines = [];
+  let sourceIndex = 0;
+  for (let listIndex = startIndex; listIndex < lists.length; listIndex++) {
+    const list = lists[listIndex];
+    if (isListScheduled(list)) {
+      break;
+    }
+    const itemMatch = matchDirectItems(list, sourceLines, sourceIndex);
+    if (itemMatch.length === 0) {
+      break;
+    }
+    segments.push({ list, itemCount: itemMatch.length });
+    lines.push(...itemMatch);
+    sourceIndex += itemMatch.length;
+    if (sourceIndex === sourceLines.length) {
+      return { segments, lines };
+    }
+    if (itemMatch.length < getDirectListItems(list).length) {
+      break;
+    }
+  }
+  return null;
+}
+function matchDirectItems(list, sourceLines, sourceStartIndex) {
+  const items = getDirectListItems(list);
+  const matches = [];
+  for (let itemIndex = 0; itemIndex < items.length; itemIndex++) {
+    const sourceLine = sourceLines[sourceStartIndex + itemIndex];
+    if (!sourceLine || sourceLine.sourceLine.kind !== list.tagName.toLowerCase()) {
+      break;
+    }
+    if (!matchesSourceItem(list, items[itemIndex], sourceLine)) {
+      break;
+    }
+    matches.push(sourceLine);
+  }
+  return matches;
+}
+function getPrecedingParagraphText(list, root) {
+  const anchor = findNativeListDomAnchor(list, root);
+  if (!anchor) {
+    return null;
+  }
+  return normalizeNativeListText(getParagraphTextWithoutFootnoteBacklinks(anchor.precedingParagraph));
+}
+function findFinalParagraph(block) {
+  if (block.instanceOf(HTMLParagraphElement)) {
+    return block;
+  }
+  const paragraphs = block.querySelectorAll("p");
+  return paragraphs.item(paragraphs.length - 1);
+}
+function getParagraphTextWithoutFootnoteBacklinks(paragraph) {
+  var _a4, _b2;
+  if (!paragraph.querySelector("a.footnote-back, a.footnote-backref")) {
+    return (_a4 = paragraph.textContent) != null ? _a4 : "";
+  }
+  const clone3 = paragraph.cloneNode(true);
+  clone3.querySelectorAll("a.footnote-back, a.footnote-backref").forEach((backlink) => backlink.remove());
+  return (_b2 = clone3.textContent) != null ? _b2 : "";
+}
+function isExclusiveQuoteContainer(parent2, child) {
+  if (!parent2.matches("blockquote, .el-blockquote") || parent2.children.length !== 1 || parent2.firstElementChild !== child) {
+    return false;
+  }
+  return Array.from(parent2.childNodes).every(
+    (node) => {
+      var _a4;
+      return node === child || node.nodeType === Node.TEXT_NODE && !((_a4 = node.textContent) == null ? void 0 : _a4.trim());
+    }
+  );
+}
+function isListScheduled(list) {
+  const isCurrent = scheduledLists.get(list);
+  if (!isCurrent) {
+    return false;
+  }
+  if (isCurrent()) {
+    return true;
+  }
+  scheduledLists.delete(list);
+  return false;
+}
+
+// src/reading-mode/features/native-lists/quoteInlineContent.ts
+function restoreLiteralQuotePrefixes(paragraph, expectedText) {
+  const positions2 = [];
+  let actual = "";
+  const walker = document.createTreeWalker(paragraph, NodeFilter.SHOW_TEXT);
+  while (walker.nextNode()) {
+    const node = walker.currentNode;
+    for (let offset = 0; offset < node.length; offset++) {
+      if (!/\s/.test(node.data[offset])) {
+        actual += node.data[offset];
+        positions2.push({ node, offset });
+      }
+    }
+  }
+  const desired = expectedText.replace(/\s/g, "");
+  const insertions = [];
+  let desiredIndex = 0;
+  for (let index2 = 0; index2 < actual.length; index2++) {
+    let prefix = "";
+    while (desired[desiredIndex] !== actual[index2]) {
+      if (desired[desiredIndex++] !== ">") {
+        return false;
+      }
+      prefix += "> ";
+    }
+    if (prefix) {
+      insertions.push({ ...positions2[index2], text: prefix });
+    }
+    desiredIndex++;
+  }
+  const suffix = desired.slice(desiredIndex);
+  if (suffix && !/^>+$/.test(suffix)) {
+    return false;
+  }
+  for (const insertion of insertions.reverse()) {
+    insertAtInlineBoundary(paragraph, insertion);
+  }
+  if (suffix) {
+    paragraph.appendChild(document.createTextNode(` ${suffix.split("").join(" ")}`));
+  }
+  return true;
+}
+function insertAtInlineBoundary(paragraph, insertion) {
+  var _a4;
+  const { node, offset, text } = insertion;
+  let before = node;
+  if (offset === 0) {
+    while (before.parentNode !== paragraph && before.parentNode && before.previousSibling === null) {
+      before = before.parentNode;
+    }
+  } else {
+    before = node.splitText(offset);
+  }
+  (_a4 = before.parentNode) == null ? void 0 : _a4.insertBefore(document.createTextNode(` ${text}`), before);
+}
+
+// src/reading-mode/features/native-lists/lazyBlockQuoteContent.ts
+function findLazyBlockQuoteSourceRegions(lines, enabled) {
+  const regions = [];
+  const visibleIndices = getRenderableSourceLineIndices(lines);
+  let listParagraph = false;
+  for (let index2 = 0; index2 < lines.length; index2++) {
+    if (!visibleIndices.has(index2)) {
+      continue;
+    }
+    if (!lines[index2].trim()) {
+      listParagraph = false;
+      continue;
+    }
+    const depth = getBlockQuoteDepth(lines[index2]);
+    if (!depth || listParagraph) {
+      listParagraph || (listParagraph = parsePandocListMarker(lines[index2], false) !== null);
+      continue;
+    }
+    const startIndex = index2;
+    let fence = null;
+    while (index2 + 1 < lines.length) {
+      const next = lines[index2 + 1];
+      const explicitDepth = getBlockQuoteDepth(next);
+      const content = stripBlockQuotePrefix(next);
+      if (!next.trim()) {
+        break;
+      }
+      if (fence) {
+        index2++;
+        if (isFenceClosing(content, fence)) {
+          fence = null;
+        }
+        continue;
+      }
+      const opening = getFenceOpening(lines, index2 + 1, content);
+      if (explicitDepth < depth && (/^ {0,3}(?:=+|-+)[ \t]*$/.test(content) || (opening == null ? void 0 : opening.character) === "`" || enabled && parsePandocListMarker(next, false))) {
+        break;
+      }
+      fence = opening;
+      index2++;
+    }
+    regions.push({ startIndex, endIndex: index2, depth });
+  }
+  return regions;
+}
+async function reconcileLazyBlockQuoteContent(lines, context, root, isCurrent, invalidLines = ListBlockValidator.validateListBlocks(lines, context.config)) {
+  await reconcileListQuoteContinuations(lines, context, root, isCurrent);
+  const regions = findLazyBlockQuoteSourceRegions(
+    lines,
+    context.config.enableListsWithoutPrecedingBlankline
+  );
+  const matches = [];
+  const paragraphOccurrences = /* @__PURE__ */ new Map();
+  for (const region of regions) {
+    matches.push(await findSourceQuote(lines, region, context, root, paragraphOccurrences));
+    if (!isCurrent()) {
+      return;
+    }
+  }
+  for (const [index2, region] of regions.entries()) {
+    if (!isCurrent()) {
+      return;
+    }
+    const quote = matches[index2];
+    if (!quote || !isCurrent() || !root.contains(quote)) {
+      continue;
+    }
+    await reconcileQuoteRegion(lines, region, quote, context, root, isCurrent, invalidLines);
+  }
+}
+async function findSourceQuote(lines, region, context, root, paragraphOccurrences) {
+  var _a4, _b2, _c, _d, _e;
+  const source = lines[region.startIndex];
+  const parsed = parseNativeListLine(source);
+  if (parsed) {
+    const expectedLeadText = context.app ? await renderNativeListLeadText(source, context) : normalizeNativeListText(getComparableNativeListText(parsed.itemText));
+    if (expectedLeadText === null) {
+      return null;
+    }
+    return (_b2 = (_a4 = findNativeListItem(root, {
+      sourceLine: { ...parsed, source, index: region.startIndex },
+      expectedLeadText
+    }, lines)) == null ? void 0 : _a4.item.closest("blockquote")) != null ? _b2 : null;
+  }
+  const expectedText = context.app ? await renderBlockQuoteLeadText(lines.slice(region.startIndex, region.endIndex + 1).join("\n"), context) : getUnrenderedQuoteLeadText(lines, region);
+  if (expectedText === null) {
+    return null;
+  }
+  const occurrenceKey = `${region.depth}:${expectedText}`;
+  const sourceOccurrence = (_c = paragraphOccurrences.get(occurrenceKey)) != null ? _c : 0;
+  paragraphOccurrences.set(occurrenceKey, sourceOccurrence + 1);
+  const matchingParagraphs = Array.from(root.querySelectorAll("blockquote > p")).filter((paragraph) => {
+    var _a5;
+    return normalizeNativeListText((_a5 = paragraph.textContent) != null ? _a5 : "") === expectedText && getQuoteDomDepth(paragraph, root) === region.depth;
+  });
+  return (_e = (_d = matchingParagraphs[sourceOccurrence]) == null ? void 0 : _d.parentElement) != null ? _e : null;
+}
+function getUnrenderedQuoteLeadText(lines, region) {
+  const paragraphLines = [stripBlockQuotePrefix(lines[region.startIndex])];
+  for (let index2 = region.startIndex + 1; index2 <= region.endIndex; index2++) {
+    const content = stripBlockQuotePrefix(lines[index2]);
+    if (!content.trim() || /^(?: {4}|\t| {0,3}#{1,6}\s)/.test(content) || parseNativeListLine(content) || getFenceOpening(lines, index2, content)) {
+      break;
+    }
+    paragraphLines.push(content);
+  }
+  return normalizeNativeListText(getComparableNativeListText(paragraphLines.join("\n")));
+}
+function getQuoteDomDepth(paragraph, root) {
+  let depth = 0;
+  let current = paragraph.parentElement;
+  while (current && current !== root) {
+    if (current.matches("blockquote")) {
+      depth++;
+    }
+    current = current.parentElement;
+  }
+  return depth;
+}
+async function reconcileQuoteRegion(lines, region, quote, context, root, isCurrent, invalidLines) {
+  var _a4, _b2, _c;
+  const quoteBlock = ((_a4 = quote.parentElement) == null ? void 0 : _a4.matches(".el-blockquote")) ? quote.parentElement : quote;
+  for (let index2 = region.startIndex + 1; index2 <= region.endIndex; index2++) {
+    if (getBlockQuoteDepth(lines[index2]) >= region.depth) {
+      continue;
+    }
+    const next = quoteBlock.nextElementSibling;
+    if (!(next == null ? void 0 : next.instanceOf(HTMLElement))) {
+      return;
+    }
+    const source = stripBlockQuotePrefix(lines[index2]);
+    const pre = next.matches("pre") ? next : next.querySelector(":scope > pre");
+    const fence = getFenceOpening(lines, index2, source);
+    if (fence && pre && fence.character === "~") {
+      let endIndex = index2 + 1;
+      while (endIndex <= region.endIndex && !isFenceClosing(stripBlockQuotePrefix(lines[endIndex]), fence)) {
+        endIndex++;
+      }
+      const code = lines.slice(index2 + 1, endIndex).map(stripBlockQuotePrefix).join("\n");
+      if (normalizeCode((_c = (_b2 = pre.querySelector("code")) == null ? void 0 : _b2.textContent) != null ? _c : "") !== normalizeCode(code)) {
+        return;
+      }
+      if (!isCurrent() || !root.contains(quote) || !root.contains(next)) {
+        return;
+      }
+      quote.appendChild(getOwnedBlock(pre, next));
+      index2 = endIndex;
+    } else if (pre && /^[ \t]{4,}/.test(source)) {
+      index2 = await reconcileIndentedCode(
+        lines,
+        index2,
+        region.endIndex,
+        pre,
+        next,
+        quote,
+        context,
+        root,
+        isCurrent,
+        invalidLines
+      );
+    } else if (/^\s*(?:\*\s*){3,}$|^\s*(?:_\s*){3,}$/.test(source) && (next.matches("hr") || next.querySelector(":scope > hr"))) {
+      const finalItem = quote.querySelector("ul:last-child > li:last-child, ol:last-child > li:last-child");
+      if (!finalItem || !isCurrent() || !root.contains(next)) {
+        return;
+      }
+      finalItem.appendChild(document.createTextNode(`
+${source.trim()}`));
+      const rule = next.matches("hr") ? next : next.querySelector(":scope > hr");
+      if (rule) {
+        getOwnedBlock(rule, next).remove();
+      }
+    }
+  }
+}
+async function reconcileIndentedCode(lines, index2, regionEndIndex, pre, block, quote, context, root, isCurrent, invalidLines) {
+  var _a4;
+  let endIndex = index2;
+  while (endIndex < regionEndIndex && /^[ \t]{4,}\S/.test(lines[endIndex + 1])) {
+    endIndex++;
+  }
+  const codeLines = lines.slice(index2, endIndex + 1).map((line) => line.replace(/^(?: {4}|\t)/, ""));
+  const code = pre.querySelector("code");
+  const codeText = (_a4 = code == null ? void 0 : code.textContent) != null ? _a4 : "";
+  const preParent = pre.parentElement;
+  const precedingContent = quote.lastElementChild;
+  if (normalizeCode(codeText) !== normalizeCode(codeLines.join("\n"))) {
+    return endIndex;
+  }
+  const content = codeLines.map((line) => line.trimStart());
+  const source = content.map((line, offset) => invalidLines.has(index2 + offset) ? escapePandocListMarker(line) : line).join("\n");
+  const rendered = await renderContent(source, context);
+  if (!isCurrent() || !root.contains(block) || !root.contains(quote) || pre.parentElement !== preParent || pre.querySelector("code") !== code || (code == null ? void 0 : code.textContent) !== codeText || quote.lastElementChild !== precedingContent) {
+    return endIndex;
+  }
+  appendQuoteContent(quote, rendered);
+  getOwnedBlock(pre, block).remove();
+  return endIndex;
+}
+async function reconcileListQuoteContinuations(lines, context, root, isCurrent) {
+  var _a4, _b2;
+  const visibleListIndices = getRenderableNativeListLineIndices(lines);
+  for (let index2 = 0; index2 < lines.length; index2++) {
+    if (!visibleListIndices.has(index2)) {
+      continue;
+    }
+    const parsed = parseNativeListLine(lines[index2]);
+    if (!parsed || !getBlockQuoteDepth((_a4 = lines[index2 + 1]) != null ? _a4 : "") || getBlockQuoteDepth(lines[index2 + 1]) <= getBlockQuoteDepth(lines[index2])) {
+      continue;
+    }
+    const endIndex = findSourceItemSubtreeEnd(index2, parsed.indentColumns, lines);
+    const continuation = lines.slice(index2 + 1, endIndex + 1);
+    if (continuation.some((line) => !line.trim())) {
+      continue;
+    }
+    const expectedLeadText = normalizeNativeListText(getComparableNativeListText(parsed.itemText));
+    const occurrence = getNativeListSourceTextOccurrence(lines, { ...parsed, index: index2 });
+    const items = Array.from(root.querySelectorAll("li")).filter((item2) => {
+      var _a5, _b3;
+      if (((_a5 = item2.parentElement) == null ? void 0 : _a5.tagName.toLowerCase()) !== parsed.kind) {
+        return false;
+      }
+      const clone3 = item2.cloneNode(true);
+      clone3.querySelectorAll("blockquote, ul, ol").forEach((child) => child.remove());
+      return normalizeNativeListText((_b3 = clone3.textContent) != null ? _b3 : "") === expectedLeadText;
+    });
+    const item = items[occurrence];
+    const quote = item == null ? void 0 : item.querySelector(":scope > blockquote");
+    const paragraph = quote == null ? void 0 : quote.firstElementChild;
+    if (!item || !quote || !(paragraph == null ? void 0 : paragraph.matches("p")) || getOwnedBlock(paragraph, quote) !== quote || normalizeNativeListText((_b2 = quote.textContent) != null ? _b2 : "") !== normalizeNativeListText(
+      getComparableNativeListText(continuation.map(stripBlockQuotePrefix).join("\n"))
+    )) {
+      continue;
+    }
+    const containerDepth = getBlockQuoteDepth(lines[index2]);
+    const source = continuation.map((line) => stripBlockQuotePrefix(
+      escapeExcessBlockQuoteMarkers(line.trimStart(), containerDepth)
+    )).join("\n");
+    const expectedText = context.app ? await renderParagraphText(source, context) : getComparableNativeListText(source);
+    if (!isCurrent() || !root.contains(item) || quote.parentElement !== item) {
+      return;
+    }
+    if (expectedText === null || !restoreLiteralQuotePrefixes(paragraph, expectedText)) {
+      continue;
+    }
+    quote.before(document.createTextNode("\n"), ...Array.from(paragraph.childNodes));
+    quote.remove();
+  }
+}
+async function renderContent(source, context) {
+  var _a4, _b2;
+  const target = document.createElement("div");
+  if (!context.app) {
+    const paragraph = target.appendChild(document.createElement("p"));
+    paragraph.textContent = source.replace(/\\([>\-*+.()])/g, "$1");
+    return target;
+  }
+  const child = new import_obsidian29.MarkdownRenderChild(target);
+  (_b2 = (_a4 = context.postProcessorContext).addChild) == null ? void 0 : _b2.call(_a4, child);
+  await renderMarkdownFragment(source, target, context, child);
+  return target;
+}
+function getOwnedBlock(content, wrapper) {
+  return content === wrapper || Array.from(wrapper.childNodes).every((node) => {
+    var _a4;
+    return node === content || node.nodeType === Node.TEXT_NODE && !((_a4 = node.textContent) == null ? void 0 : _a4.trim());
+  }) ? wrapper : content;
+}
+function appendQuoteContent(quote, rendered) {
+  const previous = quote.lastElementChild;
+  const first = rendered.firstElementChild;
+  if ((previous == null ? void 0 : previous.tagName) === (first == null ? void 0 : first.tagName) && (first == null ? void 0 : first.matches("p, ul, ol"))) {
+    previous == null ? void 0 : previous.appendChild(document.createTextNode("\n"));
+    previous == null ? void 0 : previous.append(...Array.from(first.childNodes));
+    first.remove();
+  }
+  quote.append(...Array.from(rendered.childNodes));
+}
+function normalizeCode(text) {
+  return text.replace(/\n$/, "");
+}
+
+// src/reading-mode/features/native-lists/literalContinuationReconciler.ts
+var import_obsidian30 = require("obsidian");
+async function reconcileLiteralListContinuations(sourceLines, ranges, context, root, isCurrent) {
+  var _a4;
+  if (!context.app || typeof ((_a4 = import_obsidian30.MarkdownRenderer) == null ? void 0 : _a4.render) !== "function") {
+    return;
+  }
+  for (const range of ranges) {
+    if (!isCurrent()) {
+      return;
+    }
+    const prepared = await prepareUnderIndentedContinuation(
+      sourceLines,
+      range,
+      context,
+      root,
+      isCurrent
+    );
+    if (prepared && isPreparedContinuationCurrent(prepared, root, isCurrent)) {
+      applyPreparedContinuation(prepared);
+    }
+  }
+}
+async function prepareUnderIndentedContinuation(sourceLines, range, context, root, isCurrent) {
+  var _a4;
+  const parentSource = sourceLines[range.parentIndex];
+  const firstMarkerSource = sourceLines[range.markerIndices[0]];
+  const parentMarker = parentSource ? parsePandocListMarker(parentSource, true) : null;
+  const firstMarker = firstMarkerSource ? parsePandocListMarker(firstMarkerSource, true) : null;
+  if (range.kind !== "paragraph" || !parentMarker || !firstMarker || firstMarker.indentColumns >= parentMarker.contentIndentColumns) {
+    return null;
+  }
+  const parentLine = parseNativeListLine(parentSource);
+  if (!parentLine) {
+    return null;
+  }
+  const parentLead = await renderNativeListLeadText(parentSource, context);
+  if (!isCurrent() || parentLead === null) {
+    return null;
+  }
+  const parentMatch = findNativeListItem(root, {
+    sourceLine: { ...parentLine, index: range.parentIndex, source: parentSource },
+    expectedLeadText: parentLead
+  }, sourceLines);
+  if (!parentMatch) {
+    return null;
+  }
+  const fragment = await renderLiteralParagraph(sourceLines, range, context);
+  if (!isCurrent() || !fragment) {
+    return null;
+  }
+  const actualLead = normalizeNativeListText(getNativeListItemLeadText(parentMatch.item));
+  const expectedLead = normalizeNativeListText(`${parentLead} ${fragment.inlineText}`);
+  if (actualLead === expectedLead && !hasParagraphCodeBeforeNestedContent(parentMatch.item)) {
+    return null;
+  }
+  const parentBlock = getNativeListBlock(parentMatch.list);
+  const materializedBlock = parentBlock.nextElementSibling;
+  if (!(materializedBlock == null ? void 0 : materializedBlock.instanceOf(HTMLElement)) || !matchesMaterializedCodeBlock(materializedBlock, sourceLines, range)) {
+    return null;
+  }
+  const nextSibling = findNextSameListSibling(sourceLines, range, parentMarker);
+  let tailMatch = null;
+  if (nextSibling) {
+    tailMatch = await findRenderedSiblingMatch(nextSibling, sourceLines, context, root);
+    if (!isCurrent() || !tailMatch || tailMatch.item !== getDirectListItems(tailMatch.list)[0] || tailMatch.list.tagName !== parentMatch.list.tagName || getNativeListBlock(tailMatch.list) !== materializedBlock.nextElementSibling) {
+      return null;
+    }
+  } else if ((_a4 = materializedBlock.nextElementSibling) == null ? void 0 : _a4.matches(".el-ul, .el-ol, ul, ol")) {
+    return null;
+  }
+  return {
+    parentMatch,
+    materializedBlock,
+    inlineNodes: fragment.inlineNodes,
+    inlineText: fragment.inlineText,
+    tailMatch
+  };
+}
+async function renderLiteralParagraph(sourceLines, range, context) {
+  var _a4, _b2, _c;
+  const markerIndices = new Set(range.markerIndices);
+  const source = sourceLines.slice(range.startIndex, range.endIndex + 1).map((line, offset) => {
+    const index2 = range.startIndex + offset;
+    const content = getPandocContainerContent(line).trimStart();
+    return markerIndices.has(index2) ? escapePandocListMarker(content) : content;
+  }).join("\n");
+  const target = document.createElement("div");
+  const child = new import_obsidian30.MarkdownRenderChild(target);
+  (_b2 = (_a4 = context.postProcessorContext).addChild) == null ? void 0 : _b2.call(_a4, child);
+  await renderMarkdownFragment(source, target, context, child);
+  const visibleChildren = Array.from(target.children).filter((element) => {
+    var _a5;
+    return (_a5 = element.textContent) == null ? void 0 : _a5.trim();
+  });
+  if (visibleChildren.length !== 1 || !visibleChildren[0].matches("p")) {
+    child.unload();
+    return null;
+  }
+  const paragraph = visibleChildren[0];
+  return {
+    inlineNodes: Array.from(paragraph.childNodes),
+    inlineText: (_c = paragraph.textContent) != null ? _c : ""
+  };
+}
+function matchesMaterializedCodeBlock(block, sourceLines, range) {
+  var _a4;
+  const code = block.matches("pre") ? block.querySelector(":scope > code") : block.querySelector(":scope > pre > code");
+  if (!code || block.querySelectorAll("pre > code").length !== 1) {
+    return false;
+  }
+  const expected = sourceLines.slice(range.startIndex, range.endIndex + 1).map((line) => stripIndentColumns2(getPandocContainerContent(line), 4)).join("\n").replace(/\n+$/, "");
+  return ((_a4 = code.textContent) != null ? _a4 : "").replace(/\n+$/, "") === expected;
+}
+function stripIndentColumns2(line, columnsToStrip) {
+  let offset = 0;
+  let columns = 0;
+  while (offset < line.length && columns < columnsToStrip) {
+    if (line[offset] === " ") {
+      columns++;
+      offset++;
+      continue;
+    }
+    if (line[offset] === "	") {
+      columns += 4 - columns % 4;
+      offset++;
+      continue;
+    }
+    break;
+  }
+  return columns >= columnsToStrip ? line.slice(offset) : line;
+}
+function findNextSameListSibling(sourceLines, range, parentMarker) {
+  for (let index2 = range.endIndex + 1; index2 < sourceLines.length; index2++) {
+    if (!sourceLines[index2].trim()) {
+      continue;
+    }
+    const marker = parsePandocListMarker(sourceLines[index2], true);
+    if (!marker || marker.indentColumns !== parentMarker.indentColumns || marker.kind !== parentMarker.kind || marker.orderedGroup !== parentMarker.orderedGroup) {
+      return null;
+    }
+    const native = parseNativeListLine(sourceLines[index2]);
+    return native ? { ...native, index: index2, source: sourceLines[index2] } : null;
+  }
+  return null;
+}
+async function findRenderedSiblingMatch(sourceLine, sourceLines, context, root) {
+  const expectedLeadText = await renderNativeListLeadText(sourceLine.source, context);
+  return expectedLeadText === null ? null : findNativeListItem(root, {
+    sourceLine,
+    expectedLeadText
+  }, sourceLines);
+}
+function isPreparedContinuationCurrent(prepared, root, isCurrent) {
+  const { parentMatch, materializedBlock, tailMatch } = prepared;
+  return isCurrent() && root.contains(parentMatch.item) && parentMatch.item.parentElement === parentMatch.list && root.contains(materializedBlock) && (!tailMatch || root.contains(tailMatch.item) && tailMatch.item.parentElement === tailMatch.list);
+}
+function applyPreparedContinuation(prepared) {
+  const { parentMatch, materializedBlock, inlineNodes, tailMatch } = prepared;
+  appendInlineContinuation(parentMatch.item, inlineNodes);
+  materializedBlock.remove();
+  if (!tailMatch || tailMatch.list === parentMatch.list) {
+    return;
+  }
+  getDirectListItems(tailMatch.list).forEach((item) => parentMatch.list.appendChild(item));
+  removeEmptyNativeListBlock(tailMatch.list);
+}
+function appendInlineContinuation(item, nodes) {
+  var _a4;
+  const directParagraph = Array.from(item.children).find((child) => child.matches("p"));
+  const destination = directParagraph != null ? directParagraph : item;
+  const anchor = directParagraph ? directParagraph.querySelector(":scope > a.footnote-back, :scope > a.footnote-backref") : (_a4 = Array.from(item.children).find(
+    (child) => child.matches("ul, ol, pre, blockquote, table, dl, hr, div, a.footnote-back, a.footnote-backref")
+  )) != null ? _a4 : null;
+  destination.insertBefore(document.createTextNode("\n"), anchor);
+  nodes.forEach((node) => destination.insertBefore(node, anchor));
+}
+function hasParagraphCodeBeforeNestedContent(item) {
+  return Array.from(item.children).some((child) => child.matches("pre"));
+}
+
+// src/reading-mode/features/native-lists/interruptedParagraphRenderer.ts
+var import_obsidian31 = require("obsidian");
+function replaceInterruptedListParagraph(replacement) {
+  var _a4, _b2;
+  if (!replacement.isCurrent()) {
+    return false;
+  }
+  const firstList = (_a4 = replacement.listSegments[0]) == null ? void 0 : _a4.list;
+  if (!firstList) {
+    return false;
+  }
+  replacement = guardMatchedItemIdentities(replacement);
+  const canRenderMarkdown = replacement.context.app && typeof ((_b2 = import_obsidian31.MarkdownRenderer) == null ? void 0 : _b2.render) === "function";
+  if (!canRenderMarkdown) {
+    return replaceWithSourceText(replacement);
+  }
+  if (!findNativeListDomAnchor(firstList, replacement.root)) {
+    return false;
+  }
+  void renderAndReplace(replacement).catch(() => {
+    if (replacement.isCurrent() && replacement.root.contains(firstList)) {
+      replaceWithSourceText(replacement);
     }
   });
-  return parts.join("");
+  return true;
 }
-function getReplacementTextLines(match) {
-  return match.flatMap((line) => [
-    line.sourceLine.source,
-    ...line.trailingText ? [line.trailingText] : []
-  ]);
+function guardMatchedItemIdentities(replacement) {
+  const matchedItems = replacement.listSegments.map((segment) => ({
+    ...segment,
+    items: getDirectListItems(segment.list).slice(0, segment.itemCount)
+  }));
+  const suffix = replacement.sourceOwnedBlockSuffix;
+  const suffixBlocks = suffix ? [...suffix.blocks] : [];
+  const suffixLists = suffixBlocks.flatMap(getOwnedLists).map((list) => ({
+    list,
+    items: getDirectListItems(list)
+  }));
+  return {
+    ...replacement,
+    isCurrent: () => replacement.isCurrent() && matchedItems.every((segment) => {
+      const currentItems = getDirectListItems(segment.list);
+      return replacement.root.contains(segment.list) && segment.items.length === segment.itemCount && segment.items.every((item, index2) => currentItems[index2] === item);
+    }) && (!suffix || Boolean(
+      suffixBlocks.length > 0 && suffixBlocks.every((block) => block.parentElement === suffix.ownerItem) && suffixLists.every((snapshot) => {
+        const currentItems = getDirectListItems(snapshot.list);
+        return currentItems.length === snapshot.items.length && snapshot.items.every((item, index2) => currentItems[index2] === item);
+      })
+    ))
+  };
 }
-function replaceListSegmentWithPlainText(list, match) {
-  const items = Array.from(list.children).filter((child) => child.tagName === "LI");
-  const matchedItemCount = match.lines.length;
-  const beforeItems = items.slice(0, match.itemStartIndex);
-  const afterItems = items.slice(match.itemStartIndex + matchedItemCount);
-  const replacementNodes = [
-    ...createListCloneWithItems(list, beforeItems),
-    createPlainTextParagraph(getReplacementTextLines(match.lines)),
-    ...createListCloneWithItems(list, afterItems)
-  ];
-  list.replaceWith(...replacementNodes);
+async function renderAndReplace(replacement) {
+  var _a4, _b2;
+  if (!replacement.isCurrent()) {
+    return;
+  }
+  const { context, listSegments } = replacement;
+  const firstList = listSegments[0].list;
+  const { root } = replacement;
+  const anchor = findNativeListDomAnchor(firstList, root);
+  if (!anchor) {
+    return;
+  }
+  const renderTarget = document.createElement("div");
+  renderTarget.classList.add(CSS_CLASSES.PANDOC_INVALID_NATIVE_LIST);
+  const renderChild = new import_obsidian31.MarkdownRenderChild(renderTarget);
+  (_b2 = (_a4 = context.postProcessorContext).addChild) == null ? void 0 : _b2.call(_a4, renderChild);
+  await renderMarkdownFragment(
+    stripMaterializedBlockQuotePrefixes(
+      replacement.transformedParagraphSource,
+      firstList,
+      anchor.precedingParagraph,
+      root
+    ),
+    renderTarget,
+    context,
+    renderChild
+  );
+  if (!replacement.isCurrent() || !root.contains(anchor.precedingBlock) || !root.contains(anchor.precedingParagraph) || !root.contains(anchor.replacementBlock) || listSegments.some((segment) => !root.contains(segment.list))) {
+    return;
+  }
+  const renderedNodes = Array.from(renderTarget.childNodes);
+  if (renderedNodes.length === 0) {
+    throw new Error("MarkdownRenderer returned no nodes for an interrupted list paragraph");
+  }
+  markInvalidParagraphs(renderTarget);
+  const retainedBacklinks = getFootnoteBacklinks(
+    anchor.precedingParagraph,
+    listSegments,
+    replacement.sourceOwnedBlockSuffix
+  );
+  promoteSourceOwnedBlockSuffix(replacement);
+  anchor.precedingParagraph.replaceWith(...renderedNodes);
+  retainFootnoteBacklinks(renderedNodes, retainedBacklinks);
+  consumeListSegments(listSegments, anchor.replacementBlock, replacement.remainingListStart);
 }
-function createPlainTextParagraph(sourceLines) {
-  const paragraph = document.createElement("p");
-  paragraph.classList.add(CSS_CLASSES.PANDOC_INVALID_NATIVE_LIST);
-  sourceLines.forEach((line, index2) => {
-    if (index2 > 0) {
-      paragraph.appendChild(document.createElement("br"));
-    }
-    paragraph.appendChild(document.createTextNode(line));
+function replaceWithSourceText(replacement) {
+  if (!replacement.isCurrent()) {
+    return false;
+  }
+  const { listSegments, sourceLines } = replacement;
+  const firstList = listSegments[0].list;
+  const anchor = findNativeListDomAnchor(firstList, replacement.root);
+  if (!anchor) {
+    return false;
+  }
+  const precedingParagraph = anchor.precedingParagraph;
+  const paragraphSource = stripMaterializedBlockQuotePrefixes(
+    sourceLines.join("\n"),
+    firstList,
+    precedingParagraph,
+    replacement.root
+  ).split("\n");
+  const retainedBacklinks = getFootnoteBacklinks(
+    precedingParagraph,
+    listSegments,
+    replacement.sourceOwnedBlockSuffix
+  );
+  promoteSourceOwnedBlockSuffix(replacement);
+  precedingParagraph.classList.add(CSS_CLASSES.PANDOC_INVALID_NATIVE_LIST);
+  const continuation = getFallbackContinuation(paragraphSource, replacement.listStartOffset);
+  if (continuation) {
+    precedingParagraph.appendChild(document.createTextNode(`
+${continuation}`));
+  }
+  retainFootnoteBacklinks([precedingParagraph], retainedBacklinks);
+  consumeListSegments(
+    listSegments,
+    anchor.replacementBlock,
+    replacement.remainingListStart
+  );
+  return true;
+}
+function getFallbackContinuation(sourceLines, listStartOffset) {
+  const paragraphDepth = getBlockQuoteDepth(sourceLines[0]);
+  const unmaterializedPrefix = sourceLines.slice(0, listStartOffset).filter((line) => getBlockQuoteDepth(line) > paragraphDepth);
+  return [...unmaterializedPrefix, ...sourceLines.slice(listStartOffset)].join("\n");
+}
+function consumeListSegments(segments, firstReplacementBlock, remainingListStart) {
+  segments.forEach((segment, index2) => {
+    const block = index2 === 0 ? firstReplacementBlock : getNativeListBlock(segment.list);
+    consumeListItems(
+      segment,
+      index2 === segments.length - 1 ? remainingListStart : void 0
+    );
+    removeEmptyListContainers(segment.list, block);
   });
-  return paragraph;
 }
-function createListCloneWithItems(list, items) {
-  if (items.length === 0) {
+function markInvalidParagraphs(root) {
+  if (root.matches("p")) {
+    root.classList.add(CSS_CLASSES.PANDOC_INVALID_NATIVE_LIST);
+  }
+  root.querySelectorAll("p").forEach((paragraph) => {
+    paragraph.classList.add(CSS_CLASSES.PANDOC_INVALID_NATIVE_LIST);
+  });
+}
+function getFootnoteBacklinks(precedingParagraph, segments, sourceOwnedBlockSuffix) {
+  const footnoteItem = getFootnoteItem(segments[0].list);
+  if (!footnoteItem || !footnoteItem.contains(precedingParagraph)) {
     return [];
   }
-  const clone3 = document.createElement(list.tagName.toLowerCase());
-  Array.from(list.attributes).forEach((attribute) => {
-    clone3.setAttribute(attribute.name, attribute.value);
+  const removedNodes = [precedingParagraph, ...segments.flatMap((segment) => getDirectListItems(segment.list).slice(0, segment.itemCount))];
+  return Array.from(new Set(removedNodes.filter((node) => footnoteItem.contains(node)).flatMap((node) => Array.from(node.querySelectorAll(
+    "a.footnote-back, a.footnote-backref"
+  ))))).filter((backlink) => !(sourceOwnedBlockSuffix == null ? void 0 : sourceOwnedBlockSuffix.blocks.some(
+    (block) => block.contains(backlink)
+  )));
+}
+function promoteSourceOwnedBlockSuffix(replacement) {
+  const suffix = replacement.sourceOwnedBlockSuffix;
+  if (!suffix) {
+    return;
+  }
+  const ownerSegment = replacement.listSegments.find(
+    (segment) => getDirectListItems(segment.list).slice(0, segment.itemCount).includes(suffix.ownerItem)
+  );
+  if (!ownerSegment) {
+    return;
+  }
+  const ownerList = ownerSegment.list;
+  const ownerBlock = getNativeListBlock(ownerList);
+  const remainingOwnerItems = getDirectListItems(ownerList).slice(ownerSegment.itemCount);
+  const trailingList = getTrailingOwnedList(suffix.blocks);
+  if (suffix.mergeRemainingItems && (trailingList == null ? void 0 : trailingList.tagName) === ownerList.tagName) {
+    remainingOwnerItems.forEach((item) => trailingList.appendChild(item));
+  }
+  const promotedBlocks = suffix.blocks.map(
+    (block) => createPromotedBlock(block, ownerList, ownerBlock)
+  );
+  const ownerWillRetainItems = getDirectListItems(ownerList).length > ownerSegment.itemCount;
+  if (ownerWillRetainItems) {
+    ownerBlock.before(...promotedBlocks);
+  } else {
+    ownerBlock.after(...promotedBlocks);
+  }
+}
+function createPromotedBlock(block, ownerList, ownerBlock) {
+  if (ownerBlock === ownerList || !block.matches("ul, ol")) {
+    return block;
+  }
+  const wrapper = ownerBlock.cloneNode(false);
+  if (wrapper.matches(".el-ul, .el-ol")) {
+    wrapper.classList.remove("el-ul", "el-ol");
+    wrapper.classList.add(block.tagName === "OL" ? "el-ol" : "el-ul");
+  }
+  wrapper.appendChild(block);
+  return wrapper;
+}
+function getTrailingOwnedList(blocks) {
+  var _a4;
+  const finalBlock = blocks[blocks.length - 1];
+  if (!finalBlock) {
+    return null;
+  }
+  if (finalBlock.matches("ul, ol")) {
+    return finalBlock;
+  }
+  if (!finalBlock.matches(".el-ul, .el-ol")) {
+    return null;
+  }
+  return (_a4 = Array.from(finalBlock.children).find(
+    (child) => child.matches("ul, ol")
+  )) != null ? _a4 : null;
+}
+function getOwnedLists(block) {
+  const lists = Array.from(block.querySelectorAll("ul, ol"));
+  return block.matches("ul, ol") ? [block, ...lists] : lists;
+}
+function getFootnoteItem(element) {
+  var _a4;
+  const section2 = element.closest("section.footnotes");
+  const indexList = section2 == null ? void 0 : section2.querySelector(":scope > ol");
+  const item = Array.from((_a4 = indexList == null ? void 0 : indexList.children) != null ? _a4 : []).find(
+    (child) => child.instanceOf(HTMLLIElement) && child.contains(element)
+  );
+  return item != null ? item : null;
+}
+function retainFootnoteBacklinks(nodes, backlinks) {
+  if (backlinks.length === 0) {
+    return;
+  }
+  const finalParagraph = nodes.flatMap((node) => {
+    if (!node.instanceOf(HTMLElement)) {
+      return [];
+    }
+    const paragraphs = Array.from(node.querySelectorAll("p"));
+    return node.matches("p") ? [node, ...paragraphs] : paragraphs;
+  }).pop();
+  if (finalParagraph) {
+    finalParagraph.append(...backlinks);
+  }
+}
+function removeEmptyListContainers(list, boundary) {
+  var _a4;
+  let current = list;
+  while (current && current.childElementCount === 0 && !((_a4 = current.textContent) == null ? void 0 : _a4.trim())) {
+    const parent2 = current.parentElement;
+    const reachedBoundary = current === boundary;
+    current.remove();
+    if (reachedBoundary || !parent2 || !boundary.contains(parent2)) {
+      break;
+    }
+    current = parent2;
+  }
+}
+function consumeListItems(segment, remainingListStart) {
+  const items = getDirectListItems(segment.list);
+  if (segment.itemCount < items.length && segment.list.tagName === "OL") {
+    const orderedList = segment.list;
+    orderedList.start = remainingListStart != null ? remainingListStart : getOrderedListItemNumber(orderedList, items, segment.itemCount);
+  }
+  items.slice(0, segment.itemCount).forEach((item) => item.remove());
+}
+function stripMaterializedBlockQuotePrefixes(source, list, precedingBlock, root) {
+  const depth = getSharedBlockQuoteDepth(list, precedingBlock, root);
+  if (depth === 0) {
+    return source;
+  }
+  return source.split("\n").map((line) => stripBlockQuoteDepth(line, depth)).join("\n");
+}
+function getSharedBlockQuoteDepth(list, precedingBlock, root) {
+  const listQuotes = getBlockQuoteAncestors2(list, root);
+  const precedingQuotes = new Set(getBlockQuoteAncestors2(precedingBlock, root));
+  return listQuotes.filter((quote) => precedingQuotes.has(quote)).length;
+}
+function getBlockQuoteAncestors2(element, root) {
+  const ancestors = [];
+  let current = element.parentElement;
+  while (current && current !== root) {
+    if (current.matches("blockquote")) {
+      ancestors.push(current);
+    }
+    current = current.parentElement;
+  }
+  return ancestors;
+}
+
+// src/reading-mode/features/native-lists/sourceOwnedBlockSuffix.ts
+function getSourceOwnedSuffixCandidate(sourceLines, invalidLines, paragraph, rootLines) {
+  const finalInterruptedLine = rootLines[rootLines.length - 1];
+  if (!finalInterruptedLine) {
+    return null;
+  }
+  const subtreeEndIndex = findSourceItemSubtreeEnd(
+    finalInterruptedLine.index,
+    rootLines[0].indentColumns,
+    sourceLines
+  );
+  let index2 = paragraph.endIndex + 1;
+  while (index2 <= subtreeEndIndex && !sourceLines[index2].trim()) {
+    index2++;
+  }
+  if (index2 > subtreeEndIndex || invalidLines.has(index2)) {
+    return null;
+  }
+  const parsed = parseNativeListLine(sourceLines[index2]);
+  if (parsed) {
+    return {
+      kind: "list",
+      index: index2,
+      source: sourceLines[index2],
+      subtreeEndIndex,
+      sourceLine: { ...parsed, index: index2, source: sourceLines[index2] }
+    };
+  }
+  return getBlockQuoteDepth(sourceLines[index2]) > getBlockQuoteDepth(finalInterruptedLine.source) ? {
+    kind: "blockquote",
+    index: index2,
+    source: sourceLines[index2],
+    subtreeEndIndex
+  } : null;
+}
+function createSourceOwnedSuffixMatch(candidate) {
+  if (!candidate) {
+    return null;
+  }
+  return {
+    ...candidate,
+    expectedLeadText: normalizeNativeListText(
+      getComparableNativeListText(candidate.kind === "list" ? candidate.sourceLine.itemText : stripBlockQuotePrefix(candidate.source))
+    )
+  };
+}
+function matchSourceOwnedBlockSuffix(match, suffix, sourceLines, root, rootIndentColumns) {
+  if (!suffix) {
+    return void 0;
+  }
+  const finalSegment = match.segments[match.segments.length - 1];
+  const ownerItem = finalSegment ? getDirectListItems(finalSegment.list)[finalSegment.itemCount - 1] : null;
+  if (!ownerItem) {
+    return void 0;
+  }
+  const anchor = suffix.kind === "list" ? findOwnedListSuffixAnchor(ownerItem, suffix, root, sourceLines) : findOwnedBlockQuoteSuffixAnchor(ownerItem, suffix.expectedLeadText);
+  if (!anchor) {
+    return void 0;
+  }
+  const firstBlock = getDirectOwnedBlock(ownerItem, anchor);
+  const blocks = firstBlock ? getPromotableSuffixBlocks(ownerItem, firstBlock) : null;
+  if (!(blocks == null ? void 0 : blocks.length)) {
+    return void 0;
+  }
+  return {
+    blocks,
+    ownerItem,
+    mergeRemainingItems: canMergeRemainingItems(
+      match,
+      suffix,
+      blocks,
+      sourceLines,
+      rootIndentColumns
+    )
+  };
+}
+function findOwnedListSuffixAnchor(ownerItem, suffix, root, sourceLines) {
+  const suffixMatch = findNativeListItem(root, {
+    sourceLine: suffix.sourceLine,
+    expectedLeadText: suffix.expectedLeadText
+  }, sourceLines);
+  if (!suffixMatch || suffixMatch.item === ownerItem || !ownerItem.contains(suffixMatch.list) || getDirectListItems(suffixMatch.list)[0] !== suffixMatch.item) {
+    return null;
+  }
+  return suffixMatch.list;
+}
+function findOwnedBlockQuoteSuffixAnchor(ownerItem, expectedLeadText) {
+  var _a4;
+  for (const quote of Array.from(ownerItem.querySelectorAll("blockquote"))) {
+    const paragraph = Array.from(quote.children).find((child) => child.matches("p"));
+    if (paragraph && normalizeNativeListText((_a4 = paragraph.textContent) != null ? _a4 : "") === expectedLeadText) {
+      return quote;
+    }
+  }
+  return null;
+}
+function getDirectOwnedBlock(ownerItem, descendant) {
+  let current = descendant;
+  while (current.parentElement && current.parentElement !== ownerItem) {
+    current = current.parentElement;
+  }
+  return current.parentElement === ownerItem ? current : null;
+}
+function getPromotableSuffixBlocks(ownerItem, firstBlock) {
+  var _a4;
+  const nodes = Array.from(ownerItem.childNodes);
+  const startIndex = nodes.indexOf(firstBlock);
+  if (startIndex < 0) {
+    return null;
+  }
+  const blocks = [];
+  for (const node of nodes.slice(startIndex)) {
+    if (node.nodeType === Node.TEXT_NODE) {
+      if ((_a4 = node.textContent) == null ? void 0 : _a4.trim()) {
+        return null;
+      }
+      continue;
+    }
+    if (node.nodeType !== Node.ELEMENT_NODE) {
+      continue;
+    }
+    const element = node;
+    if (element.matches("a.footnote-back, a.footnote-backref")) {
+      continue;
+    }
+    if (!element.matches("ul, ol, blockquote, pre, p, table, dl, hr, div")) {
+      return null;
+    }
+    blocks.push(element);
+  }
+  return blocks;
+}
+function canMergeRemainingItems(match, suffix, blocks, sourceLines, rootIndentColumns) {
+  var _a4;
+  const finalSegment = match.segments[match.segments.length - 1];
+  if (!finalSegment || finalSegment.itemCount >= getDirectListItems(finalSegment.list).length || !getTrailingPromotedList(blocks)) {
+    return false;
+  }
+  const suffixGroup = getFinalSuffixListGroup(suffix, sourceLines);
+  const ownerLine = (_a4 = match.lines[match.lines.length - 1]) == null ? void 0 : _a4.sourceLine;
+  const remainingGroup = ownerLine ? getFollowingRootListGroup(
+    suffix.subtreeEndIndex,
+    rootIndentColumns,
+    getBlockQuoteDepth(ownerLine.source),
+    sourceLines
+  ) : null;
+  return areCompatibleListGroups(suffixGroup, remainingGroup);
+}
+function getTrailingPromotedList(blocks) {
+  var _a4;
+  const block = blocks[blocks.length - 1];
+  if (!block) {
+    return null;
+  }
+  if (block.matches("ul, ol")) {
+    return block;
+  }
+  if (!block.matches(".el-ul, .el-ol")) {
+    return null;
+  }
+  return (_a4 = Array.from(block.children).find(
+    (child) => child.matches("ul, ol")
+  )) != null ? _a4 : null;
+}
+function getFinalSuffixListGroup(suffix, sourceLines) {
+  var _a4, _b2;
+  const quoteDepth = getBlockQuoteDepth(suffix.source);
+  const markers = sourceLines.slice(suffix.index, suffix.subtreeEndIndex + 1).map((line, offset) => ({
+    index: suffix.index + offset,
+    marker: getSourceListGroup(line),
+    parsed: parsePandocListMarker(line, true)
+  })).filter((entry) => entry.marker && entry.parsed && getBlockQuoteDepth(sourceLines[entry.index]) === quoteDepth);
+  if (markers.length === 0) {
+    return null;
+  }
+  const topIndent = Math.min(...markers.map((entry) => entry.parsed.indentColumns));
+  return (_b2 = (_a4 = markers.filter((entry) => entry.parsed.indentColumns === topIndent).pop()) == null ? void 0 : _a4.marker) != null ? _b2 : null;
+}
+function getFollowingRootListGroup(subtreeEndIndex, rootIndentColumns, quoteDepth, sourceLines) {
+  for (let index2 = subtreeEndIndex + 1; index2 < sourceLines.length; index2++) {
+    if (!sourceLines[index2].trim()) {
+      continue;
+    }
+    const parsed = parsePandocListMarker(sourceLines[index2], true);
+    if (!parsed || parsed.indentColumns !== rootIndentColumns || getBlockQuoteDepth(sourceLines[index2]) !== quoteDepth) {
+      return null;
+    }
+    return getSourceListGroup(sourceLines[index2]);
+  }
+  return null;
+}
+function getSourceListGroup(line) {
+  const marker = parsePandocListMarker(line, true);
+  if (!marker || marker.kind === "definition") {
+    return null;
+  }
+  return {
+    kind: marker.kind,
+    orderedGroup: marker.orderedGroup
+  };
+}
+function areCompatibleListGroups(left, right) {
+  if (!left || !right || left.kind !== right.kind) {
+    return false;
+  }
+  return left.kind === "bullet" || left.orderedGroup === right.orderedGroup;
+}
+
+// src/reading-mode/features/native-lists/blockQuoteRelocation.ts
+function findLazyBlockQuoteListRelocations(lines, invalidLines, enableListsWithoutPrecedingBlankline) {
+  if (enableListsWithoutPrecedingBlankline) {
+    return [];
+  }
+  const visibleListLines = getRenderableNativeListLineIndices(lines);
+  const relocations = [];
+  let lazyBlockQuoteDepth = 0;
+  let fence = null;
+  for (let index2 = 0; index2 < lines.length; index2++) {
+    const line = lines[index2];
+    const content = stripBlockQuotePrefix(line);
+    const explicitDepth = getBlockQuoteDepth(line);
+    if (fence) {
+      if (isFenceClosing(content, fence)) {
+        fence = null;
+      }
+      continue;
+    }
+    if (/^[ \t]*$/.test(line)) {
+      lazyBlockQuoteDepth = 0;
+      continue;
+    }
+    const openingFence = getFenceOpening(lines, index2, content);
+    if (openingFence) {
+      if (openingFence.character === "`" && explicitDepth < lazyBlockQuoteDepth) {
+        lazyBlockQuoteDepth = explicitDepth;
+      }
+      fence = openingFence;
+      continue;
+    }
+    if (/^ {0,3}(?:=+|-+)[ \t]*$/.test(content) && explicitDepth < lazyBlockQuoteDepth) {
+      lazyBlockQuoteDepth = explicitDepth;
+    }
+    if (explicitDepth > lazyBlockQuoteDepth) {
+      lazyBlockQuoteDepth = explicitDepth;
+    }
+    const parsed = visibleListLines.has(index2) ? parseNativeListLine(line) : null;
+    if (parsed && explicitDepth < lazyBlockQuoteDepth && !invalidLines.has(index2)) {
+      relocations.push({
+        sourceLine: { ...parsed, source: line, index: index2 },
+        targetBlockQuoteDepth: lazyBlockQuoteDepth
+      });
+    }
+  }
+  return relocations;
+}
+function relocateLazyBlockQuoteListItems(root, relocations) {
+  if (relocations.some(({ match }) => !root.contains(match.list) || match.item.parentElement !== match.list)) {
+    return false;
+  }
+  const prepared = relocations.map((relocation) => ({
+    ...relocation,
+    destination: findDestinationBlockQuote(
+      root,
+      relocation.match.list,
+      relocation.targetBlockQuoteDepth
+    )
+  }));
+  if (prepared.some(({ destination, match }) => !destination || !root.contains(destination) || match.item.contains(destination))) {
+    return false;
+  }
+  prepared.forEach((relocation) => moveItem(
+    relocation.match,
+    relocation.destination
+  ));
+  return true;
+}
+function findDestinationBlockQuote(root, list, targetDepth) {
+  var _a4;
+  const topList = getTopList(list);
+  const block = getNativeListBlock(topList);
+  const preceding = block.previousElementSibling;
+  if (!preceding) {
+    return null;
+  }
+  const candidates = [
+    ...preceding.matches("blockquote") ? [preceding] : [],
+    ...Array.from(preceding.querySelectorAll("blockquote"))
+  ].filter((candidate) => candidate.instanceOf(HTMLElement));
+  return (_a4 = candidates.reverse().find(
+    (candidate) => getBlockQuoteDomDepth(candidate, root) === targetDepth
+  )) != null ? _a4 : null;
+}
+function getTopList(list) {
+  var _a4, _b2;
+  let top = list;
+  let ancestor = (_a4 = top.parentElement) == null ? void 0 : _a4.closest("ul, ol");
+  while (ancestor) {
+    top = ancestor;
+    ancestor = (_b2 = top.parentElement) == null ? void 0 : _b2.closest("ul, ol");
+  }
+  return top;
+}
+function getBlockQuoteDomDepth(element, root) {
+  let depth = 1;
+  let ancestor = element.parentElement;
+  while (ancestor && ancestor !== root) {
+    if (ancestor.matches("blockquote")) {
+      depth++;
+    }
+    ancestor = ancestor.parentElement;
+  }
+  return depth;
+}
+function moveItem(match, destination) {
+  const sourceList = match.list;
+  const sourceItems = getDirectListItems(sourceList);
+  const sourceIndex = sourceItems.indexOf(match.item);
+  if (sourceIndex < 0) {
+    return;
+  }
+  const nextOrderedStart = sourceList.instanceOf(HTMLOListElement) && sourceIndex === 0 ? getOrderedListItemNumber(sourceList, sourceItems, 1) : null;
+  const destinationList = getOrCreateDestinationList(
+    destination,
+    sourceList,
+    sourceItems,
+    sourceIndex
+  );
+  destinationList.appendChild(match.item);
+  if (getDirectListItems(sourceList).length === 0) {
+    removeEmptyNativeListBlock(sourceList);
+  } else if (nextOrderedStart !== null && sourceList.instanceOf(HTMLOListElement)) {
+    sourceList.start = nextOrderedStart;
+  }
+}
+function getOrCreateDestinationList(destination, sourceList, sourceItems, sourceIndex) {
+  const trailingList = getTrailingDirectList(destination);
+  if ((trailingList == null ? void 0 : trailingList.tagName) === sourceList.tagName) {
+    sourceList.classList.forEach((className) => trailingList.classList.add(className));
+    return trailingList;
+  }
+  const list = sourceList.cloneNode(false);
+  if (list.instanceOf(HTMLOListElement)) {
+    list.start = getOrderedListItemNumber(
+      sourceList,
+      sourceItems,
+      sourceIndex
+    );
+  }
+  const sourceBlock = getNativeListBlock(sourceList);
+  if (sourceBlock !== sourceList) {
+    const wrapper = sourceBlock.cloneNode(false);
+    wrapper.appendChild(list);
+    destination.appendChild(wrapper);
+  } else {
+    destination.appendChild(list);
+  }
+  return list;
+}
+function getTrailingDirectList(destination) {
+  const finalChild = destination.lastElementChild;
+  if (!finalChild) {
+    return null;
+  }
+  if (finalChild.matches("ul, ol")) {
+    return finalChild;
+  }
+  return finalChild.matches(".el-ul, .el-ol") ? finalChild.querySelector(":scope > ul, :scope > ol") : null;
+}
+
+// src/reading-mode/features/native-lists/footnoteRelocation.ts
+function findFootnoteListRelocations(lines) {
+  return projectPandocFootnoteBodies(lines).footnoteBodies.flatMap((body) => findBodyRelocations(lines, body));
+}
+function relocateFootnoteListItems(root, relocations) {
+  const relocatedLists = /* @__PURE__ */ new Map();
+  const groups = groupRelocationsByBody(relocations);
+  groups.forEach((group) => {
+    const destination = findFootnoteItem(root, group[0].label);
+    const matches = group.map((relocation) => relocation.match);
+    if (!destination || matches.some((match) => !isCurrentMatch(root, match)) || hasDuplicateItems(matches)) {
+      return;
+    }
+    group.forEach((relocation) => {
+      const match = relocation.match;
+      const destinationList = destination.contains(match.item) ? match.list : moveItem2(match, destination);
+      relocatedLists.set(relocation.sourceLine.index, destinationList);
+    });
   });
-  items.forEach((item) => clone3.appendChild(item.cloneNode(true)));
-  return [clone3];
+  return relocatedLists;
+}
+function isCurrentMatch(root, match) {
+  return Boolean(match && root.contains(match.list) && root.contains(match.item) && match.item.parentElement === match.list);
+}
+function groupRelocationsByBody(relocations) {
+  const groups = /* @__PURE__ */ new Map();
+  relocations.forEach((relocation) => {
+    var _a4;
+    const group = (_a4 = groups.get(relocation.bodyStartIndex)) != null ? _a4 : [];
+    group.push(relocation);
+    groups.set(relocation.bodyStartIndex, group);
+  });
+  return groups;
+}
+function findBodyRelocations(documentLines, body) {
+  const visibleListLines = getRenderableNativeListLineIndices(body.lines);
+  const bodyStartIndex = body.sourceIndices[0];
+  const relocations = [];
+  for (let bodyIndex = 1; bodyIndex < body.lines.length; bodyIndex++) {
+    if (!visibleListLines.has(bodyIndex)) {
+      continue;
+    }
+    const sourceIndex = body.sourceIndices[bodyIndex];
+    const source = documentLines[sourceIndex];
+    const parsed = parseNativeListLine(body.lines[bodyIndex]);
+    if (source === void 0 || !parsed || !isLazyFootnoteLine(source)) {
+      continue;
+    }
+    relocations.push({
+      bodyStartIndex,
+      label: body.label,
+      sourceLine: { ...parsed, index: sourceIndex, source: body.lines[bodyIndex] }
+    });
+  }
+  return relocations;
+}
+function isLazyFootnoteLine(line) {
+  var _a4, _b2;
+  const content = stripBlockQuotePrefix(line);
+  const indent = (_b2 = (_a4 = content.match(/^([ \t]*)/)) == null ? void 0 : _a4[1]) != null ? _b2 : "";
+  return getIndentColumns(indent) < 4;
+}
+function findFootnoteItem(root, label) {
+  const targetIds = new Set(Array.from(
+    root.querySelectorAll("a[data-footref]")
+  ).filter((link) => link.getAttribute("data-footref") === label).map((link) => getFragmentId(link.getAttribute("href"))).filter((id) => id !== null));
+  if (targetIds.size !== 1) {
+    return null;
+  }
+  const [targetId] = targetIds;
+  const matches = Array.from(
+    root.querySelectorAll("section.footnotes > ol > li[id]")
+  ).filter((item) => item.id === targetId);
+  return matches.length === 1 ? matches[0] : null;
+}
+function getFragmentId(href) {
+  var _a4;
+  const hashIndex = (_a4 = href == null ? void 0 : href.lastIndexOf("#")) != null ? _a4 : -1;
+  if (!href || hashIndex < 0 || hashIndex === href.length - 1) {
+    return null;
+  }
+  try {
+    return decodeURIComponent(href.slice(hashIndex + 1));
+  } catch (e) {
+    return href.slice(hashIndex + 1);
+  }
+}
+function hasDuplicateItems(matches) {
+  const items = matches.flatMap((match) => match ? [match.item] : []);
+  return new Set(items).size !== items.length;
+}
+function moveItem2(match, destination) {
+  const sourceList = match.list;
+  const sourceItems = getDirectListItems(sourceList);
+  const sourceIndex = sourceItems.indexOf(match.item);
+  const nextOrderedStart = sourceList.instanceOf(HTMLOListElement) && sourceIndex === 0 ? getOrderedListItemNumber(sourceList, sourceItems, 1) : null;
+  const destinationList = getOrCreateDestinationList2(
+    destination,
+    sourceList,
+    sourceItems,
+    sourceIndex
+  );
+  destinationList.appendChild(match.item);
+  if (getDirectListItems(sourceList).length === 0) {
+    removeEmptyNativeListBlock(sourceList);
+  } else if (nextOrderedStart !== null && sourceList.instanceOf(HTMLOListElement)) {
+    sourceList.start = nextOrderedStart;
+  }
+  return destinationList;
+}
+function getOrCreateDestinationList2(destination, sourceList, sourceItems, sourceIndex) {
+  const trailingList = getTrailingDirectList2(destination);
+  if ((trailingList == null ? void 0 : trailingList.tagName) === sourceList.tagName) {
+    sourceList.classList.forEach((className) => trailingList.classList.add(className));
+    return trailingList;
+  }
+  const list = sourceList.cloneNode(false);
+  if (list.instanceOf(HTMLOListElement)) {
+    list.start = getOrderedListItemNumber(
+      sourceList,
+      sourceItems,
+      sourceIndex
+    );
+  }
+  destination.appendChild(list);
+  return list;
+}
+function getTrailingDirectList2(destination) {
+  const finalChild = destination.lastElementChild;
+  return (finalChild == null ? void 0 : finalChild.matches("ul, ol")) ? finalChild : null;
+}
+
+// src/reading-mode/pipeline/processors/nativeListSpacingProcessor.ts
+var alwaysCurrent = () => true;
+var rootGenerations = /* @__PURE__ */ new WeakMap();
+var NativeListSpacingProcessor = class {
+  constructor() {
+    this.name = "native-list-spacing";
+    this.phase = "block";
+    this.priority = 70;
+  }
+  isEnabled(context) {
+    var _a4;
+    return Boolean((_a4 = context.sectionInfo) == null ? void 0 : _a4.text);
+  }
+  process(context) {
+    if (context.app) {
+      runAfterPreviewSettles(() => {
+        const root = getPreviewRoot(context);
+        const isCurrent = beginRootGeneration(root);
+        void this.processWithFullSource(context, root, isCurrent);
+      });
+      return;
+    }
+    this.processWithSourceResolver(context, (list) => getSourceTextForList(list, context));
+  }
+  async processWithFullSource(context, root, isCurrent) {
+    await waitForFencedDivRun(root);
+    if (!isCurrent()) {
+      return;
+    }
+    const fullSourceText = await readFullSourceText(context.sourcePath, context.app);
+    if (!isCurrent()) {
+      return;
+    }
+    if (fullSourceText) {
+      await this.processWithRenderedSourceResolver(
+        context,
+        () => fullSourceText,
+        root,
+        isCurrent
+      );
+      return;
+    }
+    await this.processWithRenderedSourceResolver(
+      context,
+      (list) => getSourceTextForList(list, context),
+      root,
+      isCurrent
+    );
+  }
+  processWithSourceResolver(context, getSourceText, root = ((_a4) => (_a4 = context.section) != null ? _a4 : context.element)()) {
+    const lists = getRootNativeListElements(root, context.element).filter((list) => root.contains(list));
+    const processedSources = /* @__PURE__ */ new Set();
+    lists.forEach((list) => {
+      const sourceText = getSourceText(list);
+      if (!sourceText || processedSources.has(sourceText)) {
+        return;
+      }
+      processedSources.add(sourceText);
+      processSourceText(sourceText, context, root);
+    });
+  }
+  async processWithRenderedSourceResolver(context, getSourceText, root, isCurrent) {
+    if (!isCurrent()) {
+      return;
+    }
+    const lists = getRootNativeListElements(root, context.element).filter((list) => root.contains(list));
+    const processedSources = /* @__PURE__ */ new Set();
+    for (const list of lists.length ? lists : [root]) {
+      if (!isCurrent()) {
+        return;
+      }
+      const sourceText = getSourceText(list);
+      if (!sourceText || processedSources.has(sourceText)) {
+        continue;
+      }
+      processedSources.add(sourceText);
+      await processSourceTextWithRenderedSignatures(
+        sourceText,
+        context,
+        root,
+        isCurrent
+      );
+    }
+  }
+};
+function processSourceText(sourceText, context, root) {
+  const sourceLines = sourceText.split("\n");
+  const analysis = ListBlockValidator.analyzeListBlocks(sourceLines, context.config);
+  relocateLazyBlockQuoteLists(sourceLines, analysis.invalidLines, context, root);
+  const relocatedFootnoteLists = relocateFootnoteLists(sourceLines, root);
+  const analysisLines = analysis.sourceLines;
+  const currentLists = getRootNativeListElements(root, context.element).filter((list) => root.contains(list));
+  analysis.interruptedParagraphs.forEach((paragraph) => {
+    const rootLines = getRootNativeLines(analysisLines, analysis.invalidLines, paragraph);
+    const matchLines = rootLines.map((sourceLine) => ({
+      sourceLine,
+      expectedLeadText: normalizeNativeListText(
+        getComparableNativeListText(sourceLine.itemText)
+      )
+    }));
+    const paragraphText = getUnrenderedParagraphText(analysisLines, paragraph);
+    scheduleInterruptedParagraph(
+      analysisLines,
+      analysis.invalidLines,
+      paragraph,
+      matchLines,
+      paragraphText,
+      currentLists,
+      context,
+      root,
+      alwaysCurrent,
+      relocatedFootnoteLists.get(paragraph.listStartIndex),
+      createSourceOwnedSuffixMatch(getSourceOwnedSuffixCandidate(
+        analysisLines,
+        analysis.invalidLines,
+        paragraph,
+        rootLines
+      ))
+    );
+  });
+}
+function getUnrenderedParagraphText(sourceLines, paragraph) {
+  const paragraphDepth = getBlockQuoteDepth(sourceLines[paragraph.paragraphStartIndex]);
+  const visibleLines = sourceLines.slice(paragraph.paragraphStartIndex, paragraph.listStartIndex).filter((line) => getBlockQuoteDepth(line) <= paragraphDepth).map(stripBlockQuotePrefix);
+  return normalizeNativeListText(getComparableNativeListText(visibleLines.join(" ")));
+}
+async function processSourceTextWithRenderedSignatures(sourceText, context, root, isCurrent) {
+  const sourceLines = sourceText.split("\n");
+  const analysis = ListBlockValidator.analyzeListBlocks(sourceLines, context.config);
+  const renderedLeadTextCache = /* @__PURE__ */ new Map();
+  await reconcileLazyBlockQuoteContent(sourceLines, context, root, isCurrent, analysis.invalidLines);
+  if (!isCurrent()) {
+    return;
+  }
+  await relocateLazyBlockQuoteListsWithRenderedSignatures(
+    sourceLines,
+    analysis.invalidLines,
+    context,
+    root,
+    renderedLeadTextCache,
+    isCurrent
+  );
+  const relocatedFootnoteLists = await relocateFootnoteListsWithRenderedSignatures(
+    sourceLines,
+    context,
+    root,
+    renderedLeadTextCache,
+    isCurrent
+  );
+  if (!isCurrent()) {
+    return;
+  }
+  const analysisLines = analysis.sourceLines;
+  await reconcileLiteralListContinuations(
+    analysisLines,
+    analysis.literalListContinuations,
+    context,
+    root,
+    isCurrent
+  );
+  if (!isCurrent()) {
+    return;
+  }
+  const currentLists = getRootNativeListElements(root, context.element).filter((list) => root.contains(list));
+  for (const paragraph of analysis.interruptedParagraphs) {
+    if (!isCurrent()) {
+      return;
+    }
+    const rootLines = getRootNativeLines(analysisLines, analysis.invalidLines, paragraph);
+    const renderedLeadTexts = [];
+    for (const line of rootLines) {
+      const itemEndIndex = findSourceItemSubtreeEnd(
+        line.index,
+        line.indentColumns,
+        analysisLines
+      );
+      const subtreeSource = analysisLines.slice(line.index, itemEndIndex + 1).join("\n");
+      const subtreeLeadText = await getRenderedLeadText(
+        subtreeSource,
+        context,
+        renderedLeadTextCache
+      );
+      if (!isCurrent()) {
+        return;
+      }
+      renderedLeadTexts.push(subtreeLeadText != null ? subtreeLeadText : await getRenderedLeadText(
+        line.source,
+        context,
+        renderedLeadTextCache
+      ));
+      if (!isCurrent()) {
+        return;
+      }
+    }
+    if (renderedLeadTexts.some((text) => text === null)) {
+      continue;
+    }
+    const paragraphText = await renderParagraphText(
+      analysisLines.slice(paragraph.paragraphStartIndex, paragraph.listStartIndex).join("\n"),
+      context
+    );
+    if (!isCurrent()) {
+      return;
+    }
+    if (paragraphText === null) {
+      continue;
+    }
+    const matchLines = rootLines.map((sourceLine, index2) => ({
+      sourceLine,
+      expectedLeadText: renderedLeadTexts[index2]
+    }));
+    const suffixCandidate = getSourceOwnedSuffixCandidate(
+      analysisLines,
+      analysis.invalidLines,
+      paragraph,
+      rootLines
+    );
+    let suffixMatch = null;
+    if (suffixCandidate) {
+      const suffixLeadText = suffixCandidate.kind === "list" ? await getRenderedLeadText(
+        suffixCandidate.source,
+        context,
+        renderedLeadTextCache
+      ) : await renderBlockQuoteLeadText(suffixCandidate.source, context);
+      if (!isCurrent()) {
+        return;
+      }
+      if (suffixLeadText !== null) {
+        suffixMatch = { ...suffixCandidate, expectedLeadText: suffixLeadText };
+      }
+    }
+    scheduleInterruptedParagraph(
+      analysisLines,
+      analysis.invalidLines,
+      paragraph,
+      matchLines,
+      paragraphText,
+      currentLists,
+      context,
+      root,
+      isCurrent,
+      relocatedFootnoteLists.get(paragraph.listStartIndex),
+      suffixMatch
+    );
+  }
+}
+function relocateLazyBlockQuoteLists(sourceLines, invalidLines, context, root) {
+  const relocations = findLazyBlockQuoteListRelocations(
+    sourceLines,
+    invalidLines,
+    context.config.enableListsWithoutPrecedingBlankline
+  );
+  const matched = relocations.map((relocation) => {
+    const expectedLeadText = normalizeNativeListText(
+      getComparableNativeListText(relocation.sourceLine.itemText)
+    );
+    const match = findNativeListItem(root, {
+      sourceLine: relocation.sourceLine,
+      expectedLeadText
+    }, sourceLines);
+    return match ? { ...relocation, match } : null;
+  });
+  if (matched.every((item) => item !== null)) {
+    relocateLazyBlockQuoteListItems(root, matched);
+  }
+}
+async function relocateLazyBlockQuoteListsWithRenderedSignatures(sourceLines, invalidLines, context, root, cache, isCurrent) {
+  const relocations = findLazyBlockQuoteListRelocations(
+    sourceLines,
+    invalidLines,
+    context.config.enableListsWithoutPrecedingBlankline
+  );
+  const matched = [];
+  for (const relocation of relocations) {
+    const expectedLeadText = await getRenderedLeadText(
+      relocation.sourceLine.source,
+      context,
+      cache
+    );
+    if (!isCurrent() || expectedLeadText === null) {
+      return;
+    }
+    const match = findNativeListItem(root, {
+      sourceLine: relocation.sourceLine,
+      expectedLeadText
+    }, sourceLines);
+    if (!match) {
+      return;
+    }
+    matched.push({ ...relocation, match });
+  }
+  if (isCurrent()) {
+    relocateLazyBlockQuoteListItems(root, matched);
+  }
+}
+function relocateFootnoteLists(sourceLines, root) {
+  const matched = findFootnoteListRelocations(sourceLines).map((relocation) => {
+    const expectedLeadText = normalizeNativeListText(
+      getComparableNativeListText(relocation.sourceLine.itemText)
+    );
+    return {
+      ...relocation,
+      match: findNativeListItem(root, {
+        sourceLine: relocation.sourceLine,
+        expectedLeadText
+      }, sourceLines)
+    };
+  });
+  return relocateFootnoteListItems(root, matched);
+}
+async function relocateFootnoteListsWithRenderedSignatures(sourceLines, context, root, cache, isCurrent) {
+  const matched = [];
+  for (const relocation of findFootnoteListRelocations(sourceLines)) {
+    const expectedLeadText = await getRenderedLeadText(
+      relocation.sourceLine.source,
+      context,
+      cache
+    );
+    if (!isCurrent()) {
+      return /* @__PURE__ */ new Map();
+    }
+    matched.push({
+      ...relocation,
+      match: expectedLeadText === null ? null : findNativeListItem(root, {
+        sourceLine: relocation.sourceLine,
+        expectedLeadText
+      }, sourceLines)
+    });
+  }
+  return relocateFootnoteListItems(root, matched);
+}
+function getRenderedLeadText(source, context, cache) {
+  const cached = cache.get(source);
+  if (cached) {
+    return cached;
+  }
+  const rendered = renderNativeListLeadText(source, context);
+  cache.set(source, rendered);
+  return rendered;
+}
+function scheduleInterruptedParagraph(sourceLines, invalidLines, paragraph, rootLines, paragraphText, lists, context, root, isCurrent, preferredList, sourceOwnedSuffix) {
+  if (!isCurrent()) {
+    return;
+  }
+  const match = findNativeListGroup(
+    lists,
+    rootLines,
+    sourceLines,
+    paragraphText,
+    root,
+    preferredList
+  );
+  if (!match) {
+    return;
+  }
+  const sourceOwnedBlockSuffix = matchSourceOwnedBlockSuffix(
+    match,
+    sourceOwnedSuffix != null ? sourceOwnedSuffix : null,
+    sourceLines,
+    root,
+    rootLines[0].sourceLine.indentColumns
+  );
+  const endIndex = sourceOwnedBlockSuffix ? paragraph.endIndex : findInterruptedSourceSubtreeEnd(
+    match.lines[match.lines.length - 1].sourceLine.index,
+    rootLines[0].sourceLine.indentColumns,
+    paragraph.endIndex,
+    hasMaterializedTailInsideMatchedItem(match),
+    sourceLines
+  );
+  const didSchedule = replaceInterruptedListParagraph({
+    listSegments: match.segments,
+    sourceLines: sourceLines.slice(paragraph.paragraphStartIndex, endIndex + 1),
+    listStartOffset: paragraph.listStartIndex - paragraph.paragraphStartIndex,
+    transformedParagraphSource: transformInterruptedParagraph(
+      sourceLines,
+      invalidLines,
+      paragraph,
+      endIndex
+    ),
+    remainingListStart: findRemainingOrderedListStart(
+      match,
+      sourceLines,
+      endIndex,
+      rootLines[0].sourceLine.indentColumns
+    ),
+    sourceOwnedBlockSuffix,
+    root,
+    context,
+    isCurrent
+  });
+  if (didSchedule) {
+    markNativeListGroupScheduled(match, isCurrent);
+  }
+}
+function getSourceTextForList(list, context) {
+  var _a4, _b2, _c, _d, _e, _f, _g, _h, _i, _j;
+  return (_j = (_i = (_g = context.section ? (_c = (_b2 = (_a4 = context.postProcessorContext).getSectionInfo) == null ? void 0 : _b2.call(_a4, context.section)) == null ? void 0 : _c.text : null) != null ? _g : (_f = (_e = (_d = context.postProcessorContext).getSectionInfo) == null ? void 0 : _e.call(_d, list)) == null ? void 0 : _f.text) != null ? _i : (_h = context.sectionInfo) == null ? void 0 : _h.text) != null ? _j : "";
+}
+function getRootNativeLines(sourceLines, invalidLines, paragraph) {
+  const candidates = sourceLines.map((source, index2) => ({ source, index: index2, parsed: parseNativeListLine(source) })).filter((line) => invalidLines.has(line.index) && line.index >= paragraph.listStartIndex && line.index <= paragraph.endIndex && line.parsed !== null).map((line) => ({ ...line.parsed, source: line.source, index: line.index }));
+  if (candidates.length === 0) {
+    return [];
+  }
+  const rootIndent = Math.min(...candidates.map((line) => line.indentColumns));
+  return candidates.filter((line) => line.indentColumns === rootIndent);
+}
+function getPreviewRoot(context) {
+  var _a4, _b2, _c, _d;
+  return (_d = (_c = (_b2 = context.element.closest(".markdown-preview-section")) != null ? _b2 : (_a4 = context.section) == null ? void 0 : _a4.closest(".markdown-preview-section")) != null ? _c : context.section) != null ? _d : context.element;
+}
+function findRemainingOrderedListStart(match, sourceLines, endIndex, rootIndentColumns) {
+  const finalSegment = match.segments[match.segments.length - 1];
+  if (!finalSegment || finalSegment.list.tagName !== "OL" || finalSegment.itemCount >= getDirectListItems(finalSegment.list).length) {
+    return void 0;
+  }
+  for (let index2 = endIndex + 1; index2 < sourceLines.length; index2++) {
+    const parsed = parseNativeListLine(sourceLines[index2]);
+    if (!parsed || parsed.indentColumns !== rootIndentColumns) {
+      continue;
+    }
+    return parsed.kind === "ol" ? parsed.startNumber : void 0;
+  }
+  return void 0;
+}
+function transformInterruptedParagraph(sourceLines, invalidLines, paragraph, endIndex) {
+  const paragraphBlockQuoteDepth = getBlockQuoteDepth(
+    sourceLines[paragraph.paragraphStartIndex]
+  );
+  const transformedLines = sourceLines.slice(paragraph.paragraphStartIndex, endIndex + 1).map((line, offset) => {
+    const lineIndex = paragraph.paragraphStartIndex + offset;
+    const escapedMarker = invalidLines.has(lineIndex) ? escapePandocListMarker(line) : line;
+    return escapeExcessBlockQuoteMarkers(
+      escapedMarker,
+      paragraphBlockQuoteDepth
+    );
+  });
+  return rewriteIndentedBacktickCodeSpans(transformedLines).join("\n");
 }
 function runAfterPreviewSettles(callback2) {
   if (typeof window.requestAnimationFrame !== "function") {
     window.setTimeout(callback2, 0);
     return;
   }
-  window.requestAnimationFrame(() => {
-    window.requestAnimationFrame(callback2);
-  });
+  window.requestAnimationFrame(() => window.requestAnimationFrame(callback2));
+}
+function beginRootGeneration(root) {
+  var _a4;
+  const generation = ((_a4 = rootGenerations.get(root)) != null ? _a4 : 0) + 1;
+  rootGenerations.set(root, generation);
+  return () => rootGenerations.get(root) === generation;
 }
 
 // src/reading-mode/features/unordered-lists/markerClasses.ts
@@ -224942,7 +230653,7 @@ function createReadingModeContext(element, postProcessorContext, config, app) {
     config,
     app,
     counters,
-    validationLines: config.enforcePandocListSpacing && (sectionInfo == null ? void 0 : sectionInfo.text) ? sectionInfo.text.split("\n") : [],
+    validationLines: (sectionInfo == null ? void 0 : sectionInfo.text) ? sectionInfo.text.split("\n") : [],
     renderContext: {
       strictLineBreaks: config.strictLineBreaks,
       getExampleNumber: (label) => pluginStateManager.getLabeledExampleNumber(sourcePath, label),
@@ -224985,8 +230696,8 @@ function processReadingMode(element, context, config, app) {
 }
 
 // src/editor-extensions/suggestions/exampleReferenceSuggest.ts
-var import_obsidian24 = require("obsidian");
-var ExampleReferenceSuggest = class extends import_obsidian24.EditorSuggest {
+var import_obsidian32 = require("obsidian");
+var ExampleReferenceSuggest = class extends import_obsidian32.EditorSuggest {
   constructor(plugin) {
     super(plugin.app);
     this.plugin = plugin;
@@ -225082,8 +230793,8 @@ var ExampleReferenceSuggest = class extends import_obsidian24.EditorSuggest {
 };
 
 // src/editor-extensions/suggestions/customLabelReferenceSuggest.ts
-var import_obsidian25 = require("obsidian");
-var CustomLabelReferenceSuggest = class extends import_obsidian25.EditorSuggest {
+var import_obsidian33 = require("obsidian");
+var CustomLabelReferenceSuggest = class extends import_obsidian33.EditorSuggest {
   constructor(plugin) {
     super(plugin.app);
     this.plugin = plugin;
@@ -225258,11 +230969,11 @@ var CustomLabelReferenceSuggest = class extends import_obsidian25.EditorSuggest 
 
 // src/editor-extensions/suggestions/fencedDivReferenceSuggest.ts
 var import_state4 = require("@codemirror/state");
-var import_obsidian26 = require("obsidian");
+var import_obsidian34 = require("obsidian");
 var CITATION_QUERY_STOP = /[\s,;)\]}]/;
 var WORD_CHARACTER = /[A-Za-z0-9_]/;
 var NO_PREVIEW_TEXT = "(no content)";
-var FencedDivReferenceSuggest = class extends import_obsidian26.EditorSuggest {
+var FencedDivReferenceSuggest = class extends import_obsidian34.EditorSuggest {
   constructor(plugin) {
     super(plugin.app);
     this.plugin = plugin;
@@ -225374,6 +231085,130 @@ var FencedDivReferenceSuggest = class extends import_obsidian26.EditorSuggest {
   }
 };
 
+// src/editor-extensions/pandocValidator.ts
+function isListItem(line, includeCustomLabels = false) {
+  if (ListPatterns.FANCY_LIST_WITH_NUMBERS.test(line) || ListPatterns.STANDARD_ORDERED_LIST.test(line) || ListPatterns.UNORDERED_LIST.test(line) || ListPatterns.isExampleList(line) || ListPatterns.isDefinitionMarker(line)) {
+    return true;
+  }
+  if (includeCustomLabels && ListPatterns.isCustomLabelList(line)) {
+    return true;
+  }
+  return false;
+}
+function formatToPandocStandard(content, enableCustomLabelLists = false) {
+  const lines = content.split("\n");
+  const result = [];
+  let inListBlock = false;
+  let lastWasEmpty = false;
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    const isCurrentLineList = isListItem(line, enableCustomLabelLists);
+    const isCurrentLineHeading = ListPatterns.isHeading(line);
+    const isEmpty = line.trim() === "";
+    if (isCurrentLineList && !inListBlock) {
+      if (result.length > 0 && !lastWasEmpty) {
+        result.push("");
+      }
+      inListBlock = true;
+    }
+    if (!isCurrentLineList && !isEmpty && inListBlock) {
+      if (!lastWasEmpty) {
+        result.push("");
+      }
+      inListBlock = false;
+    }
+    if (isCurrentLineHeading) {
+      if (result.length > 0 && !lastWasEmpty && i > 0) {
+        result.push("");
+      }
+      let formattedLine = line;
+      result.push(formattedLine);
+      if (i < lines.length - 1 && lines[i + 1].trim() !== "") {
+        result.push("");
+        lastWasEmpty = true;
+      } else {
+        lastWasEmpty = false;
+      }
+      continue;
+    }
+    const capitalLetterMatch = line.match(ListPatterns.CAPITAL_LETTER_LIST);
+    if (capitalLetterMatch && capitalLetterMatch[4].length < INDENTATION.DOUBLE_SPACE) {
+      const formattedLine = line.replace(ListPatterns.CAPITAL_LETTER_REPLACE, "$1$2  ");
+      result.push(formattedLine);
+    } else {
+      result.push(line);
+    }
+    lastWasEmpty = isEmpty;
+  }
+  const cleanedResult = [];
+  let prevWasEmpty = false;
+  for (const line of result) {
+    if (line.trim() === "") {
+      if (!prevWasEmpty) {
+        cleanedResult.push(line);
+        prevWasEmpty = true;
+      }
+    } else {
+      cleanedResult.push(line);
+      prevWasEmpty = false;
+    }
+  }
+  return cleanedResult.join("\n");
+}
+function checkPandocFormatting(content, enableCustomLabelLists = false, enableListsWithoutPrecedingBlankline = false) {
+  const lines = content.split("\n");
+  const issues = [];
+  const interruptedListStarts = new Set(
+    ListBlockValidator.analyzeListBlocks(lines, {
+      enableListsWithoutPrecedingBlankline
+    }).interruptedParagraphs.map((paragraph) => paragraph.listStartIndex)
+  );
+  let inListBlock = false;
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    const isCurrentLineList = isListItem(line, enableCustomLabelLists);
+    const isCurrentLineHeading = ListPatterns.isHeading(line);
+    const isEmpty = line.trim() === "";
+    if (isCurrentLineList) {
+      const isNativeList = ListBlockValidator.isListItemForValidation(line);
+      const customListInterrupts = !isNativeList && !inListBlock && i > 0 && lines[i - 1].trim() !== "" && !ListPatterns.isHeading(lines[i - 1]);
+      if (interruptedListStarts.has(i) || customListInterrupts) {
+        issues.push({
+          line: i + 1,
+          message: "List cannot interrupt a paragraph"
+        });
+      }
+      const capitalLetterMatch = line.match(ListPatterns.CAPITAL_LETTER_LIST);
+      if (capitalLetterMatch && capitalLetterMatch[4].length < INDENTATION.DOUBLE_SPACE) {
+        issues.push({
+          line: i + 1,
+          message: "Capital letter list with period requires at least 2 spaces after marker"
+        });
+      }
+      inListBlock = true;
+    } else if (!isEmpty && inListBlock) {
+      inListBlock = false;
+    } else if (isEmpty) {
+      inListBlock = false;
+    }
+    if (isCurrentLineHeading) {
+      if (i > 0 && lines[i - 1].trim() !== "") {
+        issues.push({
+          line: i + 1,
+          message: "Heading should have an empty line before it"
+        });
+      }
+      if (i < lines.length - 1 && lines[i + 1].trim() !== "") {
+        issues.push({
+          line: i + 1,
+          message: "Heading should have an empty line after it"
+        });
+      }
+    }
+  }
+  return issues;
+}
+
 // src/editor-extensions/listAutocompletion/handlers/enterHandler.ts
 var import_state9 = require("@codemirror/state");
 
@@ -225457,7 +231292,7 @@ function getLineIndent(line) {
 }
 function getIndentColumns2(indent) {
   return Array.from(indent).reduce((columns, character) => {
-    return columns + (character === INDENTATION.TAB ? INDENTATION.TAB_SIZE : 1);
+    return columns + (character === INDENTATION.TAB ? INDENTATION.TAB_SIZE - columns % INDENTATION.TAB_SIZE : 1);
   }, 0);
 }
 function getLineIndentColumns(line) {
@@ -225538,10 +231373,11 @@ function formatNonOrderedMarker(markerType) {
   }
 }
 function formatMarkerPrefix(marker, markerType, taskState = markerType.taskState) {
+  const spacing = markerType.kind === "ordered" ? getPandocOrderedMarkerSpacing(marker) : " ";
   if (taskState === null) {
-    return `${marker} `;
+    return `${marker}${spacing}`;
   }
-  return `${marker} [${taskState === "checked" ? "x" : " "}] `;
+  return `${marker}${spacing}[${taskState === "checked" ? "x" : " "}] `;
 }
 function getInsertedTaskState(markerType) {
   return markerType.taskState === null ? null : "unchecked";
@@ -225963,11 +231799,11 @@ function getFirstSiblingOrdinal(lines, siblings) {
 }
 
 // src/editor-extensions/listAutocompletion/utils/debugNotice.ts
-var import_obsidian27 = require("obsidian");
+var import_obsidian35 = require("obsidian");
 var NOTICE_TIMEOUT_MS = 8e3;
 function showListAutocompletionError(context, lineNumber) {
   const lineSuffix = lineNumber === void 0 ? "" : ` at line ${lineNumber}`;
-  new import_obsidian27.Notice(
+  new import_obsidian35.Notice(
     `Pandoc Extended Markdown: list autocompletion failed${lineSuffix}. ${context}`,
     NOTICE_TIMEOUT_MS
   );
@@ -226335,10 +232171,11 @@ ${insertedLine}${state.doc.sliceString(insertPos)}`;
   if (!lineChanges) {
     return false;
   }
+  const finalInsertedLine = nextLines[insertedLineIndex];
   view.dispatch({
     changes: lineChanges.changes,
     selection: import_state6.EditorSelection.cursor(
-      getLineStartOffset2(nextLines, insertedLineIndex) + getInsertedMarkerCursorOffset(insertedLine, ownerContext.owner.markerType)
+      getLineStartOffset2(nextLines, insertedLineIndex) + getInsertedMarkerCursorOffset(finalInsertedLine, ownerContext.owner.markerType)
     )
   });
   return true;
@@ -226370,10 +232207,20 @@ function getNextStandardListMarker(lineText, allLines, currentLineIndex, setting
     return null;
   }
   const ordinal = settings.autoRenumberLists ? ordered.ordinal + 1 : ordered.ordinal;
+  const marker = formatOrderedListMarker(ordered.style, ordinal);
+  const markerType = {
+    kind: "ordered",
+    style: ordered.style,
+    taskState: standardItem.taskState
+  };
   return {
-    marker: formatOrderedListMarker(ordered.style, ordinal),
+    marker,
     indent: ordered.indent,
-    spaces: getInsertedSpaces(standardItem)
+    spaces: formatMarkerPrefix(
+      marker,
+      markerType,
+      getInsertedTaskState(markerType)
+    ).slice(marker.length)
   };
 }
 function getInsertedSpaces(item) {
@@ -226930,7 +232777,7 @@ function createListAutocompletionKeymap(settings) {
 }
 
 // src/pandoc/gui/obsidian/commands/registerPandocCommands.ts
-var import_obsidian32 = require("obsidian");
+var import_obsidian40 = require("obsidian");
 
 // src/pandoc/gui/obsidian/export/PandocExportManager.ts
 init_core();
@@ -227167,7 +233014,7 @@ function resolvePandocExportManagerConfig(config) {
 }
 
 // src/pandoc/gui/obsidian/modals/ExportModal.ts
-var import_obsidian31 = require("obsidian");
+var import_obsidian39 = require("obsidian");
 
 // src/pandoc/gui/obsidian/modals/ExportModalContext.ts
 init_core();
@@ -227307,7 +233154,7 @@ var PandocPreviewManager = class {
 };
 
 // src/pandoc/gui/obsidian/renderers/previewControls.ts
-var import_obsidian28 = require("obsidian");
+var import_obsidian36 = require("obsidian");
 
 // src/pandoc/gui/obsidian/renderers/previewPageMetadata.ts
 init_browser();
@@ -228010,13 +233857,13 @@ var PreviewPager = class {
     path6.setAttribute("d", direction === "left" ? "M15 18l-6-6 6-6" : "M9 18l6-6-6-6");
     svg.appendChild(path6);
     button.appendChild(svg);
-    (0, import_obsidian28.setTooltip)(button, label);
+    (0, import_obsidian36.setTooltip)(button, label);
     button.onclick = onClick;
     return button;
   }
   createButton(container, text, label, onClick) {
     const button = container.createEl("button", { text, attr: { "aria-label": label } });
-    (0, import_obsidian28.setTooltip)(button, label);
+    (0, import_obsidian36.setTooltip)(button, label);
     button.onclick = onClick;
     return button;
   }
@@ -228746,7 +234593,7 @@ var PandocExportModalActions = class {
 };
 
 // src/pandoc/gui/obsidian/modals/ExportModalRenderers.ts
-var import_obsidian29 = require("obsidian");
+var import_obsidian37 = require("obsidian");
 function renderPreviewPane(container, onRefresh) {
   const pane = container.createDiv({ cls: "pem-pandoc-preview-pane" });
   const header = pane.createDiv({ cls: "pem-pandoc-preview-header" });
@@ -228803,9 +234650,9 @@ function renderPresetOptions(container, state, actions) {
 function renderOutputActionOptions(container, state, actions) {
   const section2 = container.createDiv({ cls: "pem-pandoc-preset-section" });
   section2.createEl("h3", { text: "Output Actions" });
-  new import_obsidian29.Setting(section2).setName("Confirm before replacing files").addToggle((toggle) => toggle.setValue(state.settings.showOverwriteConfirmation).onChange((value) => actions.onShowOverwriteConfirmationChange(value)));
-  new import_obsidian29.Setting(section2).setName("Open output file after export").addToggle((toggle) => toggle.setValue(state.settings.openOutputFile).onChange((value) => actions.onOpenOutputFileChange(value)));
-  new import_obsidian29.Setting(section2).setName("Reveal output file after export").addToggle((toggle) => toggle.setValue(state.settings.revealOutputFile).onChange((value) => actions.onRevealOutputFileChange(value)));
+  new import_obsidian37.Setting(section2).setName("Confirm before replacing files").addToggle((toggle) => toggle.setValue(state.settings.showOverwriteConfirmation).onChange((value) => actions.onShowOverwriteConfirmationChange(value)));
+  new import_obsidian37.Setting(section2).setName("Open output file after export").addToggle((toggle) => toggle.setValue(state.settings.openOutputFile).onChange((value) => actions.onOpenOutputFileChange(value)));
+  new import_obsidian37.Setting(section2).setName("Reveal output file after export").addToggle((toggle) => toggle.setValue(state.settings.revealOutputFile).onChange((value) => actions.onRevealOutputFileChange(value)));
 }
 function renderValidation(container, issues) {
   if (issues.length === 0) return;
@@ -228818,7 +234665,7 @@ function renderValidation(container, issues) {
   }
 }
 function renderFooter(container, onCancel, onExport) {
-  new import_obsidian29.Setting(container.createDiv({ cls: "pem-pandoc-command-footer" })).addButton((button) => button.setButtonText("Cancel").onClick(onCancel)).addButton((button) => button.setButtonText("Export").setCta().onClick(onExport));
+  new import_obsidian37.Setting(container.createDiv({ cls: "pem-pandoc-command-footer" })).addButton((button) => button.setButtonText("Cancel").onClick(onCancel)).addButton((button) => button.setButtonText("Export").setCta().onClick(onExport));
 }
 function createButton4(container, text, onClick) {
   const button = container.createEl("button", { text, attr: { "aria-label": text } });
@@ -228848,7 +234695,7 @@ function renderExportModalOutputActions(container, plugin, controller) {
 }
 
 // src/pandoc/gui/obsidian/modals/ExportModalPresetActions.ts
-var import_obsidian30 = require("obsidian");
+var import_obsidian38 = require("obsidian");
 init_core();
 function renderExportModalPresetOptions(container, context) {
   renderPresetOptions(container, {
@@ -228887,7 +234734,7 @@ async function saveCurrentPreset(context) {
   const errors = currentPresetValidationIssues(context).filter((issue) => issue.severity === "error");
   if (errors.length > 0) {
     rerenderAndRefresh(context);
-    new import_obsidian30.Notice(`Fix ${errors.length} Pandoc preset error(s) before saving.`);
+    new import_obsidian38.Notice(`Fix ${errors.length} Pandoc preset error(s) before saving.`);
     return;
   }
   const settings = context.plugin.settings.pandocExport;
@@ -228895,13 +234742,13 @@ async function saveCurrentPreset(context) {
   settings.profiles = context.controller.saveSelectedPreset();
   rerenderAndRefresh(context);
   await context.plugin.saveSettings();
-  new import_obsidian30.Notice("Current pandoc preset saved.");
+  new import_obsidian38.Notice("Current pandoc preset saved.");
   rerenderAndRefresh(context);
 }
 async function deleteCurrentPreset(context) {
   const deletingSavedPreset = context.controller.selectedPresetIsSaved();
   if (!context.controller.deleteSelectedPreset()) {
-    new import_obsidian30.Notice("At least one export preset is required.");
+    new import_obsidian38.Notice("At least one export preset is required.");
     return;
   }
   if (!deletingSavedPreset) {
@@ -228928,7 +234775,7 @@ function rerenderAndRefresh(context) {
 
 // src/pandoc/gui/obsidian/modals/ExportModal.ts
 init_core();
-var PandocExportModal = class extends import_obsidian31.Modal {
+var PandocExportModal = class extends import_obsidian39.Modal {
   constructor(plugin, currentFile, dependencies) {
     super(plugin.app);
     this.commandOptionsOpen = false;
@@ -228949,7 +234796,7 @@ var PandocExportModal = class extends import_obsidian31.Modal {
   onOpen() {
     const settings = this.plugin.settings.pandocExport;
     if (!(settings == null ? void 0 : settings.enabled)) {
-      new import_obsidian31.Notice("Pandoc export is disabled.");
+      new import_obsidian39.Notice("Pandoc export is disabled.");
       this.close();
       return;
     }
@@ -228983,7 +234830,7 @@ var PandocExportModal = class extends import_obsidian31.Modal {
       runtime: {
         settings,
         user: new ObsidianPandocUserInteractionPort({
-          createNotice: (message, timeout) => new import_obsidian31.Notice(message, timeout)
+          createNotice: (message, timeout) => new import_obsidian39.Notice(message, timeout)
         }),
         cleanupPreview: async () => {
           await this.actions.cleanup();
@@ -229244,7 +235091,7 @@ var PandocExportModal = class extends import_obsidian31.Modal {
 
 // src/pandoc/gui/obsidian/commands/registerPandocCommands.ts
 function registerPandocExportCommands(plugin, dependencies) {
-  if (!import_obsidian32.Platform.isDesktop) {
+  if (!import_obsidian40.Platform.isDesktop) {
     return;
   }
   plugin.addCommand({
@@ -229258,7 +235105,7 @@ function registerPandocExportCommands(plugin, dependencies) {
     callback: () => exportActiveFileWithPreviousSettings(plugin, dependencies)
   });
   plugin.registerEvent(plugin.app.workspace.on("file-menu", (menu, file) => {
-    if (file instanceof import_obsidian32.TFile && isPandocExportEnabled(plugin)) {
+    if (file instanceof import_obsidian40.TFile && isPandocExportEnabled(plugin)) {
       menu.addItem((item) => item.setTitle("Export with pandoc").setIcon("document").onClick(() => new PandocExportModal(plugin, file, dependencies).open()));
     }
   }));
@@ -229266,11 +235113,11 @@ function registerPandocExportCommands(plugin, dependencies) {
 function openExportModalForActiveFile(plugin, dependencies) {
   const file = plugin.app.workspace.getActiveFile();
   if (!file) {
-    new import_obsidian32.Notice(MESSAGES.NO_ACTIVE_FILE);
+    new import_obsidian40.Notice(MESSAGES.NO_ACTIVE_FILE);
     return;
   }
   if (!isPandocExportEnabled(plugin)) {
-    new import_obsidian32.Notice("Pandoc export is disabled.");
+    new import_obsidian40.Notice("Pandoc export is disabled.");
     return;
   }
   new PandocExportModal(plugin, file, dependencies).open();
@@ -229280,11 +235127,11 @@ async function exportActiveFileWithPreviousSettings(plugin, dependencies) {
   const file = plugin.app.workspace.getActiveFile();
   const settings = plugin.settings.pandocExport;
   if (!file) {
-    new import_obsidian32.Notice(MESSAGES.NO_ACTIVE_FILE);
+    new import_obsidian40.Notice(MESSAGES.NO_ACTIVE_FILE);
     return;
   }
   if (!isPandocExportEnabled(plugin)) {
-    new import_obsidian32.Notice("Pandoc export is disabled.");
+    new import_obsidian40.Notice("Pandoc export is disabled.");
     return;
   }
   if (!(settings == null ? void 0 : settings.lastExportProfileId) || !settings.lastOutputFolder) {
@@ -229305,7 +235152,7 @@ async function exportActiveFileWithPreviousSettings(plugin, dependencies) {
     profileId: settings.lastExportProfileId,
     outputFolder: settings.lastOutputFolder
   }));
-  new import_obsidian32.Notice(result.ok ? `Exported ${result.outputPath}` : (_a4 = result.error) != null ? _a4 : "Pandoc export failed.", 8e3);
+  new import_obsidian40.Notice(result.ok ? `Exported ${result.outputPath}` : (_a4 = result.error) != null ? _a4 : "Pandoc export failed.", 8e3);
 }
 function isPandocExportEnabled(plugin) {
   var _a4;
@@ -229313,7 +235160,7 @@ function isPandocExportEnabled(plugin) {
 }
 
 // src/pandoc/gui/obsidian/workspace/resources.ts
-var import_obsidian33 = require("obsidian");
+var import_obsidian41 = require("obsidian");
 
 // lua_filter/CustomLabelList.lua
 var CustomLabelList_default = `--[[
@@ -230775,22 +236622,22 @@ async function releaseBundledPandocLuaFilters(plugin) {
   if (!pluginDir) {
     return;
   }
-  const filterDir = (0, import_obsidian33.normalizePath)(`${pluginDir}/lua_filter`);
+  const filterDir = (0, import_obsidian41.normalizePath)(`${pluginDir}/lua_filter`);
   const adapter = plugin.app.vault.adapter;
   await ensureDirectory(plugin.app, filterDir);
   for (const [fileName, content] of LUA_FILTER_RESOURCES) {
-    await adapter.write((0, import_obsidian33.normalizePath)(`${filterDir}/${fileName}`), content);
+    await adapter.write((0, import_obsidian41.normalizePath)(`${filterDir}/${fileName}`), content);
   }
 }
 function getPluginDir3(plugin) {
   if (plugin.manifest.dir) {
-    return (0, import_obsidian33.normalizePath)(plugin.manifest.dir);
+    return (0, import_obsidian41.normalizePath)(plugin.manifest.dir);
   }
   const vault = plugin.app.vault;
   if (!vault.configDir) {
     return "";
   }
-  return (0, import_obsidian33.normalizePath)(`${vault.configDir}/plugins/${plugin.manifest.id}`);
+  return (0, import_obsidian41.normalizePath)(`${vault.configDir}/plugins/${plugin.manifest.id}`);
 }
 async function ensureDirectory(app, path6) {
   if (await app.vault.adapter.exists(path6)) {
@@ -230800,7 +236647,7 @@ async function ensureDirectory(app, path6) {
 }
 
 // src/core/main.ts
-var PandocExtendedMarkdownPlugin = class extends import_obsidian34.Plugin {
+var PandocExtendedMarkdownPlugin = class extends import_obsidian42.Plugin {
   constructor() {
     super(...arguments);
     this.listPanelRibbonIcon = null;
@@ -230836,15 +236683,15 @@ var PandocExtendedMarkdownPlugin = class extends import_obsidian34.Plugin {
     });
   }
   registerViewIcons() {
-    (0, import_obsidian34.addIcon)(ICONS.CUSTOM_LABEL_ID, ICONS.CUSTOM_LABEL_SVG);
-    (0, import_obsidian34.addIcon)(ICONS.LIST_PANEL_ID, ICONS.LIST_PANEL_SVG);
+    (0, import_obsidian42.addIcon)(ICONS.CUSTOM_LABEL_ID, ICONS.CUSTOM_LABEL_SVG);
+    (0, import_obsidian42.addIcon)(ICONS.LIST_PANEL_ID, ICONS.LIST_PANEL_SVG);
   }
   registerExtensions() {
     this.registerEditorExtension(pandocExtendedMarkdownExtension(
       () => this.settings,
       () => {
         var _a4;
-        const activeView = this.app.workspace.getActiveViewOfType(import_obsidian34.MarkdownView);
+        const activeView = this.app.workspace.getActiveViewOfType(import_obsidian42.MarkdownView);
         return ((_a4 = activeView == null ? void 0 : activeView.file) == null ? void 0 : _a4.path) || null;
       },
       () => this.app,
@@ -230857,6 +236704,9 @@ var PandocExtendedMarkdownPlugin = class extends import_obsidian34.Plugin {
   }
   registerPostProcessor() {
     this.registerMarkdownPostProcessor((element, context) => {
+      if (isInternalMarkdownFragment(element)) {
+        return;
+      }
       const vault = this.app.vault;
       const config = createProcessorConfig({ strictLineBreaks: vault.getConfig("strictLineBreaks") }, this.settings);
       processReadingMode(element, context, config, this.app);
@@ -230885,15 +236735,16 @@ var PandocExtendedMarkdownPlugin = class extends import_obsidian34.Plugin {
         const content = editor.getValue();
         const issues = checkPandocFormatting(
           content,
-          isCustomLabelListsEnabled(this.settings)
+          isCustomLabelListsEnabled(this.settings),
+          this.settings.enableListsWithoutPrecedingBlankline
         );
         if (issues.length === 0) {
-          new import_obsidian34.Notice(MESSAGES.PANDOC_COMPLIANT);
+          new import_obsidian42.Notice(MESSAGES.PANDOC_COMPLIANT);
         } else {
           const issueList = issues.map(
             (issue) => `Line ${issue.line}: ${issue.message}`
           ).join("\n");
-          new import_obsidian34.Notice(`${MESSAGES.FORMATTING_ISSUES(issues.length)}:
+          new import_obsidian42.Notice(`${MESSAGES.FORMATTING_ISSUES(issues.length)}:
 ${issueList}`, UI_CONSTANTS.NOTICE_DURATION_MS);
         }
       }
@@ -230909,9 +236760,9 @@ ${issueList}`, UI_CONSTANTS.NOTICE_DURATION_MS);
         );
         if (content !== formatted) {
           editor.setValue(formatted);
-          new import_obsidian34.Notice(MESSAGES.FORMAT_SUCCESS);
+          new import_obsidian42.Notice(MESSAGES.FORMAT_SUCCESS);
         } else {
-          new import_obsidian34.Notice(MESSAGES.FORMAT_ALREADY_COMPLIANT);
+          new import_obsidian42.Notice(MESSAGES.FORMAT_ALREADY_COMPLIANT);
         }
       }
     });
@@ -230923,9 +236774,9 @@ ${issueList}`, UI_CONSTANTS.NOTICE_DURATION_MS);
         const toggled = this.toggleDefinitionBoldStyle(content);
         if (content !== toggled) {
           editor.setValue(toggled);
-          new import_obsidian34.Notice(MESSAGES.TOGGLE_BOLD_SUCCESS);
+          new import_obsidian42.Notice(MESSAGES.TOGGLE_BOLD_SUCCESS);
         } else {
-          new import_obsidian34.Notice(MESSAGES.NO_DEFINITION_TERMS);
+          new import_obsidian42.Notice(MESSAGES.NO_DEFINITION_TERMS);
         }
       }
     });
@@ -230937,9 +236788,9 @@ ${issueList}`, UI_CONSTANTS.NOTICE_DURATION_MS);
         const toggled = this.toggleDefinitionUnderlineStyle(content);
         if (content !== toggled) {
           editor.setValue(toggled);
-          new import_obsidian34.Notice(MESSAGES.TOGGLE_UNDERLINE_SUCCESS);
+          new import_obsidian42.Notice(MESSAGES.TOGGLE_UNDERLINE_SUCCESS);
         } else {
-          new import_obsidian34.Notice(MESSAGES.NO_DEFINITION_TERMS);
+          new import_obsidian42.Notice(MESSAGES.NO_DEFINITION_TERMS);
         }
       }
     });
@@ -230956,7 +236807,7 @@ ${issueList}`, UI_CONSTANTS.NOTICE_DURATION_MS);
   }
   async activateListPanelView() {
     if (!this.settings.enableListPanel) {
-      new import_obsidian34.Notice(MESSAGES.LIST_PANEL_DISABLED);
+      new import_obsidian42.Notice(MESSAGES.LIST_PANEL_DISABLED);
       return;
     }
     const { workspace } = this.app;
