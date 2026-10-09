@@ -27,9 +27,15 @@ There should be general theory about the relationship between $P, A_{o}, A_{k}$ 
 
 > So Lewis decide to fix the reference by the theory, i.e. the relation between them? But his way of defining it contains fuzzy words like "more or less" and "may".
 
-This theory should be made up of common-sensical properties because beleif. Esoteric scientific findings should be kept out of the theory.
+This theory should be made up of common-sensical properties because belief. Esoteric scientific findings should be kept out of the theory.
 
 > To say it in another way, when we say meaning is just interpretation, there are also two ways to understand what is an interpretation. One way is to say that an interpretation is literally how some mind (either community or idealized rational agent) would interpret some utterance. In that sense, this interpretation is something mental. Or, we may avoid saying that interpretation is mind dependent by using a more abstract formulation: an interpretation of a linguistic behavior is defined As   
 
+::: The Principle Of Charity (Crude) {}
 
+1. Karl should be represented as believing what he ought to believe, and desiring what he ought to desire
+2. Karl ought to believe what we believe, if we would have believed in his place; And similarly Karl ought to desire what we desire if we were in his place.
 
+:::
+
+"We will try for a theory that finds *him* consistent, a believer of truths, and a lover of the good (all by *our* own lights, it goes without saying)" Davision, Mental Events, 1970
