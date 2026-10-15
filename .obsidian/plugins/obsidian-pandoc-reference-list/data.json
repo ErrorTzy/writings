@@ -1,8 +1,17 @@
 {
   "pathToPandoc": "/usr/bin/pandoc",
   "tooltipDelay": 400,
-  "zoteroGroups": [],
+  "zoteroGroups": [
+    {
+      "id": 1,
+      "name": "My Library",
+      "collections": null,
+      "lastUpdate": 1792044643036
+    }
+  ],
   "renderCitations": true,
   "renderCitationsReadingMode": true,
-  "renderLinkCitations": true
+  "renderLinkCitations": true,
+  "pathToBibliography": "/home/scott/Documents/writings/_resources/biblatex.bib",
+  "pullFromZotero": true
 }

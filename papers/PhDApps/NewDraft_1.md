@@ -33,9 +33,7 @@ Despite the position being utterly surprising, the argument supporting the posit
 
 ==This paper intends to argue against Hirsch’s deflationary argument. First, I introduce Hirsch’s original deflationary argument, and point out a metasemantic divergence would lead to two different positions. Then I provide reasons to believe neither position can really deflate the dispute. Finally, I quickly sketch my positive view of verbal disputes.==
 
-This paper mainly focuses on ontological disputes, since Hirsch primarily applies his argument to ontology. However, Hirsch’s account of verbal disputes is topic-neutral. For example, @craneIntrospectionIntentionalityTransparency2000 used the same standard for the dispute between qualia theorists and strong intentionalist. 
-
-my objection does not rely on any ontological assumptions. Given the scope of this paper, I will not discuss how this discussion applies to other areas of philosophy. I leave that question as an exercise for those interested in applications beyond ontology.
+This paper mainly focuses on ontological disputes, since Hirsch primarily applies his argument to ontology. However, Hirsch’s account of verbal disputes is not restricted to ontology. For example, in theories of perception, @craneIntrospectionIntentionalityTransparency2000 used the same standard for diagnosing whether qualia theorists are having a verbal dispute with him. My attack on Hirschian deflationism does not rely on any ontological assumptions either. But given the scope of this paper, I will not discuss how this discussion applies to other areas of philosophy. I leave that question as an exercise for those interested in applications beyond ontology.
 
 ## The deflationary argument
 
@@ -47,50 +45,50 @@ Definition: equivalent sentences
 Definition: equivalent languages  
 : Two languages $L_1$ and $L_2$ are *equivalent* if there is a bijection function $f$ from the set of all sentences in $L_{1}$ to the set of all sentences in $L_{2}$ such that for any sentence $S$ in $L_{1}$, $S$ and $f(S)$ are equivalent[^5]
 
-Now consider a dispute between the Organist van Inwagen and the four-dimensionalist Lewis. According to van Inwagen, only two kinds of things exist: mereological simples and living things. An ordinary table is neither a living thing nor a simple. So, on van Inwagen’s view, there is no such thing as a table. Lewis, by contrast, holds that mereological simples exist and that any arbitrary composition of those simples also exists. Now consider the following sentence:
+Now consider a dispute between the Organist van Inwagen and the four-dimensionalist Lewis. According to van Inwagen, only two kinds of things exist: mereological simples and living things. Setting aside extraordinary cases, a table is neither a living thing nor a simple. So on van Inwagen’s view, there is no such thing as a table. Lewis, by contrast, holds that mereological simples exist and that any arbitrary composition of those simples also exists. Now consider the following sentence:
 
-- **Disputed sentence D**: "There is something composed of a set of table-wise interrelated simples"
+- **Disputed sentence $S_{disputed}$**: "There is something composed of a set of table-wise interrelated simples"
 
-Van Inwagen denies D, because on his view, only living things can be composed of simples. Lewis accepts D, because on his view any arbitrary composition of simples exists. So van Inwagen and Lewis seem to disagree over whether D is true.
+Van Inwagen denies $S_{disputed}$, because on his view, only living things can be composed of simples. Lewis accepts $S_{disputed}$, because on his view any arbitrary composition of simples exists. So van Inwagen and Lewis seem to disagree over whether $S_{disputed}$ is true.
 
 Hirsch’s key move is to argue that we should understand van Inwagen and Lewis as speaking different languages. This claim relies on the metasemantic principle of *interpretive charity*. Roughly, interpretive charity says that, when interpreting other people’s utterances, we should avoid attributing obvious a priori errors to them when a more charitable interpretation is available. For example, suppose there are Martians as intelligent as we are, but they use "+" in such a way that many of their claims would come out false unless we interpret their "+" as quus. (Suppose that $a$ quus $b$ = 5 if $a = 68$ and $b = 57$, and otherwise $a$ quus $b = a + b$.) In that case, charity requires us to interpret their "+" as meaning quus rather than plus.
 
-Hirsch proposes that the same sort of reasoning applies here. We should not interpret van Inwagen and Lewis in a way that saddles one or both of them with an obvious a priori mistake about whether tables exist (they obviously do!). Instead, we should interpret them as speaking different languages that deviate from standard English. So each of which makes their claims come out true on their own terms.
+Hirsch proposes that the same sort of reasoning applies here. In ordinary English, tables obviously exist. Therefore, we should not interpret van Inwagen and Lewis in a way that saddles one or both of them with an obvious a priori mistake about whether tables exist. Instead, we should interpret them as speaking different languages that deviate from ordinary English. So each of which makes their claims come out true on their own terms.
 
-But why does this show that their dispute is merely verbal? Hirsch’s answer is that, despite their apparent disagreement over $D$, van Inwagen and Lewis agree about the truth values of other uncontroversial sentences. Consider, first:
+But why does this show that their dispute is merely verbal? Hirsch’s answer is that, despite their apparent disagreement over $S_{disputed}$, van Inwagen and Lewis agree about the truth values of other uncontroversial sentences. Consider, first:
 
-- **Agreed sentence $A_{1}$**: "There is a set of table-wise interrelated simples".
+- **Agreed sentence $S_{\text{agreed-to-be-true}}$**: "There is a set of table-wise interrelated simples".
 
-Both van Inwagen and Lewis agree that $A_{1}$ is true. Now consider:
+Both van Inwagen and Lewis agree that $S_{\text{agreed-to-be-true}}$ is true. Now consider:
 
-- **Agreed sentence $A_{2}$**: "There is a living thing composed of a set of table-wise interrelated simples".
+- **Agreed sentence $S_{\text{agreed-to-be-false}}$**: "There is a living thing composed of a set of table-wise interrelated simples, or there is an indivisible table simple".
 
-Both van Inwagen and Lewis agree that $A_{2}$ is false.
+Both van Inwagen and Lewis agree that $S_{\text{agreed-to-be-false}}$ is false.
 
-The crucial point is that each party takes $D$ to be equivalent to different sentences. Van Inwagen holds that $D$ is equivalent to $A_{2}$. Lewis holds that $D$ is equivalent to $A_{1}$. According to interpretive charity, we should not take them to be making a priori mistakes about equivalent sentences. Instead, we should take these claims to be the semantic rules they are following.
+The crucial point is that each party takes $S_{disputed}$ to be equivalent to different sentences. Van Inwagen holds that $S_{disputed}$ is equivalent to $S_{\text{agreed-to-be-false}}$. Lewis holds that $S_{disputed}$ is equivalent to $S_{\text{agreed-to-be-true}}$. According to interpretive charity, we should not take them to be making a priori mistakes about equivalent sentences. Instead, we should take these claims to be the semantic rules they are following.
 
-Therefore, by interpretive charity, van Inwagen is speaking a language, $L_{Inwagen}$, in which the truth condition of $D$ is just the truth condition of $A_{2}$. Likewise, Lewis is speaking a language, $L_{Lewis}$, in which the truth condition of $D$ is just the truth condition of $A_{1}$. If that is right, then their apparent disagreement over $D$ does not reflect any disagreement about the underlying facts. After all, they already agree that $A_{1}$ is true and that $A_{2}$ is false. What differs is whether sentence $D$ expresses the fact that $A_{1}$ or $A_{2}$ expresses. But this is merely a matter of linguistic choice. Therefore, Hirsch concludes, the dispute between van Inwagen and Lewis is merely verbal.
+Therefore, by interpretive charity, van Inwagen is speaking a language, $L_{Inwagen}$, in which the truth condition of $S_{disputed}$ is just the truth condition of $S_{\text{agreed-to-be-false}}$. Likewise, Lewis is speaking a language, $L_{Lewis}$, in which the truth condition of $S_{disputed}$ is just the truth condition of $S_{\text{agreed-to-be-true}}$. If that is right, then their apparent disagreement over $S_{disputed}$ does not reflect any disagreement about the underlying facts. After all, they already agree that $S_{\text{agreed-to-be-true}}$ is true and that $S_{\text{agreed-to-be-false}}$ is false. What differs is whether sentence $S_{disputed}$ expresses the fact that $S_{\text{agreed-to-be-true}}$ or $S_{\text{agreed-to-be-false}}$ expresses. But this is merely a matter of linguistic choice. Therefore, Hirsch concludes, the dispute between van Inwagen and Lewis is merely verbal.
 
-This argument can be generalized into the following schema. Consider the following disagreement between $X$ and $Y$ over sentence $D$:
+This argument can be generalized into the following schema. Consider the following disagreement between $X$ and $Y$ over sentence $S_{disputed}$:
 
-|  | Agreement | Disagreement |
-| --- | --- | --- |
-| $X$ | $A_1$ is true, $A_{2}$ is false | $D$ is true and is equivalent to $A_{1}$ |
-| $Y$ | $A_{1}$ is true, $A_{2}$ is false | $D$ is false, and is equivalent to $A_2$ |
+|     | Agreement                                                                        | Disagreement                                                                  |
+| --- | -------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| $X$ | $S_{\text{agreed-to-be-true}}$ is true, $S_{\text{agreed-to-be-false}}$ is false | $S_{disputed}$ is true and is equivalent to $S_{\text{agreed-to-be-true}}$    |
+| $Y$ | $S_{\text{agreed-to-be-true}}$ is true, $S_{\text{agreed-to-be-false}}$ is false | $S_{disputed}$ is false, and is equivalent to $S_{\text{agreed-to-be-false}}$ |
 
 
 Then we have the following argument:
 
-{::P1} There is a language $L_{X}$ in which $D$ has the same truth condition as $A_{1}$  
-{::P2} There is a language $L_{Y}$ in which $D$ has the same truth condition as $A_{2}$  
-{::P3} $X$ is speaking $L_{X}$ and $Y$ is speaking $L_{Y}$  
+{::P1} There is a language $L^{\text{charitibly-interpreted}}_{X}$ in which $S_{disputed}$ has the same truth condition as $S_{\text{agreed-to-be-true}}$  
+{::P2} There is a language $L^{\text{charitibly-interpreted}}_{Y}$ in which $S_{disputed}$ has the same truth condition as $S_{\text{agreed-to-be-false}}$  
+{::P3} $X$ is speaking $L^{\text{charitibly-interpreted}}_{X}$ and $Y$ is speaking $L^{\text{charitibly-interpreted}}_{Y}$  
 {::C} Therefore, the dispute between $X$ and $Y$ is merely verbal
 
-The intuitive idea behind this argument is that $Y$ should translate $X$'s utterance of $D$ as expressing $A_1$, and $X$ should translate $Y$'s utterance of $D$ as expressing $A_2$. Of course, the dispute between $X$ and $Y$ is not over just one sentence, $D$, but over many others. For example, for any agreed true sentence $S$, there will also be a disagreement over $S \land D$. But as long as $X$ and $Y$ can translate any disputed sentence into some agreed sentence, they disagree only over which expressions they should use to express their agreed fact.
+The intuitive idea behind this argument is that $Y$ should translate $X$'s utterance of $S_{disputed}$ as expressing $S_{\text{agreed-to-be-true}}$, and $X$ should translate $Y$'s utterance of $S_{disputed}$ as expressing $S_{\text{agreed-to-be-false}}$. Of course, the dispute between $X$ and $Y$ is not over just one sentence, $S_{disputed}$, but over many others. For example, for any agreed true sentence $S$, there will also be a disagreement over $S \land S_{disputed}$. But as long as $X$ and $Y$ can translate any disputed sentence into some agreed sentence, they disagree only over which expressions they should use to express their agreed fact.
 
-This argument schema is topic neutral, but Hirsch mainly applied this argument to ontological debates. According to this argument, ontological positions like mereological nihilism, organism, mereological essentialism, endurantism, and perdurantism are all just some fancy ways of talking without any substantial difference from common sense ontology.
+This argument schema is topic-neutral, but Hirsch mainly applied this argument to ontological debates. According to this argument, ontological positions like mereological nihilism, organism, mereological essentialism, endurantism, and perdurantism are all just some fancy ways of talking without any substantial difference from common sense ontology.
 
-There have been several lines of resistance to this argument. Some have tried to deny {::P1} or {::P2} by claiming that $L_{X}$ or $L_{Y}$ might not be possible languages because either their expressions are not "joint-carving" [@siderFourDimensionalismOntologyPersistence2001], or their semantics may not be compositional [@eklundCarnapOntologicalPluralism2009;@hawthorneMetaphysicalEssays2006]. I will not discuss these objections in detail, since I believe Hirsch has sufficiently replied to them in a series of works [esp. in @hirschRevisionaryOntology2002; @hirschCommentsTheodoreSiders2004;@hirschOntologyAlternativeLanguages2009;@hirschQuantifierVarianceDemand2017]. In a nutshell, these suggestions of necessary conditions for semantics are either unintelligible or unreasonable.
+There have been several lines of resistance to this argument. Some have tried to deny {::P1} or {::P2} by claiming that $L^{\text{charitibly-interpreted}}_{X}$ or $L^{\text{charitibly-interpreted}}_{X}$ might not be possible languages because: either their expressions are not "joint-carving" [@siderFourDimensionalismOntologyPersistence2001], or their semantics may not be compositional [@eklundCarnapOntologicalPluralism2009;@hawthorneMetaphysicalEssays2006]. I will not discuss these objections in detail, since I believe Hirsch has sufficiently replied to them in a series of works [esp. in @hirschRevisionaryOntology2002; @hirschCommentsTheodoreSiders2004;@hirschOntologyAlternativeLanguages2009;@hirschQuantifierVarianceDemand2017]. In a nutshell, these suggestions of necessary conditions for semantics are either unintelligible or unreasonable.
 
 My objection, however, targets {::P3}. Sider, following Lewis, also denied {::P3} by appealing to reference magnetism. According to reference magnetism, there are some metaphysically privileged things in the world such that, when we use language, our words somehow automatically hook up with these things through their "magnetic force". Therefore, a charitable interpretation may be defeated by the "magnetic force" of reference. I will also omit discussion of this objection because I believe Hirsch and Warren have sufficiently replied to it in a series of works [@hirschRevisionaryOntology2002; @hirschCommentsTheodoreSiders2004; @hirschLanguageOntologyStructure2008; @hirschSelvesDoubt2026{pp.111-128}; @warrenReferenceMagnetismDoes2024].
 
@@ -122,9 +120,9 @@ And recall the previous notation:
 
 - $L_{X}$: the charitably interpreted language of $X$
 - $L_{Y}$: the charitably interpreted language of $Y$
-- $D$: A sentence disputed by $X$ and $Y$
-- $A_{1}$: A sentence agreed by $X$ and $Y$; $X$ take $D$ and $A_{1}$ to be equivalent
-- $A_{2}$: A sentence agreed by $X$ and $Y$; $Y$ take $D$ and $A_{2}$ to be equivalent
+- $S_{disputed}$: A sentence disputed by $X$ and $Y$
+- $S_{\text{agreed-to-be-true}}$: A sentence agreed by $X$ and $Y$; $X$ take $S_{disputed}$ and $S_{\text{agreed-to-be-true}}$ to be equivalent
+- $S_{\text{agreed-to-be-false}}$: A sentence agreed by $X$ and $Y$; $Y$ take $S_{disputed}$ and $S_{\text{agreed-to-be-false}}$ to be equivalent
 
 Now, given these notations, Hirsch’s basic idea is to replace {::P3} with {::P4}:
 
@@ -132,7 +130,7 @@ Now, given these notations, Hirsch’s basic idea is to replace {::P3} with {::P
 
 The idea behind {::P4} is to concede that the speakers may not literally be speaking the charitably interpreted languages, while insisting that those interpretations, taken as stipulation, nonetheless express the very same propositions as the speakers’ actual languages do for the disputed sentences.
 
-Given {::P1}, {::P2} and {::P4}, {::C} still follows: First, $Y$ can stipulate that $L^{Y}(A_{1})=L_{X}(A_{1})$. Also by stipulation, $L_{X}(A_{1})=L_{X}(D)$. And from {::P4} we know that $L_{X}(D)=L^{X}(D)$. Therefore, $L^Y(A_{1})=L^{X}(D)$. Since it is uncontroversial that the same proposition must express the same fact (with respect to the same context), $[L^Y(A_{1})]=[L^{X}(D)]$. Similarly, $[L^X(A_{2})]=[L^{Y}(D)]$. But there is no disagreement on whether the facts that $A_{1}$ and $A_{2}$ express obtain. It follows that $X$ and $Y$ are just talking past each other by using $D$ to express different facts that they agree on.[^7]
+Given {::P1}, {::P2} and {::P4}, {::C} still follows: First, $Y$ can stipulate that $L^{Y}(A_{1})=L_{X}(A_{1})$. Also by stipulation, $L_{X}(A_{1})=L_{X}(D)$. And from {::P4} we know that $L_{X}(D)=L^{X}(D)$. Therefore, $L^Y(A_{1})=L^{X}(D)$. Since it is uncontroversial that the same proposition must express the same fact (with respect to the same context), $[L^Y(A_{1})]=[L^{X}(D)]$. Similarly, $[L^X(A_{2})]=[L^{Y}(D)]$. But there is no disagreement on whether the facts that $S_{\text{agreed-to-be-true}}$ and $S_{\text{agreed-to-be-false}}$ express obtain. It follows that $X$ and $Y$ are just talking past each other by using $S_{disputed}$ to express different facts that they agree on.[^7]
 
 My main problem here, without any surprise, targets at {::P4}. In order to defend {::P4}, Hirsch first introduced the following terminology:
 
@@ -150,24 +148,24 @@ Now, if $L_{X}$ and $L^{X}$ are not *truth-conditionally indiscernable*, then {:
 
 Let me grant that *Propositional supervenience* is valid. In our previous argument, $Y$ stipulated $L^{Y}(A_{1})=L_{X}(A_{1})$. Now assume $L_{X}$ and $L^{X}$ are *truth-conditionally indiscernible*, by *Propositional supervenience* we must also have $L^{X}(A_{1})=L_X(A_{1})$. Therefore, we must have $L^{X}(A_{1})=L^Y(A_{1})$.
 
-What a proposition is is highly controversial. However, it is uncontroversial that if $L^{X}(A_{1})=L^Y(A_{1})$, then $A_{1}$ has the same truth condition in $L^{X}$ and $L^{Y}$. But is it guaranteed that $A_{1}$ has the same truth condition in $L^{X}$ and $L^{Y}$? All we know from Hirsch’s argument is that $X$ and $Y$ agree on $A_{1}$. Does this amount to the sameness of truth conditions?
+What a proposition is is highly controversial. However, it is uncontroversial that if $L^{X}(A_{1})=L^Y(A_{1})$, then $S_{\text{agreed-to-be-true}}$ has the same truth condition in $L^{X}$ and $L^{Y}$. But is it guaranteed that $S_{\text{agreed-to-be-true}}$ has the same truth condition in $L^{X}$ and $L^{Y}$? All we know from Hirsch’s argument is that $X$ and $Y$ agree on $S_{\text{agreed-to-be-true}}$. Does this amount to the sameness of truth conditions?
 
 Consider again the previous dispute between Lewis and van Inwagen:
 
-- **Disputed sentence $D$**: "There is something composed of a set of table-wise interrelated simples".
-- **Agreed sentence $A_{1}$**: "There is a set of table-wise interrelated simples".
+- **Disputed sentence $S_{disputed}$**: "There is something composed of a set of table-wise interrelated simples".
+- **Agreed sentence $S_{\text{agreed-to-be-true}}$**: "There is a set of table-wise interrelated simples".
 
-Do van Inwagen and Lewis share the same truth condition of $A_{1}$?[^10] That depends on what Hirsch means by "truth condition".
+Do van Inwagen and Lewis share the same truth condition of $S_{\text{agreed-to-be-true}}$?[^10] That depends on what Hirsch means by "truth condition".
 
-If "truth condition" is understood in a fine-grained way, for example, in terms of truthmakers, then van Inwagen and Lewis do agree on the truth condition of $A_{1}$: $A_{1}$ is made true by a set of simples. However, Hirsch cannot mean "truth condition" in this fine-grained sense. The reason is that $D$ in $L_{Lewis}$ is stipulated to have the same truth condition as $A_{1}$ in $L_{Lewis}$. So $D$ in $L_{Lewis}$ would also be made true by a set of simples. But $D$ in $L^{Lewis}$ is not made true by a set of simples; it is made true by a table. And a table is not a set of simples, but something composed of a set of simples.[^11] So if Hirsch means "truth condition" in a fine-grained sense, then $L^{Lewis}$ and $L_{Lewis}$ are not truth-conditionally indiscernible.
+If "truth condition" is understood in a fine-grained way, for example, in terms of truthmakers, then van Inwagen and Lewis do agree on the truth condition of $S_{\text{agreed-to-be-true}}$: $S_{\text{agreed-to-be-true}}$ is made true by a set of simples. However, Hirsch cannot mean "truth condition" in this fine-grained sense. The reason is that $S_{disputed}$ in $L_{Lewis}$ is stipulated to have the same truth condition as $S_{\text{agreed-to-be-true}}$ in $L_{Lewis}$. So $S_{disputed}$ in $L_{Lewis}$ would also be made true by a set of simples. But $S_{disputed}$ in $L^{Lewis}$ is not made true by a set of simples; it is made true by a table. And a table is not a set of simples, but something composed of a set of simples.[^11] So if Hirsch means "truth condition" in a fine-grained sense, then $L^{Lewis}$ and $L_{Lewis}$ are not truth-conditionally indiscernible.
 
-So Hirsch must mean "truth condition" in a more coarse-grained sense, such as in terms of sets of possible worlds. This reading is also supported by @hirschPhysicalObjectOntologyVerbal2005, where he says that "sentences have the same truth conditions if (relative to the same context of utterance) they hold true in the same possible worlds". But do Lewis and van Inwagen agree that $A_{1}$ is true in the same possible worlds? Lewis would say that in the set of possible worlds that make $A_{1}$ true, there are worlds in which there are tables. van Inwagen, by contrast, would say there are no such worlds in the set. So they do not agree on the elements in the set of possible worlds that make $A_{1}$ true.
+So Hirsch must mean "truth condition" in a more coarse-grained sense, such as in terms of sets of possible worlds. This reading is also supported by @hirschPhysicalObjectOntologyVerbal2005, where he says that "sentences have the same truth conditions if (relative to the same context of utterance) they hold true in the same possible worlds". But do Lewis and van Inwagen agree that $S_{\text{agreed-to-be-true}}$ is true in the same possible worlds? Lewis would say that in the set of possible worlds that make $S_{\text{agreed-to-be-true}}$ true, there are worlds in which there are tables. van Inwagen, by contrast, would say there are no such worlds in the set. So they do not agree on the elements in the set of possible worlds that make $S_{\text{agreed-to-be-true}}$ true.
 
 I anticipate that Hirsch would reply that Lewis and van Inwagen are once again engaged in a merely verbal disagreement, this time over a set of possible worlds. The disagreement would look like this:
 
-- **Disputed sentence $D’$**: "In the set of possible worlds where $A_{1}$ is true, there are worlds in that set where there are tables".
-- **Agreed sentence $A_{1}'$**: "In the set of possible worlds where $A_{1}$ is true, there are worlds in that set where there are table-wise interrelated simples".
-- **Agreed sentence $A_{2}'$**: "In the set of possible worlds where $A_{1}$ is true, there are worlds in that set where there are living things composed of a set of table-wise interrelated simples".
+- **Disputed sentence $D’$**: "In the set of possible worlds where $S_{\text{agreed-to-be-true}}$ is true, there are worlds in that set where there are tables".
+- **Agreed sentence $A_{1}'$**: "In the set of possible worlds where $S_{\text{agreed-to-be-true}}$ is true, there are worlds in that set where there are table-wise interrelated simples".
+- **Agreed sentence $A_{2}'$**: "In the set of possible worlds where $S_{\text{agreed-to-be-true}}$ is true, there are worlds in that set where there are living things composed of a set of table-wise interrelated simples".
 
 He could then apply the same argument again to dissolve this dispute. But at this point, it seems that we have entered a loop. I can repeat my objection and say that they are still disagreeing about the truth conditions of $A_{1}'$ and $A_{2}’$. Hirsch may then introduce $D''$, $A_{1}''$, and $A_{2}''$ and run the argument again. In response, I can raise the same objection again, and so on without end.
 
@@ -225,12 +223,12 @@ Let me conclude by briefly stating some consequences of my position I have sketc
 [^2]: @thomassonOntologyMadeEasy2015 [p. 70] herself thinks that her view does not assume that the meaning of the quantifier changes. But I believe this is wrong. Her position relies on the triviality of changing the extension of the predicate "exist" by stipulation. Yet consider the following uncontroversial principle: if two expressions differ in extension in the same context, then they also differ in meaning. There is no evidence in Thomasson’s writing that she rejects this principle. But denying that her thesis does not assume a change in the meaning of the quantifier goes against this principle. Therefore, as long as we accept this principle, if we change the extension of "exist", then we also change its meaning.  
 [^3]: For example, Schaffer seems to accept that ontology is shallow, and retargets metaphysics to the project of fundamentality. However, it is unclear why a similar deflationary argument cannot be applied to fundamentality. For example, @hirschOntologyStipulation2021 argues that his argument also applies fundamentality. I also argued elsewhere that essence, a central concept in the fundamentality project, can also be deflated by the same kind of argument.  
 [^4]: This basically amounts to saying $\square(S_{1} \leftrightarrow S_{2})$ being a priori necessary.  
-[^5]: In model-theoretic terms, it amounts to saying $L_{1}$ and $L_{2}$ are bi-interpretable structures  
+[^5]: In model-theoretic terms, it amounts to saying the interpretations of $L_{1}$ and $L_{2}$ are bi-interpretable structures  
 [^6]: This footnote is prepared for those who hate symbols: I tried to formulate the argument without symbols, but eventually I found it necessary to use them. Without them, my sentences will become incredibly long and ambiguous. I apologize for the inconvenience, but I beg you to accept the symbols.
-[^7]: This form of argument also works for any third party who agrees with $A_{1}$ and $A_{2}$. In fact, Hisch never formulates the argument in terms of $X$ and $Y$ at all. Instead, Hirsch formulates his argument on a third party’s perspective. He said *he* can use the stipulation method *for himself* to secure the fact expressed by both parties, and therefore, the disagreement has no ontological significance. However, I do not think there is a substantial difference between his third party’s formulation and my reformulation in terms of $X$ and $Y$'s perspective.
+[^7]: This form of argument also works for any third party who agrees with $S_{\text{agreed-to-be-true}}$ and $S_{\text{agreed-to-be-false}}$. In fact, Hisch never formulates the argument in terms of $X$ and $Y$ at all. Instead, Hirsch formulates his argument on a third party’s perspective. He said *he* can use the stipulation method *for himself* to secure the fact expressed by both parties, and therefore, the disagreement has no ontological significance. However, I do not think there is a substantial difference between his third party’s formulation and my reformulation in terms of $X$ and $Y$'s perspective.
 [^8]: These are Hirsch’s original definition and principle without any modification. However, the formulation "any sentence in $L_{1}$ and $L_{2}$ expresses the same proposition" is slippery. It is better to say "any sentence in $L_{1}$ expresses the same proposition as some corresponding sentence in $L_{2}$" where the correspondence can be defined through a bijection function $cor$ such that $S$ is truth-conditionally indiscernible with $cor(S)$.  
 [^9]: The reason I merely talk about "possibility" is that Hirsch is giving an argument schema, and I provide counterexamples to Hirsch’s argument schema. By doing so, I do not show that any argument instance that fits the schema will have a false conclusion. All I show is the schema being invalid.  
-[^10]: This question also aply to $A_{2}$. But since the problem is symmetric, I will only focus on $A_{1}$ here.  
+[^10]: This question also aply to $S_{\text{agreed-to-be-false}}$. But since the problem is symmetric, I will only focus on $S_{\text{agreed-to-be-true}}$ here.  
 [^11]: This is a point I anticipate Hirsch to accept, because a table is not a set.  
 [^12]: It might be uncharitable to Warren, however, to take him to be proposing a purely behavioral account. As in note 79, Warren admits that high-order disposition is implicit in his discussion of composite disposition. And I cannot see how high-order disposition can be defined only in terms of behavior. And it seems hard to say a complex disposition can be split into simpler parts without introspection. However, if we take Warren to depart from the original formulation of dispositionalism and introduce something mental, then it can no longer support interpretive charity, since we can only interpret behavior.
 [^13]: Some may suggest *interpretationism* being a fourth option, i.e. meaning comes from the interpretation of one's utterance. But what is an *interpretation*, if it is neither an intentional state, nor facts about disposition?
