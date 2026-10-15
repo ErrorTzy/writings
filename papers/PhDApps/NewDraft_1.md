@@ -98,9 +98,9 @@ Let me explain what I mean. *Interpretive charity* tells us how to interpret oth
 
 Here, I believe, proponents of the deflationary argument would diverge. I suspect Warren would say that $X$'s interpretation of $Y$'s utterance simply *is* what $Y$ meant. Hirsch, by contrast, seems in his recent teaching to accept that meaning comes from irreducible intentionality. If meaning comes from irreducible intentionality, then $X$'s charitable interpretation of $Y$ cannot determine what $Y$ meant. At best, a charitable interpretation is a rational guess about what $Y$ intends.
 
-That said, since the space is very limited, there is no way I can discuss both routes in detail. Therefore, I now sketch the discussion of the route that takes *interpretive charity* as a metaphysical principle of meaning. A more detailed discussion have to remain elsehere. After that, I will discuss the route that takes *interpretive charity* as a pragmatic principle of meaning in detail. 
+That said, since the space is very limited, I can only sketch the discussion of the route that takes *interpretive charity* as a metaphysical principle of meaning. A more detailed discussion have to remain elsehere. After the brief sketch, I will discuss the route that takes *interpretive charity* as a pragmatic principle of meaning in detail. 
 
-
+When we talk about "meaning", there are in general two ways to think about it: it can be either producer-oriented or consumer-oriented. This distinction is salient in @kripkeSpeakersReferenceSemantic1977's 
 
 ## Against intentionality-based deflationism
 
