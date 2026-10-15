@@ -98,9 +98,9 @@ Let me explain what I mean. *Interpretive charity* tells us how to interpret oth
 
 Here, I believe, proponents of the deflationary argument would diverge. I suspect Warren would say that $X$'s interpretation of $Y$'s utterance simply *is* what $Y$ meant. Hirsch, by contrast, seems in his recent teaching to accept that meaning comes from irreducible intentionality. If meaning comes from irreducible intentionality, then $X$'s charitable interpretation of $Y$ cannot determine what $Y$ meant. At best, a charitable interpretation is a rational guess about what $Y$ intends.
 
-I personally stand with Hirsch on this matter. For me, to say that I meant something is, first and foremost, to say that I am in a mental state that is about something. It just seems absurd to say that I cannot control what I mean, and that what is in my mind depends on how other people interpret it.
+That said, since the space is very limited, there is no way I can discuss both routes in detail. Therefore, I now sketch the discussion of the route that takes *interpretive charity* as a metaphysical principle of meaning. A more detailed discussion have to remain elsehere. After that, I will discuss the route that takes *interpretive charity* as a pragmatic principle of meaning in detail. 
 
-That said, because of this divergence, I will divide my discussion into two parts. In the first part, I will argue against a phantom Hirsch who accepts that meaning does not come from interpretation. In the second part, I will argue against a phantom Warren who accepts that meaning comes from interpretation.
+
 
 ## Against intentionality-based deflationism
 
