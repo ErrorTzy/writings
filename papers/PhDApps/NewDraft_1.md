@@ -111,56 +111,77 @@ Now assume that interpretation is merely a pragmatic strategy for approximating 
 
 Unfortunately, @hirschOntologyStipulation2021 later published "Ontology by Stipulation". In that paper, he upgraded his argument so that it relies neither on {::P3} nor on interpretive charity.
 
-Let me first introduce the basic idea of this upgraded argument.  Hirsch’s basic idea is to replace {::P3} with {::P4}:
+Let me first introduce the basic idea of this upgraded argument. Hirsch’s basic idea is to replace {::P3} with {::P4}:
 
-{::P4} The disputed sentence $S_{disputed}$ expresses exactly the same proposition in in $L^{\text{charitably-interpreted}}_{X}$  and in $L^{\text{actually-speaks}}_{X}$, and similarly for $L^{\text{charitably-interpreted}}_{Y}$ and $L^{\text{actually-speaks}}_{Y}$
+{::P4} The disputed sentence $S_{\text{disputed}}$ expresses exactly the same proposition in $L^{\text{stipulated}}_{X}$ and in $L^{\text{actually-speaks}}_{X}$, and similarly for $L^{\text{stipulated}}_{Y}$ and $L^{\text{actually-speaks}}_{Y}$
 
-Given {::P1}, {::P2} and {::P4}, {::C} still follows: First, let me abbreviate "the proposition expressed by a sentence $S$ in $L$" as $L(S)$ to make my sentences shorter. And we need to bear in mind that $L^{\text{charitably-interpreted}}_{X}$ is now a language stipulated by $Y$. Now, $Y$ can stipulate that $L^{\text{actually-speaks}}_{Y}(S_{\text{agreed-to-be-true}})=L^{\text{charitably-interpreted}}_{X}(S_{\text{agreed-to-be-true}})$. Also by $Y$'s stipulation, $L^{\text{charitably-interpreted}}_{X}(S_{\text{agreed-to-be-true}})=L^{\text{charitably-interpreted}}_{X}(S_{disputed})$. And from {::P4} we know that $L^{\text{charitably-interpreted}}_{X}(S_{disputed})=L^{\text{actually-speaks}}_{X}(S_{disputed})$. Therefore, $L^{\text{actually-speaks}}_{Y}(S_{\text{agreed-to-be-true}})=L^{\text{actually-speaks}}_{X}(S_{disputed})$. Since it is uncontroversial that the same proposition must express the same fact (with respect to the same context), $L^{\text{actually-speaks}}_{Y}(S_{\text{agreed-to-be-true}})$ and $L^{\text{actually-speaks}}_{X}(S_{disputed})$ express the same fact. Similarly, $L^{\text{actually-speaks}}_{X}(S_{\text{agreed-to-be-false}})$ and $L^{\text{actually-speaks}}_{Y}(S_{disputed})$ express the same fact. But there is no disagreement on whether the facts that $S_{\text{agreed-to-be-true}}$ and $S_{\text{agreed-to-be-false}}$ express obtain. It follows that $X$ and $Y$ are just talking past each other by using $S_{disputed}$ to express different facts that they agree on.[^7]
 
-The idea behind {::P4} is to concede that the speakers may not literally be speaking the charitably interpreted languages, while insisting that those interpretations, taken as stipu150lation, nonetheless express the very same propositions as the speakers’ actual languages do for the disputed sentences. And since these propositions 
+The idea behind {::P4} is to concede that the speakers may not literally be speaking the charitably interpreted languages, while insisting that those interpretations, taken as stipulation, nonetheless express the very same propositions as the speakers’ actual languages do for the disputed sentences.
 
-My main problem here, without any surprise, targets at {::P4}. In order to defend {::P4}, Hirsch first introduced the following terminology:
+Given {::P1}, {::P2} and {::P4}, {::C} still follows: First, let me abbreviate "the proposition expressed by a sentence $S$ in $L$" as $L(S)$ to make my sentences shorter. And we need to bear in mind that $L^{\text{stipulated}}_{X}$ is a language stipulated by $Y$. Now, $Y$ can first stipulate that $S_{\text{agreed-to-be-true}}$ expresses the same proposition in the stipulated language and $Y$'s own language, namely 
 
-Definition: truth-conditionally indiscernible  
-: If $L_{1}$ and $L_{2}$ have the same sentences and any sentence, relative to any context of utterance, has the same truth condition in $L_{1}$ and $L_{2}$, then $L_{1}$ and $L_{2}$ are *truth-conditionally indiscernable*.
+- $L^{\text{stipulated}}_{X}(S_{\text{agreed-to-be-true}})=L^{\text{actually-speaks}}_{Y}(S_{\text{agreed-to-be-true}})$
+
+Then, $Y$ can go on to stipulate that, in the stipulated language, $S_{\text{agreed-to-be-true}}$ express the same proposition as $S_{\text{disputed}}$, namely
+
+- $L^{\text{stipulated}}_{X}(S_{\text{agreed-to-be-true}})=L^{\text{stipulated}}_{X}(S_{\text{disputed}})$ 
+
+And from {::P4} we know that $S_{\text{disputed}}$ express the same 
+
+- $L^{\text{stipulated}}_{X}(S_{\text{disputed}})=L^{\text{actually-speaks}}_{X}(S_{\text{disputed}})$. 
+
+Therefore, $L^{\text{actually-speaks}}_{Y}(S_{\text{agreed-to-be-true}})=L^{\text{actually-speaks}}_{X}(S_{\text{disputed}})$. Since the same proposition must express the same fact (with respect to the same context), $L^{\text{actually-speaks}}_{Y}(S_{\text{agreed-to-be-true}})$ and $L^{\text{actually-speaks}}_{X}(S_{\text{disputed}})$ express the same fact. By the same argument, $L^{\text{actually-speaks}}_{X}(S_{\text{agreed-to-be-false}})$ and $L^{\text{actually-speaks}}_{Y}(S_{\text{disputed}})$ express the same fact. But there is no disagreement on whether the facts that $S_{\text{agreed-to-be-true}}$ and $S_{\text{agreed-to-be-false}}$ express obtain. It follows that $X$ and $Y$ are just talking past each other by using $S_{\text{disputed}}$ to express different facts that they agree on.[^7]
+ 
+My main problem here, without any surprise, targets at weight-lifting {::P4}. In order to defend {::P4}, Hirsch first introduced the following terminology:
+
+Definition: truth-conditionally indiscernible
+: If $L_{1}$ and $L_{2}$ have the same sentences and any sentence, relative to any context of utterance, has the same truth condition in $L_{1}$ and $L_{2}$, then $L_{1}$ and $L_{2}$ are *truth-conditionally indiscernible*.
 
 Then, Hirsch proposes the following principle:
 
 Principle: Propositional Supervenience  
-: It is necessarily the case that if $L_{1}$ and $L_{2}$ are truth-conditionally indiscernable, then any sentence in $L_{1}$ and $L_{2}$ expresses the same proposition.[^8]
+: It is necessarily the case that if $L_{1}$ and $L_{2}$ are truth-conditionally indiscernible, then any sentence in $L_{1}$ and $L_{2}$ expresses the same proposition.[^8]
 
-According to Hirsch, $L_{X}$ and $L^{X}$ are *truth-conditionally indiscernable*. Then by *Propositional supervenience*, $L_{X}(D)=L^{X}(D)$. Similarly, $L_{Y}(D)=L^{Y}(D)$. And therefore {::P4}.
+According to Hirsch, $L^{\text{stipulated}}_{X}$ and $L^{\text{actually-speaks}}_{X}$ are *truth-conditionally indiscernible*. Then by *Propositional Supervenience*, $L^{\text{stipulated}}_{X}(S_{\text{disputed}})=L^{\text{actually-speaks}}_{X}(S_{\text{disputed}})$. Similarly, $L^{\text{stipulated}}_{Y}(S_{\text{disputed}})=L^{\text{actually-speaks}}_{Y}(S_{\text{disputed}})$. And therefore {::P4}.
 
-Now, if $L_{X}$ and $L^{X}$ are not *truth-conditionally indiscernable*, then {::P4} could be false. Thus, it is possible for the dispute between $X$ and $Y$ to be not verbal. So my aim is to show the possibility of $L_{X}$ and $L^{X}$ being not *truth-conditionally indiscernible*.[^9]
+Now, if $L^{\text{stipulated}}_{X}$ and $L^{\text{actually-speaks}}_{X}$ are not *truth-conditionally indiscernible*, then {::P4} could be false. Thus, Hirsch's conclusion may not stand. So my aim is to show the possibility of $L^{\text{stipulated}}_{X}$ and $L^{\text{actually-speaks}}_{X}$ being not *truth-conditionally indiscernible*.[^9]
 
-Let me grant that *Propositional supervenience* is valid. In our previous argument, $Y$ stipulated $L^{Y}(A_{1})=L_{X}(A_{1})$. Now assume $L_{X}$ and $L^{X}$ are *truth-conditionally indiscernible*, by *Propositional supervenience* we must also have $L^{X}(A_{1})=L_X(A_{1})$. Therefore, we must have $L^{X}(A_{1})=L^Y(A_{1})$.
+Now we use reductio: assume $L^{\text{stipulated}}_{X}$ and $L^{\text{actually-speaks}}_{X}$ are *truth-conditionally indiscernible* and find contradiction. Let me grant that *Propositional Supervenience* is valid. In our previous argument, $Y$ stipulated $S_{\text{agreed-to-be-true}}$ to express the same proposition in the stipulated language and $Y$'s own language
+ 
+- $L^{\text{actually-speaks}}_{Y}(S_{\text{agreed-to-be-true}})=L^{\text{stipulated}}_{X}(S_{\text{agreed-to-be-true}})$. 
 
-What a proposition is is highly controversial. However, it is uncontroversial that if $L^{X}(A_{1})=L^Y(A_{1})$, then $S_{\text{agreed-to-be-true}}$ has the same truth condition in $L^{X}$ and $L^{Y}$. But is it guaranteed that $S_{\text{agreed-to-be-true}}$ has the same truth condition in $L^{X}$ and $L^{Y}$? All we know from Hirsch’s argument is that $X$ and $Y$ agree on $S_{\text{agreed-to-be-true}}$. Does this amount to the sameness of truth conditions?
+By *Propositional Supervenience* we must also have 
+
+- $L^{\text{actually-speaks}}_{X}(S_{\text{agreed-to-be-true}})=L^{\text{stipulated}}_{X}(S_{\text{agreed-to-be-true}})$
+
+Therefore, we must also have 
+
+- $L^{\text{actually-speaks}}_{X}(S_{\text{agreed-to-be-true}})=L^{\text{actually-speaks}}_{Y}(S_{\text{agreed-to-be-true}})$.
+
+What a proposition is is highly controversial. However, it is uncontroversial that if $L^{\text{actually-speaks}}_{X}(S_{\text{agreed-to-be-true}})=L^{\text{actually-speaks}}_{Y}(S_{\text{agreed-to-be-true}})$, then $S_{\text{agreed-to-be-true}}$ has the same truth condition in $L^{\text{actually-speaks}}_{X}$ and $L^{\text{actually-speaks}}_{Y}$. But is it guaranteed that $S_{\text{agreed-to-be-true}}$ has the same truth condition in $L^{\text{actually-speaks}}_{X}$ and $L^{\text{actually-speaks}}_{Y}$? All we know from Hirsch’s argument is that $X$ and $Y$ agree on $S_{\text{agreed-to-be-true}}$. Does this amount to the sameness of truth conditions?
 
 Consider again the previous dispute between Lewis and van Inwagen:
 
-- **Disputed sentence $S_{disputed}$**: "There is something composed of a set of table-wise interrelated simples".
+- **Disputed sentence $S_{\text{disputed}}$**: "There is something composed of a set of table-wise interrelated simples".
 - **Agreed sentence $S_{\text{agreed-to-be-true}}$**: "There is a set of table-wise interrelated simples".
 
 Do van Inwagen and Lewis share the same truth condition of $S_{\text{agreed-to-be-true}}$?[^10] That depends on what Hirsch means by "truth condition".
 
-If "truth condition" is understood in a fine-grained way, for example, in terms of truthmakers, then van Inwagen and Lewis do agree on the truth condition of $S_{\text{agreed-to-be-true}}$: $S_{\text{agreed-to-be-true}}$ is made true by a set of simples. However, Hirsch cannot mean "truth condition" in this fine-grained sense. The reason is that $S_{disputed}$ in $L_{Lewis}$ is stipulated to have the same truth condition as $S_{\text{agreed-to-be-true}}$ in $L_{Lewis}$. So $S_{disputed}$ in $L_{Lewis}$ would also be made true by a set of simples. But $S_{disputed}$ in $L^{Lewis}$ is not made true by a set of simples; it is made true by a table. And a table is not a set of simples, but something composed of a set of simples.[^11] So if Hirsch means "truth condition" in a fine-grained sense, then $L^{Lewis}$ and $L_{Lewis}$ are not truth-conditionally indiscernible.
+If "truth condition" is understood in a fine-grained way, for example, in terms of truthmakers, then van Inwagen and Lewis do agree on the truth condition of $S_{\text{agreed-to-be-true}}$: $S_{\text{agreed-to-be-true}}$ is made true by a set of simples. However, Hirsch cannot mean "truth condition" in this fine-grained sense. The reason is that $S_{\text{disputed}}$ in $L^{\text{stipulated}}_{\text{Lewis}}$ is stipulated to have the same truth condition as $S_{\text{agreed-to-be-true}}$ in $L^{\text{stipulated}}_{\text{Lewis}}$. So $S_{\text{disputed}}$ in $L^{\text{stipulated}}_{\text{Lewis}}$ would also be made true by a set of simples. But $S_{\text{disputed}}$ in $L^{\text{actually-speaks}}_{\text{Lewis}}$ is not made true by a set of simples; it is made true by a table. And a table is not a set of simples, but something composed of a set of simples.[^11] So if Hirsch means "truth condition" in a fine-grained sense, then $L^{\text{actually-speaks}}_{\text{Lewis}}$ and $L^{\text{stipulated}}_{\text{Lewis}}$ are not truth-conditionally indiscernible.
 
 So Hirsch must mean "truth condition" in a more coarse-grained sense, such as in terms of sets of possible worlds. This reading is also supported by @hirschPhysicalObjectOntologyVerbal2005, where he says that "sentences have the same truth conditions if (relative to the same context of utterance) they hold true in the same possible worlds". But do Lewis and van Inwagen agree that $S_{\text{agreed-to-be-true}}$ is true in the same possible worlds? Lewis would say that in the set of possible worlds that make $S_{\text{agreed-to-be-true}}$ true, there are worlds in which there are tables. van Inwagen, by contrast, would say there are no such worlds in the set. So they do not agree on the elements in the set of possible worlds that make $S_{\text{agreed-to-be-true}}$ true.
 
 I anticipate that Hirsch would reply that Lewis and van Inwagen are once again engaged in a merely verbal disagreement, this time over a set of possible worlds. The disagreement would look like this:
 
-- **Disputed sentence $D’$**: "In the set of possible worlds where $S_{\text{agreed-to-be-true}}$ is true, there are worlds in that set where there are tables".
-- **Agreed sentence $A_{1}'$**: "In the set of possible worlds where $S_{\text{agreed-to-be-true}}$ is true, there are worlds in that set where there are table-wise interrelated simples".
-- **Agreed sentence $A_{2}'$**: "In the set of possible worlds where $S_{\text{agreed-to-be-true}}$ is true, there are worlds in that set where there are living things composed of a set of table-wise interrelated simples".
+- **Disputed sentence $S'_{\text{disputed}}$**: "In the set of possible worlds where $S_{\text{agreed-to-be-true}}$ is true, there are worlds in that set where there are tables".
+- **Agreed sentence $S'_{\text{agreed-to-be-true}}$**: "In the set of possible worlds where $S_{\text{agreed-to-be-true}}$ is true, there are worlds in that set where there are table-wise interrelated simples".
+- **Agreed sentence $S'_{\text{agreed-to-be-false}}$**: "In the set of possible worlds where $S_{\text{agreed-to-be-true}}$ is true, there are worlds in that set where there are living things composed of a set of table-wise interrelated simples".
 
-He could then apply the same argument again to dissolve this dispute. But at this point, it seems that we have entered a loop. I can repeat my objection and say that they are still disagreeing about the truth conditions of $A_{1}'$ and $A_{2}’$. Hirsch may then introduce $D''$, $A_{1}''$, and $A_{2}''$ and run the argument again. In response, I can raise the same objection again, and so on without end.
+He could then apply the same argument again to dissolve this dispute. But at this point, it seems that we have entered a loop. I can repeat my objection and say that they are still disagreeing about the truth conditions of $S'_{\text{agreed-to-be-true}}$ and $S'_{\text{agreed-to-be-false}}$. Hirsch may then introduce $S''_{\text{disputed}}$, $S''_{\text{agreed-to-be-true}}$, and $S''_{\text{agreed-to-be-false}}$ and run the argument again. In response, I can raise the same objection again, and so on without end.
 
 Is there any way to break this loop? At some point, I suspect Hirsch would rely on a "lightweight" view of ontology to persuade me: the world is just a large, fat, unstructured chunk. And the way we divide it into objects is merely a matter of conceptual scheme. On that picture, although Lewis and van Inwagen describe the relevant possible worlds differently, they are really talking about the same possible worlds.
 
 I will return to my reasons for rejecting this view of ontology later. As for now, the problem is that this response simply assumes the very conclusion at issue, namely, that there is no relevant deep ontological fact, and these ontological disputes are merely verbal. Someone who does not already accept that view will not be moved by Hirsch’s argument. So Hirsch’s argument cannot settle the dispute between $X$ and $Y$ by claiming that the dispute is merely verbal, unless $X$ and $Y$ already accept that there is no fact of the matter on the thing they debate about.
-
-
 ## What is a verbal dispute, then?
 
 All I have shown so far may be summarized as follows: if one wants to accept Hirsch’s deflationism, either (1) one accepts interpretive charity as a pragamatic principle of meaning and assume Hirsch’s "lightweight" ontological view, which amounts to presuppose Hirsch’s conclusion, or (2) one accepts interpretive charity as a metaphysical principle of meaning and accept the problematic view of dispositionalism. Since I have a strong inclination to reject dispositionalism, I believe (1) might be the only option left.
