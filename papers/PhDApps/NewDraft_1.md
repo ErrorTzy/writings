@@ -109,31 +109,15 @@ Given that we have fixed the meaning of "meaning" to the first sense, namely wha
 
 Now assume that interpretation is merely a pragmatic strategy for approximating what a speaker meant. If so, {::P3} could be false. In particular, philosophers who believe that ontology is substantial often insist that they intend to speak either plain English or a special philosophical language like Ontologese. So {::P3} is usually false for the very philosophers to whom Hirsch wants to apply it. If that is right, then disputes that Hirsch wants to deflate are not merely verbal.
 
-If I had been born earlier, the previous paragraph would have been enough, and I could have happily moved on to the next section. Unfortunately, @hirschOntologyStipulation2021 later published "Ontology by Stipulation". In that paper, he upgraded his argument so that it relies neither on {::P3} nor on interpretive charity.
+Unfortunately, @hirschOntologyStipulation2021 later published "Ontology by Stipulation". In that paper, he upgraded his argument so that it relies neither on {::P3} nor on interpretive charity.
 
-Let me first introduce the basic idea of this upgraded argument. To keep my sentences short, I introduce the following notation[^6]:
+Let me first introduce the basic idea of this upgraded argument.  Hirsch’s basic idea is to replace {::P3} with {::P4}:
 
-- $L^{X}$: the language that $X$ actually speaks
-- $L^{Y}$: the language that $Y$ actually speaks
-- $L(S)$: the *proposition* expressed by a sentence $S$ in language $L$
-- $[L(S)]$: the *fact* expressed by a sentence $S$ in language $L$
-- $x = y$: $x$ is the same (proposition/fact/language/…) as $y$
+{::P4} The disputed sentence $S_{disputed}$ expresses exactly the same proposition in in $L^{\text{charitably-interpreted}}_{X}$  and in $L^{\text{actually-speaks}}_{X}$, and similarly for $L^{\text{charitably-interpreted}}_{Y}$ and $L^{\text{actually-speaks}}_{Y}$
 
-And recall the previous notation:
+Given {::P1}, {::P2} and {::P4}, {::C} still follows: First, let me abbreviate "the proposition expressed by a sentence $S$ in $L$" as $L(S)$ to make my sentences shorter. And we need to bear in mind that $L^{\text{charitably-interpreted}}_{X}$ is now a language stipulated by $Y$. Now, $Y$ can stipulate that $L^{\text{actually-speaks}}_{Y}(S_{\text{agreed-to-be-true}})=L^{\text{charitably-interpreted}}_{X}(S_{\text{agreed-to-be-true}})$. Also by $Y$'s stipulation, $L^{\text{charitably-interpreted}}_{X}(S_{\text{agreed-to-be-true}})=L^{\text{charitably-interpreted}}_{X}(S_{disputed})$. And from {::P4} we know that $L^{\text{charitably-interpreted}}_{X}(S_{disputed})=L^{\text{actually-speaks}}_{X}(S_{disputed})$. Therefore, $L^{\text{actually-speaks}}_{Y}(S_{\text{agreed-to-be-true}})=L^{\text{actually-speaks}}_{X}(S_{disputed})$. Since it is uncontroversial that the same proposition must express the same fact (with respect to the same context), $L^{\text{actually-speaks}}_{Y}(S_{\text{agreed-to-be-true}})$ and $L^{\text{actually-speaks}}_{X}(S_{disputed})$ express the same fact. Similarly, $L^{\text{actually-speaks}}_{X}(S_{\text{agreed-to-be-false}})$ and $L^{\text{actually-speaks}}_{Y}(S_{disputed})$ express the same fact. But there is no disagreement on whether the facts that $S_{\text{agreed-to-be-true}}$ and $S_{\text{agreed-to-be-false}}$ express obtain. It follows that $X$ and $Y$ are just talking past each other by using $S_{disputed}$ to express different facts that they agree on.[^7]
 
-- $L_{X}$: the charitably interpreted language of $X$
-- $L_{Y}$: the charitably interpreted language of $Y$
-- $S_{disputed}$: A sentence disputed by $X$ and $Y$
-- $S_{\text{agreed-to-be-true}}$: A sentence agreed by $X$ and $Y$; $X$ take $S_{disputed}$ and $S_{\text{agreed-to-be-true}}$ to be equivalent
-- $S_{\text{agreed-to-be-false}}$: A sentence agreed by $X$ and $Y$; $Y$ take $S_{disputed}$ and $S_{\text{agreed-to-be-false}}$ to be equivalent
-
-Now, given these notations, Hirsch’s basic idea is to replace {::P3} with {::P4}:
-
-{::P4} $L_{X}(D)=L^{X}(D)$, and $L_{Y}(D)=L^{Y}(D)$
-
-The idea behind {::P4} is to concede that the speakers may not literally be speaking the charitably interpreted languages, while insisting that those interpretations, taken as stipulation, nonetheless express the very same propositions as the speakers’ actual languages do for the disputed sentences.
-
-Given {::P1}, {::P2} and {::P4}, {::C} still follows: First, $Y$ can stipulate that $L^{Y}(A_{1})=L_{X}(A_{1})$. Also by stipulation, $L_{X}(A_{1})=L_{X}(D)$. And from {::P4} we know that $L_{X}(D)=L^{X}(D)$. Therefore, $L^Y(A_{1})=L^{X}(D)$. Since it is uncontroversial that the same proposition must express the same fact (with respect to the same context), $[L^Y(A_{1})]=[L^{X}(D)]$. Similarly, $[L^X(A_{2})]=[L^{Y}(D)]$. But there is no disagreement on whether the facts that $S_{\text{agreed-to-be-true}}$ and $S_{\text{agreed-to-be-false}}$ express obtain. It follows that $X$ and $Y$ are just talking past each other by using $S_{disputed}$ to express different facts that they agree on.[^7]
+The idea behind {::P4} is to concede that the speakers may not literally be speaking the charitably interpreted languages, while insisting that those interpretations, taken as stipulation, nonetheless express the very same propositions as the speakers’ actual languages do for the disputed sentences. And since these propositions 
 
 My main problem here, without any surprise, targets at {::P4}. In order to defend {::P4}, Hirsch first introduced the following terminology:
 
@@ -197,7 +181,7 @@ Let me conclude by briefly stating some consequences of my position I have sketc
 [^4]: This basically amounts to saying $\square(S_{1} \leftrightarrow S_{2})$ being a priori necessary.  
 [^5]: In model-theoretic terms, it amounts to saying the interpretations of $L_{1}$ and $L_{2}$ are bi-interpretable structures  
 [^6]: This footnote is prepared for those who hate symbols: I tried to formulate the argument without symbols, but eventually I found it necessary to use them. Without them, my sentences will become incredibly long and ambiguous. I apologize for the inconvenience, but I beg you to accept the symbols.
-[^7]: This form of argument also works for any third party who agrees with $S_{\text{agreed-to-be-true}}$ and $S_{\text{agreed-to-be-false}}$. In fact, Hisch never formulates the argument in terms of $X$ and $Y$ at all. Instead, Hirsch formulates his argument on a third party’s perspective. He said *he* can use the stipulation method *for himself* to secure the fact expressed by both parties, and therefore, the disagreement has no ontological significance. However, I do not think there is a substantial difference between his third party’s formulation and my reformulation in terms of $X$ and $Y$'s perspective.
+[^7]: This form of argument also works for any third party who agrees with the truth value of $S_{\text{agreed-to-be-true}}$ and $S_{\text{agreed-to-be-false}}$. In fact, Hisch never formulates the argument in terms of $X$ and $Y$ at all. Instead, Hirsch formulates his argument on a third party’s perspective. He said *he* can use the stipulation method *for himself* to secure the fact expressed by both parties, and therefore, the disagreement has no ontological significance. However, I do not think there is a substantial difference between his third party’s formulation and my reformulation in terms of $X$ and $Y$'s perspective.
 [^8]: These are Hirsch’s original definition and principle without any modification. However, the formulation "any sentence in $L_{1}$ and $L_{2}$ expresses the same proposition" is slippery. It is better to say "any sentence in $L_{1}$ expresses the same proposition as some corresponding sentence in $L_{2}$" where the correspondence can be defined through a bijection function $cor$ such that $S$ is truth-conditionally indiscernible with $cor(S)$.  
 [^9]: The reason I merely talk about "possibility" is that Hirsch is giving an argument schema, and I provide counterexamples to Hirsch’s argument schema. By doing so, I do not show that any argument instance that fits the schema will have a false conclusion. All I show is the schema being invalid.  
 [^10]: This question also aply to $S_{\text{agreed-to-be-false}}$. But since the problem is symmetric, I will only focus on $S_{\text{agreed-to-be-true}}$ here.  
