@@ -102,7 +102,7 @@ That said, since space is very limited, I can only sketch the discussion of the 
 
 When we talk about meaning, there are in general two ways to think about it: it can be either producer-oriented or consumer-oriented. This distinction is salient in @kripkeSpeakersReferenceSemantic1977's distinction between speaker's reference and semantic reference: when a man carelessly utters "the man drinking a martini" to refer to a man drinking champagne, there is a sense of "meaning" such that he means that champagne-drinking person by these words; but there is also a sense of "meaning" such that what he says just means the man drinking a martini. However, I believe the second sense of "meaning" is simply irrelevant to the current issue: an ontological debate between $X$ and $Y$ is a debate over how $X$ takes the world to be and how $Y$ takes the world to be. How $X$ takes the world to be can only be revealed by looking at what $X$ *actually* intends to express, not what $X$'s utterance *should* express according to some pre-established convention.
 
-Given that we have fixed the meaning of "meaning" to the first sense, namely what the speaker intends to express, any account of meaning must fit the speaker's own introspection. But according to the standard account of interpretation from @davidsonInscrutabilityReference1979, an interpretation is determined by the actual and potential behavior of a speaker under some enviornmental situationv. First, issues arise when the speaker has some special reason to conceal their real intention most of the time, or has aphasia that prevents a consistent correlation between their behavior and thoughts.[^15] Second, in @kripkeWittgensteinRulesPrivate2000's terms, to ground meaning facts in facts about actual and possible behavior is a kind of *meaning dispositionalism*. And Kripke presented at least three famous anti-dispositionalist arguments, namely the problems of finitude, error, and normativity. Up to now, there seems to be no consensus on a satisfactory account that addresses any one of these arguments.
+Given that we have fixed the meaning of "meaning" to the first sense, namely what the speaker intends to express, then any account of meaning must fit the speaker's own introspection. But according to the standard account of interpretation from @davidsonInscrutabilityReference1979, an interpretation is determined by the actual and potential behavior of a speaker under some enviornmental situation. First, issues arise when the speaker has some special reason to conceal their real intention most of the time, or has aphasia that prevents a consistent correlation between their behavior and thoughts.[^15] Second, in @kripkeWittgensteinRulesPrivate2000's terms, to ground meaning facts in facts about actual and possible behavior is a kind of *meaning dispositionalism*. And Kripke presented at least three famous anti-dispositionalist arguments, namely the problems of finitude, error, and normativity. Up to now, there seems to be no consensus on a satisfactory account that addresses any one of these arguments.
 
 *Interpretive charity* has always been taken for granted, e.g. in Hirsch's series of work on quantifier variance, Warren's series of work on logical conventionalism, and @burgessMetasemanticsNewEssays2014 [p.6 footnote 12]. Again, I am going extremely fast here, because I want to discuss in detail the second route of Hirschian deflationism. With this limited space, all I want to show is that the first route of Hirschian deflationism, namely taking *interpretive charity* as a metaphysical principle of meaning, is highly suspicious. And at least the burden of proof should be on those who took it for granted.
 ## Against intentionality-based deflationism
@@ -115,7 +115,6 @@ Let me first introduce the basic idea of this upgraded argument. Hirsch’s basi
 
 {::P4} The disputed sentence $S_{\text{disputed}}$ expresses exactly the same proposition in $L^{\text{stipulated}}_{X}$ and in $L^{\text{actually-speaks}}_{X}$, and similarly for $L^{\text{stipulated}}_{Y}$ and $L^{\text{actually-speaks}}_{Y}$
 
-
 The idea behind {::P4} is to concede that the speakers may not literally be speaking the charitably interpreted languages, while insisting that those interpretations, taken as stipulation, nonetheless express the very same propositions as the speakers’ actual languages do for the disputed sentences.
 
 Given {::P1}, {::P2} and {::P4}, {::C} still follows: First, let me abbreviate "the proposition expressed by a sentence $S$ in $L$" as $L(S)$ to make my sentences shorter. And we need to bear in mind that $L^{\text{stipulated}}_{X}$ is a language stipulated by $Y$. Now, $Y$ can first stipulate that $S_{\text{agreed-to-be-true}}$ expresses the same proposition in the stipulated language and $Y$'s own language, namely 
@@ -124,7 +123,7 @@ Given {::P1}, {::P2} and {::P4}, {::C} still follows: First, let me abbreviate "
 
 Then, $Y$ can go on to stipulate that, in the stipulated language, $S_{\text{agreed-to-be-true}}$ express the same proposition as $S_{\text{disputed}}$, namely
 
-- $L^{\text{stipulated}}_{X}(S_{\text{agreed-to-be-true}})=L^{\text{stipulated}}_{X}(S_{\text{disputed}})$ 
+- $L^{\text{stipulated}}_{X}(S_{\text{agreed-to-be-true}})=L^{\text{stipulated}}_{X}(S_{\text{disputed}})$
 
 And from {::P4} we know that $S_{\text{disputed}}$ express the same 
 
@@ -146,7 +145,7 @@ According to Hirsch, $L^{\text{stipulated}}_{X}$ and $L^{\text{actually-speaks}}
 
 Now, if $L^{\text{stipulated}}_{X}$ and $L^{\text{actually-speaks}}_{X}$ are not *truth-conditionally indiscernible*, then {::P4} could be false. Thus, Hirsch's conclusion may not stand. So my aim is to show the possibility of $L^{\text{stipulated}}_{X}$ and $L^{\text{actually-speaks}}_{X}$ being not *truth-conditionally indiscernible*.[^9]
 
-Now we use reductio: assume $L^{\text{stipulated}}_{X}$ and $L^{\text{actually-speaks}}_{X}$ are *truth-conditionally indiscernible* and find contradiction. Let me grant that *Propositional Supervenience* is valid. In our previous argument, $Y$ stipulated $S_{\text{agreed-to-be-true}}$ to express the same proposition in the stipulated language and $Y$'s own language
+We prove this by reductio: assume $L^{\text{stipulated}}_{X}$ and $L^{\text{actually-speaks}}_{X}$ are *truth-conditionally indiscernible* and find contradiction. Let me grant that *Propositional Supervenience* is valid. In our previous argument, $Y$ stipulated $S_{\text{agreed-to-be-true}}$ to express the same proposition in the stipulated language and $Y$'s own language
  
 - $L^{\text{actually-speaks}}_{Y}(S_{\text{agreed-to-be-true}})=L^{\text{stipulated}}_{X}(S_{\text{agreed-to-be-true}})$. 
 
@@ -158,18 +157,32 @@ Therefore, we must also have
 
 - $L^{\text{actually-speaks}}_{X}(S_{\text{agreed-to-be-true}})=L^{\text{actually-speaks}}_{Y}(S_{\text{agreed-to-be-true}})$.
 
-What a proposition is is highly controversial. However, it is uncontroversial that if $L^{\text{actually-speaks}}_{X}(S_{\text{agreed-to-be-true}})=L^{\text{actually-speaks}}_{Y}(S_{\text{agreed-to-be-true}})$, then $S_{\text{agreed-to-be-true}}$ has the same truth condition in $L^{\text{actually-speaks}}_{X}$ and $L^{\text{actually-speaks}}_{Y}$. But is it guaranteed that $S_{\text{agreed-to-be-true}}$ has the same truth condition in $L^{\text{actually-speaks}}_{X}$ and $L^{\text{actually-speaks}}_{Y}$? All we know from Hirsch’s argument is that $X$ and $Y$ agree on $S_{\text{agreed-to-be-true}}$. Does this amount to the sameness of truth conditions?
+What a proposition is is highly controversial. However, it is uncontroversial that if $S_{\text{agreed-to-be-true}}$ express the same proposition in $L^{\text{actually-speaks}}_{X}$ and $L^{\text{actually-speaks}}_{Y}$, then $S_{\text{agreed-to-be-true}}$ has the same truth condition in $L^{\text{actually-speaks}}_{X}$ and $L^{\text{actually-speaks}}_{Y}$. But is it guaranteed that $S_{\text{agreed-to-be-true}}$ has the same truth condition in $L^{\text{actually-speaks}}_{X}$ and $L^{\text{actually-speaks}}_{Y}$? All we know from Hirsch’s argument is that $X$ and $Y$ agree on $S_{\text{agreed-to-be-true}}$. Does this amount to the sameness of truth conditions?
 
-Consider again the previous dispute between Lewis and van Inwagen:
+To make the discussion less abstract, let's consider again the previous dispute between Lewis and van Inwagen:
 
 - **Disputed sentence $S_{\text{disputed}}$**: "There is something composed of a set of table-wise interrelated simples".
 - **Agreed sentence $S_{\text{agreed-to-be-true}}$**: "There is a set of table-wise interrelated simples".
 
 Do van Inwagen and Lewis share the same truth condition of $S_{\text{agreed-to-be-true}}$?[^10] That depends on what Hirsch means by "truth condition".
 
-If "truth condition" is understood in a fine-grained way, for example, in terms of truthmakers, then van Inwagen and Lewis do agree on the truth condition of $S_{\text{agreed-to-be-true}}$: $S_{\text{agreed-to-be-true}}$ is made true by a set of simples. However, Hirsch cannot mean "truth condition" in this fine-grained sense. The reason is that $S_{\text{disputed}}$ in $L^{\text{stipulated}}_{\text{Lewis}}$ is stipulated to have the same truth condition as $S_{\text{agreed-to-be-true}}$ in $L^{\text{stipulated}}_{\text{Lewis}}$. So $S_{\text{disputed}}$ in $L^{\text{stipulated}}_{\text{Lewis}}$ would also be made true by a set of simples. But $S_{\text{disputed}}$ in $L^{\text{actually-speaks}}_{\text{Lewis}}$ is not made true by a set of simples; it is made true by a table. And a table is not a set of simples, but something composed of a set of simples.[^11] So if Hirsch means "truth condition" in a fine-grained sense, then $L^{\text{actually-speaks}}_{\text{Lewis}}$ and $L^{\text{stipulated}}_{\text{Lewis}}$ are not truth-conditionally indiscernible.
+If "truth condition" is understood in a fine-grained way, then van Inwagen and Lewis do agree on the truth condition of $S_{\text{agreed-to-be-true}}$: $S_{\text{agreed-to-be-true}}$ is made true by a set of simples. However, Hirsch cannot mean "truth condition" in this fine-grained sense. The reason is that $S_{\text{disputed}}$ and $S_{\text{agreed-to-be-true}}$ in $L^{\text{stipulated}}_{\text{Lewis}}$ is stipulated to have the same truth condition. So $S_{\text{disputed}}$ in $L^{\text{stipulated}}_{\text{Lewis}}$ would also be made true by a set of simples. But $S_{\text{disputed}}$ in $L^{\text{actually-speaks}}_{\text{Lewis}}$ is not made true by a set of simples; it is made true by a table. And a table is not a set of simples, but something composed of a set of simples. Contradiction. So if Hirsch means "truth condition" in a fine-grained sense, then $L^{\text{actually-speaks}}_{\text{Lewis}}$ and $L^{\text{stipulated}}_{\text{Lewis}}$ are not truth-conditionally indiscernible.
 
 So Hirsch must mean "truth condition" in a more coarse-grained sense, such as in terms of sets of possible worlds. This reading is also supported by @hirschPhysicalObjectOntologyVerbal2005, where he says that "sentences have the same truth conditions if (relative to the same context of utterance) they hold true in the same possible worlds". But do Lewis and van Inwagen agree that $S_{\text{agreed-to-be-true}}$ is true in the same possible worlds? Lewis would say that in the set of possible worlds that make $S_{\text{agreed-to-be-true}}$ true, there are worlds in which there are tables. van Inwagen, by contrast, would say there are no such worlds in the set. So they do not agree on the elements in the set of possible worlds that make $S_{\text{agreed-to-be-true}}$ true.
+
+Now here is the crucial move:
+
+(@l1) According to Lewis, the truth condition of $S_{\text{agreed-to-be-true}}$ has the property such that there are table-having worlds.
+(@v1) According to van Inwagen, the truth condition of $S_{\text{agreed-to-be-true}}$ lacks the property such that there are table-having worlds.
+(@concl1) Therefore, $S_{\text{agreed-to-be-true}}$ has different truth condition in Lewis' and van Inwagen's language.
+
+Roughly, (@concl1) follows from (@l1) and (@v1) by applying Leibniz’s Law and Set Extensionality. But consider the following argument
+
+(@l2) According to Lewis, the actual world has the property such that there are tables.
+(@v2)  According to van Inwagen, the actual world lacks the property such that there are tables.
+(@concl2)  Therefore, Lewis and van Inwagen inhibit different actual worlds.
+
+This is obviously fallacious, and the fallacy here is 
 
 I anticipate that Hirsch would reply that Lewis and van Inwagen are once again engaged in a merely verbal disagreement, this time over a set of possible worlds. The disagreement would look like this:
 
@@ -206,7 +219,6 @@ Let me conclude by briefly stating some consequences of my position I have sketc
 [^8]: These are Hirsch’s original definition and principle without any modification. However, the formulation "any sentence in $L_{1}$ and $L_{2}$ expresses the same proposition" is slippery. It is better to say "any sentence in $L_{1}$ expresses the same proposition as some corresponding sentence in $L_{2}$" where the correspondence can be defined through a bijection function $cor$ such that $S$ is truth-conditionally indiscernible with $cor(S)$.  
 [^9]: The reason I merely talk about "possibility" is that Hirsch is giving an argument schema, and I provide counterexamples to Hirsch’s argument schema. By doing so, I do not show that any argument instance that fits the schema will have a false conclusion. All I show is the schema being invalid.  
 [^10]: This question also aply to $S_{\text{agreed-to-be-false}}$. But since the problem is symmetric, I will only focus on $S_{\text{agreed-to-be-true}}$ here.  
-[^11]: This is a point I anticipate Hirsch to accept, because a table is not a set.  
 [^12]: It might be uncharitable to Warren, however, to take him to be proposing a purely behavioral account. As in note 79, Warren admits that high-order disposition is implicit in his discussion of composite disposition. And I cannot see how high-order disposition can be defined only in terms of behavior. And it seems hard to say a complex disposition can be split into simpler parts without introspection. However, if we take Warren to depart from the original formulation of dispositionalism and introduce something mental, then it can no longer support interpretive charity, since we can only interpret behavior.
 [^13]: Some may suggest *interpretationism* being a fourth option, i.e. meaning comes from the interpretation of one's utterance. But what is an *interpretation*, if it is neither an intentional state, nor facts about disposition?
 [^15]: There are actual clinical reports, for example @deletterSpeakingNumbersTransitional2012, of aphasia patients who stably produce meaningless speech and only occasionally produce meaningful speech in conversation. At the same time, when such patients are unable to produce meaningful speech, they display “frustrated and agitated behaviour” and “used language switching or numerical speech as strategies to overcome his word-finding problems and to maintain his drive to keep the conversation going”. This suggests that the patient does know what he wants to mean, even though he cannot express it correctly.
