@@ -176,16 +176,15 @@ Now here is the crucial move:
 (@v1) According to van Inwagen, the truth condition of $S_{\text{agreed-to-be-true}}$ lacks the property such that there are table-having worlds.
 (@concl1) Therefore, the truth conditions of $S_{\text{agreed-to-be-true}}$ in Lewis' and van Inwagen's languages are different.
 
-Roughly, (@concl1) follows from (@l1) and (@v1) by applying Leibniz’s Law and Set Extensionality. But consider the following argument
+Roughly, (@concl1) follows from (@l1) and (@v1) by applying Leibniz’s Law and Set Extensionality. If (@concl1) is true, then we get the contradiction we want. But consider the following argument
 
 (@l2) According to Lewis, the actual world has the property such that there are tables.
 (@v2)  According to van Inwagen, the actual world lacks the property such that there are tables.
 (@concl2)  Therefore, Lewis and van Inwagen inihibit different actual worlds.
 
-This is obviously fallacious, and the fallacy here is misusing Leibniz’s Law: "According to ..." here creates an intentional context where "actual world" is referentially opaque; Yet $P(x)$ expresses a genuine, Leibniz-safe property $P$ of an object $x$ only if "$x$" is referentially transparent. If my previous argument from (@l1) to (@concl1) is valid, then "the truth conditions of $S_{\text{agreed-to-be-true}}$" must be referentially transparent.
+This is obviously fallacious, and the fallacy here is misusing Leibniz’s Law: "According to ..." here creates an intentional context where "actual world" is referentially opaque; Yet $P(x)$ expresses a Leibniz-safe property $P$ of an object $x$ only if "$x$" is referentially transparent.[^16] If my previous argument from (@l1) to (@concl1) is valid, then "the truth conditions of $S_{\text{agreed-to-be-true}}$" must be referentially transparent.
 
-What makes a term referentially opaque? Not all terms under terms that can create intentional context are referentially opaque. For example, there can be a *de re* reading of "Lois Lane believes Clark Kent can fly" where it comes out true. 
-
+What makes a term referentially opaque? 
 I anticipate that Hirsch would reply that Lewis and van Inwagen are once again engaged in a merely verbal disagreement, this time over a set of possible worlds. The disagreement would look like this:
 
 - **Disputed sentence $S'_{\text{disputed}}$**: "In the set of possible worlds where $S_{\text{agreed-to-be-true}}$ is true, there are worlds in that set where there are tables".
@@ -224,3 +223,4 @@ Let me conclude by briefly stating some consequences of my position I have sketc
 [^12]: It might be uncharitable to Warren, however, to take him to be proposing a purely behavioral account. As in note 79, Warren admits that high-order disposition is implicit in his discussion of composite disposition. And I cannot see how high-order disposition can be defined only in terms of behavior. And it seems hard to say a complex disposition can be split into simpler parts without introspection. However, if we take Warren to depart from the original formulation of dispositionalism and introduce something mental, then it can no longer support interpretive charity, since we can only interpret behavior.
 [^13]: Some may suggest *interpretationism* being a fourth option, i.e. meaning comes from the interpretation of one's utterance. But what is an *interpretation*, if it is neither an intentional state, nor facts about disposition?
 [^15]: There are actual clinical reports, for example @deletterSpeakingNumbersTransitional2012, of aphasia patients who stably produce meaningless speech and only occasionally produce meaningful speech in conversation. At the same time, when such patients are unable to produce meaningful speech, they display “frustrated and agitated behaviour” and “used language switching or numerical speech as strategies to overcome his word-finding problems and to maintain his drive to keep the conversation going”. This suggests that the patient does know what he wants to mean, even though he cannot express it correctly.
+[^16]: This is an analytical truth if we follow @quineLogicalPointView1980's definition: A position for a singular term "$x$" inside a linguistic context $P(x)$ is *referentially transparent* iff it obeys the Substitutivity of Identicals salva veritate.
