@@ -174,15 +174,17 @@ Now here is the crucial move:
 
 (@l1) According to Lewis, the truth condition of $S_{\text{agreed-to-be-true}}$ has the property such that there are table-having worlds.
 (@v1) According to van Inwagen, the truth condition of $S_{\text{agreed-to-be-true}}$ lacks the property such that there are table-having worlds.
-(@concl1) Therefore, $S_{\text{agreed-to-be-true}}$ has different truth condition in Lewis' and van Inwagen's language.
+(@concl1) Therefore, the truth conditions of $S_{\text{agreed-to-be-true}}$ in Lewis' and van Inwagen's languages are different.
 
 Roughly, (@concl1) follows from (@l1) and (@v1) by applying Leibniz’s Law and Set Extensionality. But consider the following argument
 
 (@l2) According to Lewis, the actual world has the property such that there are tables.
 (@v2)  According to van Inwagen, the actual world lacks the property such that there are tables.
-(@concl2)  Therefore, the actual worlds that inhibits (actual) Lewis and van Inwagen are different.
+(@concl2)  Therefore, Lewis and van Inwagen inihibit different actual worlds.
 
-This is obviously fallacious, and the fallacy here is 
+This is obviously fallacious, and the fallacy here is misusing Leibniz’s Law: "According to ..." here creates an intentional context where "actual world" is referentially opaque; Yet $P(x)$ expresses a genuine, Leibniz-safe property $P$ of an object $x$ if and only if "$x$" is referentially transparent. If my previous argument from (@l1) to (@concl1) is valid, then "the truth conditions of $S_{\text{agreed-to-be-true}}$" must be referentially transparent.
+
+What makes a term referentially opaque? Not all terms under terms that can create intentional context are referentially opaque. For example, there can be a *de re* reading of "Lois Lane believes Clark Kent can fly" where it comes out true. 
 
 I anticipate that Hirsch would reply that Lewis and van Inwagen are once again engaged in a merely verbal disagreement, this time over a set of possible worlds. The disagreement would look like this:
 
