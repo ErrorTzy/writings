@@ -182,7 +182,7 @@ Roughly, (@concl1) follows from (@l1) and (@v1) by applying Leibniz’s Law and 
 (@v2)  According to van Inwagen, the actual world lacks the property such that there are tables.
 (@concl2)  Therefore, Lewis and van Inwagen inihibit different actual worlds.
 
-This is obviously fallacious, and the fallacy here is misusing Leibniz’s Law: "According to ..." here creates an intentional context where "actual world" is referentially opaque; Yet $P(x)$ expresses a genuine, Leibniz-safe property $P$ of an object $x$ if and only if "$x$" is referentially transparent. If my previous argument from (@l1) to (@concl1) is valid, then "the truth conditions of $S_{\text{agreed-to-be-true}}$" must be referentially transparent.
+This is obviously fallacious, and the fallacy here is misusing Leibniz’s Law: "According to ..." here creates an intentional context where "actual world" is referentially opaque; Yet $P(x)$ expresses a genuine, Leibniz-safe property $P$ of an object $x$ only if "$x$" is referentially transparent. If my previous argument from (@l1) to (@concl1) is valid, then "the truth conditions of $S_{\text{agreed-to-be-true}}$" must be referentially transparent.
 
 What makes a term referentially opaque? Not all terms under terms that can create intentional context are referentially opaque. For example, there can be a *de re* reading of "Lois Lane believes Clark Kent can fly" where it comes out true. 
 
