@@ -182,7 +182,7 @@ Roughly, (@concl1) follows from (@l1) and (@v1) by applying Leibniz’s Law and 
 (@v2)  According to van Inwagen, the actual world lacks the property such that there are tables.
 (@concl2)  Therefore, Lewis and van Inwagen inihibit different actual worlds.
   
-The conclusion is obviously fallacious, and the fallacy here is secretly dropping the "According to ..." operator. Here, it creates an referentially opaque context where "actual world" is about the *mental representation* of the actual world. Since there is no identity between the mental representation of the actually world and the actual world itself, Leibniz law does not apply; Therefore, if my previous argument from (@l1) to (@concl1) is valid, then the application of Leibniz’s Law needs further justification. 
+The conclusion is obviously fallacious, and the fallacy here is secretly dropping the "According to ..." operator. Here, it creates an referentially opaque context where "actual world" is. Since there is no identity between the mental representation of the actually world and the actual world itself, Leibniz law does not apply; Therefore, if my previous argument from (@l1) to (@concl1) is valid, then the application of Leibniz’s Law needs further justification. 
 
 
 
