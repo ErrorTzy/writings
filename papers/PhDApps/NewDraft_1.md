@@ -184,7 +184,9 @@ Roughly, (@concl1) follows from (@l1) and (@v1) by applying Leibniz’s Law and 
 
 This is obviously fallacious, and the fallacy here is misusing Leibniz’s Law: "According to ..." here creates an intentional context where "actual world" is referentially opaque; Yet $P(x)$ expresses a Leibniz-safe property $P$ of an object $x$ only if "$x$" is referentially transparent.[^16] If my previous argument from (@l1) to (@concl1) is valid, then "the truth conditions of $S_{\text{agreed-to-be-true}}$" must be referentially transparent.
 
-What makes a term referentially opaque? 
+There are many ways a term can fail to be referentially transparent, and I do not want to go into the rabbit hole of discussing the phenomenon of referential opacity in general. For what matters here, the danger for my argument to be invalid is that van Inwagen 
+
+
 I anticipate that Hirsch would reply that Lewis and van Inwagen are once again engaged in a merely verbal disagreement, this time over a set of possible worlds. The disagreement would look like this:
 
 - **Disputed sentence $S'_{\text{disputed}}$**: "In the set of possible worlds where $S_{\text{agreed-to-be-true}}$ is true, there are worlds in that set where there are tables".
