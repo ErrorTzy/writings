@@ -182,9 +182,9 @@ Roughly, (@concl1) follows from (@l1) and (@v1) by applying Leibniz’s Law and 
 (@v2)  According to van Inwagen, the actual world lacks the property such that there are tables.
 (@concl2)  Therefore, Lewis and van Inwagen inihibit different actual worlds.
 
-This is obviously fallacious, and the fallacy here is misusing Leibniz’s Law: "According to ..." here creates an intentional context where "actual world" is referentially opaque; Yet $P(x)$ expresses a Leibniz-safe property $P$ of an object $x$ only if "$x$" is referentially transparent.[^16] If my previous argument from (@l1) to (@concl1) is valid, then "the truth conditions of $S_{\text{agreed-to-be-true}}$" must be referentially transparent.
+This is obviously fallacious, and the fallacy here is misusing Leibniz’s Law: "According to ..." here creates an intentional context where "actual world" is referentially opaque; Yet $P(x)$ expresses a Leibniz-safe property $P$ of an object $x$ only if "$x$" is referentially transparent.[^16] If my previous argument from (@l1) to (@concl1) is valid, then the application of Leibniz’s Law needs further justification. 
 
-There are many ways a term can fail to be referentially transparent, and I do not want to go into the rabbit hole of discussing the phenomenon of referential opacity in general. For what matters here, the danger for my argument to be invalid is that van Inwagen 
+There are many ways a term can fail to be referentially transparent, and I do not want to go into the rabbit hole of discussing the phenomenon of referential opacity. For what matters here, the issue is whether "the truth condition of $S_{\text{agreed-to-be-true}}$ in Lewis' language according to Lewis" can be different from "the truth condition of $S_{\text{agreed-to-be-true}}$ in Lewis' language". If there can be a gap between these two, just like how there can be a gap between how Lois thought Clark Kent was and how Clark Kent actually was, then Leibniz's Law cannot be applied there validly. 
 
 
 I anticipate that Hirsch would reply that Lewis and van Inwagen are once again engaged in a merely verbal disagreement, this time over a set of possible worlds. The disagreement would look like this:
