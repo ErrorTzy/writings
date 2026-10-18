@@ -180,7 +180,7 @@ Roughly, (@concl1) follows from (@l1) and (@v1) by applying Leibniz’s Law and 
 
 (@l2) According to Lewis, the actual world has the property such that there are tables.
 (@v2)  According to van Inwagen, the actual world lacks the property such that there are tables.
-(@concl2)  Therefore, Lewis and van Inwagen inhibit different actual worlds.
+(@concl2)  Therefore, the actual worlds that inhibits (actual) Lewis and van Inwagen are different.
 
 This is obviously fallacious, and the fallacy here is 
 
