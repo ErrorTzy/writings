@@ -182,9 +182,11 @@ Roughly, (@concl1) follows from (@l1) and (@v1) by applying Leibniz’s Law and 
 (@v2)  According to van Inwagen, the actual world lacks the property such that there are tables.
 (@concl2)  Therefore, Lewis and van Inwagen inihibit different actual worlds.
   
-The conclusion is obviously fallacious. On way to diagnose the fallacy here is that, I secretly dropping the "According to ..." operator. According to this diagnosis, "According to ..." creates an referentially opaque context like belief reports; Therefore, it is invalid to infer from how someone take the actual world to be to how the actual world is. Therefore, if my previous argument from (@l1) to (@concl1) is valid, then the application of Leibniz’s Law needs further justification. 
+The conclusion is obviously fallacious. There are two ways to diagnose the fallacy here. The first is that, I secretly droped the "According to ..." operator that creates an referentially opaque context like belief reports; Therefore, it is invalid to infer from how someone take the actual world to be to how the actual world is. The second is that, the "the property such that it is a table-having world" expresses different properties in Lewis' and van Inwagen's language. Therefore, if my previous argument from (@l1) to (@concl1) is valid, then the application of Leibniz’s Law needs further justification. 
 
+Let me discuss the first diagnosis first. Is it safe to derive "In Lewis' language, the truth condition of some sentence is ..." from "According to Lewis, the truth condition of some sentence is ..."? I believe there are two ways to understand "truth condition". The first way demands truth condition to contain ontological commitment: whatever specifies a sentence's truth condition, it must be out there in the world; Under this conception of truth condition, the impossible world theoriest are ontologically committed to impossible worlds. According to this conception of truth condition, it is impossible to settle the issue of truth condition before we settle the issue of metaphysics: 
 
+The second way to to take truth condition as a mere requirement on reality
 
 
 I anticipate that Hirsch would reply that Lewis and van Inwagen are once again engaged in a merely verbal disagreement, this time over a set of possible worlds. The disagreement would look like this:
