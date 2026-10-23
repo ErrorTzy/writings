@@ -186,7 +186,21 @@ The conclusion is obviously fallacious. There are two ways to diagnose the falla
 
 Let me discuss the first diagnosis first. Is it safe to derive "In Lewis' language, the truth condition of some sentence is ..." from "According to Lewis, the truth condition of some sentence is ..."? I believe there are two ways to understand "truth condition". The first way demands truth condition to contain ontological commitment: whatever specifies a sentence's truth condition, it must be out there in the world; Under this conception of truth condition, to say the truth condition is a set of possible world entails ontological commitment to possible worlds. (This does not mean commitment to Lewisian concrete possible worlds, however. As long as commitment to abstract object is possible, one can ontologically commit to possible world as abstract entities.) The problem of this conception of truth condition is that, there seems to be no way to articulate the truth condition before we settle the issue of metaphysics: for example, if I say the truth condition of van Inwagen's sentence is in fact a possible world where there things can be arbitrarily composed, then van Inwagen would complain that I am baised towards Lewis' ontology. But is there any way to compare the truth condition without specifying them? 
 
-Maybe like a Hespherus and Phospherus situation: when the Babylonians think about them, arguably what's in their mind are very different. Yet Hespherus and Phospherus are the same. And according to Kripke, this happens because 'Hespherus' and 'Phospherus' are rigid designators. One standard way to explain this phenomenon is that, the referent of "Hespherus" across possible worlds is fixed by "that star that comes out in the evening in the actual world", and the referent of "Phospherus" is fixed by "that star such that it comes out in the morning in the actual world". Therefore, there is an epistemic possibility that the identity does not hold; Yet evaluating from the actual world, these two description happens to fix the same object. Therefore, they refer to the same object across all possible worlds. In other words, epistemically these two terms are **pointing to** the actual world in different ways, but empirical evidence in the mactual world made these two ways of pointing fix the same object. It would be impossible to have this kind of identity if the referent is not fixed by pointing. For example, numbers "$1$" and "$2$" are also epistemically different, but it is impossible for them to turnme out to co-refer because we do not refer to them by some hidden indexical. Now, what about the truth condition of the sentence "There is a set of table-wise interrelated simples" in Lewis' and van Inwagen's language? 
+a postiori identity 
+
+Case 1: a Hespherus and Phospherus situation: when the Babylonians think about them, arguably what's in their mind are very different. Yet Hespherus and Phospherus are the same. 
+
+Reason: this happens because 'Hespherus' and 'Phospherus' are rigid designators. One standard way to explain this phenomenon is that, the referent of "Hespherus" across possible worlds is fixed by "that star that comes out in the evening in the actual world", and the referent of "Phospherus" is fixed by "that star such that it comes out in the morning in the actual world". Therefore, there is an epistemic possibility that the identity does not hold; Yet evaluating from the actual world, these two description happens to fix the same object. Therefore, they refer to the same object across all possible worlds. In other words, epistemically these two terms are **pointing to** the actual world in different ways, but empirical evidence in the mactual world made these two ways of pointing fix the same object. 
+
+a priori identity
+
+Case 2: 1 and 2 situation: Numbers "$1$" and "$2$" are also epistemically different, but it is impossible for them to turn out to co-refer
+Reason: they have incompatible inferential role 
+
+Case 3: the smallest prime situation: But not all a priori things that are epistemically different are impossible to be indentical. For example, "the smallest prime" and "the smallest positive even number" corefer, but they are epistemically distinct. 
+Reason: they have compatible inferential role.
+
+Now, what about the truth condition of the sentence "There is a set of table-wise interrelated simples" in Lewis' and van Inwagen's language? 
 
 It seems that the truth condition is fixed not by pointing t-uo something empirical, but by their a priori metaphysical theories.
 
