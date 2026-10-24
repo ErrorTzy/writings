@@ -194,15 +194,19 @@ The first way demands truth condition to contain ontological commitment: whateve
 
 Articulatable identity
 
-The problem of this conception of truth condition is that, there seems to be no way to articulate the truth condition before we settle the issue of metaphysics: for example, if I say the truth condition of van Inwagen's sentence is in fact a possible world where there things can be arbitrarily composed, then van Inwagen would complain that I am baised towards Lewis' ontology. 
+The problem of this conception of truth condition is that, there seems to be no way to articulate the truth condition before we settle the issue of metaphysics: for example, if someone wants to argue against me and say the truth condition of the sentence in both Lewis and van Inwagen's language is in fact a possible world where there things can be arbitrarily composed, then van Inwagen would complain that they are baised towards Lewis' ontology. 
 
 identity without articulation
 
-But is there any way to compare the truth condition without specifying them? 
+But we can compare the truth condition without specifying them, by appealing to how the referent of "the truth condition of $S_{\text{agreed-to-be-true}}$" is fixed. I want to show it cannot be the case that "the truth condition of $S_{\text{agreed-to-be-true}}$" in Lewis and van Inwagen's language co-refer.
 
-a postiori identity 
+There is a premise I want to make in the beginning, namely that "the truth condition of $S_{\text{agreed-to-be-true}}$" are epistemically different for Lewis and van Inwagen. This is because,  they have different conception about metaphysical composition; And therefore they have different conception about possible worlds. Thus, they must have different conceptions about the truth condition specified by a set of possible worlds. This is basically deriving (@concl2) without dropping the "According to" operator, therefore should be uncontroverisal under the current analysis.
 
-Case 1: a Hespherus and Phospherus situation: when the Babylonians think about them, arguably what's in their mind are very different. Yet Hespherus and Phospherus are the same. 
+Now, we need to analyze is whether these two epistemically different terms can co-refer. There are two ways two epistemically different terms can co-refer: the first way is 
+
+The first kind of identity may be called a postiori identity, namely identity about empirical objects, like "Hespherus" and "Phospherus". However, "the truth condition of $S_{\text{agreed-to-be-true}}$" does not seem to be an empirical matter, because it is fixed not by pointing empirical evidence about composition, but by their a priori metaphysical theories. The only thing that may be suspected to be not a priori in the sentence is the term "table-wise". 
+
+However, I will show that Of course, since van Inwagen defines "table" in terms of table-wise interrelated simples, defining table-wise interrelated simples in terms of table would be circular. Therefore it might be some dispute about how "table-wise" should be specified. However, it seems safe to assume that there is an official way to specify the predicate "table-wise" without risking circularity. Also, "table-wise" is arguably contains vagueness, but it does not seems to be any dispute between Lewis and van-Inwagen about the predicate "table-wise", since it is a description about how simples are arranged, and there is no disagreement over their extension, namely simples, setting aside disagreement coming from vagueness. Therefore, 
 
 Reason: this happens because 'Hespherus' and 'Phospherus' are rigid designators. One standard way to explain this phenomenon is that, the referent of "Hespherus" across possible worlds is fixed by "that star that comes out in the evening in the actual world", and the referent of "Phospherus" is fixed by "that star such that it comes out in the morning in the actual world". Therefore, there is an epistemic possibility that the identity does not hold; Yet evaluating from the actual world, these two description happens to fix the same object. Therefore, they refer to the same object across all possible worlds. In other words, epistemically these two terms are **pointing to** the actual world in different ways, but empirical evidence in the mactual world made these two ways of pointing fix the same object. 
 
@@ -216,9 +220,7 @@ Reason: they have compatible inferential role.
 
 Now, what about the truth condition of the sentence "There is a set of table-wise interrelated simples" in Lewis' and van Inwagen's language? 
 
-It seems that the truth condition is fixed not by pointing t-uo something empirical, but by their a priori metaphysical theories.
 
-The only thing that may be suspected to be not a priori in the sentence is the term "table-wise". Of course, since van Inwagen defines "table" in terms of table-wise interrelated simples, defining table-wise interrelated simples in terms of table would be circular. Therefore it might be some dispute about how "table-wise" should be specified. However, it seems safe to assume that there is an official way to specify the predicate "table-wise" without risking circularity. Also, "table-wise" is arguably contains vagueness, but it does not seems to be any dispute between Lewis and van-Inwagen about the predicate "table-wise", since it is a description about how simples are arranged, and there is no disagreement over their extension, namely simples, setting aside disagreement coming from vagueness. Therefore, 
 
 The second way to to take truth condition as a mere requirement on reality. 
 
