@@ -182,9 +182,23 @@ Roughly, (@concl1) follows from (@l1) and (@v1) by applying Leibniz’s Law and 
 (@v2)  According to van Inwagen, the actual world he inhibits lacks the property such that there are there are composite objects without life.
 (@concl2)  Therefore, Lewis and van Inwagen inihibit different actual worlds.
   
-The conclusion is obviously fallacious. There are two ways to diagnose the fallacy here. The first is that, I secretly droped the "According to ..." operator that creates an referentially opaque context like belief reports; Therefore, it is invalid to infer from how someone take the actual world to be to how the actual world is. The second is that, the "the property such that there are there are composite objects without life" expresses different properties in Lewis' and van Inwagen's language. Therefore, if my previous argument from (@l1) to (@concl1) is valid, then the application of Leibniz’s Law needs further justification. 
+The conclusion is obviously fallacious, therefore the argument is invalid. Therefore, if my argument works, then I need to first show why (@l2) to (@concl2) is invalid, and then why this reason does not apply to (@l1) to (@concl1).
 
-Let me discuss the first diagnosis first. Is it safe to derive "In Lewis' language, the truth condition of some sentence is ..." from "According to Lewis, the truth condition of some sentence is ..."? I believe there are two ways to understand "truth condition". The first way demands truth condition to contain ontological commitment: whatever specifies a sentence's truth condition, it must be out there in the world; Under this conception of truth condition, to say the truth condition is a set of possible world entails ontological commitment to possible worlds. (This does not mean commitment to Lewisian concrete possible worlds, however. As long as commitment to abstract object is possible, one can ontologically commit to possible world as abstract entities.) The problem of this conception of truth condition is that, there seems to be no way to articulate the truth condition before we settle the issue of metaphysics: for example, if I say the truth condition of van Inwagen's sentence is in fact a possible world where there things can be arbitrarily composed, then van Inwagen would complain that I am baised towards Lewis' ontology. But is there any way to compare the truth condition without specifying them? 
+There are two ways to explain the reason why (@l2) to (@concl2) is invalid. The first is that, I secretly droped the "According to ..." operator that creates an referentially opaque context like belief reports; Therefore, it is invalid to infer from how someone take the actual world to be to how the actual world is. 
+
+Now, in order to separate (@l1) to (@concl1) from (@l2) to (@concl2), I need to show that it is safe to derive "In Lewis' language, the truth condition of some sentence is ..." from "According to Lewis, the truth condition of some sentence is ...".
+
+I believe there are two ways to understand "truth condition". 
+
+The first way demands truth condition to contain ontological commitment: whatever specifies a sentence's truth condition, it must be out there in the world; Under this conception of truth condition, to say the truth condition is a set of possible world entails ontological commitment to possible worlds. (This does not mean commitment to Lewisian concrete possible worlds, however. As long as commitment to abstract object is possible, one can ontologically commit to possible world as abstract entities.) 
+
+Articulatable identity
+
+The problem of this conception of truth condition is that, there seems to be no way to articulate the truth condition before we settle the issue of metaphysics: for example, if I say the truth condition of van Inwagen's sentence is in fact a possible world where there things can be arbitrarily composed, then van Inwagen would complain that I am baised towards Lewis' ontology. 
+
+identity without articulation
+
+But is there any way to compare the truth condition without specifying them? 
 
 a postiori identity 
 
@@ -207,6 +221,8 @@ It seems that the truth condition is fixed not by pointing t-uo something empiri
 The only thing that may be suspected to be not a priori in the sentence is the term "table-wise". Of course, since van Inwagen defines "table" in terms of table-wise interrelated simples, defining table-wise interrelated simples in terms of table would be circular. Therefore it might be some dispute about how "table-wise" should be specified. However, it seems safe to assume that there is an official way to specify the predicate "table-wise" without risking circularity. Also, "table-wise" is arguably contains vagueness, but it does not seems to be any dispute between Lewis and van-Inwagen about the predicate "table-wise", since it is a description about how simples are arranged, and there is no disagreement over their extension, namely simples, setting aside disagreement coming from vagueness. Therefore, 
 
 The second way to to take truth condition as a mere requirement on reality. 
+
+The second is that, the "the property such that there are there are composite objects without life" expresses different properties in Lewis' and van Inwagen's language. 
 
 
 I anticipate that Hirsch would reply that Lewis and van Inwagen are once again engaged in a merely verbal disagreement, this time over a set of possible worlds. The disagreement would look like this:
