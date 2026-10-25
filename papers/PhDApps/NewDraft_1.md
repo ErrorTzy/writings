@@ -178,13 +178,13 @@ yi
 
 Roughly, (@concl1) follows from (@l1) and (@v1) by applying Leibniz’s Law and Set Extensionality. If (@concl1) is true, then we get the contradiction we want. But consider the following argument
 
-(@l2) According to Lewis, the actual world he inhibits has the property such that there are composite objects without life.
-(@v2)  According to van Inwagen, the actual world he inhibits lacks the property such that there are there are composite objects without life.
+(@l2) According to Lewis, the actual world he inhibits has the property such that there are tables.
+(@v2)  According to van Inwagen, the actual world he inhibits lacks the property such that there are tables.
 (@concl2)  Therefore, Lewis and van Inwagen inihibit different actual worlds.
   
 The conclusion is obviously fallacious, therefore the argument is invalid. Therefore, if my argument works, then I need to first show why (@l2) to (@concl2) is invalid, and then why this reason does not apply to (@l1) to (@concl1).
 
-There are two ways to explain the reason why (@l2) to (@concl2) is invalid. The first is that, I secretly droped the "According to ..." operator that creates an referentially opaque context like belief reports; Therefore, it is invalid to infer from how someone take the actual world to be to how the actual world is. 
+There are two ways to explain the reason why (@l2) to (@concl2) is invalid. The first is that, I secretly droped the "According to ..." operator that creates an referentially opaque context like belief reports; Therefore, it is invalid to infer from how someone take the actual world to be to how the actual world is. The second is that "the property such that there are tables" express different properties under the "According to ..." operator. The second diagnosis is more likely to come from Hirsch, because a typical Hirschan move would be: these are different properties because Lewis and van Inwagen are using "there are", i.e. the quantifier, in different ways. However, this typical Hirschian move relies on interpretive charity, which we have dismissed in the current analysis. Especially, claiming that they are just using words in different ways are typical deflationary move that both 
 
 Now, in order to separate (@l1) to (@concl1) from (@l2) to (@concl2), I need to show that it is safe to derive "In Lewis' language, the truth condition of some sentence is ..." from "According to Lewis, the truth condition of some sentence is ...".
 
