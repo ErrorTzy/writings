@@ -186,7 +186,9 @@ The conclusion is obviously fallacious, therefore the argument is invalid. There
 
 The suspicious move here is that I secretly droped the "According to ..." operator that creates an referentially opaque context like belief reports; There are two ways to explain the reason why (@l2) to (@concl2) is invalid. The first is that, it is invalid to infer from how someone take the actual world to be to how the actual world is. In other words, what leads to the invalidity is the term "actual world" not being fully referential.
 
-The second is that "the property such that there are tables" express different properties under the "According to ..." operator. The second diagnosis is a typical deflationary move: these are different properties because Lewis and van Inwagen are using "there are", i.e. the quantifier, in different ways. However, this move relies on interpretive charity, which we have dismissed in the current analysis. Plus, once we allow this diagnosis, we are already accepting the conclusion that they are talking past each other
+The second is that "the property such that there are tables" express different properties under the "According to ..." operator. The second diagnosis is a typical deflationary move: these are different properties because Lewis and van Inwagen are using "there are", i.e. the quantifier, in different ways. However, first, this move relies on interpretive charity, which we have dismissed in the current analysis. Second, once we allow this diagnosis, we are already accepting that they are talking past each other. This does not immediately follow that they are having a verbal dispute, because there is still room for anti-deflationists to say one is speaking a metaphysically superior language.  
+
+in Ontology by Stipulation, Hirsch actually made a stronger premise that Lewis and van Inwagen are speaking the same language like plain English or Ontologese
 
 Now, in order to separate (@l1) to (@concl1) from (@l2) to (@concl2), I need to show that it is safe to derive "In Lewis' language, the truth condition of some sentence is ..." from "According to Lewis, the truth condition of some sentence is ...".
 
