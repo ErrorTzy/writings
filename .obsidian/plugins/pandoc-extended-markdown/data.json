@@ -1,5 +1,5 @@
 {
-  "enforcePandocListSpacing": false,
+  "enableListsWithoutPrecedingBlankline": true,
   "enableReadableFencedDivSyntax": true,
   "autoRenumberLists": true,
   "enableHashAutoNumber": true,
@@ -41,7 +41,7 @@
     "footnotes"
   ],
   "pandocExport": {
-    "enabled": false,
+    "enabled": true,
     "pandocPath": "",
     "defaultOutputFolderMode": "current",
     "customOutputFolder": "",
