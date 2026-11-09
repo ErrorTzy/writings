@@ -9,7 +9,7 @@
 Shanghai International Studies University, 2023 B.A., Japanese
 Brandeis Univeristy 2026, M.A., Philosophy
 ## Interests
-philosophy of language, philosophy of mind and cognitive science, philosophical logic, LLM interpretation
+philosophy of language and mind, philosophical logic, LLM interpretation and alignment
 
 ## Awards and Honors
 
