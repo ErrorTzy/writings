@@ -23,6 +23,7 @@ Course Assistant:
 
 - The Art and Archaeology of Ancient Greece (Fall 2024)
 - Introduction to Philosophy  (Spring 2025)
-- Introduction to Logic (Fall 2025)
+- Introduction to Logic (Fall 2025)[^1]
 - Mathematical Logic (Fall 2026)
 
+[^1]: I actually taught for a week when Matt was away, which gave me some teaching experience.
