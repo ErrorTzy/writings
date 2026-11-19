@@ -19,7 +19,7 @@ header-includes:
 ---
 ## Intro
 
-In philosophy, when people disagree with each other, they sometimes disagree about the meanings of words. For example, when Kantians and utilitarians disagree about what is right or wrong, they also define some key terms differently: Roughly, Kantians define "right" as following categorical imperatives, while utilitarians define "right" as maximizing utility. The harder question, however, is whether they are *merely* disagreeing about words, or whether there is something deeper in the dispute.
+In philosophy, when people disagree with each other, they sometimes disagree about the meanings of words. The harder question, however, is whether they are *merely* disagreeing about words, or whether there is something deeper in the dispute.
 
 But what is a *mere* verbal dispute? Any attempt to define it precisely risks leading to another dispute—a mere verbal dispute about mere verbal disputes[^1]. So let’s avoid this by illustrating the idea with some clear and uncontroversial examples. The most famous example of a mere verbal dispute comes from William James: imagine a squirrel moving around a tree while a man also moves around the tree, always keeping his face turned toward the squirrel. The question is *whether the man is going around the squirrel*. According to James, this is a merely verbal dispute:
 
@@ -31,13 +31,13 @@ Over the past 20 years, there has been a significant deflationary position in (m
 
 Despite the position being utterly surprising, the argument supporting the position has been more powerful than expected. During the past 20 years, there have been plenty of attempts to resist this deflationary argument. But I believe Hirsch has replied to them sufficiently. Many people, it seems, eventually start to accept this deflationary position about ontology and move on to something else, like fundamentality[^3].
 
-This paper intends to argue against Hirsch’s deflationary argument. First, I introduce Hirsch’s original deflationary argument, and point out a metasemantic divergence would lead to two different positions: the more well-known route that depends on the principle of *Interpritive Charity*, which is usually taken as the standard position of Hirschian deflationism; And the less-known route, that does not depend on interpretive charity. Since the space is very limited, I quickly sketch the issues for former, and then focus more on Hirsch’s less-known deflationary move. Finally, I quickly sketch my positive view of ontological disputes.
+In this paper, I will argue against Hirsch’s deflationary position. First, I introduce Hirsch’s original deflationary argument, and point out a metasemantic divergence would lead to two different positions: the more well-known route that depends on the principle of *Interpritive Charity*, which is usually taken as the standard position of Hirschian deflationism; And the less-known route, that does not depend on interpretive charity. I quickly sketch the issues for former, and then focus more on Hirsch’s less-known deflationary move. Finally, I quickly sketch my positive view of ontological disputes.
 
-This paper mainly focuses on ontological disputes, since Hirsch primarily applies his argument to ontology. However, Hirsch’s account of verbal disputes is not restricted to ontology. For example, in theories of perception, @craneIntrospectionIntentionalityTransparency2000 used the same standard for diagnosing whether qualia theorists are having a verbal dispute with his intentionalist theory. That said, in this paper the discussion will only focus on the typical Hirschian argument that applies to metaphysics.
+This paper mainly focuses on ontological disputes, since Hirsch primarily applies his argument to ontology. However, Hirsch’s account of verbal disputes is not restricted to ontology. For example, in theories of perception, @craneIntrospectionIntentionalityTransparency2000 used the same standard for diagnosing whether qualia theorists are having a verbal dispute with his intentionalist theory. That said, in this paper the discussion will only focus on the typical Hirschian argument as it applies to metaphysics.
 
 ## The deflationary argument
 
-What is Hirsch’s argument for the claim that many ontological disputes are shallow and merely verbal? First, we need to introduce some terminology that Hirsch likes to use:
+What is Hirsch’s argument for the claim that many ontological disputes are shallow and merely verbal? First, we need to introduce some of Hirsch's terminology:
 
 Definition: equivalent sentences  
 : Two sentences $S_1$ and $S_2$ are *equivalent* if, relative to any context of utterance, $S_1$ and $S_2$ have the same truth value with respect to any possible worlds[^4]
@@ -67,7 +67,7 @@ Both van Inwagen and Lewis agree that $S_{\text{agreed-to-be-false}}$ is false.
 
 The crucial point is that each party takes $S_{disputed}$ to be equivalent to different sentences. Van Inwagen holds that $S_{disputed}$ is equivalent to $S_{\text{agreed-to-be-false}}$. Lewis holds that $S_{disputed}$ is equivalent to $S_{\text{agreed-to-be-true}}$. According to interpretive charity, we should not take them to be making a priori mistakes about equivalent sentences. Instead, we should take these claims to be the semantic rules they are following.
 
-Therefore, by interpretive charity, van Inwagen is speaking a language, $L_{Inwagen}$, in which the truth condition of $S_{disputed}$ is just the truth condition of $S_{\text{agreed-to-be-false}}$. Likewise, Lewis is speaking a language, $L_{Lewis}$, in which the truth condition of $S_{disputed}$ is just the truth condition of $S_{\text{agreed-to-be-true}}$. If that is right, then their apparent disagreement over $S_{disputed}$ does not reflect any disagreement about the underlying facts. After all, they already agree that $S_{\text{agreed-to-be-true}}$ is true and that $S_{\text{agreed-to-be-false}}$ is false. What differs is whether sentence $S_{disputed}$ expresses the fact that $S_{\text{agreed-to-be-true}}$ or $S_{\text{agreed-to-be-false}}$ expresses. But this is merely a matter of linguistic choice. Therefore, Hirsch concludes, the dispute between van Inwagen and Lewis is merely verbal.
+Therefore, by interpretive charity, van Inwagen is speaking a language, $L_{Inwagen}$, in which the truth condition of $S_{disputed}$ is just the truth condition of $S_{\text{agreed-to-be-false}}$. Likewise, Lewis is speaking a language, $L_{Lewis}$, in which the truth condition of $S_{disputed}$ is just the truth condition of $S_{\text{agreed-to-be-true}}$. If that is right, then their apparent disagreement over $S_{disputed}$ does not reflect any disagreement about the underlying facts. After all, they already agree that $S_{\text{agreed-to-be-true}}$ is true and that $S_{\text{agreed-to-be-false}}$ is false. What differs is whether sentence $S_{disputed}$ expresses the proposition that $S_{\text{agreed-to-be-true}}$ or $S_{\text{agreed-to-be-false}}$ expresses. But this is merely a matter of linguistic choice. Therefore, Hirsch concludes, the dispute between van Inwagen and Lewis is merely verbal.
 
 This argument can be generalized into the following schema. Consider the following disagreement between $X$ and $Y$ over sentence $S_{disputed}$:
 
@@ -110,7 +110,7 @@ Given that we have fixed the meaning of "meaning" to the first sense, namely wha
 
 Now assume that interpretation is merely a pragmatic strategy for approximating what a speaker meant. If so, {::P3} could be false. In particular, philosophers who believe that ontology is substantial often insist that they intend to speak either plain English or a special philosophical language like Ontologese. So {::P3} is usually false for the very philosophers to whom Hirsch wants to apply it. If that is right, then disputes that Hirsch wants to deflate are not merely verbal.
 
-Unfortunately, @hirschOntologyStipulation2021 later published "Ontology by Stipulation". In that paper, he upgraded his argument so that it relies neither on {::P3} nor on interpretive charity.
+In response to such worries, @hirschOntologyStipulation2021 later published "Ontology by Stipulation". In that paper, he upgraded his argument so that it relies neither on {::P3} nor on interpretive charity.
 
 Let me first introduce the basic idea of this upgraded argument. Hirsch’s basic idea is to replace {::P3} with {::P4}:
 
@@ -118,7 +118,7 @@ Let me first introduce the basic idea of this upgraded argument. Hirsch’s basi
 
 The idea behind {::P4} is to concede that the speakers may not literally be speaking the charitably interpreted languages, while insisting that those interpretations, taken as stipulation, nonetheless express the very same propositions as the speakers’ actual languages do for the disputed sentences.
 
-Given {::P1}, {::P2} and {::P4}, {::C} still follows: First, let me abbreviate "the proposition expressed by a sentence $S$ in $L$" as $L(S)$ to make my sentences shorter. And we need to bear in mind that $L^{\text{stipulated}}_{X}$ is a language stipulated by $Y$. Now, $Y$ can first stipulate that $S_{\text{agreed-to-be-true}}$ expresses the same proposition in the stipulated language and $Y$'s own language, namely 
+Given {::P1}, {::P2} and {::P4}, {::C} still follows: First, let me abbreviate "the proposition expressed by a sentence $S$ in $L$" as $L(S)$. And we need to bear in mind that $L^{\text{stipulated}}_{X}$ is a language stipulated by $Y$. Now, $Y$ can first stipulate that $S_{\text{agreed-to-be-true}}$ expresses the same proposition in the stipulated language and $Y$'s own language, namely 
 
 - $L^{\text{stipulated}}_{X}(S_{\text{agreed-to-be-true}})=L^{\text{actually-speaks}}_{Y}(S_{\text{agreed-to-be-true}})$
 
@@ -132,7 +132,7 @@ And from {::P4} we know that $S_{\text{disputed}}$ express the same proposition 
 
 Therefore, $L^{\text{actually-speaks}}_{Y}(S_{\text{agreed-to-be-true}})=L^{\text{actually-speaks}}_{X}(S_{\text{disputed}})$. Since the same proposition must express the same fact (with respect to the same context), $L^{\text{actually-speaks}}_{Y}(S_{\text{agreed-to-be-true}})$ and $L^{\text{actually-speaks}}_{X}(S_{\text{disputed}})$ express the same fact. By the same argument, $L^{\text{actually-speaks}}_{X}(S_{\text{agreed-to-be-false}})$ and $L^{\text{actually-speaks}}_{Y}(S_{\text{disputed}})$ express the same fact. But there is no disagreement on whether the facts that $S_{\text{agreed-to-be-true}}$ and $S_{\text{agreed-to-be-false}}$ express obtain. It follows that $X$ and $Y$ are just talking past each other by using $S_{\text{disputed}}$ to express different facts that they agree on.[^8]
  
-My main problem here, without any surprise, targets at {::P4}. In order to defend {::P4}, Hirsch first introduced the following terminology:
+The main problem here is {::P4}. In order to defend {::P4}, Hirsch first introduced the following terminology:
 
 Definition: truth-conditionally indiscernible
 : If $L_{1}$ and $L_{2}$ have the same sentences and any sentence, relative to any context of utterance, has the same truth condition in $L_{1}$ and $L_{2}$, then $L_{1}$ and $L_{2}$ are *truth-conditionally indiscernible*.
@@ -144,7 +144,7 @@ Principle: Propositional Supervenience
 
 According to Hirsch, $L^{\text{stipulated}}_{X}$ and $L^{\text{actually-speaks}}_{X}$ are *truth-conditionally indiscernible*. Then by *Propositional Supervenience*, $L^{\text{stipulated}}_{X}(S_{\text{disputed}})=L^{\text{actually-speaks}}_{X}(S_{\text{disputed}})$. Similarly, $L^{\text{stipulated}}_{Y}(S_{\text{disputed}})=L^{\text{actually-speaks}}_{Y}(S_{\text{disputed}})$. And therefore {::P4}.
 
-Now, if $L^{\text{stipulated}}_{X}$ and $L^{\text{actually-speaks}}_{X}$ are not *truth-conditionally indiscernible*, then {::P4} could be false. Thus, Hirsch's conclusion may not stand. So my aim is to show the possibility of $L^{\text{stipulated}}_{X}$ and $L^{\text{actually-speaks}}_{X}$ being not *truth-conditionally indiscernible*.[^10]
+Now, if $L^{\text{stipulated}}_{X}$ and $L^{\text{actually-speaks}}_{X}$ are not *truth-conditionally indiscernible*, then {::P4} could be false. Thus, Hirsch's conclusion may not stand. So my aim is to show the possibility of $L^{\text{stipulated}}_{X}$ and $L^{\text{actually-speaks}}_{X}$ failing to be *truth-conditionally indiscernible*.[^10]
 
 My aim is to assume $L^{\text{stipulated}}_{X}$ and $L^{\text{actually-speaks}}_{X}$ are *truth-conditionally indiscernible* and try to find a contradiction. Let me grant that *Propositional Supervenience* is valid. In our previous argument, $Y$ stipulated $S_{\text{agreed-to-be-true}}$ to express the same proposition in the stipulated language and $Y$'s own language
  
@@ -248,7 +248,7 @@ Let me conclude by briefly stating some consequences of my position I have sketc
 [^1]: A further analysis of different ways to define it, see @chalmersVerbalDisputes2011 . For what matters here, Chalmers’ way of defining verbal disputes is even broader than the kind of dispute that will be undermined in this paper. Therefore, my attack applies to Chalmers’ view.  
 [^2]: @thomassonOntologyMadeEasy2015 [p. 70] herself thinks that her view does not assume that the meaning of the quantifier changes. But I believe this is wrong. Her position relies on the triviality of changing the extension of the predicate "exist" by stipulation. Yet consider the following uncontroversial principle: if two expressions differ in extension in the same context, then they also differ in meaning. There is no evidence in Thomasson’s writing that she rejects this principle. But denying that her thesis does not assume a change in the meaning of the quantifier goes against this principle. Therefore, as long as we accept this principle, if we change the extension of "exist", then we also change its meaning.  
 [^3]: For example, Schaffer seems to accept that ontology is shallow, and retargets metaphysics to the project of fundamentality. However, it is unclear why a similar deflationary argument cannot be applied to fundamentality. For example, @hirschOntologyStipulation2021 argues that his argument also applies fundamentality. I also argued elsewhere that essence, a central concept in the fundamentality project, can also be deflated by the same kind of argument.  
-[^4]: This basically amounts to saying $\square(S_{1} \leftrightarrow S_{2})$ being a priori necessary.  
+[^4]: This basically amounts to saying $\square(S_{1} \leftrightarrow S_{2})$ is a priori necessary.  
 [^5]: In model-theoretic terms, it amounts to saying the interpretations of $L_{1}$ and $L_{2}$ are bi-interpretable structures  
 [^6]: Donald Davidson, the “founding father” of this principle, seems to lean in both directions. Davidson scholars disagree about which position he actually holds (for a discussion, see @tarnowskiDavidsonianMetasemanticsRadical2023). Given the notorious obscurity of Davidson’s writing, I do not intend to engage in Davidson exegesis here.
 [^7]: There are actual clinical reports, for example @deletterSpeakingNumbersTransitional2012, of aphasia patients who stably produce meaningless speech and only occasionally produce meaningful speech in conversation. At the same time, when such patients are unable to produce meaningful speech, they display “frustrated and agitated behaviour” and “used language switching or numerical speech as strategies to overcome his word-finding problems and to maintain his drive to keep the conversation going”. This suggests that the patient does know what he wants to mean, even though he cannot express it correctly.
