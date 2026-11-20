@@ -6,10 +6,11 @@
 
 ## Education
 
-Shanghai International Studies University, 2023 B.A., Japanese
-Brandeis Univeristy 2026, M.A., Philosophy
+Shanghai International Studies University, 2019-2023 B.A., Japanese
+Brandeis Univeristy 2024-2026, M.A., Philosophy
+
 ## Interests
-philosophy of language and mind, philosophical logic, LLM interpretation and alignment
+philosophy of language and mind, metaphysics, philosophical logic, LLM interpretation and alignment
 
 ## Awards and Honors
 
@@ -17,10 +18,12 @@ philosophy of language and mind, philosophical logic, LLM interpretation and ali
 - "Zhiyuan Project" Social Research, First Prize (2020)
 - University Merit Scholarship (2020 - 2021, 2022 - 2023)
 
-## Experience
+## Teaching Experience
 
+Shanghai World Foreign Language Academy (2023-2024): EPQ Lecturer
 
-- The Art and Archaeology of Ancient Greece (Fall 2024): Grading
-- Introduction to Philosophy (Spring 2025): Grade and office hours.
-- Introduction to Logic (Fall 2025): Taught two sessions when Matt was away; Grading and office hours
-- Mathematical Logic (Fall 2026): Grading
+Brandeis (2024-2026)
+- The Art and Archaeology of Ancient Greece (Fall 2024): Grader
+- Introduction to Philosophy (Spring 2025): Course Assistant
+- Introduction to Logic (Fall 2025): Substitute Lecturer and Course Assistant
+- Mathematical Logic (Fall 2026): Grader

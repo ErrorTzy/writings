@@ -2,11 +2,11 @@
 
 I will change the content here a bit based on the faulty of the department I apply to.
 
-**Previous Coursework and Experience:** During my M.A. at Brandeis, I was deeply influenced by my advisor, Eli Hirsch. Under his influence I developed interest in the relationship between meaning, interpretation, and ontological commitment. My M.A. thesis, which is my sample paper, argues against Hirsch’s metaphysical deflationism. I ague that contemporary deflationism relies on a questionable application of the metasemantic principle of interpretive charity, and that deflationary move that does not invoke this principle risks circularity.
+**Previous Coursework and Experience:** During my M.A. at Brandeis, I was deeply influenced by my advisor, Eli Hirsch. Under his influence I developed interest in the relationship between meaning, interpretation, and ontological commitment. My M.A. thesis, which is my sample paper, argues against Hirsch’s metaphysical deflationism. I argue that contemporary deflationism relies on a questionable application of the metasemantic principle of interpretive charity, and that deflationary move that does not invoke this principle risks circularity.
 
 In another term paper written for Hirsch’s seminar, I argued against Cappelen and Dever that the indexicality of the first-person pronoun is essentially irreducible for rational agents. I constructed an alternative, indexical-free language whose speakers can mimic rational agency from a third-person perspective, yet such speakers fail to satisfy the conditions for genuine rational agency.
 
-Beyond my work with Hirsch, I took Peter Epstein’s course on mental content, graduate seminar on intentionalist and direct realist accounts of perceptual content, as well as several classes with Kate Elliott’s on causation, explanation and scientific realism.
+Beyond my work with Hirsch, I took a Peter Epstein’s course on mental content, graduate seminar on intentionalist and direct realist accounts of perceptual content, as well as several classes with Kate Elliott’s on causation, explanation and scientific realism.
 
 Although I have not taken coursework directly on LLM interpretability, my previous projects seems relevant: How much linguistic competence and apparently rational behavior can establish about a system’s mental content or understanding, and what further evidence an account of its internal mechanisms might provide? In addition, I had some background in computer science during my undergraduate studies. In 2020, I won Second Prize in the Asia and Pacific Mathematical Contest in Modeling, for which I implemented a neural network to predict U.S. presidential election outcomes from economic data.
 
