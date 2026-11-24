@@ -2,7 +2,7 @@
 title: Are ontological disputes merely verbal?
 subtitle:
 author:
-date: 2026-11-19
+date:
 institute:
 numbersections: false
 toc: false
@@ -96,7 +96,7 @@ I believe denying {::P3} is the correct move, but Sider’s reason points in the
 
 Let me explain what I mean. *Interpretive charity* tells us how to interpret other people’s linguistic behavior. But how should we understand the interpretation it yields? When $X$ interprets $Y$'s utterance, is $X$'s interpretation of $Y$'s utterance simply just is what $Y$ meant? Or is the interpretation merely a pragmatic strategy for guessing what $Y$ meant?[^6] For example, assume Hirsch just came out of a bank with a smile on his face, and uttered "I love going to banks!" And assume that all things considered, the most charitable interpretation of Hirsch's utterrance interprets "bank" to mean financial institute, not river bank. Then according to the first reading of *Interpretive Charity*, "I love going to banks!" must mean that Hirsch loves to go to financial institute. The fact that Hirsch was somehow actually thinking about river banks does not make his utterance of "bank" to mean river bank. But on the second reading of *Interpretive Charity*, the most charitable interpretation only justifies our belief that Hirsch's utterance of "bank" means financial institute. Meanwhile it is consistent to say that Hirsch actually meant river bank.
 
-Here, I believe, proponents of the deflationary argument would diverge. I suspect Warren would say that $X$'s interpretation of $Y$'s utterance simply *is* what $Y$ meant. Hirsch, by contrast, seems in his recent teaching to accept that meaning comes from irreducible intentionality. If meaning comes from irreducible intentionality, then $X$'s charitable interpretation of $Y$ cannot determine what $Y$ meant. At best, a charitable interpretation is a rational guess about what $Y$ intends.
+Here, I believe, proponents of the deflationary argument would diverge. I suspect Warren would say that $X$'s interpretation of $Y$'s utterance simply *is* what $Y$ meant. Hirsch, by contrast, seems in recent years to accept that meaning comes from irreducible intentionality. If meaning comes from irreducible intentionality, then $X$'s charitable interpretation of $Y$ cannot determine what $Y$ meant. At best, a charitable interpretation is a rational guess about what $Y$ intends.
 
 That said, since space is very limited, I can only sketch the discussion of the route that takes interpretive charity as a metaphysical principle of meaning. A more detailed discussion will have to remain elsewhere. After this brief sketch, I will discuss the route that does not rely on *Interpretive Charity* in detail in the next section. 
 
