@@ -1,3 +1,4 @@
 - [ ] UCLA: 3 letters
 - [ ] USC:
 - [ ] WashU: 3 letters
+- [ ] Uchicago: 
