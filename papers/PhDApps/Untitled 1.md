@@ -1,0 +1,3 @@
+- [ ] UCLA: 3 letters
+- [ ] USC:
+- [ ] WashU:gv2222222222222222222222222222222222bbbbbbbbbbbbba1`
