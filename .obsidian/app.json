@@ -13,7 +13,7 @@
   "attachmentFolderPath": "_resources",
   "promptDelete": false,
   "autoPairBrackets": true,
-  "readableLineLength": false,
+  "readableLineLength": true,
   "spellcheckDictionary": [
     "pleonexia",
     "nomos",
