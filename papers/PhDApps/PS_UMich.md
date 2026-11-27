@@ -1,6 +1,24 @@
-**Areas of Interest:** My primary interests are in the philosophy of language and mind, particularly metasemantics and mental content. Specifically, I am interested in what warrants attributing meaning, representations and misrepresentations, and how such attributions relate to both physical mechanisms and first person introspection. I also have a strong interest in metaphysics, esp. ontological commitment and metaphysical explanation, as well as philosophical logic, particularly logical monism vs. pluralism. I hope to pursue these interests along with the interpretability and alignment of LLMs. I believe that investigating the interpretation of LLMs can shed light on how to interpret human language and thought on the one hand, while contributing to our ability to understand and align these models on the other.
+---
+title: "Academic Statement of Purpose"
+subtitle: UMich - Philosophy Ph.D. program
+author: Zongyuan(Scott) Tang
+date:
+institute:
+numbersections: false
+toc: false
+toc-title: catalog
+reference-section-title: References
+mainfont: FreeSerif
+CJKmainfont: Noto Serif CJK SC
+include-before:
+header-includes:
+  - \usepackage{enumitem}
+  - \setlist[description]{style=nextline}
+  - \usepackage{ulem}
+  - \renewcommand{\descriptionlabel}[1]{\hspace{\labelsep}\textbf{\uline{#1}}}
+---
 
-(I will change the content here a bit based on the faulty of the department I apply to.)
+**Areas of Interest:** My primary interests lie in the philosophy of language, metametaphysics, and epistemology. Specifically, I am interested in the what warrants attributions of linguistic meaning and mental content, vagueness, ontological commitment and metaphysical explanation, and questions surrounding self-locating belief and rationality. I am also interested in the interpretability and alignment of LLMs, particularly what mechanistic interpretability reveals about when we are warranted in attributing meaning, representation, and rationality to artificial systems. UMich is an ideal place for my graduate work because it combines rare strength in metametaphysics with exceptional faculty in the philosophy of language, epistemology, and AI.
 
 **Previous Coursework and Experience:** During my M.A. at Brandeis, I was deeply influenced by my advisor, Eli Hirsch. Under his influence I developed interest in the relationship between meaning, interpretation, and ontological commitment. My M.A. thesis, which is my sample paper, argues against Hirsch’s metaphysical deflationism. I argue that contemporary deflationism relies on a questionable application of the metasemantic principle of interpretive charity, and that deflationary move that does not invoke this principle risks circularity.
 
